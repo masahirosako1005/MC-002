@@ -16,7 +16,7 @@ DDL=(
 def migrate(database):
     with database.transaction(True) as conn:
         version=conn.execute('PRAGMA user_version').fetchone()[0]
-        if version==6:
+        if version in (6,7):
             return
         if version!=5:
             raise RuntimeError('Unsupported reflections migration source')

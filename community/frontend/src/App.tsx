@@ -28,6 +28,8 @@ import KoPage, { tripCover } from "./KoPage";
 import Marketplace from "./Marketplace";
 import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
+import { useNavigationMotion } from "./useNavigationMotion";
+import type { MotionTrigger } from "./useNavigationMotion";
 const Journal = lazy(() => import("./Journal"));
 const Circles = lazy(() => import("./Circles"));
 const VisitDialog = lazy(() =>
@@ -257,7 +259,9 @@ export default function App() {
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
   const generation = useRef(0);
+  const motion = useNavigationMotion(page, !!user, !!user && !!data);
   function clearSession(text: string) {
+    motion.reset();
     generation.current++;
     setUser(null);
     setData(null);
@@ -390,7 +394,9 @@ export default function App() {
       setActionBusy(false);
     }
   }
-  function navigate(next: Page) {
+  function navigate(next: Page, trigger: MotionTrigger = "programmatic") {
+    if (next === page) motion.reset();
+    else motion.request("navigation", trigger);
     setPage(next);
     setMessage("");
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -428,7 +434,8 @@ export default function App() {
     return (
       <Login
         message={message}
-        onLogin={(u, t) => {
+        onLogin={(u, t, trigger) => {
+          motion.request("login", trigger);
           setCsrf(t);
           setUser(u);
           setError("");
@@ -462,11 +469,12 @@ export default function App() {
         <aside className="sidebar">
           <button
             className="brand brand-button"
-            onClick={() => navigate("feed")}
+            onClick={(event) =>
+              navigate("feed", event.detail ? "pointer" : "keyboard")
+            }
             aria-label="講 みんなの記録へ"
           >
             <span className="brand-mark">講</span>
-            <span className="brand-caption">好きが重なる、旅になる。</span>
           </button>
           <nav aria-label="メインメニュー">
             {nav.map((n) => (
@@ -474,7 +482,9 @@ export default function App() {
                 key={n.id}
                 className={`nav-item ${page === n.id ? "active" : ""}`}
                 aria-current={page === n.id ? "page" : undefined}
-                onClick={() => navigate(n.id)}
+                onClick={(event) =>
+                  navigate(n.id, event.detail ? "pointer" : "keyboard")
+                }
               >
                 <Icon name={n.icon} />
                 <span>{n.label}</span>
@@ -525,7 +535,9 @@ export default function App() {
           </button>
           <button
             className="text-button"
-            onClick={() => navigate("preferences")}
+            onClick={(event) =>
+              navigate("preferences", event.detail ? "pointer" : "keyboard")
+            }
           >
             <Icon name="leaf" />
             自分の好み
@@ -543,7 +555,9 @@ export default function App() {
           <button
             className="brand-mark"
             aria-label="みんなの記録へ"
-            onClick={() => navigate("feed")}
+            onClick={(event) =>
+              navigate("feed", event.detail ? "pointer" : "keyboard")
+            }
           >
             講
           </button>
@@ -586,7 +600,13 @@ export default function App() {
             <Avatar user={user} small />
           </button>
         </div>
-        <main id="main" className="main-column" tabIndex={-1}>
+        <main
+          id="main"
+          ref={motion.target}
+          className="main-column"
+          tabIndex={-1}
+          data-motion-state="idle"
+        >
           <ErrorBox message={error} />
           {message && (
             <div className="notice" role="status">
@@ -800,6 +820,10 @@ export default function App() {
             <Preferences
               key={user.id}
               initial={data.preferences}
+              onOpenCircle={(id) => {
+                setCircleTarget(id);
+                navigate("ko");
+              }}
               communities={data.communities}
               tags={bootstrap.tags}
               onSaved={changed}
@@ -870,7 +894,9 @@ export default function App() {
           <button
             key={n.id}
             className={page === n.id ? "active" : ""}
-            onClick={() => navigate(n.id)}
+            onClick={(event) =>
+              navigate(n.id, event.detail ? "pointer" : "keyboard")
+            }
             aria-current={page === n.id ? "page" : undefined}
           >
             <Icon name={n.icon} />

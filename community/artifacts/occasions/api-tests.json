@@ -1,0 +1,42 @@
+{
+  "recorded_on": "2026-11-09",
+  "scope": "CP40 private occasions, separate circle date sharing and suggestion permission, yearly suggestion state and revocable candidate origins; schema7",
+  "source_base_commit": "ce338c4",
+  "working_tree_implementation": true,
+  "environment": {"os": "Windows", "python": "3.13.17", "transport": "httpx ASGITransport", "image_worker": false, "fixtures": "Generated isolated local databases; fixed date clock only for calendar boundaries; no user database or original photos"},
+  "history": [
+    {"sequence": 1, "files": ["community/backend/tests/test_occasions.py", "community/backend/tests/test_occasion_dates.py"], "passed": 23, "failed": 0, "skipped": 0, "seconds": 18.65, "breakdown": "12 API cases and 11 independent date cases"},
+    {
+      "sequence": 2,
+      "files": ["community/backend/tests/test_occasions.py", "community/backend/tests/test_occasion_dates.py", "community/backend/tests/test_reflections.py", "community/backend/tests/test_discovery.py", "community/backend/tests/test_circles.py", "community/backend/tests/test_journal.py", "community/backend/tests/test_marketplace.py", "community/backend/tests/test_stage.py"],
+      "passed": 102, "failed": 1, "skipped": 0, "seconds": 93.23,
+      "failure": "An added test incorrectly assumed 30 travelers exceed every plan capacity. The real public shore plan supports 30-60 and was correctly returned. The fixture was corrected to 100 travelers; no application source change was needed.",
+      "existing_suite_result": "All 80 pre-CP40 tests and all 11 independent date tests passed in this run."
+    },
+    {"sequence": 3, "files": ["community/backend/tests/test_occasions.py"], "passed": 12, "failed": 0, "skipped": 0, "seconds": 12.08, "note": "Final targeted rerun after correcting the fixture; no claim of a single 103-pass run."}
+  ],
+  "verified": [
+    "Private defaults, one birthday per person with no birth year, multiple named occasions, own CRUD and optimistic versions",
+    "Invalid calendar dates and one-time dates without a year rejected",
+    "Date-only sharing works without enabling suggestions; private preview remains owner-only and uses independent normal candidate saving",
+    "Authentication, nonmember and provider access checks; own event IDs cannot be used to read another person's private preview or delete their occasion",
+    "Stable occurrence identity by event/circle/year, per-user later/dismissed states, stale versions and past occurrences rejected",
+    "JST calendar, inclusive 30-day window, year rollover and February 29 normalization; original stored month/day retained",
+    "Current owner grant and circle tags re-rank suggestions; other viewers do not receive private interest reasons",
+    "Confirmed people, date and provider schedule changes exclude unsuitable plans; stale plan versions rejected",
+    "Candidate save is idempotent and creates no provider invitation; snapshots contain public plan fields only",
+    "Revocation, deletion and date edits hide origin-only cards; re-permission alone cannot revive prior origin permissions",
+    "Multiple origins preserve the card until all relevant origins expire; independent saves before or after occasion saves survive occasion deletion",
+    "Owner community exit latches sharing off across rejoin; viewer membership removal denies reading and changing suggestion state",
+    "Passing the occurrence date removes near-date suggestions but retains authorized saved cards; plan unpublishing is shown as unavailable",
+    "Concurrent duplicate saves produce one card; reopening preserves candidate snapshots and per-user suggestion state",
+    "Schema6 nonempty journal, party, candidate and reflection rows preserved by additive schema7; failed migration rolls back all new tables"
+  ],
+  "review": {"independent_reviewer": "journey_review", "status": "No major static findings before build", "clarifications": ["Added a date-only shared listing independent of suggestion permission", "Saved origins remain valid after the near-date window; current ended/unpublished plan state is still shown"]},
+  "limitations": [
+    "Docker migration against existing saved data, browser integration and deployment restart are parent-agent validations recorded separately.",
+    "No external notifications, AI calls, bookings, availability claims or invented anniversary benefits were implemented.",
+    "Runtime image model and unrelated full-suite ONNX validation are outside this targeted API regression.",
+    "A saved candidate is a planning suggestion, not an actual visit, provider acceptance or reservation."
+  ]
+}

@@ -32,6 +32,9 @@ import "./circles.css";
 import PlanDiscovery, { SavedCandidateList } from "./PlanDiscovery";
 import type { CandidateCard } from "./PlanDiscovery";
 const ReflectionWorkspace = lazy(() => import("./ReflectionWorkspace"));
+const CircleOccasions = lazy(() =>
+  import("./Occasions").then((module) => ({ default: module.CircleOccasions })),
+);
 
 function useAlive() {
   const alive = useRef(true);
@@ -994,7 +997,12 @@ function CircleWorkspace({
   const [messages, setMessages] = useState<MarketMessage[]>([]);
   const [turns, setTurns] = useState<AssistantTurn[]>([]);
   const [tab, setTab] = useState<
-    "conversation" | "assistant" | "plans" | "members" | "reflections"
+    | "conversation"
+    | "assistant"
+    | "plans"
+    | "members"
+    | "reflections"
+    | "occasions"
   >("conversation");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState("");
@@ -1281,6 +1289,7 @@ function CircleWorkspace({
             ["plans", "行き先"],
             ["members", "参加者"],
             ["reflections", "振り返り"],
+            ["occasions", "記念日"],
           ] as const
         ).map(([value, label]) => (
           <button
@@ -1293,7 +1302,20 @@ function CircleWorkspace({
           </button>
         ))}
       </nav>
-      {tab === "reflections" ? (
+      {tab === "occasions" ? (
+        <Suspense fallback={<p role="status">記念日をひらいています…</p>}>
+          <CircleOccasions
+            key={id}
+            circleId={id}
+            circleTitle={circle.title}
+            tags={tags}
+            onOpenConversation={() => {
+              setTab("conversation");
+              void load();
+            }}
+          />
+        </Suspense>
+      ) : tab === "reflections" ? (
         <Suspense fallback={<p role="status">振り返りをひらいています…</p>}>
           <ReflectionWorkspace
             key={id}
@@ -1774,7 +1796,9 @@ export default function Circles({
     <section className="circles-page">
       <header className="page-heading">
         <h1>講を見つける</h1>
-        <p>関心が共通する候補から、または知っている会員を選んで招待できます。</p>
+        <p>
+          関心が共通する候補から、または知っている会員を選んで招待できます。
+        </p>
       </header>
       <div className="circle-create-options">
         <button

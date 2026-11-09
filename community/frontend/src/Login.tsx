@@ -3,13 +3,14 @@ import type { SubmitEvent } from "react";
 import { api, setAccessToken, stageFrame } from "./api";
 import type { User } from "./types";
 import { Icon } from "./ui";
+import type { MotionTrigger } from "./useNavigationMotion";
 import "./login.css";
 
 export default function Login({
   onLogin,
   message,
 }: {
-  onLogin: (user: User, token: string) => void;
+  onLogin: (user: User, token: string, trigger: MotionTrigger) => void;
   message: string;
 }) {
   const [username, setUsername] = useState("");
@@ -18,10 +19,13 @@ export default function Login({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const passwordInput = useRef<HTMLInputElement>(null);
+  const submitTrigger = useRef<MotionTrigger>("keyboard");
   const isProvider = window.location.pathname === "/stage/provider";
   async function submit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy) return;
+    const trigger = submitTrigger.current;
+    submitTrigger.current = "keyboard";
     setBusy(true);
     setError("");
     try {
@@ -36,7 +40,7 @@ export default function Login({
       setPassword("");
       setShowPassword(false);
       if (result.access_token) setAccessToken(result.access_token);
-      onLogin(result.user, result.csrf_token);
+      onLogin(result.user, result.csrf_token, trigger);
     } catch (cause) {
       setError((cause as Error).message);
       setPassword("");
@@ -78,7 +82,14 @@ export default function Login({
               {message}
             </p>
           )}
-          <form className="welcome-form" onSubmit={submit} aria-busy={busy}>
+          <form
+            className="welcome-form"
+            onSubmit={submit}
+            aria-busy={busy}
+            onKeyDownCapture={() => {
+              submitTrigger.current = "keyboard";
+            }}
+          >
             <label className="welcome-field" htmlFor="signin-username">
               アカウント名
               <input
@@ -142,6 +153,9 @@ export default function Login({
             )}
             <button
               className="button primary welcome-submit"
+              onPointerDown={() => {
+                submitTrigger.current = "pointer";
+              }}
               type="submit"
               disabled={busy || !username.trim() || !password}
             >

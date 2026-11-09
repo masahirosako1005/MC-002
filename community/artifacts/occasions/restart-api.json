@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-11-09T07:22:16.918Z",
+  "passed": true,
+  "scope": "Temporary confirmed visit and linked badge across Docker restart; test records cleaned up",
+  "privateOccasionRetained": true,
+  "confirmedVisits": 4,
+  "cleanup": true
+}

@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-09T07:19:42.718Z",
+  "results": [
+    "profile records recurring and one-time dates privately with suggestions off",
+    {
+      "failed": "expect(locator).toBeVisible() failed\n\nLocator: locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).locator('.market-plan-card').filter({ has: getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).getByRole('heading', { name: '森を歩く日帰りの相談プラン', exact: true }) })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).locator('.market-plan-card').filter({ has: getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).getByRole('heading', { name: '森を歩く日帰りの相談プラン', exact: true }) }) with timeout 5000ms\n  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).locator('.market-plan-card').filter({ has: getByRole('dialog', { name: '自分だけでプラン候補を確認', exact: true }).getByRole('heading', { name: '森を歩く日帰りの相談プラン', exact: true }) })\n"
+    }
+  ],
+  "layout": [],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "retention": "Only this run’s named occasion fixtures are logically deleted and circles closed. Existing profile dates, seed plans and other users’ work are preserved.",
+  "passed": false
+}

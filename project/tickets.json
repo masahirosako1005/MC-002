@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 505,
-  "last_event_hash": "be543947ea86d036ae0fffb10e011a35a792240a73dfd2821d592f84193f8f7b",
-  "updated_at": "2026-11-09T16:03:38+09:00",
+  "revision": 542,
+  "last_event_hash": "951bf849e7b35b6286d9c25cd9e8702a4238f20ce2bf4db8d25fed83e4115617",
+  "updated_at": "2026-11-09T16:23:40+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -1847,12 +1847,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:19+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "候補選択と手動招待の二通りの講づくり",
       "type": "task",
-      "updated_at": "2026-11-09T16:02:53+09:00"
+      "updated_at": "2026-11-09T16:04:19+09:00"
     },
     {
       "acceptance": [
@@ -1890,12 +1897,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:20+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "講チャットの相談から実事業者プランへ",
       "type": "task",
-      "updated_at": "2026-11-09T16:02:54+09:00"
+      "updated_at": "2026-11-09T16:04:20+09:00"
     },
     {
       "acceptance": [
@@ -1937,12 +1951,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:20+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "事業者を講へ招き会話と行程見積を確認する",
       "type": "task",
-      "updated_at": "2026-11-09T16:02:56+09:00"
+      "updated_at": "2026-11-09T16:04:20+09:00"
     },
     {
       "acceptance": [
@@ -1982,12 +2003,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:21+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "講作成から事業者参加までの権限と二台操作を検証",
       "type": "task",
-      "updated_at": "2026-11-09T16:02:58+09:00"
+      "updated_at": "2026-11-09T16:04:21+09:00"
     },
     {
       "acceptance": [
@@ -2069,12 +2097,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:22+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "アカウント入力と上質なログイン入口",
       "type": "task",
-      "updated_at": "2026-11-09T16:00:39+09:00"
+      "updated_at": "2026-11-09T16:04:22+09:00"
     },
     {
       "acceptance": [
@@ -2118,29 +2153,36 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:04:22+09:00",
+          "hash": "ce338c4165bb92816fded4a1bb7cc5ad2baba576",
+          "path": "project/revisions/ce338c4165bb92816fded4a1bb7cc5ad2baba576.txt",
+          "summary": "feat: connect consented circles, provider collaboration and relevant plan sharing"
+        }
+      ],
       "status": "done",
       "title": "講に合う事業者プランのおすすめ順・開催日時・候補共有",
       "type": "task",
-      "updated_at": "2026-11-09T16:03:38+09:00"
+      "updated_at": "2026-11-09T16:04:22+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "初期OFF・対象者同意・本人の実利用確認・権限を満たす旅行後会話だけを解析し、曖昧/私的/他対象/事業者発言を除く"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "本人が抽出訂正/除外でき、元発言編集削除/同意撤回/利用取消で再集計し、連投重複/複数人混在を旅単位で扱う"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "公開は最低集計件数を満たす匿名定型要点と旅数だけ。関連度と参考評価を分け、未評価を低評価にせず順位へ反映する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "APIとDocker画面で同意から抽出確認・撤回・おすすめまで通し、再起動保持と出典非公開を検証する"
         }
       ],
@@ -2154,38 +2196,56 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:20:35+09:00",
+          "path": "community/artifacts/reflections/browser.json",
+          "text": "Docker画面6/6・axe0・会話内部390/320/200%成功。API22/22、旧37表保全、schema6再起動も各証拠参照。"
+        }
+      ],
       "id": "CP39",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
-      "revisions": [],
-      "status": "in_progress",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:20:42+09:00",
+          "hash": "11bf5585a58cabdae92925b45f267e4bde26ac11",
+          "path": "project/revisions/11bf5585a58cabdae92925b45f267e4bde26ac11.txt",
+          "summary": "feat: add consented trip reflections and simplify login copy"
+        }
+      ],
+      "status": "done",
       "title": "同意した旅行後会話から事業者参考評価を集計する",
       "type": "task",
-      "updated_at": "2026-11-09T15:57:47+09:00"
+      "updated_at": "2026-11-09T16:20:42+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "誕生日月日と記念日名/日付/年次繰返しのCRUD、初期本人のみ、講共有/提案利用許可、非所属や事業者への非公開を実装"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "JST/年越し/2月29日/複数記念日/年次重複を扱い、あとで見る/見送り/OFFと削除/撤回/退出を公開と提案へ反映"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "登録済公開planを時期/許可関心/講人数予算タグで照合し、非適合では捏造せず、候補追加から講chatへ接続"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "APIとDocker画面で登録から共有提案・候補保存・撤回まで検証し、再起動保持を確認"
         }
       ],
-      "comments": [],
+      "comments": [
+        {
+          "at": "2026-11-09T16:06:10+09:00",
+          "text": "先行の日付utilityを作成し独立11試験成功。JST境界、翌30日の両端、年越しの安定発生年、毎年/一度、2月29日非閏2月28、不正日付を確認。共有/提案/画面全体の成功とは区別する。"
+        }
+      ],
       "created_at": "2026-11-09T15:59:34+09:00",
       "dependencies": [
         "CP38"
@@ -2194,17 +2254,149 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:23:22+09:00",
+          "path": "community/artifacts/occasions/browser.json",
+          "text": "API12/12・日付11・既存80、画面6/6・axe0、schema7移行40表/8画像一致と記念日/4訪問/バッジ再起動保持。"
+        }
+      ],
       "id": "CP40",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "誕生日・記念日から許可した講へ旅を提案する",
+      "type": "task",
+      "updated_at": "2026-11-09T16:23:31+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "Loginの宣伝文/写真上コピー/不要footerを要素ごと外し、役割・一つの見出し・入力へ整理する"
+        },
+        {
+          "checked": true,
+          "text": "Appと追加各画面の同種コピーを見直し、必要な共有/価格/予約未確定とアクセシブルな名前を維持する"
+        },
+        {
+          "checked": true,
+          "text": "残存検索と既存ログイン表示入力検証でDocker反映を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:06:45+09:00",
+      "dependencies": [],
+      "description": "利用者がAIくさいと指摘したログイン/各画面の詩的コピーを機能名と具体操作へ整理。写真・余白で品質を保つ。",
+      "documents": [
+        "AGENTS.md",
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:11:54+09:00",
+          "path": "community/artifacts/login/live-copy-check.json",
+          "text": "実配信index-rJf1ifhy.jsで指定宣伝コピー0件。Loginスクリーンショット目視と既存入力4段階/axe0も確認。"
+        }
+      ],
+      "id": "CP41",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:20:43+09:00",
+          "hash": "11bf5585a58cabdae92925b45f267e4bde26ac11",
+          "path": "project/revisions/11bf5585a58cabdae92925b45f267e4bde26ac11.txt",
+          "summary": "feat: add consented trip reflections and simplify login copy"
+        }
+      ],
+      "status": "done",
+      "title": "抽象的な宣伝コピーを削除する",
+      "type": "task",
+      "updated_at": "2026-11-09T16:20:43+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "参照元と採用理由を記録しログイン成功と主要画面切替へ実装"
+        },
+        {
+          "checked": true,
+          "text": "キーボード・動きを減らす設定・連打・左右独立認証を維持"
+        },
+        {
+          "checked": true,
+          "text": "起動中アプリで検証し証拠とGit変更を保存"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:14:33+09:00",
+      "dependencies": [],
+      "description": "利用者指示：他サイトのアニメーションを参考に、ログイン後ホームと画面切替を磨く。公式公開資料を調査し短い動きへ反映する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:23:32+09:00",
+          "path": "community/artifacts/motion/results.json",
+          "text": "実配信5段階成功。220/170ms、連打中断、keyboard即時・reduced停止、左右独立認証と320/200%を確認。"
+        }
+      ],
+      "id": "CP42",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "ログインと画面遷移の動きを整える",
+      "type": "task",
+      "updated_at": "2026-11-09T16:23:40+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "公式参照と現画面比較を記録し写真/余白/階層を刷新"
+        },
+        {
+          "checked": false,
+          "text": "説明文を整理し行き先/価格対象/日程/人数/泊数を実データで見せる"
+        },
+        {
+          "checked": false,
+          "text": "既存探索/候補/相談導線と同意/認証/動きを維持し狭幅を検証"
+        },
+        {
+          "checked": false,
+          "text": "Docker反映・前後画像・評価差分・Gitを記録"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:20:07+09:00",
+      "dependencies": [],
+      "description": "利用者追加：もっとAirbnbの要素を取り込みフレッシュに。文字の多さを減らし、選ぶための情報を分かりやすく充実させる。ホーム・候補一覧・詳細を優先する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP43",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
       "revision": 2,
       "revisions": [],
       "status": "in_progress",
-      "title": "誕生日・記念日から許可した講へ旅を提案する",
+      "title": "Airbnbを参考に写真と判断情報を中心とした画面へ刷新",
       "type": "task",
-      "updated_at": "2026-11-09T16:00:40+09:00"
+      "updated_at": "2026-11-09T16:20:23+09:00"
     },
     {
       "acceptance": [

@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-09T07:19:12.002Z",
+  "results": [
+    {
+      "failed": "POST /circles: 422\n\n422 !== 200\n"
+    }
+  ],
+  "layout": [],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "retention": "Only this run’s named occasion fixtures are logically deleted and circles closed. Existing profile dates, seed plans and other users’ work are preserved.",
+  "passed": false
+}

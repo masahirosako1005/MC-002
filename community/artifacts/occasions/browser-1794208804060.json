@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-09T07:20:48.935Z",
+  "results": [
+    "profile records recurring and one-time dates privately with suggestions off",
+    "private preview saves only a public plan as an independent circle candidate",
+    "date sharing and plan suggestions are separate permissions",
+    "later and dismissed states persist per person and a suggested plan opens circle chat",
+    "revocation removes occasion-only cards without deleting independently saved plans",
+    {
+      "failed": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '藤沢 葵 アカウントを切り替える', exact: true })\u001b[22m\n"
+    }
+  ],
+  "layout": [],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "retention": "Only this run’s named occasion fixtures are logically deleted and circles closed. Existing profile dates, seed plans and other users’ work are preserved.",
+  "passed": false
+}

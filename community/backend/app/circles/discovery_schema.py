@@ -7,7 +7,7 @@ DDL = (
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (5, 6):
+        if version in (5, 6, 7):
             return
         if version != 4:
             raise RuntimeError('Unsupported discovery migration source')

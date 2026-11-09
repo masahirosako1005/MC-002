@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-09",
+  "scope": "CP40 date calculation only; not the occasion API or browser feature",
+  "command": "PYTHONPATH=community/backend .venv/Scripts/python.exe -X utf8 -m pytest community/backend/tests/test_occasion_dates.py -q",
+  "passed": 11,
+  "failed": 0,
+  "seconds": 0.12,
+  "verified": [
+    "JST midnight across December/January and rejection of naive timestamps",
+    "Stable occurrence year across year boundary and repeated reads",
+    "Inclusive today-to-30-days window",
+    "February 29 uses February 28 in non-leap years without changing stored month/day",
+    "One-time dates do not recur",
+    "Invalid calendar dates are rejected rather than normalized"
+  ]
+}

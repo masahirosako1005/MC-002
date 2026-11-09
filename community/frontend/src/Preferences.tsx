@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { api } from "./api";
 import type {
   Community,
@@ -7,21 +7,25 @@ import type {
   Tag,
 } from "./types";
 import { ErrorBox, Icon, TagPicker, Tags } from "./ui";
+const Occasions = lazy(() => import("./Occasions"));
 export default function Preferences({
   initial,
   communities,
   tags,
   onSaved,
+  onOpenCircle,
 }: {
   initial: PreferenceData;
   communities: Community[];
   tags: Tag[];
   onSaved: () => Promise<void>;
+  onOpenCircle: (id: string) => void;
 }) {
   const [value, setValue] = useState(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
+  const [showOccasions, setShowOccasions] = useState(false);
   function grant(
     id: string,
     key: keyof Omit<Grant, "community_id">,
@@ -63,21 +67,37 @@ export default function Preferences({
       setBusy(false);
     }
   }
+  if (showOccasions)
+    return (
+      <section className="preferences">
+        <button className="text-button" onClick={() => setShowOccasions(false)}>
+          ← 自分の好みへ
+        </button>
+        <Suspense
+          fallback={<p role="status">誕生日・記念日をひらいています…</p>}
+        >
+          <Occasions tags={tags} onOpenCircle={onOpenCircle} />
+        </Suspense>
+      </section>
+    );
   return (
     <section className="preferences">
       <div className="page-heading">
         <h1>自分の好み</h1>
-        <p>
-          どんな旅が好きか。誰に伝えるか。
-          <br />
-          どちらも、自分で決められます。
-        </p>
+        <p>旅行の関心と、コミュニティごとの利用許可を設定します。</p>
+        <button
+          className="button secondary"
+          onClick={() => setShowOccasions(true)}
+        >
+          <Icon name="calendar" />
+          誕生日・記念日
+        </button>
       </div>
       <ErrorBox message={error} />
       <section className="surface">
         <div className="section-kicker">
           <Icon name="leaf" />
-          <span>好きなことを、少しずつ</span>
+          <span>旅行の関心</span>
         </div>
         <h2>旅で楽しみたいこと</h2>
         <TagPicker

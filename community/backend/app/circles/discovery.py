@@ -7,6 +7,7 @@ from ..marketplace.service import Marketplace, dump, conflict
 from ..marketplace.schedules import schedule_state, schedule_match
 from ..service import member, require, user_out
 from ..reflections.aggregate import public_summary
+from ..occasions.access import card_visible,independent_save
 
 
 class Discovery:
@@ -91,15 +92,25 @@ class Discovery:
         with self.db.transaction(data is not None) as conn:
             party=self.market.party(conn,uid,pid)
             if data is None:
-                return {'items':[self.card_out(conn,row) for row in conn.execute('SELECT * FROM circle_candidate_cards WHERE party_id=? ORDER BY created_at DESC,id DESC LIMIT 100',(pid,))]}
+                return {'items':[self.card_out(conn,row) for row in conn.execute('SELECT * FROM circle_candidate_cards WHERE party_id=? ORDER BY created_at DESC,id DESC LIMIT 100',(pid,)) if card_visible(conn,row['id'])]}
             if party['status'] != 'open':
                 raise HTTPException(409,'この講の計画は閉じています。')
             operation='circle:candidate-card:'+pid
             previous,fingerprint=self.market.replay(conn,uid,operation,data)
             if previous:
+                independent_save(conn,previous)
                 return self.card_out(conn,require(conn.execute('SELECT * FROM circle_candidate_cards WHERE id=? AND party_id=?',(previous,pid)).fetchone()))
             existing=conn.execute('SELECT * FROM circle_candidate_cards WHERE party_id=? AND plan_id=?',(pid,data['plan_id'])).fetchone()
             if existing:
+                origin=conn.execute('SELECT independent FROM occasion_card_state WHERE card_id=?',(existing['id'],)).fetchone()
+                if origin and not origin['independent']:
+                    planrow=require(conn.execute("SELECT p.* FROM provider_plans p JOIN providers v ON v.id=p.provider_id WHERE p.id=? AND p.status='published' AND v.active=1",(data['plan_id'],)).fetchone())
+                    if planrow['version']!=data['plan_version']:
+                        conflict()
+                    plan=self.market.plan_out(conn,planrow)
+                    if not self.relevance(conn,plan,pid)['eligible'] or schedule_state(plan) in ('ended','invalid'):
+                        raise HTTPException(409,'現在の開催日時や講の条件に合いません。最新の候補を確認してください。')
+                independent_save(conn,existing['id'])
                 self.market.remember(conn,uid,operation,data,fingerprint,existing['id'])
                 return self.card_out(conn,existing)
             planrow=require(conn.execute("SELECT p.* FROM provider_plans p JOIN providers v ON v.id=p.provider_id WHERE p.id=? AND p.status='published' AND v.active=1",(data['plan_id'],)).fetchone())

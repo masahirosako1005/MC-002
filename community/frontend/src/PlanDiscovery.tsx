@@ -48,6 +48,7 @@ type DiscoveryResult = {
   };
   method: string;
 };
+export type DiscoveryItem = DiscoveryResult["items"][number];
 const candidateState = {
   available: "候補として共有中",
   updated: "公開内容が変わりました",

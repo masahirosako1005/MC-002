@@ -1,0 +1,3 @@
+リビジョン: 11bf5585a58cabdae92925b45f267e4bde26ac11
+件名: feat: add consented trip reflections and simplify login copy
+確認日時: 2026-11-09T16:20:43+09:00
