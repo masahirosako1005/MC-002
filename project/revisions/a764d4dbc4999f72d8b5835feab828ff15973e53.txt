@@ -1,0 +1,3 @@
+リビジョン: a764d4dbc4999f72d8b5835feab828ff15973e53
+件名: refactor: simplify presentation to two phones and verified scene captions
+確認日時: 2026-11-09T15:09:26+09:00

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 290,
-  "last_event_hash": "bd09870cd5b163c71d7c13240a82b5da2873784f51c37d19e251ae30b02d1f07",
-  "updated_at": "2026-11-09T14:18:30+09:00",
+  "revision": 416,
+  "last_event_hash": "bb984909f90c07fff490544866de4cc01dbafb1592957e390bfa41b4c7c1261d",
+  "updated_at": "2026-11-09T15:09:26+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -576,12 +576,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "画像分析と発表方式を小規模検証する",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:57+09:00"
+      "updated_at": "2026-11-09T14:22:07+09:00"
     },
     {
       "acceptance": [
@@ -610,12 +610,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "ローカル認証とコミュニティを作る",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:57+09:00"
+      "updated_at": "2026-11-09T14:22:07+09:00"
     },
     {
       "acceptance": [
@@ -644,12 +644,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "写真投稿と自動タグを実装する",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:58+09:00"
+      "updated_at": "2026-11-09T14:22:08+09:00"
     },
     {
       "acceptance": [
@@ -677,12 +677,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "好みの管理と持越し許可を作る",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:58+09:00"
+      "updated_at": "2026-11-09T14:22:08+09:00"
     },
     {
       "acceptance": [
@@ -710,12 +710,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "旅仲間と旅行案を提案する",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:58+09:00"
+      "updated_at": "2026-11-09T14:22:08+09:00"
     },
     {
       "acceptance": [
@@ -743,12 +743,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "講への参加と小さな協力をつなぐ",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:58+09:00"
+      "updated_at": "2026-11-09T14:22:09+09:00"
     },
     {
       "acceptance": [
@@ -777,12 +777,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "写真の見せ方と仮想スマホを仕上げる",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:59+09:00"
+      "updated_at": "2026-11-09T14:22:09+09:00"
     },
     {
       "acceptance": [
@@ -815,12 +815,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 2,
       "revisions": [],
-      "status": "todo",
+      "status": "in_progress",
       "title": "新基準で検証と改善を反復する",
       "type": "task",
-      "updated_at": "2026-11-09T14:02:59+09:00"
+      "updated_at": "2026-11-09T14:51:38+09:00"
     },
     {
       "acceptance": [
@@ -889,12 +889,731 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:22:07+09:00",
+          "hash": "e9b20f50c46bc63fa23bf4e11fe9c55a75daee24",
+          "path": "project/revisions/e9b20f50c46bc63fa23bf4e11fe9c55a75daee24.txt",
+          "summary": "docs: derive community rationale from sample evidence and plan fair comparisons"
+        }
+      ],
       "status": "done",
       "title": "CSVから講の企画根拠と検証仮説を導く",
       "type": "task",
-      "updated_at": "2026-11-09T14:18:30+09:00"
+      "updated_at": "2026-11-09T14:22:07+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "React/PythonをDockerで起動し、3利用者の参加意思から講と計画の保存まで確認する"
+        },
+        {
+          "checked": true,
+          "text": "スマホとPCで表示・主要操作・画像・外部通信なしを確認して画面を表示する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:22:09+09:00",
+      "dependencies": [],
+      "description": "LINE/Instagramの慣れた写真共有を参考に、写真投稿・仲間候補・参加・任意の協力がつながる新版をlocalhost8081で確認する。",
+      "documents": [
+        "DESIGN.md",
+        "community/API-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:42+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP14",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:43+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:44+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "暖色の講プロトタイプをDockerで起動し操作確認する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "予定人数と実参加数を分離し、人数・泊数・予算条件を確認する"
+        },
+        {
+          "checked": true,
+          "text": "選択前の相談を拒否し、選択後も非公開会話と写真を事業者へ漏らさない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:37:22+09:00",
+      "dependencies": [],
+      "description": "旅行条件と公開プランの照合、選択後の共有確認と事業者相談を実装する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:44+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP15",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:45+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:46+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "旅行者と事業者をつなぐローカル計画基盤を作る",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:46+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "旅行者の会話と条件から候補比較・共有確認・相談まで操作できる"
+        },
+        {
+          "checked": true,
+          "text": "事業者のプラン編集と返信を別権限で操作できる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:37:23+09:00",
+      "dependencies": [],
+      "description": "暖色と写真を使い旅行者・事業者・提案支援の役割を分かりやすくつなぐ。",
+      "documents": [
+        "community/UI-MARKETPLACE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:46+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP16",
+      "origin": "この時点で新規起票",
+      "owner": "画面担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:47+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:48+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "三役のプラン比較と相談画面を作る",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:48+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "旅行者と事業者を切り替えプラン公開から相談返信まで通す"
+        },
+        {
+          "checked": true,
+          "text": "試験結果と制約を設計・チケット・Gitに対応させ起動画面を表示する"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T14:41:51+09:00",
+          "text": "最新要件によりCP24の二台スマホ表示も統合検証と最終表示の対象に追加。新版スライドは後続。"
+        }
+      ],
+      "created_at": "2026-11-09T14:37:25+09:00",
+      "dependencies": [
+        "CP15",
+        "CP16"
+      ],
+      "description": "Dockerと実ブラウザーで6人旅行・30人以上の団体条件、公開と相談の境界、保存を確認する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:48+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP17",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:49+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:49+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "三役のローカル往復を検証し画面を表示する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:50+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "既存の写真と講を残したまま移行・再実行が成功する"
+        },
+        {
+          "checked": true,
+          "text": "DBと写真を組にした復元手順を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:16+09:00",
+      "dependencies": [],
+      "description": "既存DBと写真を保全し、計画・事業者・相談の保存構造を追加する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:51:38+09:00",
+          "path": "community/artifacts/schema2-persistence.json",
+          "text": "schema2 29表のDBと写真の完全バックアップ/隔離復元、14表の行ハッシュで再起動保存一致。"
+        },
+        {
+          "at": "2026-11-09T14:59:50+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP18",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:51+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:51+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "既存データを保全して三役の保存構造を追加",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:52+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "6人2泊3日と30人以上の団体プランを用意する"
+        },
+        {
+          "checked": true,
+          "text": "自社以外の編集を拒否し下書きを旅行者へ出さない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:16+09:00",
+      "dependencies": [
+        "CP18"
+      ],
+      "description": "架空の事業者が人数・泊数・費用・日別行程を入力し下書きから公開する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:52+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP19",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:53+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:53+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "事業者のおすすめプランを登録公開する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:54+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "予定人数と実際の参加アカウント数を区別する"
+        },
+        {
+          "checked": true,
+          "text": "抽出した人数・泊数・予算は本人が確認するまで確定値にしない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:16+09:00",
+      "dependencies": [
+        "CP18"
+      ],
+      "description": "講または代表者の計画に内部会話と確認可能な条件候補を用意する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:54+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP20",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:55+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:56+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "講の会話と旅行条件の確認を作る",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:56+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "人数・泊数・費用の必須条件違反を関心点で相殺しない"
+        },
+        {
+          "checked": true,
+          "text": "候補ゼロ・不足情報・直接閲覧の入口を用意する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:17+09:00",
+      "dependencies": [
+        "CP19",
+        "CP20"
+      ],
+      "description": "写真から確認した関心と人数・泊数・予算を使い公開プランを比較する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:56+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP21",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:59:57+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T14:59:58+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "旅行条件から候補と理由を出す",
+      "type": "task",
+      "updated_at": "2026-11-09T14:59:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "選択前には事業者へ相談や行動履歴を見せない"
+        },
+        {
+          "checked": true,
+          "text": "二重送信・古い条件・保存失敗で不整合な相談を作らない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:17+09:00",
+      "dependencies": [
+        "CP21"
+      ],
+      "description": "行程詳細と共有内容を確認し明示送信した場合だけ相談を原子的に作る。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:59:58+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP22",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:00:00+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T15:00:00+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "選択後だけ事業者相談を開く",
+      "type": "task",
+      "updated_at": "2026-11-09T15:00:00+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "別事業者・別計画の会話を取得できない"
+        },
+        {
+          "checked": true,
+          "text": "元写真と内部会話を自動転送せず返信と終了を保存できる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:38:17+09:00",
+      "dependencies": [
+        "CP22"
+      ],
+      "description": "相談ごとに旅行者と当該事業者だけがメッセージを送受信する。",
+      "documents": [
+        "community/MARKETPLACE-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:00:01+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP23",
+      "origin": "この時点で新規起票",
+      "owner": "データ設計担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:00:02+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T15:00:03+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "旅行者と事業者が相談を往復する",
+      "type": "task",
+      "updated_at": "2026-11-09T15:00:03+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "左右を別人として同時操作し非公開データと認証が混ざらない"
+        },
+        {
+          "checked": true,
+          "text": "候補・選択・相談・返信の実結果を中央で示し標準プルダウンを使用しない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:41:50+09:00",
+      "dependencies": [
+        "CP15",
+        "CP16"
+      ],
+      "description": "左旅行者と右事業者を独立認証し、中央に実際の処理イベントに合わせた案内を表示する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:50:26+09:00",
+          "path": "community/artifacts/marketplace-browser-history/01-choice-label/results.json",
+          "text": "初回実ブラウザー4段階成功。左右独立ログイン/認証写真/会話候補/選択前非開示/相談返信。予算選択のラベルで試験停止し修正中。"
+        },
+        {
+          "at": "2026-11-09T15:00:03+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP24",
+      "origin": "この時点で新規起票",
+      "owner": "画面・安全性担当",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:00:04+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T15:00:05+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "二台のスマホと中央AIを実操作でつなぐ",
+      "type": "task",
+      "updated_at": "2026-11-09T15:00:05+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "CSVの観測値と設計判断と未検証の効果を分けて文書化"
+        },
+        {
+          "checked": true,
+          "text": "PC二台表示とスマホの実画面を確認しBefore/After/Whyを残す"
+        },
+        {
+          "checked": true,
+          "text": "標準selectゼロ、主要操作とアクセシビリティの検証結果を記録"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:48:47+09:00",
+      "dependencies": [],
+      "description": "指定チャットの集計結果を参照し意味づけを保持。写真主体の探索、条件比較、段階操作、余白をAirbnb基準に磨く。",
+      "documents": [
+        "docs/COMMUNITY-UX-RATIONALE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:00:06+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "三役画面9/9、安全性8/8、最終版の既存画面9/9。最終相談一覧はfinal-smokeで確認。保存/復元と根拠文書は個別証拠を参照。"
+        }
+      ],
+      "id": "CP25",
+      "origin": "この時点で新規起票",
+      "owner": "主担当・画面担当",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:00:07+09:00",
+          "hash": "80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3",
+          "path": "project/revisions/80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3.txt",
+          "summary": "feat: connect traveler plans and provider consultations with isolated stage sessions"
+        },
+        {
+          "at": "2026-11-09T15:00:08+09:00",
+          "hash": "351f2e26216664df78a1d08eee995793e79fd9e6",
+          "path": "project/revisions/351f2e26216664df78a1d08eee995793e79fd9e6.txt",
+          "summary": "feat: deliver photo-led trip discovery and interactive traveler-provider stage"
+        }
+      ],
+      "status": "done",
+      "title": "Airbnbを基準にしたUIUXとCSVの設計根拠",
+      "type": "task",
+      "updated_at": "2026-11-09T15:00:08+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "二台のスマホと上部の短い場面見出しだけの構図で、1440x900で収まる"
+        },
+        {
+          "checked": true,
+          "text": "場面見出しは実処理と連動し、不正な送信元・失敗を成功扱いしない"
+        },
+        {
+          "checked": true,
+          "text": "左右認証を維持し、画面と保存の再検証を記録する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:00:47+09:00",
+      "dependencies": [],
+      "description": "中央の説明と履歴、周辺の操作ボタンを外し、左右スマホと上部の場面見出しだけにする。操作動画の制作は後続。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:09:14+09:00",
+          "path": "community/artifacts/marketplace-browser/final-smoke.json",
+          "text": "1440x900の新構図を目視、三役画面9/9・安全性8/8再実行。保存済み返信を再ログイン後に確認。通常Edgeの停止はCP27へ分離。"
+        }
+      ],
+      "id": "CP26",
+      "origin": "この時点で新規起票",
+      "owner": "画面担当・主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [
+        {
+          "hash": "a764d4dbc4999f72d8b5835feab828ff15973e53",
+          "summary": "refactor: simplify presentation to two phones and verified scene captions",
+          "path": "project/revisions/a764d4dbc4999f72d8b5835feab828ff15973e53.txt",
+          "at": "2026-11-09T15:09:26+09:00"
+        }
+      ],
+      "status": "done",
+      "title": "発表画面を左右スマホと場面見出しに簡素化",
+      "type": "task",
+      "updated_at": "2026-11-09T15:09:26+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "Windowsとサーバーの観測結果を記録し推測と区別する"
+        },
+        {
+          "checked": false,
+          "text": "画面切替の負荷を確認し再現した不具合は修正する"
+        },
+        {
+          "checked": false,
+          "text": "再現できない条件と利用者側の次の確認を明確にする"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:05:22+09:00",
+      "dependencies": [],
+      "description": "利用者から実Edgeの応答停止を報告。ブラウザー本体・PC資源・サーバー・画面処理を分離して調査。保存中データを保護し強制終了しない。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:09:15+09:00",
+          "path": "community/artifacts/edge-hang-investigation.md",
+          "text": "Windowsの応答停止2回とEdge本体のCPU約1コアを観測。サーバー正常、40切替で未再現。完全終了後も利用者環境で再発。根本原因は未確定。"
+        }
+      ],
+      "id": "CP27",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 4,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "Edgeの起動・画面切替で応答なしになる原因を切り分ける",
+      "type": "task",
+      "updated_at": "2026-11-09T15:09:16+09:00"
     },
     {
       "acceptance": [
@@ -1976,6 +2695,53 @@
       "title": "再訪トロフィーを調査し収集体験を再構築する",
       "type": "task",
       "updated_at": "2026-11-09T13:39:15+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "5CSV再集計と独立確認が一致する"
+        },
+        {
+          "checked": true,
+          "text": "アンケート内容を分母・分類方法・欠測付きで集計する"
+        },
+        {
+          "checked": true,
+          "text": "集計図と報告に特典不整合・解釈限界を記載する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:37:25+09:00",
+      "dependencies": [],
+      "description": "sample-data全5CSVを元データ不変・個票非表示で分析。アンケート内容の件数と割合を含める。",
+      "documents": [
+        "docs/SAMPLE-DATA-TRENDS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:43:09+09:00",
+          "path": "docs/SAMPLE-DATA-TRENDS.md",
+          "text": "5CSVのハッシュ不変、独立計算一致、内容分類・分母・限界と図2点を報告書に記録。"
+        }
+      ],
+      "id": "T90",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:43:48+09:00",
+          "hash": "3ac603b06acea21425dd5276887d475ab571cc1e",
+          "path": "project/revisions/3ac603b06acea21425dd5276887d475ab571cc1e.txt",
+          "summary": "analysis: summarize audience trends and questionnaire content"
+        }
+      ],
+      "status": "done",
+      "title": "提供CSVの年代・性別とアンケート内容を分析",
+      "type": "task",
+      "updated_at": "2026-11-09T14:43:48+09:00"
     }
   ]
 }

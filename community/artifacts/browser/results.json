@@ -1,0 +1,57 @@
+{
+  "baseURL": "http://127.0.0.1:8081",
+  "created": {
+    "postedId": "5fc92f6bc8294aba980d06bb1fc660db",
+    "proposalId": "4e8044a5a3054f8cb43cc53942562ce2",
+    "groupId": "dc11f382a5d24698bc85112a98a3cdf8"
+  },
+  "results": [
+    {
+      "name": "real login, desktop feed, local photo assets and accessibility",
+      "status": "passed",
+      "milliseconds": 1992
+    },
+    {
+      "name": "mobile feed, readable layout and accessibility",
+      "status": "passed",
+      "milliseconds": 542
+    },
+    {
+      "name": "photo upload, actual local analysis, corrected tags and publication",
+      "status": "passed",
+      "milliseconds": 3660
+    },
+    {
+      "name": "preferences and independent community grants persist",
+      "status": "passed",
+      "milliseconds": 1558
+    },
+    {
+      "name": "create a three-person proposal through the interface",
+      "status": "passed",
+      "milliseconds": 608
+    },
+    {
+      "name": "each other user accepts; a group forms only after the last acceptance",
+      "status": "passed",
+      "milliseconds": 1712
+    },
+    {
+      "name": "voluntary contribution and trip plan are saved",
+      "status": "passed",
+      "milliseconds": 1727
+    },
+    {
+      "name": "200 percent text and keyboard navigation remain usable",
+      "status": "passed",
+      "milliseconds": 344
+    },
+    {
+      "name": "no external requests or uncaught browser errors",
+      "status": "passed",
+      "milliseconds": 1
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": []
+}

@@ -1,0 +1,15 @@
+{
+  "time": "2026-11-09T05:57:08.268Z",
+  "bundle": "index-C_lOt05q.js",
+  "passed": true,
+  "checks": [
+    "two phone real logins and images",
+    "consultation rows show shared headcount nights date and note",
+    "existing reply persisted and rendered",
+    "no native selects or production-side demo labels"
+  ],
+  "screenshot": [
+    "stage-overview-final.png",
+    "stage-reply-final.png"
+  ]
+}

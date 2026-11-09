@@ -1,0 +1,38 @@
+{
+  "time": "2026-11-09T05:53:48.143Z",
+  "url": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "two independent phone logins and private photo loading",
+      "status": "passed"
+    },
+    {
+      "name": "travel conversation creates only an unconfirmed condition draft",
+      "status": "passed"
+    },
+    {
+      "name": "matching reasons and explicit selection gate",
+      "status": "passed"
+    },
+    {
+      "name": "provider receives selected plan and sends an actual reply",
+      "status": "passed"
+    },
+    {
+      "name": "large group comparison and direct catalogue path",
+      "status": "passed"
+    },
+    {
+      "name": "provider drafts and publishes a plan with a real day itinerary",
+      "status": "failed",
+      "message": "The expression evaluated to a falsy value:\n\n  assert((await api('aoi','/provider-plans')).items.some(p=>p.id===createdPlanId))\n"
+    }
+  ],
+  "externalRequests": [],
+  "browserErrors": [],
+  "syntheticRecords": {
+    "partyId": "0a4a99e013774a87bf19c16a0e861c68",
+    "consultationId": "7e99643ca2624478a71d9565a213dcd5",
+    "createdPlanId": "ca933794bc144d87a3414bc290e5df3b"
+  }
+}

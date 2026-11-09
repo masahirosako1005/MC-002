@@ -26,7 +26,11 @@ old/**/*.zip
 community/data/
 community/models/*.onnx
 community/artifacts/browser-profile/
+community/artifacts/edge-check-profile/
 community/artifacts/test-work/
 community/backend/.pytest_cache/
 community/backend/.backend-*-tmp/
+community/backend/.*-tmp/
+community/backups/
+community/artifacts/snapshot-tests/
 

@@ -1,0 +1,42 @@
+{
+  "baseURL": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "real login, desktop feed, local photo assets and accessibility",
+      "status": "passed",
+      "milliseconds": 2089
+    },
+    {
+      "name": "mobile feed, readable layout and accessibility",
+      "status": "passed",
+      "milliseconds": 620
+    },
+    {
+      "name": "photo upload, actual local analysis, corrected tags and publication",
+      "status": "passed",
+      "milliseconds": 3697
+    },
+    {
+      "name": "preferences and independent community grants persist",
+      "status": "passed",
+      "milliseconds": 1264
+    },
+    {
+      "name": "create a three-person proposal through the interface",
+      "status": "passed",
+      "milliseconds": 605
+    },
+    {
+      "name": "each other user accepts; a group forms only after the last acceptance",
+      "status": "passed",
+      "milliseconds": 2200
+    },
+    {
+      "name": "voluntary contribution and trip plan are saved",
+      "status": "failed",
+      "message": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('出発日', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" disabled type=\"date\"/>\u001b[22m\n\u001b[2m    - fill(\"2026-11-28\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying fill action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"date\"/>\u001b[22m\n\u001b[2m    - fill(\"2026-11-28\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying fill action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": []
+}

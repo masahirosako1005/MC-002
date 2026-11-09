@@ -1,0 +1,29 @@
+{
+  "time": "2026-11-09T05:53:10.776Z",
+  "url": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "two independent phone logins and private photo loading",
+      "status": "passed"
+    },
+    {
+      "name": "travel conversation creates only an unconfirmed condition draft",
+      "status": "passed"
+    },
+    {
+      "name": "matching reasons and explicit selection gate",
+      "status": "passed"
+    },
+    {
+      "name": "provider receives selected plan and sends an actual reply",
+      "status": "failed",
+      "message": "expect(locator).toContainText(expected) failed\n\nLocator: locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog')\nExpected substring: \"13時集合\"\nReceived string:    \"森の旅案内との相談6人で森とカフェをめぐる2泊3日6人2泊3日30,000円 / 1人 · プラン部分2026-12-126人で森の散策とカフェを楽しみたいです。集合時間を相談できますか。まずは、希望をひとこと行きたい場所、人数、泊数、予算などを書いてみましょう。事業者との相談に送るメッセージ送る\"\nTimeout: 5000ms\n\nCall log:\n  - Expect \"toContainText\" locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog') with timeout 5000ms\n  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog')\n    14 × locator resolved to <dialog open=\"\" class=\"modal wide\" aria-labelledby=\"_r_9_\">…</dialog>\n       - unexpected value \"森の旅案内との相談6人で森とカフェをめぐる2泊3日6人2泊3日30,000円 / 1人 · プラン部分2026-12-126人で森の散策とカフェを楽しみたいです。集合時間を相談できますか。まずは、希望をひとこと行きたい場所、人数、泊数、予算などを書いてみましょう。事業者との相談に送るメッセージ送る\"\n"
+    }
+  ],
+  "externalRequests": [],
+  "browserErrors": [],
+  "syntheticRecords": {
+    "partyId": "4445f32ac2d241ecb20ce8f4d32f39e3",
+    "consultationId": "8304bcae7fff4f39b03a09565c7de2d7"
+  }
+}

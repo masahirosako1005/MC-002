@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "backup_with_uncheckpointed_wal": true,
+    "wal_committed_row_preserved": true,
+    "valid_snapshot_verified": true,
+    "empty_target_restored": true,
+    "restored_media_exact": true,
+    "nonempty_target_refused": true,
+    "media_corruption_refused": true
+  },
+  "passed": true,
+  "fixture_directory": "C:\\AI-Sprint\\workspace\\MC-002\\community\\artifacts\\snapshot-tests\\d71b1d279cb64a72a52860f6880da2d2",
+  "scope": "synthetic DB/media only; active volumes unchanged"
+}

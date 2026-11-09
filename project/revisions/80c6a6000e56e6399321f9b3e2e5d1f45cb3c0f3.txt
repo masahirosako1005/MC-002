@@ -1,0 +1,3 @@
+リビジョン: 80c6a6000e56e6399321f9b3e2e5d1f45cb3c0f3
+件名: feat: connect traveler plans and provider consultations with isolated stage sessions
+確認日時: 2026-11-09T15:00:07+09:00

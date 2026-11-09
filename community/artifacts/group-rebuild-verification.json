@@ -1,0 +1,24 @@
+{
+  "frontend_bundle": "index-DyR0BaJD.js",
+  "before": {
+    "ko_groups": {
+      "count": 1,
+      "sha256": "57dba3993316b8e13ff4df055637470d74050e752a5e8233b6e6e4dcea9b997e"
+    },
+    "group_members": {
+      "count": 3,
+      "sha256": "84d3ed6887a8ed9517815311c8ef311bfccc624a53ca5f88497549309bf08a3e"
+    }
+  },
+  "after": {
+    "ko_groups": {
+      "count": 1,
+      "sha256": "57dba3993316b8e13ff4df055637470d74050e752a5e8233b6e6e4dcea9b997e"
+    },
+    "group_members": {
+      "count": 3,
+      "sha256": "84d3ed6887a8ed9517815311c8ef311bfccc624a53ca5f88497549309bf08a3e"
+    }
+  },
+  "unchanged": true
+}

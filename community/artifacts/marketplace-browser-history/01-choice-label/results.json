@@ -1,0 +1,33 @@
+{
+  "time": "2026-11-09T05:49:37.787Z",
+  "url": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "two independent phone logins and private photo loading",
+      "status": "passed"
+    },
+    {
+      "name": "travel conversation creates only an unconfirmed condition draft",
+      "status": "passed"
+    },
+    {
+      "name": "matching reasons and explicit selection gate",
+      "status": "passed"
+    },
+    {
+      "name": "provider receives selected plan and sends an actual reply",
+      "status": "passed"
+    },
+    {
+      "name": "large group comparison and direct catalogue path",
+      "status": "failed",
+      "message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByLabel('予算の単位', { exact: true })\u001b[22m\n"
+    }
+  ],
+  "externalRequests": [],
+  "browserErrors": [],
+  "syntheticRecords": {
+    "partyId": "b35afa999c7e457ea8a7acaa2416da68",
+    "consultationId": "39005b57cfdb438cadb33cd2f06ed623"
+  }
+}

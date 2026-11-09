@@ -1,0 +1,27 @@
+{
+  "baseURL": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "real login, desktop feed, local photo assets and accessibility",
+      "status": "passed",
+      "milliseconds": 3178
+    },
+    {
+      "name": "mobile feed, readable layout and accessibility",
+      "status": "passed",
+      "milliseconds": 1113
+    },
+    {
+      "name": "photo upload, actual local analysis, corrected tags and publication",
+      "status": "passed",
+      "milliseconds": 3345
+    },
+    {
+      "name": "preferences and independent community grants persist",
+      "status": "failed",
+      "message": "Visible button not found: 自分の好み"
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": []
+}

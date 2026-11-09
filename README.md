@@ -1,6 +1,14 @@
-# tang you chi
+# 講 — 写真と仲間から次の旅へ
 
-> **現在の方針：コミュニティと「講」を中心とする新プラットフォームへ変更しました。** [新設計書](DESIGN.md)、[今後のタスク](TASKS.md)、[CSV分析](docs/COMMUNITY-SAMPLE-ANALYSIS.md)を参照してください。新機能は設計段階です。以下の起動手順と画面は旧版のもので、[旧版の保管](old/v1.1/README.md)にも残しています。
+現在のアプリは [community/README.md](community/README.md) の手順で起動します。写真と本人が確認した関心から旅仲間を見つけ、旅行の希望をまとめ、選んだ事業者へ相談します。React・Python・Dockerによるローカル動作です。
+
+- [左右二台のスマホ画面](http://127.0.0.1:8081/stage) — 左に旅行者、右に事業者、中央に実操作の進み具合。
+- [アプリを開く](http://127.0.0.1:8081/) / [操作ガイド](docs/COMMUNITY-TRY.md)
+- [設計書](DESIGN.md) / [タスク](TASKS.md) / [CSVとUI・UXの設計根拠](docs/COMMUNITY-UX-RATIONALE.md)
+
+三役の相談往復、左右独立の認証、写真投稿・講の保存をDocker上で確認済みです。画面9段階、安全性8段階、既存の画面9段階が通っています。試験の適用範囲と未測定事項は [新版評価](docs/EVALUATION-COMMUNITY.md) に記録しています。
+
+以下は旧版 tang you chi の記録です。旧版は8080で分離運用し、[old/v1.1](old/v1.1/README.md)にも保管しています。
 
 四季の謎解きと旅の記録から、次に訪れる理由を残すスマホ向けWebアプリ。
 

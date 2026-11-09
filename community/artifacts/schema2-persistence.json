@@ -1,0 +1,279 @@
+{
+  "checked_at": "2026-11-09T05:50:39.490804+00:00",
+  "passed": true,
+  "scope": "14 business tables, schema 2, DB+media file hashes; no restored API/browser claim",
+  "old_8080_before": true,
+  "before": {
+    "schema_version": 2,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "ko_groups": {
+        "count": 2,
+        "sha256": "1158a72794a586025e9bd8e5a344b143c6c6f2ba21fa474449a8c354eb31a708"
+      },
+      "group_members": {
+        "count": 6,
+        "sha256": "f3040054d86d0fe93db92e5a6e5afd8a0cdaa9d7246d15031bdb97362878acb9"
+      },
+      "posts": {
+        "count": 7,
+        "sha256": "6e985435dbeb7d67a70a2b088eb812507b2ec149553f24c2ee711e270c1462cf"
+      },
+      "media": {
+        "count": 7,
+        "sha256": "3598fc1637cc9627c74426ade503648d3532db4f24f31a22b7b0b02ec6ac7ccb"
+      },
+      "travel_parties": {
+        "count": 1,
+        "sha256": "8373af420af46c21e1dcc6e4c4d6f82502f95a9e4d61fb405fda03b83f5e2846"
+      },
+      "travel_party_members": {
+        "count": 1,
+        "sha256": "ae8cc4c1715e20d1e40f740c87204019211397becfd8fe975a2b199d0debb760"
+      },
+      "travel_requirements": {
+        "count": 1,
+        "sha256": "63d040263af9eb009d08d6c818609eed56e26185437d2a953f1ee08857c3f974"
+      },
+      "party_messages": {
+        "count": 1,
+        "sha256": "f6251ee8d39c9b510815116ebf2a7f187d7e1ec494b8b2afbd47b68e1c262080"
+      },
+      "condition_drafts": {
+        "count": 1,
+        "sha256": "9d0f93d92ddb2e38bd259a99846b10ea50fe162e9b0c37189ca8223ca7e4f142"
+      },
+      "recommendation_runs": {
+        "count": 1,
+        "sha256": "a54d6fecfea2c82ba5e83630deb76b27ed6abff6e00c493ba6221372a4c9af23"
+      },
+      "plan_selections": {
+        "count": 1,
+        "sha256": "01ec21df6b712aec5a8c2c24967c7d166b70bc7cc6cf19a2b14d576fc56cee85"
+      },
+      "consultations": {
+        "count": 1,
+        "sha256": "64b3c648a3781a80214e9d843552e2a0a2ad23fd0eb8014cbe993052f0bbf21b"
+      },
+      "consultation_messages": {
+        "count": 1,
+        "sha256": "798691255f4f4b55d7e09d694fbf5861c3f56e59bd4d254fe9e2a07db88d738b"
+      },
+      "operation_keys": {
+        "count": 3,
+        "sha256": "a2d9af445f45d6fcf5dec807b9999bb233bb85aacfdb2184c341b306ed39489e"
+      }
+    }
+  },
+  "backup": {
+    "operation": "backup",
+    "checked_at": "2026-11-09T05:50:40.618826+00:00",
+    "passed": true,
+    "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backups\\20261109T055041Z-9862048da5c5",
+    "result": {
+      "verified": true,
+      "file_count": 9,
+      "bytes": 4096394,
+      "database": {
+        "integrity": "ok",
+        "foreign_keys": "ok",
+        "schema_version": 2,
+        "table_counts": {
+          "communities": 2,
+          "condition_drafts": 1,
+          "consultation_messages": 1,
+          "consultations": 1,
+          "grants": 201,
+          "group_members": 6,
+          "jobs": 7,
+          "ko_groups": 2,
+          "media": 7,
+          "memberships": 201,
+          "operation_keys": 3,
+          "party_messages": 1,
+          "plan_selections": 1,
+          "post_media": 7,
+          "posts": 7,
+          "preferences": 202,
+          "proposals": 2,
+          "provider_plans": 3,
+          "provider_staff": 2,
+          "providers": 2,
+          "recommendation_runs": 1,
+          "responses": 6,
+          "sessions": 8,
+          "settings": 2,
+          "stage_sessions": 2,
+          "travel_parties": 1,
+          "travel_party_members": 1,
+          "travel_requirements": 1,
+          "users": 202
+        }
+      }
+    },
+    "active_app_restarted": true
+  },
+  "verify": {
+    "operation": "verify",
+    "checked_at": "2026-11-09T05:50:49.052729+00:00",
+    "passed": true,
+    "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backups\\20261109T055041Z-9862048da5c5",
+    "result": {
+      "verified": true,
+      "file_count": 9,
+      "bytes": 4096394,
+      "database": {
+        "integrity": "ok",
+        "foreign_keys": "ok",
+        "schema_version": 2,
+        "table_counts": {
+          "communities": 2,
+          "condition_drafts": 1,
+          "consultation_messages": 1,
+          "consultations": 1,
+          "grants": 201,
+          "group_members": 6,
+          "jobs": 7,
+          "ko_groups": 2,
+          "media": 7,
+          "memberships": 201,
+          "operation_keys": 3,
+          "party_messages": 1,
+          "plan_selections": 1,
+          "post_media": 7,
+          "posts": 7,
+          "preferences": 202,
+          "proposals": 2,
+          "provider_plans": 3,
+          "provider_staff": 2,
+          "providers": 2,
+          "recommendation_runs": 1,
+          "responses": 6,
+          "sessions": 8,
+          "settings": 2,
+          "stage_sessions": 2,
+          "travel_parties": 1,
+          "travel_party_members": 1,
+          "travel_requirements": 1,
+          "users": 202
+        }
+      }
+    }
+  },
+  "restore": {
+    "operation": "restore",
+    "checked_at": "2026-11-09T05:50:50.763878+00:00",
+    "passed": true,
+    "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backups\\20261109T055041Z-9862048da5c5",
+    "restored_volume": "kou-community-restore-ec75912fd2944b13bc4e2021dcf2003b",
+    "result": {
+      "verified": true,
+      "file_count": 9,
+      "bytes": 4096394,
+      "database": {
+        "integrity": "ok",
+        "foreign_keys": "ok",
+        "schema_version": 2,
+        "table_counts": {
+          "communities": 2,
+          "condition_drafts": 1,
+          "consultation_messages": 1,
+          "consultations": 1,
+          "grants": 201,
+          "group_members": 6,
+          "jobs": 7,
+          "ko_groups": 2,
+          "media": 7,
+          "memberships": 201,
+          "operation_keys": 3,
+          "party_messages": 1,
+          "plan_selections": 1,
+          "post_media": 7,
+          "posts": 7,
+          "preferences": 202,
+          "proposals": 2,
+          "provider_plans": 3,
+          "provider_staff": 2,
+          "providers": 2,
+          "recommendation_runs": 1,
+          "responses": 6,
+          "sessions": 8,
+          "settings": 2,
+          "stage_sessions": 2,
+          "travel_parties": 1,
+          "travel_party_members": 1,
+          "travel_requirements": 1,
+          "users": 202
+        }
+      }
+    },
+    "active_volume_changed": false
+  },
+  "after": {
+    "schema_version": 2,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "ko_groups": {
+        "count": 2,
+        "sha256": "1158a72794a586025e9bd8e5a344b143c6c6f2ba21fa474449a8c354eb31a708"
+      },
+      "group_members": {
+        "count": 6,
+        "sha256": "f3040054d86d0fe93db92e5a6e5afd8a0cdaa9d7246d15031bdb97362878acb9"
+      },
+      "posts": {
+        "count": 7,
+        "sha256": "6e985435dbeb7d67a70a2b088eb812507b2ec149553f24c2ee711e270c1462cf"
+      },
+      "media": {
+        "count": 7,
+        "sha256": "3598fc1637cc9627c74426ade503648d3532db4f24f31a22b7b0b02ec6ac7ccb"
+      },
+      "travel_parties": {
+        "count": 1,
+        "sha256": "8373af420af46c21e1dcc6e4c4d6f82502f95a9e4d61fb405fda03b83f5e2846"
+      },
+      "travel_party_members": {
+        "count": 1,
+        "sha256": "ae8cc4c1715e20d1e40f740c87204019211397becfd8fe975a2b199d0debb760"
+      },
+      "travel_requirements": {
+        "count": 1,
+        "sha256": "63d040263af9eb009d08d6c818609eed56e26185437d2a953f1ee08857c3f974"
+      },
+      "party_messages": {
+        "count": 1,
+        "sha256": "f6251ee8d39c9b510815116ebf2a7f187d7e1ec494b8b2afbd47b68e1c262080"
+      },
+      "condition_drafts": {
+        "count": 1,
+        "sha256": "9d0f93d92ddb2e38bd259a99846b10ea50fe162e9b0c37189ca8223ca7e4f142"
+      },
+      "recommendation_runs": {
+        "count": 1,
+        "sha256": "a54d6fecfea2c82ba5e83630deb76b27ed6abff6e00c493ba6221372a4c9af23"
+      },
+      "plan_selections": {
+        "count": 1,
+        "sha256": "01ec21df6b712aec5a8c2c24967c7d166b70bc7cc6cf19a2b14d576fc56cee85"
+      },
+      "consultations": {
+        "count": 1,
+        "sha256": "64b3c648a3781a80214e9d843552e2a0a2ad23fd0eb8014cbe993052f0bbf21b"
+      },
+      "consultation_messages": {
+        "count": 1,
+        "sha256": "798691255f4f4b55d7e09d694fbf5861c3f56e59bd4d254fe9e2a07db88d738b"
+      },
+      "operation_keys": {
+        "count": 3,
+        "sha256": "a2d9af445f45d6fcf5dec807b9999bb233bb85aacfdb2184c341b306ed39489e"
+      }
+    }
+  },
+  "business_rows_unchanged": true,
+  "new_8081_after": true,
+  "old_8080_after": true
+}

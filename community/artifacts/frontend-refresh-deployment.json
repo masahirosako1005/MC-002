@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-11-09T05:52:50.9947665Z",
+  "image_id": "sha256:ba2c2758343d3db59641133dc5e938fedce3321c305265b0106ff12df8f884fa",
+  "new_health": 200,
+  "old_health": 200,
+  "js": "index-B7eq8CbM.js",
+  "css": "index-ByB4zT2Y.css",
+  "html_js_match": true,
+  "html_css_match": true,
+  "js_status": 200,
+  "css_status": 200,
+  "scope": "Frontend-only rebuild; prior model and snapshot proofs retained, not rerun"
+}

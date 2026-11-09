@@ -1,0 +1,33 @@
+{
+  "operation": "verify",
+  "checked_at": "2026-11-09T05:42:00.478251+00:00",
+  "passed": true,
+  "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backups\\20261109T054148Z-0b0b96873966",
+  "result": {
+    "verified": true,
+    "file_count": 9,
+    "bytes": 3965322,
+    "database": {
+      "integrity": "ok",
+      "foreign_keys": "ok",
+      "schema_version": 1,
+      "table_counts": {
+        "communities": 2,
+        "grants": 201,
+        "group_members": 6,
+        "jobs": 7,
+        "ko_groups": 2,
+        "media": 7,
+        "memberships": 201,
+        "post_media": 7,
+        "posts": 7,
+        "preferences": 200,
+        "proposals": 2,
+        "responses": 6,
+        "sessions": 6,
+        "settings": 2,
+        "users": 200
+      }
+    }
+  }
+}

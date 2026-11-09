@@ -1,0 +1,22 @@
+{
+  "baseURL": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "real login, desktop feed, local photo assets and accessibility",
+      "status": "passed",
+      "milliseconds": 2017
+    },
+    {
+      "name": "mobile feed, readable layout and accessibility",
+      "status": "passed",
+      "milliseconds": 629
+    },
+    {
+      "name": "photo upload, actual local analysis, corrected tags and publication",
+      "status": "failed",
+      "message": "Visible button not found: どんな旅をしてきましたか？"
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": []
+}

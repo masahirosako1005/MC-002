@@ -2,7 +2,7 @@
   "model_ready": true,
   "model_version": "mobilenetv2-12:c5cae0f1942c",
   "runtime_version": "1.31.1",
-  "load_seconds": 0.4986,
+  "load_seconds": 0.2721,
   "providers": [
     "CPUExecutionProvider"
   ],
@@ -18,7 +18,7 @@
           "score": 0.9655
         }
       ],
-      "seconds": 0.2072
+      "seconds": 0.2501
     },
     {
       "fixture": "coffee",
@@ -35,7 +35,7 @@
           "score": 0.1305
         }
       ],
-      "seconds": 0.2252
+      "seconds": 0.2338
     },
     {
       "fixture": "table",
@@ -47,16 +47,16 @@
           "score": 0.8231
         }
       ],
-      "seconds": 0.2367
+      "seconds": 0.2533
     },
     {
       "fixture": "woodland",
       "executed": true,
       "tags": [],
-      "seconds": 0.2745
+      "seconds": 0.266
     }
   ],
-  "checked_at": "2026-11-09T05:33:12.453446+00:00",
+  "checked_at": "2026-11-09T05:49:15.506661+00:00",
   "bootstrap_model": {
     "status": "ready",
     "name": "MobileNet V2・画像の被写体候補"

@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-11-09T05:33:29.142224+00:00",
+  "checks": {
+    "non_root": true,
+    "capabilities_zero": true,
+    "no_new_privileges": true,
+    "rootfs_write_denied": true,
+    "external_tcp_blocked": true,
+    "database_integrity": true,
+    "foreign_keys_valid": true,
+    "media_directory_writable": true,
+    "model_directory_present": true,
+    "rootfs_readonly": true,
+    "static_app_served": true,
+    "published_loopback_only": true,
+    "independent_project": true,
+    "independent_data_volume": true,
+    "model_mount_readonly": true,
+    "app_network_internal": true,
+    "restart_preserves_session_preferences_memberships": true,
+    "backup_integrity": true,
+    "backup_counts_match": true,
+    "backup_foreign_keys_valid": true,
+    "original_8080_remains_healthy": true
+  },
+  "image_id": "sha256:b37cf329770c78a92ede4ffd6b1b07c6a72218486f3abd8bc7d3a89434d14ea3",
+  "app_started_at": "2026-11-09T05:32:59.257519421Z",
+  "resource_limits": {
+    "memory_bytes": 805306368,
+    "nano_cpus": 1500000000,
+    "pids": 100
+  },
+  "restart_tested": true,
+  "passed": true,
+  "scope": "community container/API only; database backup excludes media files; no UI/model-quality claim"
+}

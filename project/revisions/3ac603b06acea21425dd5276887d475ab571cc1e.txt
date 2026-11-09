@@ -1,0 +1,3 @@
+リビジョン: 3ac603b06acea21425dd5276887d475ab571cc1e
+件名: analysis: summarize audience trends and questionnaire content
+確認日時: 2026-11-09T14:43:48+09:00

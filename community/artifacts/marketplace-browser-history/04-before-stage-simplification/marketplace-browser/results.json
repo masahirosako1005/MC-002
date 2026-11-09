@@ -1,0 +1,49 @@
+{
+  "time": "2026-11-09T05:54:23.013Z",
+  "url": "http://127.0.0.1:8081",
+  "results": [
+    {
+      "name": "two independent phone logins and private photo loading",
+      "status": "passed"
+    },
+    {
+      "name": "travel conversation creates only an unconfirmed condition draft",
+      "status": "passed"
+    },
+    {
+      "name": "matching reasons and explicit selection gate",
+      "status": "passed"
+    },
+    {
+      "name": "provider receives selected plan and sends an actual reply",
+      "status": "passed"
+    },
+    {
+      "name": "large group comparison and direct catalogue path",
+      "status": "passed"
+    },
+    {
+      "name": "provider drafts and publishes a plan with a real day itinerary",
+      "status": "passed"
+    },
+    {
+      "name": "two phone accessibility, reduced motion and no horizontal overflow",
+      "status": "passed"
+    },
+    {
+      "name": "mobile 390 and 320, enlarged type and keyboard choice",
+      "status": "passed"
+    },
+    {
+      "name": "no external network requests or browser errors",
+      "status": "passed"
+    }
+  ],
+  "externalRequests": [],
+  "browserErrors": [],
+  "syntheticRecords": {
+    "partyId": "46b2a2d293c0418c8c6ebde68af66b16",
+    "consultationId": "6cd8ab4ae1a84b4cb2ac7b42a7649653",
+    "createdPlanId": "d4fb89890b1243fc80adc638add27e92"
+  }
+}
