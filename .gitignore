@@ -1,0 +1,14 @@
+Password.txt.txt
+.env
+.venv/
+.tools/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+data/*.db*
+data/.import-key
+artifacts/browser-profile/
+artifacts/*.webm
+
