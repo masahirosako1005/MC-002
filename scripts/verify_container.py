@@ -21,8 +21,8 @@ def main():
     client = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     csrf = ""
 
-    def api(endpoint, body=None):
-        request = urllib.request.Request(ORIGIN + "/api" + endpoint, data=json.dumps(body).encode() if body is not None else None, headers={"Origin": ORIGIN, "Content-Type": "application/json", "X-CSRF-Token": csrf})
+    def api(endpoint, body=None, method=None):
+        request = urllib.request.Request(ORIGIN + "/api" + endpoint, data=json.dumps(body).encode() if body is not None else None, method=method, headers={"Origin": ORIGIN, "Content-Type": "application/json", "X-CSRF-Token": csrf})
         with client.open(request, timeout=10) as response:
             return json.load(response)
 
@@ -30,6 +30,8 @@ def main():
     api("/visits", {"spot_id": "watergate", "code": "GATE-314"})
     api("/plans", {"experience_id": "gate-winter", "reason": "次の季節の水門を訪れるため"})
     before = api("/journal")
+    api("/collection/target", {"trophy_id": "return-path"}, method="PUT")
+    collection_before = api("/collection")
     probe = r'''
 import json,os,socket,sqlite3
 from pathlib import Path
@@ -63,15 +65,17 @@ print(json.dumps(result))
             time.sleep(0.5)
     after = api("/journal")
     checks["restart_preserves_journal"] = before == after
+    checks["restart_preserves_collection"] = collection_before == api("/collection")
     backup_name = "verification-" + datetime.now().strftime("%Y%m%d-%H%M%S-%f") + ".db"
     docker("compose", "exec", "-T", "app", "python", "-m", "app.backup", "/app/data/" + backup_name)
-    compare = "import sqlite3,json,os; a=sqlite3.connect(os.environ['APP_DB_PATH']); b=sqlite3.connect('/app/data/" + backup_name + "'); tables=['users','visits','attempts','achievements','plans','sessions','recovery_codes']; print(json.dumps({'integrity':b.execute('PRAGMA integrity_check').fetchone()[0],'same_counts':all(a.execute('SELECT COUNT(*) FROM '+t).fetchone()==b.execute('SELECT COUNT(*) FROM '+t).fetchone() for t in tables)})); a.close(); b.close()"
+    compare = "import sqlite3,json,os; a=sqlite3.connect(os.environ['APP_DB_PATH']); b=sqlite3.connect('/app/data/" + backup_name + "'); tables=['users','visits','attempts','achievements','plans','sessions','recovery_codes','collection_preferences']; print(json.dumps({'integrity':b.execute('PRAGMA integrity_check').fetchone()[0],'same_counts':all(a.execute('SELECT COUNT(*) FROM '+t).fetchone()==b.execute('SELECT COUNT(*) FROM '+t).fetchone() for t in tables),'same_collection_preferences':a.execute('SELECT * FROM collection_preferences ORDER BY user_id').fetchall()==b.execute('SELECT * FROM collection_preferences ORDER BY user_id').fetchall()})); a.close(); b.close()"
     backup = json.loads(docker("compose", "exec", "-T", "app", "python", "-c", compare))
     checks["backup_integrity"] = backup["integrity"]
     checks["backup_same_counts"] = backup["same_counts"]
+    checks["backup_same_collection_preferences"] = backup["same_collection_preferences"]
     checks["app_network_internal"] = json.loads(docker("network", "inspect", "tang-you-chi_local-only"))[0]["Internal"]
     checks["published_loopback_only"] = json.loads(docker("inspect", "tang-you-chi-gateway-1"))[0]["HostConfig"]["PortBindings"]["8080/tcp"][0]["HostIp"] == "127.0.0.1"
-    expected = {"uid":10001,"capabilities_zero":True,"no_new_privileges":True,"rootfs_readonly":True,"rootfs_write_denied":True,"external_tcp_blocked":True,"database_integrity":"ok","restart_preserves_journal":True,"backup_integrity":"ok","backup_same_counts":True,"app_network_internal":True,"published_loopback_only":True}
+    expected = {"uid":10001,"capabilities_zero":True,"no_new_privileges":True,"rootfs_readonly":True,"rootfs_write_denied":True,"external_tcp_blocked":True,"database_integrity":"ok","restart_preserves_journal":True,"restart_preserves_collection":True,"backup_integrity":"ok","backup_same_counts":True,"backup_same_collection_preferences":True,"app_network_internal":True,"published_loopback_only":True}
     checks["passed"] = all(checks[key] == value for key,value in expected.items())
     (ROOT / "artifacts/container-verification.json").write_text(json.dumps(checks, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(checks))

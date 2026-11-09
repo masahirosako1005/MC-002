@@ -92,6 +92,9 @@ test('現地コードから水門の謎・実績・次季保存まで',async({pa
   await navigate(page,'旅の手帳');
   await expect(page.locator('.timeline')).toContainText('四季の水門');
   await expect(page.locator('.timeline')).toContainText('水門・はじめて');
+  await expect(page.locator('.starter-result')).toContainText('2 / 2');
+  await expect(page.locator('.starter-pair')).toContainText('ひと組がそろいました');
+  await expect(page.locator('.trophy-feature')).toContainText('また来た道');
   await page.screenshot({path:path.join(artifacts,'journal-mobile.png'),fullPage:true});
   await page.reload();
   await navigate(page,'旅の手帳');
@@ -159,7 +162,12 @@ test('キーボードと動きを減らす設定',async({page})=>{
 });
 
 test('別ブラウザーで手帳を引き継ぐ',async({page,browser})=>{
-  await home(page);await navigate(page,'次の旅');
+  await home(page);await navigate(page,'旅の手帳');
+  await page.getByRole('button',{name:/また来た道、.*詳細をひらく/}).click();
+  await page.getByRole('dialog').getByRole('button',{name:'次に狙う一品にする'}).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('いちばん上');
+  await page.keyboard.press('Escape');
+  await navigate(page,'次の旅');
   await page.getByRole('button',{name:'冬',exact:true}).click();
   await page.locator('.recommendation-card').first().getByRole('button',{name:/次の旅に保存$/}).click();
   await expect(page.locator('.saved-trips .plan-card')).toHaveCount(1);
@@ -183,6 +191,9 @@ test('別ブラウザーで手帳を引き継ぐ',async({page,browser})=>{
   await other.getByRole('button',{name:'この手帳を引き継ぐ'}).click();
   await expect(other.getByText('手帳を引き継ぎました。訪問や次の旅を確認できます。')).toBeVisible();
   await other.getByRole('button',{name:'引き継ぎを閉じる'}).click();
+  await navigate(other,'旅の手帳');
+  await expect(other.locator('.trophy-feature')).toContainText('また来た道');
+  await expect(other.locator('.trophy-feature')).toContainText('次に狙う一品');
   await navigate(other,'次の旅');
   await expect(other.locator('.saved-trips')).toContainText(savedTitle);
   // Recovery has really invalidated the old browser session on the server.
@@ -214,6 +225,10 @@ test('過年度の謎の季節がカタログに依存せず残る',async({page}
 });
 
 test('文字200パーセントで主要画面を操作できる',async({page})=>{
+  // The expanded suite creates independent notebooks on one local IP.
+  // Preserve the production 20 sessions/minute limit between test batches.
+  test.setTimeout(90000);
+  await new Promise(resolve=>setTimeout(resolve,61000));
   await home(page);
   await page.evaluate(()=>{document.documentElement.style.fontSize='200%';});
   expect(await page.evaluate(()=>getComputedStyle(document.documentElement).fontSize)).toBe('32px');

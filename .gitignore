@@ -16,6 +16,7 @@ artifacts/browser-results/
 **/.backend-test-tmp/
 backend/data/
 artifacts/security-review-pytest/
+artifacts/collection-review/
 project/.tickets.lock
 project/.test-work/
 outputs/*-source.zip

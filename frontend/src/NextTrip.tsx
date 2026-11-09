@@ -86,21 +86,27 @@ export function NextTrip({
         <div className="finder-selects">
           <label>
             使える時間
-            <select value={minutes} onChange={(e) => setMinutes(Number(e.target.value))}>
-              {[30, 60, 90, 120, 180, 240].map((n) => (
-                <option key={n} value={n}>
-                  {n}分
-                </option>
-              ))}
-            </select>
+            <span className="select-wrap">
+              <select value={minutes} onChange={(e) => setMinutes(Number(e.target.value))}>
+                {[30, 60, 90, 120, 180, 240].map((n) => (
+                  <option key={n} value={n}>
+                    {n}分
+                  </option>
+                ))}
+              </select>
+              <Icon name="arrow" />
+            </span>
           </label>
           <label>
             気になること
-            <select value={interest} onChange={(e) => setInterest(e.target.value)}>
-              <option value="all">すべて</option>
-              <option value="shrine">神社と節目</option>
-              <option value="coast">海辺の体験</option>
-            </select>
+            <span className="select-wrap">
+              <select value={interest} onChange={(e) => setInterest(e.target.value)}>
+                <option value="all">すべて</option>
+                <option value="shrine">神社と節目</option>
+                <option value="coast">海辺の体験</option>
+              </select>
+              <Icon name="arrow" />
+            </span>
           </label>
         </div>
         <fieldset>
@@ -150,7 +156,12 @@ export function NextTrip({
                       key={item.experience.id}
                     >
                       <div className="recommendation-art">
-                        <Scene kind={item.spot.kind} />
+                        <Scene
+                          kind={item.spot.kind}
+                          season={
+                            item.experience.season === 'all' ? season : item.experience.season
+                          }
+                        />
                         <span className="duration-badge">
                           <strong>{item.total_minutes}</strong>分
                         </span>

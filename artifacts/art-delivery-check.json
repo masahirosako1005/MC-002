@@ -1,0 +1,74 @@
+{
+  "assets": [
+    {
+      "name": "/art/scene-gate-spring-v2-small.webp",
+      "bytes": 101484
+    },
+    {
+      "name": "/art/scene-gate-spring-v2.webp",
+      "bytes": 340800
+    },
+    {
+      "name": "/art/scene-gate-summer-v2-small.webp",
+      "bytes": 120882
+    },
+    {
+      "name": "/art/scene-gate-summer-v2.webp",
+      "bytes": 404370
+    },
+    {
+      "name": "/art/scene-gate-autumn-v2-small.webp",
+      "bytes": 105868
+    },
+    {
+      "name": "/art/scene-gate-autumn-v2.webp",
+      "bytes": 376958
+    },
+    {
+      "name": "/art/scene-gate-winter-v2-small.webp",
+      "bytes": 104210
+    },
+    {
+      "name": "/art/scene-gate-winter-v2.webp",
+      "bytes": 351432
+    },
+    {
+      "name": "/art/scene-shrine-v2-small.webp",
+      "bytes": 104084
+    },
+    {
+      "name": "/art/scene-shrine-v2.webp",
+      "bytes": 352618
+    },
+    {
+      "name": "/art/scene-coast-v2-small.webp",
+      "bytes": 90356
+    },
+    {
+      "name": "/art/scene-coast-v2.webp",
+      "bytes": 329466
+    },
+    {
+      "name": "/art/scene-conference-v2-small.webp",
+      "bytes": 86678
+    },
+    {
+      "name": "/art/scene-conference-v2.webp",
+      "bytes": 318088
+    },
+    {
+      "name": "/art/city-overview-v2-small.webp",
+      "bytes": 139186
+    },
+    {
+      "name": "/art/city-overview-v2.webp",
+      "bytes": 534624
+    }
+  ],
+  "externalRequests": [],
+  "mobileWidths": [
+    320,
+    390,
+    430
+  ]
+}

@@ -101,7 +101,7 @@ async function shot(s, file, x, y, w, h) {
     const buf = await fs.readFile(path.join(root, "artifacts", file));
     s.images.add({
       blob: buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength),
-      contentType: "image/png",
+      contentType: /\.jpe?g$/i.test(file) ? "image/jpeg" : "image/png",
       alt: "アプリ実画面",
       fit: "contain",
       position: { left: x, top: y, width: w, height: h },
@@ -196,7 +196,7 @@ async function shot(s, file, x, y, w, h) {
     "水門を解いて、次の季節を残す",
     "現地コードは印刷しおりを使う。デモのコード入力は実地での所在を独立証明しない。別季節・難易度の問題と実績を説明する。",
   );
-  await shot(s, "puzzle-screen.png", 830, 180, 300, 450);
+  await shot(s, "puzzle-controls.jpg", 830, 180, 300, 450);
   statement(s, "1", "現地の手がかり", "訪問を記録して、水門の謎へ進む。", 192);
   text(s, "2  三つの水門を操作する", 76, 382, 700, 54, 31, color.ink, true);
   text(
@@ -278,6 +278,30 @@ async function shot(s, file, x, y, w, h) {
   );
   s.speakerNotes.text =
     "海辺の活動はモデル都市の設定。実在施設の季節・営業情報ではない。七五三を含む神社の行事は任意で、利用者へ強制しない。";
+}
+{
+  const s = slide(
+    "次に集める一品から、次の訪問を選ぶ",
+    "出典：docs/COLLECTION-API.md。3棚12種。初段階の獲得と全段階の完成を区別。水門訪問と今季の謎が最初のひと組。別日記録は独立した旅行や現地所在を保証しない。スクリーンショットはローカル操作検証で取得。",
+  );
+  await shot(s, "collection-screen.png", 870, 178, 270, 454);
+  text(s, "訪問と謎で、最初のひと組", 76, 204, 730, 65, 34, color.ink, true);
+  text(s, "場所・季節・続く旅の12種。\n条件と記録日を、記念品から開く。", 76, 295, 730, 110, 28, color.muted);
+  text(s, "別の日、別の季節に続きがある", 76, 440, 760, 65, 32, color.ink, true);
+  text(s, "狙う一品を選び、次の場所へ進む。\n手帳を引き継いでも目標が残る。", 76, 527, 730, 110, 27, color.red);
+}
+{
+  const s = slide(
+    "収集体験の比較から採用した仕組み",
+    "6サービス7仕組みの一次資料調査：docs/TROPHY-RESEARCH.md。Geocaching https://www.geocaching.com/blog/2025/02/the-first-treasure-collections-coming-march-17th/ ; Pokémon GO https://scopelyexplore.helpshift.com/hc/en/5-pokemon-go/faq/1095-what-are-collection-challenges/ ; Pikmin Bloom https://scopelyexplore.helpshift.com/hc/en/11-pikmin-bloom/faq/2156-what-are-rare-decor-pikmin/ 。仕様と本PJの面白さの仮説を分離。キャラクターや徽章は複製しない。",
+  );
+  text(s, "Geocaching", 80, 206, 360, 54, 30, color.red, true);
+  text(s, "小さなセットを完成させる", 470, 206, 740, 60, 31, color.ink, true);
+  text(s, "Pokémon GO", 80, 321, 360, 54, 30, color.red, true);
+  text(s, "未取得でも対象と条件が分かる", 470, 321, 740, 60, 31, color.ink, true);
+  text(s, "Pikmin Bloom", 80, 436, 360, 54, 30, color.red, true);
+  text(s, "完成後に、好きな収集の続きがある", 470, 436, 740, 60, 31, color.ink, true);
+  text(s, "楽しさ・再訪意欲への効果は仮説。利用者との比較評価は未実施。", 80, 583, 1100, 70, 23, color.muted);
 }
 {
   const s = slide(
@@ -402,7 +426,7 @@ async function shot(s, file, x, y, w, h) {
 {
   const s = slide(
     "AI駆動開発の判断と改善履歴",
-    "Gitの各リビジョン、docs/CHANGELOG.md、docs/EVALUATION.md、docs/CONTEST-VERIFICATION.md、docs/BENCHMARKS.md、docs/STANDARDS-RESULTS.mdを参照。追加検証中のPJ独自評価は85、75（Q01/Q08の回帰）、85、95、100と推移。別ブラウザーの復旧で失効したセッションと、別タブの更新で古くなったCSRFを区別し、拒否した保存を自動再送せず、画面内の再読込と明示操作で回復することを確認した。旧タブから最初に再復旧する経路も試験した。キーボード動線はTab、Enter、矢印で訪問から保存・手帳確認まで通し、引継ダイアログのEscapeと焦点復帰も確認。誤答1回の期待点数は減点規則に沿って95へ修正した。最終API33件成功4.72秒、画面15件成功1.5分。画面試験時間には実際の復旧操作上限5回/分に伴う61秒の冷却待ちを含む。これらは実装試験とPJ内の検証完了状況であり、規格の全成功基準や人間の使いやすさを保証しない。大会調査は受領50候補を照合。期間内の資料を確認した49候補はAI開発中心の主対象28件、関連競技21件。受賞作品を確認した40件、募集・開催等まで9件、本文未取得による保留1件。従来10件の詳細な設計採用判断も保持。AI駆動開発の独立した50大会を確認する目標は未達であり、主対象28件を関連競技で水増ししない。公式の受賞表示と選考理由、作者による性能主張を区別し、受賞を保証する因果関係とは主張しない。",
+    "Gitの各リビジョン、docs/CHANGELOG.md、docs/EVALUATION.md、docs/CONTEST-VERIFICATION.md、docs/BENCHMARKS.md、docs/STANDARDS-RESULTS.mdを参照。追加検証中のPJ独自評価は85、75（Q01/Q08の回帰）、85、95、100と推移。別ブラウザーの復旧で失効したセッションと、別タブの更新で古くなったCSRFを区別し、拒否した保存を自動再送せず、画面内の再読込と明示操作で回復することを確認した。旧タブから最初に再復旧する経路も試験した。キーボード動線はTab、Enter、矢印で訪問から保存・手帳確認まで通し、引継ダイアログのEscapeと焦点復帰も確認。誤答1回の期待点数は減点規則に沿って95へ修正した。初期11枚版の検証はAPI33件成功4.72秒、画面15件成功1.5分。画面試験時間には実際の復旧操作上限5回/分に伴う61秒の冷却待ちを含む。これらは実装試験とPJ内の検証完了状況であり、規格の全成功基準や人間の使いやすさを保証しない。大会調査は受領50候補を照合。期間内の資料を確認した49候補はAI開発中心の主対象28件、関連競技21件。受賞作品を確認した40件、募集・開催等まで9件、本文未取得による保留1件。従来10件の詳細な設計採用判断も保持。AI駆動開発の独立した50大会を確認する目標は未達であり、主対象28件を関連競技で水増ししない。公式の受賞表示と選考理由、作者による性能主張を区別し、受賞を保証する因果関係とは主張しない。" + ` 更新版の検証：API試験${metrics.apiTests}、画面試験${metrics.browserTests}。収集棚の条件・段階・目標保持・復旧・キーボード操作と画像配信を追加検証。配色と画像MIMEの指摘を修正し再検証した。更新版の画面試験20件は既存15件、収集4件、画像1件で構成し、待機122秒を含む。作成セッションと復旧の回数制限を弱めず、試験間隔を調整した。`,
   );
   statement(
     s,
@@ -491,7 +515,7 @@ const filename =
   process.argv.slice(2).find((arg) => !arg.startsWith("--")) ||
   "tang-you-chi-presentation.pptx";
 const result = await finalizePresentation({
-  explicitTotalSlideCount: 11,
+  explicitTotalSlideCount: 13,
   workspaceDir: root,
   candidatePath: candidate,
   finalPath: path.join(output, filename),

@@ -1,17 +1,32 @@
-import type { Catalog, Journal, Spot } from './types';
+import type { Catalog, Collection, CollectionAction, Journal, Plan, Spot } from './types';
 import { dateLabel, seasonName, seasons } from './types';
 import { Empty, Icon, SeasonSeal } from './ui';
+import { CollectionShelf } from './CollectionShelf';
 
 export function JournalPage({
   catalog,
   journal,
   onSpot,
   onNext,
+  collection,
+  collectionError,
+  collectionLoading,
+  onCollectionRetry,
+  onTargetChanged,
+  onAction,
+  onSaved,
 }: {
   catalog: Catalog;
   journal: Journal;
   onSpot: (spot: Spot) => void;
   onNext: () => void;
+  collection: Collection | null;
+  collectionError: string;
+  collectionLoading: boolean;
+  onCollectionRetry: () => void;
+  onTargetChanged: (id: string | null) => void;
+  onAction: (action: CollectionAction) => void;
+  onSaved: (plan: Plan) => void;
 }) {
   const timeline = [
     ...journal.visits.map((v) => ({
@@ -47,7 +62,18 @@ export function JournalPage({
           この街で集めた記録を振り返る。
         </p>
       </div>
-      <section className="journal-cover">
+      <CollectionShelf
+        data={collection}
+        error={collectionError}
+        loading={collectionLoading}
+        catalog={catalog}
+        plans={journal.plans}
+        onRetry={onCollectionRetry}
+        onTargetChanged={onTargetChanged}
+        onAction={onAction}
+        onSaved={onSaved}
+      />
+      <section className="journal-cover journal-record-summary">
         <span className="cover-corner">四季の記録</span>
         <Icon name="book" />
         <h2>

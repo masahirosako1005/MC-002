@@ -1,6 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { api, errorMessage, sessionInvalidEvent } from './api';
-import type { ActiveAttempt, Catalog, Game, Journal, Plan, Spot } from './types';
+import type {
+  ActiveAttempt,
+  Catalog,
+  Collection,
+  CollectionAction,
+  Difficulty,
+  Game,
+  Journal,
+  Plan,
+  Season,
+  Spot,
+  Trophy,
+} from './types';
 import { emptyJournal, seasonName } from './types';
 import { ErrorNotice, Icon, SeasonSeal } from './ui';
 import { Guide, SpotPage } from './Guide';
@@ -8,6 +20,7 @@ import { JournalPage } from './Journal';
 import { NextTrip } from './NextTrip';
 import { PuzzlePage } from './Puzzle';
 import { Recovery } from './Recovery';
+import { TrophyArt } from './TrophyArt';
 
 type Tab = 'guide' | 'journal' | 'next';
 const tabNames: Record<Tab, string> = { guide: '旅のしおり', journal: '旅の手帳', next: '次の旅' };
@@ -22,6 +35,40 @@ export default function App() {
   const [error, setError] = useState('');
   const [largeText, setLargeText] = useState(false);
   const [notice, setNotice] = useState('');
+  const [collection, setCollection] = useState<Collection | null>(null);
+  const [collectionError, setCollectionError] = useState('');
+  const [collectionLoading, setCollectionLoading] = useState(false);
+  const [newTrophies, setNewTrophies] = useState<Trophy[]>([]);
+  const [spotChoice, setSpotChoice] = useState<{ season?: Season; difficulty?: Difficulty }>({});
+  const collectionRef = useRef<Collection | null>(null);
+  const collectionRequest = useRef(0);
+  const loadCollection = useCallback(async (announce = false) => {
+    const request = ++collectionRequest.current;
+    setCollectionLoading(true);
+    setCollectionError('');
+    try {
+      const data = await api.collection();
+      if (request !== collectionRequest.current) return;
+      const old = collectionRef.current;
+      if (announce && old) {
+        const gained = data.trophies.filter((t) =>
+          t.stages.some(
+            (s) =>
+              s.completed &&
+              !old.trophies.find((o) => o.id === t.id)?.stages.find((o) => o.id === s.id)
+                ?.completed,
+          ),
+        );
+        setNewTrophies(gained);
+      }
+      collectionRef.current = data;
+      setCollection(data);
+    } catch (e) {
+      if (request === collectionRequest.current) setCollectionError(errorMessage(e));
+    } finally {
+      if (request === collectionRequest.current) setCollectionLoading(false);
+    }
+  }, []);
   const heading = useRef<HTMLElement>(null);
   const boot = useCallback(async () => {
     setLoading(true);
@@ -31,12 +78,13 @@ export default function App() {
       const records = await api.journal();
       setCatalog(data);
       setJournal(records);
+      await loadCollection();
     } catch (e) {
       setError(errorMessage(e));
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [loadCollection]);
   useEffect(() => {
     void boot();
   }, [boot]);
@@ -45,6 +93,10 @@ export default function App() {
       setPlay(null);
       setSpot(null);
       setJournal(emptyJournal);
+      collectionRequest.current++;
+      collectionRef.current = null;
+      setCollection(null);
+      setNewTrophies([]);
       setNotice('');
       setError(
         '手帳の接続が変わりました。もう一度読み込んでください。以前の記録は「引き継ぎ」から開けます。',
@@ -60,6 +112,7 @@ export default function App() {
   }, [tab, spot, play]);
   const refresh = async () => {
     setJournal(await api.journal());
+    await loadCollection(true);
   };
   const navigate = (value: Tab) => {
     setTab(value);
@@ -68,10 +121,26 @@ export default function App() {
     setNotice('');
   };
   const openSpot = (value: Spot) => {
+    setSpotChoice({});
     setTab('guide');
     setSpot(value);
     setPlay(null);
     setNotice('');
+  };
+  const openCollectionAction = (action: CollectionAction) => {
+    const destination = catalog?.spots.find((s) => s.id === action.spot_id);
+    if (!destination) return;
+    openSpot(destination);
+    setSpotChoice({
+      season: action.season ?? undefined,
+      difficulty: action.difficulty ?? undefined,
+    });
+  };
+  const changeTarget = (targetId: string | null) => {
+    if (!collectionRef.current) return;
+    const updated = { ...collectionRef.current, target_id: targetId };
+    collectionRef.current = updated;
+    setCollection(updated);
   };
   const addPlan = (plan: Plan) => {
     setJournal((j) => ({ ...j, plans: [plan, ...j.plans.filter((p) => p.id !== plan.id)] }));
@@ -83,6 +152,10 @@ export default function App() {
     setSpot(null);
     setPlay(null);
     setNotice('');
+    collectionRequest.current++;
+    collectionRef.current = null;
+    setCollection(null);
+    setNewTrophies([]);
     await boot();
   };
 
@@ -156,6 +229,36 @@ export default function App() {
           ) : (
             catalog && (
               <>
+                {newTrophies.length > 0 && (
+                  <aside className="trophy-arrival" aria-label="新しく集めた記念品">
+                    <TrophyArt motif={newTrophies[0].motif} earned />
+                    <div>
+                      <p className="eyebrow" role="status">
+                        旅の収集棚に、記念品が増えました
+                      </p>
+                      <strong>
+                        {newTrophies[0].title}
+                        {newTrophies.length > 1 ? ` ほか${newTrophies.length - 1}点` : ''}
+                      </strong>
+                      <button
+                        className="text-button"
+                        onClick={() => {
+                          setNewTrophies([]);
+                          navigate('journal');
+                        }}
+                      >
+                        収集棚で見る <Icon name="arrow" />
+                      </button>
+                    </div>
+                    <button
+                      className="round-button"
+                      aria-label="記念品のお知らせを閉じる"
+                      onClick={() => setNewTrophies([])}
+                    >
+                      <Icon name="close" />
+                    </button>
+                  </aside>
+                )}
                 {play ? (
                   <PuzzlePage
                     game={play.game}
@@ -170,6 +273,8 @@ export default function App() {
                 ) : spot ? (
                   <SpotPage
                     key={spot.id}
+                    initialSeason={spotChoice.season}
+                    initialDifficulty={spotChoice.difficulty}
                     spot={spot}
                     catalog={catalog}
                     journal={journal}
@@ -191,6 +296,13 @@ export default function App() {
                     journal={journal}
                     onSpot={openSpot}
                     onNext={() => navigate('next')}
+                    collection={collection}
+                    collectionError={collectionError}
+                    collectionLoading={collectionLoading}
+                    onCollectionRetry={() => void loadCollection()}
+                    onTargetChanged={changeTarget}
+                    onAction={openCollectionAction}
+                    onSaved={addPlan}
                   />
                 ) : (
                   <NextTrip

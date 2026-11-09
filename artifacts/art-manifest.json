@@ -1,0 +1,158 @@
+{
+  "generated_by": "built-in image_gen",
+  "encoding": "WebP quality 82, widths 640 and 1280",
+  "assets": [
+    {
+      "name": "scene-gate-spring-v2",
+      "original": "artifacts/image-originals/scene-gate-spring-v2.png",
+      "original_bytes": 3642818,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-gate-spring-v2-small.webp",
+          "bytes": 101484,
+          "sha256": "d20592db9631354818715809e11d1e061fdb6c864fc61092179be218d2b4a13c"
+        },
+        {
+          "path": "frontend/public/art/scene-gate-spring-v2.webp",
+          "bytes": 340800,
+          "sha256": "80751da17f5d2cf3ceb2536f196922fbc7b63cdd03808f0a08ad1d682e0f51bd"
+        }
+      ]
+    },
+    {
+      "name": "scene-gate-summer-v2",
+      "original": "artifacts/image-originals/scene-gate-summer-v2.png",
+      "original_bytes": 3868145,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-gate-summer-v2-small.webp",
+          "bytes": 120882,
+          "sha256": "e80986678a01bafa7e9b3d743277d9c3caa31b3d2408b79318af65a839a1e47c"
+        },
+        {
+          "path": "frontend/public/art/scene-gate-summer-v2.webp",
+          "bytes": 404370,
+          "sha256": "f520a9b4d0bc36d337b340bf815191e0e687aa414507381af63ccd82fc3b621c"
+        }
+      ]
+    },
+    {
+      "name": "scene-gate-autumn-v2",
+      "original": "artifacts/image-originals/scene-gate-autumn-v2.png",
+      "original_bytes": 3878847,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-gate-autumn-v2-small.webp",
+          "bytes": 105868,
+          "sha256": "5dc5d7b9f484de1108212da1334542b0ce26117ae3bd0b3f81539b65fdf36773"
+        },
+        {
+          "path": "frontend/public/art/scene-gate-autumn-v2.webp",
+          "bytes": 376958,
+          "sha256": "e1bc64340e016ba6993aa2fa0e35f8e0260f3e22b17e184e45811127820d7daf"
+        }
+      ]
+    },
+    {
+      "name": "scene-gate-winter-v2",
+      "original": "artifacts/image-originals/scene-gate-winter-v2.png",
+      "original_bytes": 3777623,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-gate-winter-v2-small.webp",
+          "bytes": 104210,
+          "sha256": "31b311aaccf10c17648662ffeef3abb9121479ff953809f30343aa8adc3e4bfe"
+        },
+        {
+          "path": "frontend/public/art/scene-gate-winter-v2.webp",
+          "bytes": 351432,
+          "sha256": "eb09a1e8b8cd1eea1e84413201ca2a91902b8078144e514cdd90b12a570769f9"
+        }
+      ]
+    },
+    {
+      "name": "scene-shrine-v2",
+      "original": "artifacts/image-originals/scene-shrine-v2.png",
+      "original_bytes": 3796633,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-shrine-v2-small.webp",
+          "bytes": 104084,
+          "sha256": "4acb43d05cb04fcf0466b32aa6002c4d83ca6cddf85342bc2f9589de62476ebc"
+        },
+        {
+          "path": "frontend/public/art/scene-shrine-v2.webp",
+          "bytes": 352618,
+          "sha256": "62099cff6265e47cc2f08b7d9fc50e88cf4b253ba75eead09d50b952c2fd3b56"
+        }
+      ]
+    },
+    {
+      "name": "scene-coast-v2",
+      "original": "artifacts/image-originals/scene-coast-v2.png",
+      "original_bytes": 3620809,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-coast-v2-small.webp",
+          "bytes": 90356,
+          "sha256": "663ae2785692f981a855b5a4c30716468421e8a16185f9da7a02bb6e445fabaa"
+        },
+        {
+          "path": "frontend/public/art/scene-coast-v2.webp",
+          "bytes": 329466,
+          "sha256": "cf48dbc7ac0f9c973b65acfee4fa795f87a6daeeca158977770c45a95c3411b6"
+        }
+      ]
+    },
+    {
+      "name": "scene-conference-v2",
+      "original": "artifacts/image-originals/scene-conference-v2.png",
+      "original_bytes": 3565176,
+      "width": 1536,
+      "height": 1024,
+      "files": [
+        {
+          "path": "frontend/public/art/scene-conference-v2-small.webp",
+          "bytes": 86678,
+          "sha256": "d91ce1f47c8256519e33ba5db995a6da0ed096c2f4c39f4f6f803caefd4a3180"
+        },
+        {
+          "path": "frontend/public/art/scene-conference-v2.webp",
+          "bytes": 318088,
+          "sha256": "913615a1f2b9d0b5c7d84424e688e9c709249a08fc5edb2beaa5ff774123f965"
+        }
+      ]
+    },
+    {
+      "name": "city-overview-v2",
+      "original": "artifacts/image-originals/city-overview-v2.png",
+      "original_bytes": 4452170,
+      "width": 1448,
+      "height": 1086,
+      "files": [
+        {
+          "path": "frontend/public/art/city-overview-v2-small.webp",
+          "bytes": 139186,
+          "sha256": "85de012fac8683b4a699218519c2fa56ff2fd7515b4e5f238bb3f155704aa304"
+        },
+        {
+          "path": "frontend/public/art/city-overview-v2.webp",
+          "bytes": 534624,
+          "sha256": "778c8455d09682e81d032560d741df5e76e6ec074519882b7da001dbe3c6a6d6"
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { api, errorMessage } from './api';
 import type { ActiveAttempt, Answer, Catalog, Game, Leaderboard, Plan } from './types';
 import { difficultyName, seasonName, seasons } from './types';
-import { Empty, ErrorNotice, Icon, SeasonSeal } from './ui';
+import { Empty, ErrorNotice, Icon, Scene, SeasonSeal } from './ui';
 import { SaveButton } from './SaveButton';
 
 export function PuzzlePage({
@@ -120,6 +120,11 @@ export function PuzzlePage({
           </section>
           {nextExperience && (
             <section className="return-invitation">
+              <div className="return-landscape">
+                <Scene
+                  season={nextExperience.season === 'all' ? nextSeason : nextExperience.season}
+                />
+              </div>
               <p className="eyebrow">この水門の、次の物語。</p>
               <h2>
                 {seasonName[nextExperience.season]}になったら、
@@ -155,6 +160,9 @@ export function PuzzlePage({
             <p>{attempt.puzzle.clue}</p>
           </section>
           <div className="water-machine" aria-hidden="true">
+            <div className="puzzle-landscape">
+              <Scene season={game.season} priority />
+            </div>
             <div className="machine-label">
               <span>水路の見取り図</span>
               <span>流れを合わせる</span>

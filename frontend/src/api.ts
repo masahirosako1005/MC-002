@@ -2,6 +2,7 @@ import type {
   ActiveAttempt,
   Answer,
   Catalog,
+  Collection,
   Journal,
   Leaderboard,
   Plan,
@@ -97,6 +98,9 @@ export const api = {
   },
   catalog: () => request<Catalog>('/catalog'),
   journal: () => request<Journal>('/journal'),
+  collection: () => request<Collection>('/collection'),
+  target: (trophyId: string | null) =>
+    request<{ target_id: string | null }>('/collection/target', 'PUT', { trophy_id: trophyId }),
   visit: (spotId: string, code: string) =>
     request<Visit>('/visits', 'POST', { spot_id: spotId, code }),
   start: (gameId: string) => request<ActiveAttempt>('/attempts', 'POST', { game_id: gameId }),

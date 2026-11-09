@@ -1,0 +1,895 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\AI-Sprint\\workspace\\MC-002\\qa\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\playwright.config.ts",
+    "rootDir": "C:/AI-Sprint/workspace/MC-002/qa/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/AI-Sprint/workspace/MC-002/artifacts/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/AI-Sprint/workspace/MC-002/qa/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests",
+        "snapshotDir": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8080",
+          "browserName": "chromium",
+          "channel": "msedge",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "locale": "ja-JP",
+          "timezoneId": "Asia/Tokyo",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../artifacts/browser-tests.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "art.spec.ts",
+      "file": "art.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "生成した景観8点をローカル配信し狭幅の見取り図も読める",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2101,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:36.277Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4b0cf62d6e43caacf5e5-8744a8d1aae7c259d8aa",
+          "file": "art.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "collection.spec.ts",
+      "file": "collection.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "未獲得の条件・次季への接続・狙う一品の再読込保持",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1542,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:39.006Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a433e3f19c9ef30ef149-529dd4a8a00cbcaf2a0a",
+          "file": "collection.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "訪問で記念品が現れ日時・別日条件・狭幅と拡大で詳細を確認できる",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:40.586Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a433e3f19c9ef30ef149-2b819715e19df0d052d1",
+          "file": "collection.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "目標保存の失敗を案内して手動で再試行できる",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:43.823Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a433e3f19c9ef30ef149-0275a14c65b9a1eb65e4",
+          "file": "collection.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "旅の選択部品はキーボードで変更でき選択と焦点が見える",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1249,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:44.760Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a433e3f19c9ef30ef149-e39198af21f3ce628350",
+          "file": "collection.spec.ts",
+          "line": 101,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "journey.spec.ts",
+      "file": "journey.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "主要画面の表示・外部通信なし・アクセシビリティ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:46.047Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-55f32ae94fdae662530d",
+          "file": "journey.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "現地コードから水門の謎・実績・次季保存まで",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3489,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:50.219Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-75ee714901ebd29a6bb4",
+          "file": "journey.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "会議周遊の制約・保存・取消と人生行事",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:53.720Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-a876b8fb2a256decf68e",
+          "file": "journey.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "幅320pxと文字拡大で横溢れなし",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:55.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-eec0c412712e6d5b673d",
+          "file": "journey.spec.ts",
+          "line": 131,
+          "column": 3
+        },
+        {
+          "title": "幅390pxと文字拡大で横溢れなし",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:56.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-213ec122959b5a6e2904",
+          "file": "journey.spec.ts",
+          "line": 131,
+          "column": 3
+        },
+        {
+          "title": "幅430pxと文字拡大で横溢れなし",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:57.196Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-edff5b3e284c2837c99b",
+          "file": "journey.spec.ts",
+          "line": 131,
+          "column": 3
+        },
+        {
+          "title": "通信失敗から再試行できる",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:58.308Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-d57f9b3da0dd8c97a473",
+          "file": "journey.spec.ts",
+          "line": 143,
+          "column": 1
+        },
+        {
+          "title": "キーボードと動きを減らす設定",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:28:59.638Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-c17dd975dc51d3196b12",
+          "file": "journey.spec.ts",
+          "line": 154,
+          "column": 1
+        },
+        {
+          "title": "別ブラウザーで手帳を引き継ぐ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4044,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:01.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-a590b2b70ac2b13d0bcf",
+          "file": "journey.spec.ts",
+          "line": 164,
+          "column": 1
+        },
+        {
+          "title": "過年度の謎の季節がカタログに依存せず残る",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 718,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:05.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-7b68f1cfce1332cc834f",
+          "file": "journey.spec.ts",
+          "line": 220,
+          "column": 1
+        },
+        {
+          "title": "文字200パーセントで主要画面を操作できる",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5426,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"ひとつの街を\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    14 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"ひとつの街を\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    14 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n\n    at home (C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:9:54)\n    at C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:228:3",
+                    "location": {
+                      "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                      "column": 54,
+                      "line": 9
+                    },
+                    "snippet": " \u001b[90m  7 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m home(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m) {\n \u001b[90m  8 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m {level\u001b[33m:\u001b[39m\u001b[35m1\u001b[39m}))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'ひとつの街を'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m }\n \u001b[90m 11 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m navigate(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m name\u001b[33m:\u001b[39m string) {\n \u001b[90m 12 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'navigation'\u001b[39m\u001b[33m,\u001b[39m {name\u001b[33m:\u001b[39m\u001b[32m'主なメニュー'\u001b[39m})\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m {name\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m\u001b[36mfalse\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                        "column": 54,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"ひとつの街を\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    14 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n\n\n   7 | async function home(page: Page) {\n   8 |   await page.goto('/');\n>  9 |   await expect(page.getByRole('heading', {level:1})).toContainText('ひとつの街を');\n     |                                                      ^\n  10 | }\n  11 | async function navigate(page: Page, name: string) {\n  12 |   await page.getByRole('navigation', {name:'主なメニュー'}).getByRole('button', {name, exact:false}).click();\n    at home (C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:9:54)\n    at C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:228:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:05.787Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-文字200パーセントで主要画面を操作できる\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-文字200パーセントで主要画面を操作できる\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-文字200パーセントで主要画面を操作できる\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                    "column": 54,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-bbb4ffbdb9df06728020",
+          "file": "journey.spec.ts",
+          "line": 227,
+          "column": 1
+        },
+        {
+          "title": "初期読込の再試行でセッション情報も再取得する",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6430,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected substring: \u001b[32m\"ひとつの街\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    12 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected substring: \u001b[32m\"ひとつの街\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    12 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n\n    at C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:245:36",
+                    "location": {
+                      "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                      "column": 36,
+                      "line": 245
+                    },
+                    "snippet": " \u001b[90m 243 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'alert'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 244 |\u001b[39m   fail\u001b[33m=\u001b[39m\u001b[36mfalse\u001b[39m\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[35m/もう一度|再試行/\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 245 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'ひとつの街'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 246 |\u001b[39m   expect(reads)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 247 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 248 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                        "column": 36,
+                        "line": 245
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected substring: \u001b[32m\"ひとつの街\"\u001b[39m\nReceived string:    \u001b[31m\"手帳を開けませんでした\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    12 × locator resolved to <h1>手帳を開けませんでした</h1>\u001b[22m\n\u001b[2m       - unexpected value \"手帳を開けませんでした\"\u001b[22m\n\n\n  243 |   await expect(page.getByRole('alert')).toBeVisible();\n  244 |   fail=false;await page.getByRole('button',{name:/もう一度|再試行/}).click();\n> 245 |   await expect(page.locator('h1')).toContainText('ひとつの街');\n      |                                    ^\n  246 |   expect(reads).toBeGreaterThanOrEqual(2);\n  247 | });\n  248 |\n    at C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts:245:36"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:12.803Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-初期読込の再試行でセッション情報も再取得する\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-初期読込の再試行でセッション情報も再取得する\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\browser-results\\journey-初期読込の再試行でセッション情報も再取得する\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\AI-Sprint\\workspace\\MC-002\\qa\\tests\\journey.spec.ts",
+                    "column": 36,
+                    "line": 245
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-b3818735f0e850b2cafb",
+          "file": "journey.spec.ts",
+          "line": 238,
+          "column": 1
+        },
+        {
+          "title": "同じブラウザーの別タブで引き継いでも再読込後は同じ手帳に保存する",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3362,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:20.793Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-a779a30be2b5bbf0a185",
+          "file": "journey.spec.ts",
+          "line": 249,
+          "column": 1
+        },
+        {
+          "title": "キーボードだけで現地訪問から水門達成・次季保存・手帳確認まで操作する",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4677,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:24.613Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-9e5ab97683f0ebab5d9e",
+          "file": "journey.spec.ts",
+          "line": 330,
+          "column": 1
+        },
+        {
+          "title": "別タブで引き継いだ後に古い引き継ぎ画面からも復帰できる",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 62849,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-09T04:29:29.303Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf222bad70f76648f722-6b4df00410e12c90f239",
+          "file": "journey.spec.ts",
+          "line": 386,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-09T04:28:35.761Z",
+    "duration": 116849.574,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

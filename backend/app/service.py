@@ -9,6 +9,7 @@ from fastapi import HTTPException
 
 from .clock import SEASON_NAMES, catalog_year, season_at, season_year
 from .database import Database
+from .collection import TROPHY_IDS, derive_collection
 from .seed import CITY, fingerprint, seed_games
 
 
@@ -49,6 +50,27 @@ def award(connection: sqlite3.Connection, user_id: str, scope: str, title: str,
 class JourneyService:
     def __init__(self, database: Database):
         self.database = database
+
+    def collection(self, user_id: str, current: datetime) -> dict[str, Any]:
+        with self.database.transaction() as connection:
+            visits = [dict(row) for row in connection.execute(
+                "SELECT spot_id,visited_at,visit_day FROM visits WHERE user_id=? ORDER BY visited_at,id", (user_id,))]
+            attempts = [dict(row) for row in connection.execute(
+                "SELECT a.status,a.completed_at,g.spot_id,g.season,g.difficulty FROM attempts a "
+                "JOIN games g ON g.id=a.game_id WHERE a.user_id=? AND a.status='completed' ORDER BY a.completed_at,a.id", (user_id,))]
+            preference = connection.execute("SELECT trophy_id FROM collection_preferences WHERE user_id=?", (user_id,)).fetchone()
+            return derive_collection(visits, attempts, preference["trophy_id"] if preference else None, current)
+
+    def collection_target(self, user_id: str, trophy_id: str | None, current: datetime) -> dict[str, Any]:
+        if trophy_id is not None and trophy_id not in TROPHY_IDS:
+            raise HTTPException(422, "次に狙うしるしを一覧から選んでください。")
+        with self.database.transaction(write=True) as connection:
+            connection.execute(
+                "INSERT INTO collection_preferences(user_id,trophy_id,updated_at) VALUES (?,?,?) "
+                "ON CONFLICT(user_id) DO UPDATE SET trophy_id=excluded.trophy_id,updated_at=excluded.updated_at",
+                (user_id, trophy_id, current.isoformat()),
+            )
+        return {"target_id": trophy_id}
 
     def catalog(self, current: datetime) -> dict[str, Any]:
         with self.database.transaction(write=True) as connection:

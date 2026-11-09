@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "4230e522a5d25efc75c326c070fd1d3ac2fb54f8ab546881da81ae5252c137c0",
-  "byteCount": 157123,
+  "finalSha256": "6746626daaaedb1d35b645953643683b6b74aa0646770b6aef64026b6199a542",
+  "byteCount": 224364,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 11,
-    "relationship_part_count": 32,
-    "slide_count": 11,
+    "notes_parts_skipped": 13,
+    "relationship_part_count": 36,
+    "slide_count": 13,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,18 +19,18 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 115,
+      "checked_text_script_count": 133,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "BIZ UDGothic"
       ],
       "observed_font_use_counts": {
-        "BIZ UDGothic": 115
+        "BIZ UDGothic": 133
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 11,
+    "slide_count": 13,
     "slide_size_in": [
       13.3333,
       7.5
@@ -40,13 +40,13 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 115,
+      "checked_text_script_count": 133,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "BIZ UDGothic"
       ],
       "observed_font_use_counts": {
-        "BIZ UDGothic": 115
+        "BIZ UDGothic": 133
       },
       "passed": true,
       "performed": true
@@ -60,13 +60,13 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 115,
+    "checked_text_script_count": 133,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "BIZ UDGothic"
     ],
     "observed_font_use_counts": {
-      "BIZ UDGothic": 115
+      "BIZ UDGothic": 133
     },
     "passed": true,
     "performed": true
@@ -74,8 +74,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 11,
-    "sha256": "4230e522a5d25efc75c326c070fd1d3ac2fb54f8ab546881da81ae5252c137c0",
+    "slideCount": 13,
+    "sha256": "6746626daaaedb1d35b645953643683b6b74aa0646770b6aef64026b6199a542",
     "runtimeNodeModules": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\dependencies\\node\\node_modules",
     "nodeExecutable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\dependencies\\node\\bin\\node.exe"
   },
@@ -91,7 +91,7 @@
     "passed": true,
     "schema_version": "presentation-native-table-arithmetic.v1",
     "skipped_tables": [],
-    "slide_count": 11,
+    "slide_count": 13,
     "warning_count": 0,
     "warnings": []
   },
@@ -103,9 +103,9 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "4230e522a5d25efc75c326c070fd1d3ac2fb54f8ab546881da81ae5252c137c0",
+    "presentation_sha256": "6746626daaaedb1d35b645953643683b6b74aa0646770b6aef64026b6199a542",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 11,
+    "slide_count": 13,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -117,7 +117,7 @@
     "--cover-role",
     "none",
     "--expected-slide-count",
-    "11",
+    "13",
     "--approved-font-family",
     "BIZ UDGothic"
   ],

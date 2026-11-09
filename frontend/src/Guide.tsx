@@ -58,7 +58,7 @@ export function Guide({
           )}
         </div>
         <div className="hero-picture">
-          <Scene />
+          <Scene season={catalog.season} priority />
           <div className="hero-seal">
             <SeasonSeal season={catalog.season} earned />
             <span>{seasonName[catalog.season]}の水門</span>
@@ -92,7 +92,11 @@ export function Guide({
               onClick={() => onSpot(spot)}
             >
               <div className="spot-art">
-                <Scene kind={spot.kind} />
+                <Scene
+                  kind={spot.kind}
+                  season={catalog.season}
+                  sizes="(max-width: 760px) 45vw, 320px"
+                />
                 <span className="spot-index">0{i + 1}</span>
               </div>
               <div className="spot-copy">
@@ -143,6 +147,8 @@ export function SpotPage({
   onPlay,
   onChanged,
   onSaved,
+  initialSeason,
+  initialDifficulty = 'beginner',
 }: {
   spot: Spot;
   catalog: Catalog;
@@ -151,10 +157,12 @@ export function SpotPage({
   onPlay: (game: Game, attempt: ActiveAttempt) => void;
   onChanged: () => Promise<void>;
   onSaved: (plan: Plan) => void;
+  initialSeason?: Season;
+  initialDifficulty?: Difficulty;
 }) {
   const [code, setCode] = useState('');
-  const [season, setSeason] = useState<Season>(catalog.season);
-  const [difficulty, setDifficulty] = useState<Difficulty>('beginner');
+  const [season, setSeason] = useState<Season>(initialSeason ?? catalog.season);
+  const [difficulty, setDifficulty] = useState<Difficulty>(initialDifficulty);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [visitMessage, setVisitMessage] = useState('');
@@ -225,7 +233,7 @@ export function SpotPage({
         </div>
       </div>
       <div className="detail-art">
-        <Scene kind={spot.kind} />
+        <Scene kind={spot.kind} season={season} priority />
       </div>
       <p className="detail-description">{spot.description}</p>
       <section className="visit-section" aria-labelledby="visit-heading">

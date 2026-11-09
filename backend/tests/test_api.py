@@ -324,6 +324,30 @@ def test_static_serving_never_exposes_api_fallback_or_outside_files(tmp_path):
     asyncio.run(scenario())
 
 
+def test_static_webp_type_does_not_depend_on_os_mime_database(tmp_path, monkeypatch):
+    static = tmp_path / "static"
+    static.mkdir()
+    content = b"RIFF\x04\x00\x00\x00WEBP"
+    (static / "trophy.webp").write_bytes(content)
+    (static / "other.bin").write_bytes(b"opaque")
+    # Reproduce slim Linux without a WebP MIME mapping, even on Windows.
+    monkeypatch.setattr("starlette.responses.guess_type", lambda path: (None, None))
+    application = create_app(Settings(db_path=tmp_path / "db.sqlite3", static_dir=static))
+
+    async def scenario():
+        async with application.router.lifespan_context(application):
+            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=application), base_url="http://localhost:8000") as client:
+                response = await client.get("/trophy.webp?media_type=text/html")
+                assert response.status_code == 200 and response.content == content
+                assert response.headers["content-type"] == "image/webp"
+                assert response.headers["x-content-type-options"] == "nosniff"
+                assert "img-src 'self' data:" in response.headers["content-security-policy"]
+                assert "object-src 'none'" in response.headers["content-security-policy"]
+                opaque = await client.get("/other.bin?media_type=image/webp")
+                assert opaque.headers["content-type"] == "application/octet-stream"
+    asyncio.run(scenario())
+
+
 def test_recovery_in_new_browser_keeps_history_after_session_expiry(harness):
     harness.visit()
     saved = harness.client.post("/plans", {"experience_id": "gate-winter", "reason": "冬の水路"})
@@ -392,6 +416,6 @@ def test_schema_v1_migrates_without_losing_history(harness):
         connection.execute("PRAGMA user_version=1")
     harness.app.state.database.initialize(harness.current[0])
     with harness.app.state.database.transaction() as connection:
-        assert connection.execute("PRAGMA user_version").fetchone()[0] == 2
+        assert connection.execute("PRAGMA user_version").fetchone()[0] == 3
     assert harness.client.get("/journal").json() == before
     assert harness.client.post("/recovery").status_code == 200

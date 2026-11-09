@@ -1,6 +1,6 @@
 # プレゼン資料の生成と確認
 
-完成版は `outputs/` のPowerPointファイル。本文・見出し・構成図は編集可能な図形と文字で作成し、アプリの実画面2点は画像として挿入する。全11枚。外部サービスへのアップロードは行わない。
+完成版は `outputs/` のPowerPointファイル。本文・見出し・構成図は編集可能な図形と文字で作成し、アプリの実画面3点は画像として挿入する。収集棚と収集体験の調査を加えた全13枚。外部サービスへのアップロードは行わない。
 
 ## 再生成
 
@@ -12,6 +12,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File presentation/render.ps1 -Dec
 ```
 
 ファイナライザーは既存ファイルを上書きしないため、再生成時は新しい出力名を指定する。
+
+今回の更新では新規名で作成・検証後、水門の操作画面を改善した `tang-you-chi-presentation-refresh-reviewed.pptx` を採用し、`artifacts/presentation/refresh/` へ全13枚を描画した。同じ内容を正本 `outputs/tang-you-chi-presentation-final.pptx` と同名PDFへ反映している。中間PPTXは `artifacts/presentation/candidates-13/`、初期11枚版のファイル・検証記録は `artifacts/presentation/version-11-verified/` に保持する。現在版の照合値と検証範囲は `artifacts/presentation/VISUAL-QA.md` を参照する。
 
 ## 描画と検証
 

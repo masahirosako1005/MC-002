@@ -3,6 +3,7 @@ import { Component } from 'react';
 import type { ReactNode } from 'react';
 import App from './App';
 import './styles.css';
+import './collection.css';
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };

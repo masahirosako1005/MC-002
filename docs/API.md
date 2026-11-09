@@ -5,9 +5,11 @@ ReactとPython FastAPI、SQLiteを採用。単一オリジン。API prefix `/api
 ## エンドポイント
 
 - GET `/health` → `{status:"ok"}`
-- POST `/session` body `{}` → `{nickname:"旅人",csrf_token:string}`。既存セッションは再利用。以降のPOST/DELETEは`X-CSRF-Token`必須（新規sessionのみ例外）。GET `/session` → 同じ形または401。
+- POST `/session` body `{}` → `{nickname:"旅人",csrf_token:string}`。既存セッションは再利用。以降のPOST/PUT/DELETEは`X-CSRF-Token`必須（新規sessionのみ例外）。GET `/session` → 同じ形または401。
 - GET `/catalog` → `{city:string,season:string,spots:Spot[],experiences:Experience[],games:Game[]}`（公開）
 - GET `/journal` → `{visits:Visit[],attempts:Attempt[],achievements:Achievement[],plans:Plan[]}`（要セッション）
+- GET `/collection` → `{definition_version,target_id,summary,sets,trophies}`（要セッション）。12種の記念品・3棚・段階・取得日時を自分の保存済み記録から導出。GETでは書込を行わない。
+- PUT `/collection/target` body `{trophy_id:string|null}` → 更新後のCollection。許可済みIDまたは解除のnullのみ。既存手帳所有者に紐付け、Origin・CSRF・入力型を検証。[詳細契約](COLLECTION-API.md)参照。
 - POST `/visits` body `{spot_id:string,code:string}` → Visit。登録済み同一日スポットは再利用。訪問コードは印刷用現地しおりに配置。公開カタログAPIに正解コードを出さない。
 - POST `/attempts` body `{game_id:string}` → `{id,game_id,status,hints_used,puzzle:Puzzle}`。同一の未完了挑戦を再利用。ゲームには同日同スポット訪問が必要、未訪問なら409。
 - POST `/attempts/{id}/hint` body `{}` → `{hint:string,hints_used:number}`。ヒントは一度だけ適用。
@@ -57,6 +59,6 @@ Recommendation = `{experience:Experience,spot:Spot,total_minutes,travel_minutes,
 ## 接続が失効・更新された場合の画面側の契約
 
 - CSRF不一致403には `X-Session-Invalid: true` を付ける。訪問コード不一致の403には付けず、入力の訂正を促す。
-- 通常APIの401、またはCSRF専用403では、古い画面の記録・挑戦をいったん隠し、明示的な再読込と引き継ぎへの案内を表示する。失敗したPOST/DELETEを自動再送しない。
+- 通常APIの401、またはCSRF専用403では、古い画面の記録・挑戦をいったん隠し、明示的な再読込と引き継ぎへの案内を表示する。失敗したPOST/PUT/DELETEを自動再送しない。
 - その画面で既に開いたセッションが失効したとき、再読込操作で新しい匿名手帳を勝手に作らない。別タブでCookieが更新されていればGET /sessionで新しいCSRFを取得し、利用者の次の操作から使用する。
 - /session/recoverの無効コード401はダイアログ内に表示。CSRF専用403はダイアログを閉じ、全体の再読込へ移す。コード入力や発行済みの表示を残さない。

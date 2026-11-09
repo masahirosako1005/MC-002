@@ -76,6 +76,50 @@ export interface Journal {
   achievements: Achievement[];
   plans: Plan[];
 }
+export interface CollectionAction {
+  kind: 'visit' | 'puzzle' | 'season';
+  label: string;
+  spot_id: string;
+  season: Season | null;
+  difficulty: Difficulty | null;
+  available_from: string | null;
+}
+export interface Trophy {
+  id: string;
+  set_id: string;
+  title: string;
+  description: string;
+  motif: string;
+  status: 'locked' | 'progress' | 'earned';
+  completed: boolean;
+  earned_at: string | null;
+  progress: { current: number; target: number; unit: string };
+  stages: {
+    id: string;
+    title: string;
+    target: number;
+    current: number;
+    completed: boolean;
+    earned_at: string | null;
+  }[];
+  missing_conditions: string[];
+  next_action: CollectionAction | null;
+}
+export interface Collection {
+  definition_version: '1';
+  target_id: string | null;
+  summary: { earned: number; total: number; completed_sets: number };
+  sets: {
+    id: string;
+    title: string;
+    reward_label: string;
+    earned: number;
+    total: number;
+    completed: boolean;
+    earned_at: string | null;
+  }[];
+  trophies: Trophy[];
+}
 export interface Puzzle {
   title: string;
   instruction: string;

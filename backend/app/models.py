@@ -146,6 +146,77 @@ class JournalOut(BaseModel):
     plans: list[PlanOut]
 
 
+class CollectionTargetInput(InputModel):
+    trophy_id: Identifier | None
+
+
+class CollectionTargetOut(BaseModel):
+    target_id: str | None
+
+
+class CollectionProgressOut(BaseModel):
+    current: int
+    target: int
+    unit: str
+
+
+class CollectionStageOut(BaseModel):
+    id: str
+    title: str
+    target: int
+    current: int
+    completed: bool
+    earned_at: str | None
+
+
+class CollectionActionOut(BaseModel):
+    kind: Literal["visit", "puzzle", "season"]
+    label: str
+    spot_id: str
+    season: Season | None
+    difficulty: Literal["beginner", "advanced"] | None
+    available_from: str | None
+
+
+class TrophyOut(BaseModel):
+    id: str
+    set_id: str
+    title: str
+    description: str
+    motif: str
+    status: Literal["locked", "progress", "earned"]
+    completed: bool
+    earned_at: str | None
+    progress: CollectionProgressOut
+    stages: list[CollectionStageOut]
+    missing_conditions: list[str]
+    next_action: CollectionActionOut | None
+
+
+class CollectionSetOut(BaseModel):
+    id: str
+    title: str
+    reward_label: str
+    earned: int
+    total: int
+    completed: bool
+    earned_at: str | None
+
+
+class CollectionSummaryOut(BaseModel):
+    earned: int
+    total: int
+    completed_sets: int
+
+
+class CollectionOut(BaseModel):
+    definition_version: Literal["1"]
+    target_id: str | None
+    summary: CollectionSummaryOut
+    sets: list[CollectionSetOut]
+    trophies: list[TrophyOut]
+
+
 class HintOut(BaseModel):
     hint: str
     hints_used: int

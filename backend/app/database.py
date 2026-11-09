@@ -19,6 +19,10 @@ CREATE TABLE IF NOT EXISTS recovery_codes (
     user_id TEXT PRIMARY KEY REFERENCES users(id), code_hash TEXT NOT NULL UNIQUE,
     created_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS collection_preferences (
+    user_id TEXT PRIMARY KEY REFERENCES users(id), trophy_id TEXT,
+    updated_at TEXT NOT NULL
+);
 CREATE TABLE IF NOT EXISTS spots (
     id TEXT PRIMARY KEY, name TEXT NOT NULL, area TEXT NOT NULL, kind TEXT NOT NULL,
     description TEXT NOT NULL, walk_minutes INTEGER NOT NULL CHECK(walk_minutes >= 0),
@@ -70,7 +74,7 @@ CREATE TABLE IF NOT EXISTS plans (
     spot_name TEXT NOT NULL, season TEXT NOT NULL, month_label TEXT NOT NULL,
     reason TEXT NOT NULL, created_at TEXT NOT NULL, UNIQUE(user_id, experience_id)
 );
-PRAGMA user_version = 2;
+PRAGMA user_version = 3;
 """
 
 
@@ -94,7 +98,7 @@ class Database:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         connection = self.connect()
         try:
-            if connection.execute("PRAGMA user_version").fetchone()[0] not in (0, 1, 2):
+            if connection.execute("PRAGMA user_version").fetchone()[0] not in (0, 1, 2, 3):
                 raise RuntimeError("Unsupported database schema version")
             connection.execute("PRAGMA journal_mode = WAL")
             connection.executescript(SCHEMA)

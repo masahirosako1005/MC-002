@@ -19,6 +19,7 @@ from .models import (
     AnswerInput, AnswerOut, AttemptInput, CatalogOut, DeletedOut, EmptyInput, HealthOut,
     HintOut, JournalOut, LeaderboardOut, PlanInput, PlanOut, RecommendationsOut, RecoveryInput, RecoveryOut,
     Season, SessionOut, StartedAttemptOut, VisitInput, VisitOut,
+    CollectionOut, CollectionTargetInput, CollectionTargetOut,
 )
 from .security import COOKIE_NAME, SecurityMiddleware, authenticated, check_csrf, find_session, request_time, response_security_headers
 from .seed import fingerprint
@@ -133,6 +134,15 @@ def create_app(settings: Settings | None = None, now_provider: Callable[[], date
     def journal(session: sqlite3.Row = Depends(authenticated)) -> dict:
         return service.journal(session["user_id"])
 
+    @protected.get("/collection", response_model=CollectionOut)
+    def collection(session: sqlite3.Row = Depends(authenticated), current: datetime = Depends(request_time)) -> dict:
+        return service.collection(session["user_id"], current)
+
+    @protected.put("/collection/target", response_model=CollectionTargetOut)
+    def collection_target(body: CollectionTargetInput, session: sqlite3.Row = Depends(authenticated),
+                          current: datetime = Depends(request_time)) -> dict:
+        return service.collection_target(session["user_id"], body.trophy_id, current)
+
     @protected.post("/visits", response_model=VisitOut)
     def visit(body: VisitInput, session: sqlite3.Row = Depends(authenticated), current: datetime = Depends(request_time)) -> dict:
         return service.visit(session["user_id"], body.spot_id, body.code, current)
@@ -184,7 +194,10 @@ def create_app(settings: Settings | None = None, now_provider: Callable[[], date
             if not candidate.is_relative_to(static_root) or any(part.startswith(".") for part in Path(path).parts):
                 raise HTTPException(404, "ページが見つかりません。")
             if candidate.is_file():
-                return FileResponse(candidate)
+                # Minimal Linux images may lack the OS MIME database entry for
+                # WebP. Derive this override only from the verified local path.
+                media_type = "image/webp" if candidate.suffix.lower() == ".webp" else None
+                return FileResponse(candidate, media_type=media_type)
             if Path(path).suffix or not (static_root / "index.html").is_file():
                 raise HTTPException(404, "ページが見つかりません。")
             return FileResponse(static_root / "index.html")

@@ -1,0 +1,25 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-09",
+  "assets": [
+    {
+      "name": "scene-gate-spring-v2",
+      "reference": "artifacts/image-originals/scene-gate-autumn-v2.png",
+      "prompt": "Use case: lighting-weather. Image 1 is the edit target. Change ONLY the season and associated daylight to early spring. Replace the red maple foliage at the framing corners with pale pink flowering cherry branches and fresh soft green foliage. A few petals drift on the canal. Soft clear morning light. Preserve exactly the working timber sluice gate, its wheel and mechanism, stonebanks, perspective, framing, townhouses, overall architecture and refined watercolor/gouache texture. Same scene, same place, same composition. No text, no letters, no logo, no watermark."
+    },
+    {
+      "name": "scene-gate-summer-v2",
+      "reference": "artifacts/image-originals/scene-gate-autumn-v2.png",
+      "prompt": "Use case: lighting-weather. Image 1 is the edit target. Change ONLY season to midsummer: lush green maple foliage in place of autumn leaves, fresh riverside greenery, golden dappled sunshine, cool luminous turquoise flowing water. Preserve EXACTLY the timber sluice gate, wheel, mechanism, buildings, viewpoint, composition and detailed refined watercolor/gouache texture. Same place, same composition. No text, no watermark."
+    },
+    {
+      "name": "scene-gate-winter-v2",
+      "reference": "artifacts/image-originals/scene-gate-autumn-v2.png",
+      "prompt": "Use case: lighting-weather. Image 1 is the edit target. Change ONLY season to quiet Japanese winter: fine snow on gate roof, rooftops and stone banks, mostly bare framing branches dusted with snow, water flowing unfrozen, cool blue gray air with gentle low warm sunlight. Preserve EXACTLY the timber sluice gate, wheel, mechanism, buildings, viewpoint, composition and detailed refined watercolor/gouache texture. Same place, same composition. No text, no watermark."
+    },
+    {
+      "name": "city-overview-v2",
+      "prompt": "Use case: stylized-concept. Full-bleed 4:3 landscape illustrated birds-eye overview of a fictional Japanese coastal canal city for an elegant travel journal. Detailed hand-painted watercolor and gouache, fine architectural details, warm ivory, ink teal water, sage green, muted vermilion, paper grain, atmospheric golden light. IMPORTANT geography: modern low timber/glass conference hall centered around x22% y76%, traditional timber sluice gate with brass wheel centered x42% y48%, small vermilion torii and shrine amid blossom trees centered x51% y22%, sandy sheltered bay at x80% y72%. Canal links conference hall through gate towards bay. Between landmarks: tiled-roof townhouses, walking lanes, little bridges, greenery. Consistent elevated oblique viewpoint, readable landmarks. A coherent actual landscape, not a collage. No text/labels/pins/numbers/arrows/legend/UI/logo/watermark, not actual Nara or historical Heijo-kyo. Mature sophisticated detailed travel atlas artwork, not flat vector clipart or 3D toy blocks."
+    }
+  ]
+}

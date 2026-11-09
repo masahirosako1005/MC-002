@@ -1,0 +1,615 @@
+.collection-shelf {
+  margin: 32px 0 40px;
+}
+.shelf-count {
+  text-align: right;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.shelf-count strong {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.shelf-count small,
+.set-progress small {
+  display: block;
+  font:
+    0.75rem/1.6 'Yu Gothic UI',
+    sans-serif;
+  color: var(--muted);
+  white-space: normal;
+}
+.trophy-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  flex: none;
+}
+.trophy-art.is-waiting {
+  filter: saturate(0.38);
+}
+.trophy-art.is-waiting > g {
+  opacity: 0.73;
+}
+.trophy-feature {
+  display: grid;
+  grid-template-columns: minmax(145px, 0.8fr) 1.2fr;
+  align-items: center;
+  gap: 22px;
+  background: #e9e7d9;
+  border: 1px solid #d5d5c1;
+  border-radius: 5px;
+  padding: 24px;
+  position: relative;
+}
+.trophy-feature::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #faf6e8;
+  pointer-events: none;
+  border-radius: 2px;
+}
+.feature-object {
+  background: transparent;
+  border: 0;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
+}
+.feature-object .trophy-art {
+  max-width: 230px;
+  margin: auto;
+}
+.feature-object > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-top: 1px solid #b8b9a4;
+  padding-top: 8px;
+  font-size: 0.75rem;
+}
+.feature-object .icon {
+  width: 14px;
+  height: 14px;
+}
+.feature-copy {
+  min-width: 0;
+}
+.feature-copy .eyebrow {
+  color: #526050;
+}
+.feature-copy h3 {
+  font-family: 'Yu Mincho', serif;
+  font-size: 1.45rem;
+  margin: 8px 0;
+}
+.feature-copy > p:not(.eyebrow) {
+  color: #526556;
+  line-height: 1.85;
+}
+.trophy-progress {
+  margin: 18px 0 10px;
+}
+.trophy-progress > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 0.75rem;
+}
+.trophy-progress strong {
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.trophy-progress small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: 4px;
+}
+.trophy-progress progress {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 9px;
+  background: #d2d6c7;
+  color: #547761;
+}
+.trophy-progress progress::-webkit-progress-bar {
+  background: #d2d6c7;
+  border-radius: 3px;
+}
+.trophy-progress progress::-webkit-progress-value {
+  background: #547761;
+  border-radius: 3px;
+}
+.trophy-progress progress::-moz-progress-bar {
+  background: #547761;
+  border-radius: 3px;
+}
+.starter-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 12px 22px;
+  padding: 24px 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+.starter-pair h3 {
+  font-size: 1.2rem;
+  margin: 4px 0 8px;
+  font-family: 'Yu Mincho', serif;
+}
+.starter-pair p {
+  color: var(--muted);
+}
+.starter-items {
+  display: flex;
+  gap: 10px;
+}
+.starter-items button {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0 3px 5px;
+  text-align: center;
+}
+.starter-items .trophy-art {
+  max-width: 110px;
+  margin: auto;
+}
+.starter-items span,
+.starter-items small {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.starter-items span {
+  font-weight: 600;
+}
+.starter-items small {
+  color: var(--muted);
+  margin-top: 3px;
+}
+.starter-result {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+.starter-result .icon {
+  width: 17px;
+  height: 17px;
+}
+.pair-complete .starter-result {
+  color: #3e654c;
+}
+.almost-section {
+  margin-top: 30px;
+}
+.almost-section .section-heading {
+  align-items: center;
+  margin-bottom: 13px;
+}
+.almost-list {
+  display: grid;
+  gap: 10px;
+}
+.almost-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #eeeddf;
+  border: 1px solid #d7d9c9;
+  border-radius: 4px;
+  padding: 10px 13px;
+  text-align: left;
+}
+.almost-card > .trophy-art {
+  width: 74px;
+}
+.almost-card > span {
+  min-width: 0;
+  flex: 1;
+}
+.almost-card strong {
+  display: block;
+  font-size: 0.95rem;
+}
+.almost-card small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.almost-card .action-timing {
+  color: #5b6a59;
+}
+.almost-card > .icon {
+  width: 18px;
+}
+.keepsake-shelves {
+  margin-top: 38px;
+}
+.keepsake-set {
+  margin-bottom: 32px;
+}
+.set-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 3px;
+}
+.set-heading h3 {
+  font-family: 'Yu Mincho', serif;
+  font-size: 1.3rem;
+  margin: 4px 0 3px;
+}
+.set-heading p {
+  color: #67705d;
+}
+.set-progress {
+  text-align: right;
+  max-width: 110px;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 6px;
+}
+.keepsake-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+  padding: 3px 0 16px;
+  border-bottom: 5px solid #cec7af;
+  box-shadow: 0 5px 0 #e8e3d3;
+}
+.keepsake-slot {
+  position: relative;
+  padding: 4px 4px 9px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  text-align: center;
+  min-width: 0;
+}
+.keepsake-slot strong {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  font-weight: 500;
+}
+.keepsake-slot > span {
+  display: block;
+  color: #65705e;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+.keepsake-slot.targeted {
+  border-color: #b3bd9f;
+  background: #e7eadb;
+}
+.keepsake-slot.targeted::before {
+  content: '';
+  position: absolute;
+  right: 7px;
+  top: 0;
+  width: 9px;
+  height: 15px;
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+}
+.keepsake-slot.earned > span {
+  color: #3b684b;
+}
+.set-completed {
+  margin-top: 14px;
+  color: #426747;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.set-completed .icon {
+  width: 18px;
+}
+.set-completed time {
+  font-size: 0.75rem;
+}
+.shelf-note {
+  color: var(--muted);
+  margin-top: 22px;
+}
+.journal-record-summary {
+  padding: 24px;
+  margin-top: 38px;
+}
+.journal-record-summary > .icon,
+.journal-record-summary .cover-corner {
+  display: none;
+}
+.journal-record-summary h2 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+.journal-record-summary h2 br {
+  display: none;
+}
+.journal-record-summary .journal-totals {
+  margin-top: 15px;
+  padding-top: 15px;
+}
+.trophy-dialog {
+  width: min(540px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 25px 28px 30px;
+  border: 1px solid #c4c7b6;
+  border-radius: 8px;
+  color: var(--ink);
+  background: #f7f3e8;
+  box-shadow: 0 18px 90px #112f3b45;
+  overscroll-behavior: contain;
+}
+.trophy-dialog::backdrop {
+  background: #183c42a6;
+}
+.trophy-dialog .dialog-heading {
+  align-items: center;
+  margin-bottom: 0;
+}
+.trophy-dialog h2 {
+  font-size: 1.65rem;
+  text-align: center;
+}
+.trophy-detail-art {
+  max-width: 200px;
+  margin: -7px auto 0;
+  background: radial-gradient(ellipse, #e8e3ce, transparent 70%);
+}
+.trophy-description {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  text-align: center;
+  margin: 13px 0;
+}
+.keepsake-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #426747;
+}
+.keepsake-date .icon {
+  width: 16px;
+}
+.trophy-stages {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+}
+.trophy-stages li {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  position: relative;
+  padding-bottom: 20px;
+}
+.trophy-stages li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 32px;
+  bottom: 0;
+  width: 1px;
+  background: #c7cfbb;
+}
+.stage-mark {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  flex: none;
+  border: 1px solid #aebca0;
+  color: #63715a;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+.stage-mark .icon {
+  width: 18px;
+}
+.stage-complete .stage-mark {
+  color: #355c40;
+  background: #e0e8d2;
+}
+.trophy-stages strong {
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.trophy-stages li > div > span,
+.trophy-stages time {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  margin-top: 3px;
+}
+.missing-conditions {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.missing-conditions h3 {
+  font-size: 0.9rem;
+}
+.missing-conditions ul {
+  font-size: 0.875rem;
+  padding-left: 20px;
+  line-height: 1.9;
+}
+.trophy-next-action {
+  background: #e9eddf;
+  padding: 18px;
+  margin-top: 20px;
+  border: 1px solid #d1d8c3;
+  border-radius: 3px;
+}
+.trophy-next-action h3 {
+  font-size: 1rem;
+  margin: 4px 0 8px;
+}
+.trophy-next-action p {
+  font-size: 0.875rem;
+}
+.trophy-next-action .button {
+  width: 100%;
+  margin-top: 13px;
+  padding-inline: 12px;
+  font-size: 0.875rem;
+}
+.target-choice {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.target-choice .success-message {
+  margin-top: 12px;
+  font-size: 0.875rem;
+}
+.trophy-arrival {
+  margin: 20px 24px 0;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 12px;
+  background: #edf0df;
+  border: 1px solid #bdc9ab;
+  border-radius: 4px;
+}
+.trophy-arrival > .trophy-art {
+  width: 74px;
+}
+.trophy-arrival > div {
+  flex: 1;
+  min-width: 0;
+}
+.trophy-arrival strong {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.trophy-arrival .text-button {
+  padding-block: 6px;
+}
+.trophy-arrival > .round-button {
+  width: 36px;
+  height: 36px;
+  align-self: flex-start;
+}
+@media (hover: hover) and (pointer: fine) {
+  .keepsake-slot:hover,
+  .starter-items button:hover {
+    background: #e9eadc;
+  }
+  .almost-card:hover {
+    border-color: #879b7e;
+  }
+  .feature-object:hover {
+    background: #f8f3e438;
+  }
+}
+@media (max-width: 760px) {
+  .trophy-feature {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 22px;
+  }
+  .feature-object .trophy-art {
+    max-width: 195px;
+  }
+  .feature-object > span {
+    display: none;
+  }
+  .feature-copy > .eyebrow,
+  .feature-copy h3 {
+    text-align: center;
+  }
+  .feature-copy h3 {
+    margin-top: 5px;
+  }
+  .starter-pair {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .starter-items {
+    max-width: 260px;
+    justify-self: center;
+    width: 100%;
+    gap: 25px;
+  }
+  .starter-result {
+    justify-content: center;
+  }
+  .keepsake-row {
+    gap: 3px;
+  }
+  .keepsake-slot {
+    padding-inline: 1px;
+  }
+  .keepsake-slot strong {
+    font-size: 0.75rem;
+  }
+  .almost-card {
+    padding-inline: 9px;
+  }
+  .almost-card > .trophy-art {
+    width: 58px;
+  }
+  .trophy-dialog {
+    margin: auto auto 12px;
+    padding: 20px 20px 26px;
+    max-height: calc(100dvh - 24px);
+  }
+  .trophy-arrival {
+    margin-inline: 17px;
+  }
+}
+@media (max-width: 360px) {
+  .shelf-count {
+    max-width: 95px;
+  }
+  .set-progress {
+    max-width: 90px;
+  }
+  .keepsake-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .keepsake-slot .trophy-art {
+    width: 105px;
+    max-width: 100%;
+    margin: auto;
+  }
+  .trophy-feature {
+    padding-inline: 16px;
+  }
+  .trophy-dialog {
+    padding-inline: 16px;
+  }
+}
+@media (forced-colors: active) {
+  .trophy-art.is-waiting {
+    filter: none;
+  }
+  .keepsake-slot.targeted {
+    border: 2px solid Highlight;
+  }
+}
