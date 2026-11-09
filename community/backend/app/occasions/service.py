@@ -1,12 +1,14 @@
 import heapq
 import json
+
 from fastapi import HTTPException
-from ..database import digest,identifier,now
-from ..service import require,user_out
-from ..marketplace.service import Marketplace,dump,conflict
-from ..marketplace.schedules import schedule_match
+
 from ..circles.discovery import Discovery
+from ..database import digest, identifier, now
+from ..marketplace.schedules import schedule_match
+from ..marketplace.service import Marketplace, conflict, dump
 from ..reflections.aggregate import public_summary
+from ..service import require, user_out
 from .access import permitted_share
 from .dates import next_occurrence
 

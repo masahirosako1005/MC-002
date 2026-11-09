@@ -1,8 +1,16 @@
 from fastapi import APIRouter, Depends
-from ..security import authenticated
+
 from ..schemas import Empty
-from .catalog import PREFECTURES, BADGES, EVIDENCE_NOTE
-from .schemas import JourneyCreate, JourneyUpdate, VersionInput, VisitCreate, VisitUpdate, ProfileInput
+from ..security import authenticated
+from .catalog import BADGES, EVIDENCE_NOTE, PREFECTURES
+from .schemas import (
+    JourneyCreate,
+    JourneyUpdate,
+    ProfileInput,
+    VersionInput,
+    VisitCreate,
+    VisitUpdate,
+)
 from .service import JournalService
 
 

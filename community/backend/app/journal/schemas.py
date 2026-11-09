@@ -1,7 +1,9 @@
 from datetime import date, datetime, timedelta, timezone
 from typing import Annotated, Literal
+
 from pydantic import Field, StringConstraints, field_validator, model_validator
-from ..schemas import Input, Id, Short
+
+from ..schemas import Id, Input, Short
 from .catalog import PREFECTURE_BY_ID
 
 Key = Annotated[str, StringConstraints(min_length=1, max_length=100, pattern=r'^[A-Za-z0-9_-]+$')]

@@ -1,9 +1,9 @@
 import asyncio
-from collections import defaultdict, deque
-from datetime import datetime, timezone
 import secrets
 import threading
 import time
+from collections import defaultdict, deque
+from datetime import UTC, datetime
 
 from fastapi import HTTPException, Request
 from starlette.datastructures import Headers, MutableHeaders
@@ -34,7 +34,7 @@ def current_session(request: Request):
     if not token or len(token) > 128:
         return None
     with request.app.state.database.transaction() as conn:
-        return conn.execute(f"SELECT s.*,u.username,u.name,u.initials,u.color FROM {table} s JOIN users u ON u.id=s.user_id WHERE token_hash=? AND expires_at>? AND u.login_enabled=1", (digest(token), datetime.now(timezone.utc).isoformat())).fetchone()
+        return conn.execute(f"SELECT s.*,u.username,u.name,u.initials,u.color FROM {table} s JOIN users u ON u.id=s.user_id WHERE token_hash=? AND expires_at>? AND u.login_enabled=1", (digest(token), datetime.now(UTC).isoformat())).fetchone()
 
 
 def csrf(request, session):

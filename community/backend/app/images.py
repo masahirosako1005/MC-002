@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta, timezone
 import hashlib
 import io
 import json
@@ -6,11 +5,12 @@ import math
 import re
 import threading
 import warnings
+from datetime import UTC, datetime, timedelta
 
 from fastapi import HTTPException
 from PIL import Image, ImageOps, UnidentifiedImageError
 
-from .database import TAGS, identifier, now
+from .database import TAGS, now
 
 
 def sanitize_image(raw, settings):
@@ -36,7 +36,7 @@ def sanitize_image(raw, settings):
     except HTTPException:
         raise
     except (UnidentifiedImageError, OSError, ValueError, Image.DecompressionBombError, Image.DecompressionBombWarning):
-        raise HTTPException(422, "写真を読み取れませんでした。別のJPEG・PNG・WebPを選んでください。")
+        raise HTTPException(422, "写真を読み取れませんでした。別のJPEG・PNG・WebPを選んでください。") from None
 
 
 def location_candidate(raw):
@@ -66,6 +66,38 @@ def location_candidate(raw):
                         'longitude': coordinate(gps[4], gps[3], 'E', 'W', 180)}
     except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError, OSError, Warning, AttributeError, IndexError):
         return None
+
+
+def cleanup_deleted_media(database, settings):
+    """Retry up to 32 already-authorized logical deletions without inference.
+
+    A maintenance cursor prevents missing old files from starving later retries.
+    Live media, covers and files outside the media directory are never targets.
+    """
+    with database.transaction(True) as conn:
+        stored = conn.execute("SELECT value FROM settings WHERE key='deleted-media-cleanup-cursor-v1'").fetchone()
+        cursor = stored[0] if stored else ''
+        query = 'SELECT id,storage_key FROM media WHERE deleted=1 AND id>? ORDER BY id LIMIT 32'
+        rows = conn.execute(query, (cursor,)).fetchall()
+        if not rows and cursor:
+            rows = conn.execute(query, ('',)).fetchall()
+        if not rows:
+            return 0
+        root = settings.media_dir.resolve()
+        removed = 0
+        for row in rows:
+            if not re.fullmatch(r'[a-f0-9]{32}\.jpg', row['storage_key']):
+                continue
+            path = settings.media_dir / row['storage_key']
+            if not path.resolve().is_relative_to(root):
+                continue
+            try:
+                path.unlink(missing_ok=True)
+                removed += 1
+            except OSError:
+                pass  # A later bounded pass retries; no file details are logged.
+        conn.execute("INSERT INTO settings(key,value) VALUES('deleted-media-cleanup-cursor-v1',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (rows[-1]['id'],))
+        return removed
 
 
 class LocalClassifier:
@@ -139,9 +171,14 @@ class AnalysisWorker:
         self.thread = threading.Thread(target=self.run, name="local-image-analysis", daemon=True)
 
     def start(self):
+        if not getattr(self.classifier, 'inference_enabled', True):
+            return
         with self.database.transaction(True) as conn:
             self.recover_expired(conn)
         self.thread.start()
+
+    def cleanup_deleted(self):
+        return cleanup_deleted_media(self.database, self.settings)
 
     @staticmethod
     def recover_expired(conn):
@@ -149,7 +186,8 @@ class AnalysisWorker:
 
     def close(self):
         self.stop_event.set()
-        self.thread.join(timeout=12)
+        if self.thread.is_alive():
+            self.thread.join(timeout=12)
 
     def run(self):
         while not self.stop_event.is_set():
@@ -161,17 +199,15 @@ class AnalysisWorker:
                 self.stop_event.wait(1)
 
     def once(self):
+        self.cleanup_deleted()
+        if not getattr(self.classifier, 'inference_enabled', True):
+            return False
         with self.database.transaction(True) as conn:
-            for deleted in conn.execute("SELECT storage_key FROM media WHERE deleted=1"):
-                try:
-                    (self.settings.media_dir / deleted["storage_key"]).unlink(missing_ok=True)
-                except OSError:
-                    pass
             self.recover_expired(conn)
             job = conn.execute("SELECT j.*,m.storage_key FROM jobs j JOIN media m ON m.id=j.media_id WHERE j.status='queued' AND j.attempts<2 AND m.deleted=0 ORDER BY m.created_at LIMIT 1").fetchone()
             if job is None:
                 return False
-            lease = (datetime.now(timezone.utc) + timedelta(seconds=30)).isoformat()
+            lease = (datetime.now(UTC) + timedelta(seconds=30)).isoformat()
             conn.execute("UPDATE jobs SET status='running',attempts=attempts+1,lease_until=? WHERE media_id=?", (lease, job["media_id"]))
         try:
             tags = self.classifier.classify(self.settings.media_dir / job["storage_key"])

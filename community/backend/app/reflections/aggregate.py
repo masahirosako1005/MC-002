@@ -1,6 +1,7 @@
 import json
 from collections import Counter
-from .extraction import ASPECTS,METHOD
+
+from .extraction import ASPECTS, METHOD
 
 
 def current_participants(conn,row):

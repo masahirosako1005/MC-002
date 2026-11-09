@@ -1,0 +1,238 @@
+{
+  "executed_at": "2026-11-09T07:52:26.599153+00:00",
+  "passed": true,
+  "scope": "Fresh synthetic application DB/media only; production volumes untouched",
+  "fixture_directory": "artifacts/snapshot-tests/deletion-restore-1ddc4ca220e940198e40739cb7563712",
+  "checks": {
+    "source_real_service_deletion_and_active_photo": true,
+    "committed_wal_backup_source_rows_unchanged": true,
+    "snapshot_all_table_rows_exact": true,
+    "snapshot_deleted_absent_active_exact": true,
+    "existing_worker_verified_manifest_and_files": true,
+    "restored_to_new_empty_area": true,
+    "restored_all_table_rows_exact": true,
+    "restored_deletion_flags_access_denial_and_files_absent": true,
+    "restored_active_photo_readable_and_bytes_exact": true,
+    "nonempty_restore_target_refused": true,
+    "source_and_restored_rows_still_exact_after_checks": true
+  },
+  "limits": [
+    "Not a production disaster recovery drill",
+    "No OS crash or power loss injected",
+    "No app restart after restore: exact row comparison precedes maintenance mutations"
+  ],
+  "table_hashes": {
+    "circle_assistant_turns": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_candidate_cards": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_confirmations": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_member_invitations": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_proposals": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_provider_invitations": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "circle_rooms": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "communities": {
+      "rows": 2,
+      "sha256": "90d05cadff80328db06dfa167a4e04715b39cbaa9a474d8f4bccf2d7ac6424f2"
+    },
+    "condition_drafts": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "consultation_messages": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "consultations": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "grants": {
+      "rows": 201,
+      "sha256": "d6e019512c9c60c95ca9bd1f60641bbf262848eb697144ac5b604118ff5d2b5f"
+    },
+    "group_members": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "jobs": {
+      "rows": 3,
+      "sha256": "976ba6e078b95b55d578a0744ef69f75758bb7c7727fb797b994c692d0f38e8e"
+    },
+    "journal_journeys": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "journal_location_candidates": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "journal_profiles": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "journal_visits": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ko_groups": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "media": {
+      "rows": 3,
+      "sha256": "2424b0672554d6d4363bb8989d0cebda858fc8feb3d832f266481d488ac64f33"
+    },
+    "memberships": {
+      "rows": 201,
+      "sha256": "ea2b888013a93710e2a6913c03ae529a67592b861f744d4c443e118ec094d29d"
+    },
+    "occasion_card_origins": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occasion_card_state": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occasion_sharing": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occasion_suggestion_states": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occasion_suggestions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occasions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "operation_keys": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "party_messages": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "plan_selections": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "post_media": {
+      "rows": 3,
+      "sha256": "931fa0960646144879e7d01a628699be3f21375e2a7dae47c3ec557ea9e8474f"
+    },
+    "posts": {
+      "rows": 3,
+      "sha256": "b25a7cad67074363acd2499a9db5185e5e0fd1a91eb370d084a270def6c6add0"
+    },
+    "preferences": {
+      "rows": 202,
+      "sha256": "c29c954e68baf215f6ebe11eacd2fad2a51fc2322465a95d7fc3b24ba6c2903b"
+    },
+    "proposals": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "provider_plans": {
+      "rows": 3,
+      "sha256": "ca9998d3a8b058bf2942f162e2b0110bdd0fe1ddedb67e894b30349abd21edd3"
+    },
+    "provider_staff": {
+      "rows": 2,
+      "sha256": "aae29f183589f4a52dee36ab26677326acb2468ba8e66bf273dd181817a5cd7a"
+    },
+    "providers": {
+      "rows": 2,
+      "sha256": "1f69b0c56eb693a096433e5f7afed6c1ab2be6c2180d9c1c61da550d278f48c6"
+    },
+    "recommendation_runs": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reflection_messages": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reflection_participants": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reflection_sessions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "responses": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sessions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "settings": {
+      "rows": 3,
+      "sha256": "ba639f5c525b39e16158460d53ac24b49a501cf3219bc58392ff53b6812015e9"
+    },
+    "stage_sessions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "travel_parties": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "travel_party_members": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "travel_requirements": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "user_resume_state": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "users": {
+      "rows": 202,
+      "sha256": "e757fb2a6c7ecce287c2faafd7135960281a4ec663ea69b4f519bccb2ea3a228"
+    }
+  },
+  "table_count": 50,
+  "synthetic_photos": {
+    "active": 1,
+    "deleted": 2
+  },
+  "helper_policy": {
+    "network": "none",
+    "read_only_root": true,
+    "memory_mb": 256,
+    "cpus": 1,
+    "production_mounts": 0
+  }
+}

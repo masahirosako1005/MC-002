@@ -1,8 +1,18 @@
 from fastapi import APIRouter, Depends, Query
-from ..security import authenticated
+
 from ..schemas import Empty
+from ..security import authenticated
+from .schemas import (
+    DraftInput,
+    MessageInput,
+    PartyInput,
+    PlanReference,
+    ProviderPlanInput,
+    RequirementsInput,
+    SelectionInput,
+    VersionInput,
+)
 from .service import Marketplace
-from .schemas import PartyInput, RequirementsInput, MessageInput, DraftInput, VersionInput, PlanReference, SelectionInput, ProviderPlanInput
 
 
 def create_router(database):

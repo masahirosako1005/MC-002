@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-09T07:57:24.690Z",
+  "results": [
+    "trip completion is explicit and consent starts off before any automatic analysis",
+    "personal use and all-traveler consent activate clear automatic extraction",
+    {
+      "failed": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().locator('.circle-list-card').filter({ hasText: '森を歩いた旅 1794211006135 aoi' })\u001b[22m\n"
+    }
+  ],
+  "layout": [],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "setup": "Two independently consented fixture trips establish the publication threshold. The third is exercised through the UI.",
+  "retention": "Only this run’s reflection completion claims are cancelled and circles closed. No seed plans, existing conversations, or rows are deleted.",
+  "passed": false
+}

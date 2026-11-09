@@ -1,17 +1,15 @@
 import io
 import json
-from pathlib import Path
-import sqlite3
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
+from pathlib import Path
 
-from PIL import Image
 import pytest
-
 from app.config import Settings
-from app.main import create_app
 from app.images import LocalClassifier
+from app.main import create_app
 from conftest import Client
+from PIL import Image
 
 
 def photo_bytes(format="JPEG", exif=False):
@@ -113,15 +111,15 @@ def test_draft_private_cross_group_denial_publish_unpublish_and_delete(harness):
     assert not (harness.settings.media_dir / (mid + ".jpg")).exists()
 
 
-def test_model_missing_is_honest_and_manual_tags_can_publish(harness):
+def test_guided_mode_finishes_without_inference_and_manual_tags_can_publish(harness):
     client = harness.client("aoi")
     post = draft(client)
     mid = post["media"][0]["id"]
-    assert harness.app.state.worker.once()
+    assert not harness.app.state.worker.once()
     analysis = client.get("/media/" + mid + "/analysis").json()
-    assert analysis["status"] == "failed" and analysis["tags"] == [] and analysis["model_version"] is None
+    assert analysis["status"] == "manual" and analysis["tags"] == [] and analysis["model_version"] is None
     assert client.write("PATCH", "/posts/" + post["id"], {"status": "published", "tags": ["nature"]}).status_code == 200
-    assert client.write("POST", "/media/" + mid + "/analyze").json()["status"] == "queued"
+    assert client.write("POST", "/media/" + mid + "/analyze").json()["status"] == "manual"
 
 
 def test_personal_evidence_permissions_and_deletion_stay_separate(harness):
@@ -266,6 +264,7 @@ def test_public_covers_allow_only_catalog_keys_and_keep_uploads_private(harness,
         harness.runner.run(lifecycle.__aexit__(None, None, None))
 
 
+@pytest.mark.skip(reason="CP45 normal runtime forbids model inference; retained legacy test is inactive")
 def test_real_model_uses_pixels(tmp_path):
     root = Path(__file__).resolve().parents[2]
     assert (root / "models/mobilenetv2-12.onnx").is_file()
@@ -280,21 +279,20 @@ def test_real_model_uses_pixels(tmp_path):
     assert any(tag["id"] == "coast" for tag in tags)
 
 
-def test_analysis_lease_recovery_is_bounded_and_preserves_active_work(harness):
+def test_guided_mode_does_not_start_or_rewrite_existing_analysis_jobs(harness):
     client = harness.client("aoi")
     mid = upload(client).json()["id"]
-    future = (datetime.now(timezone.utc) + timedelta(minutes=1)).isoformat()
+    future = (datetime.now(UTC) + timedelta(minutes=1)).isoformat()
     with harness.app.state.database.transaction(True) as conn:
         conn.execute("UPDATE jobs SET status='running',attempts=1,lease_until=? WHERE media_id=?", (future, mid))
-        harness.app.state.worker.recover_expired(conn)
         assert conn.execute("SELECT status FROM jobs WHERE media_id=?", (mid,)).fetchone()[0] == "running"
     assert not harness.app.state.worker.once()
     with harness.app.state.database.transaction(True) as conn:
         conn.execute("UPDATE jobs SET lease_until='2000-01-01T00:00:00+00:00' WHERE media_id=?", (mid,))
-    assert harness.app.state.worker.once()
+    assert not harness.app.state.worker.once()
     with harness.app.state.database.transaction(True) as conn:
         row = conn.execute("SELECT * FROM jobs WHERE media_id=?", (mid,)).fetchone()
-        assert row["attempts"] == 2 and row["status"] == "failed"
+        assert row["attempts"] == 1 and row["status"] == "running"
         conn.execute("UPDATE jobs SET status='running',lease_until='2000-01-01T00:00:00+00:00' WHERE media_id=?", (mid,))
     assert not harness.app.state.worker.once()
-    assert client.get("/media/" + mid + "/analysis").json()["status"] == "failed"
+    assert client.get("/media/" + mid + "/analysis").json()["status"] == "manual"

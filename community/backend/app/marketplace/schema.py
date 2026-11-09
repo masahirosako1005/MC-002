@@ -1,6 +1,7 @@
 import json
 import os
 import secrets
+
 from ..database import now, password_hash
 
 PROVIDER_ACCOUNTS = (
@@ -31,7 +32,7 @@ def migrate(database):
     """One atomic, additive migration; existing user data is preserved."""
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (2, 3, 4, 5, 6, 7):
+        if version in (2, 3, 4, 5, 6, 7, 8):
             return
         if version != 1:
             raise RuntimeError('Unsupported marketplace migration source')

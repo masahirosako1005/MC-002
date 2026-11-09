@@ -4,6 +4,3 @@ pydantic==2.14.3
 uvicorn==0.54.0
 Pillow==13.0.0
 python-multipart==0.0.33
-numpy==2.5.4
-onnxruntime==1.31.1; sys_platform != 'win32'
-onnxruntime==1.23.2; sys_platform == 'win32'

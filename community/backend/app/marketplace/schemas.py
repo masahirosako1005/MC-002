@@ -1,8 +1,11 @@
-from datetime import date as Date, datetime, timezone
 import re
+from datetime import UTC, datetime
+from datetime import date as Date
 from typing import Annotated, Literal
+
 from pydantic import Field, field_validator, model_validator
-from ..schemas import Input, Id, Short, TagList
+
+from ..schemas import Id, Input, Short, TagList
 
 
 class PartyInput(Input):
@@ -105,7 +108,7 @@ class ProviderPlanInput(Input):
         if value is not None:
             if value.tzinfo is None or value.utcoffset() is None:
                 raise ValueError('Timezone is required')
-            return value.astimezone(timezone.utc)
+            return value.astimezone(UTC)
         return value
 
     @model_validator(mode='after')

@@ -39,7 +39,7 @@ def extract(body,provider_name):
             return excluded('対象の事業者と体験の結びつきが明確でないため、参考集計には使いません。')
         matched=False
         for aspect,patterns in PATTERNS.items():
-            for sentiment,pattern in zip(('positive','negative'),patterns):
+            for sentiment,pattern in zip(('positive','negative'),patterns,strict=True):
                 # A whole clause must be understood. Trailing negation, quotation,
                 # questions and changes of subject cannot inherit a partial match.
                 if re.fullmatch(pattern,clause):

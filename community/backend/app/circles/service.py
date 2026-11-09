@@ -1,9 +1,10 @@
 import json
 
 from fastapi import HTTPException
+
 from ..database import identifier, now
-from ..service import member, require, user_out
 from ..marketplace.service import Marketplace, conflict, dump
+from ..service import member, require, user_out
 from .assistant import AssistantMixin
 from .providers import ProviderMixin
 
@@ -214,7 +215,7 @@ class Circles(AssistantMixin, ProviderMixin):
 
     def close(self, uid, pid, version):
         with self.db.transaction(True) as conn:
-            party = self.party(conn,uid,pid,True)
+            self.party(conn,uid,pid,True)
             self.version(conn,pid,version)
             conn.execute("UPDATE travel_parties SET status='closed' WHERE id=?",(pid,))
             conn.execute("UPDATE consultations SET status='closed',version=version+1 WHERE selection_id IN (SELECT id FROM plan_selections WHERE party_id=? AND status='active')",(pid,))

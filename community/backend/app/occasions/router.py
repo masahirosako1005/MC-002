@@ -1,7 +1,8 @@
-from fastapi import APIRouter,Depends,Query
+from fastapi import APIRouter, Depends, Query
+
 from ..security import authenticated
+from .schemas import CandidateInput, CreateInput, EditInput, SharingInput, StateInput, VersionInput
 from .service import Occasions
-from .schemas import CreateInput,EditInput,VersionInput,SharingInput,StateInput,CandidateInput
 
 
 def create_router(database):

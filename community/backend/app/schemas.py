@@ -1,6 +1,8 @@
 from datetime import date as Date
 from typing import Annotated, Literal
+
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, field_validator
+
 from .database import TAGS
 
 Short = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=120)]

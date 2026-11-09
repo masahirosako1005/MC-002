@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-11-09T07:36:03.072586+00:00",
+  "mode": "sqlite-read-only-service-inspection",
+  "schema_version": 7,
+  "journal_mode": "wal",
+  "database_file_present": true,
+  "durable_row_counts": {
+    "accounts": 202,
+    "preferences": 202,
+    "permissions": 201,
+    "circles": 41,
+    "saved_candidates": 12,
+    "media": 15,
+    "posts": 15,
+    "visits": 0,
+    "anniversaries": 9,
+    "reflections": 15
+  },
+  "active_login_accounts_with_community": 3,
+  "distinct_confirmed_preference_sets": 1,
+  "same_community_comparisons": [
+    {
+      "account_count": 3,
+      "profiles_used_count": 3,
+      "distinct_candidate_orders": 1,
+      "distinct_candidate_score_sets": 1,
+      "candidate_counts": [
+        3,
+        3,
+        3
+      ],
+      "same_order_is_not_permission_failure": true
+    }
+  ],
+  "navigation_state_table_count": 0,
+  "limitations": [
+    "No private text, tag values, identifiers, or credentials exported",
+    "No restart performed",
+    "Identical current preferences may legitimately produce identical rankings"
+  ]
+}

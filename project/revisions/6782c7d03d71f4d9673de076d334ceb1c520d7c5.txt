@@ -1,0 +1,3 @@
+リビジョン: 6782c7d03d71f4d9673de076d334ceb1c520d7c5
+件名: feat: deliver spotlight introduction movie and record personalization scope
+確認日時: 2026-11-09T17:01:22+09:00

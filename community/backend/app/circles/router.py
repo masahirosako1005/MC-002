@@ -1,9 +1,24 @@
 from fastapi import APIRouter, Depends, Query
+
 from ..security import authenticated
 from .assistant import HELP
-from .schemas import CandidateInput, CircleCreate, GroupInput, InviteInput, ResponseInput, ActionInput, VersionInput, TurnInput, ProviderInvitationInput, ProposalInput, ConfirmationInput, CandidateCardInput, CirclePreferencesInput
-from .service import Circles
 from .discovery import Discovery
+from .schemas import (
+    ActionInput,
+    CandidateCardInput,
+    CandidateInput,
+    CircleCreate,
+    CirclePreferencesInput,
+    ConfirmationInput,
+    GroupInput,
+    InviteInput,
+    ProposalInput,
+    ProviderInvitationInput,
+    ResponseInput,
+    TurnInput,
+    VersionInput,
+)
+from .service import Circles
 
 
 def create_router(database):

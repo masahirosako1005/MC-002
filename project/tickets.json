@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 565,
-  "last_event_hash": "994e4010d3226359da3cd42a0a57c522cf251035b93e3fc90968aebc7d758944",
-  "updated_at": "2026-11-09T16:44:24+09:00",
+  "revision": 576,
+  "last_event_hash": "e3190da05033d68b03357c2d3dfed4527993fdcf2981f5ce628cf939f3f9b88e",
+  "updated_at": "2026-11-09T17:01:24+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2465,25 +2465,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T17:01:22+09:00",
+          "hash": "6782c7d03d71f4d9673de076d334ceb1c520d7c5",
+          "path": "project/revisions/6782c7d03d71f4d9673de076d334ceb1c520d7c5.txt",
+          "summary": "feat: deliver spotlight introduction movie and record personalization scope"
+        }
+      ],
       "status": "done",
       "title": "実操作とスポットライトで約20秒の紹介動画を作る",
       "type": "task",
-      "updated_at": "2026-11-09T16:44:22+09:00"
+      "updated_at": "2026-11-09T17:01:22+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "モデル/API/鍵不要で通常起動し推論を呼ばない"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "既知素材の事前候補と任意写真の手動選択を検証"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "認証・許可・相談の実保存と方式説明を確認"
         }
       ],
@@ -2496,17 +2503,28 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T17:01:23+09:00",
+          "path": "community/artifacts/guided-runtime/api-tests.json",
+          "text": "22成功1skip、モデル/AIネットワーク禁止起動、MOC注記、保存、cleanup"
+        },
+        {
+          "at": "2026-11-09T17:01:23+09:00",
+          "path": "community/artifacts/guidance/browser.json",
+          "text": "実配信のタグ選択→下書き保存、axe0外部0、cleanup"
+        }
+      ],
       "id": "CP45",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 8,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "実AIを使わない案内と手動写真タグ",
       "type": "task",
-      "updated_at": "2026-11-09T16:44:23+09:00"
+      "updated_at": "2026-11-09T17:01:24+09:00"
     },
     {
       "acceptance": [
@@ -2579,6 +2597,72 @@
       "title": "本人専用DBの再開状態と個人化",
       "type": "task",
       "updated_at": "2026-11-09T16:44:24+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "8項目のツール・対象・限界と証拠を示す"
+        },
+        {
+          "checked": false,
+          "text": "具体的な修正と同条件の再測定差分を記録"
+        },
+        {
+          "checked": false,
+          "text": "MOC出力境界と本番AI差替契約をコード/設計に明示"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:51:09+09:00",
+      "dependencies": [
+        "CP46"
+      ],
+      "description": "自動評価できる範囲と人の判断を区別し、測定・修正・再測定。将来本番AI予定と現在MOC出力をソース注記",
+      "documents": [
+        "docs/EVALUATION-TOOLS.md"
+      ],
+      "evidence": [],
+      "id": "CP48",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "大会8項目の評価ツール対応と改善ループ",
+      "type": "task",
+      "updated_at": "2026-11-09T16:51:09+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "異なる動機の案を比較しアプリ再利用と地域再訪を区別"
+        },
+        {
+          "checked": false,
+          "text": "推奨案の具体体験・限界・検証方法を説明"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:59:42+09:00",
+      "dependencies": [],
+      "description": "悩み相談は例とする訂正に従い、既存機能を前提にせず根源的欲求と集団旅行・地域再訪の流れを複数案で比較。案出しであり未採択/未実装",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP49",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "集団旅行と再訪の動機をゼロベースで構想",
+      "type": "task",
+      "updated_at": "2026-11-09T16:59:42+09:00"
     },
     {
       "acceptance": [

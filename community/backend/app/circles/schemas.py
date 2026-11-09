@@ -1,8 +1,10 @@
 from datetime import date
 from typing import Annotated, Literal
+
 from pydantic import Field, StringConstraints, model_validator
-from ..schemas import Input, Id, Short, TagList
+
 from ..marketplace.schemas import ItineraryItem, PlanReference
+from ..schemas import Id, Input, Short, TagList
 
 Version = Annotated[int, Field(strict=True, ge=1)]
 Count = Annotated[int, Field(strict=True, ge=2, le=20)]

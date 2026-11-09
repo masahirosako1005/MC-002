@@ -27,6 +27,7 @@ with sqlite3.connect(os.environ['APP_DB_PATH']) as db:
  for name, in db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"):
   if name in ('sessions','stage_sessions','jobs'): continue
   rows=db.execute('SELECT * FROM "'+name.replace('"','""')+'" ORDER BY rowid').fetchall()
+  if name=='settings': rows=[r for r in rows if r[0]!='deleted-media-cleanup-cursor-v1']
   result['tables'][name]={'count':len(rows),'sha256':digest(rows)}
 files=[]
 for p in sorted(Path(os.environ['MEDIA_DIR']).rglob('*')):
@@ -59,8 +60,8 @@ def main():
     global OUT
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("capture", "compare", "restart-check"))
-    parser.add_argument("--expected-version", type=int, choices=(3, 4, 5, 6, 7), default=3)
-    parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery", "reflections", "occasions"), default="journal")
+    parser.add_argument("--expected-version", type=int, choices=(3, 4, 5, 6, 7, 8), default=3)
+    parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery", "reflections", "occasions", "personalization"), default="journal")
     args = parser.parse_args()
     OUT = ROOT / "artifacts" / args.artifact_dir
     baseline = f"schema{args.expected_version - 1}-before.json"
@@ -74,7 +75,8 @@ def main():
         print(json.dumps({"captured": True, "tables": len(before["tables"]), "media_files": before["media"]["count"]}))
         return
     result = {"checked_at": datetime.now(timezone.utc).isoformat(), "mode": args.mode,
-              "excluded_volatile_tables": ["sessions", "stage_sessions", "jobs"]}
+              "excluded_volatile_tables": ["sessions", "stage_sessions", "jobs"],
+              "excluded_maintenance_setting": "deleted-media-cleanup-cursor-v1 (only cursor; all other settings retained)"}
     if args.mode == "compare":
         before = json.loads((OUT / baseline).read_text(encoding="utf-8"))
         after = probe()

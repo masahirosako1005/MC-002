@@ -1,0 +1,7 @@
+{
+  "initial": "app startup failed: cleanup_deleted method was not yet in Docker COPY snapshot",
+  "correction": "wait for backend freeze and rebuild same image from coherent source",
+  "after": "app and gateway healthy; bootstrap inference_enabled=false external_ai_enabled=false",
+  "schema": 8,
+  "migration_equality": "settings gained only maintenance cursor row; 46 old tables passed row-subset comparison and all 8 media files unchanged"
+}

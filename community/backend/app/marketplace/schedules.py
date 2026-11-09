@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
 
@@ -11,7 +11,7 @@ def schedule_fields(plan):
 def schedule_state(plan, current=None):
     if plan.get('schedule_type','on_request') == 'on_request':
         return 'on_request'
-    current = current or datetime.now(timezone.utc)
+    current = current or datetime.now(UTC)
     try:
         starts = datetime.fromisoformat(plan['starts_at'])
         ends = datetime.fromisoformat(plan['ends_at'])

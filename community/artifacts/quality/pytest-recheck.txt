@@ -1,0 +1,6 @@
+.                                                                        [100%]
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.17-final-0 _______________
+
+Coverage JSON written to file community/artifacts/quality/coverage.json
+1 passed in 1.78s

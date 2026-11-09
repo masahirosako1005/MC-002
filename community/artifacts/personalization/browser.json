@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-09T07:54:00.618Z",
+  "checks": [
+    "own search and page restored after reload",
+    "last opened page restored",
+    "CAS conflict loads latest state without overwriting it",
+    "late old-account 401 cannot clear the new account",
+    "two accounts keep independent private filters"
+  ],
+  "external": [],
+  "errors": [],
+  "passed": true,
+  "axeViolations": [],
+  "cleanup": true
+}

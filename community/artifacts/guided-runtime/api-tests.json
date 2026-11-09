@@ -1,0 +1,35 @@
+{
+  "recorded_on": "2026-11-09",
+  "scope": "CP45 normal image guidance without model inference or external AI; existing photo permissions and real circle transactions",
+  "source_base_commit": "6782c7d03d71f4d9673de076d334ceb1c520d7c5",
+  "working_tree_implementation": true,
+  "environment": {"os": "Windows", "python": "3.13.17", "transport": "httpx ASGITransport", "fixtures": "Generated isolated local databases and images; four existing public project assets for exact-hash cases; no user database"},
+  "test_run": {
+    "files": ["community/backend/tests/test_image_guidance.py", "community/backend/tests/test_api.py"],
+    "passed": 22,
+    "failed": 0,
+    "skipped": 1,
+    "seconds": 24.36,
+    "skip_reason": "Retained historical test_real_model_uses_pixels is explicitly inactive because CP45 forbids actual inference in the normal presentation/runtime. It is not reported as passed."
+  },
+  "static_checks": {"targeted_ruff": "0 findings with community/quality/ruff.toml", "compile": "passed", "compose_config": "passed"},
+  "verified": [
+    "Startup with an absent model directory and no API keys; model constructor and inference/AI package imports are guarded against use",
+    "No network connection is needed for startup or the tested condition/candidate/invitation/confirmation flow",
+    "Old worker=True configuration cannot start image inference with ImageGuidance",
+    "Known public asset bytes alone produce predefined tag hints without confidence scores; arbitrary photos and misleading filenames remain manual with no hints",
+    "Uploads and compatibility analyze calls return terminal manual/guided status without queuing inference",
+    "A user can explicitly select and publish photo tags; another member receives selected post tags but no private candidate details",
+    "Historical queued/running/succeeded/failed job values, tags, scores and model versions remain unchanged in the database while API responses terminate waiting",
+    "Local condition templates, actual candidate saving, pending provider invitation, provider acceptance and two-party proposal confirmation continue to persist; reservation remains not_booked",
+    "A temporarily locked logically deleted photo is denied by the API immediately, then physically removed by inference-free startup cleanup; active media remains"
+  ],
+  "review_correction": "Separated bounded logical-deletion cleanup from inference so disabling image workers does not remove the existing file-removal retry path.",
+  "processing_boundary": "MOC comments explicitly identify fixed outputs and a future external-AI adapter boundary. No API client, SDK, keys or external network opening were implemented; authorization, consent, structured validation and saving remain server responsibilities.",
+  "limitations": [
+    "Docker deployment and production-volume preservation are parent-agent validations recorded separately.",
+    "Network-disabled checks use in-process ASGI and connection/import guards, not an operating-system egress certification.",
+    "No model accuracy or actual inference result is claimed; model code/assets remain stored but inactive in normal operation.",
+    "The deletion retry cursor is new maintenance state; it only targets previously authorized deleted=1 media and is bounded to 32 rows per pass."
+  ]
+}

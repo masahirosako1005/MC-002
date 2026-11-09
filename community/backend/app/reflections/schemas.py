@@ -1,7 +1,9 @@
-from datetime import date,datetime,timedelta,timezone
-from typing import Annotated,Literal
-from pydantic import Field,StringConstraints,field_validator,model_validator
-from ..schemas import Input,Id
+from datetime import date, datetime, timedelta, timezone
+from typing import Annotated, Literal
+
+from pydantic import Field, StringConstraints, field_validator, model_validator
+
+from ..schemas import Id, Input
 
 Version=Annotated[int,Field(strict=True,ge=1)]
 Body=Annotated[str,StringConstraints(strip_whitespace=True,min_length=1,max_length=1000)]

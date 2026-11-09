@@ -2,7 +2,7 @@ param([switch]$Build)
 $ErrorActionPreference = 'Stop'
 $communityRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $composePath = Join-Path $communityRoot 'compose.yaml'
-foreach ($required in @('models', 'assets')) {
+foreach ($required in @('assets')) {
     $directory = Join-Path $communityRoot $required
     if (-not (Test-Path -LiteralPath $directory -PathType Container)) {
         throw "Required project directory is missing: $directory"

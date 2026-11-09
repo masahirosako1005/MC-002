@@ -1,14 +1,14 @@
 """Date-only occasions use Japan's calendar and never require a birth year."""
 
-from datetime import date, datetime, timedelta, timezone
 import calendar
+from datetime import UTC, date, datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
 SUGGESTION_WINDOW_DAYS = 30
 
 
 def today_jst(current: datetime | None = None) -> date:
-    current = current or datetime.now(timezone.utc)
+    current = current or datetime.now(UTC)
     if current.tzinfo is None or current.utcoffset() is None:
         raise ValueError("An aware timestamp is required")
     return current.astimezone(JST).date()

@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-09T07:49:28.949Z",
+  "external": [],
+  "errors": [],
+  "checks": [
+    "live bootstrap disables inference and external AI",
+    "known photo has predefined hints, manual selection is saved without inference"
+  ],
+  "passed": true,
+  "axeViolations": [],
+  "cleanup": true
+}

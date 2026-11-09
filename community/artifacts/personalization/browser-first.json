@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-09T07:53:34.605Z",
+  "checks": [
+    "own search and page restored after reload",
+    "last opened page restored"
+  ],
+  "external": [],
+  "errors": [],
+  "passed": false,
+  "failure": "expect(locator).toHaveValue(expected) failed\n\nLocator: getByRole('searchbox', { name: '取得した候補を場所・プラン名で絞り込む' })\nExpected: \"海\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveValue\" getByRole('searchbox', { name: '取得した候補を場所・プラン名で絞り込む' }) with timeout 5000ms\n  - waiting for getByRole('searchbox', { name: '取得した候補を場所・プラン名で絞り込む' })\n    5 × locator resolved to <input value=\"カフェ\" type=\"search\" maxlength=\"120\" placeholder=\"場所・プラン名で絞り込む\"/>\n      - unexpected value \"カフェ\"\n",
+  "cleanup": true
+}

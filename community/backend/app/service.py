@@ -1,13 +1,14 @@
-from datetime import datetime, timedelta, timezone
 import hashlib
 import json
 import secrets
 import threading
+from datetime import UTC, datetime, timedelta
 
 from fastapi import HTTPException
 
-from .database import ACCOUNTS, TAGS, TRIPS, digest, identifier, now, password_hash
-from .images import sanitize_image, location_candidate
+from .database import TRIPS, digest, identifier, now, password_hash
+from .image_guidance import photo_guidance
+from .images import cleanup_deleted_media, location_candidate, sanitize_image
 
 COVER_KEYS = ("woodland", "coffee", "coast", "table")
 TRIP_BY_ID = {trip["id"]: {**trip, "cover_key": {"mountain": "woodland", "coast": "coast", "cafe": "coffee", "games": "table"}[trip["cover_key"]]} for trip in TRIPS}
@@ -46,7 +47,7 @@ class Service:
                 conn.execute("DELETE FROM sessions WHERE token_hash=?", (previous_hash,))
             conn.execute("DELETE FROM sessions WHERE expires_at<=?", (now(),))
             token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
-            conn.execute("INSERT INTO sessions VALUES(?,?,?,?)", (digest(token), row["id"], csrf, (datetime.now(timezone.utc) + timedelta(days=30)).isoformat()))
+            conn.execute("INSERT INTO sessions VALUES(?,?,?,?)", (digest(token), row["id"], csrf, (datetime.now(UTC) + timedelta(days=30)).isoformat()))
             return {"user": user_out(row), "csrf_token": csrf}, token
 
     def community_out(self, conn, cid, uid):
@@ -97,7 +98,16 @@ class Service:
     @staticmethod
     def analysis_out(conn, mid):
         row = require(conn.execute("SELECT * FROM jobs WHERE media_id=?", (mid,)).fetchone())
-        return {"status": row["status"], "tags": json.loads(row["tags"]), "message": row["message"], "model_version": row["model_version"]}
+        tags = json.loads(row["tags"])
+        guided = row["status"] == "guided"
+        method = "predefined-photo-tags-v1" if guided else "saved-candidates-manual-review" if tags else "manual-photo-tags-v1"
+        message = row["message"] if row["status"] in ("guided", "manual") else (
+            "以前の候補を保持しています。写真に合うタグを自分で選んでください。" if tags else
+            "写真の自動認識は行いません。写真に合うタグを自分で選んでください。")
+        # Old jobs remain byte-for-byte unchanged. Their pending/error states do
+        # not create an endless inference wait in the current guided runtime.
+        return {"status": "guided" if guided else "manual", "tags": tags, "message": message,
+                "model_version": row["model_version"], "method": method, "inference_enabled": False}
 
     def media_out(self, conn, row):
         return {"id": row["id"], "url": "/api/media/" + row["id"], "width": row["width"], "height": row["height"], "analysis": self.analysis_out(conn, row["id"])}
@@ -108,6 +118,7 @@ class Service:
         try:
             clean, width, height = sanitize_image(raw, self.settings)
             candidate = location_candidate(raw) if read_location else None
+            guidance = photo_guidance(raw)
         finally:
             self.decode_lock.release()
         mid = identifier()
@@ -119,7 +130,8 @@ class Service:
                     raise HTTPException(409, "保存枚数の上限です。不要な投稿を削除してください。")
                 destination.write_bytes(clean)
                 conn.execute("INSERT INTO media(id,user_id,storage_key,width,height,sha256,created_at) VALUES(?,?,?,?,?,?,?)", (mid, uid, key, width, height, hashlib.sha256(clean).hexdigest(), now()))
-                conn.execute("INSERT INTO jobs(media_id,status,message) VALUES(?,'queued','写真を確認しています。タグはあとで直せます。')", (mid,))
+                conn.execute("INSERT INTO jobs(media_id,status,tags,message) VALUES(?,?,?,?)",
+                             (mid, guidance['status'], json.dumps(guidance['tags'], ensure_ascii=False), guidance['message']))
                 if candidate is not None:
                     conn.execute('INSERT INTO journal_location_candidates VALUES(?,?,?,?)', (mid, candidate['latitude'], candidate['longitude'], now()))
                 # Do not add candidates to media_out: that serializer is also used in shared feeds.
@@ -139,8 +151,6 @@ class Service:
     def analysis(self, uid, mid, retry=False):
         with self.db.transaction(retry) as conn:
             require(conn.execute("SELECT 1 FROM media WHERE id=? AND user_id=? AND deleted=0", (mid, uid)).fetchone())
-            if retry:
-                conn.execute("UPDATE jobs SET status='queued',attempts=0,message='写真を確認しています。',tags='[]' WHERE media_id=? AND status NOT IN ('queued','running')", (mid,))
             return self.analysis_out(conn, mid)
 
     def post_out(self, conn, row, uid):
@@ -149,7 +159,8 @@ class Service:
         # Other members see the chosen tags, not private analysis candidates.
         if row["user_id"] != uid:
             for image in media:
-                image["analysis"] = {"status": image["analysis"]["status"], "tags": [], "message": "投稿者が選んだタグを表示しています。", "model_version": None}
+                image["analysis"] = {"status": "manual", "tags": [], "message": "投稿者が選んだタグを表示しています。", "model_version": None,
+                                     "method": "author-selected-tags", "inference_enabled": False}
         return {"id": row["id"], "community_id": row["community_id"], "author": user_out(author), "body": row["body"], "tags": json.loads(row["tags"]), "media": media,
                 "status": row["status"], "created_at": row["created_at"], "place_label": row["place_label"], "taken_on": row["taken_on"], "can_edit": row["user_id"] == uid}
 
@@ -202,7 +213,8 @@ class Service:
             try:
                 path.unlink(missing_ok=True)
             except OSError:
-                pass  # Access is already denied; worker cleanup retries removal.
+                pass  # Access is denied; inference-free cleanup retries removal.
+        cleanup_deleted_media(self.db, self.settings)
         return {"ok": True}
 
     def preference_out(self, conn, uid):

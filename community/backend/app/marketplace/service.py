@@ -1,10 +1,13 @@
 import hashlib
 import json
 import re
+
 from fastapi import HTTPException
+
 from ..database import TAGS, identifier, now
+from ..image_guidance import IMAGE_PROCESSING
 from ..service import member, require
-from .schedules import schedule_fields, schedule_state, schedule_match
+from .schedules import schedule_fields, schedule_match, schedule_state
 
 
 def dump(value):
@@ -42,7 +45,10 @@ class Marketplace:
     def capabilities(self, uid):
         with self.db.transaction() as conn:
             rows = conn.execute('SELECT p.id,p.name,p.area FROM providers p JOIN provider_staff s ON s.provider_id=p.id WHERE s.user_id=? AND s.active=1 AND p.active=1', (uid,))
-            return {'providers':[dict(r) for r in rows], 'traveler':True, 'hub':{'image_model':'MobileNet V2', 'condition_method':'確認付き数値抽出', 'recommendation_method':'人数・泊数・予算と関心の条件照合'}}
+            return {'providers':[dict(r) for r in rows], 'traveler':True,
+                    'hub':{'image_model':IMAGE_PROCESSING['name'], 'image_mode':IMAGE_PROCESSING['mode'],
+                           'image_method':IMAGE_PROCESSING['method'], 'inference_enabled':False, 'external_ai_enabled':False,
+                           'condition_method':'ローカルの定型案内・確認付き条件整理', 'recommendation_method':'人数・泊数・予算と公開カタログの照合'}}
 
     def providers(self, uid, pid=None):
         with self.db.transaction() as conn:
@@ -325,7 +331,7 @@ class Marketplace:
 
     def close_party(self,uid,pid):
         with self.db.transaction(True) as conn:
-            row=self.party(conn,uid,pid,True)
+            self.party(conn,uid,pid,True)
             conn.execute("UPDATE consultations SET status='closed',version=version+1 WHERE selection_id IN (SELECT id FROM plan_selections WHERE party_id=? AND status='active')",(pid,))
             conn.execute("UPDATE plan_selections SET status='closed' WHERE party_id=? AND status='active'",(pid,))
             conn.execute("UPDATE travel_parties SET status='closed' WHERE id=?",(pid,))

@@ -1,0 +1,85 @@
+...............s..............................................F......... [ 49%]
+........................................................................ [ 98%]
+..                                                                       [100%]
+================================== FAILURES ===================================
+____________ test_schema3_is_additive_and_reopen_preserves_records ____________
+
+harness = Harness(app=<fastapi.applications.FastAPI object at 0x0000018330885D10>, settings=Settings(db_path=WindowsPath('C:/Use...runner=<asyncio.runners.Runner object at 0x00000183303EF0D0>, clients=[<conftest.Client object at 0x000001833042FAD0>])
+
+    def test_schema3_is_additive_and_reopen_preserves_records(harness):
+        aoi = harness.client('aoi')
+        jid = journey(aoi)['id']
+        add(aoi,jid)
+        db = harness.app.state.database
+        with db.transaction() as conn:
+            expected_users = [tuple(row) for row in conn.execute('SELECT * FROM users ORDER BY id')]
+            expected_posts = [tuple(row) for row in conn.execute('SELECT * FROM posts ORDER BY id')]
+        reopened = Database(harness.settings.db_path)
+        reopened.initialize()
+        marketplace_migrate(reopened)
+        migrate(reopened)
+        with reopened.transaction() as conn:
+>           assert conn.execute('PRAGMA user_version').fetchone()[0] == 7
+E           assert 8 == 7
+
+community\backend\tests\test_journal.py:237: AssertionError
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.17-final-0 _______________
+
+Name                                                Stmts   Miss Branch BrPart  Cover
+-------------------------------------------------------------------------------------
+community\backend\app\__init__.py                       0      0      0      0   100%
+community\backend\app\circles\__init__.py               0      0      0      0   100%
+community\backend\app\circles\assistant.py            124     19     64      9    85%
+community\backend\app\circles\discovery.py            113      7     44      6    92%
+community\backend\app\circles\discovery_schema.py      11      1      6      1    88%
+community\backend\app\circles\guards.py                12      0      6      0   100%
+community\backend\app\circles\providers.py            125      8     34      9    89%
+community\backend\app\circles\router.py                86      1      0      0    99%
+community\backend\app\circles\schema.py                13      1      6      1    89%
+community\backend\app\circles\schemas.py               65      4      8      4    89%
+community\backend\app\circles\service.py              186     27     54     15    81%
+community\backend\app\config.py                        25      1      4      1    93%
+community\backend\app\database.py                      78      1     16      1    98%
+community\backend\app\image_guidance.py                14      1      0      0    93%
+community\backend\app\images.py                       176     75     46      7    56%
+community\backend\app\journal\__init__.py               0      0      0      0   100%
+community\backend\app\journal\catalog.py                7      0      0      0   100%
+community\backend\app\journal\router.py                55      2      0      0    96%
+community\backend\app\journal\schema.py                11      1      6      1    88%
+community\backend\app\journal\schemas.py               55      1     10      1    97%
+community\backend\app\journal\service.py              160      8     46      5    94%
+community\backend\app\main.py                         226      8     24      5    95%
+community\backend\app\marketplace\__init__.py           0      0      0      0   100%
+community\backend\app\marketplace\router.py            78      3      0      0    96%
+community\backend\app\marketplace\schedules.py         33      3     14      2    89%
+community\backend\app\marketplace\schema.py            27      1     10      1    95%
+community\backend\app\marketplace\schemas.py          103      5     26      5    92%
+community\backend\app\marketplace\service.py          295     24    100     14    89%
+community\backend\app\occasions\__init__.py             0      0      0      0   100%
+community\backend\app\occasions\access.py              19      0     10      0   100%
+community\backend\app\occasions\dates.py               38      3     20      3    90%
+community\backend\app\occasions\router.py              38      0      0      0   100%
+community\backend\app\occasions\schema.py              11      1      6      1    88%
+community\backend\app\occasions\schemas.py             50      2      8      2    93%
+community\backend\app\occasions\service.py            193     10     62      9    93%
+community\backend\app\personalization\router.py        14      0      0      0   100%
+community\backend\app\personalization\schema.py        16      1      6      1    91%
+community\backend\app\personalization\schemas.py       22      0      2      0   100%
+community\backend\app\personalization\service.py       83      9     36      6    86%
+community\backend\app\reflections\__init__.py           0      0      0      0   100%
+community\backend\app\reflections\aggregate.py         60      1     24      1    98%
+community\backend\app\reflections\extraction.py        41      1     22      1    97%
+community\backend\app\reflections\router.py            47      1      0      0    98%
+community\backend\app\reflections\schema.py            11      1      6      1    88%
+community\backend\app\reflections\schemas.py           41      1      4      1    96%
+community\backend\app\reflections\service.py          180     17     60     15    87%
+community\backend\app\schemas.py                       64      1      2      1    97%
+community\backend\app\security.py                     107      8     48      6    91%
+community\backend\app\service.py                      298     19     94     14    92%
+-------------------------------------------------------------------------------------
+TOTAL                                                3411    278    934    150    90%
+Coverage JSON written to file community/artifacts/quality/coverage.json
+=========================== short test summary info ===========================
+FAILED community/backend/tests/test_journal.py::test_schema3_is_additive_and_reopen_preserves_records
+1 failed, 144 passed, 1 skipped in 138.43s (0:02:18)

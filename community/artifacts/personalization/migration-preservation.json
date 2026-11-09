@@ -1,0 +1,293 @@
+{
+  "tables": {
+    "circle_assistant_turns": {
+      "before": 5,
+      "current": 5,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_candidate_cards": {
+      "before": 12,
+      "current": 12,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_confirmations": {
+      "before": 4,
+      "current": 4,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_member_invitations": {
+      "before": 17,
+      "current": 17,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_proposals": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_provider_invitations": {
+      "before": 21,
+      "current": 21,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_rooms": {
+      "before": 41,
+      "current": 41,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "communities": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "condition_drafts": {
+      "before": 6,
+      "current": 6,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "consultation_messages": {
+      "before": 40,
+      "current": 40,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "consultations": {
+      "before": 25,
+      "current": 25,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "grants": {
+      "before": 201,
+      "current": 201,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "group_members": {
+      "before": 9,
+      "current": 9,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_journeys": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_location_candidates": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_profiles": {
+      "before": 1,
+      "current": 1,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_visits": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "ko_groups": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "media": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "memberships": {
+      "before": 201,
+      "current": 201,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasion_card_origins": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasion_card_state": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasion_sharing": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasion_suggestion_states": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasion_suggestions": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "occasions": {
+      "before": 9,
+      "current": 9,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "operation_keys": {
+      "before": 262,
+      "current": 262,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "party_messages": {
+      "before": 8,
+      "current": 8,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "plan_selections": {
+      "before": 25,
+      "current": 25,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "post_media": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "posts": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "preferences": {
+      "before": 202,
+      "current": 202,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "proposals": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "provider_plans": {
+      "before": 12,
+      "current": 12,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "provider_staff": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "providers": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "recommendation_runs": {
+      "before": 10,
+      "current": 10,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "reflection_messages": {
+      "before": 19,
+      "current": 19,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "reflection_participants": {
+      "before": 20,
+      "current": 20,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "reflection_sessions": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "responses": {
+      "before": 9,
+      "current": 9,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "settings": {
+      "before": 2,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 1
+    },
+    "travel_parties": {
+      "before": 41,
+      "current": 41,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "travel_party_members": {
+      "before": 52,
+      "current": 52,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "travel_requirements": {
+      "before": 38,
+      "current": 38,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "users": {
+      "before": 202,
+      "current": 202,
+      "missing_or_modified": 0,
+      "additional": 0
+    }
+  },
+  "excluded_volatile_tables": [
+    "sessions",
+    "stage_sessions",
+    "jobs"
+  ],
+  "schema_version": 8,
+  "integrity_ok": true,
+  "foreign_keys_valid": true,
+  "old_media_count": 8,
+  "old_media_unchanged": true,
+  "passed": true,
+  "checked_at": "2026-11-09T07:47:43.251753+00:00",
+  "scope": "Pre-migration backup subset preservation; additional user/QA rows allowed. Not equality of all current rows."
+}

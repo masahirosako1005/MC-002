@@ -1,6 +1,8 @@
-from typing import Annotated,Literal
-from pydantic import Field,StringConstraints,model_validator
-from ..schemas import Input,Id
+from typing import Annotated, Literal
+
+from pydantic import Field, StringConstraints, model_validator
+
+from ..schemas import Id, Input
 from .dates import validate_occasion_date
 
 Version=Annotated[int,Field(strict=True,ge=1)]

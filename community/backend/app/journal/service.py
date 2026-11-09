@@ -2,9 +2,10 @@ import hashlib
 import json
 
 from fastapi import HTTPException
+
 from ..database import identifier, now
 from ..service import member, require, user_out
-from .catalog import PREFECTURES, PREFECTURE_BY_ID, badge_progress, EVIDENCE_NOTE
+from .catalog import EVIDENCE_NOTE, PREFECTURE_BY_ID, PREFECTURES, badge_progress
 
 
 def check_version(row, version):

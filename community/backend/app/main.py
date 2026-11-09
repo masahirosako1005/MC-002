@@ -1,32 +1,47 @@
 import asyncio
-from contextlib import asynccontextmanager
-from datetime import datetime, timedelta, timezone
 import logging
-from pathlib import Path
 import sqlite3
+from contextlib import asynccontextmanager
+from datetime import UTC, datetime, timedelta
+from pathlib import Path
 
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from .circles.discovery_schema import migrate as migrate_discovery
+from .circles.router import create_router as circles_router
+from .circles.schema import migrate as migrate_circles
 from .config import Settings
 from .database import TAGS, Database, digest
-from .images import AnalysisWorker, LocalClassifier
-from .schemas import CommunityInput, ContributionInput, Empty, JoinInput, Login, PlanInput, PostInput, PostPatch, PreferencesInput, ProposalInput, ResponseInput
+from .image_guidance import IMAGE_PROCESSING, ImageGuidance
+from .images import AnalysisWorker
+from .journal.router import create_router as journal_router
+from .journal.schema import migrate as migrate_journal
+from .marketplace.router import create_router as marketplace_router
+from .marketplace.schema import migrate
+from .occasions.router import create_router as occasions_router
+from .occasions.schema import migrate as migrate_occasions
+from .personalization.router import create_router as personalization_router
+from .personalization.schema import migrate as migrate_personalization
+from .reflections.router import create_router as reflections_router
+from .reflections.schema import migrate as migrate_reflections
+from .schemas import (
+    CommunityInput,
+    ContributionInput,
+    Empty,
+    JoinInput,
+    Login,
+    PlanInput,
+    PostInput,
+    PostPatch,
+    PreferencesInput,
+    ProposalInput,
+    ResponseInput,
+)
 from .security import COOKIE, HEADERS, SecurityMiddleware, authenticated, csrf, current_session
 from .service import COVER_KEYS, TRIP_BY_ID, Service, user_out
-from .marketplace.schema import migrate
-from .marketplace.router import create_router as marketplace_router
-from .journal.schema import migrate as migrate_journal
-from .journal.router import create_router as journal_router
-from .circles.schema import migrate as migrate_circles
-from .circles.router import create_router as circles_router
-from .circles.discovery_schema import migrate as migrate_discovery
-from .reflections.schema import migrate as migrate_reflections
-from .reflections.router import create_router as reflections_router
-from .occasions.schema import migrate as migrate_occasions
-from .occasions.router import create_router as occasions_router
 
 logger = logging.getLogger("ko")
 
@@ -34,7 +49,7 @@ logger = logging.getLogger("ko")
 def create_app(settings=None):
     settings = settings or Settings()
     database = Database(settings.db_path)
-    classifier = LocalClassifier(settings.model_dir)
+    classifier = ImageGuidance()
     service = Service(database, settings, classifier)
     worker = AnalysisWorker(database, settings, classifier)
 
@@ -47,7 +62,9 @@ def create_app(settings=None):
         migrate_discovery(database)
         migrate_reflections(database)
         migrate_occasions(database)
+        migrate_personalization(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
+        worker.cleanup_deleted()
         service.seed_assets()
         if settings.worker_enabled:
             worker.start()
@@ -90,7 +107,7 @@ def create_app(settings=None):
     @public.get("/bootstrap")
     def bootstrap():
         return {"tags": [{"id": key, "label": label} for key, label in TAGS.items()],
-                "model": {"status": "ready" if classifier.session else "unavailable", "name": "MobileNet V2・画像の被写体候補"}}
+                "model": dict(IMAGE_PROCESSING)}
 
     @public.get("/covers/{key}")
     def cover(key: str):
@@ -118,12 +135,12 @@ def create_app(settings=None):
     def stage_login(body: Login):
         # Password authentication is shared; stage tokens never become cookies.
         result, token = service.login(body.username, body.password, None)
-        expires_at = (datetime.now(timezone.utc) + timedelta(minutes=30)).isoformat()
+        expires_at = (datetime.now(UTC) + timedelta(minutes=30)).isoformat()
         with database.transaction(True) as conn:
             row = conn.execute('SELECT * FROM sessions WHERE token_hash=?', (digest(token),)).fetchone()
             conn.execute('INSERT INTO stage_sessions VALUES(?,?,?,?)', (row['token_hash'],row['user_id'],row['csrf_token'],expires_at))
             conn.execute('DELETE FROM sessions WHERE token_hash=?', (row['token_hash'],))
-            conn.execute('DELETE FROM stage_sessions WHERE expires_at<=?', (datetime.now(timezone.utc).isoformat(),))
+            conn.execute('DELETE FROM stage_sessions WHERE expires_at<=?', (datetime.now(UTC).isoformat(),))
         return {**result,'access_token':token,'expires_at':expires_at}
 
     @private.post("/logout")
@@ -246,6 +263,7 @@ def create_app(settings=None):
     app.include_router(circles_router(database))
     app.include_router(reflections_router(database))
     app.include_router(occasions_router(database))
+    app.include_router(personalization_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

@@ -1,13 +1,12 @@
-from contextlib import contextmanager
-from datetime import datetime, timezone
-from pathlib import Path
 import hashlib
 import json
 import os
 import secrets
 import sqlite3
+from contextlib import contextmanager
+from datetime import UTC, datetime
+from pathlib import Path
 from uuid import uuid4
-
 
 TAGS = {"mountain": "山の景色", "coast": "海辺", "food": "食事", "cafe": "カフェ", "walk": "街歩き", "fashion": "服・小物", "games": "ボードゲーム", "stay": "宿で過ごす", "nature": "自然"}
 ACCOUNTS = (("aoi", "藤沢 葵", "葵", "#A05C42"), ("ren", "高橋 蓮", "蓮", "#436D68"), ("mio", "小野 美緒", "美緒", "#806483"))
@@ -22,7 +21,7 @@ for trip in TRIPS:
 
 
 def now():
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def identifier():
@@ -86,7 +85,7 @@ class Database:
         conn = self.connect()
         try:
             version = conn.execute("PRAGMA user_version").fetchone()[0]
-            if version not in (0, 1, 2, 3, 4, 5, 6, 7):
+            if version not in (0, 1, 2, 3, 4, 5, 6, 7, 8):
                 raise RuntimeError("Unknown database version")
             conn.execute("PRAGMA journal_mode=WAL")
             conn.executescript(SCHEMA)

@@ -1,7 +1,17 @@
-from fastapi import APIRouter,Depends
+from fastapi import APIRouter, Depends
+
 from ..security import authenticated
+from .schemas import (
+    CompletionInput,
+    ConsentInput,
+    CreateInput,
+    EditInput,
+    MessageInput,
+    ParticipationInput,
+    ReviewInput,
+    VersionInput,
+)
 from .service import Reflections
-from .schemas import CreateInput,VersionInput,ParticipationInput,ConsentInput,CompletionInput,MessageInput,EditInput,ReviewInput
 
 
 def create_router(database):

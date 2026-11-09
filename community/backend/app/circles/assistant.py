@@ -1,17 +1,18 @@
-from datetime import date
 import json
 import re
 import unicodedata
+from datetime import date
 
 from fastapi import HTTPException
 from pydantic import ValidationError
+
 from ..database import identifier, now
 from ..marketplace.schemas import RequirementsInput
 from ..marketplace.service import dump
 from ..service import require
 
-HELP = dict(method='local-catalog-rules-v1',external_ai_enabled=False,
-            description='PC内の公開プランと、数値・日付・関心の整理規則を使って旅の条件を一緒に確かめます。',
+HELP = dict(method='local-catalog-rules-v1',mode='guided',external_ai_enabled=False,generative_ai_enabled=False,
+            description='PC内の定型案内と数値・日付・関心の整理規則で条件を確かめ、公開プランを照合します。',
             limitations=['一般的な会話を理解する生成AIではありません。','否定・引用・複数の条件は読み違えることがあります。確認して保存してください。',
                          '営業・空席・交通や外部の旅行情報は取得しません。','会話だけでは参加招待や事業者への共有を行いません。'])
 
@@ -128,6 +129,10 @@ class AssistantMixin:
                                 break
                 except ValidationError:
                     ambiguities.append('条件の値を確認してください')
+            # MOC: replies currently use local templates and validated catalogue
+            # data. A future external-AI adapter may replace text generation;
+            # auth, consent, structured validation, matching and actual saving
+            # stay server-controlled. No external AI is called in this version.
             if ambiguities:
                 reply = '条件を一つに決める前に、'+ '。'.join(ambiguities)+'。'
             elif missing:
