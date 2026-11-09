@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 283,
-  "last_event_hash": "cb6552336dce8bd5993075f46f52200904848209c073bf4caaca22b8dcda562a",
-  "updated_at": "2026-11-09T14:04:10+09:00",
+  "revision": 290,
+  "last_event_hash": "bd09870cd5b163c71d7c13240a82b5da2873784f51c37d19e251ae30b02d1f07",
+  "updated_at": "2026-11-09T14:18:30+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -538,10 +538,10 @@
       "revision": 6,
       "revisions": [
         {
+          "at": "2026-11-09T14:04:10+09:00",
           "hash": "ecc72b86fd56f8ddd07cc344579921ef1b4336d3",
-          "summary": "docs: design community travel platform and audit sample correlations",
           "path": "project/revisions/ecc72b86fd56f8ddd07cc344579921ef1b4336d3.txt",
-          "at": "2026-11-09T14:04:10+09:00"
+          "summary": "docs: design community travel platform and audit sample correlations"
         }
       ],
       "status": "done",
@@ -854,6 +854,47 @@
       "title": "新しい提出物3点をそろえる",
       "type": "task",
       "updated_at": "2026-11-09T14:02:59+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "追加分析の条件・集計・不確実性・限界を記録し個票を出力しない"
+        },
+        {
+          "checked": true,
+          "text": "根拠と反証条件を設計書へ反映し独立レビューとGit版を残す"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:13:07+09:00",
+      "dependencies": [
+        "CP01",
+        "CP03"
+      ],
+      "description": "観測事実、正当化できる設計判断、未検証の製品仮説を分け、代替案との比較方法を設計する。",
+      "documents": [
+        "DESIGN.md",
+        "docs/COMMUNITY-SAMPLE-ANALYSIS.md",
+        "docs/COMMUNITY-RATIONALE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:18:29+09:00",
+          "path": "docs/COMMUNITY-RATIONALE.md",
+          "text": "追加集計を主担当が再計算。独立レビューの測定差・分母・反証条件を比較計画へ反映。元CSV不変。"
+        }
+      ],
+      "id": "CP13",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "CSVから講の企画根拠と検証仮説を導く",
+      "type": "task",
+      "updated_at": "2026-11-09T14:18:30+09:00"
     },
     {
       "acceptance": [

@@ -1,0 +1,391 @@
+{
+  "analysis_version": "1.0",
+  "analyzed_at_utc": "2026-11-09T05:15:58.828793+00:00",
+  "source_checks": [
+    {
+      "file": "08_アンケート回答_参加後.csv",
+      "rows": 287,
+      "sha256_before": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "sha256_after": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "unchanged": true
+    },
+    {
+      "file": "09_アンケート回答_登録時.csv",
+      "rows": 500,
+      "sha256_before": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "sha256_after": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "unchanged": true
+    },
+    {
+      "file": "12_スタンプ獲得履歴.csv",
+      "rows": 2629,
+      "sha256_before": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "sha256_after": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "unchanged": true
+    },
+    {
+      "file": "13_ユーザー一覧.csv",
+      "rows": 500,
+      "sha256_before": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "sha256_after": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "unchanged": true
+    },
+    {
+      "file": "18_特典獲得履歴.csv",
+      "rows": 584,
+      "sha256_before": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "sha256_after": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "unchanged": true
+    }
+  ],
+  "predeclared_questions": "Additional local descriptive analysis, with questions/dictionaries fixed first.\n\nPredeclared questions (before this script's first data run):\n1. How are the five satisfaction responses distributed? Is a ceiling plausible?\n   Compare observed history counts between respondents and nonrespondents.\n2. What is the respondent-only stamp-count/satisfaction Spearman association,\n   with a fixed-seed 2,000 paired-resample percentile bootstrap interval?\n3. How concentrated are exact free-text strings, without exposing their text?\n4. Does the acquisition channel mention friends/acquaintances/introduction?\n   Separately count fixed topic words in positive-points and request fields.\n\nDo not turn keyword mentions into demand, sentiment, preference or causation.\nDo not infer any person's interests, community membership or travel companions.\nOnly artifacts/community-rationale-statistics.json is written, inside the PJ.\nNo source rows, names, contact details, free text or hashed user IDs are emitted.\n",
+  "topic_dictionary_fixed_before_run": {
+    "仲間・交流": [
+      "仲間",
+      "友人",
+      "友達",
+      "友だち",
+      "知人",
+      "交流",
+      "出会い",
+      "一緒",
+      "いっしょ"
+    ],
+    "再訪・次回": [
+      "再訪",
+      "再び",
+      "もう一度",
+      "また行",
+      "また来",
+      "また訪",
+      "また参加",
+      "次回",
+      "次の旅",
+      "リピート"
+    ],
+    "計画・日程調整": [
+      "計画",
+      "日程",
+      "予定",
+      "調整",
+      "スケジュール",
+      "旅程",
+      "プラン"
+    ]
+  },
+  "exploratory_followup_dictionary": {
+    "timing": "69/39件等の一次結果を見た後に追加した探索的確認。初回の事前固定辞書と区別する。追加パターンを固定して全対象へ同じ規則を適用。",
+    "actor_patterns": {
+      "家族": "家族|親子|夫婦|子ども|子供|子連れ",
+      "友人・知人・仲間": "友人|友達|友だち|知人|仲間",
+      "スタッフ・案内者": "スタッフ|ガイド|案内人|係員|店員|従業員",
+      "地域住民": "地域の人|地元の人|地域の方|地元の方|住民",
+      "他の参加者": "他の参加者|ほかの参加者|参加者同士|参加者どうし"
+    },
+    "expression_patterns": {
+      "同行・一緒に活動する構文": "(?:家族|友人|友達|友だち|知人|仲間)(?:と(?:一緒に)?|で|同士で|同士の).{0,20}(?:回|巡|参加|旅行|旅|出かけ|楽し)",
+      "肯定表現": "楽しか|楽しい|楽しめ|よかった|良かった|嬉しか|うれしか|満足",
+      "希望表現": "ほしい|欲しい|してほしい|できると|あると|増や|充実",
+      "不要・拒否・否定の明示表現": "不要|必要[はも]?ない|いらない|望まない|求めない|したくない|行きたくない|苦手|なくていい|楽しめな|不満|嫌",
+      "新しい相手の明示表現": "新しい友人|新たな友人|新しい仲間|新たな仲間|初対面|知らない人"
+    }
+  },
+  "exploratory_context_summary": {
+    "review_type": "一次結果後の探索的な全件パターン照合。人手による原文精読ではない。",
+    "positive_points": "仲間・交流の言及があっても、同行友人/家族/スタッフ/地域住民/他の参加者のどれかをパターンで特定できない回答は、相手不明のまま残す。新しい旅仲間を望む声と読み替えない。",
+    "requests": "友人・知人・仲間の語、同行構文への一致を別々に記録。要望欄にあるという理由だけで自動マッチ需要、肯定、参加意思を確定しない。",
+    "negation": "不要・拒否・否定の固定パターン未一致でも、辞書外の否定や文脈上の否定がないとは確定できない。",
+    "channel": "友人等の名詞だけの一致と、紹介を明示する構文一致を区別した。人数は認知経路の事実であり、新しい相手とのマッチ需要ではない。"
+  },
+  "satisfaction": {
+    "respondents": 287,
+    "nonrespondents": 213,
+    "coverage_percent": 57.4,
+    "ordered_mapping": {
+      "大変不満": 1,
+      "やや不満": 2,
+      "普通": 3,
+      "やや満足": 4,
+      "大変満足": 5
+    },
+    "counts": {
+      "大変不満": 16,
+      "やや不満": 39,
+      "普通": 54,
+      "やや満足": 104,
+      "大変満足": 74
+    },
+    "percent_of_respondents": {
+      "大変不満": 5.57,
+      "やや不満": 13.59,
+      "普通": 18.82,
+      "やや満足": 36.24,
+      "大変満足": 25.78
+    },
+    "median": 4.0,
+    "q1": 3.0,
+    "q3": 5.0,
+    "top_category_percent": 25.78,
+    "top_two_categories_percent": 62.02,
+    "numeric_code_sample_variance": 1.3596159937623353,
+    "numeric_code_mean": 3.6306620209059233,
+    "numeric_code_caution": "平均と標本分散は1〜5への符号化上の補助量。満足の心理量の等間隔性を仮定した解釈はしない。",
+    "ceiling_interpretation": "上端の回答率を報告する。上端だけに集中しているかは分布から判断し、天井効果の有無を率だけで検定・断定しない。"
+  },
+  "response_group_descriptions": {
+    "respondents": {
+      "stamp_rows": {
+        "n": 287,
+        "median": 6.0,
+        "q1": 4.0,
+        "q3": 8.0,
+        "bins": {
+          "0件": 0,
+          "1〜3件": 38,
+          "4〜6件": 127,
+          "7件以上": 122
+        }
+      },
+      "stamp_days": {
+        "n": 287,
+        "median": 2.0,
+        "q1": 1.0,
+        "q3": 2.0,
+        "bins": {
+          "0日": 0,
+          "1日": "補完抑制",
+          "2日": 179,
+          "3日以上": "1〜9（抑制）"
+        }
+      },
+      "reward_rows": {
+        "n": 287,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 2.0,
+        "bins": {
+          "0件": 36,
+          "1件": 131,
+          "2件": 82,
+          "3件以上": 38
+        }
+      }
+    },
+    "nonrespondents": {
+      "stamp_rows": {
+        "n": 213,
+        "median": 3.0,
+        "q1": 2.0,
+        "q3": 7.0,
+        "bins": {
+          "0件": 20,
+          "1〜3件": 90,
+          "4〜6件": 47,
+          "7件以上": 56
+        }
+      },
+      "stamp_days": {
+        "n": 213,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 2.0,
+        "bins": {
+          "0日": "補完抑制",
+          "1日": 90,
+          "2日": 102,
+          "3日以上": "1〜9（抑制）"
+        }
+      },
+      "reward_rows": {
+        "n": 213,
+        "median": 0.0,
+        "q1": 0.0,
+        "q3": 2.0,
+        "bins": {
+          "0件": 109,
+          "1件": 47,
+          "2件": 43,
+          "3件以上": 14
+        }
+      }
+    },
+    "median_difference_respondents_minus_nonrespondents": {
+      "stamp_rows": 3.0,
+      "stamp_days": 1.0,
+      "reward_rows": 1.0
+    },
+    "interpretation": "記述的比較のみ。回答選択の偏りがない証明ではなく、有意差検定・因果推論はしない。履歴の対応行なしは観測件数0であり、実際の活動なしを保証しない。"
+  },
+  "stamp_satisfaction_association": {
+    "variables": [
+      "提供CSV内のスタンプ履歴件数",
+      "満足度の順序値"
+    ],
+    "n": 287,
+    "rho": -0.07066311255396192,
+    "bootstrap": {
+      "method": "percentile 95% paired nonparametric bootstrap; resample respondent rows with replacement; average ranks for ties",
+      "seed": 20261109,
+      "replicates": 2000,
+      "valid_replicates": 2000,
+      "undefined_constant_replicates": 0,
+      "numpy_version": "2.5.4",
+      "rng_algorithm": "PCG64",
+      "percentile_method": "linear",
+      "interval_95_percent": [
+        -0.18212353271793114,
+        0.03963772257551717
+      ]
+    },
+    "conditional_assumptions": [
+      "回答者のペアが独立な標本であると仮定した条件付き区間",
+      "非回答者への一般化や選択バイアス補正ではない",
+      "回答が同じ旅行/所属等で依存する場合を評価できない",
+      "合成または定型生成データなら現実人口に対する信頼区間として解釈できない",
+      "観察相関でありスタンプ数の増加が満足度を変える因果効果ではない"
+    ]
+  },
+  "free_text": {
+    "旅で良かった点": {
+      "concentration": {
+        "nonempty_rows": 287,
+        "distinct_exact_strings": "1〜9（抑制）",
+        "largest_exact_string_count": 69,
+        "largest_exact_string_share_percent": 24.04,
+        "top_3_exact_strings_share_percent": 65.85,
+        "top_5_exact_strings_share_percent": 100.0,
+        "singleton_string_count": 0,
+        "normalization": "先頭末尾の空白のみ除去。文面も文面ハッシュも保持しない。",
+        "interpretation": "頻度集中を測るだけで、実在回答・合成・定型選択肢等の由来や真正性を断定しない。"
+      },
+      "topic_mention_respondents": {
+        "仲間・交流": 69,
+        "再訪・次回": 0,
+        "計画・日程調整": 0
+      },
+      "exploratory_context_followup": {
+        "selected_rows": 69,
+        "actor_mentions_nonexclusive": {
+          "家族": 0,
+          "友人・知人・仲間": 0,
+          "スタッフ・案内者": 0,
+          "地域住民": 0,
+          "他の参加者": 0
+        },
+        "expression_matches_nonexclusive": {
+          "同行・一緒に活動する構文": 0,
+          "肯定表現": 0,
+          "希望表現": 0,
+          "不要・拒否・否定の明示表現": 0,
+          "新しい相手の明示表現": 0
+        },
+        "no_recognized_actor_rows": 69,
+        "scope": "初回の仲間・交流辞書に一致した全回答を対象。各パターンは同じ回答で重複し得る。",
+        "context_judgment": "機械的な構文/語句の照合であり、原文の人手精読・文脈全体の確定ではない。皮肉、引用、照応、辞書外の否定・対象は未確認。0件は当該パターン未一致を意味する。"
+      }
+    },
+    "要望": {
+      "concentration": {
+        "nonempty_rows": 287,
+        "distinct_exact_strings": 26,
+        "largest_exact_string_count": 27,
+        "largest_exact_string_share_percent": 9.41,
+        "top_3_exact_strings_share_percent": 23.69,
+        "top_5_exact_strings_share_percent": 36.24,
+        "singleton_string_count": 0,
+        "normalization": "先頭末尾の空白のみ除去。文面も文面ハッシュも保持しない。",
+        "interpretation": "頻度集中を測るだけで、実在回答・合成・定型選択肢等の由来や真正性を断定しない。"
+      },
+      "topic_mention_respondents": {
+        "仲間・交流": 39,
+        "再訪・次回": "1〜9（抑制）",
+        "計画・日程調整": 0
+      },
+      "exploratory_context_followup": {
+        "selected_rows": 39,
+        "actor_mentions_nonexclusive": {
+          "家族": 0,
+          "友人・知人・仲間": 39,
+          "スタッフ・案内者": 0,
+          "地域住民": 0,
+          "他の参加者": 0
+        },
+        "expression_matches_nonexclusive": {
+          "同行・一緒に活動する構文": 27,
+          "肯定表現": 0,
+          "希望表現": 0,
+          "不要・拒否・否定の明示表現": 0,
+          "新しい相手の明示表現": 0
+        },
+        "no_recognized_actor_rows": 0,
+        "scope": "初回の仲間・交流辞書に一致した全回答を対象。各パターンは同じ回答で重複し得る。",
+        "context_judgment": "機械的な構文/語句の照合であり、原文の人手精読・文脈全体の確定ではない。皮肉、引用、照応、辞書外の否定・対象は未確認。0件は当該パターン未一致を意味する。"
+      }
+    }
+  },
+  "acquisition_channel": {
+    "respondents": 500,
+    "column": "何で知りましたか？（複数選択可）",
+    "friend_or_acquaintance_mention_count": 127,
+    "friend_or_acquaintance_mention_percent": 25.4,
+    "explicit_person_introduction_phrase_count": 127,
+    "friend_mentions_also_matching_explicit_introduction_phrase": 127,
+    "friend_mentions_without_matching_explicit_introduction_phrase": 0,
+    "friend_dictionary": [
+      "友人",
+      "知人",
+      "友達",
+      "友だち"
+    ],
+    "explicit_introduction_regex": "(?:友人|知人|友達|友だち|家族)(?:[・/／](?:友人|知人|友達|友だち|家族))*(?:からの|の|から|による)?紹介",
+    "interpretation": "認知経路の選択欄での友人/知人等への言及。旅行同行、関係の強さ、マッチ希望を示さない。紹介の厳密表現一致と広い友人等言及を区別し、未一致を紹介がない証拠としない。"
+  },
+  "evidence_map": [
+    {
+      "status": "肯定・限定的",
+      "claim": "既存の記録数だけで満足の代用指標を決めず、本人の希望や評価を別に取得する理由がある。",
+      "basis": "満足度の分布・活動指標との相関・未回答者の存在を個別に確認できる。新たな入力設計の理由であり講の有効性の証明ではない。"
+    },
+    {
+      "status": "肯定・条件付き",
+      "claim": "友人等を通じた認知が観測される場合、既存の人とのつながりを入口候補として検討できる。",
+      "basis": "認知経路の固定辞書集計を参照。認知経路から自動仲間選びの需要や効果を導くことはできない。"
+    },
+    {
+      "status": "反証材料・因果の反証ではない",
+      "claim": "スタンプ件数が多いほど満足も高いという単純な単調関係を、今回の回答者データが強く支持するとは言えない。",
+      "basis": {
+        "rho": -0.07066311255396192,
+        "conditional_interval_95_percent": [
+          -0.18212353271793114,
+          0.03963772257551717
+        ]
+      }
+    },
+    {
+      "status": "不明",
+      "claim": "講・5人マッチ・好み持越し・協力分担が既存方式より役立つか。",
+      "basis": "介入・比較・マッチ希望・所属・趣味正解・旅行実行のデータがない。別途、本人への確認と比較評価が必要。"
+    },
+    {
+      "status": "不明",
+      "claim": "自由記述の意味、正負、回答の真正性、未言及の理由。",
+      "basis": "固定キーワードは文字列の一致だけ。重複集中は由来を断定せず、0言及も需要なしを意味しない。"
+    }
+  ],
+  "limits": [
+    "二次データの探索的な追加分析。問いと辞書はこの追加集計の前に固定したが、既存の相関結果は既知",
+    "新プラットフォームを採る唯一必然の結論にはならない",
+    "列の意味や完全性は提供CSVの範囲に限定",
+    "特典履歴は利用数でなく観測行数。一覧との227人不一致の原因は未確認",
+    "小セル抑制は形式的な匿名性保証ではない"
+  ],
+  "privacy": {
+    "minimum_nonzero_count": 10,
+    "secondary_suppression_for_single_small_distribution_cell": true,
+    "individual_rows_or_identifiers_written": false,
+    "free_text_or_text_hashes_written": false,
+    "external_data_transmission": false,
+    "source_files_modified": false
+  }
+}
