@@ -1,0 +1,58 @@
+{
+  "recorded_on": "2026-11-09",
+  "scope": "marketplace/schema2 and stage independent sessions",
+  "full_suite_before_final_3_cases": {
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests -q -k \"not real_model_uses_pixels\" --basetemp community/backend/.marketplace-all-test-tmp",
+    "passed": 26,
+    "deselected": 1,
+    "failed": 0,
+    "seconds": 18.74
+  },
+  "final_targeted": {
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests/test_marketplace.py community/backend/tests/test_stage.py -q --basetemp community/backend/.marketplace-stage-test-tmp",
+    "passed": 13,
+    "failed": 0,
+    "seconds": 7.75
+  },
+  "environment": "Windows, local .venv, HTTPX ASGI, isolated SQLite, synthetic fixtures; no external data transmission",
+  "checks": [
+    "private conversation is not shared",
+    "provider cannot consult before selection",
+    "6/35 planned people versus 1 real account",
+    "capacity/nights/budget basis and scope",
+    "unconfirmed dates and transport remain unknown",
+    "numeric extraction never auto-confirms",
+    "idempotent selection/messages",
+    "stale versions and preserved plan snapshot",
+    "transaction rollback on consultation failure",
+    "wrong-provider, private-plan and staff revocation denial",
+    "schema1 to2 repeat/rollback/backup restore",
+    "closing before representative leaves",
+    "stage tokens independent from cookie; wrong bearer no fallback",
+    "cross-session CSRF, Origin, password and expiry",
+    "only two stage HTML paths allow same-origin framing"
+  ],
+  "not_covered": [
+    "New Docker schema2 migration and stage browser integration are pending separate team verification",
+    "Windows native inference remains unsupported; Linux model evidence is separate"
+  ],
+  "linux_model_reference": "community/artifacts/model-verification.json",
+  "final_full_suite": {
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests -q -k \"not real_model_uses_pixels\" --basetemp community/backend/.marketplace-final-test-tmp",
+    "passed": 30,
+    "deselected": 1,
+    "failed": 0,
+    "seconds": 23.84
+  },
+  "subsequent_concurrency_test": {
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests/test_marketplace.py -q -k concurrent_party --basetemp community/backend/.marketplace-race-test-tmp",
+    "passed": 1,
+    "deselected": 10,
+    "failed": 0,
+    "seconds": 1.37
+  },
+  "review_fixes": [
+    "Disabled provider staff who also acts as ordinary traveler no longer inherits consultation close power; role regression passed.",
+    "Representative leave guard moved into same BEGIN IMMEDIATE write transaction as membership mutation; concurrent create versus leave results in exactly one success and no orphan open party."
+  ]
+}

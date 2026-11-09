@@ -21,11 +21,20 @@ HEADERS = {
 
 
 def current_session(request: Request):
-    token = request.cookies.get(COOKIE, "")
+    authorization = request.headers.get('authorization')
+    if authorization is not None:
+        # An invalid explicit credential must never fall back to another user cookie.
+        scheme, _, token = authorization.partition(' ')
+        if scheme.lower() != 'bearer' or not token or ' ' in token:
+            return None
+        table = 'stage_sessions'
+    else:
+        token = request.cookies.get(COOKIE, "")
+        table = 'sessions'
     if not token or len(token) > 128:
         return None
     with request.app.state.database.transaction() as conn:
-        return conn.execute("SELECT s.*,u.username,u.name,u.initials,u.color FROM sessions s JOIN users u ON u.id=s.user_id WHERE token_hash=? AND expires_at>?", (digest(token), datetime.now(timezone.utc).isoformat())).fetchone()
+        return conn.execute(f"SELECT s.*,u.username,u.name,u.initials,u.color FROM {table} s JOIN users u ON u.id=s.user_id WHERE token_hash=? AND expires_at>? AND u.login_enabled=1", (digest(token), datetime.now(timezone.utc).isoformat())).fetchone()
 
 
 def csrf(request, session):
@@ -72,7 +81,11 @@ class SecurityMiddleware:
 
         async def secure_send(message):
             if message["type"] == "http.response.start":
-                MutableHeaders(scope=message).update(HEADERS)
+                response_headers = MutableHeaders(scope=message)
+                response_headers.update(HEADERS)
+                if scope['path'] in ('/stage/visitor', '/stage/provider') and scope['method'] in ('GET', 'HEAD') and response_headers.get('content-type','').startswith('text/html'):
+                    response_headers['X-Frame-Options'] = 'SAMEORIGIN'
+                    response_headers['Content-Security-Policy'] = HEADERS['Content-Security-Policy'].replace("frame-ancestors 'none'", "frame-ancestors 'self'")
             await send(message)
 
         async def reject(code, detail):
@@ -87,7 +100,7 @@ class SecurityMiddleware:
             expected = "multipart/form-data" if upload else "application/json"
             if headers.get("content-type", "").split(";", 1)[0].lower().strip() != expected:
                 return await reject(415, "送信形式を確認してください。")
-            kind = "login" if scope["path"] == "/api/login" else "upload" if upload else "write"
+            kind = "login" if scope["path"] in ("/api/login", "/api/stage/login") else "upload" if upload else "write"
             if not self.rate_allowed((scope.get("client") or ("local",))[0], kind):
                 return await reject(429, "操作が続いています。少し待って試してください。")
             limit = self.settings.max_image_bytes + 65536 if upload else 65536

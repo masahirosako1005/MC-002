@@ -1,6 +1,6 @@
 import asyncio
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import logging
 from pathlib import Path
 import sqlite3
@@ -11,11 +11,13 @@ from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import Settings
-from .database import ACCOUNTS, TAGS, Database
+from .database import ACCOUNTS, TAGS, Database, digest
 from .images import AnalysisWorker, LocalClassifier
 from .schemas import CommunityInput, ContributionInput, Empty, JoinInput, Login, PlanInput, PostInput, PostPatch, PreferencesInput, ProposalInput, ResponseInput
 from .security import COOKIE, HEADERS, SecurityMiddleware, authenticated, csrf, current_session
 from .service import COVER_KEYS, TRIP_BY_ID, Service, user_out
+from .marketplace.schema import migrate, PROVIDER_ACCOUNTS
+from .marketplace.router import create_router as marketplace_router
 
 logger = logging.getLogger("ko")
 
@@ -30,6 +32,7 @@ def create_app(settings=None):
     @asynccontextmanager
     async def lifespan(application):
         database.initialize()
+        migrate(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         service.seed_assets()
         if settings.worker_enabled:
@@ -72,7 +75,7 @@ def create_app(settings=None):
 
     @public.get("/bootstrap")
     def bootstrap():
-        return {"accounts": [{"username": username, "name": name, "initials": initials, "color": color} for username, name, initials, color in ACCOUNTS],
+        return {"accounts": [{"username": username, "name": name, "initials": initials, "color": color} for username, name, initials, color in ACCOUNTS] + [{"username": username, "name": name, "initials": initials, "color": color} for username, name, initials, color, _ in PROVIDER_ACCOUNTS],
                 "tags": [{"id": key, "label": label} for key, label in TAGS.items()],
                 "model": {"status": "ready" if classifier.session else "unavailable", "name": "MobileNet V2・画像の被写体候補"}}
 
@@ -98,11 +101,25 @@ def create_app(settings=None):
     def me(session=Depends(authenticated)):
         return {"user": user_out(session), "csrf_token": session["csrf_token"]}
 
-    @private.post("/logout")
-    def logout(body: Empty, response: Response, session=Depends(authenticated)):
+    @public.post('/stage/login')
+    def stage_login(body: Login):
+        # Password authentication is shared; stage tokens never become cookies.
+        result, token = service.login(body.username, body.password, None)
+        expires_at = (datetime.now(timezone.utc) + timedelta(minutes=30)).isoformat()
         with database.transaction(True) as conn:
-            conn.execute("DELETE FROM sessions WHERE token_hash=?", (session["token_hash"],))
-        response.delete_cookie(COOKIE, path="/", httponly=True, samesite="strict", secure=settings.secure_cookie)
+            row = conn.execute('SELECT * FROM sessions WHERE token_hash=?', (digest(token),)).fetchone()
+            conn.execute('INSERT INTO stage_sessions VALUES(?,?,?,?)', (row['token_hash'],row['user_id'],row['csrf_token'],expires_at))
+            conn.execute('DELETE FROM sessions WHERE token_hash=?', (row['token_hash'],))
+            conn.execute('DELETE FROM stage_sessions WHERE expires_at<=?', (datetime.now(timezone.utc).isoformat(),))
+        return {**result,'access_token':token,'expires_at':expires_at}
+
+    @private.post("/logout")
+    def logout(body: Empty, request: Request, response: Response, session=Depends(authenticated)):
+        with database.transaction(True) as conn:
+            table = 'stage_sessions' if request.headers.get('authorization') is not None else 'sessions'
+            conn.execute(f"DELETE FROM {table} WHERE token_hash=?", (session["token_hash"],))
+        if request.headers.get('authorization') is None:
+            response.delete_cookie(COOKIE, path="/", httponly=True, samesite="strict", secure=settings.secure_cookie)
         return {"ok": True}
 
     @private.get("/communities")
@@ -211,6 +228,7 @@ def create_app(settings=None):
 
     app.include_router(public)
     app.include_router(private)
+    app.include_router(marketplace_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

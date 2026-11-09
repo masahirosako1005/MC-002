@@ -53,7 +53,6 @@ CREATE TABLE IF NOT EXISTS responses(proposal_id TEXT REFERENCES proposals(id),u
 CREATE TABLE IF NOT EXISTS ko_groups(id TEXT PRIMARY KEY,proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),community_id TEXT NOT NULL REFERENCES communities(id),purpose TEXT NOT NULL,trip_id TEXT NOT NULL,date TEXT,meeting_point TEXT NOT NULL DEFAULT '',notes TEXT NOT NULL DEFAULT '',version INTEGER NOT NULL DEFAULT 1,created_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS group_members(group_id TEXT REFERENCES ko_groups(id),user_id TEXT REFERENCES users(id),role TEXT NOT NULL DEFAULT 'none',note TEXT NOT NULL DEFAULT '',PRIMARY KEY(group_id,user_id));
 CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);
-PRAGMA user_version=1;
 """
 
 
@@ -86,10 +85,13 @@ class Database:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         conn = self.connect()
         try:
-            if conn.execute("PRAGMA user_version").fetchone()[0] not in (0, 1):
+            version = conn.execute("PRAGMA user_version").fetchone()[0]
+            if version not in (0, 1, 2):
                 raise RuntimeError("Unknown database version")
             conn.execute("PRAGMA journal_mode=WAL")
             conn.executescript(SCHEMA)
+            if version == 0:
+                conn.execute("PRAGMA user_version=1")
         finally:
             conn.close()
         with self.transaction(True) as conn:

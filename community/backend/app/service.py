@@ -83,6 +83,9 @@ class Service:
     def leave(self, uid, cid):
         with self.db.transaction(True) as conn:
             membership = member(conn, uid, cid)
+            # The same write transaction serializes this guard with party creation.
+            if conn.execute("SELECT 1 FROM travel_parties WHERE community_id=? AND representative_id=? AND status='open'", (cid, uid)).fetchone():
+                raise HTTPException(409, '代表している旅行計画があります。計画を整理してから退出してください。')
             if membership["role"] == "owner" and conn.execute("SELECT COUNT(*) FROM memberships WHERE community_id=? AND status='active'", (cid,)).fetchone()[0] > 1:
                 raise HTTPException(409, "管理者は他の参加者がいる間は退会できません。")
             conn.execute("UPDATE memberships SET status='left' WHERE community_id=? AND user_id=?", (cid, uid))
