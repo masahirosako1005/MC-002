@@ -1,5 +1,13 @@
+import Choice from "./Choice";
 import { useEffect, useRef, useState } from "react";
-import { api, ApiError, mediaUrl, setCsrf } from "./api";
+import {
+  api,
+  ApiError,
+  mediaUrl,
+  setCsrf,
+  setAccessToken,
+  stageFrame,
+} from "./api";
 import type {
   Bootstrap,
   Community,
@@ -23,14 +31,18 @@ import {
 import Composer from "./Composer";
 import Preferences from "./Preferences";
 import KoPage, { tripCover } from "./KoPage";
+import Marketplace from "./Marketplace";
+import ProviderWorkspace from "./ProviderWorkspace";
+import type { Capabilities } from "./marketplace-types";
 
-type Page = "feed" | "ko" | "preferences";
+type Page = "feed" | "ko" | "preferences" | "market" | "provider";
 type Data = {
   communities: Community[];
   preferences: PreferenceData;
   trips: Trip[];
   proposals: Proposal[];
   groups: Group[];
+  capabilities: Capabilities;
 };
 function Login({
   bootstrap,
@@ -41,8 +53,17 @@ function Login({
   onLogin: (user: User, token: string) => void;
   message: string;
 }) {
+  const accounts = stageFrame
+    ? bootstrap.accounts.filter((a) =>
+        window.location.pathname === "/stage/provider"
+          ? ["forest", "shore"].includes(a.username)
+          : !["forest", "shore"].includes(a.username),
+      )
+    : bootstrap.accounts;
   const [username, setUsername] = useState(
-    bootstrap.accounts[0]?.username || "",
+    (window.location.pathname === "/stage/provider"
+      ? bootstrap.accounts.find((a) => a.username === "forest")?.username
+      : bootstrap.accounts[0]?.username) || "",
   );
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -52,12 +73,16 @@ function Login({
     setBusy(true);
     setError("");
     try {
-      const result = await api<{ user: User; csrf_token: string }>(
-        "/login",
-        "POST",
-        { username, password },
-      );
+      const result = await api<{
+        user: User;
+        csrf_token: string;
+        access_token?: string;
+      }>(stageFrame ? "/stage/login" : "/login", "POST", {
+        username,
+        password,
+      });
       setPassword("");
+      if (result.access_token) setAccessToken(result.access_token);
       onLogin(result.user, result.csrf_token);
     } catch (e) {
       setError((e as Error).message);
@@ -108,7 +133,7 @@ function Login({
         <form onSubmit={submit}>
           <fieldset className="account-options" disabled={busy}>
             <legend>アカウント</legend>
-            {bootstrap.accounts.map((a) => (
+            {accounts.map((a) => (
               <label
                 className={username === a.username ? "selected" : ""}
                 key={a.username}
@@ -349,7 +374,9 @@ export default function App() {
   const [booting, setBooting] = useState(true);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [page, setPage] = useState<Page>("feed");
+  const [page, setPage] = useState<Page>(
+    window.location.pathname === "/stage/visitor" ? "market" : "feed",
+  );
   const [communityId, setCommunityId] = useState("");
   const [feed, setFeed] = useState<Post[]>([]);
   const [feedBusy, setFeedBusy] = useState(false);
@@ -375,7 +402,7 @@ export default function App() {
     setCsrf("");
     setMessage(text);
     setCommunityId("");
-    setPage("feed");
+    setPage(window.location.pathname === "/stage/visitor" ? "market" : "feed");
   }
   async function refresh() {
     const epoch = generation.current;
@@ -385,6 +412,7 @@ export default function App() {
       api<{ items: Trip[] }>("/trips"),
       api<{ items: Proposal[] }>("/proposals"),
       api<{ items: Group[] }>("/groups"),
+      api<Capabilities>("/marketplace/capabilities"),
     ]);
     if (epoch !== generation.current) return;
     setData({
@@ -393,7 +421,10 @@ export default function App() {
       trips: results[2].items,
       proposals: results[3].items,
       groups: results[4].items,
+      capabilities: results[5],
     });
+    if (results[5].providers.length)
+      setPage((current) => (current === "feed" ? "provider" : current));
     setCommunityId((current) =>
       results[0].items.some((c) => c.id === current)
         ? current
@@ -495,11 +526,16 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }
   const community = data?.communities.find((c) => c.id === communityId) || null;
-  const nav = [
-    { id: "feed" as Page, label: "みんなの記録", icon: "home" },
-    { id: "ko" as Page, label: "講を見つける", icon: "compass" },
-    { id: "preferences" as Page, label: "自分の好み", icon: "leaf" },
-  ];
+  const nav = data?.capabilities.providers.length
+    ? [
+        { id: "provider" as Page, label: "事業者の仕事場", icon: "home" },
+        { id: "market" as Page, label: "旅のプラン", icon: "compass" },
+      ]
+    : [
+        { id: "feed" as Page, label: "みんなの記録", icon: "home" },
+        { id: "market" as Page, label: "旅を見つける", icon: "compass" },
+        { id: "ko" as Page, label: "講を見つける", icon: "compass" },
+      ];
   if (booting)
     return (
       <main className="loading-page" aria-busy="true">
@@ -550,7 +586,9 @@ export default function App() {
       <a className="skip-link" href="#main">
         本文へ移動
       </a>
-      <div className="app-shell">
+      <div
+        className={`app-shell ${page === "market" || page === "provider" ? "market-wide" : ""}`}
+      >
         <aside className="sidebar">
           <button
             className="brand brand-button"
@@ -615,6 +653,13 @@ export default function App() {
             <Icon name="plus" />
             旅の写真を投稿
           </button>
+          <button
+            className="text-button"
+            onClick={() => navigate("preferences")}
+          >
+            <Icon name="leaf" />
+            自分の好み
+          </button>
           <button className="profile-button" onClick={() => setSwitching(true)}>
             <Avatar user={user} />
             <span>
@@ -632,27 +677,37 @@ export default function App() {
           >
             講
           </button>
-          <label className="sr-only" htmlFor="mobile-community">
-            コミュニティ
-          </label>
-          <select
-            id="mobile-community"
-            value={communityId}
-            onChange={(e) => setCommunityId(e.target.value)}
-          >
-            {data.communities.map((c) => (
-              <option value={c.id} key={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-          <button
-            className="icon-button"
-            aria-label="コミュニティをつくる・招待から参加"
-            onClick={() => setCommunityDialog("new")}
-          >
-            <Icon name="plus" />
-          </button>
+          {data.communities.length > 0 ? (
+            <>
+              <label className="sr-only" htmlFor="mobile-community">
+                コミュニティ
+              </label>
+              <Choice
+                id="mobile-community"
+                value={communityId}
+                onChange={(e) => setCommunityId(e.target.value)}
+              >
+                {data.communities.map((c) => (
+                  <option value={c.id} key={c.id}>
+                    {c.name}
+                  </option>
+                ))}
+              </Choice>
+            </>
+          ) : (
+            <span className="mobile-workspace-name">
+              {data.capabilities.providers[0]?.name || "コミュニティ"}
+            </span>
+          )}
+          {!data.capabilities.providers.length && (
+            <button
+              className="icon-button"
+              aria-label="コミュニティをつくる・招待から参加"
+              onClick={() => setCommunityDialog("new")}
+            >
+              <Icon name="plus" />
+            </button>
+          )}
           <button
             className="avatar-button"
             aria-label={`${user.name} アカウントを切り替える`}
@@ -806,6 +861,19 @@ export default function App() {
                 ))
               )}
             </>
+          ) : page === "market" ? (
+            <Marketplace
+              community={community}
+              groups={data.groups}
+              tags={bootstrap.tags}
+              user={user}
+            />
+          ) : page === "provider" ? (
+            <ProviderWorkspace
+              providers={data.capabilities.providers}
+              tags={bootstrap.tags}
+              user={user}
+            />
           ) : page === "ko" ? (
             <KoPage
               community={community}
@@ -906,10 +974,17 @@ export default function App() {
             <span>{n.label}</span>
           </button>
         ))}
-        <button disabled={!community} onClick={() => setComposer(true)}>
-          <Icon name="plus" />
-          <span>投稿</span>
-        </button>
+        {!data.capabilities.providers.length ? (
+          <button disabled={!community} onClick={() => setComposer(true)}>
+            <Icon name="plus" />
+            <span>投稿</span>
+          </button>
+        ) : (
+          <button onClick={() => setSwitching(true)}>
+            <Icon name="people" />
+            <span>アカウント</span>
+          </button>
+        )}
       </nav>
       {composer && community && (
         <Composer
@@ -937,6 +1012,16 @@ export default function App() {
           busy={actionBusy}
         >
           <p>{user.name}さんとしてログインしています。</p>
+          <button
+            className="button secondary full"
+            onClick={() => {
+              setSwitching(false);
+              navigate("preferences");
+            }}
+          >
+            <Icon name="leaf" />
+            自分の好みを確認する
+          </button>
           <p className="muted">
             一度ログアウトして、次のアカウントのパスワードでログインします。
           </p>

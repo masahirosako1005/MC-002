@@ -8,7 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const require = createRequire(path.join(root, 'qa/package.json'));
 const { chromium, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
-const output = path.join(root, 'community/artifacts/browser');
+const output = path.join(root, 'community/artifacts', process.env.KO_BROWSER_OUTPUT || 'browser');
 const baseURL = process.env.KO_URL || 'http://127.0.0.1:8081';
 await fs.mkdir(output, { recursive: true });
 const results = [];
@@ -84,6 +84,16 @@ async function noOverflow() {
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'Horizontal document overflow');
 }
 
+async function openPreferences() {
+  const options = page.getByRole('button', { name: '自分の好み', exact: true });
+  let available = false;
+  for (let i = 0; i < await options.count(); i++) if (await options.nth(i).isVisible()) available = true;
+  if (!available) {
+    await clickVisible(/アカウントを切り替える$/);
+    await clickVisible('自分の好みを確認する');
+  } else await clickVisible('自分の好み');
+}
+
 let postedId, proposalId, groupId;
 try {
   await check('real login, desktop feed, local photo assets and accessibility', async () => {
@@ -123,7 +133,7 @@ try {
     await expect(page.getByText('森を歩いたあと、窓辺でコーヒー。次はみんなで来たい。', { exact: true })).toBeVisible();
   });
   await check('preferences and independent community grants persist', async () => {
-    await clickVisible('自分の好み');
+    await openPreferences();
     await expect(page.getByRole('heading', { name: '自分の好み', exact: true })).toBeVisible();
     await axe('preferences');
     await page.getByRole('checkbox', { name: /自分の公開投稿からも、好みの候補を見つける/ }).check();
@@ -131,7 +141,7 @@ try {
     await expect(page.getByText('好みと共有範囲を保存しました。', { exact: true })).toBeVisible();
     await expect(page.getByText('投稿にあるタグ', { exact: true })).toBeVisible();
     await page.reload();
-    await clickVisible('自分の好み');
+    await openPreferences();
     await expect(page.getByRole('checkbox', { name: '自分の好みを仲間探しに使う', exact: true }).first()).toBeChecked();
   });
   await check('create a three-person proposal through the interface', async () => {
@@ -140,7 +150,8 @@ try {
     const dialog = page.getByRole('dialog');
     await dialog.getByLabel('どんな旅にしたい？').fill('軽井沢で、森とカフェをめぐる');
     await dialog.locator('.trip-choice').first().click();
-    await dialog.getByLabel('自分を含めた人数').selectOption('3');
+    await dialog.getByLabel('自分を含めた人数', { exact: true }).click();
+    await dialog.getByRole('option', { name: '3人', exact: true }).click();
     const proposed = page.waitForResponse(response => response.url().endsWith('/proposals') && response.request().method() === 'POST');
     await dialog.getByRole('button', { name: '共通の好みから仲間を探す', exact: true }).click();
     proposalId = (await (await proposed).json()).id;
@@ -159,7 +170,7 @@ try {
     await login('mio');
     await clickVisible('講を見つける');
     await clickVisible('この旅に参加する');
-    await expect(page.getByText('みんなの参加がそろいました', { exact: true })).toBeVisible();
+    await expect(page.getByText('みんなの参加がそろいました', { exact: true }).first()).toBeVisible();
     proposal = await jsonAPI(`/proposals/${proposalId}`);
     assert.equal(proposal.status, 'formed');
     groupId = proposal.group_id;
@@ -167,13 +178,16 @@ try {
     assert.equal(groups.items.filter(g => g.id === groupId).length, 1);
   });
   await check('voluntary contribution and trip plan are saved', async () => {
-    await page.getByRole('radio', { name: '写真を撮る', exact: true }).check();
-    await clickVisible('できることを保存');
-    await page.getByText('旅の計画をひらく', { exact: true }).click();
-    await page.getByLabel('出発日', { exact: true }).fill('2026-11-28');
-    await page.getByLabel('待ち合わせ', { exact: true }).fill('軽井沢駅の改札前、10時');
-    await page.getByLabel('行程メモ', { exact: true }).fill('森を歩いてからカフェへ。昼食のお店は当日みんなで相談。');
-    await clickVisible('旅の計画を保存');
+    const panel = page.locator('.group-card').first();
+    await panel.getByRole('radio', { name: '写真を撮る', exact: true }).check();
+    await clickVisible('できることを保存', panel);
+    await expect(panel.getByText('できることを保存しました。', { exact: true })).toBeVisible();
+    await panel.getByText('旅の計画をひらく', { exact: true }).click();
+    await panel.getByLabel('出発日', { exact: true }).fill('2026-11-28');
+    await panel.getByLabel('待ち合わせ', { exact: true }).fill('軽井沢駅の改札前、10時');
+    await panel.getByLabel('行程メモ', { exact: true }).fill('森を歩いてからカフェへ。昼食のお店は当日みんなで相談。');
+    await clickVisible('旅の計画を保存', panel);
+    await expect(panel.getByText('旅の計画を保存しました。', { exact: true })).toBeVisible();
     const group = await jsonAPI(`/groups/${groupId}`);
     assert.equal(group.plan.date, '2026-11-28');
     assert.equal(group.contributions.find(c => c.name === '小野 美緒').role, 'photos');
@@ -198,11 +212,13 @@ try {
   if (postedId) await jsonAPI(`/posts/${postedId}`, 'DELETE', {});
   await page.reload();
   await page.setViewportSize({ width: 1440, height: 1050 });
+  await expect(page.locator('.post-card').first()).toBeVisible();
+  await expect.poll(() => page.locator('.post-card img').first().evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
   await page.screenshot({ path: path.join(output, 'final-desktop.png'), fullPage: true });
 } catch (error) {
   console.error(error.message);
   process.exitCode = 1;
 } finally {
-  await fs.writeFile(path.join(output, 'results.json'), JSON.stringify({ baseURL, results, externalRequests: external, pageErrors: errors }, null, 2));
+  await fs.writeFile(path.join(output, 'results.json'), JSON.stringify({ baseURL, created: { postedId, proposalId, groupId }, results, externalRequests: external, pageErrors: errors }, null, 2));
   await browser.close();
 }

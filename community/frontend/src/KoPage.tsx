@@ -1,3 +1,4 @@
+import Choice from "./Choice";
 import { useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import type {
@@ -266,7 +267,9 @@ function GroupPanel({
         >
           {busy === "plan" ? "保存中…" : "旅の計画を保存"}
         </button>
-        <p className="muted">{group.trip.source_note}</p>
+        <p className="muted">
+          料金は概算です。営業・交通・空席は、計画を進めながら確認してください。
+        </p>
       </details>
       <p className="success-text" role="status">
         {saved}
@@ -569,7 +572,7 @@ export default function KoPage({
           <div className="field-row">
             <label className="field">
               自分を含めた人数
-              <select
+              <Choice
                 value={size}
                 onChange={(e) => setSize(Number(e.target.value))}
                 disabled={!!busy}
@@ -579,7 +582,7 @@ export default function KoPage({
                     {n}人
                   </option>
                 ))}
-              </select>
+              </Choice>
             </label>
             <label className="field">
               出発日の希望 <span className="optional">任意</span>

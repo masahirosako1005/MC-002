@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { Tag, User } from "./types";
+import { privateImage, stageFrame } from "./api";
 export function Icon({
   name,
   className = "",
@@ -225,11 +226,33 @@ export function LocalPhoto({
   priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
-  useEffect(() => setFailed(false), [src]);
-  return src && !failed ? (
+  const [authenticatedSrc, setAuthenticatedSrc] = useState("");
+  const needsAuth = stageFrame && src.startsWith("/api/media/");
+  useEffect(() => {
+    setFailed(false);
+    setAuthenticatedSrc("");
+    if (!needsAuth) return;
+    const controller = new AbortController();
+    let objectUrl = "";
+    privateImage(src, controller.signal)
+      .then((blob) => {
+        if (controller.signal.aborted) return;
+        objectUrl = URL.createObjectURL(blob);
+        setAuthenticatedSrc(objectUrl);
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setFailed(true);
+      });
+    return () => {
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [src, needsAuth]);
+  const resolved = needsAuth ? authenticatedSrc : src;
+  return resolved && !failed ? (
     <img
       className={className}
-      src={src}
+      src={resolved}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
@@ -238,7 +261,11 @@ export function LocalPhoto({
   ) : (
     <div className={`photo-fallback ${className}`}>
       <Icon name="photo" />
-      <span>写真を表示できません</span>
+      <span>
+        {needsAuth && !failed
+          ? "写真を読み込んでいます"
+          : "写真を表示できません"}
+      </span>
     </div>
   );
 }
