@@ -1,0 +1,218 @@
+{
+  "analyzed_utc": "2026-11-09T05:39:51.168161+00:00",
+  "files": [
+    {
+      "name": "08_アンケート回答_参加後.csv",
+      "rows": 287,
+      "unique_users": 287,
+      "duplicate_complete_rows": 0,
+      "missing_ids": 0,
+      "sha256_before": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "unchanged": true
+    },
+    {
+      "name": "09_アンケート回答_登録時.csv",
+      "rows": 500,
+      "unique_users": 500,
+      "duplicate_complete_rows": 0,
+      "missing_ids": 0,
+      "sha256_before": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "unchanged": true
+    },
+    {
+      "name": "12_スタンプ獲得履歴.csv",
+      "rows": 2629,
+      "unique_users": 480,
+      "duplicate_complete_rows": 0,
+      "missing_ids": 0,
+      "sha256_before": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "unchanged": true
+    },
+    {
+      "name": "13_ユーザー一覧.csv",
+      "rows": 500,
+      "unique_users": 500,
+      "duplicate_complete_rows": 0,
+      "missing_ids": 0,
+      "sha256_before": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "unchanged": true
+    },
+    {
+      "name": "18_特典獲得履歴.csv",
+      "rows": 584,
+      "unique_users": 355,
+      "duplicate_complete_rows": 0,
+      "missing_ids": 0,
+      "sha256_before": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "unchanged": true
+    }
+  ],
+  "all": {
+    "n": 500,
+    "stamp_users": 480,
+    "mean_stamps": 5.26,
+    "median_stamps": 5.0,
+    "multiple_days": 289,
+    "respondents": 287,
+    "response_pct": 57.4,
+    "satisfied": 178,
+    "satisfied_pct": 62.0
+  },
+  "age": {
+    "20歳未満": {
+      "n": 22,
+      "stamp_users": 21,
+      "mean_stamps": 5.14,
+      "median_stamps": 5.0,
+      "multiple_days": 14,
+      "respondents": 11,
+      "response_pct": 50.0,
+      "satisfied": "少数のため非表示",
+      "satisfied_pct": null
+    },
+    "20代": {
+      "n": 127,
+      "stamp_users": 123,
+      "mean_stamps": 5.12,
+      "median_stamps": 5,
+      "multiple_days": 79,
+      "respondents": 69,
+      "response_pct": 54.3,
+      "satisfied": 34,
+      "satisfied_pct": 49.3
+    },
+    "30代": {
+      "n": 109,
+      "stamp_users": 104,
+      "mean_stamps": 5.37,
+      "median_stamps": 5,
+      "multiple_days": 62,
+      "respondents": 70,
+      "response_pct": 64.2,
+      "satisfied": 49,
+      "satisfied_pct": 70.0
+    },
+    "40代": {
+      "n": 106,
+      "stamp_users": 102,
+      "mean_stamps": 4.72,
+      "median_stamps": 5.0,
+      "multiple_days": 56,
+      "respondents": 58,
+      "response_pct": 54.7,
+      "satisfied": 40,
+      "satisfied_pct": 69.0
+    },
+    "50代": {
+      "n": 75,
+      "stamp_users": 73,
+      "mean_stamps": 4.97,
+      "median_stamps": 5,
+      "multiple_days": 42,
+      "respondents": 42,
+      "response_pct": 56.0,
+      "satisfied": 26,
+      "satisfied_pct": 61.9
+    },
+    "60代": {
+      "n": 61,
+      "stamp_users": 57,
+      "mean_stamps": 6.69,
+      "median_stamps": 7,
+      "multiple_days": 36,
+      "respondents": 37,
+      "response_pct": 60.7,
+      "satisfied": 24,
+      "satisfied_pct": 64.9
+    }
+  },
+  "gender": {
+    "男性": {
+      "n": 211,
+      "stamp_users": 207,
+      "mean_stamps": 5.14,
+      "median_stamps": 5,
+      "multiple_days": 119,
+      "respondents": 118,
+      "response_pct": 55.9,
+      "satisfied": 71,
+      "satisfied_pct": 60.2
+    },
+    "女性": {
+      "n": 284,
+      "stamp_users": 268,
+      "mean_stamps": 5.29,
+      "median_stamps": 5.0,
+      "multiple_days": 167,
+      "respondents": 165,
+      "response_pct": 58.1,
+      "satisfied": 104,
+      "satisfied_pct": 63.0
+    },
+    "その他・未回答": {
+      "n": "10人未満（非表示）"
+    }
+  },
+  "stamp_date_range": [
+    "2026-10-01",
+    "2026-10-20"
+  ],
+  "stamp_rows": 2629,
+  "reward_rows": 584,
+  "reward_users": 355,
+  "unique_spots": 7,
+  "distribution": {
+    "0件": 20,
+    "1〜3件": 128,
+    "4〜6件": 174,
+    "7件以上": 178
+  },
+  "satisfaction": {
+    "やや満足": 104,
+    "普通": 54,
+    "やや不満": 39,
+    "大変満足": 74,
+    "大変不満": 16
+  },
+  "respondent_activity": {
+    "answered": {
+      "n": 287,
+      "stamp_users": 287,
+      "mean_stamps": 6.17,
+      "median_stamps": 6,
+      "multiple_days": 186,
+      "respondents": 287,
+      "response_pct": 100.0,
+      "satisfied": 178,
+      "satisfied_pct": 62.0
+    },
+    "unanswered": {
+      "n": 213,
+      "stamp_users": 193,
+      "mean_stamps": 4.03,
+      "median_stamps": 3,
+      "multiple_days": 103,
+      "respondents": 0,
+      "response_pct": 0.0,
+      "satisfied": 0,
+      "satisfied_pct": null
+    }
+  },
+  "correlations": {
+    "stamp_satisfaction": [
+      -0.07066311255396192,
+      287
+    ]
+  },
+  "unmatched_users": {
+    "after": 0,
+    "before": 0,
+    "stamps": 0,
+    "users": 0,
+    "rewards": 0
+  },
+  "count_mismatch": {
+    "stamps": 0,
+    "rewards": 227
+  }
+}

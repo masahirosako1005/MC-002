@@ -1,0 +1,898 @@
+{
+  "analysis_utc": "2026-11-09T05:41:09.496623+00:00",
+  "sources": {
+    "before": {
+      "filename": "09_アンケート回答_登録時.csv",
+      "rows": 500,
+      "sha256": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17"
+    },
+    "after": {
+      "filename": "08_アンケート回答_参加後.csv",
+      "rows": 287,
+      "sha256": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355"
+    }
+  },
+  "registration": {
+    "recognition_channels": {
+      "categories": {
+        "架空SNSの投稿": {
+          "count": 127,
+          "percent": 25.4,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "観光パンフレット": {
+          "count": 120,
+          "percent": 24.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "友人からの紹介": {
+          "count": 127,
+          "percent": 25.4,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "観光案内所": {
+          "count": 115,
+          "percent": 23.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "旅の交流掲示板": {
+          "count": 116,
+          "percent": 23.2,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "その他という回答": {
+          "count": 128,
+          "percent": 25.6,
+          "suppressed": false,
+          "denominator": 500
+        }
+      },
+      "unclassified": 0,
+      "blank": 0,
+      "multiple_category_rows": 191,
+      "denominator": 500,
+      "multi_response": true,
+      "total_selections": 733,
+      "unknown_token_count": 0
+    },
+    "occupation": {
+      "categories": {
+        "会社員・団体職員": {
+          "count": 236,
+          "percent": 47.2,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "公務員": {
+          "count": 47,
+          "percent": 9.4,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "自営業・自由業": {
+          "count": 76,
+          "percent": 15.2,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "学生": {
+          "count": 42,
+          "percent": 8.4,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "家事・育児・主婦・主夫・その他": {
+          "count": 55,
+          "percent": 11.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "パート・アルバイト": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "無職・退職": {
+          "count": 44,
+          "percent": 8.8,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "未分類": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "未回答": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 500
+        }
+      },
+      "unclassified": 0,
+      "blank": 0,
+      "multiple_category_rows": 0,
+      "denominator": 500,
+      "multi_response": false,
+      "total_selections": null,
+      "unknown_token_count": null
+    },
+    "residence_region": {
+      "categories": {
+        "七色野地方": {
+          "count": 74,
+          "percent": 14.8,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "星凪地方": {
+          "count": 81,
+          "percent": 16.2,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "水琴地方": {
+          "count": 86,
+          "percent": 17.2,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "霧灯地方": {
+          "count": 107,
+          "percent": 21.4,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "雲風地方": {
+          "count": 78,
+          "percent": 15.6,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "青綴地方": {
+          "count": 74,
+          "percent": 14.8,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "未分類": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 500
+        },
+        "未回答": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 500
+        }
+      },
+      "denominator": 500,
+      "exclusive": true,
+      "meaning": "提供CSVの地域ラベル。実在都道府県・地理的距離・居住人口への対応は未確認。"
+    }
+  },
+  "post_survey": {
+    "good_points": {
+      "denominator": 287,
+      "nonempty": 287,
+      "topics": {
+        "自然・景観": {
+          "count": 65,
+          "percent": 22.65,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "地域・場所の再発見": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "スタンプ収集・ラリー": {
+          "count": 55,
+          "percent": 19.16,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "達成・完走": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "特典・景品": {
+          "count": 48,
+          "percent": 16.72,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "同行・交流": {
+          "count": 69,
+          "percent": 24.04,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "スタッフ・案内者": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "案内・地図・移動経路": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "交通・駐車": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "施設・店舗・スポット": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "食事・飲食": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "歴史・文化": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "混雑・待ち時間": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "営業時間・休業": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "アプリ・操作・通信": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "開催時期・期間": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "再参加・再訪・次回": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        }
+      },
+      "none_response": {
+        "count": 50,
+        "percent": 17.42,
+        "suppressed": false,
+        "denominator": 287
+      },
+      "unclassified": {
+        "count": 0,
+        "percent": 0.0,
+        "suppressed": false,
+        "denominator": 287
+      },
+      "concentration": {
+        "distinct_exact_texts": 5,
+        "largest_text_count": 69,
+        "largest_text_percent": 24.04,
+        "top3_percent": 65.85,
+        "top5_percent": 100.0,
+        "frequency_counts_without_text": [
+          69,
+          65,
+          55,
+          50,
+          48
+        ],
+        "rare_texts_exist": false
+      },
+      "classification_note": "回答者ごと・項目ごとに最大1カウント、複数テーマ可。語の言及数であり需要人数や感情判定ではない。",
+      "exclusive_validation": {
+        "rows": 287,
+        "exactly_one_category_rows": 287,
+        "multiple_category_rows": 0,
+        "unclassified_rows": 0,
+        "distinct_texts": 5,
+        "every_distinct_text_exactly_one_category": true,
+        "classification_total": 287,
+        "meaning": "機械的辞書対応を全287回答・5異文面について確認。原文やハッシュは出力しない。意図の人手判定精度とは区別する。"
+      }
+    },
+    "requests": {
+      "denominator": 287,
+      "nonempty": 287,
+      "topics": {
+        "自然・景観": {
+          "count": 56,
+          "percent": 19.51,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "地域・場所の再発見": {
+          "count": 30,
+          "percent": 10.45,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "スタンプ収集・ラリー": {
+          "count": 78,
+          "percent": 27.18,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "達成・完走": {
+          "count": 37,
+          "percent": 12.89,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "特典・景品": {
+          "count": 53,
+          "percent": 18.47,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "同行・交流": {
+          "count": 55,
+          "percent": 19.16,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "スタッフ・案内者": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "案内・地図・移動経路": {
+          "count": 94,
+          "percent": 32.75,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "交通・駐車": {
+          "count": 24,
+          "percent": 8.36,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "施設・店舗・スポット": {
+          "count": 72,
+          "percent": 25.09,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "食事・飲食": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "歴史・文化": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "混雑・待ち時間": {
+          "count": null,
+          "percent": null,
+          "suppressed": true,
+          "denominator": 287
+        },
+        "営業時間・休業": {
+          "count": 0,
+          "percent": 0.0,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "アプリ・操作・通信": {
+          "count": 12,
+          "percent": 4.18,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "開催時期・期間": {
+          "count": null,
+          "percent": null,
+          "suppressed": true,
+          "denominator": 287
+        },
+        "再参加・再訪・次回": {
+          "count": null,
+          "percent": null,
+          "suppressed": true,
+          "denominator": 287
+        }
+      },
+      "none_response": {
+        "count": 0,
+        "percent": 0.0,
+        "suppressed": false,
+        "denominator": 287
+      },
+      "unclassified": {
+        "count": 0,
+        "percent": 0.0,
+        "suppressed": false,
+        "denominator": 287
+      },
+      "concentration": {
+        "distinct_exact_texts": 26,
+        "largest_text_count": 27,
+        "largest_text_percent": 9.41,
+        "top3_percent": 23.69,
+        "top5_percent": 36.24,
+        "frequency_counts_without_text": [
+          27,
+          21,
+          20,
+          20,
+          16,
+          16,
+          15,
+          14,
+          12,
+          12,
+          11,
+          10,
+          10,
+          10
+        ],
+        "rare_texts_exist": true
+      },
+      "classification_note": "回答者ごと・項目ごとに最大1カウント、複数テーマ可。語の言及数であり需要人数や感情判定ではない。",
+      "expression_context": {
+        "mutually_exclusive_status": {
+          "希望表現あり": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "希望表現なし・困難表現あり": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "希望・困難表現なし・肯定表現あり": {
+            "count": 44,
+            "percent": 15.33,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "なしの明示": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "上記表現では未判定": {
+            "count": 192,
+            "percent": 66.9,
+            "suppressed": false,
+            "denominator": 287
+          }
+        },
+        "explicit_request_or_difficulty": {
+          "count": 51,
+          "percent": 17.77,
+          "suppressed": false,
+          "denominator": 287
+        },
+        "topic_and_request_phrase": {
+          "自然・景観": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "地域・場所の再発見": {
+            "count": 20,
+            "percent": 6.97,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタンプ収集・ラリー": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "達成・完走": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "特典・景品": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "同行・交流": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタッフ・案内者": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "案内・地図・移動経路": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "交通・駐車": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "施設・店舗・スポット": {
+            "count": 20,
+            "percent": 6.97,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "食事・飲食": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "歴史・文化": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "混雑・待ち時間": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "営業時間・休業": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "アプリ・操作・通信": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "開催時期・期間": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "再参加・再訪・次回": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          }
+        },
+        "topic_and_difficulty_phrase": {
+          "自然・景観": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "地域・場所の再発見": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタンプ収集・ラリー": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "達成・完走": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "特典・景品": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "同行・交流": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタッフ・案内者": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "案内・地図・移動経路": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "交通・駐車": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "施設・店舗・スポット": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "食事・飲食": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "歴史・文化": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "混雑・待ち時間": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "営業時間・休業": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "アプリ・操作・通信": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "開催時期・期間": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "再参加・再訪・次回": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          }
+        },
+        "topic_and_positive_without_request_or_difficulty_phrase": {
+          "自然・景観": {
+            "count": 14,
+            "percent": 4.88,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "地域・場所の再発見": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタンプ収集・ラリー": {
+            "count": 11,
+            "percent": 3.83,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "達成・完走": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "特典・景品": {
+            "count": 16,
+            "percent": 5.57,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "同行・交流": {
+            "count": 16,
+            "percent": 5.57,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "スタッフ・案内者": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "案内・地図・移動経路": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "交通・駐車": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "施設・店舗・スポット": {
+            "count": 14,
+            "percent": 4.88,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "食事・飲食": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "歴史・文化": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "混雑・待ち時間": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "営業時間・休業": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "アプリ・操作・通信": {
+            "count": null,
+            "percent": null,
+            "suppressed": true,
+            "denominator": 287
+          },
+          "開催時期・期間": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          },
+          "再参加・再訪・次回": {
+            "count": 0,
+            "percent": 0.0,
+            "suppressed": false,
+            "denominator": 287
+          }
+        },
+        "request_regex": "ほしい|欲しい|希望|してもら|していただ|増やして|増やす|改善して|改善を|あると(?:よい|良い|嬉しい|うれしい)|できると(?:よい|良い|嬉しい|うれしい)",
+        "difficulty_regex": "不満|分かりにく|わかりにく|使いにく|使いづら|残念|困|迷っ|混雑|混ん|待ち時間",
+        "positive_regex": "楽しか|楽しい|楽しめ|よかった|良かった|嬉しか|うれしか|満足|使いやす|分かりやす|わかりやす|美しか|きれい|綺麗|便利",
+        "meaning": "同じ回答内でテーマ語と表現が共起した件数。構文上の係り受けや皮肉は未評価。希望が当該テーマを改善する要求かは未確定。肯定だけの言及を改善課題に変換しない。",
+        "timing": "初回テーマ集計後に追加した探索的な表現分類。原文からの人手正解ラベルによる検証は未実施。"
+      }
+    }
+  },
+  "method": {
+    "version": "survey-content-v3",
+    "threshold": 10,
+    "topics_regex": {
+      "自然・景観": "自然|景色|景観|風景|眺め|紅葉|絶景",
+      "地域・場所の再発見": "再発見|発見|知らなかった|知らない場所|初めての場所|新しい場所|魅力|穴場",
+      "スタンプ収集・ラリー": "スタンプ|ラリー|集め|収集",
+      "達成・完走": "達成|制覇|コンプリート|完走|全[部箇所]|全て|すべて",
+      "特典・景品": "特典|景品|賞品|プレゼント|クーポン|お得|割引",
+      "同行・交流": "仲間|友人|友達|友だち|知人|家族|親子|夫婦|子ども|子供|交流|出会い|一緒|いっしょ",
+      "スタッフ・案内者": "スタッフ|ガイド|案内人|係員|店員|従業員|接客",
+      "案内・地図・移動経路": "案内|地図|マップ|アクセス|道順|ルート|移動|説明|看板|標識",
+      "交通・駐車": "交通|駐車|バス|電車|鉄道|渋滞|徒歩|歩行",
+      "施設・店舗・スポット": "施設|店舗|お店|スポット|トイレ|休憩所|飲食店",
+      "食事・飲食": "食事|食べ|料理|グルメ|ランチ|カフェ|飲食|おいし|美味",
+      "歴史・文化": "歴史|文化|神社|お寺|美術|博物館",
+      "混雑・待ち時間": "混雑|混ん|待ち時間|行列|人が多",
+      "営業時間・休業": "営業時間|営業日|休業|定休日|閉店|開店|閉館|開館",
+      "アプリ・操作・通信": "アプリ|操作|使いやす|使いにく|使いづら|分かりやす|わかりやす|分かりにく|わかりにく|通信|電波|ログイン|QR|サイト|画面",
+      "開催時期・期間": "開催|期間|日程|季節|時期|週末|平日|延長",
+      "再参加・再訪・次回": "再訪|再び|もう一度|また行|また来|また訪|また参加|次回|次の旅|リピート"
+    },
+    "channels_regex": {
+      "架空SNSの投稿": "^架空SNSの投稿$",
+      "観光パンフレット": "^星凪諸島観光パンフレット$",
+      "友人からの紹介": "^友人からの紹介$",
+      "観光案内所": "^観光案内所$",
+      "旅の交流掲示板": "^旅の交流掲示板$",
+      "その他という回答": "^その他$"
+    },
+    "jobs_regex": {
+      "会社員・団体職員": "会社員|会社役員|団体職員|正社員|契約社員|派遣社員",
+      "公務員": "公務員",
+      "自営業・自由業": "自営業|自営|自由業|フリーランス|個人事業",
+      "学生": "学生|大学生|高校生|中学生|小学生",
+      "家事・育児・主婦・主夫・その他": "家事|育児|主婦|主夫|^その他$",
+      "パート・アルバイト": "パート|アルバイト",
+      "無職・退職": "無職|退職|年金生活"
+    },
+    "source_regions": [
+      "七色野地方",
+      "星凪地方",
+      "水琴地方",
+      "霧灯地方",
+      "雲風地方",
+      "青綴地方"
+    ],
+    "none_regex": "^(?:特に(?:は)?(?:ありません|ないです|なし|ない)|ありません|なし|ない|要望なし|特になしです)[。.!！\\s]*$",
+    "normalization": "NFKCおよび前後空白除去。自由記述テーマ辞書は初回実行前に固定。登録時のカテゴリ対応は初回の未分類を受け、10件以上の選択肢ラベルを確認して更新。認知経路はセミコロンで分割し回答者内重複排除。",
+    "first_pass_diagnostics": {
+      "unclassified_channel_rows": 60,
+      "unclassified_occupation_rows": 49,
+      "unclassified_residence_rows": 500
+    },
+    "validation": "一人一回答、列構造、地域合計、カテゴリ排他性、合成文5条件を確認。原文全件の人手意味判定・正解ラベル比較は未実施。",
+    "limits": [
+      "良かった点欄と要望欄を別集計。否定・希望・肯定の語は別集計で、全文の意図を保証しない。",
+      "複数分類の合計は回答者数を超え得る。辞書未一致は言及なしや関心なしの証明にならない。",
+      "登録時の経路は確認済み選択肢を分割した人数。同一回答内の同じカテゴリは一回のみ計上。",
+      "提供サンプルの実測・合成・選択式等の由来未確認。母集団推定や因果判断には用いない。",
+      "少数カテゴリは非表示。排他的な集計で少数が1セルのみのとき補完抑制。匿名性の保証ではない。"
+    ]
+  },
+  "source_unchanged": true
+}
