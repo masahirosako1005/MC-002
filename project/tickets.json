@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 246,
-  "last_event_hash": "321700327d53a4b3b39b7e2bdb766206abbb16c6e7a03e9ea20ec7c8193d516d",
-  "updated_at": "2026-11-09T13:37:45+09:00",
+  "revision": 255,
+  "last_event_hash": "e619e13b821640468b0c120192fea860e43bc46173e0f396cc57c6152329f91f",
+  "updated_at": "2026-11-09T13:39:15+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -358,12 +358,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 5,
-      "revisions": [],
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-09T13:39:13+09:00",
+          "hash": "2177d435089aaef71f99fa05d69149aeb77a8879",
+          "path": "project/revisions/2177d435089aaef71f99fa05d69149aeb77a8879.txt",
+          "summary": "R07 Rebuild travel collections and refresh local artwork"
+        }
+      ],
       "status": "done",
       "title": "収集棚の小見出しのコントラスト不足",
       "type": "bug",
-      "updated_at": "2026-11-09T13:32:38+09:00"
+      "updated_at": "2026-11-09T13:39:13+09:00"
     },
     {
       "acceptance": [
@@ -390,12 +397,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 5,
-      "revisions": [],
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-09T13:39:13+09:00",
+          "hash": "2177d435089aaef71f99fa05d69149aeb77a8879",
+          "path": "project/revisions/2177d435089aaef71f99fa05d69149aeb77a8879.txt",
+          "summary": "R07 Rebuild travel collections and refresh local artwork"
+        }
+      ],
       "status": "done",
       "title": "DockerでWebP画像の配信形式が不正",
       "type": "bug",
-      "updated_at": "2026-11-09T13:32:39+09:00"
+      "updated_at": "2026-11-09T13:39:13+09:00"
     },
     {
       "acceptance": [
@@ -1353,7 +1367,7 @@
           "text": "生成画像をPJ内に保存し、公開画面の主要な装飾場面へ組み込む。出典方式とプロンプトを記録する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "スマホ幅・文字拡大・主要動線・画像読込・外部通信なしを確認し、資料・ソース配布物・Gitを更新する"
         }
       ],
@@ -1385,18 +1399,30 @@
           "at": "2026-11-09T13:37:44+09:00",
           "path": "artifacts/presentation/VISUAL-QA.md",
           "text": "背景刷新後の実画面を反映した13枚PPTX/PDF。全枚描画・目視、108文字枠の超過0、ハッシュ照合。"
+        },
+        {
+          "at": "2026-11-09T13:39:13+09:00",
+          "path": "scripts/package_release.py",
+          "text": "実装R07 2177d43をコミットし配布ZIPを生成、CRCとGit bundleを検証。DB・個票・秘密・依存キャッシュは対象外。最終配布版はmanifestで識別。"
         }
       ],
       "id": "T20",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
-      "status": "review",
+      "revision": 13,
+      "revisions": [
+        {
+          "at": "2026-11-09T13:39:12+09:00",
+          "hash": "2177d435089aaef71f99fa05d69149aeb77a8879",
+          "path": "project/revisions/2177d435089aaef71f99fa05d69149aeb77a8879.txt",
+          "summary": "R07 Rebuild travel collections and refresh local artwork"
+        }
+      ],
+      "status": "done",
       "title": "画像生成で背景と観光イラストを刷新する",
       "type": "task",
-      "updated_at": "2026-11-09T13:37:45+09:00"
+      "updated_at": "2026-11-09T13:39:14+09:00"
     },
     {
       "acceptance": [
@@ -1409,7 +1435,7 @@
           "text": "個人の訪問と達成から進捗・獲得日・別日再訪を判定し、分離・重複・年度越しを試験する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "収集棚から条件確認と次の行動ができ、スマホとキーボード操作を検証し履歴と提出物を更新する"
         }
       ],
@@ -1452,12 +1478,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 11,
-      "revisions": [],
-      "status": "review",
+      "revision": 14,
+      "revisions": [
+        {
+          "at": "2026-11-09T13:39:12+09:00",
+          "hash": "2177d435089aaef71f99fa05d69149aeb77a8879",
+          "path": "project/revisions/2177d435089aaef71f99fa05d69149aeb77a8879.txt",
+          "summary": "R07 Rebuild travel collections and refresh local artwork"
+        }
+      ],
+      "status": "done",
       "title": "再訪トロフィーを調査し収集体験を再構築する",
       "type": "task",
-      "updated_at": "2026-11-09T13:37:45+09:00"
+      "updated_at": "2026-11-09T13:39:15+09:00"
     }
   ]
 }
