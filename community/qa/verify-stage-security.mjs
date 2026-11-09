@@ -44,7 +44,7 @@ async function step(name,fn){
   }
 }
 async function login(page,scope,username,isStage){
-  await scope.getByRole('radio',{name:new RegExp(username)}).check();
+  await scope.getByLabel('アカウント名',{exact:true}).fill(username);
   await scope.getByLabel('パスワード',{exact:true}).fill(`${username}-local-2026`);
   const pending=page.waitForResponse(r=>new URL(r.url()).pathname===(isStage?'/api/stage/login':'/api/login')&&r.request().method()==='POST');
   await scope.getByRole('button',{name:'ログイン',exact:true}).click();

@@ -107,7 +107,6 @@ export type Group = {
   created_at: string;
 };
 export type Bootstrap = {
-  accounts: Omit<User, "id">[];
   tags: Tag[];
   model: { status: "ready" | "unavailable"; name: string };
 };

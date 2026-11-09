@@ -30,7 +30,7 @@ try {
   await expect(right.getByRole('button',{name:'ログイン',exact:true})).toBeVisible();
   report.bothLoginScreensMs=Math.round(performance.now()-start);
   for(const [frame,name] of [[left,'aoi'],[right,'forest']]){
-    await frame.getByRole('radio',{name:new RegExp(name)}).check();
+    await frame.getByLabel('アカウント名',{exact:true}).fill(name);
     await frame.getByLabel('パスワード',{exact:true}).fill(`${name}-local-2026`);
     await frame.getByRole('button',{name:'ログイン',exact:true}).click();
     await expect(frame.locator('.market-plan-card').first()).toBeVisible();

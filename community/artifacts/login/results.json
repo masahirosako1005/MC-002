@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-09T06:58:48.205Z",
+  "results": [
+    "blank named account fields without public account enumeration",
+    "password visibility, failed authentication and Enter success",
+    "one-side logout preserves the other phone and returns empty form",
+    "narrow screens, text enlargement, keyboard and bounded photo requests"
+  ],
+  "external": [],
+  "errors": [],
+  "images": [
+    "/welcome-woodland-97a0e1c711d0.webp",
+    "/api/covers/coffee",
+    "/api/covers/woodland"
+  ],
+  "passed": true
+}

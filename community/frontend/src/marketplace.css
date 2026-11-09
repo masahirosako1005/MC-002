@@ -1215,6 +1215,10 @@
   padding: 14px;
   border-top: 1px solid var(--line);
 }
+.plan-card-summary { font-size: .8rem; color: var(--muted); margin: 8px 0; }
+.plan-schedule { display: flex; align-items: flex-start; gap: 6px; font-size: .73rem; line-height: 1.75; color: #685a49; margin: 10px 0; overflow-wrap: anywhere; }
+.plan-schedule > .icon { flex: 0 0 16px; width: 16px; height: 16px; margin-top: 3px; }
+.market-plan-copy > .button + .button { margin-top: 8px; }
 @media (max-width: 600px) {
   .modal.modal-conversation[open] {
     width: 100%;

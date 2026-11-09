@@ -1,0 +1,30 @@
+{
+  "recorded_at_utc": "2026-11-09T06:57:38Z",
+  "scope": "CP32-35 circles and CP37 anonymous login bootstrap; isolated HTTP API and SQLite tests",
+  "source_base_commit": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+  "working_tree_implementation": true,
+  "environment": {"os": "Windows", "python": "3.13.17", "transport": "httpx ASGITransport", "image_worker": false, "external_requests": "No network client used by these tests"},
+  "history": [
+    {"sequence": 1, "files": ["community/backend/tests/test_circles.py"], "passed": 12, "failed": 0, "skipped": 0, "seconds": 8.67, "note": "First circles API run"},
+    {"sequence": 2, "files": ["community/backend/tests/test_circles.py", "community/backend/tests/test_journal.py", "community/backend/tests/test_marketplace.py", "community/backend/tests/test_stage.py"], "passed": 45, "failed": 0, "skipped": 0, "seconds": 31.36, "note": "Includes 14 circles tests after legacy invitation bypass and public cache coverage"},
+    {"sequence": 3, "test": "test_circles.py::test_schema4_preserves_all_prior_tables_and_rolls_back", "passed": 1, "failed": 0, "skipped": 0, "seconds": 0.45, "note": "Strengthened nonempty schema3 migration: photo metadata, location candidate, journey, confirmed visit, profile sharing and existing party all preserved; rollback and reopen checked"}
+  ],
+  "verified": [
+    "Candidate consent and manual invitation distinction; pending users have no party access",
+    "Accept/decline/cancel, stale versions, idempotency and concurrent accept/cancel",
+    "Multi-turn local catalogue conversation; unresolved numeric ambiguity stays missing",
+    "Provider invitation pending has no consultation and exposes no internal messages or assistant turns",
+    "Legacy selection bypass denied for new circles and legacy parties using new invitations",
+    "Accepted shared messages, cancellation, distinct history for reinvitation and legacy read/write guards",
+    "Proposal revision and independent traveler/provider confirmation; revisions clear current confirmations",
+    "Community exit and legacy party closure revoke shared-room access",
+    "Existing-group subset remains reachable without accessing a private existing party",
+    "Anonymous bootstrap contains tags/model only; public cache exception is exact path/status/content type"
+  ],
+  "limitations": [
+    "These are API and database tests, not browser UI or Docker volume validation",
+    "No external AI model, real-world booking, physical visit verification or usability study",
+    "Existing Windows ONNX import test was intentionally not run in these suites",
+    "Fixed C1 score is not changed by these test counts"
+  ]
+}

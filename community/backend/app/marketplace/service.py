@@ -4,6 +4,7 @@ import re
 from fastapi import HTTPException
 from ..database import TAGS, identifier, now
 from ..service import member, require
+from .schedules import schedule_fields, schedule_state, schedule_match
 
 
 def dump(value):
@@ -51,7 +52,8 @@ class Marketplace:
 
     def plan_out(self, conn, row):
         provider = require(conn.execute('SELECT id,name,area FROM providers WHERE id=?', (row['provider_id'],)).fetchone())
-        return {**json.loads(row['body']), 'id':row['id'], 'provider':dict(provider), 'status':row['status'], 'version':row['version'], 'source_note':'架空のローカル企画素材。予約・空席・営業は未確認。'}
+        body = json.loads(row['body'])
+        return {**body, **schedule_fields(body), 'id':row['id'], 'provider':dict(provider), 'status':row['status'], 'version':row['version'], 'source_note':'架空のローカル企画素材。予約・空席・営業は未確認。'}
 
     def plans(self, uid, plan_id=None, provider_id=None, mine=False):
         with self.db.transaction() as conn:
@@ -69,7 +71,14 @@ class Marketplace:
             if provider_id:
                 query += ' AND p.provider_id=?'
                 args.append(provider_id)
-            return {'items':[self.plan_out(conn, r) for r in conn.execute(query+' ORDER BY p.id LIMIT 100', args)]}
+            plans=[]
+            for row in conn.execute(query+' ORDER BY p.id',args):
+                plan=self.plan_out(conn,row)
+                if mine or schedule_state(plan) not in ('ended','invalid'):
+                    plans.append(plan)
+                if len(plans)>=100:
+                    break
+            return {'items':plans}
 
     def save_plan(self, uid, provider_id, data, plan_id=None):
         with self.db.transaction(True) as conn:
@@ -183,6 +192,10 @@ class Marketplace:
 
     def match(self, req, plan):
         reasons, excluded, unknown = [], [], ['営業・空席は未確認', '移動時間・交通費は未確認']
+        _, schedule_reasons, schedule_excluded, schedule_unknown = schedule_match(plan,req.get('date_start'))
+        reasons.extend(schedule_reasons)
+        excluded.extend(schedule_excluded)
+        unknown.extend(schedule_unknown)
         people = req['planned_people']
         if plan['min_people'] <= people <= plan['max_people']:
             reasons.append(f"予定{people}人が受入人数の範囲内")
@@ -250,6 +263,8 @@ class Marketplace:
     def select(self,uid,pid,data):
         with self.db.transaction(True) as conn:
             self.party(conn,uid,pid,True)
+            from ..circles.guards import reject_direct_selection
+            reject_direct_selection(conn,pid)
             operation='selection:'+pid
             previous,fingerprint=self.replay(conn,uid,operation,data)
             if previous:
@@ -268,6 +283,8 @@ class Marketplace:
 
     def consultation(self,conn,uid,cid):
         row=require(conn.execute('SELECT c.*,s.party_id,s.provider_id,s.snapshot FROM consultations c JOIN plan_selections s ON s.id=c.selection_id WHERE c.id=?',(cid,)).fetchone())
+        from ..circles.guards import require_active_shared_room
+        require_active_shared_room(conn,cid)
         staff=conn.execute('SELECT 1 FROM provider_staff s JOIN providers p ON p.id=s.provider_id WHERE s.provider_id=? AND s.user_id=? AND s.active=1 AND p.active=1',(row['provider_id'],uid)).fetchone()
         if not staff:
             self.party(conn,uid,row['party_id'])
@@ -295,6 +312,8 @@ class Marketplace:
     def close(self,uid,cid,version):
         with self.db.transaction(True) as conn:
             row=self.consultation(conn,uid,cid)
+            from ..circles.guards import reject_direct_close
+            reject_direct_close(conn,cid)
             result=self.consultation_out(conn,uid,row)
             if not result['can_close']:
                 raise HTTPException(404,'相談が見つかりません。')

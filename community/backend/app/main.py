@@ -11,15 +11,18 @@ from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import Settings
-from .database import ACCOUNTS, TAGS, Database, digest
+from .database import TAGS, Database, digest
 from .images import AnalysisWorker, LocalClassifier
 from .schemas import CommunityInput, ContributionInput, Empty, JoinInput, Login, PlanInput, PostInput, PostPatch, PreferencesInput, ProposalInput, ResponseInput
 from .security import COOKIE, HEADERS, SecurityMiddleware, authenticated, csrf, current_session
 from .service import COVER_KEYS, TRIP_BY_ID, Service, user_out
-from .marketplace.schema import migrate, PROVIDER_ACCOUNTS
+from .marketplace.schema import migrate
 from .marketplace.router import create_router as marketplace_router
 from .journal.schema import migrate as migrate_journal
 from .journal.router import create_router as journal_router
+from .circles.schema import migrate as migrate_circles
+from .circles.router import create_router as circles_router
+from .circles.discovery_schema import migrate as migrate_discovery
 
 logger = logging.getLogger("ko")
 
@@ -36,6 +39,8 @@ def create_app(settings=None):
         database.initialize()
         migrate(database)
         migrate_journal(database)
+        migrate_circles(database)
+        migrate_discovery(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         service.seed_assets()
         if settings.worker_enabled:
@@ -78,8 +83,7 @@ def create_app(settings=None):
 
     @public.get("/bootstrap")
     def bootstrap():
-        return {"accounts": [{"username": username, "name": name, "initials": initials, "color": color} for username, name, initials, color in ACCOUNTS] + [{"username": username, "name": name, "initials": initials, "color": color} for username, name, initials, color, _ in PROVIDER_ACCOUNTS],
-                "tags": [{"id": key, "label": label} for key, label in TAGS.items()],
+        return {"tags": [{"id": key, "label": label} for key, label in TAGS.items()],
                 "model": {"status": "ready" if classifier.session else "unavailable", "name": "MobileNet V2・画像の被写体候補"}}
 
     @public.get("/covers/{key}")
@@ -233,6 +237,7 @@ def create_app(settings=None):
     app.include_router(private)
     app.include_router(marketplace_router(database))
     app.include_router(journal_router(database))
+    app.include_router(circles_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

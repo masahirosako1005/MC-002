@@ -16,6 +16,19 @@ export const periods = {
 export function coverFor(plan: ProviderPlan) {
   return `/api/covers/${plan.tags.includes("coast") ? "coast" : plan.tags.includes("cafe") && !plan.tags.includes("nature") ? "coffee" : "woodland"}`;
 }
+export function scheduleLabel(plan: ProviderPlan) {
+  if (plan.schedule_type !== "dated") return "日程は相談";
+  if (!plan.starts_at || !plan.ends_at) return "開催日時を確認してください";
+  const format = new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `${format.format(new Date(plan.starts_at))}〜${format.format(new Date(plan.ends_at))}（日本時間）`;
+}
 export function priceLabel(plan: ProviderPlan) {
   return `${plan.price_yen.toLocaleString()}円 / ${plan.price_basis === "per_person" ? "1人" : "全員"}`;
 }
@@ -61,6 +74,7 @@ export function PlanCard({
   reason,
   onOpen,
   actionLabel = "日別の行程を見る",
+  onAdd,
 }: {
   plan: ProviderPlan;
   tags: Tag[];
@@ -68,6 +82,7 @@ export function PlanCard({
   reason?: string;
   onOpen: () => void;
   actionLabel?: string;
+  onAdd?: () => void;
 }) {
   return (
     <article className={`market-plan-card ${featured ? "featured" : ""}`}>
@@ -81,6 +96,11 @@ export function PlanCard({
         </span>
         <h3>{plan.title}</h3>
         <p className="provider-name">{plan.provider.name}</p>
+        <p className="plan-card-summary">{plan.summary}</p>
+        <p className="plan-schedule">
+          <Icon name="calendar" />
+          {scheduleLabel(plan)}
+        </p>
         <Tags ids={plan.tags.slice(0, 3)} tags={tags} />
         {reason && (
           <p className="match-reason">
@@ -99,6 +119,12 @@ export function PlanCard({
           {actionLabel}
           <Icon name="arrow" />
         </button>
+        {onAdd && (
+          <button className="button primary" onClick={onAdd}>
+            <Icon name="plus" />
+            講に追加
+          </button>
+        )}
       </div>
     </article>
   );
@@ -127,6 +153,10 @@ export function PlanDetail({
       <p className="small-label">{plan.provider.name}</p>
       <h2 className="plan-detail-title">{plan.title}</h2>
       <p>{plan.summary}</p>
+      <p className="plan-schedule">
+        <Icon name="calendar" />
+        {scheduleLabel(plan)}
+      </p>
       <Tags ids={plan.tags} tags={tags} />
       <div className="price-summary">
         <strong>{priceLabel(plan)}</strong>
@@ -218,7 +248,8 @@ export function Conversation({
   const history = useRef<HTMLDivElement>(null);
   const latestMessageId = messages.at(-1)?.id;
   useEffect(() => {
-    if (history.current) history.current.scrollTop = history.current.scrollHeight;
+    if (history.current)
+      history.current.scrollTop = latestMessageId || error ? history.current.scrollHeight : 0;
   }, [latestMessageId, error]);
   async function send() {
     setBusy(true);
@@ -239,7 +270,13 @@ export function Conversation({
   }
   return (
     <section className="conversation" aria-label={label}>
-      <div className="conversation-history" ref={history} tabIndex={0} role="region" aria-label={`${label}の履歴と共有条件`}>
+      <div
+        className="conversation-history"
+        ref={history}
+        tabIndex={0}
+        role="region"
+        aria-label={`${label}の履歴と共有条件`}
+      >
         {context}
         {messages.length === 0 ? (
           <Empty title="まずは、希望をひとこと">

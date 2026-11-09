@@ -111,3 +111,18 @@ C1は30/100据置。通常Edgeの応答停止（CP27）は未解決。動作が�
 ## CP36：幅と相談スクロール（追加受入）
 
 [実測](../community/artifacts/conversation-layout/results.json)の3段階成功。1440×900と1366×768で外枠430px/内容410px、端末下端が画面内。相談は見出しと入力を固定し履歴のみscroll、太いバー非表示。320/390px・200%文字・長文、Home/End/ホイール、両方向の実返信、モーダル閉鎖後の背景スクロール復元を確認。通常Edge修復の根拠にはしない。
+
+## CP32〜35・37・38：講の承諾と候補共有（追加受入）
+
+2026年11月9日、schema5。C1は30/100据置。生成AI接続や外部予約は確認対象外。
+
+| 検証 | 結果と証拠 |
+|---|---|
+| API/独立レビュー | [講の45件と移行補足1件](../community/artifacts/circles/api-tests.json)、[関連57件と最終追加13件](../community/artifacts/discovery/api-tests.json)。別実行を加算して一括成功とはしない。権限、未承諾/他社拒否、曖昧条件、古い版、取消、公開停止、日程、本人許可、重複、100件超を確認 |
+| 講の画面 | [6段階成功](../community/artifacts/circles/browser.json)。二方式作成、本人参加/見送り、複数対話、明示条件確定、事業者実承諾、共有返信、見積両者確認と改訂。axe0/外部要求0/320・390・200% |
+| ログイン入口 | [4段階成功](../community/artifacts/login/results.json)。空欄、列挙なし、Enter、失敗/表示切替、片側logout、狭幅/拡大/keyboard。初回footer色3.95:1の違反は修正してaxe0 |
+| おすすめと候補共有 | [5段階成功](../community/artifacts/discovery/browser.json)。事業者日時の実登録編集、講選択/条件照合、候補保存、再読、明示招待pending。axe0/外部要求0。長い数字の講名による320px文字200%のはみ出しを折返しで修正 |
+| 移行/保存 | [schema3→4](../community/artifacts/circles/migration.json)旧30表/8画像同一、[schema4→5](../community/artifacts/discovery/migration.json)旧36表/8画像同一。[再起動](../community/artifacts/discovery/restart.json)で非揮発表/画像一致、[4訪問とバッジ](../community/artifacts/discovery/restart-api.json)も保持 |
+| 既存機能の回帰 | schema5配信で地図6段階と左右認証8段階成功。通常Edgeの障害は別で未解決 |
+
+不合格と回復はlogin/contrast-failure.json、circles/browser-日時.json、discoveryの各履歴へ保持。講画面の初回は保存応答を待たず即GETする試験の待機不足で、応答後の状態を待つよう修正した。期待・候補保存・相談・見積確認を物理的利用や予約成立として報告しない。

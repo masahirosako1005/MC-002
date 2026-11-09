@@ -9,11 +9,14 @@ const captions = {
   selection: "共有する内容を確かめ、選んだ事業者に相談する。",
   reply: "地域の人と、旅の相談をやり取りする。",
   "provider-plan": "地域の人が、自分たちの旅を提案する。",
+  "circle-invite": "行き先と共有内容を決め、事業者を講へ招く。",
+  "circle-joined": "事業者が招待を受け、同じ旅の相談に加わる。",
+  "circle-reply": "講の仲間と地域の人が、旅の相談を交わす。",
 } as const;
 type Caption = { event: keyof typeof captions | "initial"; text: string };
 type Transfer = {
   sequence: number;
-  event: "selection" | "reply";
+  event: "selection" | "reply" | "circle-invite" | "circle-joined" | "circle-reply";
   direction: "visitor-to-provider" | "provider-to-visitor";
 };
 
@@ -76,10 +79,11 @@ export default function Stage() {
       // Only completed, meaningful operations change the scene caption.
       // Login, read requests, failure events, and private message bodies are ignored.
       const type = value.type as keyof typeof captions;
-      setCaption({ event: type, text: captions[type] });
       const fromVisitor = event.source === visitor.current?.contentWindow;
+      if ((type === "circle-invite" && !fromVisitor) || (type === "circle-joined" && fromVisitor)) return;
+      setCaption({ event: type, text: captions[type] });
       // An internal conversation, draft, or read is not a message to the other role.
-      if (type !== "reply" && !(type === "selection" && fromVisitor)) return;
+      if (type !== "reply" && type !== "circle-reply" && type !== "circle-joined" && !(type === "selection" && fromVisitor) && !(type === "circle-invite" && fromVisitor)) return;
       const next: Transfer = {
         sequence: ++transferSequence.current,
         event: type,

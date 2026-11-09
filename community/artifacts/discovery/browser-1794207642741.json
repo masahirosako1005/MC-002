@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-09T07:00:52.637Z",
+  "results": [
+    "provider creates and edits a dated public plan through the screen",
+    "traveler creates a circle and explicitly confirms matching travel conditions",
+    "ranked discovery adds a candidate and opens the internal circle conversation",
+    "saved candidate survives reopening and explicit destination sharing creates only a pending invitation",
+    {
+      "failed": "Horizontal page overflow: viewport 320, content 411, font 32px"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": {
+    "circle": true,
+    "plan": true
+  },
+  "fixtureRetention": "Only this run’s plan is archived and circle closed; no rows deleted.",
+  "passed": false
+}

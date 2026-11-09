@@ -1,5 +1,5 @@
 import Choice from "./Choice";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./api";
 import type { Tag, User } from "./types";
 import type {
@@ -18,6 +18,17 @@ import {
 } from "./marketplace-ui";
 import { Empty, ErrorBox, Icon, Modal, TagPicker } from "./ui";
 import "./marketplace.css";
+const ProviderCircleInvites = lazy(() =>
+  import("./Circles").then((module) => ({
+    default: module.ProviderCircleInvites,
+  })),
+);
+function japanDateInput(value: string | null | undefined) {
+  if (!value) return "";
+  return new Date(new Date(value).getTime() + 9 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 16);
+}
 const newStop = (): ItineraryItem => ({
   day: 1,
   period: "afternoon",
@@ -44,6 +55,9 @@ function blankPlan(provider: Provider): ProviderPlan {
     status: "draft",
     version: 0,
     source_note: "",
+    schedule_type: "on_request",
+    starts_at: null,
+    ends_at: null,
   };
 }
 function PlanEditor({
@@ -106,6 +120,10 @@ function PlanEditor({
     value.min_people >= 1 &&
     value.max_people >= value.min_people &&
     value.price_yen > 0 &&
+    (value.schedule_type !== "dated" ||
+      (!!value.starts_at &&
+        !!value.ends_at &&
+        Date.parse(value.ends_at) >= Date.parse(value.starts_at))) &&
     value.itinerary.length > 0 &&
     value.itinerary.every(
       (item) => item.place.trim() && item.day <= value.nights + 1,
@@ -157,6 +175,69 @@ function PlanEditor({
             maxLength={120}
           />
         </label>
+        <h3 className="editor-section-title">開催日時</h3>
+        <label className="field">
+          日程の決め方
+          <Choice
+            value={value.schedule_type || "on_request"}
+            onChange={(event) =>
+              setValue((current) => ({
+                ...current,
+                schedule_type: event.target.value as "on_request" | "dated",
+                starts_at:
+                  event.target.value === "on_request"
+                    ? null
+                    : current.starts_at || null,
+                ends_at:
+                  event.target.value === "on_request"
+                    ? null
+                    : current.ends_at || null,
+              }))
+            }
+          >
+            <option value="on_request">日程は相談</option>
+            <option value="dated">開催日時を指定する</option>
+          </Choice>
+        </label>
+        {value.schedule_type === "dated" && (
+          <>
+            <div className="field-row">
+              <label className="field">
+                開催開始（日本時間）
+                <input
+                  type="datetime-local"
+                  value={japanDateInput(value.starts_at)}
+                  onChange={(event) =>
+                    change(
+                      "starts_at",
+                      event.target.value
+                        ? `${event.target.value}:00+09:00`
+                        : null,
+                    )
+                  }
+                />
+              </label>
+              <label className="field">
+                開催終了（日本時間）
+                <input
+                  type="datetime-local"
+                  value={japanDateInput(value.ends_at)}
+                  onChange={(event) =>
+                    change(
+                      "ends_at",
+                      event.target.value
+                        ? `${event.target.value}:00+09:00`
+                        : null,
+                    )
+                  }
+                />
+              </label>
+            </div>
+            <p className="muted">
+              開催期間の表示です。空席や各日の出発を確約するものではありません。終了したプランは旅行者の探索に表示されません。
+            </p>
+          </>
+        )}
         <h3 className="editor-section-title">人数・泊数・費用</h3>
         <div className="numeric-grid">
           <label className="field">
@@ -397,7 +478,9 @@ export default function ProviderWorkspace({
   tags: Tag[];
   user: User;
 }) {
-  const [tab, setTab] = useState<"plans" | "consultations">("plans");
+  const [tab, setTab] = useState<"plans" | "consultations" | "circles">(
+    "plans",
+  );
   const [plans, setPlans] = useState<ProviderPlan[]>([]);
   const [consultations, setConsultations] = useState<Consultation[]>([]);
   const [editing, setEditing] = useState<ProviderPlan | null>(null);
@@ -469,6 +552,13 @@ export default function ProviderWorkspace({
           届いた相談
         </button>
         <button
+          aria-pressed={tab === "circles"}
+          className={tab === "circles" ? "selected" : ""}
+          onClick={() => setTab("circles")}
+        >
+          講への招待
+        </button>
+        <button
           className="text-button"
           disabled={busy}
           onClick={() => void load()}
@@ -478,7 +568,11 @@ export default function ProviderWorkspace({
         </button>
       </div>
       <ErrorBox message={error} />
-      {tab === "plans" ? (
+      {tab === "circles" ? (
+        <Suspense fallback={<p role="status">講への招待をひらいています…</p>}>
+          <ProviderCircleInvites key={user.id} user={user} />
+        </Suspense>
+      ) : tab === "plans" ? (
         <>
           <div className="section-title">
             <h2>公開・下書き</h2>
@@ -589,7 +683,17 @@ export default function ProviderWorkspace({
           variant="conversation"
         >
           <Conversation
-            context={<div className="consultation-context"><h3>{selected.selection.plan.title}</h3><RequirementsSummary value={selected.selection.shared_conditions} />{selected.selection.share_note && <p>{selected.selection.share_note}</p>}</div>}
+            context={
+              <div className="consultation-context">
+                <h3>{selected.selection.plan.title}</h3>
+                <RequirementsSummary
+                  value={selected.selection.shared_conditions}
+                />
+                {selected.selection.share_note && (
+                  <p>{selected.selection.share_note}</p>
+                )}
+              </div>
+            }
             endpoint={`/consultations/${selected.id}/messages`}
             messages={messages}
             user={user}

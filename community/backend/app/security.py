@@ -83,6 +83,12 @@ class SecurityMiddleware:
             if message["type"] == "http.response.start":
                 response_headers = MutableHeaders(scope=message)
                 response_headers.update(HEADERS)
+                # This content-hashed bundled cover contains no user data. All APIs and
+                # authenticated photographs retain the no-store default above.
+                if (scope['path'] == '/welcome-woodland-97a0e1c711d0.webp'
+                        and scope['method'] in ('GET','HEAD') and message['status'] == 200
+                        and response_headers.get('content-type','').split(';',1)[0] == 'image/webp'):
+                    response_headers['Cache-Control'] = 'public, max-age=86400, immutable'
                 if scope['path'] in ('/stage/visitor', '/stage/provider') and scope['method'] in ('GET', 'HEAD') and response_headers.get('content-type','').startswith('text/html'):
                     response_headers['X-Frame-Options'] = 'SAMEORIGIN'
                     response_headers['Content-Security-Policy'] = HEADERS['Content-Security-Policy'].replace("frame-ancestors 'none'", "frame-ancestors 'self'")

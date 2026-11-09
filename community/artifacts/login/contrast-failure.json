@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-09T06:51:48.492Z",
+  "results": [
+    {
+      "failed": "[{\"id\":\"color-contrast\",\"targets\":[[\"iframe[src$=\\\"visitor\\\"]\",\".welcome-footer\"],[\"iframe[src$=\\\"provider\\\"]\",\".welcome-footer\"]]}]\n\n1 !== 0\n"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "images": [
+    "/welcome-woodland-97a0e1c711d0.webp"
+  ],
+  "passed": false
+}

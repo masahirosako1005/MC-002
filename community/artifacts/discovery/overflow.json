@@ -1,0 +1,147 @@
+{
+  "width": 320,
+  "scrollWidth": 411,
+  "fontSize": "32px",
+  "items": [
+    {
+      "tag": "BUTTON",
+      "className": "text-button",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "← 講の一覧へ"
+    },
+    {
+      "tag": "HEADER",
+      "className": "circle-heading",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "同期の旅じたく日帰りの仲間 1794207642741参加済み 1人 · 招待中 0人 · あと2人を募集中旅行の予定人数：6人 ／ 一緒に計画する人数とは別です。"
+    },
+    {
+      "tag": "P",
+      "className": "eyebrow",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "同期の旅じたく"
+    },
+    {
+      "tag": "H1",
+      "className": "",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "日帰りの仲間 1794207642741"
+    },
+    {
+      "tag": "P",
+      "className": "",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "参加済み 1人 · 招待中 0人 · あと2人を募集中"
+    },
+    {
+      "tag": "SMALL",
+      "className": "",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "旅行の予定人数：6人 ／ 一緒に計画する人数とは別です。"
+    },
+    {
+      "tag": "DIV",
+      "className": "circle-actions",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "講を更新旅行条件を確認"
+    },
+    {
+      "tag": "BUTTON",
+      "className": "text-button",
+      "right": 354,
+      "width": 205,
+      "text": "旅行条件を確認"
+    },
+    {
+      "tag": "SECTION",
+      "className": "circle-provider-card",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "この講の行き先と事業者森の日帰り散策 1794207642741森の旅案内 · 返事を待っています事業者の参加承諾を待っています。まだ共有の会話は開いていません。事業者への招待を取り消す"
+    },
+    {
+      "tag": "P",
+      "className": "eyebrow",
+      "right": 394.8125,
+      "width": 366.8125,
+      "text": "この講の行き先と事業者"
+    },
+    {
+      "tag": "H3",
+      "className": "",
+      "right": 394.8125,
+      "width": 366.8125,
+      "text": "森の日帰り散策 1794207642741"
+    },
+    {
+      "tag": "P",
+      "className": "",
+      "right": 394.8125,
+      "width": 366.8125,
+      "text": "森の旅案内 · 返事を待っています"
+    },
+    {
+      "tag": "P",
+      "className": "circle-note",
+      "right": 394.8125,
+      "width": 366.8125,
+      "text": "事業者の参加承諾を待っています。まだ共有の会話は開いていません。"
+    },
+    {
+      "tag": "BUTTON",
+      "className": "text-button danger",
+      "right": 394.8125,
+      "width": 366.8125,
+      "text": "事業者への招待を取り消す"
+    },
+    {
+      "tag": "NAV",
+      "className": "market-tabs circle-tabs",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "仲間と話すAIに相談行き先参加者"
+    },
+    {
+      "tag": "BUTTON",
+      "className": "",
+      "right": 410.8125,
+      "width": 108.484375,
+      "text": "行き先"
+    },
+    {
+      "tag": "BUTTON",
+      "className": "",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "参加者"
+    },
+    {
+      "tag": "P",
+      "className": "circle-note",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "この会話は講の参加者だけに見えます。事業者には共有されません。"
+    },
+    {
+      "tag": "SECTION",
+      "className": "conversation",
+      "right": 410.8125,
+      "width": 398.8125,
+      "text": "この講に持ち寄った候補候補の保存だけでは、事業者への招待や予約は行われません。候補として共有中森の日帰り散策 1794207642741岐阜県 · 森の旅案内2026/12/14 09:00〜2026"
+    },
+    {
+      "tag": "DIV",
+      "className": "conversation-history",
+      "right": 409.8125,
+      "width": 396.8125,
+      "text": "この講に持ち寄った候補候補の保存だけでは、事業者への招待や予約は行われません。候補として共有中森の日帰り散策 1794207642741岐阜県 · 森の旅案内2026/12/14 09:00〜2026"
+    }
+  ]
+}

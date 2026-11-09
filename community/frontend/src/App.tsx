@@ -5,8 +5,6 @@ import {
   ApiError,
   mediaUrl,
   setCsrf,
-  setAccessToken,
-  stageFrame,
 } from "./api";
 import type {
   Bootstrap,
@@ -29,16 +27,18 @@ import {
   Tags,
 } from "./ui";
 import Composer from "./Composer";
+import Login from "./Login";
 import Preferences from "./Preferences";
 import KoPage, { tripCover } from "./KoPage";
 import Marketplace from "./Marketplace";
 import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
 const Journal = lazy(() => import("./Journal"));
+const Circles = lazy(() => import("./Circles"));
 const VisitDialog = lazy(() => import("./Journal").then((module) => ({ default: module.VisitDialog })));
 const TravelProfile = lazy(() => import("./Journal").then((module) => ({ default: module.TravelProfile })));
 
-type Page = "feed" | "ko" | "preferences" | "market" | "provider" | "journal";
+type Page = "feed" | "ko" | "ko-legacy" | "preferences" | "market" | "provider" | "journal";
 type Data = {
   communities: Community[];
   preferences: PreferenceData;
@@ -47,153 +47,6 @@ type Data = {
   groups: Group[];
   capabilities: Capabilities;
 };
-function Login({
-  bootstrap,
-  onLogin,
-  message,
-}: {
-  bootstrap: Bootstrap;
-  onLogin: (user: User, token: string) => void;
-  message: string;
-}) {
-  const accounts = stageFrame
-    ? bootstrap.accounts.filter((a) =>
-        window.location.pathname === "/stage/provider"
-          ? ["forest", "shore"].includes(a.username)
-          : !["forest", "shore"].includes(a.username),
-      )
-    : bootstrap.accounts;
-  const [username, setUsername] = useState(
-    (window.location.pathname === "/stage/provider"
-      ? bootstrap.accounts.find((a) => a.username === "forest")?.username
-      : bootstrap.accounts[0]?.username) || "",
-  );
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [busy, setBusy] = useState(false);
-  async function submit(e: React.SubmitEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setBusy(true);
-    setError("");
-    try {
-      const result = await api<{
-        user: User;
-        csrf_token: string;
-        access_token?: string;
-      }>(stageFrame ? "/stage/login" : "/login", "POST", {
-        username,
-        password,
-      });
-      setPassword("");
-      if (result.access_token) setAccessToken(result.access_token);
-      onLogin(result.user, result.csrf_token);
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <main className="login-layout">
-      <div className="login-story">
-        <div className="brand">
-          <span className="brand-mark">講</span>
-          <span>旅のつづき、誰と行こう。</span>
-        </div>
-        <div className="login-copy">
-          <p className="eyebrow">記録から、次の旅の仲間へ</p>
-          <h1>
-            好きな景色の先に、
-            <br />
-            気の合う誰か。
-          </h1>
-          <p>
-            旅の写真を分け合う。
-            <br />
-            好きなことが重なる。
-            <br />
-            次の旅を、一緒に考える。
-          </p>
-        </div>
-        {!stageFrame && (
-          <div className="login-photo">
-            <LocalPhoto
-              src="/api/covers/coast"
-              alt="海辺を旅するひととき"
-              priority
-            />
-          </div>
-        )}
-      </div>
-      <div className="login-panel">
-        <p className="eyebrow">おかえりなさい</p>
-        <h2>旅のつづきを、ひらく。</h2>
-        <p className="muted">自分のアカウントでログインしてください。</p>
-        {message && (
-          <p className="hint-box" role="status">
-            {message}
-          </p>
-        )}
-        <ErrorBox message={error} />
-        <form onSubmit={submit}>
-          <fieldset className="account-options" disabled={busy}>
-            <legend>アカウント</legend>
-            {accounts.map((a) => (
-              <label
-                className={username === a.username ? "selected" : ""}
-                key={a.username}
-              >
-                <input
-                  type="radio"
-                  name="account"
-                  checked={username === a.username}
-                  onChange={() => setUsername(a.username)}
-                />
-                <Avatar user={a} />
-                <span>
-                  <strong>{a.name}</strong>
-                  <small>{a.username}</small>
-                </span>
-              </label>
-            ))}
-          </fieldset>
-          <label className="field">
-            パスワード
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              required
-              disabled={busy}
-            />
-          </label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            autoComplete="username"
-            readOnly
-            className="sr-only"
-            tabIndex={-1}
-          />
-          <button
-            className="button primary full"
-            type="submit"
-            disabled={busy || !password}
-          >
-            {busy ? "確認しています…" : "ログイン"}
-            <Icon name="arrow" />
-          </button>
-        </form>
-        <p className="privacy-note">
-          <Icon name="people" />
-          写真は、公開先に選んだコミュニティの中だけで共有します。
-        </p>
-      </div>
-    </main>
-  );
-}
 function CommunityDialog({
   community,
   onClose,
@@ -394,6 +247,7 @@ export default function App() {
   const [deletePost, setDeletePost] = useState<Post | null>(null);
   const [recordPost, setRecordPost] = useState<Post | null>(null);
   const [profileUser, setProfileUser] = useState<User | null>(null);
+  const [circleTarget, setCircleTarget] = useState("");
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
   const generation = useRef(0);
@@ -407,6 +261,7 @@ export default function App() {
     setDeletePost(null);
     setRecordPost(null);
     setProfileUser(null);
+    setCircleTarget("");
     setSwitching(false);
     setCsrf("");
     setMessage(text);
@@ -566,7 +421,6 @@ export default function App() {
   if (!user)
     return (
       <Login
-        bootstrap={bootstrap}
         message={message}
         onLogin={(u, t) => {
           setCsrf(t);
@@ -886,6 +740,7 @@ export default function App() {
               groups={data.groups}
               tags={bootstrap.tags}
               user={user}
+              onOpenCircle={(id) => { setCircleTarget(id); navigate("ko"); }}
             />
           ) : page === "provider" ? (
             <ProviderWorkspace
@@ -894,6 +749,10 @@ export default function App() {
               user={user}
             />
           ) : page === "ko" ? (
+            <Suspense fallback={<p role="status">講をひらいています…</p>}>
+              <Circles key={user.id} community={community} communities={data.communities} user={user} tags={bootstrap.tags} initialCircleId={circleTarget} onLegacy={() => navigate("ko-legacy")} />
+            </Suspense>
+          ) : page === "ko-legacy" ? (
             <KoPage
               community={community}
               trips={data.trips}

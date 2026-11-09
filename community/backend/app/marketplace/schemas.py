@@ -1,6 +1,7 @@
-from datetime import date as Date
+from datetime import date as Date, datetime, timezone
+import re
 from typing import Annotated, Literal
-from pydantic import Field, model_validator
+from pydantic import Field, field_validator, model_validator
 from ..schemas import Input, Id, Short, TagList
 
 
@@ -85,9 +86,35 @@ class ProviderPlanInput(Input):
     itinerary: Annotated[list[ItineraryItem], Field(min_length=1, max_length=60)]
     status: Literal['draft', 'published', 'archived'] = 'draft'
     version: Annotated[int, Field(strict=True, ge=0)] = 0
+    schedule_type: Literal['on_request','dated'] = 'on_request'
+    starts_at: datetime | None = None
+    ends_at: datetime | None = None
+
+    @field_validator('starts_at','ends_at', mode='before')
+    @classmethod
+    def timestamp_input(cls,value):
+        if value is not None and not isinstance(value,(str,datetime)):
+            raise ValueError('Use an ISO timestamp')
+        if isinstance(value,str) and not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2})',value):
+            raise ValueError('Use an offset-aware ISO timestamp')
+        return value
+
+    @field_validator('starts_at','ends_at')
+    @classmethod
+    def timestamp_timezone(cls,value):
+        if value is not None:
+            if value.tzinfo is None or value.utcoffset() is None:
+                raise ValueError('Timezone is required')
+            return value.astimezone(timezone.utc)
+        return value
 
     @model_validator(mode='after')
     def consistent(self):
+        if self.schedule_type == 'dated':
+            if self.starts_at is None or self.ends_at is None or self.ends_at < self.starts_at:
+                raise ValueError('Valid start and end are required')
+        elif self.starts_at is not None or self.ends_at is not None:
+            raise ValueError('On-request plans have no fixed dates')
         if self.min_people > self.max_people:
             raise ValueError('Invalid capacity')
         days = {row.day for row in self.itinerary}

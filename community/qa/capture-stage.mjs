@@ -16,7 +16,7 @@ try{
  const left=page.frameLocator('iframe[title="旅行者の操作画面"]'),right=page.frameLocator('iframe[title="事業者の操作画面"]');
  const sessions={};
  for(const[frame,user]of[[left,'aoi'],[right,'forest']]){
-  await frame.getByRole('radio',{name:new RegExp(user)}).check();await frame.getByLabel('パスワード',{exact:true}).fill(`${user}-local-2026`);
+  await frame.getByLabel('アカウント名',{exact:true}).fill(user);await frame.getByLabel('パスワード',{exact:true}).fill(`${user}-local-2026`);
   const response=page.waitForResponse(r=>r.url().endsWith('/api/stage/login')&&r.request().method()==='POST');await frame.getByRole('button',{name:'ログイン',exact:true}).click();sessions[user]=await(await response).json();
   await expect(frame.locator('.market-plan-card').first()).toBeVisible();await expect.poll(()=>frame.locator('.market-plan-card img').first().evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
  }

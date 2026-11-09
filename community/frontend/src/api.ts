@@ -6,11 +6,18 @@ export const stageFrame = /^\/stage\/(visitor|provider)\/?$/.test(
 export function setAccessToken(value: string) {
   bearer = value;
 }
-function stageEvent(path: string, method: string, ok: boolean) {
+function stageEvent(path: string, method: string, ok: boolean, result?: unknown) {
   if (!stageFrame) return;
   path = path.split("?")[0];
+  const accepted = !!result && typeof result === "object" && "status" in result && result.status === "accepted";
   const type =
-    path === "/stage/login"
+    /^\/circles\/[^/]+\/provider-invitations$/.test(path) && method === "POST"
+      ? "circle-invite"
+      : /^\/circle-provider-invitations\/[^/]+\/respond$/.test(path) && method === "POST" && accepted
+        ? "circle-joined"
+        : /^\/circle-provider-invitations\/[^/]+\/messages$/.test(path) && method === "POST"
+          ? "circle-reply"
+          : path === "/stage/login"
       ? "session"
       : path === "/media" && method === "POST"
         ? "photo"
@@ -110,7 +117,7 @@ export async function api<T>(
     throw new ApiError(detail, response.status);
   }
   const result = (await response.json()) as T;
-  stageEvent(path, method, true);
+  stageEvent(path, method, true, result);
   return result;
 }
 export async function privateImage(

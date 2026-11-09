@@ -52,6 +52,9 @@ export type ProviderPlan = {
   status: "draft" | "published" | "archived";
   version: number;
   source_note: string;
+  schedule_type?: "on_request" | "dated";
+  starts_at?: string | null;
+  ends_at?: string | null;
 };
 export type Party = {
   id: string;

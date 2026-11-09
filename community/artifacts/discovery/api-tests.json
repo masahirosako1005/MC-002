@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-11-09T06:57:38Z",
+  "scope": "CP38 consented plan relevance, dated provider plans and circle candidate cards; schema5",
+  "source_base_commit": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+  "working_tree_implementation": true,
+  "environment": {"os": "Windows", "python": "3.13.17", "transport": "httpx ASGITransport", "image_worker": false, "fixtures": "Small generated local rows; 105-row boundary scenarios; no user database used"},
+  "history": [
+    {"sequence": 1, "files": ["community/backend/tests/test_discovery.py"], "passed": 10, "failed": 0, "skipped": 0, "seconds": 5.65},
+    {"sequence": 2, "files": ["community/backend/tests/test_discovery.py", "community/backend/tests/test_circles.py", "community/backend/tests/test_journal.py", "community/backend/tests/test_marketplace.py", "community/backend/tests/test_stage.py"], "passed": 57, "failed": 0, "skipped": 0, "seconds": 39.38, "note": "After ranking-before-limit and strict ISO timestamp review corrections; includes existing 45 tests"},
+    {"sequence": 3, "files": ["community/backend/tests/test_discovery.py"], "passed": 13, "failed": 0, "skipped": 0, "seconds": 8.71, "note": "Final targeted run after applying filter-before-limit to legacy public catalogue and assistant candidates too"}
+  ],
+  "review_corrections": [
+    "Read every public row before selecting best 100 related plans; heap retains at most 100 output candidates",
+    "Public catalogue and assistant candidate caps apply after exclusion filtering",
+    "Require offset-aware ISO timestamp syntax; numeric epoch strings are rejected"
+  ],
+  "verified": [
+    "Only current caller's community-authorized profile tags affect personal relevance; another user's private tags do not",
+    "Empty/revoked profile permission falls back to circle context; circle tag edits and confirmed condition edits re-rank",
+    "Schedule type, timezone, interval order and persisted provider dates; other-provider write denied",
+    "Ended and out-of-period plans excluded; legacy selections use the same matcher",
+    "JST date boundary and exact ending instant behavior",
+    "Candidate saving creates no invitation or selection; member authorization and unique circle/plan enforce sharing and deduplication",
+    "Saved snapshots contain no personal recommendation reasons and survive reread/reopen",
+    "Current status distinguishes updated, unpublished, ended and changed conditions without exposing private draft contents",
+    "Concurrent duplicate saves return one card",
+    "Schema4 rows preserved by additive schema5 migration and failed migration rollback",
+    "Eligible/high-relevance plans beyond first 100 rows remain visible; responses capped at 100"
+  ],
+  "limitations": [
+    "Popularity, reviews and real-world availability are not inferred from relevance scores",
+    "Date ranges are provider-entered windows; daily departures and vacancies remain unverified",
+    "No browser UI, Docker restart or production volume preservation claim from these API tests",
+    "No external AI connection, model inference or Edge repair test",
+    "The 57-test combined suite and final 13-test targeted suite are separate runs, not a single 70-test run"
+  ]
+}

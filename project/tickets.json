@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 459,
-  "last_event_hash": "f0a67ee16b2bccc7538500c5fe72c5419c9a76ae3b28ceceb98448fb891b0b71",
-  "updated_at": "2026-11-09T15:46:42+09:00",
+  "revision": 505,
+  "last_event_hash": "be543947ea86d036ae0fffb10e011a35a792240a73dfd2821d592f84193f8f7b",
+  "updated_at": "2026-11-09T16:03:38+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -1700,12 +1700,19 @@
       "origin": "この時点で新規起票",
       "owner": "API担当・画面担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:48:35+09:00",
+          "hash": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+          "path": "project/revisions/e4559d17f420aeb23e8d0a50ba9c4693e9db60ce.txt",
+          "summary": "feat: add private journey maps and travel badges with wider single-scroll conversations"
+        }
+      ],
       "status": "done",
       "title": "写真位置を確認して旅の地図に残す",
       "type": "task",
-      "updated_at": "2026-11-09T15:46:37+09:00"
+      "updated_at": "2026-11-09T15:48:35+09:00"
     },
     {
       "acceptance": [
@@ -1742,12 +1749,19 @@
       "origin": "この時点で新規起票",
       "owner": "API担当・画面担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:48:35+09:00",
+          "hash": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+          "path": "project/revisions/e4559d17f420aeb23e8d0a50ba9c4693e9db60ce.txt",
+          "summary": "feat: add private journey maps and travel badges with wider single-scroll conversations"
+        }
+      ],
       "status": "done",
       "title": "訪問記録に基づくバッジとプロフィール実績",
       "type": "task",
-      "updated_at": "2026-11-09T15:46:39+09:00"
+      "updated_at": "2026-11-09T15:48:35+09:00"
     },
     {
       "acceptance": [
@@ -1785,21 +1799,28 @@
       "origin": "この時点で新規起票",
       "owner": "主担当・独立レビュー担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:48:36+09:00",
+          "hash": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+          "path": "project/revisions/e4559d17f420aeb23e8d0a50ba9c4693e9db60ce.txt",
+          "summary": "feat: add private journey maps and travel badges with wider single-scroll conversations"
+        }
+      ],
       "status": "done",
       "title": "訪問地図とバッジの保存・権限・画面検証",
       "type": "task",
-      "updated_at": "2026-11-09T15:46:40+09:00"
+      "updated_at": "2026-11-09T15:48:36+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "候補推薦と手動招待の双方で講を作れ、作成者選択だけで他人を参加させない"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "本人許可・所属・不足・見送り・招待取消と内部会話への参加権限を確認する"
         }
       ],
@@ -1810,26 +1831,37 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:02:52+09:00",
+          "path": "community/artifacts/circles/browser.json",
+          "text": "Docker画面6段階成功。二方式の招待/本人返事、複数ターンの条件確認、事業者実承諾、双方返信、見積改訂/確認、axe0と320/390/200%を確認。"
+        },
+        {
+          "at": "2026-11-09T16:02:52+09:00",
+          "path": "community/artifacts/circles/api-tests.json",
+          "text": "独立レビューを反映し権限/競合/版/旧API迂回を確認。移行旧表media一致とschema5再起動はdiscovery/migration.json・restart.jsonに記録。"
+        }
+      ],
       "id": "CP32",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 7,
       "revisions": [],
-      "status": "todo",
+      "status": "done",
       "title": "候補選択と手動招待の二通りの講づくり",
       "type": "task",
-      "updated_at": "2026-11-09T15:35:27+09:00"
+      "updated_at": "2026-11-09T16:02:53+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "人数・日程・予算・希望を会話で整理し本人確認後の条件で公開プランへ紐付ける"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "不適合プラン・価格空席予約の捏造と未同意外部送信がなく処理方式を確認できる"
         }
       ],
@@ -1842,30 +1874,41 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:02:53+09:00",
+          "path": "community/artifacts/circles/browser.json",
+          "text": "Docker画面6段階成功。二方式の招待/本人返事、複数ターンの条件確認、事業者実承諾、双方返信、見積改訂/確認、axe0と320/390/200%を確認。"
+        },
+        {
+          "at": "2026-11-09T16:02:54+09:00",
+          "path": "community/artifacts/circles/api-tests.json",
+          "text": "独立レビューを反映し権限/競合/版/旧API迂回を確認。移行旧表media一致とschema5再起動はdiscovery/migration.json・restart.jsonに記録。"
+        }
+      ],
       "id": "CP33",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 7,
       "revisions": [],
-      "status": "todo",
+      "status": "done",
       "title": "講チャットの相談から実事業者プランへ",
       "type": "task",
-      "updated_at": "2026-11-09T15:35:28+09:00"
+      "updated_at": "2026-11-09T16:02:54+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "曖昧な発言では招待せず明示決定後に招待待ち/実承諾済みを区別する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "事業者は参加前の仲間内会話写真関心を読めず共有計画と共有区間のみ会話する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "行程見積の希望提案と双方の版別確認を保存し外部予約確定と誤認させない"
         }
       ],
@@ -1878,26 +1921,37 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:02:55+09:00",
+          "path": "community/artifacts/circles/browser.json",
+          "text": "Docker画面6段階成功。二方式の招待/本人返事、複数ターンの条件確認、事業者実承諾、双方返信、見積改訂/確認、axe0と320/390/200%を確認。"
+        },
+        {
+          "at": "2026-11-09T16:02:55+09:00",
+          "path": "community/artifacts/circles/api-tests.json",
+          "text": "独立レビューを反映し権限/競合/版/旧API迂回を確認。移行旧表media一致とschema5再起動はdiscovery/migration.json・restart.jsonに記録。"
+        }
+      ],
       "id": "CP34",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 8,
       "revisions": [],
-      "status": "todo",
+      "status": "done",
       "title": "事業者を講へ招き会話と行程見積を確認する",
       "type": "task",
-      "updated_at": "2026-11-09T15:35:29+09:00"
+      "updated_at": "2026-11-09T16:02:56+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "保存移行再起動と権限違反・未承諾者・他社・重複・古い版を検査する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "左右二台で行き先決定から事業者実承諾と同じ講での往復を確認する"
         }
       ],
@@ -1912,17 +1966,28 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:02:57+09:00",
+          "path": "community/artifacts/circles/browser.json",
+          "text": "Docker画面6段階成功。二方式の招待/本人返事、複数ターンの条件確認、事業者実承諾、双方返信、見積改訂/確認、axe0と320/390/200%を確認。"
+        },
+        {
+          "at": "2026-11-09T16:02:57+09:00",
+          "path": "community/artifacts/circles/api-tests.json",
+          "text": "独立レビューを反映し権限/競合/版/旧API迂回を確認。移行旧表media一致とschema5再起動はdiscovery/migration.json・restart.jsonに記録。"
+        }
+      ],
       "id": "CP35",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 1,
+      "revision": 7,
       "revisions": [],
-      "status": "todo",
+      "status": "done",
       "title": "講作成から事業者参加までの権限と二台操作を検証",
       "type": "task",
-      "updated_at": "2026-11-09T15:35:29+09:00"
+      "updated_at": "2026-11-09T16:02:58+09:00"
     },
     {
       "acceptance": [
@@ -1957,25 +2022,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:48:36+09:00",
+          "hash": "e4559d17f420aeb23e8d0a50ba9c4693e9db60ce",
+          "path": "project/revisions/e4559d17f420aeb23e8d0a50ba9c4693e9db60ce.txt",
+          "summary": "feat: add private journey maps and travel badges with wider single-scroll conversations"
+        }
+      ],
       "status": "done",
       "title": "スマホ幅を広げ相談の三重スクロールを解消",
       "type": "task",
-      "updated_at": "2026-11-09T15:46:42+09:00"
+      "updated_at": "2026-11-09T15:48:36+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "利用者一覧と未認証bootstrapのaccountsを除き、アカウント名とパスワードを初期空で入力する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "autocomplete・Enter・表示切替・処理中失敗成功・ログアウト・左右認証分離を維持する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "写真の非表示先読みなし、狭幅/文字拡大/キーボードで使え、Docker画像と検証証拠を残す"
         }
       ],
@@ -1986,17 +2058,153 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:00:38+09:00",
+          "path": "community/artifacts/login/results.json",
+          "text": "Docker配信で空欄入力・表示切替・失敗/Enter・片側logout・320/390/200%/keyboard・初期画像1件・axe0の4段階成功。初回contrast不合格と修正履歴保持。"
+        }
+      ],
       "id": "CP37",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "アカウント入力と上質なログイン入口",
+      "type": "task",
+      "updated_at": "2026-11-09T16:00:39+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "許可済プロフィールと講タグ/確定条件に応じて理由付きの関連度順が変わり、条件外・過去・非公開を誤推薦しない"
+        },
+        {
+          "checked": true,
+          "text": "事業者が日時/期間を保存編集でき、未登録は日程は相談と表示し、概要/場所/所要時間/人数/料金対象が比較できる"
+        },
+        {
+          "checked": true,
+          "text": "講に追加から候補共有と会話へ進み、再読保持・重複防止・非メンバー拒否・公開停止表示を実APIとDocker画面で確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:51:56+09:00",
+      "dependencies": [
+        "CP32",
+        "CP34"
+      ],
+      "description": "本人が許可した関心と講タグ/確定条件から公開プランを関連度順に表示し、事業者登録の日時を示して講へ検討候補として追加する。招待と予約は別操作。",
+      "documents": [
+        "DESIGN.md",
+        "community/CIRCLES-CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:03:37+09:00",
+          "path": "community/artifacts/discovery/browser.json",
+          "text": "Docker画面5段階成功。事業者日時登録編集、講条件に基づくおすすめ、候補保存共有/再読、明示招待、axe0、390/320/200%横はみ出し0。初回失敗と修正を保持。"
+        },
+        {
+          "at": "2026-11-09T16:03:37+09:00",
+          "path": "community/artifacts/discovery/api-tests.json",
+          "text": "関連57件成功、その後のfilter-before-limit追加最終13件成功。プロフィール許可/講タグ再順位・日時・重複・権限・公開停止・移行/再読を確認。"
+        }
+      ],
+      "id": "CP38",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "講に合う事業者プランのおすすめ順・開催日時・候補共有",
+      "type": "task",
+      "updated_at": "2026-11-09T16:03:38+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "初期OFF・対象者同意・本人の実利用確認・権限を満たす旅行後会話だけを解析し、曖昧/私的/他対象/事業者発言を除く"
+        },
+        {
+          "checked": false,
+          "text": "本人が抽出訂正/除外でき、元発言編集削除/同意撤回/利用取消で再集計し、連投重複/複数人混在を旅単位で扱う"
+        },
+        {
+          "checked": false,
+          "text": "公開は最低集計件数を満たす匿名定型要点と旅数だけ。関連度と参考評価を分け、未評価を低評価にせず順位へ反映する"
+        },
+        {
+          "checked": false,
+          "text": "APIとDocker画面で同意から抽出確認・撤回・おすすめまで通し、再起動保持と出典非公開を検証する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:57:45+09:00",
+      "dependencies": [
+        "CP34",
+        "CP38"
+      ],
+      "description": "実利用を別確認した旅行後の専用会話で全対象者同意を得て保守的に自動抽出。原文を出さず旅単位の参考評価を関連度と分けおすすめへ反映。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP39",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
       "revision": 2,
       "revisions": [],
       "status": "in_progress",
-      "title": "アカウント入力と上質なログイン入口",
+      "title": "同意した旅行後会話から事業者参考評価を集計する",
       "type": "task",
-      "updated_at": "2026-11-09T15:45:06+09:00"
+      "updated_at": "2026-11-09T15:57:47+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "誕生日月日と記念日名/日付/年次繰返しのCRUD、初期本人のみ、講共有/提案利用許可、非所属や事業者への非公開を実装"
+        },
+        {
+          "checked": false,
+          "text": "JST/年越し/2月29日/複数記念日/年次重複を扱い、あとで見る/見送り/OFFと削除/撤回/退出を公開と提案へ反映"
+        },
+        {
+          "checked": false,
+          "text": "登録済公開planを時期/許可関心/講人数予算タグで照合し、非適合では捏造せず、候補追加から講chatへ接続"
+        },
+        {
+          "checked": false,
+          "text": "APIとDocker画面で登録から共有提案・候補保存・撤回まで検証し、再起動保持を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:59:34+09:00",
+      "dependencies": [
+        "CP38"
+      ],
+      "description": "本人プロフィールに月日/記念日を私的に登録し、選んだ講への共有と提案利用を明示許可。時期と関心/条件に合う公開プランを候補として持ち寄れる。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP40",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "誕生日・記念日から許可した講へ旅を提案する",
+      "type": "task",
+      "updated_at": "2026-11-09T16:00:40+09:00"
     },
     {
       "acceptance": [

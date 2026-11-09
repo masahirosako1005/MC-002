@@ -56,27 +56,32 @@ def save(name, result):
 
 
 def main():
+    global OUT
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("capture", "compare", "restart-check"))
+    parser.add_argument("--expected-version", type=int, choices=(3, 4, 5), default=3)
+    parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery"), default="journal")
     args = parser.parse_args()
+    OUT = ROOT / "artifacts" / args.artifact_dir
+    baseline = f"schema{args.expected_version - 1}-before.json"
     if args.mode == "capture":
         before = probe()
-        if before["schema_version"] != 2:
-            raise ValueError("Capture requires the pre-migration schema 2")
-        if (OUT / "schema2-before.json").exists():
+        if before["schema_version"] != args.expected_version - 1:
+            raise ValueError("Capture requires the expected pre-migration schema")
+        if (OUT / baseline).exists():
             raise ValueError("Existing baseline must not be overwritten")
-        save("schema2-before.json", before)
+        save(baseline, before)
         print(json.dumps({"captured": True, "tables": len(before["tables"]), "media_files": before["media"]["count"]}))
         return
     result = {"checked_at": datetime.now(timezone.utc).isoformat(), "mode": args.mode,
               "excluded_volatile_tables": ["sessions", "stage_sessions", "jobs"]}
     if args.mode == "compare":
-        before = json.loads((OUT / "schema2-before.json").read_text(encoding="utf-8"))
+        before = json.loads((OUT / baseline).read_text(encoding="utf-8"))
         after = probe()
         result.update(before=before, after=after)
         result["existing_tables_unchanged"] = all(after["tables"].get(t) == v for t, v in before["tables"].items())
         result["media_unchanged"] = before["media"] == after["media"]
-        result["passed"] = all((after["schema_version"] == 3, result["existing_tables_unchanged"],
+        result["passed"] = all((after["schema_version"] == args.expected_version, result["existing_tables_unchanged"],
                                 result["media_unchanged"], after["integrity_ok"], after["foreign_keys_valid"]))
         save("migration.json", result)
     else:
@@ -87,7 +92,7 @@ def main():
         with urllib.request.urlopen("http://127.0.0.1:8081/api/health", timeout=10) as response:
             healthy = response.status == 200
         result.update(before=before, after=after, healthy=healthy)
-        result["passed"] = before == after and healthy and after["schema_version"] == 3 and after["integrity_ok"] and after["foreign_keys_valid"]
+        result["passed"] = before == after and healthy and after["schema_version"] == args.expected_version and after["integrity_ok"] and after["foreign_keys_valid"]
         save("restart.json", result)
     print(json.dumps({k: v for k, v in result.items() if k not in ("before", "after")}, ensure_ascii=True))
     if not result["passed"]:

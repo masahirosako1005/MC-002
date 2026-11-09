@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-09T06:59:14.950Z",
+  "results": [
+    "two creation routes preserve pending member consent",
+    "invitees independently accept or decline and private history stays protected",
+    "multi-turn guidance requires explicit condition confirmation",
+    "explicit destination sharing then actual provider acceptance opens shared room",
+    {
+      "failed": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'awaiting_confirmation'\n- 'both_confirmed'\n"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "passed": false
+}

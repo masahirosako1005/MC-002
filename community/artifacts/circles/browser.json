@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-09T07:00:02.894Z",
+  "results": [
+    "two creation routes preserve pending member consent",
+    "invitees independently accept or decline and private history stays protected",
+    "multi-turn guidance requires explicit condition confirmation",
+    "explicit destination sharing then actual provider acceptance opens shared room",
+    "actual two-way messages and revised estimates retain independent confirmations",
+    "accessible shared conversation remains usable at 320px and enlarged text"
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "passed": true
+}

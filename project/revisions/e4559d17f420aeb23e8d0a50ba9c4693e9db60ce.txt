@@ -1,0 +1,3 @@
+リビジョン: e4559d17f420aeb23e8d0a50ba9c4693e9db60ce
+件名: feat: add private journey maps and travel badges with wider single-scroll conversations
+確認日時: 2026-11-09T15:48:36+09:00

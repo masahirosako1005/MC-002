@@ -1,5 +1,5 @@
 import Choice from "./Choice";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./api";
 import type { Community, Group, Tag, User } from "./types";
 import type {
@@ -23,7 +23,8 @@ import {
 } from "./marketplace-ui";
 import { Empty, ErrorBox, Icon, Modal, TagPicker } from "./ui";
 import "./marketplace.css";
-const emptyRequirements: Requirements = {
+const PlanDiscovery = lazy(() => import("./PlanDiscovery"));
+export const emptyRequirements: Requirements = {
   planned_people: 6,
   nights: 2,
   budget_yen: null,
@@ -34,28 +35,41 @@ const emptyRequirements: Requirements = {
   departure_label: "",
   version: 0,
 };
-function RequirementEditor({
+export function RequirementEditor({
   initial,
   tags,
   draft,
   busy,
   onSave,
+  unknownFields = [],
+  requireBudget = false,
 }: {
   initial: Requirements | null;
   tags: Tag[];
   draft: ConditionDraft | null;
   busy: boolean;
   onSave: (v: Requirements) => Promise<void>;
+  unknownFields?: string[];
+  requireBudget?: boolean;
 }) {
   const [value, setValue] = useState<Requirements>(
     initial || emptyRequirements,
   );
-  const [amount, setAmount] = useState(initial?.budget_yen?.toString() || "");
-  const [basis, setBasis] = useState<BudgetBasis>(
-    initial?.budget_basis || "per_person",
+  const [missing, setMissing] = useState(unknownFields);
+  const [amount, setAmount] = useState(
+    unknownFields.includes("budget_yen")
+      ? ""
+      : initial?.budget_yen?.toString() || "",
   );
-  const [scope, setScope] = useState<BudgetScope>(
-    initial?.budget_scope || "plan_only",
+  const [basis, setBasis] = useState<BudgetBasis | "">(
+    unknownFields.includes("budget_basis")
+      ? ""
+      : initial?.budget_basis || "per_person",
+  );
+  const [scope, setScope] = useState<BudgetScope | "">(
+    unknownFields.includes("budget_scope")
+      ? ""
+      : initial?.budget_scope || "plan_only",
   );
   function patch(v: Partial<Requirements>) {
     setValue((current) => ({ ...current, ...v }));
@@ -117,11 +131,17 @@ function RequirementEditor({
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if (
+            missing.includes("planned_people") ||
+            missing.includes("nights") ||
+            (requireBudget && (!amount || !basis || !scope))
+          )
+            return;
           void onSave({
             ...value,
             budget_yen: amount ? Number(amount) : null,
-            budget_basis: amount ? basis : null,
-            budget_scope: amount ? scope : null,
+            budget_basis: amount ? basis || null : null,
+            budget_scope: amount ? scope || null : null,
           });
         }}
       >
@@ -134,10 +154,20 @@ function RequirementEditor({
                 min={1}
                 max={500}
                 required
-                value={value.planned_people}
-                onChange={(e) =>
-                  patch({ planned_people: Number(e.target.value) })
+                value={
+                  missing.includes("planned_people") ? "" : value.planned_people
                 }
+                onChange={(e) => {
+                  patch({ planned_people: Number(e.target.value) });
+                  setMissing((items) =>
+                    e.target.value === ""
+                      ? [
+                          ...items.filter((item) => item !== "planned_people"),
+                          "planned_people",
+                        ]
+                      : items.filter((item) => item !== "planned_people"),
+                  );
+                }}
               />
             </label>
             <label className="field">
@@ -147,24 +177,36 @@ function RequirementEditor({
                 min={0}
                 max={30}
                 required
-                value={value.nights}
-                onChange={(e) => patch({ nights: Number(e.target.value) })}
+                value={missing.includes("nights") ? "" : value.nights}
+                onChange={(e) => {
+                  patch({ nights: Number(e.target.value) });
+                  setMissing((items) =>
+                    e.target.value === ""
+                      ? [...items.filter((item) => item !== "nights"), "nights"]
+                      : items.filter((item) => item !== "nights"),
+                  );
+                }}
               />
             </label>
           </div>
           <p className="muted">
-            {value.nights === 0
-              ? "日帰り"
-              : `${value.nights}泊${value.nights + 1}日`}
-            の予定。人数を入力しても、誰かが自動で参加することはありません。
+            {missing.includes("nights")
+              ? "泊数を確認してください。"
+              : value.nights === 0
+                ? "日帰りの予定。"
+                : `${value.nights}泊${value.nights + 1}日の予定。`}
+            人数を入力しても、誰かが自動で参加することはありません。
           </p>
           <div className="field-row">
             <label className="field">
-              予算の目安（円・任意）
+              {requireBudget
+                ? "予算の目安（円・必須）"
+                : "予算の目安（円・任意）"}
               <input
                 type="number"
                 min={1}
                 max={100000000}
+                required={requireBudget}
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="例：30000"
@@ -177,6 +219,7 @@ function RequirementEditor({
                 onChange={(e) => setBasis(e.target.value as BudgetBasis)}
                 disabled={!amount || busy}
               >
+                <option value="">単位を選ぶ</option>
                 <option value="per_person">1人あたり</option>
                 <option value="party_total">全員分</option>
               </Choice>
@@ -189,6 +232,7 @@ function RequirementEditor({
               onChange={(e) => setScope(e.target.value as BudgetScope)}
               disabled={!amount || busy}
             >
+              <option value="">費用の範囲を選ぶ</option>
               <option value="plan_only">選ぶプラン部分</option>
               <option value="whole_trip">出発地からの旅行全体</option>
             </Choice>
@@ -218,7 +262,15 @@ function RequirementEditor({
             onChange={(interests) => patch({ interests })}
             label="この旅で楽しみたいこと"
           />
-          <button type="submit" className="button primary full">
+          <button
+            type="submit"
+            className="button primary full"
+            disabled={
+              missing.includes("planned_people") ||
+              missing.includes("nights") ||
+              (requireBudget && (!amount || !basis || !scope))
+            }
+          >
             {busy ? "保存中…" : "この旅行条件で確定する"}
             <Icon name="check" />
           </button>
@@ -232,11 +284,13 @@ export default function Marketplace({
   groups,
   tags,
   user,
+  onOpenCircle,
 }: {
   community: Community | null;
   groups: Group[];
   tags: Tag[];
   user: User;
+  onOpenCircle: (id: string) => void;
 }) {
   const [parties, setParties] = useState<Party[]>([]);
   const [party, setParty] = useState<Party | null>(null);
@@ -724,6 +778,15 @@ export default function Marketplace({
             ))
           )}
         </>
+      ) : !party && community ? (
+        <Suspense fallback={<p role="status">関連する旅をひらいています…</p>}>
+          <PlanDiscovery
+            key={`${user.id}-${community.id}`}
+            community={community}
+            tags={tags}
+            onOpenCircle={onOpenCircle}
+          />
+        </Suspense>
       ) : (
         <>
           <div className="market-discovery-heading">
@@ -1018,7 +1081,20 @@ export default function Marketplace({
           variant="conversation"
         >
           <Conversation
-            context={<div className="consultation-context"><span className="small-label">{thread.selection.plan.provider.name}</span><h3>{thread.selection.plan.title}</h3><RequirementsSummary value={thread.selection.shared_conditions} />{thread.selection.share_note && <p>{thread.selection.share_note}</p>}</div>}
+            context={
+              <div className="consultation-context">
+                <span className="small-label">
+                  {thread.selection.plan.provider.name}
+                </span>
+                <h3>{thread.selection.plan.title}</h3>
+                <RequirementsSummary
+                  value={thread.selection.shared_conditions}
+                />
+                {thread.selection.share_note && (
+                  <p>{thread.selection.share_note}</p>
+                )}
+              </div>
+            }
             endpoint={`/consultations/${thread.id}/messages`}
             messages={threadMessages}
             user={user}

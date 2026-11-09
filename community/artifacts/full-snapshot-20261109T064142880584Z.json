@@ -1,0 +1,52 @@
+{
+  "operation": "backup",
+  "checked_at": "2026-11-09T06:41:33.238355+00:00",
+  "passed": true,
+  "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backups\\20261109T064134Z-957b4f7c78bc",
+  "result": {
+    "verified": true,
+    "file_count": 9,
+    "bytes": 4223370,
+    "database": {
+      "integrity": "ok",
+      "foreign_keys": "ok",
+      "schema_version": 3,
+      "table_counts": {
+        "communities": 2,
+        "condition_drafts": 6,
+        "consultation_messages": 9,
+        "consultations": 6,
+        "grants": 201,
+        "group_members": 9,
+        "jobs": 13,
+        "journal_journeys": 0,
+        "journal_location_candidates": 0,
+        "journal_profiles": 1,
+        "journal_visits": 0,
+        "ko_groups": 3,
+        "media": 13,
+        "memberships": 201,
+        "operation_keys": 48,
+        "party_messages": 6,
+        "plan_selections": 6,
+        "post_media": 13,
+        "posts": 13,
+        "preferences": 202,
+        "proposals": 3,
+        "provider_plans": 7,
+        "provider_staff": 2,
+        "providers": 2,
+        "recommendation_runs": 10,
+        "responses": 9,
+        "sessions": 12,
+        "settings": 2,
+        "stage_sessions": 25,
+        "travel_parties": 6,
+        "travel_party_members": 6,
+        "travel_requirements": 6,
+        "users": 202
+      }
+    }
+  },
+  "active_app_restarted": true
+}

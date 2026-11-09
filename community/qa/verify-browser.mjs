@@ -54,7 +54,7 @@ async function clickVisible(name, scope = page) {
 async function login(username) {
   const names = { aoi: '藤沢 葵', ren: '高橋 蓮', mio: '小野 美緒' };
   await page.goto(baseURL);
-  await page.getByRole('radio', { name: new RegExp(names[username]) }).check();
+  await page.getByLabel('アカウント名', {exact:true}).fill(username);
   await page.getByLabel('パスワード', { exact: true }).fill(`${username}-local-2026`);
   await page.getByRole('button', { name: 'ログイン', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).not.toContainText('好きな景色');

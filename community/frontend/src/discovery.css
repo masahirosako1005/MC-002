@@ -1,0 +1,155 @@
+.plan-discovery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  min-width: 0;
+}
+.plan-discovery .market-discovery-heading {
+  align-items: flex-start;
+}
+.plan-discovery .market-discovery-heading h2 {
+  font-size: 1.2rem;
+  margin-top: 7px;
+}
+.plan-discovery .market-discovery-heading > .text-button {
+  font-size: 0.7rem;
+}
+.plan-discovery .field {
+  margin: 0;
+}
+.discovery-note {
+  font-size: 0.73rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.discovery-plan > .discovery-note {
+  margin-top: 9px;
+  padding: 0 4px;
+}
+.discovery-plan .market-plan-card {
+  height: auto;
+}
+.discovery-unknowns {
+  font-size: 0.72rem;
+  color: #725b45;
+  margin: 7px 4px;
+}
+.discovery-unknowns summary,
+.saved-candidate summary {
+  cursor: pointer;
+  padding: 5px 0;
+}
+.discovery-unknowns ul {
+  padding-left: 18px;
+}
+.discovery-pager {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.discovery-pager > span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.discovery-pager .button {
+  min-height: 42px;
+  font-size: 0.75rem;
+  padding: 9px 15px;
+}
+.discovery-save {
+  display: grid;
+  gap: 18px;
+}
+.discovery-save .field {
+  margin: 0;
+}
+.discovery-sharing {
+  display: flex;
+  gap: 10px;
+  padding: 17px;
+  border: 1px solid #d9d4c1;
+  background: #f2f0e5;
+  border-radius: 12px;
+}
+.discovery-sharing > .icon {
+  flex: 0 0 20px;
+}
+.discovery-sharing > p {
+  font-size: 0.78rem;
+}
+.saved-candidates {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+.saved-candidates > h3 {
+  font-size: 1rem;
+}
+.saved-candidate {
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-wrap: anywhere;
+  border: 1px solid #dfcdb5;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff9ed;
+  display: grid;
+  gap: 9px;
+}
+.saved-candidate > *,
+.discovery-plan,
+.plan-discovery > * {
+  min-width: 0;
+}
+.saved-candidate > h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.saved-candidate > p,
+.saved-candidate details {
+  font-size: 0.75rem;
+}
+.saved-candidate > small {
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+.saved-candidate .plan-schedule {
+  margin: 0;
+}
+.saved-candidate .button {
+  font-size: 0.76rem;
+}
+.saved-candidate details ul {
+  padding-left: 18px;
+  margin: 6px 0 0;
+}
+.candidate-state {
+  color: #596d45;
+  font-weight: 700;
+}
+.candidate-state.updated,
+.candidate-state.conditions_changed {
+  color: #86551d;
+}
+.candidate-state.unpublished,
+.candidate-state.ended {
+  color: #8b4733;
+}
+.discovery-reason {
+  color: #5b714b;
+}
+@media (max-width: 600px) {
+  .plan-discovery .market-plan-grid {
+    grid-template-columns: 1fr;
+  }
+  .plan-discovery .market-discovery-heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .saved-candidate {
+    padding: 15px 12px;
+  }
+}
