@@ -13,13 +13,13 @@ function stageEvent(path: string, method: string, ok: boolean) {
       ? "session"
       : path === "/media" && method === "POST"
         ? "photo"
-        : path.endsWith("/condition-drafts")
+        : path.endsWith("/condition-drafts") && method === "POST"
           ? "conditions"
           : path.endsWith("/requirements") && method === "PUT"
             ? "requirements"
-            : path.endsWith("/recommendations")
+            : path.endsWith("/recommendations") && method === "POST"
               ? "recommendations"
-              : path.endsWith("/selections")
+              : path.endsWith("/selections") && method === "POST"
                 ? "selection"
                 : path.includes("/consultations/") && path.endsWith("/messages")
                   ? method === "POST"

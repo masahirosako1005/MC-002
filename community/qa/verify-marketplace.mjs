@@ -11,7 +11,7 @@ const output=path.join(root,'community/artifacts/marketplace-browser');
 await fs.mkdir(output,{recursive:true});
 const base='http://127.0.0.1:8081', results=[],errors=[],external=[],sessions={};
 const browser=await chromium.launch({channel:'msedge',headless:true});
-const context=await browser.newContext({viewport:{width:1440,height:1050},locale:'ja-JP',timezoneId:'Asia/Tokyo'});
+const context=await browser.newContext({viewport:{width:1440,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo'});
 await context.route('**/*',async route=>{const u=new URL(route.request().url());if(!['127.0.0.1','localhost'].includes(u.hostname)){external.push(u.origin);await route.abort();}else await route.continue();});
 const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
 let partyId,consultationId,createdPlanId;
@@ -51,7 +51,8 @@ try{
   assert.deepEqual((await api('forest','/consultations')).items.map(c=>c.id),before);
   await preview.getByLabel('最初に相談したいこと').fill('6人で森の散策とカフェを楽しみたいです。集合時間を相談できますか。');await preview.getByRole('checkbox').check();
   const selected=page.waitForResponse(r=>r.url().endsWith('/selections')&&r.request().method()==='POST');await click('この内容で相談を送る',preview);consultationId=(await (await selected).json()).id;
-  await expect(page.locator('.stage-activity')).toContainText('選んだ事業者に相談が届く');
+  await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','selection');
+  await expect(page.locator('.stage-caption')).toContainText('選んだ事業者に相談する');
   const record=await api('forest',`/consultations/${consultationId}`);assert(!JSON.stringify(record).includes('内輪の集合相談'));assert(!('interests' in record.selection.shared_conditions));
  });
  await step('provider receives selected plan and sends an actual reply',async()=>{
@@ -64,7 +65,9 @@ try{
   await expect(dialog).toContainText('集合時間を相談');await expect(dialog).not.toContainText('内輪の集合相談');
   await dialog.getByLabel('旅行者との相談に送るメッセージ').fill('ご相談ありがとうございます。初日は13時集合で、森の散策から始める行程をご案内できます。');await click('送る',dialog);
   await expect(dialog.locator('.message').last()).toContainText('13時集合');await click('閉じる',dialog);
+  await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','reply');
   await visitor.locator('.consultation-row').first().click();await expect(visitor.getByRole('dialog')).toContainText('13時集合');
+  await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','reply');
   await page.screenshot({path:path.join(output,'stage-consultation.png'),fullPage:true});await click('閉じる',visitor.getByRole('dialog'));
  });
  await step('large group comparison and direct catalogue path',async()=>{
@@ -91,7 +94,10 @@ try{
  });
  await step('two phone accessibility, reduced motion and no horizontal overflow',async()=>{
   await click('旅を見つける',visitor);await noOverflow(page);await noOverflow(visitor);await noOverflow(provider);await axe('stage');
-  await page.emulateMedia({reducedMotion:'reduce'});const animation=await page.locator('.hub-symbol > span').first().evaluate(el=>getComputedStyle(el,'::after').animationName);assert.equal(animation,'none');
+  await page.emulateMedia({reducedMotion:'reduce'});const animation=await page.locator('.stage-caption').evaluate(el=>getComputedStyle(el).animationName);assert.equal(animation,'none');
+  assert.equal(await page.locator('.stage > .stage-floor > section').count(),2);
+  assert.equal(await page.locator('.stage button,.stage a,.stage-activity,.stage-hub,.stage-intro,.stage-controls').count(),0);
+  assert(await page.locator('html').evaluate(el=>el.scrollHeight<=window.innerHeight+1),'both phones fit in 1440 x 900');
   await page.screenshot({path:path.join(output,'stage-final.png'),fullPage:true});
  });
  await step('mobile 390 and 320, enlarged type and keyboard choice',async()=>{

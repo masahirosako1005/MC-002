@@ -13,7 +13,7 @@ const base='http://127.0.0.1:8081';
 const output=path.join(root,'community/artifacts/stage-security-browser.json');
 const results=[],browserErrors=[],blockedExternal=[],sessions={};
 const browser=await chromium.launch({channel:'msedge',headless:true});
-const context=await browser.newContext({viewport:{width:1440,height:1050},locale:'ja-JP',timezoneId:'Asia/Tokyo'});
+const context=await browser.newContext({viewport:{width:1440,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo'});
 await context.route('**/*',async route=>{
   const url=new URL(route.request().url());
   if(!['127.0.0.1','localhost'].includes(url.hostname)){
@@ -72,7 +72,7 @@ async function cookiesUnchanged(){
   const current=await context.cookies(base);
   assert(JSON.stringify(current)===normalCookies,'normal cookie must remain unchanged');
 }
-async function activitySnapshot(){return stage.locator('.stage-activity').innerText();}
+async function captionSnapshot(){return stage.locator('.stage-caption').evaluate(el=>JSON.stringify({text:el.textContent,event:el.dataset.event}));}
 
 try{
   await step('normal cookie and two independent stage sessions coexist',async()=>{
@@ -131,19 +131,22 @@ try{
     assert(notifications.count>=2&&notifications.clean&&notifications.shape,'parent receives only event type and success state');
   });
 
-  await step('central event panel rejects wrong source, origin and unrecognized event types',async()=>{
-    await expect(stage.locator('.stage-activity li')).toHaveCount(2);
-    const before=await activitySnapshot();
+  await step('scene caption ignores login, reads, failures, wrong sources and unknown events',async()=>{
+    await expect(stage.locator('.stage-caption')).toHaveAttribute('data-event','initial');
+    const before=await captionSnapshot();
     await stage.evaluate(()=>window.postMessage({source:'ko-stage',type:'selection',status:'success'},location.origin));
     await stage.evaluate(()=>{
       const child=document.querySelector('iframe[title="旅行者の操作画面"]').contentWindow;
       window.dispatchEvent(new MessageEvent('message',{origin:'https://untrusted.invalid',source:child,data:{source:'ko-stage',type:'selection',status:'success'}}));
       window.dispatchEvent(new MessageEvent('message',{origin:location.origin,source:child,data:{source:'ko-stage',type:'__unrecognized_event__',status:'success'}}));
       window.dispatchEvent(new MessageEvent('message',{origin:location.origin,source:child,data:{source:'ko-stage',type:'selection',status:'pending'}}));
+      for(const [type,status] of [['selection','failure'],['session','success'],['consultation-read','success'],['photo','success']]){
+        window.dispatchEvent(new MessageEvent('message',{origin:location.origin,source:child,data:{source:'ko-stage',type,status}}));
+      }
     });
     // Flush posted-message and React scheduling, without fixed long sleeps.
     await stage.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-    assert(await activitySnapshot()===before,'invalid events do not advance central activity');
+    assert(await captionSnapshot()===before,'ignored events do not change the scene caption');
   });
 
   await step('only the two stage HTML pages permit same-origin embedding; API remains denied',async()=>{
