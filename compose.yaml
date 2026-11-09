@@ -1,0 +1,30 @@
+name: tang-you-chi
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8000"
+    environment:
+      APP_DB_PATH: /app/data/journey.db
+      STATIC_DIR: /app/static
+      APP_ALLOWED_ORIGINS: http://localhost:8080,http://127.0.0.1:8080,http://localhost:8000,http://127.0.0.1:8000
+    volumes:
+      - journey-data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,noexec,nosuid
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 80
+    mem_limit: 384m
+    cpus: 1.5
+    restart: unless-stopped
+    networks:
+      - local-only
+networks:
+  local-only:
+    internal: true
+volumes:
+  journey-data:

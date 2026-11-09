@@ -1,0 +1,8 @@
+# Development resource limits for this 16 GiB Windows host.
+[wsl2]
+memory=3GB
+processors=2
+swap=1GB
+
+[experimental]
+autoMemoryReclaim=gradual
