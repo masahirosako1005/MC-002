@@ -1,0 +1,3 @@
+リビジョン: ecc72b86fd56f8ddd07cc344579921ef1b4336d3
+件名: docs: design community travel platform and audit sample correlations
+確認日時: 2026-11-09T14:04:10+09:00

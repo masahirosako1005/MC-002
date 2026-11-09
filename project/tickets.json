@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 280,
-  "last_event_hash": "3b3eb5146c3460abc5f4fa3781edd2858de4cb33681ce876b0a51013acaaa978",
-  "updated_at": "2026-11-09T14:03:52+09:00",
+  "revision": 283,
+  "last_event_hash": "cb6552336dce8bd5993075f46f52200904848209c073bf4caaca22b8dcda562a",
+  "updated_at": "2026-11-09T14:04:10+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -441,12 +441,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 5,
-      "revisions": [],
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:04:10+09:00",
+          "hash": "ecc72b86fd56f8ddd07cc344579921ef1b4336d3",
+          "path": "project/revisions/ecc72b86fd56f8ddd07cc344579921ef1b4336d3.txt",
+          "summary": "docs: design community travel platform and audit sample correlations"
+        }
+      ],
       "status": "done",
       "title": "新方針の設計書を確定する",
       "type": "task",
-      "updated_at": "2026-11-09T14:03:52+09:00"
+      "updated_at": "2026-11-09T14:04:10+09:00"
     },
     {
       "acceptance": [
@@ -478,19 +485,25 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
+      "revision": 7,
       "revisions": [
         {
           "at": "2026-11-09T14:03:38+09:00",
           "hash": "05c3d878e1a42a3f62cdcb704e415282ea5af8ac",
           "path": "project/revisions/05c3d878e1a42a3f62cdcb704e415282ea5af8ac.txt",
           "summary": "R08 Link collection delivery evidence and completed tickets"
+        },
+        {
+          "at": "2026-11-09T14:04:10+09:00",
+          "hash": "ecc72b86fd56f8ddd07cc344579921ef1b4336d3",
+          "path": "project/revisions/ecc72b86fd56f8ddd07cc344579921ef1b4336d3.txt",
+          "summary": "docs: design community travel platform and audit sample correlations"
         }
       ],
       "status": "done",
       "title": "旧版を履歴付きで保管する",
       "type": "task",
-      "updated_at": "2026-11-09T14:03:38+09:00"
+      "updated_at": "2026-11-09T14:04:10+09:00"
     },
     {
       "acceptance": [
@@ -522,12 +535,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 5,
-      "revisions": [],
+      "revision": 6,
+      "revisions": [
+        {
+          "hash": "ecc72b86fd56f8ddd07cc344579921ef1b4336d3",
+          "summary": "docs: design community travel platform and audit sample correlations",
+          "path": "project/revisions/ecc72b86fd56f8ddd07cc344579921ef1b4336d3.txt",
+          "at": "2026-11-09T14:04:10+09:00"
+        }
+      ],
       "status": "done",
       "title": "500人のCSVを分析し相関図を保存する",
       "type": "task",
-      "updated_at": "2026-11-09T14:03:38+09:00"
+      "updated_at": "2026-11-09T14:04:10+09:00"
     },
     {
       "acceptance": [
