@@ -583,18 +583,13 @@ export default function ProviderWorkspace({
       )}{" "}
       {selected && (
         <Modal
-          title={selected.selection.plan.title}
+          title="旅行者との相談"
           onClose={() => setSelected(null)}
           wide
+          variant="conversation"
         >
-          <div className="consultation-context">
-            <span className="small-label">{selected.selection.plan.title}</span>
-            <RequirementsSummary value={selected.selection.shared_conditions} />
-            {selected.selection.share_note && (
-              <p>{selected.selection.share_note}</p>
-            )}
-          </div>
           <Conversation
+            context={<div className="consultation-context"><h3>{selected.selection.plan.title}</h3><RequirementsSummary value={selected.selection.shared_conditions} />{selected.selection.share_note && <p>{selected.selection.share_note}</p>}</div>}
             endpoint={`/consultations/${selected.id}/messages`}
             messages={messages}
             user={user}

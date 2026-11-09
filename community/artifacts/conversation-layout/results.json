@@ -1,0 +1,295 @@
+{
+  "checkedAt": "2026-11-09T06:44:31.558Z",
+  "results": [
+    "430px devices and one history scroller at both desktop sizes",
+    "keyboard history and actual replies retain fixed input and transfer direction",
+    "320/390px, large text, wheel and close restore"
+  ],
+  "geometry": [
+    {
+      "label": "1440x900",
+      "dialog": {
+        "top": 0,
+        "bottom": 736,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 736
+      },
+      "history": {
+        "top": 61,
+        "bottom": 641.40625,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 580.40625
+      },
+      "form": {
+        "top": 641.40625,
+        "bottom": 736,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 94.59375
+      },
+      "head": {
+        "top": 0,
+        "bottom": 61,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 61
+      },
+      "viewport": {
+        "width": 410,
+        "height": 736
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    },
+    {
+      "label": "1366x768",
+      "dialog": {
+        "top": 0,
+        "bottom": 610,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 610
+      },
+      "history": {
+        "top": 61,
+        "bottom": 515.40625,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 454.40625
+      },
+      "form": {
+        "top": 515.40625,
+        "bottom": 610,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 94.59375
+      },
+      "head": {
+        "top": 0,
+        "bottom": 61,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 61
+      },
+      "viewport": {
+        "width": 410,
+        "height": 610
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    },
+    {
+      "label": "after-send",
+      "dialog": {
+        "top": 0,
+        "bottom": 610,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 610
+      },
+      "history": {
+        "top": 61,
+        "bottom": 515.40625,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 454.40625
+      },
+      "form": {
+        "top": 515.40625,
+        "bottom": 610,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 94.59375
+      },
+      "head": {
+        "top": 0,
+        "bottom": 61,
+        "left": 0,
+        "right": 410,
+        "width": 410,
+        "height": 61
+      },
+      "viewport": {
+        "width": 410,
+        "height": 610
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    },
+    {
+      "label": "390px",
+      "dialog": {
+        "top": 0,
+        "bottom": 844,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 844
+      },
+      "history": {
+        "top": 61,
+        "bottom": 749.40625,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 688.40625
+      },
+      "form": {
+        "top": 749.40625,
+        "bottom": 844,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 94.59375
+      },
+      "head": {
+        "top": 0,
+        "bottom": 61,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 61
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    },
+    {
+      "label": "320px",
+      "dialog": {
+        "top": 0,
+        "bottom": 844,
+        "left": 0,
+        "right": 320,
+        "width": 320,
+        "height": 844
+      },
+      "history": {
+        "top": 61,
+        "bottom": 749.40625,
+        "left": 0,
+        "right": 322,
+        "width": 322,
+        "height": 688.40625
+      },
+      "form": {
+        "top": 749.40625,
+        "bottom": 844,
+        "left": 0,
+        "right": 322,
+        "width": 322,
+        "height": 94.59375
+      },
+      "head": {
+        "top": 0,
+        "bottom": 61,
+        "left": 0,
+        "right": 320,
+        "width": 320,
+        "height": 61
+      },
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    },
+    {
+      "label": "320px-200percent",
+      "dialog": {
+        "top": 0,
+        "bottom": 844,
+        "left": 0,
+        "right": 320,
+        "width": 320,
+        "height": 844
+      },
+      "history": {
+        "top": 65,
+        "bottom": 675.8125,
+        "left": 0,
+        "right": 507,
+        "width": 507,
+        "height": 610.8125
+      },
+      "form": {
+        "top": 675.8125,
+        "bottom": 844,
+        "left": 0,
+        "right": 507,
+        "width": 507,
+        "height": 168.1875
+      },
+      "head": {
+        "top": 0,
+        "bottom": 65,
+        "left": 0,
+        "right": 320,
+        "width": 320,
+        "height": 65
+      },
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialogOverflow": "hidden",
+      "bodyPanelOverflow": "hidden",
+      "historyOverflow": "auto",
+      "scrollbar": "none",
+      "historyCanScroll": true,
+      "documentOverflow": false
+    }
+  ],
+  "external": [],
+  "cleanup": true,
+  "passed": true
+}

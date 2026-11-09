@@ -1012,18 +1012,13 @@ export default function Marketplace({
       )}
       {thread && (
         <Modal
-          title={`${thread.selection.plan.provider.name}との相談`}
+          title="事業者との相談"
           onClose={() => setThread(null)}
           wide
+          variant="conversation"
         >
-          <div className="consultation-context">
-            <span className="small-label">{thread.selection.plan.title}</span>
-            <RequirementsSummary value={thread.selection.shared_conditions} />
-            {thread.selection.share_note && (
-              <p>{thread.selection.share_note}</p>
-            )}
-          </div>
           <Conversation
+            context={<div className="consultation-context"><span className="small-label">{thread.selection.plan.provider.name}</span><h3>{thread.selection.plan.title}</h3><RequirementsSummary value={thread.selection.shared_conditions} />{thread.selection.share_note && <p>{thread.selection.share_note}</p>}</div>}
             endpoint={`/consultations/${thread.id}/messages`}
             messages={threadMessages}
             user={user}

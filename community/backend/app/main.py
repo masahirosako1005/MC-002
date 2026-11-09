@@ -18,6 +18,8 @@ from .security import COOKIE, HEADERS, SecurityMiddleware, authenticated, csrf, 
 from .service import COVER_KEYS, TRIP_BY_ID, Service, user_out
 from .marketplace.schema import migrate, PROVIDER_ACCOUNTS
 from .marketplace.router import create_router as marketplace_router
+from .journal.schema import migrate as migrate_journal
+from .journal.router import create_router as journal_router
 
 logger = logging.getLogger("ko")
 
@@ -33,6 +35,7 @@ def create_app(settings=None):
     async def lifespan(application):
         database.initialize()
         migrate(database)
+        migrate_journal(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         service.seed_assets()
         if settings.worker_enabled:
@@ -147,13 +150,13 @@ def create_app(settings=None):
         return service.feed(session["user_id"], cid)
 
     @private.post("/media")
-    async def upload(request: Request, session=Depends(authenticated)):
+    async def upload(request: Request, read_location: bool = False, session=Depends(authenticated)):
         async with request.form(max_files=1, max_fields=0, max_part_size=settings.max_image_bytes) as form:
             file = form.get("file")
             if len(form) != 1 or file is None or not hasattr(file, "read"):
                 raise HTTPException(422, "写真を1枚選んでください。")
             raw = await file.read(settings.max_image_bytes + 1)
-        return await asyncio.to_thread(service.upload, session["user_id"], raw)
+        return await asyncio.to_thread(service.upload, session["user_id"], raw, read_location)
 
     @private.get("/media/{mid}/analysis")
     def analysis(mid: str, session=Depends(authenticated)):
@@ -229,6 +232,7 @@ def create_app(settings=None):
     app.include_router(public)
     app.include_router(private)
     app.include_router(marketplace_router(database))
+    app.include_router(journal_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

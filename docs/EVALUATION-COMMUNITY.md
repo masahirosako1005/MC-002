@@ -97,3 +97,17 @@
 | 外観・保存 | 1440×900の画像を目視、再ログイン後の相談と返信を確認。中央は線と結びだけで説明・履歴・外側ボタンなし |
 
 C1は30/100据置。通常Edgeの応答停止（CP27）は未解決。動作が軽くなったという主観評価、実利用者の理解度、実機描画の改善は別途確認する。
+
+## CP29〜31：写真の訪問地図と実績（追加受入）
+
+2026年11月9日。C1は30/100据置。既存の写真・講にschema3の旅/訪問/候補/実績公開を追加。
+
+- APIの追加16試験成功。別の既存回帰は46成功/1skip（Windows ONNXのアクセス違反診断により実モデル試験は成功扱いしない）。[独立レビューと修正](../community/artifacts/journal/review.md)。
+- [画面の6段階](../community/artifacts/journal/browser.json)：EXIF事前許可→写真投稿→位置/共有確認→地図→4県バッジ→他者プロフィール→編集削除、キーボード/320/390px/文字200%/外部要求0。合成画像/訪問を使用し試験作成分だけ後始末。物理的訪問の証明ではない。
+- 移行前DB/写真9ファイルをバックアップ。全件hash比較は相談メッセージ8→9と送信キー20→21の増加により不一致だったため[不一致記録](../community/artifacts/journal/migration.json)を保持。[旧行の保全比較](../community/artifacts/journal/migration-preservation.json)では既存26業務表の全行と既存8画像の保持を確認。後から追加された利用/試験記録と同一性を混同しない。
+- [Docker再起動](../community/artifacts/journal/restart.json)で非揮発表と画像hash一致。[API再取得](../community/artifacts/journal/restart-api.json)でも確認済み4訪問と獲得バッジが一致。sessions/stage_sessions/jobsは揮発対象として表hashから除外。
+- 地図は同梱の日本概略図と都道府県代表点。道路/境界/住所検索は対象外。本人には入力座標、他者には県単位のみ。実績共有と訪問写真共有は別設定。
+
+## CP36：幅と相談スクロール（追加受入）
+
+[実測](../community/artifacts/conversation-layout/results.json)の3段階成功。1440×900と1366×768で外枠430px/内容410px、端末下端が画面内。相談は見出しと入力を固定し履歴のみscroll、太いバー非表示。320/390px・200%文字・長文、Home/End/ホイール、両方向の実返信、モーダル閉鎖後の背景スクロール復元を確認。通常Edge修復の根拠にはしない。

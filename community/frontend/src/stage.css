@@ -29,7 +29,7 @@
 .stage-floor {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 390px));
+  grid-template-columns: repeat(2, minmax(0, 430px));
   justify-content: center;
   align-items: start;
   column-gap: clamp(44px, 10vw, 144px);
@@ -61,7 +61,7 @@
 .phone-frame iframe {
   display: block;
   width: 100%;
-  height: min(736px, calc(100dvh - 152px));
+  height: min(736px, calc(100dvh - 158px));
   min-height: 320px;
   border: 0;
   border-radius: 27px;
@@ -164,7 +164,7 @@
     font-size: 1rem;
   }
   .stage-floor {
-    grid-template-columns: minmax(0, 390px);
+    grid-template-columns: minmax(0, 430px);
     row-gap: 26px;
   }
   .stage-connection {
@@ -202,4 +202,13 @@
 }
 .stage-frame .login-panel > h2 {
   font-size: 1.2rem;
+}
+.stage-frame,
+.stage-frame * {
+  scrollbar-width: none;
+}
+.stage-frame::-webkit-scrollbar,
+.stage-frame *::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }

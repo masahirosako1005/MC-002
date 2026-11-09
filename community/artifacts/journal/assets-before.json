@@ -1,0 +1,13 @@
+{
+  "scope": "HTTP initial HTML referenced asset sizes, not total transfer or browser memory",
+  "assets": [
+    {
+      "asset": "/assets/index-B73dds9S.js",
+      "bytes": 312146
+    },
+    {
+      "asset": "/assets/index-NztS_E8R.css",
+      "bytes": 45605
+    }
+  ]
+}

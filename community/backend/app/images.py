@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, timezone
 import hashlib
 import io
 import json
+import math
 import re
 import threading
 import warnings
@@ -36,6 +37,35 @@ def sanitize_image(raw, settings):
         raise
     except (UnidentifiedImageError, OSError, ValueError, Image.DecompressionBombError, Image.DecompressionBombWarning):
         raise HTTPException(422, "写真を読み取れませんでした。別のJPEG・PNG・WebPを選んでください。")
+
+
+def location_candidate(raw):
+    """Called only after bounded image validation and explicit upload opt-in.
+
+    Read GPS only; never preserve a raw EXIF block, dates, device IDs or filenames.
+    A candidate is unverified until its owner explicitly confirms a visit.
+    """
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter('error')
+            with Image.open(io.BytesIO(raw)) as original:
+                gps = original.getexif().get_ifd(34853)
+                def coordinate(value, reference, positive, negative, limit):
+                    if isinstance(reference, bytes):
+                        reference = reference.decode('ascii')
+                    if reference not in (positive, negative) or len(value) != 3:
+                        raise ValueError('Invalid GPS reference')
+                    degrees, minutes, seconds = map(float, value)
+                    if not all(math.isfinite(item) for item in (degrees, minutes, seconds)) or not (0 <= degrees <= limit and 0 <= minutes < 60 and 0 <= seconds < 60):
+                        raise ValueError('Invalid GPS angle')
+                    result = degrees + minutes / 60 + seconds / 3600
+                    if result > limit:
+                        raise ValueError('Invalid GPS range')
+                    return round(result * (1 if reference == positive else -1), 7)
+                return {'latitude': coordinate(gps[2], gps[1], 'N', 'S', 90),
+                        'longitude': coordinate(gps[4], gps[3], 'E', 'W', 180)}
+    except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError, OSError, Warning, AttributeError, IndexError):
+        return None
 
 
 class LocalClassifier:

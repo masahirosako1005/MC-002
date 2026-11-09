@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-09T06:38:14.746Z",
+  "scope": "Isolated headless Edge; synthetic test photo and visits; not ordinary Edge repair or physical travel verification",
+  "results": [
+    {
+      "name": "EXIF opt-in before upload; published photo remains independently shared",
+      "passed": true
+    },
+    {
+      "name": "photo to confirmed visit and saved journey map",
+      "passed": false,
+      "error": "expect(locator).toBeVisible() failed\n\nLocator: locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().locator('.journey-map svg')\nExpected: visible\nError: strict mode violation: locator('.journey-map svg') resolved to 2 elements:\n    1) <svg fill=\"none\" class=\"icon \" aria-hidden=\"true\" viewBox=\"0 0 24 24\" stroke-width=\"1.65\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\">…</svg> aka locator('.journey-map-caption > span > .icon')\n    2) <svg role=\"img\" viewBox=\"0 0 420 390\" aria-label=\"日本の旅の地図。1都道府県、1件の訪問記録。下の一覧で場所を選べます。\">…</svg> aka getByRole('img', { name: '日本の旅の地図。1都道府県、1' })\n\nCall log:\n  - Expect \"toBeVisible\" locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().locator('.journey-map svg') with timeout 5000ms\n  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().locator('.journey-map svg')\n"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "cleanup": true,
+  "passed": false
+}

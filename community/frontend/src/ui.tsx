@@ -165,34 +165,64 @@ export function Tags({ ids, tags }: { ids: string[]; tags: Tag[] }) {
     </div>
   );
 }
+let modalLocks = 0;
+let modalRestore: (() => void) | null = null;
+function lockPageScroll() {
+  if (modalLocks++ === 0) {
+    const root = document.documentElement;
+    const body = document.body;
+    const rootOverflow = root.style.overflow;
+    const bodyOverflow = body.style.overflow;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    root.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    modalRestore = () => {
+      root.style.overflow = rootOverflow;
+      body.style.overflow = bodyOverflow;
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: "instant" });
+    };
+  }
+  return () => {
+    modalLocks = Math.max(0, modalLocks - 1);
+    if (modalLocks === 0) {
+      modalRestore?.();
+      modalRestore = null;
+    }
+  };
+}
 export function Modal({
   title,
   onClose,
   children,
   busy = false,
   wide = false,
+  variant = "default",
 }: {
   title: string;
   onClose: () => void;
   children: ReactNode;
   busy?: boolean;
   wide?: boolean;
+  variant?: "default" | "conversation";
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const id = useId();
   useEffect(() => {
     const dialog = ref.current;
     const trigger = document.activeElement as HTMLElement;
+    const unlock = lockPageScroll();
     dialog?.showModal();
     return () => {
       dialog?.close();
-      trigger?.focus();
+      trigger?.focus({ preventScroll: true });
+      unlock();
     };
   }, []);
   return (
     <dialog
       ref={ref}
-      className={wide ? "modal wide" : "modal"}
+      className={`modal${wide ? " wide" : ""}${variant === "conversation" ? " modal-conversation" : ""}`}
       aria-labelledby={id}
       onCancel={(e) => {
         e.preventDefault();

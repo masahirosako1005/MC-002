@@ -8,6 +8,7 @@ export function setAccessToken(value: string) {
 }
 function stageEvent(path: string, method: string, ok: boolean) {
   if (!stageFrame) return;
+  path = path.split("?")[0];
   const type =
     path === "/stage/login"
       ? "session"

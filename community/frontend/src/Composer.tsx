@@ -26,6 +26,7 @@ export default function Composer({
   const [analysisError, setAnalysisError] = useState("");
   const [draft, setDraft] = useState<Post | undefined>(post);
   const [confirmed, setConfirmed] = useState(false);
+  const [readLocation, setReadLocation] = useState(false);
   const polls = useRef(0);
   useEffect(() => {
     if (
@@ -106,7 +107,7 @@ export default function Composer({
           throw new Error("12MB以下のJPEG・PNG・WebPを選んでください。");
         const data = new FormData();
         data.append("file", file);
-        const item = await api<Media>("/media", "POST", data);
+        const item = await api<Media>(readLocation ? "/media?read_location=true" : "/media", "POST", data);
         setMedia((previous) => [...previous, item]);
       }
       polls.current = 0;
@@ -167,6 +168,10 @@ export default function Composer({
         このコミュニティのメンバーだけが見ることができます。
       </p>
       <ErrorBox message={error} />
+      {!draft && <label className="check-row">
+        <input type="checkbox" checked={readLocation} disabled={busy} onChange={(event) => setReadLocation(event.target.checked)} />
+        <span>これから選ぶ写真の位置情報を読み取る<span className="optional">任意</span><small className="journal-location-note">場所は「旅の地図に残す」で確認してから保存できます。写真自体の位置情報は除いて共有します。</small></span>
+      </label>}
       <div className="upload-grid">
         {media.map((m) => (
           <div className="upload-item" key={m.id}>

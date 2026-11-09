@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.journal-author { border: 0; background: none; padding: 0; text-align: left; text-decoration: underline; text-decoration-color: #dac5b4; text-underline-offset: 4px; }
+.journal-location-note { display: block; margin-top: 5px; color: #71665b; font-size: .75rem; line-height: 1.65; }
+.journal-record-link { width: 100%; padding: 13px 0 8px; border-top: 1px solid #e8ded1; justify-content: flex-start; }
+.journal-record-link .icon:last-child { margin-left: auto; }
 :root {
   font-family:
     "BIZ UDPGothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;

@@ -1,5 +1,5 @@
 import Choice from "./Choice";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import {
   api,
   ApiError,
@@ -34,8 +34,11 @@ import KoPage, { tripCover } from "./KoPage";
 import Marketplace from "./Marketplace";
 import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
+const Journal = lazy(() => import("./Journal"));
+const VisitDialog = lazy(() => import("./Journal").then((module) => ({ default: module.VisitDialog })));
+const TravelProfile = lazy(() => import("./Journal").then((module) => ({ default: module.TravelProfile })));
 
-type Page = "feed" | "ko" | "preferences" | "market" | "provider";
+type Page = "feed" | "ko" | "preferences" | "market" | "provider" | "journal";
 type Data = {
   communities: Community[];
   preferences: PreferenceData;
@@ -389,6 +392,8 @@ export default function App() {
   >(null);
   const [switching, setSwitching] = useState(false);
   const [deletePost, setDeletePost] = useState<Post | null>(null);
+  const [recordPost, setRecordPost] = useState<Post | null>(null);
+  const [profileUser, setProfileUser] = useState<User | null>(null);
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
   const generation = useRef(0);
@@ -400,6 +405,8 @@ export default function App() {
     setComposer(null);
     setCommunityDialog(null);
     setDeletePost(null);
+    setRecordPost(null);
+    setProfileUser(null);
     setSwitching(false);
     setCsrf("");
     setMessage(text);
@@ -537,6 +544,7 @@ export default function App() {
         { id: "feed" as Page, label: "みんなの記録", icon: "home" },
         { id: "market" as Page, label: "旅を見つける", icon: "compass" },
         { id: "ko" as Page, label: "講を見つける", icon: "compass" },
+        { id: "journal" as Page, label: "旅の地図", icon: "pin" },
       ];
   if (booting)
     return (
@@ -805,7 +813,7 @@ export default function App() {
                     <div className="post-head">
                       <Avatar user={post.author} />
                       <div>
-                        <strong>{post.author.name}</strong>
+                        <button className="journal-author" onClick={() => setProfileUser(post.author)} aria-label={`${post.author.name}の旅のプロフィール`}><strong>{post.author.name}</strong></button>
                         <small>
                           {dateLabel(post.created_at)}
                           {post.place_label && ` · ${post.place_label}`}
@@ -858,11 +866,20 @@ export default function App() {
                           </button>
                         )}
                       </div>
+                      {post.can_edit && (
+                        <button className="text-button journal-record-link" onClick={() => setRecordPost(post)}>
+                          <Icon name="pin" />旅の地図に残す<Icon name="arrow" />
+                        </button>
+                      )}
                     </div>
                   </article>
                 ))
               )}
             </>
+          ) : page === "journal" ? (
+            <Suspense fallback={<p role="status">旅の地図をひらいています…</p>}>
+              <Journal key={user.id} user={user} communities={data.communities} onProfile={() => setProfileUser(user)} />
+            </Suspense>
           ) : page === "market" ? (
             <Marketplace
               community={community}
@@ -997,6 +1014,16 @@ export default function App() {
           onSaved={changed}
         />
       )}{" "}
+      {recordPost && (
+        <Suspense fallback={<p className="loading-inline" role="status">訪問記録をひらいています…</p>}>
+          <VisitDialog key={`${user.id}-${recordPost.id}`} post={recordPost} communities={data.communities} onClose={() => setRecordPost(null)} onSaved={() => { setRecordPost(null); navigate("journal"); }} />
+        </Suspense>
+      )}
+      {profileUser && (
+        <Suspense fallback={<p className="loading-inline" role="status">旅のプロフィールをひらいています…</p>}>
+          <TravelProfile key={`${user.id}-${profileUser.id}`} person={profileUser} owner={profileUser.id === user.id} onClose={() => setProfileUser(null)} />
+        </Suspense>
+      )}
       {communityDialog && (
         <CommunityDialog
           community={communityDialog === "current" ? community : null}
@@ -1014,6 +1041,7 @@ export default function App() {
           busy={actionBusy}
         >
           <p>{user.name}さんとしてログインしています。</p>
+          {!data.capabilities.providers.length && <button className="button secondary full" onClick={() => { setSwitching(false); setProfileUser(user); }}><Icon name="pin" />旅のプロフィール</button>}
           <button
             className="button secondary full"
             onClick={() => {
@@ -1043,7 +1071,7 @@ export default function App() {
           onClose={() => setDeletePost(null)}
           busy={actionBusy}
         >
-          <p>写真と投稿を削除します。この操作は取り消せません。</p>
+          <p>写真と投稿、写真に結び付いた訪問記録を削除します。県別の実績とバッジも再計算されます。この操作は取り消せません。</p>
           <ErrorBox message={error} />
           <div className="dialog-actions">
             <button

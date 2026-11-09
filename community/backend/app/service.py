@@ -7,7 +7,7 @@ import threading
 from fastapi import HTTPException
 
 from .database import ACCOUNTS, TAGS, TRIPS, digest, identifier, now, password_hash
-from .images import sanitize_image
+from .images import sanitize_image, location_candidate
 
 COVER_KEYS = ("woodland", "coffee", "coast", "table")
 TRIP_BY_ID = {trip["id"]: {**trip, "cover_key": {"mountain": "woodland", "coast": "coast", "cafe": "coffee", "games": "table"}[trip["cover_key"]]} for trip in TRIPS}
@@ -102,11 +102,12 @@ class Service:
     def media_out(self, conn, row):
         return {"id": row["id"], "url": "/api/media/" + row["id"], "width": row["width"], "height": row["height"], "analysis": self.analysis_out(conn, row["id"])}
 
-    def upload(self, uid, raw):
+    def upload(self, uid, raw, read_location=False):
         if not self.decode_lock.acquire(blocking=False):
             raise HTTPException(429, "写真を処理しています。少し待って再送してください。")
         try:
             clean, width, height = sanitize_image(raw, self.settings)
+            candidate = location_candidate(raw) if read_location else None
         finally:
             self.decode_lock.release()
         mid = identifier()
@@ -119,7 +120,10 @@ class Service:
                 destination.write_bytes(clean)
                 conn.execute("INSERT INTO media(id,user_id,storage_key,width,height,sha256,created_at) VALUES(?,?,?,?,?,?,?)", (mid, uid, key, width, height, hashlib.sha256(clean).hexdigest(), now()))
                 conn.execute("INSERT INTO jobs(media_id,status,message) VALUES(?,'queued','写真を確認しています。タグはあとで直せます。')", (mid,))
-                return self.media_out(conn, conn.execute("SELECT * FROM media WHERE id=?", (mid,)).fetchone())
+                if candidate is not None:
+                    conn.execute('INSERT INTO journal_location_candidates VALUES(?,?,?,?)', (mid, candidate['latitude'], candidate['longitude'], now()))
+                # Do not add candidates to media_out: that serializer is also used in shared feeds.
+                return {**self.media_out(conn, conn.execute("SELECT * FROM media WHERE id=?", (mid,)).fetchone()), 'location_candidate': candidate}
         except BaseException:
             destination.unlink(missing_ok=True)
             raise

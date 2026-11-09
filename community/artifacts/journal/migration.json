@@ -1,0 +1,258 @@
+{
+  "checked_at": "2026-11-09T06:38:07.393383+00:00",
+  "mode": "compare",
+  "excluded_volatile_tables": [
+    "sessions",
+    "stage_sessions",
+    "jobs"
+  ],
+  "before": {
+    "schema_version": 2,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "communities": {
+        "count": 2,
+        "sha256": "8189faf146d67d9e2eb96bd4dadd64cbbb91a7fa685048d2c427dd61bd3ab718"
+      },
+      "condition_drafts": {
+        "count": 6,
+        "sha256": "2d92b0ded9719846f77a34c3448156af538f0187b234259d4db8ca7943c97e01"
+      },
+      "consultation_messages": {
+        "count": 8,
+        "sha256": "e09574d6c67937351a05f9c757cba95fa6b63469c6ebe3b36277bd29fa97203e"
+      },
+      "consultations": {
+        "count": 6,
+        "sha256": "1ccdbd8a051928aaa037136217e8fa7fe2629560d4536fd48e04f8e5b7e4d345"
+      },
+      "grants": {
+        "count": 201,
+        "sha256": "ed11f4aa4cf8ca683be13a71a997e792f645b21dc544bcff9ce956149a2d6443"
+      },
+      "group_members": {
+        "count": 9,
+        "sha256": "37effd3f4d2d197f50f9574cc49c8d03f182dc54f3b991493221b68bd9c3e0c0"
+      },
+      "ko_groups": {
+        "count": 3,
+        "sha256": "22b745248eb99c77ff1cf840c791d7222804c78584b69b7d3aa63bc38328e70d"
+      },
+      "media": {
+        "count": 8,
+        "sha256": "20162b7675b4ef97c8bad9988fbdd3b5069af5ee1fcc607deab38269e0df06af"
+      },
+      "memberships": {
+        "count": 201,
+        "sha256": "93402305e46ce192646b2c6785f16b9b474bae0d292da6b5db218149487c7634"
+      },
+      "operation_keys": {
+        "count": 20,
+        "sha256": "d4e7ed9f7efb23e4d192857db1db15b9b1fe4e4c3f1a5ae1d5b70f61676361e4"
+      },
+      "party_messages": {
+        "count": 6,
+        "sha256": "3cb8320b47a7ae29ef373b4ce81cca828fe2d3f68b61847722443e3ee4a4548b"
+      },
+      "plan_selections": {
+        "count": 6,
+        "sha256": "40954fc16c2f0f37a534af9f4fc0e541ed892830d9cd26eae27e39541d520b58"
+      },
+      "post_media": {
+        "count": 8,
+        "sha256": "7b743e00718a39d7b6bfccb2850583a4377f734bb9471f57ba8ca30abc4b9fdf"
+      },
+      "posts": {
+        "count": 8,
+        "sha256": "49d2cb58b65cf9a957e2589a00e8cab376ce6ac8fca317cef4e2816a95a9d213"
+      },
+      "preferences": {
+        "count": 202,
+        "sha256": "12ac887eabe9f57b1d0371f704197965bb07d7b7adc44f92a38814676ae14b36"
+      },
+      "proposals": {
+        "count": 3,
+        "sha256": "9b1425021ae5e81b3008d07808469e64fb0aa5011bd228c2a685ea4b45351731"
+      },
+      "provider_plans": {
+        "count": 7,
+        "sha256": "1cef1617896bdb2ba4bec5d81222e149902664192b5a4492d7706750a3ebba9a"
+      },
+      "provider_staff": {
+        "count": 2,
+        "sha256": "20759a1a901ba7a96c57fce1beb6792227f3bad61d6c663dcd7b79dba09ccdfa"
+      },
+      "providers": {
+        "count": 2,
+        "sha256": "f773cd6dd82235fb921f47c532b47c5e960abb3879c95f8ad61f4f6bb40c88ba"
+      },
+      "recommendation_runs": {
+        "count": 10,
+        "sha256": "fa834e5991a6f4f1c2272db57be501dd70d14ade58001208f8da77d81bf1130c"
+      },
+      "responses": {
+        "count": 9,
+        "sha256": "14019e911e00918c7a06683744dfecb951132336a624a48acfae80390f3088af"
+      },
+      "settings": {
+        "count": 2,
+        "sha256": "08813bd3e45404974b8e7f272cbdd64351e551e1ff012d059809ee57b4b38d21"
+      },
+      "travel_parties": {
+        "count": 6,
+        "sha256": "7eab35cf2bdf769303ad8317430f03cf01007cdb1343749b081950452985a35a"
+      },
+      "travel_party_members": {
+        "count": 6,
+        "sha256": "e2439d06f470097c162ddd43deedc787ce95f90bf45b844b01df8ae9c8f46ad6"
+      },
+      "travel_requirements": {
+        "count": 6,
+        "sha256": "4f87489fbcd3671dabe3fd98f65b0babf6dfa96ad491a11dc1a5a7abdda600e6"
+      },
+      "users": {
+        "count": 202,
+        "sha256": "591f599ecbd0ab9f4e09b74ad3cc6f5850be91e9d3e91bb2bedee092bd2256cb"
+      }
+    },
+    "media": {
+      "count": 8,
+      "sha256": "76a75d78f90590fbc5cc5e4832f862625b41fba8499fa33e9b0c5a98f45a0a63"
+    }
+  },
+  "after": {
+    "schema_version": 3,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "communities": {
+        "count": 2,
+        "sha256": "8189faf146d67d9e2eb96bd4dadd64cbbb91a7fa685048d2c427dd61bd3ab718"
+      },
+      "condition_drafts": {
+        "count": 6,
+        "sha256": "2d92b0ded9719846f77a34c3448156af538f0187b234259d4db8ca7943c97e01"
+      },
+      "consultation_messages": {
+        "count": 9,
+        "sha256": "6a7893bbd61248cd178484094435b208760c3b8ecf62a5ba3d5f3f51ac0c6c4c"
+      },
+      "consultations": {
+        "count": 6,
+        "sha256": "1ccdbd8a051928aaa037136217e8fa7fe2629560d4536fd48e04f8e5b7e4d345"
+      },
+      "grants": {
+        "count": 201,
+        "sha256": "ed11f4aa4cf8ca683be13a71a997e792f645b21dc544bcff9ce956149a2d6443"
+      },
+      "group_members": {
+        "count": 9,
+        "sha256": "37effd3f4d2d197f50f9574cc49c8d03f182dc54f3b991493221b68bd9c3e0c0"
+      },
+      "journal_journeys": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_location_candidates": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_profiles": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_visits": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "ko_groups": {
+        "count": 3,
+        "sha256": "22b745248eb99c77ff1cf840c791d7222804c78584b69b7d3aa63bc38328e70d"
+      },
+      "media": {
+        "count": 8,
+        "sha256": "20162b7675b4ef97c8bad9988fbdd3b5069af5ee1fcc607deab38269e0df06af"
+      },
+      "memberships": {
+        "count": 201,
+        "sha256": "93402305e46ce192646b2c6785f16b9b474bae0d292da6b5db218149487c7634"
+      },
+      "operation_keys": {
+        "count": 21,
+        "sha256": "668d1649717b9f77ec303510f0683a944f851ed891fb0cee3519fb9027d01249"
+      },
+      "party_messages": {
+        "count": 6,
+        "sha256": "3cb8320b47a7ae29ef373b4ce81cca828fe2d3f68b61847722443e3ee4a4548b"
+      },
+      "plan_selections": {
+        "count": 6,
+        "sha256": "40954fc16c2f0f37a534af9f4fc0e541ed892830d9cd26eae27e39541d520b58"
+      },
+      "post_media": {
+        "count": 8,
+        "sha256": "7b743e00718a39d7b6bfccb2850583a4377f734bb9471f57ba8ca30abc4b9fdf"
+      },
+      "posts": {
+        "count": 8,
+        "sha256": "49d2cb58b65cf9a957e2589a00e8cab376ce6ac8fca317cef4e2816a95a9d213"
+      },
+      "preferences": {
+        "count": 202,
+        "sha256": "12ac887eabe9f57b1d0371f704197965bb07d7b7adc44f92a38814676ae14b36"
+      },
+      "proposals": {
+        "count": 3,
+        "sha256": "9b1425021ae5e81b3008d07808469e64fb0aa5011bd228c2a685ea4b45351731"
+      },
+      "provider_plans": {
+        "count": 7,
+        "sha256": "1cef1617896bdb2ba4bec5d81222e149902664192b5a4492d7706750a3ebba9a"
+      },
+      "provider_staff": {
+        "count": 2,
+        "sha256": "20759a1a901ba7a96c57fce1beb6792227f3bad61d6c663dcd7b79dba09ccdfa"
+      },
+      "providers": {
+        "count": 2,
+        "sha256": "f773cd6dd82235fb921f47c532b47c5e960abb3879c95f8ad61f4f6bb40c88ba"
+      },
+      "recommendation_runs": {
+        "count": 10,
+        "sha256": "fa834e5991a6f4f1c2272db57be501dd70d14ade58001208f8da77d81bf1130c"
+      },
+      "responses": {
+        "count": 9,
+        "sha256": "14019e911e00918c7a06683744dfecb951132336a624a48acfae80390f3088af"
+      },
+      "settings": {
+        "count": 2,
+        "sha256": "08813bd3e45404974b8e7f272cbdd64351e551e1ff012d059809ee57b4b38d21"
+      },
+      "travel_parties": {
+        "count": 6,
+        "sha256": "7eab35cf2bdf769303ad8317430f03cf01007cdb1343749b081950452985a35a"
+      },
+      "travel_party_members": {
+        "count": 6,
+        "sha256": "e2439d06f470097c162ddd43deedc787ce95f90bf45b844b01df8ae9c8f46ad6"
+      },
+      "travel_requirements": {
+        "count": 6,
+        "sha256": "4f87489fbcd3671dabe3fd98f65b0babf6dfa96ad491a11dc1a5a7abdda600e6"
+      },
+      "users": {
+        "count": 202,
+        "sha256": "591f599ecbd0ab9f4e09b74ad3cc6f5850be91e9d3e91bb2bedee092bd2256cb"
+      }
+    },
+    "media": {
+      "count": 8,
+      "sha256": "76a75d78f90590fbc5cc5e4832f862625b41fba8499fa33e9b0c5a98f45a0a63"
+    }
+  },
+  "existing_tables_unchanged": false,
+  "media_unchanged": true,
+  "passed": false
+}

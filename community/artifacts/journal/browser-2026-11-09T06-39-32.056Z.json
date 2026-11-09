@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-09T06:39:55.724Z",
+  "scope": "Isolated headless Edge; synthetic test photo and visits; not ordinary Edge repair or physical travel verification",
+  "results": [
+    {
+      "name": "EXIF opt-in before upload; published photo remains independently shared",
+      "passed": true
+    },
+    {
+      "name": "photo to confirmed visit and saved journey map",
+      "passed": true
+    },
+    {
+      "name": "manual locations without GPS complete the four-prefecture badge",
+      "passed": true
+    },
+    {
+      "name": "achievement sharing and another member profile do not reveal exact locations",
+      "passed": false,
+      "error": "expect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 15000ms exceeded while waiting on the predicate"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "cleanup": true,
+  "passed": false
+}

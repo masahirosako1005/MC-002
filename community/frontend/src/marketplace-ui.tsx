@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { api } from "./api";
 import type { Tag, User } from "./types";
 import type {
@@ -200,6 +201,7 @@ export function Conversation({
   onSent,
   closed = false,
   label = "講のメンバーとの会話",
+  context,
 }: {
   endpoint: string;
   messages: MarketMessage[];
@@ -207,11 +209,17 @@ export function Conversation({
   onSent: () => Promise<void>;
   closed?: boolean;
   label?: string;
+  context?: ReactNode;
 }) {
   const [body, setBody] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const requestKey = useRequestKey();
+  const history = useRef<HTMLDivElement>(null);
+  const latestMessageId = messages.at(-1)?.id;
+  useEffect(() => {
+    if (history.current) history.current.scrollTop = history.current.scrollHeight;
+  }, [latestMessageId, error]);
   async function send() {
     setBusy(true);
     setError("");
@@ -231,7 +239,8 @@ export function Conversation({
   }
   return (
     <section className="conversation" aria-label={label}>
-      <div className="conversation-history">
+      <div className="conversation-history" ref={history} tabIndex={0} role="region" aria-label={`${label}の履歴と共有条件`}>
+        {context}
         {messages.length === 0 ? (
           <Empty title="まずは、希望をひとこと">
             <p>行きたい場所、人数、泊数、予算などを書いてみましょう。</p>
@@ -267,8 +276,8 @@ export function Conversation({
             </article>
           ))
         )}
+        <ErrorBox message={error} />
       </div>
-      <ErrorBox message={error} />
       {closed ? (
         <p className="quiet-note">この相談は終了しています。</p>
       ) : (
@@ -288,7 +297,7 @@ export function Conversation({
             onChange={(e) => setBody(e.target.value)}
             disabled={busy}
             maxLength={2000}
-            rows={3}
+            rows={2}
             placeholder="みんなに伝えたいこと"
           />
           <button className="button primary" disabled={busy || !body.trim()}>

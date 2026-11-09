@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-09T06:38:33.896Z",
+  "scope": "Isolated headless Edge; synthetic test photo and visits; not ordinary Edge repair or physical travel verification",
+  "results": [
+    {
+      "name": "EXIF opt-in before upload; published photo remains independently shared",
+      "passed": true
+    },
+    {
+      "name": "photo to confirmed visit and saved journey map",
+      "passed": true
+    },
+    {
+      "name": "manual locations without GPS complete the four-prefecture badge",
+      "passed": true
+    },
+    {
+      "name": "achievement sharing and another member profile do not reveal exact locations",
+      "passed": false,
+      "error": "locator.check: Clicking the checkbox did not change its state\nCall log:\n\u001b[2m  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('dialog').getByRole('checkbox', { name: '県別の実績とバッジを共有する', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"checkbox\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n\u001b[2m    - navigations have finished\u001b[22m\n"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "cleanup": true,
+  "passed": false
+}

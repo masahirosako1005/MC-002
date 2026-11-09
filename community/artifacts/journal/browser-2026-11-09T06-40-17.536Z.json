@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-11-09T06:40:42.490Z",
+  "scope": "Isolated headless Edge; synthetic test photo and visits; not ordinary Edge repair or physical travel verification",
+  "results": [
+    {
+      "name": "EXIF opt-in before upload; published photo remains independently shared",
+      "passed": true
+    },
+    {
+      "name": "photo to confirmed visit and saved journey map",
+      "passed": true
+    },
+    {
+      "name": "manual locations without GPS complete the four-prefecture badge",
+      "passed": true
+    },
+    {
+      "name": "achievement sharing and another member profile do not reveal exact locations",
+      "passed": true
+    },
+    {
+      "name": "visit correction and deletion update saved badge progress",
+      "passed": true
+    },
+    {
+      "name": "two-phone layout, keyboard, narrow widths and reduced motion",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "cleanup": true,
+  "passed": true
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 425,
-  "last_event_hash": "9be949d1849b46a5d697adc49725130d85a8514e31659202eac652dfc1a62c76",
-  "updated_at": "2026-11-09T15:17:44+09:00",
+  "revision": 459,
+  "last_event_hash": "f0a67ee16b2bccc7538500c5fe72c5419c9a76ae3b28ceceb98448fb891b0b71",
+  "updated_at": "2026-11-09T15:46:42+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -1666,6 +1666,337 @@
       "title": "二台の実連携アニメーションと表示の軽量化",
       "type": "task",
       "updated_at": "2026-11-09T15:17:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "写真の位置読取は初期OFFで本人のみ候補取得し、訪問日・場所・旅の確認後だけ地図へ保存する"
+        },
+        {
+          "checked": true,
+          "text": "GPSなしと既存写真も記録でき、旅の地図と写真一覧で閲覧・訂正・削除できる"
+        },
+        {
+          "checked": true,
+          "text": "詳細位置は非公開初期値で、共有時も元写真権限を越えず、配信画像EXIF除去と外部地図要求なしを維持する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:33:05+09:00",
+      "dependencies": [],
+      "description": "写真EXIF位置の事前許可と本人確認、GPSなし写真の場所選択、旅別訪問の追加訂正削除、外部地図APIなしの地図を現在の講へ追加する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:46:37+09:00",
+          "path": "community/artifacts/journal/browser.json",
+          "text": "写真の位置許可・確認保存・地図・訂正削除を画面6段階と追加API16件で確認。"
+        }
+      ],
+      "id": "CP29",
+      "origin": "この時点で新規起票",
+      "owner": "API担当・画面担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "写真位置を確認して旅の地図に残す",
+      "type": "task",
+      "updated_at": "2026-11-09T15:46:37+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "東海4県の取得条件・進捗・残りを示し、候補保存や重複を訪問実績へ加算しない"
+        },
+        {
+          "checked": true,
+          "text": "訂正削除で獲得状態を再計算し、自己申告と写真候補確認の根拠を区別する"
+        },
+        {
+          "checked": true,
+          "text": "実績共有は初期OFFで、共通所属の他者プロフィールに許可された実績のみ表示し詳細座標を漏らさない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:33:06+09:00",
+      "dependencies": [
+        "CP29"
+      ],
+      "description": "東海4県の本人確認済み訪問でバッジを獲得し、進捗と残る県を表示。実績共有を別設定として他者プロフィールへ保存結果を反映する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:46:38+09:00",
+          "path": "community/artifacts/journal/browser.json",
+          "text": "東海4県獲得/削除による取消、任意公開と他者座標非開示を画面/APIで確認。"
+        }
+      ],
+      "id": "CP30",
+      "origin": "この時点で新規起票",
+      "owner": "API担当・画面担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "訪問記録に基づくバッジとプロフィール実績",
+      "type": "task",
+      "updated_at": "2026-11-09T15:46:39+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "既存DB・写真を保全し追加移行と再起動後の整合性を確認する"
+        },
+        {
+          "checked": true,
+          "text": "重複・古い編集・不正ID・退会・公開取消・EXIF除去を独立レビューとAPI試験で確認する"
+        },
+        {
+          "checked": true,
+          "text": "写真→位置確認→旅の地図→実績→他者プロフィールを画面で通し、狭幅・キーボード・二台・外部要求を測る"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:33:06+09:00",
+      "dependencies": [
+        "CP29",
+        "CP30"
+      ],
+      "description": "schema3追加前の保全、移行・再起動、写真から他者プロフィールまでの画面、独立安全性レビューを証拠付きで確認する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:46:40+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "旧26業務表全行/8画像保持、追加API16、画面6段階、4訪問とバッジのDocker再起動一致、独立レビュー。"
+        }
+      ],
+      "id": "CP31",
+      "origin": "この時点で新規起票",
+      "owner": "主担当・独立レビュー担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "訪問地図とバッジの保存・権限・画面検証",
+      "type": "task",
+      "updated_at": "2026-11-09T15:46:40+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "候補推薦と手動招待の双方で講を作れ、作成者選択だけで他人を参加させない"
+        },
+        {
+          "checked": false,
+          "text": "本人許可・所属・不足・見送り・招待取消と内部会話への参加権限を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:35:27+09:00",
+      "dependencies": [],
+      "description": "関心許可に基づく候補を選ぶ方法と一から招く方法を実装し、招待本人の承諾・見送り・取消を保存する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP32",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "候補選択と手動招待の二通りの講づくり",
+      "type": "task",
+      "updated_at": "2026-11-09T15:35:27+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "人数・日程・予算・希望を会話で整理し本人確認後の条件で公開プランへ紐付ける"
+        },
+        {
+          "checked": false,
+          "text": "不適合プラン・価格空席予約の捏造と未同意外部送信がなく処理方式を確認できる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:35:28+09:00",
+      "dependencies": [
+        "CP32"
+      ],
+      "description": "未設定時もローカル実カタログと条件整理の対話で完結。外部推論は任意の限定的な許可であり設定済みと偽らない。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP33",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "講チャットの相談から実事業者プランへ",
+      "type": "task",
+      "updated_at": "2026-11-09T15:35:28+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "曖昧な発言では招待せず明示決定後に招待待ち/実承諾済みを区別する"
+        },
+        {
+          "checked": false,
+          "text": "事業者は参加前の仲間内会話写真関心を読めず共有計画と共有区間のみ会話する"
+        },
+        {
+          "checked": false,
+          "text": "行程見積の希望提案と双方の版別確認を保存し外部予約確定と誤認させない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:35:29+09:00",
+      "dependencies": [
+        "CP33"
+      ],
+      "description": "行き先決定と共有確認後に当該事業者へ招待、実承諾後に同じ講画面で会話し、行程見積の版ごとの双方確認を残す。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP34",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "事業者を講へ招き会話と行程見積を確認する",
+      "type": "task",
+      "updated_at": "2026-11-09T15:35:29+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "保存移行再起動と権限違反・未承諾者・他社・重複・古い版を検査する"
+        },
+        {
+          "checked": false,
+          "text": "左右二台で行き先決定から事業者実承諾と同じ講での往復を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:35:29+09:00",
+      "dependencies": [
+        "CP32",
+        "CP33",
+        "CP34"
+      ],
+      "description": "追加移行の保全・再起動、招待の競合・二重送信、履歴境界、左旅行者から右事業者承諾と返信を独立レビューと実画面で確認。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP35",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "講作成から事業者参加までの権限と二台操作を検証",
+      "type": "task",
+      "updated_at": "2026-11-09T15:35:29+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "1440x900と1366x768で見出し二台と連携線が収まり実幅が広がる"
+        },
+        {
+          "checked": true,
+          "text": "相談の見出しと送信欄が使え履歴一か所でスクロールしモーダル閉鎖後の通常操作が戻る"
+        },
+        {
+          "checked": true,
+          "text": "390/320pxと200%文字・長文・キーボードで全文と閉じる送信へ到達でき、実送受信と認証分離を保持する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:37:20+09:00",
+      "dependencies": [],
+      "description": "端末外枠430px前後と実内容幅410pxを出発点に、スマホ相談を全面表示し履歴だけスクロール。太い常設バーを隠し各入力操作を維持する。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:46:41+09:00",
+          "path": "community/artifacts/conversation-layout/results.json",
+          "text": "外枠430px/内容410px、1440/1366、320/390/文字200%、履歴単独scrollと両方向返信・閉鎖復元の3段階成功。"
+        }
+      ],
+      "id": "CP36",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "スマホ幅を広げ相談の三重スクロールを解消",
+      "type": "task",
+      "updated_at": "2026-11-09T15:46:42+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "利用者一覧と未認証bootstrapのaccountsを除き、アカウント名とパスワードを初期空で入力する"
+        },
+        {
+          "checked": false,
+          "text": "autocomplete・Enter・表示切替・処理中失敗成功・ログアウト・左右認証分離を維持する"
+        },
+        {
+          "checked": false,
+          "text": "写真の非表示先読みなし、狭幅/文字拡大/キーボードで使え、Docker画像と検証証拠を残す"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:45:06+09:00",
+      "dependencies": [],
+      "description": "利用者一覧と既定選択を撤去し、空のアカウント名とパスワードで入る実サービスのフォームへ。左右とも暖色・余白・短い言葉と必要な写真で入口を整える。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP37",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "アカウント入力と上質なログイン入口",
+      "type": "task",
+      "updated_at": "2026-11-09T15:45:06+09:00"
     },
     {
       "acceptance": [
