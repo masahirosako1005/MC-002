@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 211,
-  "last_event_hash": "40d4d0baf4d7b008e4446dead6a7a869b4a854de9de2b5ca0b1f4820322b042d",
-  "updated_at": "2026-11-09T12:18:44+09:00",
+  "revision": 216,
+  "last_event_hash": "17e2994949c1841f691f5cec777a18026f41f3f34d0b764d37d3d9159212607c",
+  "updated_at": "2026-11-09T12:19:50+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -1003,12 +1003,19 @@
       "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
       "owner": "品質担当",
       "priority": "P2",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:19:23+09:00",
+          "hash": "5b8bb3cdc72141509deb2de3910624906737fce4",
+          "path": "project/revisions/5b8bb3cdc72141509deb2de3910624906737fce4.txt",
+          "summary": "R05: deliver design, reviewed presentation and local evidence-linked ticket board"
+        }
+      ],
       "status": "done",
       "title": "外部基準と審査項目の対応表を確定",
       "type": "task",
-      "updated_at": "2026-11-09T12:04:37+09:00"
+      "updated_at": "2026-11-09T12:19:23+09:00"
     },
     {
       "acceptance": [
@@ -1153,12 +1160,19 @@
       "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:19:23+09:00",
+          "hash": "5b8bb3cdc72141509deb2de3910624906737fce4",
+          "path": "project/revisions/5b8bb3cdc72141509deb2de3910624906737fce4.txt",
+          "summary": "R05: deliver design, reviewed presentation and local evidence-linked ticket board"
+        }
+      ],
       "status": "done",
       "title": "調査結果の適用判断と評価証拠を統合",
       "type": "task",
-      "updated_at": "2026-11-09T12:09:58+09:00"
+      "updated_at": "2026-11-09T12:19:23+09:00"
     },
     {
       "acceptance": [
@@ -1195,18 +1209,30 @@
           "at": "2026-11-09T12:18:11+09:00",
           "path": "artifacts/presentation/VISUAL-QA.md",
           "text": "最終PPTX/PDF11枚を再照合。PPTXにAPI33件・画面15件あり、旧14件表記なし。最終描画PNG11件、9枚目の画面15/API33と注記を目視確認。SHA256がVISUAL-QA記録と一致：PPTX 4230e522a5d25efc75c326c070fd1d3ac2fb54f8ab546881da81ae5252c137c0、PDF 60355351f53f4a02f089e1c4aa7ed8afe452cb9edd2a2710aae5f24cfdf8896a。担当者の全11枚再描画・93文字枠超過0の記録を照合。成果物作成と検証は完了、指定時間の通し確認は外部条件待ちとしてreviewを維持する。"
+        },
+        {
+          "at": "2026-11-09T12:19:50+09:00",
+          "text": "提出用ZIPをコミット済み163ファイルとGit履歴から作成し、ZIP整合性とbundle検証に成功。秘密・DB・個票・依存キャッシュは収録対象外。最終リビジョンは配布時のmanifestへ記録する。指定の発表時間は未提示のため、その条件は未確認のまま。",
+          "path": "scripts/package_release.py"
         }
       ],
       "id": "T18",
       "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
       "owner": "発表担当",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:19:24+09:00",
+          "hash": "5b8bb3cdc72141509deb2de3910624906737fce4",
+          "path": "project/revisions/5b8bb3cdc72141509deb2de3910624906737fce4.txt",
+          "summary": "R05: deliver design, reviewed presentation and local evidence-linked ticket board"
+        }
+      ],
       "status": "review",
       "title": "プレゼン・デモ・提出一式を作成",
       "type": "task",
-      "updated_at": "2026-11-09T12:18:11+09:00"
+      "updated_at": "2026-11-09T12:19:50+09:00"
     },
     {
       "acceptance": [
@@ -1242,12 +1268,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:19:24+09:00",
+          "hash": "5b8bb3cdc72141509deb2de3910624906737fce4",
+          "path": "project/revisions/5b8bb3cdc72141509deb2de3910624906737fce4.txt",
+          "summary": "R05: deliver design, reviewed presentation and local evidence-linked ticket board"
+        }
+      ],
       "status": "done",
       "title": "ローカルチケット管理と改訂追跡を実装する",
       "type": "task",
-      "updated_at": "2026-11-09T12:18:44+09:00"
+      "updated_at": "2026-11-09T12:19:24+09:00"
     }
   ]
 }
