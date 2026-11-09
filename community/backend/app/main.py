@@ -23,6 +23,8 @@ from .journal.router import create_router as journal_router
 from .circles.schema import migrate as migrate_circles
 from .circles.router import create_router as circles_router
 from .circles.discovery_schema import migrate as migrate_discovery
+from .reflections.schema import migrate as migrate_reflections
+from .reflections.router import create_router as reflections_router
 
 logger = logging.getLogger("ko")
 
@@ -41,6 +43,7 @@ def create_app(settings=None):
         migrate_journal(database)
         migrate_circles(database)
         migrate_discovery(database)
+        migrate_reflections(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         service.seed_assets()
         if settings.worker_enabled:
@@ -238,6 +241,7 @@ def create_app(settings=None):
     app.include_router(marketplace_router(database))
     app.include_router(journal_router(database))
     app.include_router(circles_router(database))
+    app.include_router(reflections_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

@@ -138,7 +138,7 @@ function PlanEditor({
       <ErrorBox message={error} />
       <p className="small-label">{value.provider.name}</p>
       <div className="editor-heading">
-        <h3>誰と、どんな旅を楽しむ？</h3>
+        <h3>プランの基本情報</h3>
         <button
           className="text-button"
           onClick={() => setPreview(true)}
@@ -607,7 +607,7 @@ export default function ProviderWorkspace({
             ))}
           </div>
           {!busy && !plans.length && (
-            <Empty title="最初のプランをつくりましょう">
+            <Empty title="登録したプランはありません">
               <p>地域の場所やお店を、日別の行程にまとめられます。</p>
             </Empty>
           )}
@@ -618,7 +618,7 @@ export default function ProviderWorkspace({
             旅行者がプランを選び、共有を確認した相談だけが届きます。
           </p>
           {consultations.length === 0 ? (
-            <Empty title="相談が届くのを待っています">
+            <Empty title="相談はありません">
               <p>公開したプランを選んだ旅行者から、ここに相談が届きます。</p>
             </Empty>
           ) : (

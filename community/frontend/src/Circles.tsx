@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
 import { Avatar, Empty, ErrorBox, Icon, Modal, TagPicker, Tags } from "./ui";
@@ -31,6 +31,7 @@ import type {
 import "./circles.css";
 import PlanDiscovery, { SavedCandidateList } from "./PlanDiscovery";
 import type { CandidateCard } from "./PlanDiscovery";
+const ReflectionWorkspace = lazy(() => import("./ReflectionWorkspace"));
 
 function useAlive() {
   const alive = useRef(true);
@@ -823,7 +824,7 @@ export function SharedCircleRoom({
                   />
                 ) : (
                   <div className="circle-proposal-empty">
-                    <h3>行程と見積を、一緒に確かめる</h3>
+                    <h3>行程と概算見積</h3>
                     <p>
                       {room.can_propose
                         ? "選ばれたプランをもとに、この講へ日程・行程・概算費用を提案できます。"
@@ -993,7 +994,7 @@ function CircleWorkspace({
   const [messages, setMessages] = useState<MarketMessage[]>([]);
   const [turns, setTurns] = useState<AssistantTurn[]>([]);
   const [tab, setTab] = useState<
-    "conversation" | "assistant" | "plans" | "members"
+    "conversation" | "assistant" | "plans" | "members" | "reflections"
   >("conversation");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState("");
@@ -1279,6 +1280,7 @@ function CircleWorkspace({
             ["assistant", "AIに相談"],
             ["plans", "行き先"],
             ["members", "参加者"],
+            ["reflections", "振り返り"],
           ] as const
         ).map(([value, label]) => (
           <button
@@ -1291,7 +1293,15 @@ function CircleWorkspace({
           </button>
         ))}
       </nav>
-      {tab === "conversation" ? (
+      {tab === "reflections" ? (
+        <Suspense fallback={<p role="status">振り返りをひらいています…</p>}>
+          <ReflectionWorkspace
+            key={id}
+            circleId={id}
+            canManage={circle.can_manage}
+          />
+        </Suspense>
+      ) : tab === "conversation" ? (
         <>
           <p className="circle-note">
             この会話は講の参加者だけに見えます。事業者には共有されません。
@@ -1313,9 +1323,9 @@ function CircleWorkspace({
           <div className="circle-assistant-intro">
             <Icon name="leaf" />
             <div>
-              <h2>希望を話して、旅を具体的に。</h2>
+              <h2>旅行条件の相談</h2>
               <p>
-                人数、泊数、予算、行きたい場所をひとことずつ。条件は最後に自分たちで確認します。
+                人数、泊数、予算、行き先を入力できます。整理した条件は、確認してから保存します。
               </p>
               <button
                 className="text-button"
@@ -1420,7 +1430,7 @@ function CircleWorkspace({
         <>
           <RequirementsSummary value={circle.requirements} />
           <p className="circle-note">
-            講の希望と確認済みの条件から、関連する順に探せます。候補を持ち寄り、行き先と共有内容を確認してから事業者を招きます。
+            講の希望と確認済みの条件から、関連する順に探せます。候補を保存し、行き先と共有内容を確認してから事業者を招きます。
           </p>
           <Tags ids={circle.tags || []} tags={tags} />
           {circle.can_manage && open && (
@@ -1763,9 +1773,8 @@ export default function Circles({
   return (
     <section className="circles-page">
       <header className="page-heading">
-        <p className="eyebrow">やりたいことを、一緒に叶える仲間</p>
         <h1>講を見つける</h1>
-        <p>好きから出会う。知っている仲間と始める。</p>
+        <p>関心が共通する候補から、または知っている会員を選んで招待できます。</p>
       </header>
       <div className="circle-create-options">
         <button
@@ -1776,7 +1785,7 @@ export default function Circles({
             <Icon name="leaf" />
           </span>
           <strong>関心から仲間を探す</strong>
-          <small>共通の楽しみから、招待する人を選ぶ</small>
+          <small>関心が共通する候補から招待する人を選ぶ</small>
           <Icon name="arrow" />
         </button>
         <button disabled={!community} onClick={() => setCreateMode("manual")}>
@@ -1828,34 +1837,64 @@ export default function Circles({
             </article>
           ))}
           <div className="circle-list">
-            {data?.items.map((circle) => (
-              <button
-                key={circle.id}
-                className="circle-list-card"
-                onClick={() => setCircleId(circle.id)}
-              >
-                <span className="circle-card-mark">講</span>
-                <span>
-                  <strong>{circle.title}</strong>
-                  <small>
-                    {circle.accepted_count}人が参加 · {circle.pending_count}
-                    人が返事待ち{circle.status !== "open" && " · 終了"}
-                  </small>
-                  {circle.active_provider_invitation && (
+            {data?.items
+              .filter((circle) => circle.status === "open")
+              .map((circle) => (
+                <button
+                  key={circle.id}
+                  className="circle-list-card"
+                  onClick={() => setCircleId(circle.id)}
+                >
+                  <span className="circle-card-mark">講</span>
+                  <span>
+                    <strong>{circle.title}</strong>
                     <small>
-                      {circle.active_provider_invitation.provider.name} ·{" "}
-                      {statusLabel(circle.active_provider_invitation.status)}
+                      {circle.accepted_count}人が参加 · {circle.pending_count}
+                      人が返事待ち{circle.status !== "open" && " · 終了"}
                     </small>
-                  )}
-                </span>
-                <Icon name="arrow" />
-              </button>
-            ))}
+                    {circle.active_provider_invitation && (
+                      <small>
+                        {circle.active_provider_invitation.provider.name} ·{" "}
+                        {statusLabel(circle.active_provider_invitation.status)}
+                      </small>
+                    )}
+                  </span>
+                  <Icon name="arrow" />
+                </button>
+              ))}
           </div>
-          {!data?.items.length && !data?.invitations.length && (
-            <Empty title="一緒にやりたいことから、始めよう。">
-              <p>仲間を選んで招待し、旅の希望を話す場所をつくれます。</p>
-            </Empty>
+          {!data?.items.some((circle) => circle.status === "open") &&
+            !data?.invitations.length && (
+              <Empty title="参加中の講はありません">
+                <p>仲間を選んで招待し、旅の希望を話す場所をつくれます。</p>
+              </Empty>
+            )}
+          {!!data?.items.some((circle) => circle.status !== "open") && (
+            <details className="circle-closed-list">
+              <summary>
+                終了した講（
+                {data.items.filter((circle) => circle.status !== "open").length}
+                件）
+              </summary>
+              <div className="circle-list">
+                {data.items
+                  .filter((circle) => circle.status !== "open")
+                  .map((circle) => (
+                    <button
+                      className="circle-list-card"
+                      key={circle.id}
+                      onClick={() => setCircleId(circle.id)}
+                    >
+                      <span className="circle-card-mark">講</span>
+                      <span>
+                        <strong>{circle.title}</strong>
+                        <small>{circle.accepted_count}人の講 · 終了</small>
+                      </span>
+                      <Icon name="arrow" />
+                    </button>
+                  ))}
+              </div>
+            </details>
           )}
           {!!data?.groups.filter((group) => !group.circle_id).length && (
             <section className="circle-existing-groups">

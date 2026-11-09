@@ -11,6 +11,8 @@ import {
 import type { Community, Tag, User } from "./types";
 import type { ProviderPlan } from "./marketplace-types";
 import type { CircleDetail, CircleList, CircleSummary } from "./circle-types";
+import { ExperienceReference } from "./ExperienceReference";
+import type { PublicExperienceSummary } from "./reflection-types";
 import "./discovery.css";
 
 export type CandidateCard = {
@@ -36,6 +38,7 @@ type DiscoveryResult = {
     unknowns: string[];
     match_status: string;
     schedule_status: string;
+    experience_reference?: PublicExperienceSummary;
   }[];
   context: {
     community_id: string;
@@ -67,7 +70,7 @@ export function SavedCandidateList({
   );
   return (
     <section className="saved-candidates">
-      <h3>この講に持ち寄った候補</h3>
+      <h3>この講の候補一覧</h3>
       <p className="discovery-note">
         候補の保存だけでは、事業者への招待や予約は行われません。
       </p>
@@ -150,7 +153,7 @@ export function SavedCandidateList({
           )}
         </>
       ) : (
-        <p className="muted">気になるプランを「講に追加」で持ち寄れます。</p>
+        <p className="muted">プランの「講に追加」から候補を保存できます。</p>
       )}
     </section>
   );
@@ -358,9 +361,7 @@ export default function PlanDiscovery({
               ? "あなたの講へのおすすめ順"
               : "地域の人が案内する旅"}
           </p>
-          <h2>
-            {circle ? "この講で、気になる旅。" : "あなたと仲間の、次の旅。"}
-          </h2>
+          <h2>{circle ? "この講の旅行プラン" : "旅行プラン"}</h2>
         </div>
         <button
           className="text-button"
@@ -419,6 +420,9 @@ export default function PlanDiscovery({
                       ? "開催予定。空席は確認が必要です。"
                       : "日程は相談。希望日が決まったら確認しましょう。"}
                 </p>
+                {item.experience_reference && (
+                  <ExperienceReference summary={item.experience_reference} />
+                )}
                 {item.unknowns.length > 0 && (
                   <details className="discovery-unknowns">
                     <summary>確認が必要なこと</summary>

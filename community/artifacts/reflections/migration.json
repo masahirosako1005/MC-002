@@ -1,0 +1,342 @@
+{
+  "checked_at": "2026-11-09T07:11:00.651873+00:00",
+  "mode": "compare",
+  "excluded_volatile_tables": [
+    "sessions",
+    "stage_sessions",
+    "jobs"
+  ],
+  "before": {
+    "schema_version": 5,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "circle_assistant_turns": {
+        "count": 4,
+        "sha256": "5c7ca3081bdb9d2428e9049011358fb7db60aba1f9be506e9d763131e0390bd2"
+      },
+      "circle_candidate_cards": {
+        "count": 5,
+        "sha256": "53527e2214ce2061dadc0f3a110d4e4acfa29aebf9294065095a5cca058b8015"
+      },
+      "circle_confirmations": {
+        "count": 4,
+        "sha256": "2e2dc7f0d4dd67dc4726c86dc1042a796411ed99d8bd5853d25b575affa0366d"
+      },
+      "circle_member_invitations": {
+        "count": 6,
+        "sha256": "3ec1c24da902af3857ffde7fbca1c96724c874ae9acd56cb12023aadb4c9331b"
+      },
+      "circle_proposals": {
+        "count": 3,
+        "sha256": "8c6f15538091c55059001fe342642cfcecad8009a20baa3aa3416681c9d24163"
+      },
+      "circle_provider_invitations": {
+        "count": 5,
+        "sha256": "3933ea865b02020da287fe5fa1ad67bc0f9a480c1cbc6293b6f38673d913a045"
+      },
+      "circle_rooms": {
+        "count": 15,
+        "sha256": "7fd5aeb31807a5f3d82eed36e1c56159fadde4fcd5eca25d273e4a2a13bceeb4"
+      },
+      "communities": {
+        "count": 2,
+        "sha256": "8189faf146d67d9e2eb96bd4dadd64cbbb91a7fa685048d2c427dd61bd3ab718"
+      },
+      "condition_drafts": {
+        "count": 6,
+        "sha256": "2d92b0ded9719846f77a34c3448156af538f0187b234259d4db8ca7943c97e01"
+      },
+      "consultation_messages": {
+        "count": 40,
+        "sha256": "7b77722e05a9cb944ebfbf5ec2ebc38d30d6879b2fb0c2f43e1d8a69bd19f2a7"
+      },
+      "consultations": {
+        "count": 10,
+        "sha256": "252db439e6bffce1bece4f19de9660f8431557337025ea0ac526b47c222b1e16"
+      },
+      "grants": {
+        "count": 201,
+        "sha256": "ed11f4aa4cf8ca683be13a71a997e792f645b21dc544bcff9ce956149a2d6443"
+      },
+      "group_members": {
+        "count": 9,
+        "sha256": "37effd3f4d2d197f50f9574cc49c8d03f182dc54f3b991493221b68bd9c3e0c0"
+      },
+      "journal_journeys": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_location_candidates": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_profiles": {
+        "count": 1,
+        "sha256": "f16d28c31ad4c548588fa927225752c807a7b0d2282418724d4d3aa354c0010c"
+      },
+      "journal_visits": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "ko_groups": {
+        "count": 3,
+        "sha256": "22b745248eb99c77ff1cf840c791d7222804c78584b69b7d3aa63bc38328e70d"
+      },
+      "media": {
+        "count": 15,
+        "sha256": "cb23aff08f67187876e1d9e7ff0f4acd538dcb28475d291fc9784f8fc1c2da50"
+      },
+      "memberships": {
+        "count": 201,
+        "sha256": "93402305e46ce192646b2c6785f16b9b474bae0d292da6b5db218149487c7634"
+      },
+      "operation_keys": {
+        "count": 137,
+        "sha256": "cc4f3190b9e7373dbd092fbce2ee3ebec824aac6aee401031c2b6cc1e7e0f6dd"
+      },
+      "party_messages": {
+        "count": 8,
+        "sha256": "36459914b532d61bfdecc649daa93ec7816b9df7572466bebde2476821d765ce"
+      },
+      "plan_selections": {
+        "count": 10,
+        "sha256": "5cd6930bda0ad9c781862246b490c08f35890501df93c77d22e934a388dfb8bc"
+      },
+      "post_media": {
+        "count": 15,
+        "sha256": "bdf4c534776f6aca6549982ec2c7071850502969b1426cc00e5309ab97fafdbe"
+      },
+      "posts": {
+        "count": 15,
+        "sha256": "8d3ccbc67925a0ff4a90aaa741959381b0687fb1c2cb1c0cf7242820b8ab25c2"
+      },
+      "preferences": {
+        "count": 202,
+        "sha256": "12ac887eabe9f57b1d0371f704197965bb07d7b7adc44f92a38814676ae14b36"
+      },
+      "proposals": {
+        "count": 3,
+        "sha256": "9b1425021ae5e81b3008d07808469e64fb0aa5011bd228c2a685ea4b45351731"
+      },
+      "provider_plans": {
+        "count": 10,
+        "sha256": "7879416bfc5ff417da34994c6c97b4c480a5e64d811b3cfbb6865923a93203d1"
+      },
+      "provider_staff": {
+        "count": 2,
+        "sha256": "20759a1a901ba7a96c57fce1beb6792227f3bad61d6c663dcd7b79dba09ccdfa"
+      },
+      "providers": {
+        "count": 2,
+        "sha256": "f773cd6dd82235fb921f47c532b47c5e960abb3879c95f8ad61f4f6bb40c88ba"
+      },
+      "recommendation_runs": {
+        "count": 10,
+        "sha256": "fa834e5991a6f4f1c2272db57be501dd70d14ade58001208f8da77d81bf1130c"
+      },
+      "responses": {
+        "count": 9,
+        "sha256": "14019e911e00918c7a06683744dfecb951132336a624a48acfae80390f3088af"
+      },
+      "settings": {
+        "count": 2,
+        "sha256": "08813bd3e45404974b8e7f272cbdd64351e551e1ff012d059809ee57b4b38d21"
+      },
+      "travel_parties": {
+        "count": 15,
+        "sha256": "695ae52283fb7aeb5339e0549ebc4a405995c439e025db6decae787eb7c077a9"
+      },
+      "travel_party_members": {
+        "count": 17,
+        "sha256": "16189a7defdd6055682904ffe061f2e16dffb501bc25e55594174d1e8e0cea10"
+      },
+      "travel_requirements": {
+        "count": 13,
+        "sha256": "967d968c135ea941dd65264d9b772095efe7bd9eb7069666f3373f3513051e06"
+      },
+      "users": {
+        "count": 202,
+        "sha256": "591f599ecbd0ab9f4e09b74ad3cc6f5850be91e9d3e91bb2bedee092bd2256cb"
+      }
+    },
+    "media": {
+      "count": 8,
+      "sha256": "76a75d78f90590fbc5cc5e4832f862625b41fba8499fa33e9b0c5a98f45a0a63"
+    }
+  },
+  "after": {
+    "schema_version": 6,
+    "integrity_ok": true,
+    "foreign_keys_valid": true,
+    "tables": {
+      "circle_assistant_turns": {
+        "count": 5,
+        "sha256": "de760a2c306e8fbeba8b2f0a7451586fb516571bbf1032f814b471107fb5aa7d"
+      },
+      "circle_candidate_cards": {
+        "count": 5,
+        "sha256": "53527e2214ce2061dadc0f3a110d4e4acfa29aebf9294065095a5cca058b8015"
+      },
+      "circle_confirmations": {
+        "count": 4,
+        "sha256": "2e2dc7f0d4dd67dc4726c86dc1042a796411ed99d8bd5853d25b575affa0366d"
+      },
+      "circle_member_invitations": {
+        "count": 8,
+        "sha256": "16c251b15690d65715648ee3c3e3d3a88d62e2da1204a0c2b4a2f4290a53ca41"
+      },
+      "circle_proposals": {
+        "count": 3,
+        "sha256": "8c6f15538091c55059001fe342642cfcecad8009a20baa3aa3416681c9d24163"
+      },
+      "circle_provider_invitations": {
+        "count": 5,
+        "sha256": "3933ea865b02020da287fe5fa1ad67bc0f9a480c1cbc6293b6f38673d913a045"
+      },
+      "circle_rooms": {
+        "count": 16,
+        "sha256": "ee5407eec7f76a0ebe835e40aa779c6f2588f64206cb66bed7ed2cccc9a100eb"
+      },
+      "communities": {
+        "count": 2,
+        "sha256": "8189faf146d67d9e2eb96bd4dadd64cbbb91a7fa685048d2c427dd61bd3ab718"
+      },
+      "condition_drafts": {
+        "count": 6,
+        "sha256": "2d92b0ded9719846f77a34c3448156af538f0187b234259d4db8ca7943c97e01"
+      },
+      "consultation_messages": {
+        "count": 40,
+        "sha256": "7b77722e05a9cb944ebfbf5ec2ebc38d30d6879b2fb0c2f43e1d8a69bd19f2a7"
+      },
+      "consultations": {
+        "count": 10,
+        "sha256": "252db439e6bffce1bece4f19de9660f8431557337025ea0ac526b47c222b1e16"
+      },
+      "grants": {
+        "count": 201,
+        "sha256": "ed11f4aa4cf8ca683be13a71a997e792f645b21dc544bcff9ce956149a2d6443"
+      },
+      "group_members": {
+        "count": 9,
+        "sha256": "37effd3f4d2d197f50f9574cc49c8d03f182dc54f3b991493221b68bd9c3e0c0"
+      },
+      "journal_journeys": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_location_candidates": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "journal_profiles": {
+        "count": 1,
+        "sha256": "f16d28c31ad4c548588fa927225752c807a7b0d2282418724d4d3aa354c0010c"
+      },
+      "journal_visits": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "ko_groups": {
+        "count": 3,
+        "sha256": "22b745248eb99c77ff1cf840c791d7222804c78584b69b7d3aa63bc38328e70d"
+      },
+      "media": {
+        "count": 15,
+        "sha256": "cb23aff08f67187876e1d9e7ff0f4acd538dcb28475d291fc9784f8fc1c2da50"
+      },
+      "memberships": {
+        "count": 201,
+        "sha256": "93402305e46ce192646b2c6785f16b9b474bae0d292da6b5db218149487c7634"
+      },
+      "operation_keys": {
+        "count": 139,
+        "sha256": "555f2aafc1565e31986d4bfb61442a5cc9796cbdd5980ef711c9d22728039eb4"
+      },
+      "party_messages": {
+        "count": 8,
+        "sha256": "36459914b532d61bfdecc649daa93ec7816b9df7572466bebde2476821d765ce"
+      },
+      "plan_selections": {
+        "count": 10,
+        "sha256": "5cd6930bda0ad9c781862246b490c08f35890501df93c77d22e934a388dfb8bc"
+      },
+      "post_media": {
+        "count": 15,
+        "sha256": "bdf4c534776f6aca6549982ec2c7071850502969b1426cc00e5309ab97fafdbe"
+      },
+      "posts": {
+        "count": 15,
+        "sha256": "8d3ccbc67925a0ff4a90aaa741959381b0687fb1c2cb1c0cf7242820b8ab25c2"
+      },
+      "preferences": {
+        "count": 202,
+        "sha256": "12ac887eabe9f57b1d0371f704197965bb07d7b7adc44f92a38814676ae14b36"
+      },
+      "proposals": {
+        "count": 3,
+        "sha256": "9b1425021ae5e81b3008d07808469e64fb0aa5011bd228c2a685ea4b45351731"
+      },
+      "provider_plans": {
+        "count": 10,
+        "sha256": "7879416bfc5ff417da34994c6c97b4c480a5e64d811b3cfbb6865923a93203d1"
+      },
+      "provider_staff": {
+        "count": 2,
+        "sha256": "20759a1a901ba7a96c57fce1beb6792227f3bad61d6c663dcd7b79dba09ccdfa"
+      },
+      "providers": {
+        "count": 2,
+        "sha256": "f773cd6dd82235fb921f47c532b47c5e960abb3879c95f8ad61f4f6bb40c88ba"
+      },
+      "recommendation_runs": {
+        "count": 10,
+        "sha256": "fa834e5991a6f4f1c2272db57be501dd70d14ade58001208f8da77d81bf1130c"
+      },
+      "reflection_messages": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "reflection_participants": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "reflection_sessions": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "responses": {
+        "count": 9,
+        "sha256": "14019e911e00918c7a06683744dfecb951132336a624a48acfae80390f3088af"
+      },
+      "settings": {
+        "count": 2,
+        "sha256": "08813bd3e45404974b8e7f272cbdd64351e551e1ff012d059809ee57b4b38d21"
+      },
+      "travel_parties": {
+        "count": 16,
+        "sha256": "113c6f7f8283200b3f489f79b2d4b16499182633916f564e9cd8c974d12a41d0"
+      },
+      "travel_party_members": {
+        "count": 18,
+        "sha256": "c60ec0dd477aa6e5d9144a07fb9b2d05d66920c406b26c2adff61e1643da4392"
+      },
+      "travel_requirements": {
+        "count": 13,
+        "sha256": "967d968c135ea941dd65264d9b772095efe7bd9eb7069666f3373f3513051e06"
+      },
+      "users": {
+        "count": 202,
+        "sha256": "591f599ecbd0ab9f4e09b74ad3cc6f5850be91e9d3e91bb2bedee092bd2256cb"
+      }
+    },
+    "media": {
+      "count": 8,
+      "sha256": "76a75d78f90590fbc5cc5e4832f862625b41fba8499fa33e9b0c5a98f45a0a63"
+    }
+  },
+  "existing_tables_unchanged": false,
+  "media_unchanged": true,
+  "passed": false
+}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { api } from "./api";
 import type { Tag, User } from "./types";
@@ -8,6 +8,7 @@ import type {
   SharedConditions,
 } from "./marketplace-types";
 import { Avatar, Empty, ErrorBox, Icon, LocalPhoto, Modal, Tags } from "./ui";
+const ProviderExperience = lazy(() => import("./ExperienceReference"));
 export const periods = {
   morning: "午前",
   afternoon: "午後",
@@ -192,6 +193,14 @@ export function PlanDetail({
           </section>
         ))}
       </div>
+      <Suspense
+        fallback={<p className="quiet-note">参考情報を確認しています…</p>}
+      >
+        <ProviderExperience
+          key={plan.provider.id}
+          providerId={plan.provider.id}
+        />
+      </Suspense>
       {onChoose && (
         <div className="plan-detail-action">
           <p className="muted">
@@ -249,7 +258,8 @@ export function Conversation({
   const latestMessageId = messages.at(-1)?.id;
   useEffect(() => {
     if (history.current)
-      history.current.scrollTop = latestMessageId || error ? history.current.scrollHeight : 0;
+      history.current.scrollTop =
+        latestMessageId || error ? history.current.scrollHeight : 0;
   }, [latestMessageId, error]);
   async function send() {
     setBusy(true);
@@ -279,7 +289,7 @@ export function Conversation({
       >
         {context}
         {messages.length === 0 ? (
-          <Empty title="まずは、希望をひとこと">
+          <Empty title="メッセージはありません">
             <p>行きたい場所、人数、泊数、予算などを書いてみましょう。</p>
           </Empty>
         ) : (

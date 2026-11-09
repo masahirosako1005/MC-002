@@ -574,8 +574,7 @@ export default function Marketplace({
   return (
     <section className="marketplace">
       <div className="page-heading">
-        <p className="eyebrow">仲間と、次の行き先へ</p>
-        <h1>どんな旅にしよう？</h1>
+        <h1>旅を見つける</h1>
       </div>
       <button
         className="travel-search-pill"
@@ -689,7 +688,7 @@ export default function Marketplace({
       {party && tab === "conversation" ? (
         <>
           <div className="section-title">
-            <h2>まずは、行きたい旅を話そう。</h2>
+            <h2>旅行条件の相談</h2>
             <button
               className="text-button"
               disabled={!!busy || !messages.length || party.status === "closed"}
@@ -743,7 +742,7 @@ export default function Marketplace({
             </button>
           </div>
           {currentThreads.length === 0 ? (
-            <Empty title="まずは、相談したいプランを選ぼう">
+            <Empty title="相談するプランが選ばれていません">
               <p>
                 共有内容を確認して送るまで、事業者にあなたの計画は見えません。
               </p>

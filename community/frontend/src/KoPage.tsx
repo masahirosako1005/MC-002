@@ -147,7 +147,7 @@ function GroupPanel({
       </div>
       <ErrorBox message={error} />
       <details open>
-        <summary>できることを、持ち寄る</summary>
+        <summary>協力できること</summary>
         <p className="muted">
           担当は任意です。役割を持たずに参加しても大丈夫。
         </p>
@@ -364,13 +364,7 @@ export default function KoPage({
   return (
     <section className="ko-page">
       <div className="page-heading">
-        <p className="eyebrow">仲間とつくる次の旅</p>
         <h1>講を見つける</h1>
-        <p>
-          行きたい場所と、好きなこと。
-          <br />
-          重なる仲間と、次の旅を。
-        </p>
         <button
           className="text-button"
           disabled={!!busy}
@@ -385,11 +379,7 @@ export default function KoPage({
           <span className="small-label">
             {community?.name || "コミュニティを選んでください"}
           </span>
-          <h2>
-            「行ってみたい」を
-            <br />
-            持ち寄ろう。
-          </h2>
+          <h2>旅仲間の候補を探す</h2>
           <p>同じ好みを持つ、参加に同意した仲間から候補を探します。</p>
         </div>
         <button
@@ -497,7 +487,7 @@ export default function KoPage({
         ))
       )}
       <div className="section-title">
-        <h2>旅じたく中の講</h2>
+        <h2>参加中の講</h2>
         <span className="count-pill">{groups.length}</span>
       </div>
       {groups.length === 0 ? (

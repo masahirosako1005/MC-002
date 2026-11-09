@@ -66,7 +66,6 @@ export default function Preferences({
   return (
     <section className="preferences">
       <div className="page-heading">
-        <p className="eyebrow">わたしの旅じたく</p>
         <h1>自分の好み</h1>
         <p>
           どんな旅が好きか。誰に伝えるか。

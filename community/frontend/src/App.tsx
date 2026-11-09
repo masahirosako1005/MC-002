@@ -1,11 +1,6 @@
 import Choice from "./Choice";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import {
-  api,
-  ApiError,
-  mediaUrl,
-  setCsrf,
-} from "./api";
+import { api, ApiError, mediaUrl, setCsrf } from "./api";
 import type {
   Bootstrap,
   Community,
@@ -35,10 +30,21 @@ import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
 const Journal = lazy(() => import("./Journal"));
 const Circles = lazy(() => import("./Circles"));
-const VisitDialog = lazy(() => import("./Journal").then((module) => ({ default: module.VisitDialog })));
-const TravelProfile = lazy(() => import("./Journal").then((module) => ({ default: module.TravelProfile })));
+const VisitDialog = lazy(() =>
+  import("./Journal").then((module) => ({ default: module.VisitDialog })),
+);
+const TravelProfile = lazy(() =>
+  import("./Journal").then((module) => ({ default: module.TravelProfile })),
+);
 
-type Page = "feed" | "ko" | "ko-legacy" | "preferences" | "market" | "provider" | "journal";
+type Page =
+  | "feed"
+  | "ko"
+  | "ko-legacy"
+  | "preferences"
+  | "market"
+  | "provider"
+  | "journal";
 type Data = {
   communities: Community[];
   preferences: PreferenceData;
@@ -602,7 +608,7 @@ export default function App() {
                   <h1>{community?.name || "みんなの記録"}</h1>
                   <p>
                     {community?.description ||
-                      "一緒に旅の記録を残すコミュニティをつくりましょう。"}
+                      "コミュニティを作成または選択してください。"}
                   </p>
                 </div>
                 {community && (
@@ -650,7 +656,7 @@ export default function App() {
                   みんなの記録を読んでいます…
                 </p>
               ) : feed.length === 0 ? (
-                <Empty title="最初の一枚を残そう">
+                <Empty title="投稿はありません">
                   <p>風景、ごはん、街歩き。旅のひとこまから始められます。</p>
                   <button
                     className="button primary"
@@ -667,7 +673,13 @@ export default function App() {
                     <div className="post-head">
                       <Avatar user={post.author} />
                       <div>
-                        <button className="journal-author" onClick={() => setProfileUser(post.author)} aria-label={`${post.author.name}の旅のプロフィール`}><strong>{post.author.name}</strong></button>
+                        <button
+                          className="journal-author"
+                          onClick={() => setProfileUser(post.author)}
+                          aria-label={`${post.author.name}の旅のプロフィール`}
+                        >
+                          <strong>{post.author.name}</strong>
+                        </button>
                         <small>
                           {dateLabel(post.created_at)}
                           {post.place_label && ` · ${post.place_label}`}
@@ -721,8 +733,13 @@ export default function App() {
                         )}
                       </div>
                       {post.can_edit && (
-                        <button className="text-button journal-record-link" onClick={() => setRecordPost(post)}>
-                          <Icon name="pin" />旅の地図に残す<Icon name="arrow" />
+                        <button
+                          className="text-button journal-record-link"
+                          onClick={() => setRecordPost(post)}
+                        >
+                          <Icon name="pin" />
+                          旅の地図に残す
+                          <Icon name="arrow" />
                         </button>
                       )}
                     </div>
@@ -732,7 +749,12 @@ export default function App() {
             </>
           ) : page === "journal" ? (
             <Suspense fallback={<p role="status">旅の地図をひらいています…</p>}>
-              <Journal key={user.id} user={user} communities={data.communities} onProfile={() => setProfileUser(user)} />
+              <Journal
+                key={user.id}
+                user={user}
+                communities={data.communities}
+                onProfile={() => setProfileUser(user)}
+              />
             </Suspense>
           ) : page === "market" ? (
             <Marketplace
@@ -740,7 +762,10 @@ export default function App() {
               groups={data.groups}
               tags={bootstrap.tags}
               user={user}
-              onOpenCircle={(id) => { setCircleTarget(id); navigate("ko"); }}
+              onOpenCircle={(id) => {
+                setCircleTarget(id);
+                navigate("ko");
+              }}
             />
           ) : page === "provider" ? (
             <ProviderWorkspace
@@ -750,7 +775,15 @@ export default function App() {
             />
           ) : page === "ko" ? (
             <Suspense fallback={<p role="status">講をひらいています…</p>}>
-              <Circles key={user.id} community={community} communities={data.communities} user={user} tags={bootstrap.tags} initialCircleId={circleTarget} onLegacy={() => navigate("ko-legacy")} />
+              <Circles
+                key={user.id}
+                community={community}
+                communities={data.communities}
+                user={user}
+                tags={bootstrap.tags}
+                initialCircleId={circleTarget}
+                onLegacy={() => navigate("ko-legacy")}
+              />
             </Suspense>
           ) : page === "ko-legacy" ? (
             <KoPage
@@ -775,8 +808,7 @@ export default function App() {
         </main>
         <aside className="right-panel">
           <div className="right-heading">
-            <span className="small-label">次は、誰と行こう</span>
-            <h2>次の旅の、きっかけ。</h2>
+            <h2>旅行案</h2>
           </div>
           {data.trips[0] && (
             <article className="trip-feature">
@@ -803,15 +835,9 @@ export default function App() {
             <span className="round-icon">
               <Icon name="people" />
             </span>
-            <h3>
-              ひとりの「好き」が、
-              <br />
-              みんなの予定になる。
-            </h3>
+            <h3>関心の設定</h3>
             <p>
-              「調べるよ」「写真なら任せて」
-              <br />
-              できることを少しずつ持ち寄る、小さな旅の集まり。それが、講です。
+              設定した関心は、許可したコミュニティで仲間や旅行案を探すために使います。
             </p>
             <button
               className="text-button"
@@ -822,7 +848,7 @@ export default function App() {
           </div>
           {data.groups.length > 0 && (
             <div className="side-group">
-              <span className="small-label">旅じたく中</span>
+              <span className="small-label">参加中の講</span>
               {data.groups.slice(0, 2).map((g) => (
                 <button key={g.id} onClick={() => navigate("ko")}>
                   <Icon name="calendar" />
@@ -837,7 +863,6 @@ export default function App() {
               ))}
             </div>
           )}
-          <p className="side-footer">小さな旅を、何度でも。</p>
         </aside>
       </div>
       <nav className="bottom-nav" aria-label="モバイルメニュー">
@@ -874,13 +899,39 @@ export default function App() {
         />
       )}{" "}
       {recordPost && (
-        <Suspense fallback={<p className="loading-inline" role="status">訪問記録をひらいています…</p>}>
-          <VisitDialog key={`${user.id}-${recordPost.id}`} post={recordPost} communities={data.communities} onClose={() => setRecordPost(null)} onSaved={() => { setRecordPost(null); navigate("journal"); }} />
+        <Suspense
+          fallback={
+            <p className="loading-inline" role="status">
+              訪問記録をひらいています…
+            </p>
+          }
+        >
+          <VisitDialog
+            key={`${user.id}-${recordPost.id}`}
+            post={recordPost}
+            communities={data.communities}
+            onClose={() => setRecordPost(null)}
+            onSaved={() => {
+              setRecordPost(null);
+              navigate("journal");
+            }}
+          />
         </Suspense>
       )}
       {profileUser && (
-        <Suspense fallback={<p className="loading-inline" role="status">旅のプロフィールをひらいています…</p>}>
-          <TravelProfile key={`${user.id}-${profileUser.id}`} person={profileUser} owner={profileUser.id === user.id} onClose={() => setProfileUser(null)} />
+        <Suspense
+          fallback={
+            <p className="loading-inline" role="status">
+              旅のプロフィールをひらいています…
+            </p>
+          }
+        >
+          <TravelProfile
+            key={`${user.id}-${profileUser.id}`}
+            person={profileUser}
+            owner={profileUser.id === user.id}
+            onClose={() => setProfileUser(null)}
+          />
         </Suspense>
       )}
       {communityDialog && (
@@ -900,7 +951,18 @@ export default function App() {
           busy={actionBusy}
         >
           <p>{user.name}さんとしてログインしています。</p>
-          {!data.capabilities.providers.length && <button className="button secondary full" onClick={() => { setSwitching(false); setProfileUser(user); }}><Icon name="pin" />旅のプロフィール</button>}
+          {!data.capabilities.providers.length && (
+            <button
+              className="button secondary full"
+              onClick={() => {
+                setSwitching(false);
+                setProfileUser(user);
+              }}
+            >
+              <Icon name="pin" />
+              旅のプロフィール
+            </button>
+          )}
           <button
             className="button secondary full"
             onClick={() => {
@@ -930,7 +992,9 @@ export default function App() {
           onClose={() => setDeletePost(null)}
           busy={actionBusy}
         >
-          <p>写真と投稿、写真に結び付いた訪問記録を削除します。県別の実績とバッジも再計算されます。この操作は取り消せません。</p>
+          <p>
+            写真と投稿、写真に結び付いた訪問記録を削除します。県別の実績とバッジも再計算されます。この操作は取り消せません。
+          </p>
           <ErrorBox message={error} />
           <div className="dialog-actions">
             <button

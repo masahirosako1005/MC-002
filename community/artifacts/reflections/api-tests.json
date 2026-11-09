@@ -1,0 +1,53 @@
+{
+  "recorded_on": "2026-11-09",
+  "scope": "CP39 dedicated consented post-travel reflections and anonymous experience references; schema6",
+  "source_base_commit": "ce338c4",
+  "working_tree_implementation": true,
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.17",
+    "transport": "httpx ASGITransport",
+    "image_worker": false,
+    "fixtures": "Small generated isolated local databases. No user database or original photographs used."
+  },
+  "history": [
+    {"sequence": 1, "files": ["community/backend/tests/test_reflections.py"], "passed": 19, "failed": 0, "skipped": 0, "seconds": 14.73},
+    {
+      "sequence": 2,
+      "files": ["community/backend/tests/test_reflections.py", "community/backend/tests/test_discovery.py", "community/backend/tests/test_circles.py", "community/backend/tests/test_journal.py", "community/backend/tests/test_marketplace.py", "community/backend/tests/test_stage.py"],
+      "passed": 79, "failed": 1, "skipped": 0, "seconds": 92.34,
+      "failure": "Additional cohort rejoin fixture restored community membership but omitted party membership removed by the existing leave trigger. Test was corrected to model explicit party rejoining; application source did not change.",
+      "existing_suite_result": "All 58 pre-CP39 tests passed in this run."
+    },
+    {"sequence": 3, "files": ["community/backend/tests/test_reflections.py"], "passed": 22, "failed": 0, "skipped": 0, "seconds": 21.65, "note": "Final targeted rerun after correcting the fixture; no claim of a single 80-pass run."}
+  ],
+  "verified": [
+    "All targeted travelers must separately self-report use and consent before any dedicated message extraction occurs",
+    "No existing party conversation is imported into dedicated reflections",
+    "Provider staff and unauthenticated users cannot enter traveler-only reflection operations",
+    "Future completion dates, unaccepted provider invitation and nonrepresentative creation rejected",
+    "Twelve ambiguous, trailing-negation, other-subject, private, quoted and future/hearsay examples excluded",
+    "Full-clause extraction supports explicit positive, negative and mixed aspect statements",
+    "Three distinct circles and three distinct authors required per facet; small polarity categories suppressed",
+    "Repeated contributions from a circle do not increase trip counts",
+    "Consent withdrawal and usage cancellation immediately remove reference contributions; usage cancellation clears consent",
+    "Author-only correction, stale versions rejected, source edit clears old override, source deletion clears text and results",
+    "Transient community/account/provider role or party changes latch invalidation and require new cohort epoch",
+    "Cohort refresh and completion cancellation followed by reactivation reset all confirmations and do not inherit prior epoch messages",
+    "Public summaries contain fixed anonymous text and permitted counts only",
+    "Experience reference affects relevance ties only; higher personal relevance and hard condition filters retain priority",
+    "Schema5 prior table rows preserved by additive schema6 migration, failure rollback, and reopening"
+  ],
+  "review": {
+    "independent_reviewer": "journey_review",
+    "correction": "Changed partial regex matches to complete interpreted clauses directly linked to the named provider; reviewer reported original P1 resolved.",
+    "status": "No additional major static findings reported before build."
+  },
+  "limitations": [
+    "Tests establish software behavior, not physical travel or provider use; use remains traveler self-report.",
+    "Conservative fixed local grammar is not general Japanese sentiment comprehension and does not guarantee detection of implicit sarcasm.",
+    "No external AI integration or external messages were used.",
+    "Docker migration on existing data, browser integration and deployment restart are parent-agent validations recorded separately.",
+    "Image model runtime and unrelated legacy full-suite ONNX tests are outside this targeted API regression."
+  ]
+}

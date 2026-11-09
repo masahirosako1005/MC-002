@@ -1,0 +1,239 @@
+{
+  "tables": {
+    "circle_assistant_turns": {
+      "before": 4,
+      "current": 5,
+      "missing_or_modified": 0,
+      "additional": 1
+    },
+    "circle_candidate_cards": {
+      "before": 5,
+      "current": 5,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_confirmations": {
+      "before": 4,
+      "current": 4,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_member_invitations": {
+      "before": 6,
+      "current": 11,
+      "missing_or_modified": 0,
+      "additional": 5
+    },
+    "circle_proposals": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "circle_provider_invitations": {
+      "before": 5,
+      "current": 14,
+      "missing_or_modified": 0,
+      "additional": 9
+    },
+    "circle_rooms": {
+      "before": 15,
+      "current": 25,
+      "missing_or_modified": 0,
+      "additional": 10
+    },
+    "communities": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "condition_drafts": {
+      "before": 6,
+      "current": 6,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "consultation_messages": {
+      "before": 40,
+      "current": 40,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "consultations": {
+      "before": 10,
+      "current": 19,
+      "missing_or_modified": 0,
+      "additional": 9
+    },
+    "grants": {
+      "before": 201,
+      "current": 201,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "group_members": {
+      "before": 9,
+      "current": 9,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_journeys": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_location_candidates": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_profiles": {
+      "before": 1,
+      "current": 1,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "journal_visits": {
+      "before": 0,
+      "current": 0,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "ko_groups": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "media": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "memberships": {
+      "before": 201,
+      "current": 201,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "operation_keys": {
+      "before": 137,
+      "current": 189,
+      "missing_or_modified": 0,
+      "additional": 52
+    },
+    "party_messages": {
+      "before": 8,
+      "current": 8,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "plan_selections": {
+      "before": 10,
+      "current": 19,
+      "missing_or_modified": 0,
+      "additional": 9
+    },
+    "post_media": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "posts": {
+      "before": 15,
+      "current": 15,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "preferences": {
+      "before": 202,
+      "current": 202,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "proposals": {
+      "before": 3,
+      "current": 3,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "provider_plans": {
+      "before": 10,
+      "current": 10,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "provider_staff": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "providers": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "recommendation_runs": {
+      "before": 10,
+      "current": 10,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "responses": {
+      "before": 9,
+      "current": 9,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "settings": {
+      "before": 2,
+      "current": 2,
+      "missing_or_modified": 0,
+      "additional": 0
+    },
+    "travel_parties": {
+      "before": 15,
+      "current": 25,
+      "missing_or_modified": 0,
+      "additional": 10
+    },
+    "travel_party_members": {
+      "before": 17,
+      "current": 30,
+      "missing_or_modified": 0,
+      "additional": 13
+    },
+    "travel_requirements": {
+      "before": 13,
+      "current": 22,
+      "missing_or_modified": 0,
+      "additional": 9
+    },
+    "users": {
+      "before": 202,
+      "current": 202,
+      "missing_or_modified": 0,
+      "additional": 0
+    }
+  },
+  "excluded_volatile_tables": [
+    "sessions",
+    "stage_sessions",
+    "jobs"
+  ],
+  "schema_version": 6,
+  "integrity_ok": true,
+  "foreign_keys_valid": true,
+  "old_media_count": 8,
+  "old_media_unchanged": true,
+  "passed": true,
+  "checked_at": "2026-11-09T07:15:18.270273+00:00",
+  "scope": "Pre-migration backup subset preservation; additional user/QA rows allowed. Not equality of all current rows."
+}

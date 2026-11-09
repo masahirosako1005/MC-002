@@ -1,0 +1,58 @@
+{
+  "viewport": 320,
+  "height": 844,
+  "content": 320,
+  "font": "16px",
+  "inner": [
+    {
+      "tag": "SECTION",
+      "className": "conversation",
+      "client": 320,
+      "scroll": 322,
+      "left": 0,
+      "right": 320,
+      "top": 61,
+      "bottom": 844
+    },
+    {
+      "tag": "DIV",
+      "className": "conversation-history",
+      "client": 322,
+      "scroll": 322,
+      "left": 0,
+      "right": 322,
+      "top": 61,
+      "bottom": 749.40625
+    },
+    {
+      "tag": "FORM",
+      "className": "message-form",
+      "client": 322,
+      "scroll": 322,
+      "left": 0,
+      "right": 322,
+      "top": 749.40625,
+      "bottom": 844
+    },
+    {
+      "tag": "TEXTAREA",
+      "className": "",
+      "client": 222,
+      "scroll": 222,
+      "left": 12,
+      "right": 236,
+      "top": 760.40625,
+      "bottom": 834
+    },
+    {
+      "tag": "BUTTON",
+      "className": "button primary",
+      "client": 64,
+      "scroll": 64,
+      "left": 244,
+      "right": 310,
+      "top": 790,
+      "bottom": 834
+    }
+  ]
+}

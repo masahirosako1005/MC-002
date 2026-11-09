@@ -143,6 +143,15 @@
   display: grid;
   gap: 12px;
 }
+.circle-closed-list > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.circle-closed-list[open] > summary {
+  margin-bottom: 8px;
+}
 .circle-list-card {
   display: flex;
   align-items: center;

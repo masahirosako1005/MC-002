@@ -86,7 +86,7 @@ class Database:
         conn = self.connect()
         try:
             version = conn.execute("PRAGMA user_version").fetchone()[0]
-            if version not in (0, 1, 2, 3, 4, 5):
+            if version not in (0, 1, 2, 3, 4, 5, 6):
                 raise RuntimeError("Unknown database version")
             conn.execute("PRAGMA journal_mode=WAL")
             conn.executescript(SCHEMA)

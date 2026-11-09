@@ -1135,6 +1135,7 @@
   height: 44px;
 }
 .modal[open] > .modal-body {
+  min-width: 0;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -1157,10 +1158,15 @@
   min-height: 0;
   min-width: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   margin: 0;
   border: 0;
   border-radius: 0;
+}
+.modal-conversation .conversation > * {
+  min-width: 0;
+  max-width: 100%;
 }
 .modal-conversation .conversation-history {
   min-height: 0;
@@ -1168,6 +1174,7 @@
   padding: 18px;
   overflow-y: auto;
   scrollbar-width: none;
+  overflow-wrap: anywhere;
 }
 .modal-conversation .conversation-history::-webkit-scrollbar {
   width: 0;
@@ -1184,11 +1191,14 @@
   overflow-wrap: anywhere;
 }
 .modal-conversation .message-form {
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-width: 0;
   gap: 8px;
   padding: 10px 12px max(10px, env(safe-area-inset-bottom));
 }
 .modal-conversation .message-form textarea {
+  width: 100%;
   flex: 1 1 0;
   min-height: 54px;
   height: 4.6em;
@@ -1214,6 +1224,10 @@
   margin: 0;
   padding: 14px;
   border-top: 1px solid var(--line);
+}
+@media (max-width: 360px) {
+  .modal-conversation .message-form { grid-template-columns: minmax(0, 1fr); }
+  .modal-conversation .message-form .button { justify-self: end; }
 }
 .plan-card-summary { font-size: .8rem; color: var(--muted); margin: 8px 0; }
 .plan-schedule { display: flex; align-items: flex-start; gap: 6px; font-size: .73rem; line-height: 1.75; color: #685a49; margin: 10px 0; overflow-wrap: anywhere; }

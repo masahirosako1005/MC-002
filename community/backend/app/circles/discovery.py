@@ -6,6 +6,7 @@ from ..database import TAGS, identifier, now
 from ..marketplace.service import Marketplace, dump, conflict
 from ..marketplace.schedules import schedule_state, schedule_match
 from ..service import member, require, user_out
+from ..reflections.aggregate import public_summary
 
 
 class Discovery:
@@ -50,6 +51,7 @@ class Discovery:
             preference=conn.execute('SELECT p.tags FROM preferences p JOIN grants g ON g.user_id=p.user_id WHERE p.user_id=? AND g.community_id=? AND g.use_matching=1',(uid,cid)).fetchone()
             personal=set(json.loads(preference['tags'])) if preference else set()
             context=self.circle_context(conn,pid) if pid else (set(),None,None)
+            references={}
             def candidates():
                 # Scan every public row before ranking; keep only the best 100 in memory.
                 for row in conn.execute("SELECT p.* FROM provider_plans p JOIN providers v ON v.id=p.provider_id WHERE p.status='published' AND v.active=1 ORDER BY p.id"):
@@ -59,8 +61,11 @@ class Discovery:
                         continue
                     matched=self.relevance(conn,plan,pid,personal,context)
                     if matched['eligible']:
-                        yield dict(plan=plan,score=matched['score'],reasons=matched['reasons'],unknowns=matched['unknowns'],match_status='needs_confirmation',schedule_status=schedule)
-            items=heapq.nsmallest(100,candidates(),key=lambda item:(-item['score'],item['plan']['starts_at'] or '9999',item['plan']['id']))
+                        provider_id=row['provider_id']
+                        if provider_id not in references:
+                            references[provider_id]=public_summary(conn,provider_id)
+                        yield dict(plan=plan,score=matched['score'],reasons=matched['reasons'],unknowns=matched['unknowns'],match_status='needs_confirmation',schedule_status=schedule,experience_reference=references[provider_id])
+            items=heapq.nsmallest(100,candidates(),key=lambda item:(-item['score'],-item['experience_reference']['ranking_signal'],item['plan']['starts_at'] or '9999',item['plan']['id']))
             return dict(items=items,context=dict(community_id=cid,circle_id=pid,profile_used=bool(personal),requirements_version=context[2]),method='consented-relevance-v1')
 
     def card_out(self,conn,row):

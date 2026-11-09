@@ -59,8 +59,8 @@ def main():
     global OUT
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("capture", "compare", "restart-check"))
-    parser.add_argument("--expected-version", type=int, choices=(3, 4, 5), default=3)
-    parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery"), default="journal")
+    parser.add_argument("--expected-version", type=int, choices=(3, 4, 5, 6, 7), default=3)
+    parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery", "reflections", "occasions"), default="journal")
     args = parser.parse_args()
     OUT = ROOT / "artifacts" / args.artifact_dir
     baseline = f"schema{args.expected_version - 1}-before.json"

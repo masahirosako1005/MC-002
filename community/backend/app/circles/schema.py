@@ -27,7 +27,7 @@ DDL = (
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (4, 5):
+        if version in (4, 5, 6):
             return
         if version != 3:
             raise RuntimeError('Unsupported circles migration source')
