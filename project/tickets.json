@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 552,
-  "last_event_hash": "f05c58cbe08764808bcbd5fa923a750d4a9707b0f3fca4525b092d861d01d813",
-  "updated_at": "2026-11-09T16:36:02+09:00",
+  "revision": 565,
+  "last_event_hash": "994e4010d3226359da3cd42a0a57c522cf251035b93e3fc90968aebc7d758944",
+  "updated_at": "2026-11-09T16:44:24+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2411,25 +2411,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:44:18+09:00",
+          "hash": "02ed9d969a8851a5029974f4621a34972ef2e382",
+          "path": "project/revisions/02ed9d969a8851a5029974f4621a34972ef2e382.txt",
+          "summary": "feat: refresh travel browsing with photos and concise comparison details"
+        }
+      ],
       "status": "done",
       "title": "Airbnbを参考に写真と判断情報を中心とした画面へ刷新",
       "type": "task",
-      "updated_at": "2026-11-09T16:36:02+09:00"
+      "updated_at": "2026-11-09T16:44:18+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "CP43反映後の実操作を約20秒で紹介し架空の成功を描かない"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "操作箇所の強調と周辺暗転、日本語テロップ、読みやすい1440×900で作成"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "再生時間とフレーム目視を検証しローカルMP4を提供"
         }
       ],
@@ -2442,17 +2449,136 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:44:19+09:00",
+          "path": "community/artifacts/intro-video/verification.json",
+          "text": "20秒600フレーム全デコードと制作・主担当目視受入"
+        },
+        {
+          "at": "2026-11-09T16:44:19+09:00",
+          "path": "outputs/community-intro.mp4",
+          "text": "1440×900の実ログイン・探索・詳細、書込はログインのみ"
+        }
+      ],
       "id": "CP44",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "実操作とスポットライトで約20秒の紹介動画を作る",
+      "type": "task",
+      "updated_at": "2026-11-09T16:44:22+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "モデル/API/鍵不要で通常起動し推論を呼ばない"
+        },
+        {
+          "checked": false,
+          "text": "既知素材の事前候補と任意写真の手動選択を検証"
+        },
+        {
+          "checked": false,
+          "text": "認証・許可・相談の実保存と方式説明を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:43:51+09:00",
+      "dependencies": [
+        "CP38"
+      ],
+      "description": "最新確認で実APIを取り消し、規則・事前候補のUIに統一。実DB保存を維持",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP45",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
       "revision": 2,
       "revisions": [],
       "status": "in_progress",
-      "title": "実操作とスポットライトで約20秒の紹介動画を作る",
+      "title": "実AIを使わない案内と手動写真タグ",
       "type": "task",
-      "updated_at": "2026-11-09T16:25:19+09:00"
+      "updated_at": "2026-11-09T16:44:23+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "解析版・規則・対象・生結果を固定して比較"
+        },
+        {
+          "checked": false,
+          "text": "安全な修正後の型・ビルド・回帰試験を確認"
+        },
+        {
+          "checked": false,
+          "text": "未達を隠さず独立レビューと継続課題を記録"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:43:51+09:00",
+      "dependencies": [
+        "CP43"
+      ],
+      "description": "ローカル解析のbaselineと再測定、残課題・資源制約を明記しC1と区別",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP46",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "コード品質の測定と安全な改善",
+      "type": "task",
+      "updated_at": "2026-11-09T16:44:24+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "本人分離・関心差・許可OFF・失効・競合を検証"
+        },
+        {
+          "checked": false,
+          "text": "schema7から既存データを保ち移行し再起動で保存維持"
+        },
+        {
+          "checked": false,
+          "text": "画面再読とユーザー切替で他人の状態を混ぜない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:43:52+09:00",
+      "dependencies": [
+        "CP40"
+      ],
+      "description": "既存SQLiteの個人情報と許可を維持し、本人の前回画面・講・検索を復元",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP47",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "本人専用DBの再開状態と個人化",
+      "type": "task",
+      "updated_at": "2026-11-09T16:44:24+09:00"
     },
     {
       "acceptance": [

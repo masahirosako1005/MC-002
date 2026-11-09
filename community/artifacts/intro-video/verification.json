@@ -1,0 +1,28 @@
+{
+  "output": "outputs/community-intro.mp4",
+  "duration_seconds": 20.0,
+  "decoded_frames": 600,
+  "width": 1440,
+  "height": 900,
+  "fps": 30,
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "audio": false,
+  "fade_in_seconds": 0.15,
+  "fade_out_seconds": 0.3,
+  "trim_start_seconds": 2.1666666666666665,
+  "source": "community/artifacts/intro-video/raw/page@0a44ae3fab9120406192f6f0da5bdfe3.webm",
+  "sha256": "50b695983f21c306909525d2c11e34121a368cb724571ca5e2eccea8eddd71b7",
+  "bytes": 1088505,
+  "ffmpeg": "7.1-essentials_build-www.gyan.dev",
+  "visual_review": "producer_passed_contact_sheet_and_full_size_login_itinerary",
+  "proof": "Full output decoded with FFmpeg; 600 frames and header dimensions/duration checked. Raw footage is not sped up or synthesized.",
+  "visual_checks": [
+    "Japanese captions legible",
+    "Spotlight follows actual DOM targets",
+    "Public photo/title/price visible",
+    "Password stays masked",
+    "Actual facts/price/itinerary read without saving"
+  ],
+  "parent_visual_review": "passed: contact sheet and full-size frame-03, Japanese text and spotlight geometry verified"
+}

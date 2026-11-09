@@ -1,0 +1,66 @@
+{
+  "targetSeconds": 20,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "actions": [
+    {
+      "type": "click",
+      "label": "traveler login",
+      "seconds": 1.93,
+      "position": {
+        "x": 433,
+        "y": 642
+      }
+    },
+    {
+      "type": "click",
+      "label": "provider login",
+      "seconds": 2.98,
+      "position": {
+        "x": 1007,
+        "y": 642
+      }
+    },
+    {
+      "type": "click",
+      "label": "search public plans",
+      "seconds": 4.66,
+      "position": {
+        "x": 408,
+        "y": 323
+      }
+    },
+    {
+      "type": "search",
+      "label": "public woodland plans",
+      "seconds": 5.09
+    },
+    {
+      "type": "click",
+      "label": "open actual public plan",
+      "seconds": 9.47,
+      "position": {
+        "x": 433,
+        "y": 582
+      }
+    },
+    {
+      "type": "scroll",
+      "label": "read actual itinerary",
+      "seconds": 15.29
+    }
+  ],
+  "blockedRequests": [],
+  "errors": [],
+  "network": {
+    "reads": 48,
+    "loginWrites": 2
+  },
+  "scope": "Actual local UI; public synthetic accounts; login and read-only browse/detail only; no recording of typed credentials",
+  "browser": "157.0.4341.42",
+  "timelineCompleted": true,
+  "rawVideo": "community/artifacts/intro-video/raw/page@0a44ae3fab9120406192f6f0da5bdfe3.webm",
+  "checkedAt": "2026-11-09T07:37:03.622Z"
+}

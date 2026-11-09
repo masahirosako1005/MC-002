@@ -1,0 +1,3 @@
+リビジョン: 02ed9d969a8851a5029974f4621a34972ef2e382
+件名: feat: refresh travel browsing with photos and concise comparison details
+確認日時: 2026-11-09T16:44:18+09:00

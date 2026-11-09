@@ -33,4 +33,5 @@ community/backend/.backend-*-tmp/
 community/backend/.*-tmp/
 community/backups/
 community/artifacts/snapshot-tests/
+community/artifacts/intro-video/raw/
 

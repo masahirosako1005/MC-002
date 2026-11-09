@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-09",
+  "attempts": [
+    {"number": 1, "ui_operations": "completed", "published": false, "reason": "Inline recording stylesheet blocked by application CSP; caption timing detection intentionally stopped encoding.", "evidence": "recording-first-attempt.json"},
+    {"number": 2, "ui_operations": "completed", "encoded": true, "resolution": "Same-origin temporary CSS supplied only inside the recording browser context. Application CSP, source and server unchanged.", "evidence": "recording.json"}
+  ],
+  "producer_visual_review": {
+    "contact_sheet": "contact-sheet.jpg",
+    "full_size_frames": ["frame-01.png", "frame-06.png", "frame-click.png"],
+    "passed": true,
+    "notes": "Masked credentials; visible pointer/ring on actual click; high-contrast Japanese captions; clear selected card photo/title/price and actual detail facts/cost/itinerary. No application content substituted."
+  },
+  "root_review": "pending",
+  "data_mutations": "Two actual login sessions only. Plan saves, invites, messages, reviews and other writes blocked.",
+  "video": "outputs/community-intro.mp4",
+  "poster": "outputs/community-intro-poster.png"
+}
