@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 416,
-  "last_event_hash": "bb984909f90c07fff490544866de4cc01dbafb1592957e390bfa41b4c7c1261d",
-  "updated_at": "2026-11-09T15:09:26+09:00",
+  "revision": 425,
+  "last_event_hash": "9be949d1849b46a5d697adc49725130d85a8514e31659202eac652dfc1a62c76",
+  "updated_at": "2026-11-09T15:17:44+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -1564,10 +1564,10 @@
       "revision": 8,
       "revisions": [
         {
+          "at": "2026-11-09T15:09:26+09:00",
           "hash": "a764d4dbc4999f72d8b5835feab828ff15973e53",
-          "summary": "refactor: simplify presentation to two phones and verified scene captions",
           "path": "project/revisions/a764d4dbc4999f72d8b5835feab828ff15973e53.txt",
-          "at": "2026-11-09T15:09:26+09:00"
+          "summary": "refactor: simplify presentation to two phones and verified scene captions"
         }
       ],
       "status": "done",
@@ -1590,7 +1590,12 @@
           "text": "再現できない条件と利用者側の次の確認を明確にする"
         }
       ],
-      "comments": [],
+      "comments": [
+        {
+          "at": "2026-11-09T15:17:44+09:00",
+          "text": "軽量化CP28で非表示写真2件を削減したが、通常Edge本体の停止が解消したとは未確認。一時プロファイルの比較結果はまだ得られていない。"
+        }
+      ],
       "created_at": "2026-11-09T15:05:22+09:00",
       "dependencies": [],
       "description": "利用者から実Edgeの応答停止を報告。ブラウザー本体・PC資源・サーバー・画面処理を分離して調査。保存中データを保護し強制終了しない。",
@@ -1608,12 +1613,59 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 4,
+      "revision": 5,
       "revisions": [],
       "status": "in_progress",
       "title": "Edgeの起動・画面切替で応答なしになる原因を切り分ける",
       "type": "task",
-      "updated_at": "2026-11-09T15:09:16+09:00"
+      "updated_at": "2026-11-09T15:17:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "相談送信は左から右、返信は実送信元の方向で一度だけ動き、待機・失敗・閲覧では再生しない"
+        },
+        {
+          "checked": true,
+          "text": "1440x900とreduced-motionで利用でき、左右の認証と送信元検証を維持する"
+        },
+        {
+          "checked": true,
+          "text": "不要な初期写真要求の削減を実測し、Edge本体の障害解決とは区別して履歴を残す"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T15:12:50+09:00",
+      "dependencies": [],
+      "description": "最新指示: スマホの間に講の雰囲気に合う双方向の連携表示を追加。常時演出や説明の復活を避け、実際の送信成功だけに連動。二台ログインで不要な非表示写真の取得を減らす。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T15:17:42+09:00",
+          "path": "docs/EVALUATION-COMMUNITY.md",
+          "text": "更新Dockerで画面9/9・安全性8/8・動きと軽量化5/5。実保存方向と単発停止、CSS中断、reduced-motion、非表示写真2→0を確認。"
+        }
+      ],
+      "id": "CP28",
+      "origin": "この時点で新規起票",
+      "owner": "画面担当・主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T15:17:43+09:00",
+          "hash": "ba144283c63716e94b3c5c6eb436d183a470b457",
+          "path": "project/revisions/ba144283c63716e94b3c5c6eb436d183a470b457.txt",
+          "summary": "feat: animate verified traveler-provider exchanges with bounded lightweight motion"
+        }
+      ],
+      "status": "done",
+      "title": "二台の実連携アニメーションと表示の軽量化",
+      "type": "task",
+      "updated_at": "2026-11-09T15:17:44+09:00"
     },
     {
       "acceptance": [

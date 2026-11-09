@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-11-09T06:05:47.561Z",
+  "url": "http://127.0.0.1:8081",
+  "scope": "Browser security regression for local synthetic accounts and trusted same-origin stage frames",
+  "results": [
+    {
+      "name": "normal cookie and two independent stage sessions coexist",
+      "status": "passed"
+    },
+    {
+      "name": "private image loads by authorized blob and is denied to provider and anonymous",
+      "status": "passed"
+    },
+    {
+      "name": "bad bearer never falls back to the valid normal cookie",
+      "status": "passed"
+    },
+    {
+      "name": "tokens are absent from browser storage, URLs and legitimate parent notifications",
+      "status": "passed"
+    },
+    {
+      "name": "scene caption ignores login, reads, failures, wrong sources and unknown events",
+      "status": "passed"
+    },
+    {
+      "name": "only the two stage HTML pages permit same-origin embedding; API remains denied",
+      "status": "passed"
+    },
+    {
+      "name": "logging out one phone revokes only that token and leaves the other phone and cookie working",
+      "status": "passed"
+    },
+    {
+      "name": "no external requests or uncaught browser errors",
+      "status": "passed"
+    }
+  ],
+  "passed": true,
+  "blocked_external_count": 0,
+  "browser_error_types": [],
+  "limits": [
+    "Does not claim isolation from malicious same-origin JavaScript or extensions.",
+    "Natural 30-minute expiry is verified by backend tests; this browser run tests explicit token revocation.",
+    "Synthetic account data only; no accuracy or real-user effectiveness claim."
+  ],
+  "backend_evidence": "community/artifacts/marketplace-backend-verification.json"
+}

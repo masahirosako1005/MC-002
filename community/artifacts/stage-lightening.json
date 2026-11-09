@@ -1,0 +1,20 @@
+{
+  "scope": "Two-phone login screens only; ordinary Edge hang is unresolved",
+  "before": {
+    "bundle": "index-C1RUB-yC.js",
+    "cover_requests": [
+      "/api/covers/coast",
+      "/api/covers/coast"
+    ],
+    "hidden_login_images": 2,
+    "natural_width": 1448,
+    "both_loaded": true,
+    "single_resource_bytes": 355761
+  },
+  "after": {
+    "checkedAt": "2026-11-09T06:15:56.577Z",
+    "cover_requests": [],
+    "hidden_login_images": 0
+  },
+  "limit": "Request count reduction, not a measured total network or process memory reduction."
+}

@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-09T06:15:59.385Z",
+  "results": [
+    {
+      "name": "hidden login images are not created or fetched",
+      "passed": true
+    },
+    {
+      "name": "idle and internal actions do not animate",
+      "passed": true
+    },
+    {
+      "name": "single shot finishes and cancelled CSS cannot leave active state stuck",
+      "passed": true
+    },
+    {
+      "name": "repeated successful notifications each complete in both directions",
+      "passed": true
+    },
+    {
+      "name": "reduced motion and narrow layout keep a static connection",
+      "passed": true
+    }
+  ],
+  "scope": "Synthetic notifications from authorized iframe sources for motion edge cases. Real saved consultation directions are verified separately by verify-marketplace.mjs.",
+  "passed": true
+}
