@@ -147,6 +147,8 @@ try{
     // Flush posted-message and React scheduling, without fixed long sleeps.
     await stage.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     assert(await captionSnapshot()===before,'ignored events do not change the scene caption');
+    await expect(stage.locator('.stage-connection')).toHaveAttribute('data-transfer-count','0');
+    await expect(stage.locator('.stage-connection')).toHaveAttribute('data-animating','false');
   });
 
   await step('only the two stage HTML pages permit same-origin embedding; API remains denied',async()=>{

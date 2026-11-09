@@ -52,6 +52,8 @@ try{
   await preview.getByLabel('最初に相談したいこと').fill('6人で森の散策とカフェを楽しみたいです。集合時間を相談できますか。');await preview.getByRole('checkbox').check();
   const selected=page.waitForResponse(r=>r.url().endsWith('/selections')&&r.request().method()==='POST');await click('この内容で相談を送る',preview);consultationId=(await (await selected).json()).id;
   await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','selection');
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-direction','visitor-to-provider');
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-transfer-count','1');
   await expect(page.locator('.stage-caption')).toContainText('選んだ事業者に相談する');
   const record=await api('forest',`/consultations/${consultationId}`);assert(!JSON.stringify(record).includes('内輪の集合相談'));assert(!('interests' in record.selection.shared_conditions));
  });
@@ -66,9 +68,21 @@ try{
   await dialog.getByLabel('旅行者との相談に送るメッセージ').fill('ご相談ありがとうございます。初日は13時集合で、森の散策から始める行程をご案内できます。');await click('送る',dialog);
   await expect(dialog.locator('.message').last()).toContainText('13時集合');await click('閉じる',dialog);
   await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','reply');
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-direction','provider-to-visitor');
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-transfer-count','2');
   await visitor.locator('.consultation-row').first().click();await expect(visitor.getByRole('dialog')).toContainText('13時集合');
   await expect(page.locator('.stage-caption')).toHaveAttribute('data-event','reply');
-  await page.screenshot({path:path.join(output,'stage-consultation.png'),fullPage:true});await click('閉じる',visitor.getByRole('dialog'));
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-transfer-count','2');
+  const travelerDialog=visitor.getByRole('dialog');
+  for(const [index,text] of ['13時の集合でお願いします。','散策後のカフェも楽しみにしています。'].entries()){
+    await travelerDialog.getByLabel('事業者との相談に送るメッセージ').fill(text);await click('送る',travelerDialog);
+    await expect(travelerDialog.locator('.message').last()).toContainText(text);
+    await expect(page.locator('.stage-connection')).toHaveAttribute('data-direction','visitor-to-provider');
+    await expect(page.locator('.stage-connection')).toHaveAttribute('data-transfer-count',String(index+3));
+  }
+  await expect(page.locator('.stage-connection')).toHaveAttribute('data-animating','false');
+  await expect(page.locator('.stage-connection-packet')).toHaveCount(0);
+  await page.screenshot({path:path.join(output,'stage-consultation.png'),fullPage:true});await click('閉じる',travelerDialog);
  });
  await step('large group comparison and direct catalogue path',async()=>{
   await click('旅行条件',visitor);await visitor.getByLabel('予定している旅行人数').fill('35');await visitor.getByLabel('予算の目安（円・任意）').fill('900000');

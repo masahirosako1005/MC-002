@@ -11,6 +11,11 @@ const captions = {
   "provider-plan": "地域の人が、自分たちの旅を提案する。",
 } as const;
 type Caption = { event: keyof typeof captions | "initial"; text: string };
+type Transfer = {
+  sequence: number;
+  event: "selection" | "reply";
+  direction: "visitor-to-provider" | "provider-to-visitor";
+};
 
 export default function Stage() {
   const visitor = useRef<HTMLIFrameElement>(null);
@@ -19,8 +24,38 @@ export default function Stage() {
     event: "initial",
     text: "仲間と旅を探し、地域の人に相談する。",
   });
+  const [transfer, setTransfer] = useState<Transfer | null>(null);
+  const [lastTransfer, setLastTransfer] = useState<Transfer | null>(null);
+  const transferSequence = useRef(0);
+  const transferActive = useRef(false);
+  const transferQueue = useRef<Transfer[]>([]);
+
+  function finishTransfer() {
+    const next = transferQueue.current.shift() || null;
+    transferActive.current = next !== null;
+    setTransfer(next);
+  }
 
   useEffect(() => {
+    if (!transfer) return;
+    // A single finite fallback releases the queue if a browser cancels CSS animation.
+    const timer = window.setTimeout(finishTransfer, 1000);
+    return () => window.clearTimeout(timer);
+  }, [transfer]);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const stackedLayout = window.matchMedia("(max-width: 760px)");
+    const canAnimate = () =>
+      document.visibilityState === "visible" &&
+      !reducedMotion.matches &&
+      !stackedLayout.matches;
+    function stopWhenHidden() {
+      if (canAnimate()) return;
+      transferQueue.current = [];
+      transferActive.current = false;
+      setTransfer(null);
+    }
     function receive(event: MessageEvent) {
       if (event.origin !== window.location.origin) return;
       if (
@@ -42,9 +77,36 @@ export default function Stage() {
       // Login, read requests, failure events, and private message bodies are ignored.
       const type = value.type as keyof typeof captions;
       setCaption({ event: type, text: captions[type] });
+      const fromVisitor = event.source === visitor.current?.contentWindow;
+      // An internal conversation, draft, or read is not a message to the other role.
+      if (type !== "reply" && !(type === "selection" && fromVisitor)) return;
+      const next: Transfer = {
+        sequence: ++transferSequence.current,
+        event: type,
+        direction: fromVisitor ? "visitor-to-provider" : "provider-to-visitor",
+      };
+      setLastTransfer(next);
+      if (!canAnimate()) return;
+      if (transferActive.current) {
+        // Keep a burst bounded and favour recent activity over a long stale replay.
+        if (transferQueue.current.length >= 8) transferQueue.current.shift();
+        transferQueue.current.push(next);
+      } else {
+        transferActive.current = true;
+        setTransfer(next);
+      }
     }
     window.addEventListener("message", receive);
-    return () => window.removeEventListener("message", receive);
+    document.addEventListener("visibilitychange", stopWhenHidden);
+    reducedMotion.addEventListener("change", stopWhenHidden);
+    stackedLayout.addEventListener("change", stopWhenHidden);
+    return () => {
+      window.removeEventListener("message", receive);
+      document.removeEventListener("visibilitychange", stopWhenHidden);
+      reducedMotion.removeEventListener("change", stopWhenHidden);
+      stackedLayout.removeEventListener("change", stopWhenHidden);
+      transferQueue.current = [];
+    };
   }, []);
 
   return (
@@ -73,6 +135,39 @@ export default function Stage() {
             />
           </div>
         </section>
+        <div
+          className="stage-connection"
+          aria-hidden="true"
+          data-direction={lastTransfer?.direction || "none"}
+          data-transfer-event={lastTransfer?.event || "none"}
+          data-transfer-count={lastTransfer?.sequence || 0}
+          data-active-sequence={transfer?.sequence || 0}
+          data-animating={transfer !== null}
+        >
+          <svg
+            className="stage-connection-thread"
+            viewBox="0 0 140 48"
+            fill="none"
+          >
+            <path d="M4 24H51M89 24H136" />
+            <path
+              className="stage-connection-knot"
+              d="M70 24C61 12 51 17 58 26C65 35 73 29 82 20C89 12 77 12 70 24C63 36 53 35 58 26C65 17 75 16 82 20C90 28 80 36 70 24Z"
+            />
+          </svg>
+          {transfer && (
+            <span
+              key={transfer.sequence}
+              className="stage-connection-packet"
+              data-direction={transfer.direction}
+              onAnimationEnd={(event) => {
+                if (event.target === event.currentTarget) finishTransfer();
+              }}
+            >
+              <span />
+            </span>
+          )}
+        </div>
         <section className="stage-device provider-device" aria-label="事業者">
           <h2 className="device-label">事業者</h2>
           <div className="phone-frame">

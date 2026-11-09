@@ -112,13 +112,15 @@ function Login({
             次の旅を、一緒に考える。
           </p>
         </div>
-        <div className="login-photo">
-          <LocalPhoto
-            src="/api/covers/coast"
-            alt="海辺を旅するひととき"
-            priority
-          />
-        </div>
+        {!stageFrame && (
+          <div className="login-photo">
+            <LocalPhoto
+              src="/api/covers/coast"
+              alt="海辺を旅するひととき"
+              priority
+            />
+          </div>
+        )}
       </div>
       <div className="login-panel">
         <p className="eyebrow">おかえりなさい</p>
