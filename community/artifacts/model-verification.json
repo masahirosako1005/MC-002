@@ -1,0 +1,67 @@
+{
+  "model_ready": true,
+  "model_version": "mobilenetv2-12:c5cae0f1942c",
+  "runtime_version": "1.31.1",
+  "load_seconds": 0.4986,
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "model_sha256": "c0c3f76d93fa3fd6580652a45618618a220fced18babf65774ed169de0432ad5",
+  "images": [
+    {
+      "fixture": "coast",
+      "executed": true,
+      "tags": [
+        {
+          "id": "coast",
+          "label": "海辺",
+          "score": 0.9655
+        }
+      ],
+      "seconds": 0.2072
+    },
+    {
+      "fixture": "coffee",
+      "executed": true,
+      "tags": [
+        {
+          "id": "cafe",
+          "label": "カフェ",
+          "score": 0.6065
+        },
+        {
+          "id": "food",
+          "label": "食事",
+          "score": 0.1305
+        }
+      ],
+      "seconds": 0.2252
+    },
+    {
+      "fixture": "table",
+      "executed": true,
+      "tags": [
+        {
+          "id": "food",
+          "label": "食事",
+          "score": 0.8231
+        }
+      ],
+      "seconds": 0.2367
+    },
+    {
+      "fixture": "woodland",
+      "executed": true,
+      "tags": [],
+      "seconds": 0.2745
+    }
+  ],
+  "checked_at": "2026-11-09T05:33:12.453446+00:00",
+  "bootstrap_model": {
+    "status": "ready",
+    "name": "MobileNet V2・画像の被写体候補"
+  },
+  "scope": "execution smoke test on four generated local seed images; no labeled accuracy benchmark or user-preference inference",
+  "runtime_warning_present": true,
+  "passed": true
+}

@@ -1,0 +1,117 @@
+{
+  "recorded_on": "2026-11-09",
+  "record_kind": "Observed tool execution summary; not a reconstructed raw pytest transcript",
+  "scope": "community backend before marketplace extension",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.17",
+    "client": "httpx ASGI with application lifespan",
+    "database": "isolated SQLite under PJ temporary test directory",
+    "data": "synthetic accounts and generated test images only",
+    "network": "API test transport is in process; no external service inputs"
+  },
+  "full_suite": {
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests -q --basetemp community/backend/.backend-test-tmp",
+    "passed": 16,
+    "skipped": 1,
+    "failed": 0,
+    "duration_seconds": 14.79,
+    "cases": [
+      {
+        "name": "test_real_account_login_switch_revokes_old_session_and_requires_password",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_csrf_origin_host_and_extra_owner_are_rejected",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_image_formats_are_reencoded_and_exif_removed",
+        "result": "passed",
+        "parameter_cases": 3
+      },
+      {
+        "name": "test_invalid_image_and_oversized_body_are_rejected",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_draft_private_cross_group_denial_publish_unpublish_and_delete",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_model_missing_is_honest_and_manual_tags_can_publish",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_personal_evidence_permissions_and_deletion_stay_separate",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_three_people_accept_to_form_one_group_and_edit_optional_plan",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_decline_is_private_and_invalidates_without_group",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_membership_invitation_leave_and_grant_revocation_invalidate_proposals",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_group_failure_rolls_back_last_acceptance",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_database_restart_keeps_posts_permissions_and_sessions",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_public_covers_allow_only_catalog_keys_and_keep_uploads_private",
+        "result": "passed",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_real_model_uses_pixels",
+        "result": "skipped",
+        "parameter_cases": 1
+      },
+      {
+        "name": "test_analysis_lease_recovery_is_bounded_and_preserves_active_work",
+        "result": "passed",
+        "parameter_cases": 1
+      }
+    ]
+  },
+  "skip": {
+    "test": "test_real_model_uses_pixels",
+    "reason": "community/models actual files were located; on this Windows PC onnxruntime native DLL initialization produced an access-violation diagnostic and model remained unavailable. pytest completed with 16 passed / 1 skipped. This is not successful Windows inference.",
+    "linux_rule": "The same test does not skip unavailable models on Linux; actual local CPU inference must succeed."
+  },
+  "subsequent_change": {
+    "description": "Added Proposal.date response so requested travel date can be reviewed before acceptance; date field added to API contract and existing scenario assertions.",
+    "command": ".venv/Scripts/python.exe -m pytest community/backend/tests/test_api.py -q -k three_people --basetemp community/backend/.backend-date-test-tmp",
+    "passed": 1,
+    "deselected": 16,
+    "failed": 0,
+    "duration_seconds": 0.64
+  },
+  "linux_inference_evidence": "community/artifacts/model-verification.json",
+  "not_covered": [
+    "Real people and effectiveness",
+    "Browser end-to-end in this API result",
+    "Docker isolation/restart/backup in this API result",
+    "Marketplace extension (design only)"
+  ]
+}

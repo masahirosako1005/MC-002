@@ -1,0 +1,48 @@
+{
+  "assets": [
+    {
+      "key": "woodland",
+      "path": "community/assets/woodland.png",
+      "prompt": "Use case: photorealistic-natural. Asset: a single travel photo for a Japanese private community photo feed, landscape 4:3 composition. A candid smartphone photograph on a real-feeling woodland walk in the Japanese highlands in autumn: a narrow trail, tall larch trees and warm amber leaves, two adult friends in everyday outdoor jackets seen small from behind walking ahead, a canvas tote and simple daypack. Beautiful but believable daylight, a little imperfect framing, subtle phone-camera grain, realistic colors and textures. Not illustration, not a brochure, no text, no logo, no watermark, no border, no collage. One photograph.",
+      "method": "built-in image_gen",
+      "generated": true,
+      "kind": "fictional travel photograph",
+      "notes": "Prototype catalogue/seed asset. Not a photograph from the 500-user CSV or evidence of actual travel.",
+      "sha256": "7c3d10eab4ef9ce2c6ff70f6a61290c3d6cef35778d768e76f5e30949f2d8a70",
+      "bytes": 4603047
+    },
+    {
+      "key": "coffee",
+      "path": "community/assets/coffee.png",
+      "prompt": "Use case: photorealistic-natural. Asset: a single photo posted by a traveler to a small private Japanese community. Landscape 4:3 smartphone snapshot from a seat at a cozy cafe while traveling: two ceramic cups of coffee, a partly eaten piece of cake, a linen tote bag and folded cardigan on a wooden chair, hands of an adult friend loosely holding one cup, afternoon window light. Believable spontaneous everyday framing and natural food proportions, gentle warm color, not overly styled advertising. One photograph, not illustration or collage, no readable text, no logo, no watermark.",
+      "method": "built-in image_gen",
+      "generated": true,
+      "kind": "fictional travel photograph",
+      "notes": "Prototype catalogue/seed asset. Not a photograph from the 500-user CSV or evidence of actual travel.",
+      "sha256": "57d7cc0f5deec556ecdb94180bb74f23b707da5de31340f1bf4ea0387a01814e",
+      "bytes": 2819460
+    },
+    {
+      "key": "coast",
+      "path": "community/assets/coast.png",
+      "prompt": "Use case: photorealistic-natural. Asset: one travel photo for a Japanese community feed, landscape 4:3. Candid smartphone photo of a clear blue sea along a quiet Japanese coastal path with pale rocks and coastal grass in the foreground; an adult traveler in an off-white shirt seen from behind at one edge looks at the water. Clear natural midday sky, a small imperfect tilted composition, lifelike skin fabric and rock texture, lovely but ordinary weekend photo, not hyper-saturated. One photograph only, no collage, no illustration, no letters, no logos, no watermark.",
+      "method": "built-in image_gen",
+      "generated": true,
+      "kind": "fictional travel photograph",
+      "notes": "Prototype catalogue/seed asset. Not a photograph from the 500-user CSV or evidence of actual travel.",
+      "sha256": "239bd1bb1e9cd568a6a516fd1e293e9629f256a9a0e19c56e3dc6bb571ff9aac",
+      "bytes": 2798736
+    },
+    {
+      "key": "table",
+      "path": "community/assets/table.png",
+      "prompt": "Use case: photorealistic-natural. Asset: one spontaneous travel photo for a small Japanese friends community, landscape 4:3. A few adult friends at a guesthouse after a day out, only their hands and casual clothing around a wooden table visible, playing an unbranded tabletop game with colored wooden pieces and plain cards, little ceramic plates of snacks and tea mugs. Warm indoor evening light, authentic slightly grainy smartphone texture, friendly unposed everyday detail, avoid polished stock photo aesthetic. No text or numbers on game pieces, no brands, no watermark, no collage. One photograph.",
+      "method": "built-in image_gen",
+      "generated": true,
+      "kind": "fictional travel photograph",
+      "notes": "Prototype catalogue/seed asset. Not a photograph from the 500-user CSV or evidence of actual travel.",
+      "sha256": "e172f70897ba56d5255dc432946052daed2dff7316023de1f976a6e6e65cdfaf",
+      "bytes": 2715418
+    }
+  ]
+}
