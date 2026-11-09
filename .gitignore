@@ -15,4 +15,10 @@ artifacts/tmp*/
 artifacts/browser-results/
 **/.backend-test-tmp/
 backend/data/
+artifacts/security-review-pytest/
+project/.tickets.lock
+project/.test-work/
+outputs/*-source.zip
+outputs/*-history.bundle
+outputs/release-manifest.json
 

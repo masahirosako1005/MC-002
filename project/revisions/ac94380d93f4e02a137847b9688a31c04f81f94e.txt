@@ -1,0 +1,3 @@
+リビジョン: ac94380d93f4e02a137847b9688a31c04f81f94e
+件名: R04: verify Docker journeys and fix recovery, contrast and history integrity
+確認日時: 2026-11-09T12:15:46+09:00

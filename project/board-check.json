@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-11-09T03:11:00.301Z",
+  "browser": "Microsoft Edge / Playwright",
+  "viewport": {
+    "desktop": "1450x1000",
+    "mobile": "390x844"
+  },
+  "checks": [
+    {
+      "name": "ローカルHTMLに正本の全チケットを表示",
+      "passed": true
+    },
+    {
+      "name": "デスクトップに4列を表示",
+      "passed": true
+    },
+    {
+      "name": "件名検索で1件に絞り込み",
+      "passed": true
+    },
+    {
+      "name": "詳細に受入条件と証拠を表示",
+      "passed": true
+    },
+    {
+      "name": "完了フィルターは正本の完了チケットだけ表示",
+      "passed": true
+    },
+    {
+      "name": "優先度フィルターで緊急課題を表示",
+      "passed": true
+    },
+    {
+      "name": "スマホ幅で横にはみ出さない",
+      "passed": true
+    },
+    {
+      "name": "外部通信を要求しない",
+      "passed": true
+    },
+    {
+      "name": "JavaScriptエラーがない",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "external_requests": []
+}

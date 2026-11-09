@@ -1,0 +1,1253 @@
+{
+  "schema_version": 1,
+  "revision": 211,
+  "last_event_hash": "40d4d0baf4d7b008e4446dead6a7a869b4a854de9de2b5ca0b1f4820322b042d",
+  "updated_at": "2026-11-09T12:18:44+09:00",
+  "tickets": [
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "翌年度・復旧後も旧問題のattemptとseasonが保持される"
+        },
+        {
+          "checked": true,
+          "text": "現在カタログにない旧年度の獲得季節をブラウザーでも表示できる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "完了attemptを現在のcatalog.gamesへ照合していたため、旧年度の問題がカタログから外れると収集表示が消える。保存済みseasonのAPI返却とフロント参照は修正済み。年越しブラウザー表示の実測は未確認。",
+      "documents": [
+        "docs/SECURITY-REVIEW.md",
+        "docs/API.md",
+        "frontend/src/Journal.tsx",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "backend/tests/test_api.py",
+          "text": "backend pytest 33件合格（6.10秒）。test_completed_attempt_keeps_season_when_catalog_moves_to_next_yearで翌年度のcatalogから旧gameが消えた後もattempt全項目とseasonが保持されることを確認。起票以前に実行した作業をこの時点で整理。"
+        },
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "docs/SECURITY-REVIEW.md",
+          "text": "独立レビューでAPI修正とfrontendのa.season参照を確認。年越しのブラウザー実測は未実施と明記されている。"
+        },
+        {
+          "at": "2026-11-09T12:04:15+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "backend33件の翌年度・復旧後season保持と、browser12件中『過年度の謎の季節がカタログに依存せず残る』の合格を確認。後者は旧attempt応答差替えで現在catalogにない秋の収集印1件を確認する。実時計変更のフルスタックE2Eではなく、API境界試験との組合せ。"
+        }
+      ],
+      "id": "BUG-001",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "バックエンド・UI",
+      "priority": "P1",
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:41+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "年度が変わると獲得した季節が未達成に戻る",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:41+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "RuntimeErrorを注入した500応答にCSP・no-store・nosniff・frame拒否・referrer抑制が付く"
+        },
+        {
+          "checked": true,
+          "text": "500本文へ例外詳細を出さず、日本語の汎用エラーを返す"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "最外層の例外応答が通常のヘッダー付与を通らなかった。共通ヘッダー関数を想定外500応答へも適用し、独立レビューで再確認した。",
+      "documents": [
+        "docs/SECURITY-REVIEW.md",
+        "backend/app/security.py",
+        "backend/app/main.py",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "backend/tests/test_api.py",
+          "text": "backend pytest 33件合格（6.10秒）。test_unexpected_error_keeps_security_headers_and_hides_detailsで実際の500応答ヘッダーと秘密非露出を検証。"
+        },
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "docs/SECURITY-REVIEW.md",
+          "text": "SEC-02の独立再実行で500・秘密非露出・Cache-Control:no-store・base-uri noneを含むCSPを確認済み。"
+        },
+        {
+          "at": "2026-11-09T12:04:16+09:00",
+          "path": "artifacts/backend-tests.txt",
+          "text": "最終保存ログbackend33 passed（5.14秒）を照合。500注入時のCSP・no-store・nosniff・frame/referrerと詳細非露出を確認する試験を含む。独立SEC-02でも同じ例外注入を再確認済み。"
+        }
+      ],
+      "id": "BUG-002",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "バックエンド",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:41+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "想定外500応答にCSPと保存禁止が付かない",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:41+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "セッション失効・別タブ復旧後に、画面内の再試行で新しい認証状態を取得できる"
+        },
+        {
+          "checked": true,
+          "text": "失敗した書込を自動再送して二重変更せず、利用者が再操作できる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "成功したsessionPromiseが保持され、他APIの401/403後に初期化をやり直せない場合がある。サーバーは認証を拒否するため権限突破ではない。主担当からUI担当へ修正を依頼済み。",
+      "documents": [
+        "docs/SECURITY-REVIEW.md",
+        "frontend/src/api.ts",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "docs/SECURITY-REVIEW.md",
+          "text": "SEC-03として独立レビューで検出。修正・再試験の完了証拠は起票時点で未登録。"
+        },
+        {
+          "at": "2026-11-09T12:04:16+09:00",
+          "path": "docs/SECURITY-REVIEW.md",
+          "text": "Promiseを成功/失敗後に解放するコードと、初期journal503後の再試行でGET sessionが2回以上となるブラウザー合格を確認。変更APIに無条件自動再送はない。ただし失効した旧画面の書込からの回復と別タブ復旧後の旧タブの全導線はこの12件には含まれず、主担当が追加修正・実結合試験中。受入条件1は未確認のまま残す。"
+        },
+        {
+          "at": "2026-11-09T12:09:55+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "最終14ブラウザー試験が23.65秒で全成功。別ブラウザー復旧で旧sessionを実際に無効化し旧保存401→再読込でも新規匿名手帳を作らず→復旧→同じ記録へ戻ることを確認。同一context別タブではCookie更新/旧CSRF403→画面内再読込→失敗書込は再送されず→明示再操作→両タブ同じ2件を確認。試験コードと保存結果を照合した。"
+        },
+        {
+          "at": "2026-11-09T12:11:26+09:00",
+          "path": "frontend/src/Recovery.tsx",
+          "text": "APIの401とCSRF専用403を分離し、復旧ダイアログも専用403では閉じて全体再読込へ進める。誤った復旧コード401はダイアログ内のまま。再試験中。"
+        },
+        {
+          "at": "2026-11-09T12:15:21+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "再開した復旧dialog経路を追加修正後、最終ブラウザー15件全成功（88.44秒、頻度制限を維持する61秒待機込み）。15件目の実サーバー試験は別タブCookie更新→古いdialogの復旧専用403→dialogを閉じ全体再読込→誤code401を局所エラーのまま表示→正code復旧成功を確認。14件までの実失効/別タブ保存/自動再送なしも再実行合格。保存結果と試験コードを照合。"
+        }
+      ],
+      "id": "BUG-003",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "UI",
+      "priority": "P2",
+      "revision": 16,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:42+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "セッション失効後の再試行で手帳を開き直せない",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:42+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "Windowsの127.0.0.1:8080からA/Bの主要操作を完了できる"
+        },
+        {
+          "checked": true,
+          "text": "公開がローカルに限定され、アプリ内部ネットワークから不要な外部通信を行えないことを再検証する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "内部ネットワークのアプリをWindowsのlocalhostから利用できなかった。主担当報告ではgateway追加後に127.0.0.1:8080へ到達しA/Bの実操作に成功。公開範囲・ネットワーク制限の再検証を残す。",
+      "documents": [
+        "compose.yaml",
+        "Dockerfile",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "主担当からgateway追加後のWindows到達とA/B実操作成功の報告あり。公開設定・ネットワーク制限は再検証待ち。ブラウザー試験の記録を参照する。"
+        },
+        {
+          "at": "2026-11-09T12:04:17+09:00",
+          "path": "artifacts/container-verification.json",
+          "text": "Windows127.0.0.1:8080を対象とするA/Bブラウザー12件合格を確認。container-verificationはapp internal network、外部TCP1.1.1.1:443接続失敗、gatewayのHostIp127.0.0.1を記録。composeでもappに公開portsなし、固定gateway経由。gateway自身の全外向き通信遮断や全宛先・全プロトコル遮断を主張しない。"
+        }
+      ],
+      "id": "BUG-004",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "環境・主担当",
+      "priority": "P0",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:42+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "Docker内部ポートへWindowsから接続できない",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:42+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "内容の一部を訂正したCSVを再取込しても、変わらない履歴を重複保存しない"
+        },
+        {
+          "checked": true,
+          "text": "訂正・別記録・欠損キーの扱いを定義し、合成データの試験で確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "同じファイルの再取込だけでなく、訂正版CSVで変わらない行をどう識別するかが残課題。主担当が安定したキーへの修正を予定している。元データの変更や個票の外部出力は行わない。",
+      "documents": [
+        "docs/SECURITY-REVIEW.md",
+        "scripts/analyze_samples.py",
+        "scripts/test_samples.py",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:19+09:00",
+          "path": "artifacts/sample-tests.txt",
+          "text": "sample-tests.txtの5件合格と試験コードを照合。氏名と日時区切りだけ訂正したCSVの再取込で1件保持・already_present1。不正日時/欠損利用者/欠損対象の拒否も確認。自然キーの同一別イベントは統合、キー列そのものの訂正は別記録となるとDATA-QUALITY.md/SEC-04で定義。旧DBの移行やイベントID付き継続同期は対象外。"
+        }
+      ],
+      "id": "BUG-005",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "データ・主担当",
+      "priority": "P3",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:42+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "CSV訂正版の再取込で同じ記録が重複する可能性",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:42+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "未獲得季節の通常サイズの文字コントラストが4.5:1以上になる"
+        },
+        {
+          "checked": true,
+          "text": "文字を読みやすい大きさに調整し、スマホ表示とアクセシビリティ検査を再実行する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "主担当のブラウザー試験8件中7件成功・1件失敗。未獲得季節spanのコントラスト3.89が目標4.5未満で、文字サイズ8.48px。UI担当が修正中。",
+      "documents": [
+        "frontend/src/Journal.tsx",
+        "artifacts/axe-journal.json",
+        "artifacts/browser-tests.json",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "artifacts/axe-journal.json",
+          "text": "初回の旅の手帳アクセシビリティ検査でcontrast不合格を検出。修正後の成功結果ではない。"
+        },
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "主担当報告のブラウザー試験8件・成功7件・失敗1件の記録。"
+        },
+        {
+          "at": "2026-11-09T12:04:20+09:00",
+          "path": "artifacts/axe-journal.json",
+          "text": "修正前のaxe-journal-before-fix.jsonを保持。修正後axe-journal.jsonは違反0で、ブラウザー12件全成功。未獲得文字色#56624f、spanのモバイル文字0.75remへの変更をstyles.cssで確認。3幅の文字拡大・390pxで200%を含む主要画面試験も成功。実利用者の読みやすさ評価とWCAG全体適合は別途未確認。"
+        }
+      ],
+      "id": "BUG-006",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "UI・品質",
+      "priority": "P1",
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:43+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "旅の手帳の未獲得季節が薄く小さく読みにくい",
+      "type": "bug",
+      "updated_at": "2026-11-09T12:15:43+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "対象期間内でAIを開発工程の中心とする独立大会を、重複排除と公式根拠付きで合計約50件まで確認する"
+        },
+        {
+          "checked": false,
+          "text": "A06の資料取得と独立性、未確認の受賞情報を再確認し、判明しない内容は不足・保留として明記する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T12:10:49+09:00",
+      "dependencies": [
+        "T13"
+      ],
+      "description": "50候補の照合工程は完了したが、有効資料49件の内訳はAI開発中心28件・関連21件。主対象を約50大会確認する当初目標には22件不足する。本文未取得A06の1件と、募集/開催等までの9件の受賞確認も未解決として追跡し、関連競技・部門賞・同じ開催回の別名で水増ししない。",
+      "documents": [
+        "docs/CONTEST-VERIFICATION.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [],
+      "id": "RSH-001",
+      "origin": "この時点で新規起票",
+      "owner": "大会調査",
+      "priority": "P2",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "AI開発中心の大会調査の22件不足を補完する",
+      "type": "task",
+      "updated_at": "2026-11-09T12:10:49+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "提供済み・未提供一覧、接続範囲、未決事項を記録。秘密情報を開かない"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "既存資料・サンプル・API境界は整理。正式な固有名詞、参照CSS、提出条件などは未確定。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "TASKS.mdから整理。依存: なし",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:21+09:00",
+          "path": "docs/SETUP.md",
+          "text": "DESIGN/API/SETUPで提供済みサンプル、既存ソース/API/参照CSS/正式名称/提出条件の未提供、独立ローカル実装の接続範囲、WSL/Dockerの所在と導入を記録。T01は所在と未決事項の整理であり、未提供CSSを入手・一致確認した意味ではない。秘密情報ファイルは参照していない。"
+        }
+      ],
+      "id": "T01",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "既存資産、参照CSS、提出条件、環境の所在確認",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:22+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "神社・会議施設・海辺・水門の位置関係、移動時間、季節、利用条件、初回から次回の理由を説明できる"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "架空都市の桜社・会議館・海辺・水門と2戦略を設計・初期データへ反映。最終シナリオの受入確認待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T01"
+      ],
+      "description": "TASKS.mdから整理。依存: T01の資産確認",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:22+09:00",
+          "path": "backend/app/seed.py",
+          "text": "CityMapに会議館→水門、北に桜社、東に海辺の関係を明示。seedに徒歩時間・滞在・季節・営業条件を設定。A次季の謎、B会議の空き時間・海辺・任意の人生行事をAPI/画面で説明・保存。位置関係は架空の見取り図で経路案内ではない。"
+        }
+      ],
+      "id": "T02",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "体験設計",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "A/Bの利用シナリオとモデル都市を具体化",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:23+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "件数、型、欠損、重複、参照関係、日時、利用可能な分析と限界を集計。個票を外部出力せず元ファイルの不変を確認"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "ローカルCSV分析・取込スクリプトを実装。訂正版CSVの重複扱いはBUG-005で追跡。分析全項目の受入確認は主担当が更新する。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T01"
+      ],
+      "description": "TASKS.mdから整理。依存: T01",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:23+09:00",
+          "path": "docs/DATA-QUALITY.md",
+          "text": "5CSVの件数、型/列、欠損・完全一致重複、参照、日時、利用範囲・限界を集計。前後のhash一致、再取込追加0、保存件数一致を確認。sample5試験合格、個票・自由記述を成果物へ再掲しない。全内容の真実性確認や実来訪率算定は行っていない。"
+        }
+      ],
+      "id": "T03",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "データ担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "CSVの形式と品質をローカルで検証",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:24+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "訪問・挑戦・実績・候補を分離。権限、重複防止、失敗時の状態、履歴版管理を設計書に記載"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "API契約、状態分離、履歴版、認証・復旧と独立セキュリティレビューを作成。全受入条件の照合待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T02",
+        "T03"
+      ],
+      "description": "TASKS.mdから整理。依存: T02、T03",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:24+09:00",
+          "path": "docs/API.md",
+          "text": "API契約・DBモデルで訪問/挑戦/実績/候補を分離し、所有者・CSRF・一意制約・原子更新・履歴季節年度版・復旧を記載。SECURITY-REVIEWの脅威/実装/修正、backend33試験を対応付けた。既存APIへの接続仕様は未提供として分離。"
+        }
+      ],
+      "id": "T04",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "主担当＋レビュー",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "データモデル・API・状態遷移・脅威を設計",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:25+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "導入状況確認、必要な導入、ローカル起動、永続保存、公開範囲を記録。再起動が必要なら未完了として引継ぎ"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "Python・WSL・Dockerの環境整備が進行。Windows公開経路とネットワーク制限をBUG-004で追跡。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T01"
+      ],
+      "description": "TASKS.mdから整理。依存: T01",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:26+09:00",
+          "path": "artifacts/container-verification.json",
+          "text": "SETUPにWindows/WSL2/Docker/Python導入・資源制限・起動手順を記録。container-verificationでloopback公開、app内部ネットワーク、DB永続性、rootfs/権限設定、バックアップ整合を確認。OS再起動の未処理は記録上なし。別PC初期状態からの再現は未実施。"
+        }
+      ],
+      "id": "T05",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "環境担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:43+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "WSL・Docker・必要な依存の導入と起動土台",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:43+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "旅のしおり・旅の手帳・次の旅を移動できる。参照CSS受領後に大小関係を照合。操作中・空状態・エラー状態を含む"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "Reactのスマホ画面を実装。アクセシビリティの残課題BUG-006と実操作の確認を追跡。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T02",
+        "T04"
+      ],
+      "description": "TASKS.mdから整理。依存: T02、T04",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:27+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "主要3画面の日本語遷移、空状態、コード誤り、通信失敗と再試行、320/390/430px・拡大、axe対象6画面違反0を確認。ただし元の参照CSSは未提示で、カードの大小・形状を参照へ照合する受入条件は未達。"
+        }
+      ],
+      "id": "T06",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "UI担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:43+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "review",
+      "title": "日本語のスマホ画面と共通操作を設計・実装",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:43+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "再取込の重複防止、権限分離、DB制約、復旧可能な更新、初期化手順。合成データと提供データの由来を分離"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "FastAPI・SQLite、Cookie認証、CSRF、復旧コード、DB整合性、独立したサンプル分析DBを実装。全体の結合受入確認待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "description": "TASKS.mdから整理。依存: T03、T04、T05",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:28+09:00",
+          "path": "artifacts/backend-tests.txt",
+          "text": "保存・権限分離・DB制約・初期化・backup復元・復旧コードをbackend33試験で検証。サンプル再取込を5試験で確認し、仮名化分析DBと架空マスター/アプリDBを分離。旧CSV方式DBからの自動移行や自然キー訂正同期は未提供として記録。"
+        }
+      ],
+      "id": "T07",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "バックエンド担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:44+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "保存基盤・取込・認証認可・初期データ",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "手がかり取得から回答・ヒント・判定・実績・次の季節の保存まで動作。サーバー採点、二重付与防止、正答可能性を検証"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "訪問、問題開始、回答・ヒント、採点、実績、次の旅を実装。API自動試験は確認済み。UI結合の最終証拠を主担当が登録する。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T06",
+        "T07"
+      ],
+      "description": "TASKS.mdから整理。依存: T06、T07",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:29+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "browser12件中Aの操作で無効コード→正しい訪問→謎→誤答→ヒント→表示された手掛かりから正答→75点→実績→次季保存→再表示を確認。backendは同時正答/再送の二重付与防止・サーバー採点を検証。印刷コードが物理来訪の強い証明ではない限界を記録。"
+        }
+      ],
+      "id": "T08",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "ゲーム担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:44+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "Aの一連の体験を実装",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "往復移動＋滞在＋余裕時間で候補を選び、根拠と次回の候補を表示。候補なし、時間不足、休業を処理"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "会議館の往復＋体験＋余裕時間、営業時間・休業日をAPI試験で確認。実操作証拠と全受入条件の最終照合待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T06",
+        "T07"
+      ],
+      "description": "TASKS.mdから整理。依存: T06、T07",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:30+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "APIで会議館から徒歩往復＋体験＋10分余裕、時間不足・火曜休み・営業終了・将来季節を確認。ブラウザーで30分海辺の候補なし、180分枠の120分候補、保存・取消・理由を確認。現実の天候等は取得しない架空設定。"
+        }
+      ],
+      "id": "T09",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "周遊担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:44+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "Bの会議周遊を実装",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:44+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "訪問・実績の時系列、候補の保存・取消、再起動後の復元。予定を訪問済みと表示しない"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "旅の手帳、候補の保存・取消、復旧を実装。旧年度collection表示はBUG-001で追跡。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T08",
+        "T09"
+      ],
+      "description": "TASKS.mdから整理。依存: T08、T09",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:31+09:00",
+          "path": "artifacts/container-verification.json",
+          "text": "A実績と訪問をタイムラインに表示し、B候補保存/取消、reloadとコンテナー再起動後の保持、別ブラウザーへの手帳復旧を確認。APIは候補保存で訪問/挑戦/実績が増えないことを検証。過年度の収集表示はBUG-001で確認。"
+        }
+      ],
+      "id": "T10",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:45+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "旅の手帳と次の旅を統合",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:45+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "別季節・別難易度で実際に問題が変わる。同条件のみ比較し、比較を使わず主要体験を完了できる"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "四季・2難易度の異なる問題、同じ問題版の最高点比較を実装。画面を含む受入確認待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T08",
+        "T10"
+      ],
+      "description": "TASKS.mdから整理。依存: T08、T10",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:33+09:00",
+          "path": "backend/tests/test_api.py",
+          "text": "seedは四季×初級/上級の8問題で異なる正答と条件を持つ。APIで同一ゲーム版だけの最高点、初級/上級分離、年度境界を確認。Aのブラウザー動線はランキングを開かず完了できる。全問題版を全ブラウザーで手動攻略した意味ではない。"
+        }
+      ],
+      "id": "T11",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "体験担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:45+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "季節・難易度・得点比較を拡張",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:45+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "任意選択の行事、季節別体験、時系列の実績・次回候補を接続。機微な属性を履歴から推測しない"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "本人が選ぶ通年の人生行事と、海辺の季節別体験を実装。機微情報を推定しない方針。受入の最終確認待ち。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T09",
+        "T10"
+      ],
+      "description": "TASKS.mdから整理。依存: T09、T10",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:34+09:00",
+          "path": "artifacts/browser-tests.json",
+          "text": "人生行事は本人の任意選択で通年、海辺は四季で別体験。UIでお宮参りと希望する時期、冬の海辺保存を確認。APIでお宮参り候補の保存・重複防止と保存だけでは実績が変わらないことを確認。妊娠等を履歴から推定しない。"
+        }
+      ],
+      "id": "T12",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "周遊担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:46+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "神社の人生行事と海辺の四季を拡張",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:46+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "公式出典、開催期間、分類、受賞理由と推論、件数・不足を明記。約10件の中間整理を先に設計へ反映"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "大会調査の依頼・受領資料を整理中。約50大会の有効件数と不足、設計への採否を確認する。"
+        },
+        {
+          "at": "2026-11-09T12:10:50+09:00",
+          "text": "調査工程の完了と、主対象50大会の達成を区別。主対象22件不足・A06保留・受賞未確認の残条件はRSH-001に移し、関連競技で水増ししない。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [],
+      "description": "TASKS.mdから整理。依存: なし",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:35+09:00",
+          "path": "docs/CONTEST-VERIFICATION.md",
+          "text": "50候補表を受領し、採用10大会の公式資料を独立照合・分類・採否へ反映。主対象は報告値31で約50目標に19件不足、独立照合済み主対象は5。残りの出典照合・別大会としての独立性・受賞要因確認が不足するため完了にしない。"
+        },
+        {
+          "at": "2026-11-09T12:10:49+09:00",
+          "path": "docs/CONTEST-VERIFICATION.md",
+          "text": "全50候補行の出典照合完了。期間内資料49件=AI開発中心28/関連21、名前付き受賞作品40、募集/開催等まで9、本文取得不能A06の1件を区別。先行10件の設計採用を維持し、追加39件を比較・反証材料へ反映。公式出典・期間・分類・受賞事実と推論・不足を記録する元受入条件を確認。主対象50に対する22件不足はRSH-001として別途追跡。"
+        }
+      ],
+      "id": "T13",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "クラウド調査",
+      "priority": "P2",
+      "revision": 10,
+      "revisions": [],
+      "status": "done",
+      "title": "約50大会を調査・分類・比較",
+      "type": "task",
+      "updated_at": "2026-11-09T12:10:50+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "要求ID・版・適用理由・測定方法・証拠・非該当理由を記録。基準本文を未取得なら確定しない"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "外部基準と審査項目の対応を整理。適用版・要求ID・検証証拠・非該当理由の最終照合を進める。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T04"
+      ],
+      "description": "TASKS.mdから整理。依存: T04",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:36+09:00",
+          "path": "docs/BENCHMARKS.md",
+          "text": "BENCHMARKSにASVS5.0.0/WCAG2.2/SSDF1.1の要求ID・版・適用範囲・確認方法・証拠の対応を記録。CIS本文未取得は個別適合を確定せずDocker公式のPJチェックへ分離。対応表の確定と、全要求の実測/全面適合を区別する。後者の未確認はAC-13・T15/T16へ残す。"
+        }
+      ],
+      "id": "T14",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "品質担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "外部基準と審査項目の対応表を確定",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:37+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "DESIGNのAC-01〜20に結果・根拠・残課題。異常系、復元、権限、外部通信遮断を検証し修正後に再確認"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "API33件合格、独立セキュリティレビューとブラウザー試験で発見した課題を個別ticket化。全体合格とは扱わない。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T10",
+        "T11",
+        "T12",
+        "T14"
+      ],
+      "description": "TASKS.mdから整理。依存: T10、T11、T12、T14",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md",
+        "docs/STANDARDS-RESULTS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:38+09:00",
+          "path": "docs/ACCEPTANCE.md",
+          "text": "ACCEPTANCE.mdへAC01〜20の合否/条件/証拠/未確認を整理。backend33・browser12・sample5・container・依存監査0を照合。DB原子性/復元/越権を確認済みだが、BUG-003の実失効後の旧画面導線を追加検証中。未提示CSS、プレゼン、基準の全要求別結果などの残条件も未達として記録。"
+        },
+        {
+          "at": "2026-11-09T12:09:56+09:00",
+          "path": "docs/ACCEPTANCE.md",
+          "text": "最終backend33件4.72秒・browser14件23.65秒・sample5件、コンテナーと依存監査を照合。BUG001〜006の修正確認を完了。AC01〜20の条件/証拠/残課題と、STANDARDS-RESULTSの要求ID別未検証を記録。参照CSS・実利用者・大会不足等は別ticketに未達として残す。T15は検証と残条件の記録・不具合修正の範囲で完了。"
+        },
+        {
+          "at": "2026-11-09T12:15:22+09:00",
+          "path": "docs/ACCEPTANCE.md",
+          "text": "最終再実行はAPI33件、ブラウザー15件、サンプル5件。追加の復旧dialog専用403からの回復と誤code401の局所処理を実サーバーで確認し、BUG003を再完了。管理用チケット単体6件・board9件はアプリの試験数へ混ぜず別記。ACCEPTANCEを15件と測定条件へ更新。"
+        }
+      ],
+      "id": "T15",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "検証担当",
+      "priority": "P1",
+      "revision": 12,
+      "revisions": [
+        {
+          "at": "2026-11-09T12:15:46+09:00",
+          "hash": "ac94380d93f4e02a137847b9688a31c04f81f94e",
+          "path": "project/revisions/ac94380d93f4e02a137847b9688a31c04f81f94e.txt",
+          "summary": "R04: verify Docker journeys and fix recovery, contrast and history integrity"
+        }
+      ],
+      "status": "done",
+      "title": "機能・安全性・データ完全性を検証・修正",
+      "type": "task",
+      "updated_at": "2026-11-09T12:15:46+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "画面幅・文字拡大・キーボード・動き軽減等を確認。達成率・時間・誤操作を測定条件付きで記録"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T11:53:29+09:00",
+          "text": "スマホの実操作・アクセシビリティ計測が進行。旅の手帳のコントラスト不合格をBUG-006で追跡。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T10",
+        "T11",
+        "T12",
+        "T14"
+      ],
+      "description": "TASKS.mdから整理。依存: T10、T11、T12、T14",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:39+09:00",
+          "path": "docs/ACCEPTANCE.md",
+          "text": "320/390/430px、390pxで200%文字、主要画面の横溢れ、キーボードの一部、動き軽減、axe対象6画面違反0を確認。実利用者の課題達成率・所要時間・誤操作・理解、スマホ実機/読み上げ、全操作のキーボード、実利用の性能指標は未測定。自動試験秒数を人の評価へ転用しない。"
+        }
+      ],
+      "id": "T16",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "UI検証担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "review",
+      "title": "ユーザビリティ・多様性・性能の測定",
+      "type": "task",
+      "updated_at": "2026-11-09T12:04:39+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "採用・不採用・保留の理由、審査軸への対応、未達を説明。候補保存と実再訪の効果を混同しない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T13",
+        "T15",
+        "T16"
+      ],
+      "description": "TASKS.mdから整理。依存: T13、T15、T16",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "docs/ACCEPTANCE.md",
+        "docs/CONTEST-VERIFICATION.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:04:40+09:00",
+          "path": "docs/ACCEPTANCE.md",
+          "text": "採用10大会の採否、審査基準/実装/試験証拠、未達・限界を文書へ統合。主対象約50大会の調査と実利用者評価、プレゼン最終検証が残るため提出一式全体の統合完了にはしない。候補保存と実来訪の効果は区別している。"
+        },
+        {
+          "at": "2026-11-09T12:09:58+09:00",
+          "path": "docs/STANDARDS-RESULTS.md",
+          "text": "大会採用10件の採用/不採用/保留理由をCONTEST-VERIFICATION、審査軸/外部基準の要求ID別結果をSTANDARDS-RESULTS、未確認と条件をACCEPTANCEへ統合した。候補保存と実来訪を区別。T13の50主対象不足とT16の人/実機/性能未測定は解決した扱いにせず、現時点の採否・証拠・限界を説明するというT17受入条件を確認。"
+        }
+      ],
+      "id": "T17",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "調査結果の適用判断と評価証拠を統合",
+      "type": "task",
+      "updated_at": "2026-11-09T12:09:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "課題→2戦略→操作→独自性→技術と証拠→限界。指定時間で通し確認し、ソース・設計書・資料の整合と起動再現を確認"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-09T12:18:11+09:00",
+          "text": "ソース・Markdown設計書・PPTX/PDFの3成果物と最終検証結果の対応は確認済み。発表時間・提出条件が未提示のため、指定時間での通し確認を完了扱いしない。AC08は成果物対応の確認として合格、T18全体はreview。"
+        }
+      ],
+      "created_at": "2026-11-09T11:53:29+09:00",
+      "dependencies": [
+        "T17"
+      ],
+      "description": "TASKS.mdから整理。依存: T17",
+      "documents": [
+        "TASKS.md",
+        "DESIGN.md",
+        "outputs/tang-you-chi-presentation-final.pptx",
+        "outputs/tang-you-chi-presentation-final.pdf",
+        "docs/ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:09:59+09:00",
+          "path": "artifacts/presentation/VISUAL-QA.md",
+          "text": "PPTX実体のslide XML11件とPDF実体を確認。VISUAL-QA.mdはPowerPoint全11枚描画、文字切れ/重なり/画像欠落なし、93文字枠の超過0、PDF11ページを記録。最終ブラウザー14件への資料反映は担当が更新中。発表時間が未提示のため指定時間での通し確認は未完了として残す。"
+        },
+        {
+          "at": "2026-11-09T12:18:11+09:00",
+          "path": "artifacts/presentation/VISUAL-QA.md",
+          "text": "最終PPTX/PDF11枚を再照合。PPTXにAPI33件・画面15件あり、旧14件表記なし。最終描画PNG11件、9枚目の画面15/API33と注記を目視確認。SHA256がVISUAL-QA記録と一致：PPTX 4230e522a5d25efc75c326c070fd1d3ac2fb54f8ab546881da81ae5252c137c0、PDF 60355351f53f4a02f089e1c4aa7ed8afe452cb9edd2a2710aae5f24cfdf8896a。担当者の全11枚再描画・93文字枠超過0の記録を照合。成果物作成と検証は完了、指定時間の通し確認は外部条件待ちとしてreviewを維持する。"
+        }
+      ],
+      "id": "T18",
+      "origin": "既存作業を起票時点で整理。過去の着手日時・完了日時は推定していない。",
+      "owner": "発表担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "review",
+      "title": "プレゼン・デモ・提出一式を作成",
+      "type": "task",
+      "updated_at": "2026-11-09T12:18:11+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "完了条件・証拠・履歴を保存し、障害回復・同時更新・安全なHTMLを単体試験で確認する"
+        },
+        {
+          "checked": true,
+          "text": "検索・状態・優先度・詳細・スマホ表示をボードで確認し、Gitの実在コミットへ結び付ける"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T12:18:42+09:00",
+      "dependencies": [],
+      "description": "追加要件に対応。PythonとJSON台帳・追記履歴・閲覧HTMLで、個別起票から完了解消、証拠とGitリビジョンまで追跡する。",
+      "documents": [
+        "project/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T12:18:43+09:00",
+          "path": "artifacts/ticket-tests.txt",
+          "text": "チケット管理6試験成功。追記履歴・同時更新・障害回復・完了条件強制・PJ外パス拒否を確認。"
+        },
+        {
+          "at": "2026-11-09T12:18:43+09:00",
+          "path": "project/board-check.json",
+          "text": "Edgeのボード9確認成功。検索、状態/優先度、詳細、4列、390px表示、外部要求0。R04を15チケットから参照可能。"
+        }
+      ],
+      "id": "T19",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "ローカルチケット管理と改訂追跡を実装する",
+      "type": "task",
+      "updated_at": "2026-11-09T12:18:44+09:00"
+    }
+  ]
+}

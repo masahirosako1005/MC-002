@@ -1,0 +1,71 @@
+# 受入確認：AC-01〜AC-20
+
+確認日：2026-11-09。DESIGN.mdの受入条件を、保存された結果・試験コード・実装と照合した。判定はこの文書の条件内に限る。実利用者の評価、現地再訪の効果、既存システムへの接続、規格全体への適合を意味しない。
+
+この整理担当は下記の保存記録とコードを読んだ。バックエンドは開発時に自身で33件を実行し、後続の主担当による33件の保存ログも照合した。ブラウザー15件・コンテナー確認・依存監査・サンプル5件を、この整理担当がすべて再実行したという意味ではない。
+
+## 照合した証拠
+
+| 証拠 | 記録された結果・条件 |
+|---|---|
+| [backend-tests.txt](../artifacts/backend-tests.txt)、[API試験](../backend/tests/test_api.py) | 33 passed、4.72秒。Windows Python 3.13.17。時計差替え、異常系、復旧、権限、並列操作を含む |
+| [browser-tests.json](../artifacts/browser-tests.json)、[操作試験](../qa/tests/journey.spec.ts) | 15成功、失敗0、skip 0、flaky 0、88.44秒。2026-11-09 03:12:24 UTC開始。Edge/Chromium、既定390×844、1 worker。旧セッション失効・別タブCSRF更新・復旧dialogの回復とキーボードだけのA完走を含む。88.44秒には実際の復旧頻度制限を保つ61秒の待機を含み、操作性能の測定値ではない |
+| [画面の通信記録](../artifacts/browser-network.json) | 主要3画面の試験で外部HTTP要求0件・JavaScriptエラー0件。ローカルHTTPを許可し、外部要求は遮断する条件 |
+| [コンテナー確認](../artifacts/container-verification.json)、[確認スクリプト](../scripts/verify_container.py) | UID10001、capability 0、NoNewPrivs、read-only実効設定、書込拒否、内部ネットワーク、外部TCP接続失敗、loopback公開、DB整合、再起動前後一致、バックアップ整合・7テーブル件数一致 |
+| [sample-tests.txt](../artifacts/sample-tests.txt)、[CSV試験](../scripts/test_samples.py) | 合成データで5件成功。非保持列の訂正、再取込、不正行、個人識別情報非保存、キー喪失、PJ外出力拒否など |
+| [初回集計](../artifacts/sample-quality.json)、[再取込集計](../artifacts/sample-quality-repeat.json) | 元CSV5件の前後hash同一、再取込追加0件、保存件数一致、参照未一致0。個票は表示・再掲しない |
+| [Python監査](../artifacts/python-audit.json)、[フロント監査](../artifacts/frontend-audit.json) | 対象とした依存に対して報告された既知脆弱性0件。Python本体・OS・全開発ツール・未知脆弱性を包括する結果ではない |
+| [独立レビュー](SECURITY-REVIEW.md) | 年度表示、500ヘッダー、セッション初期化、訂正版CSVの修正を個別照合。残る条件・自然キーの限界を記録 |
+| [採用要求の結果](STANDARDS-RESULTS.md) | ASVS/WCAGの要求ID別、Docker独自チェック、SSDF工程について、範囲内合格・一部確認・未検証・適用外を区別 |
+| [発表資料の検証](../artifacts/presentation/VISUAL-QA.md)、[PPTX](../outputs/tang-you-chi-presentation-final.pptx)、[PDF](../outputs/tang-you-chi-presentation-final.pdf) | PPTXのslide XML11件、最終描画PNG11件、PDF実体を確認。API33件・画面15件を実体と9枚目の描画で確認。PPTX/PDFのSHA-256が視覚QA記録と一致。担当者による全11枚再描画・視覚確認、93文字枠の超過0の記録を照合 |
+
+アクセシビリティの `axe-home/journal/next/puzzle/recovery/reduced-motion.json` は6件とも違反配列が空。これは指定タグで自動検出した範囲の結果。文字200%は390pxの主要3画面、別の幅試験は320/390/430pxでアプリの文字拡大を使っている。全幅×200%×全画面を実施したとは扱わない。
+
+追加のセッション回帰試験は実サーバーで行った。別ブラウザーによる復旧で元のセッションを無効にし、旧画面からの保存401後、再読込で別の匿名手帳を自動作成せず、復旧操作で同じ保存記録へ戻ることを確認。同じcontextの別タブでは共有Cookie更新後の旧CSRFによる403を確認し、画面内再読込では失敗した書込を自動再送せず、明示的な再操作で両タブに同じ2件が見えることを確認した。
+
+その後、古い復旧dialogからの回復経路を追加修正した。15件目は別タブでCookieを更新した後、旧CSRFの復旧要求が専用403となるとdialogを閉じて全体の再読込へ進むことを確認する。再初期化後の誤った復旧コード401はdialog内の局所エラーとして残し、正しいコードへ直すと復旧できる。BUG-003の再開・追加修正・再完了は追記イベントに残す。
+
+キーボードの追加試験は、Tab/Enter/矢印で訪問コード入力、難易度選択、水門操作、不正答からの訂正、次季保存、手帳・次の旅の確認まで完了する。復旧dialogをEscapeで閉じた後の焦点復帰も含む。全画面の全操作を網羅する試験ではない。途中の失敗記録は `browser-tests-session-regression.json` と `browser-tests-additional-scenarios.json` に保持し、最終成功で上書きして隠していない。
+
+## 条件別の判定
+
+「合格」は具体的な対象と試験条件に対する判断。「条件付き合格」は確認したローカル環境・画面範囲を明示する必要がある項目。「一部確認」「未検証」は未達として残し、合格へ数えない。
+
+| ID | 判定 | 確認した内容・条件 | 証拠 | 未確認・限界 |
+|---|---|---|---|---|
+| AC-01 | 合格 | 訪問コード→水門の謎→不正答/ヒント→達成→次季保存→手帳表示を操作 | browser-tests.json「現地コードから水門の謎・実績・次季保存まで」、API正常系 | 次の来訪理由を実利用者が理解したか、実際に現地へ再訪したかは未測定 |
+| AC-02 | 条件付き合格 | Edgeのスマホ相当幅320/390/430px、主要3画面、文字拡大で横溢れなし。390pxでroot文字200%も確認 | browser-tests.json、qa/tests/journey.spec.ts、home/journal/next-mobile.png | スマホ実機・Safari・スクリーンリーダー、全画面×全拡大条件、全固定要素の遮蔽確認は未実施 |
+| AC-03 | 条件付き合格 | ローカル配信で主要画面を操作し外部要求0。appはinternal network、外向きTCP試験失敗 | browser-network.json、container-verification.json、compose.yaml | 初回のツール・依存・イメージ取得には通信が必要。OS全体の物理切断試験ではない。gateway自体の全外向き通信遮断は主張しない |
+| AC-04 | 合格 | appコンテナーを再起動し、同じCookieのjournalが前後一致 | container-verification.json、verify_container.py、API復元試験 | volumeの明示削除や端末故障で保持される意味ではない |
+| AC-05 | 合格 | 同時正答・再送・不正型/余分な得点・DB障害で状態を壊さず、正しい再試行を受け付ける。旧セッション/旧CSRFの失敗後に書込を自動再送しない | backend-tests.txt、APIの同時送信/入力/rollback試験、browser-tests.jsonの実失効/別タブ試験 | 全ての電源断・ディスク故障を網羅するものではない。実日数を待ったセッション自然失効はAPI時計差替えと区別 |
+| AC-06 | 合格 | 元ファイル前後hash、非保持列、出力DB、ログ方針を確認。加工物と分析DBをPJ内へ分離 | DATA-QUALITY.md、sample-quality*.json、sample-tests.txt、SECURITY-REVIEW.md | HMACによる仮名化であり匿名化ではない。全自由記述の内容を安全性評価したわけではない |
+| AC-07 | 条件付き合格 | このWindows/WSL/Dockerで導入・起動・再起動・バックアップを実施。別DBへの復元後journalとセッションを照合 | SETUP.md、backend/README.md、container-verification.json、API backup試験 | 別の新規PCで手順を最初から追う再現試験は未実施。ホストとコンテナーのPython版差を記録 |
+| AC-08 | 合格（成果物の対応） | 要件・API・基準・反復評価と試験を対応付け、PPTX/PDF11枚を照合。最終API33件・画面15件の反映と描画記録hash一致を確認 | DESIGN.md、API.md、BENCHMARKS.md、STANDARDS-RESULTS.md、EVALUATION.md、presentation/VISUAL-QA.md | ソース・設計書・発表資料の作成と対応確認は完了。発表時間未提示のため指定時間での通し確認はT18の残条件。実利用者への伝達力の測定は未実施 |
+| AC-09 | 合格 | 画面の日本語、具体的な動詞、エラー・空状態を確認。制作説明や指定された汎用装飾文をfrontend/srcで検索し該当なし | Guide/Journal/NextTrip/Puzzle/Recovery、画面画像、browser-tests.json | 全文章への実利用者の理解度調査は未実施。製品・都市の正式表記は利用者確認待ち |
+| AC-10 | 未検証 | 主役の体験カードと補助カードの大きさ・内容量を変えた実装とスマホ表示はある | frontend/src/styles.css、home-mobile.png、next-mobile.png | 参照CSSが未提示のため「参照の形状・大小関係を保つ」照合はできない。見た目を独自に整えたことを参照一致と扱わない |
+| AC-11 | 合格 | Aの次季の謎と、Bの会議周遊・海辺・任意の人生行事を保存へ接続 | browser-tests.jsonのA/B操作、API recommendations/plan試験、FIELD-GUIDE.md | 神社・海辺・営業条件は架空設定。実地域での誘導成果・実再訪の因果効果は未測定 |
+| AC-12 | 合格 | 旅のしおり・旅の手帳・次の旅・戻るを主要操作で統一 | App.tsx、Guide.tsx、Journal.tsx、NextTrip.tsx、browser-tests.json | 音声で提示された製品名・副題の正式綴りは未確認 |
+| AC-13 | 合格（採用範囲の追跡） | 審査軸から選定したASVS/WCAG/SSDF・Docker公式設定、実装・試験証拠まで対応付け、要求ID別に結果と未確認範囲を記録 | BENCHMARKS.md、STANDARDS-RESULTS.md、EVALUATION.md、SECURITY-REVIEW.md、本書 | 記録の追跡ができることと全要求合格は別。WCAG手動項目、全保存項目のXSS試験、CIS本文未取得などは結果表でも未検証/一部確認を維持 |
+| AC-14 | 合格（照合範囲を明示） | 候補50行を照合し、期間内資料49件＝AI開発中心28・関連21、うち名前付き受賞作品40件・募集/開催等まで9件・本文未取得1件を区別。先行採用10件と追加比較資料から採否を実装へ結び付ける | CONTEST-VERIFICATION.md、CONTEST-RESEARCH-RECEIVED.md | 主対象50を達成したわけではなく22件不足。A06は期間・受賞・独立性が未確認。受賞理由の公表・作者説明・PJの推論を区別。主対象の不足補完はRSH-001へ移す |
+| AC-15 | 合格（記録の定義内） | 並列/再送は実績一件。CSV同一再取込と非保持列訂正で重複しない | backend-tests.txt、sample-tests.txt、sample-quality-repeat.json | CSVに元イベントIDがない。同じ自然キーの別イベントは区別できず、キー列自体の訂正同期は未提供 |
+| AC-16 | 合格 | 実績INSERTへ障害を注入し、達成・実績を同時rollback。障害解除後は再回答成功。訪問・実績も一括保存 | API test_transaction_failure_rolls_back_completion_and_can_retry / test_visit_and_trophy_fail_together | SQLiteの試験可能な障害に対する確認。全ハードウェア障害・停電からの復旧保証ではない |
+| AC-17 | 合格 | JSTの翌日・冬の年度・翌年、旧attempt保持、同ゲーム版の最高得点、旧年度seasonの画面表示を確認 | backend-tests.txt、browser-tests.json「過年度の謎の季節がカタログに依存せず残る」 | APIは時計差替え、画面は旧attempt応答差替えによる確認。ブラウザーから実時計を進めたフルスタックE2Eではない |
+| AC-18 | 合格 | 他利用者のattempt/plan、未認証、CSRF/Origin/Host、改変score/user_id、異常型を拒否 | API ownership/forged answer/CSRF試験、SECURITY-REVIEW.md | ローカルOS管理者やDB直接編集、未知の攻撃全般からの隔離を意味しない |
+| AC-19 | 合格（設定条件内） | 往復＋体験＋10分余裕、時間不足、火曜休業、営業終了、非公開体験を検証。将来季節は今日の周遊と区別 | API recommendations/disabled candidate試験、browser-tests.json「会議周遊の制約・保存・取消と人生行事」 | 会議館固定・徒歩設定。実際の天候/潮汐/臨時休業/歩行速度/混雑は未確認。次季候補には出発前確認を案内 |
+| AC-20 | 条件付き合格 | スマホ相当390pxでA/B保存まで完走。主要画面の外部要求0、app側通信制限、再起動後保存を別試験で確認 | browser-tests.json、browser-network.json、container-verification.json | A/B全操作とOS全通信遮断を一つの実機試験で同時に測定したものではない。実スマホでの利用、既存アプリとの結合は未実施 |
+
+## まだ満たしていない条件
+
+- 参照CSSと正式な名称・提出条件は未提示。AC-10、T06を完了にしない。所在・未提供を整理するT01の完了と、参照へ一致させる作業の完了を区別する。
+- スマホ実機、Safari、支援技術による読み上げ、対象年代の異なる実利用者による成功率・操作時間・誤操作数・理解度の測定は未実施。自動操作の所要秒数を人の使いやすさの測定値へ転用しない。
+- Core Web Vitalsの実利用75パーセンタイル、実際の継続来訪、地域消費・満足度の向上は未測定。現地コードの入力・候補保存・再アクセスを実再訪として数えない。
+- 既存アプリのソース・API・DB接続仕様は未提供。今回の追加体験は単独で動くローカル実装であり、既存サービスへの接続・移行・本番運用を完了したとは扱わない。
+- 大会調査は候補50行を照合し、期間内資料49件（主対象28・関連21）、受賞作品確認40件、募集・開催等まで9件、本文未取得1件を確認した。主対象約50大会には22件不足し、達成を偽らずRSH-001で追加調査を追跡する。T13は公式出典・期間・分類・受賞と推論・件数不足・先行10件の設計適用を記録する調査工程として完了する。
+- 全ASVS/WCAG/CIS適合・認証、未知脆弱性不存在を主張しない。モデル都市の実在情報検証や公開インターネット運用の評価は範囲外。
+- 初期ブラウザー試験の失敗、コントラスト不合格と修正後成功を保存している。過去の失敗記録を消して最初から成功したように記録しない。
+
+## チケットとの関係
+
+個別不具合はBUG-001〜006で追跡する。正本は [チケットJSON](../project/tickets.json)、履歴は [追記イベント](../project/events.jsonl)、閲覧は [作業ボード](../outputs/project-board.html)。全受入条件と証拠が揃った項目だけ完了へ移す。
+
+T06（参照CSSとの照合）、T16（実利用者・実機・未実測条件）、T18（指定時間での発表通し確認）は残条件を記録する。RSH-001でAI開発中心の大会数の不足を別途追跡する。T15/T17の完了は検証結果と未達を整理・追跡できることを意味し、残る条件を満たしたという意味ではない。本書の「合格」数を大会の公式点や実来訪効果に換算しない。
