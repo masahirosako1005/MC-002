@@ -10,6 +10,22 @@ export function Icon({
   className?: string;
 }) {
   const paths: Record<string, ReactNode> = {
+    filter: (
+      <>
+        <path d="M4 6h16M4 12h16M4 18h16" />
+        <circle cx="9" cy="6" r="2" fill="currentColor" />
+        <circle cx="16" cy="12" r="2" fill="currentColor" />
+        <circle cx="7" cy="18" r="2" fill="currentColor" />
+      </>
+    ),
+    cup: (
+      <>
+        <path d="M4 8h12v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5ZM16 9h2a3 3 0 0 1 0 6h-2M7 3v2m5-2v2M3 22h15" />
+      </>
+    ),
+    wave: (
+      <path d="M2 7c3-4 5 4 8 0s5 4 8 0 4 0 4 0M2 12c3-4 5 4 8 0s5 4 8 0 4 0 4 0M2 17c3-4 5 4 8 0s5 4 8 0 4 0 4 0" />
+    ),
     home: (
       <>
         <path d="m3 10 9-7 9 7v10H3Z" />

@@ -1,0 +1,28 @@
+{
+  "entry": "/assets/index-DIrtRYQH.js",
+  "health": {
+    "status": "ok"
+  },
+  "before": {
+    "firstPhotoTop": 586.078125,
+    "firstPhotoWidth": 372,
+    "firstPhotoHeight": 248,
+    "viewportHeight": 736,
+    "visibleTextCharacters": 135,
+    "textCharactersAboveFirstPhoto": 135,
+    "candidateCount": 3,
+    "visiblePhotoArea": 55770.9375
+  },
+  "after": {
+    "firstPhotoTop": 339.21875,
+    "firstPhotoWidth": 374,
+    "firstPhotoHeight": 213.703125,
+    "viewportHeight": 736,
+    "visibleTextCharacters": 190,
+    "textCharactersAboveFirstPhoto": 48,
+    "candidateCount": 3,
+    "visiblePhotoArea": 79924.96875
+  },
+  "first_photo_distance_reduction_percent": 42.1,
+  "above_photo_text_reduction_percent": 64.4
+}

@@ -1,0 +1,108 @@
+{
+  "checkedAt": "2026-11-09T07:34:00.164Z",
+  "results": [
+    "profile records recurring and one-time dates privately with suggestions off",
+    "private preview saves only a public plan as an independent circle candidate",
+    "date sharing and plan suggestions are separate permissions",
+    "later and dismissed states persist per person and a suggested plan opens circle chat",
+    "revocation removes occasion-only cards without deleting independently saved plans",
+    "date controls and permission screens remain accessible on narrow phones"
+  ],
+  "layout": [
+    {
+      "label": "390",
+      "width": 390,
+      "height": 844,
+      "scroll": 390,
+      "font": "16px",
+      "inner": [
+        {
+          "className": "modal",
+          "client": 350,
+          "scroll": 350,
+          "left": 19,
+          "right": 371
+        },
+        {
+          "className": "modal-body",
+          "client": 350,
+          "scroll": 350,
+          "left": 20,
+          "right": 370
+        },
+        {
+          "className": "occasion-form",
+          "client": 314,
+          "scroll": 314,
+          "left": 38,
+          "right": 352
+        }
+      ]
+    },
+    {
+      "label": "320",
+      "width": 320,
+      "height": 844,
+      "scroll": 320,
+      "font": "16px",
+      "inner": [
+        {
+          "className": "modal",
+          "client": 280,
+          "scroll": 280,
+          "left": 19,
+          "right": 301
+        },
+        {
+          "className": "modal-body",
+          "client": 280,
+          "scroll": 280,
+          "left": 20,
+          "right": 300
+        },
+        {
+          "className": "occasion-form",
+          "client": 244,
+          "scroll": 244,
+          "left": 38,
+          "right": 282
+        }
+      ]
+    },
+    {
+      "label": "320+200%",
+      "width": 320,
+      "height": 844,
+      "scroll": 320,
+      "font": "32px",
+      "inner": [
+        {
+          "className": "modal",
+          "client": 248,
+          "scroll": 248,
+          "left": 35,
+          "right": 285
+        },
+        {
+          "className": "modal-body",
+          "client": 248,
+          "scroll": 248,
+          "left": 36,
+          "right": 284
+        },
+        {
+          "className": "occasion-form",
+          "client": 212,
+          "scroll": 212,
+          "left": 54,
+          "right": 266
+        }
+      ]
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "retention": "Only this run’s named occasion fixtures are logically deleted and circles closed. Existing profile dates, seed plans and other users’ work are preserved.",
+  "passed": true
+}

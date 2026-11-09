@@ -16,12 +16,14 @@ export default function Choice({
   children,
   disabled = false,
   id,
+  ariaLabel,
 }: {
   value: string | number;
   onChange: (event: { target: { value: string } }) => void;
   children: ReactNode;
   disabled?: boolean;
   id?: string;
+  ariaLabel?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [labelText, setLabelText] = useState("");
@@ -85,8 +87,10 @@ export default function Choice({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        aria-label={labelText || undefined}
-        aria-describedby={labelText ? `${listId}-value` : undefined}
+        aria-label={ariaLabel || labelText || undefined}
+        aria-describedby={
+          ariaLabel || labelText ? `${listId}-value` : undefined
+        }
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => {
           if (e.key === "ArrowDown" || e.key === "ArrowUp") {
@@ -105,7 +109,11 @@ export default function Choice({
         id={listId}
         className="choice-menu"
         role="listbox"
-        aria-label={labelText ? `${labelText}の選択肢` : "選択肢"}
+        aria-label={
+          ariaLabel || labelText
+            ? `${ariaLabel || labelText}の選択肢`
+            : "選択肢"
+        }
         hidden={!open}
         onKeyDown={(e) => {
           const items = Array.from(

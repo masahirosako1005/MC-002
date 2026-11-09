@@ -575,69 +575,88 @@ export default function Marketplace({
     <section className="marketplace">
       <div className="page-heading">
         <h1>旅を見つける</h1>
-      </div>
-      <button
-        className="travel-search-pill"
-        disabled={!community || !!busy}
-        onClick={() => {
-          if (party) setTab("conditions");
-          else setCreating(true);
-        }}
-      >
-        <Icon name="compass" />
-        <span>
-          <strong>
-            {party?.requirements
-              ? `${party.requirements.planned_people}人 · ${party.requirements.nights === 0 ? "日帰り" : `${party.requirements.nights}泊${party.requirements.nights + 1}日`}`
-              : "行きたい旅を探す"}
-          </strong>
-          <small>
-            {party?.requirements?.budget_yen
-              ? `${party.requirements.budget_yen.toLocaleString()}円 / ${party.requirements.budget_basis === "per_person" ? "1人" : "全員"} · 条件を見直す`
-              : "人数・泊数・予算を設定"}
-          </small>
-        </span>
-        <Icon name="arrow" />
-      </button>
-      <div className="party-toolbar">
-        <label className="field">
-          旅行の計画
-          <Choice
-            value={party?.id || ""}
-            disabled={!!busy}
-            onChange={(e) => {
-              if (e.target.value) void loadParty(e.target.value);
-              else setParty(null);
+        {!party && (
+          <button
+            className="text-button"
+            disabled={!community || !!busy}
+            onClick={() => {
+              setError("");
+              setCreating(true);
             }}
           >
-            <option value="">自分の計画</option>
-            {parties.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.title}
-              </option>
-            ))}
-          </Choice>
-        </label>
+            <Icon name="plus" />
+            旅を計画
+          </button>
+        )}
+      </div>
+      <details
+        className={`market-plan-tools ${party ? "active" : ""}`}
+        open={!!party}
+      >
+        <summary>保存した旅行計画</summary>
         <button
-          className="button primary"
+          className="travel-search-pill"
           disabled={!community || !!busy}
           onClick={() => {
-            setError("");
-            setCreating(true);
+            if (party) setTab("conditions");
+            else setCreating(true);
           }}
         >
-          <Icon name="plus" />
-          旅を計画
+          <Icon name="compass" />
+          <span>
+            <strong>
+              {party?.requirements
+                ? `${party.requirements.planned_people}人 · ${party.requirements.nights === 0 ? "日帰り" : `${party.requirements.nights}泊${party.requirements.nights + 1}日`}`
+                : "行きたい旅を探す"}
+            </strong>
+            <small>
+              {party?.requirements?.budget_yen
+                ? `${party.requirements.budget_yen.toLocaleString()}円 / ${party.requirements.budget_basis === "per_person" ? "1人" : "全員"} · 条件を見直す`
+                : "人数・泊数・予算を設定"}
+            </small>
+          </span>
+          <Icon name="arrow" />
         </button>
-        <button
-          className="icon-button"
-          aria-label="計画と候補を更新"
-          disabled={!!busy}
-          onClick={() => void load()}
-        >
-          <Icon name="refresh" />
-        </button>
-      </div>
+        <div className="party-toolbar">
+          <label className="field">
+            旅行の計画
+            <Choice
+              value={party?.id || ""}
+              disabled={!!busy}
+              onChange={(e) => {
+                if (e.target.value) void loadParty(e.target.value);
+                else setParty(null);
+              }}
+            >
+              <option value="">自分の計画</option>
+              {parties.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.title}
+                </option>
+              ))}
+            </Choice>
+          </label>
+          <button
+            className="button primary"
+            disabled={!community || !!busy}
+            onClick={() => {
+              setError("");
+              setCreating(true);
+            }}
+          >
+            <Icon name="plus" />
+            新しい計画
+          </button>
+          <button
+            className="icon-button"
+            aria-label="計画と候補を更新"
+            disabled={!!busy}
+            onClick={() => void load()}
+          >
+            <Icon name="refresh" />
+          </button>
+        </div>
+      </details>
       <ErrorBox message={error} />
       {notice && (
         <p className="notice" role="status">

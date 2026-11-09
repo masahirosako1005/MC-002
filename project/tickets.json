@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 542,
-  "last_event_hash": "951bf849e7b35b6286d9c25cd9e8702a4238f20ce2bf4db8d25fed83e4115617",
-  "updated_at": "2026-11-09T16:23:40+09:00",
+  "revision": 552,
+  "last_event_hash": "f05c58cbe08764808bcbd5fa923a750d4a9707b0f3fca4525b092d861d01d813",
+  "updated_at": "2026-11-09T16:36:02+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2265,12 +2265,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:25:16+09:00",
+          "hash": "089e0f30ca6dee54f4047aabf5b35a5ff6d423ab",
+          "path": "project/revisions/089e0f30ca6dee54f4047aabf5b35a5ff6d423ab.txt",
+          "summary": "feat: add private occasion suggestions and polished page transitions"
+        }
+      ],
       "status": "done",
       "title": "誕生日・記念日から許可した講へ旅を提案する",
       "type": "task",
-      "updated_at": "2026-11-09T16:23:31+09:00"
+      "updated_at": "2026-11-09T16:25:16+09:00"
     },
     {
       "acceptance": [
@@ -2353,29 +2360,36 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-09T16:25:17+09:00",
+          "hash": "089e0f30ca6dee54f4047aabf5b35a5ff6d423ab",
+          "path": "project/revisions/089e0f30ca6dee54f4047aabf5b35a5ff6d423ab.txt",
+          "summary": "feat: add private occasion suggestions and polished page transitions"
+        }
+      ],
       "status": "done",
       "title": "ログインと画面遷移の動きを整える",
       "type": "task",
-      "updated_at": "2026-11-09T16:23:40+09:00"
+      "updated_at": "2026-11-09T16:25:17+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "公式参照と現画面比較を記録し写真/余白/階層を刷新"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "説明文を整理し行き先/価格対象/日程/人数/泊数を実データで見せる"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "既存探索/候補/相談導線と同意/認証/動きを維持し狭幅を検証"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "Docker反映・前後画像・評価差分・Gitを記録"
         }
       ],
@@ -2386,17 +2400,59 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T16:35:51+09:00",
+          "path": "community/artifacts/refresh/comparison.json",
+          "text": "写真前の文字64.4%減、写真まで42.1%短縮。候補5/振り返り6/記念日6/遷移5、axe0と狭幅/拡大を再検証。"
+        }
+      ],
       "id": "CP43",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "Airbnbを参考に写真と判断情報を中心とした画面へ刷新",
+      "type": "task",
+      "updated_at": "2026-11-09T16:36:02+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "CP43反映後の実操作を約20秒で紹介し架空の成功を描かない"
+        },
+        {
+          "checked": false,
+          "text": "操作箇所の強調と周辺暗転、日本語テロップ、読みやすい1440×900で作成"
+        },
+        {
+          "checked": false,
+          "text": "再生時間とフレーム目視を検証しローカルMP4を提供"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T16:24:06+09:00",
+      "dependencies": [
+        "CP43"
+      ],
+      "description": "最新UI完了後に約20秒の紹介ムービーを作成。押す場所や情報を明るく周囲を暗くして強調し短い日本語テロップを添える。利用者の明示指示で今回は動画を後続扱いから作成対象へ変更。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [],
+      "id": "CP44",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
       "revision": 2,
       "revisions": [],
       "status": "in_progress",
-      "title": "Airbnbを参考に写真と判断情報を中心とした画面へ刷新",
+      "title": "実操作とスポットライトで約20秒の紹介動画を作る",
       "type": "task",
-      "updated_at": "2026-11-09T16:20:23+09:00"
+      "updated_at": "2026-11-09T16:25:19+09:00"
     },
     {
       "acceptance": [

@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-11-09T07:35:08.960Z",
+  "phase": "after",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "measurement": "Same synthetic aoi account, default post-login travel home, no selected circle. DOM text intersecting first viewport excludes collapsed/hidden elements. Distances measured within phone.",
+  "entry": "/assets/index-DIrtRYQH.js",
+  "home": {
+    "firstPhotoTop": 339.21875,
+    "firstPhotoWidth": 374,
+    "firstPhotoHeight": 213.703125,
+    "viewportHeight": 736,
+    "visibleTextCharacters": 190,
+    "textCharactersAboveFirstPhoto": 48,
+    "candidateCount": 3,
+    "visiblePhotoArea": 79924.96875
+  },
+  "detailPhoto": {
+    "image": {
+      "x": 38,
+      "y": 99,
+      "width": 334,
+      "height": 238.5625,
+      "top": 99,
+      "right": 372,
+      "bottom": 337.5625,
+      "left": 38
+    },
+    "container": {
+      "x": 38,
+      "y": 99,
+      "width": 334,
+      "height": 238.5625,
+      "top": 99,
+      "right": 372,
+      "bottom": 337.5625,
+      "left": 38
+    },
+    "opacity": "1",
+    "visibility": "visible",
+    "naturalWidth": 1448
+  },
+  "passed": true
+}

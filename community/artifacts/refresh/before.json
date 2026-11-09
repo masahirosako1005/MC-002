@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-09T07:25:02.440Z",
+  "phase": "before",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "measurement": "Same synthetic aoi account, default post-login travel home, no selected circle. DOM text intersecting first viewport excludes collapsed/hidden elements. Distances measured within phone.",
+  "home": {
+    "firstPhotoTop": 586.078125,
+    "firstPhotoWidth": 372,
+    "firstPhotoHeight": 248,
+    "viewportHeight": 736,
+    "visibleTextCharacters": 135,
+    "textCharactersAboveFirstPhoto": 135,
+    "candidateCount": 3,
+    "visiblePhotoArea": 55770.9375
+  },
+  "passed": true
+}

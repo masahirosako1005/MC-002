@@ -20,7 +20,7 @@ const context=await browser.newContext({viewport:{width:1440,height:900},locale:
 await context.route('**/*',async r=>{const url=new URL(r.request().url());if(url.hostname!=='127.0.0.1'){external.push(url.origin);await r.abort();}else await r.continue();});
 context.on('page',p=>p.on('pageerror',e=>errors.push(e.name)));
 const page=await context.newPage(),left=page.frameLocator('iframe[title="旅行者の操作画面"]'),right=page.frameLocator('iframe[title="事業者の操作画面"]');
-async function click(scope,name){await scope.getByRole('button',{name,exact:true}).click();}
+async function click(scope,name){await scope.getByRole('button',{name:name==='旅を見つける'?/^(旅を見つける|旅を探す)$/:name,exact:true}).click();}
 async function choose(scope,label,name){await scope.getByLabel(label,{exact:true}).click();await scope.getByRole('option',{name,exact:true}).click();}
 async function login(host,scope,user){
   await scope.getByLabel('アカウント名',{exact:true}).fill(user);await scope.getByLabel('パスワード',{exact:true}).fill(user+'-local-2026');
@@ -57,7 +57,10 @@ async function showPublicReference(){
   await expect(left.locator('.plan-discovery .market-plan-card').first()).toBeVisible();
   const card=left.locator('.discovery-plan').filter({has:left.getByRole('heading',{name:providerPlan.title,exact:true})});
   for(let n=0;n<25&&!(await card.count());n++){const next=left.locator('.plan-discovery .discovery-pager').getByRole('button',{name:'次へ',exact:true});if(!(await next.count())||!(await next.isEnabled()))break;await next.click();}
-  await expect(card).toBeVisible();return card.locator('.experience-reference');
+  await expect(card).toBeVisible();
+  const disclosure=card.locator('.discovery-card-details');
+  if(await disclosure.count())await disclosure.locator(':scope > summary').click();
+  return card.locator('.experience-reference');
 }
 
 try{

@@ -33,6 +33,22 @@ export function scheduleLabel(plan: ProviderPlan) {
 export function priceLabel(plan: ProviderPlan) {
   return `${plan.price_yen.toLocaleString()}円 / ${plan.price_basis === "per_person" ? "1人" : "全員"}`;
 }
+export function nightsLabel(plan: ProviderPlan) {
+  return plan.nights === 0 ? "日帰り" : `${plan.nights}泊${plan.nights + 1}日`;
+}
+export function shortScheduleLabel(plan: ProviderPlan) {
+  if (plan.schedule_type !== "dated" || !plan.starts_at || !plan.ends_at)
+    return "日程は相談";
+  const format = new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
+  const start = format.format(new Date(plan.starts_at));
+  const end = format.format(new Date(plan.ends_at));
+  return `${start}${start === end ? "" : `〜${end}`} 開催`;
+}
 export function scopeLabel(scope: string | null) {
   return scope === "whole_trip"
     ? "旅行全体"
@@ -86,45 +102,61 @@ export function PlanCard({
   onAdd?: () => void;
 }) {
   return (
-    <article className={`market-plan-card ${featured ? "featured" : ""}`}>
-      <LocalPhoto src={coverFor(plan)} alt={`${plan.area}の旅のイメージ`} />
+    <article
+      className={`market-plan-card browse-plan-card ${featured ? "featured" : ""}`}
+    >
+      <button
+        className="plan-photo-button"
+        onClick={onOpen}
+        aria-label={`${plan.title}：${actionLabel}`}
+      >
+        <LocalPhoto src={coverFor(plan)} alt={`${plan.area}の旅のイメージ`} />
+        <span className="plan-photo-duration">{nightsLabel(plan)}</span>
+      </button>
       <div className="market-plan-copy">
-        <span className="small-label">
-          {plan.area} ·{" "}
-          {plan.nights === 0
-            ? "日帰り"
-            : `${plan.nights}泊${plan.nights + 1}日`}
-        </span>
+        <p className="plan-card-area">{plan.area}</p>
         <h3>{plan.title}</h3>
-        <p className="provider-name">{plan.provider.name}</p>
-        <p className="plan-card-summary">{plan.summary}</p>
-        <p className="plan-schedule">
-          <Icon name="calendar" />
-          {scheduleLabel(plan)}
-        </p>
-        <Tags ids={plan.tags.slice(0, 3)} tags={tags} />
-        {reason && (
-          <p className="match-reason">
-            <Icon name="leaf" />
-            {reason}
-          </p>
-        )}
-        <div className="plan-price">
+        <div className="plan-card-price">
           <strong>{priceLabel(plan)}</strong>
+          <span>{scopeLabel(plan.price_scope)}の概算</span>
+        </div>
+        <div className="plan-card-facts">
           <span>
-            {scopeLabel(plan.price_scope)}の概算 · {plan.min_people}〜
-            {plan.max_people}人
+            <Icon name="people" />
+            {plan.min_people}〜{plan.max_people}人
+          </span>
+          <span
+            aria-label={`開催日時：${scheduleLabel(plan)}`}
+            title={scheduleLabel(plan)}
+          >
+            <Icon name="calendar" />
+            {shortScheduleLabel(plan)}
           </span>
         </div>
-        <button className="button secondary" onClick={onOpen}>
-          {actionLabel}
-          <Icon name="arrow" />
-        </button>
-        {onAdd && (
-          <button className="button primary" onClick={onAdd}>
-            <Icon name="plus" />
-            講に追加
+        <p className="plan-card-summary">{plan.summary}</p>
+        <p className="provider-name">
+          {plan.provider.name}
+          {plan.tags[0] && (
+            <> · {tags.find((tag) => tag.id === plan.tags[0])?.label}</>
+          )}
+        </p>
+        <div className="plan-card-actions">
+          <button className="button secondary" onClick={onOpen}>
+            {actionLabel}
+            <Icon name="arrow" />
           </button>
+          {onAdd && (
+            <button className="button primary" onClick={onAdd}>
+              <Icon name="plus" />
+              講に追加
+            </button>
+          )}
+        </div>
+        {reason && (
+          <details className="plan-card-reason">
+            <summary>合う理由</summary>
+            <p>{reason}</p>
+          </details>
         )}
       </div>
     </article>
@@ -145,77 +177,127 @@ export function PlanDetail({
   chooseLabel?: string;
   disabled?: boolean;
 }) {
+  const [showReference, setShowReference] = useState(false);
   return (
     <Modal title="プランの行程と費用" onClose={onClose} wide busy={disabled}>
-      <div className="plan-detail-cover">
-        <LocalPhoto src={coverFor(plan)} alt={`${plan.area}の旅のイメージ`} />
-        <span>{plan.area}</span>
-      </div>
-      <p className="small-label">{plan.provider.name}</p>
-      <h2 className="plan-detail-title">{plan.title}</h2>
-      <p>{plan.summary}</p>
-      <p className="plan-schedule">
-        <Icon name="calendar" />
-        {scheduleLabel(plan)}
-      </p>
-      <Tags ids={plan.tags} tags={tags} />
-      <div className="price-summary">
-        <strong>{priceLabel(plan)}</strong>
-        <span>
-          {scopeLabel(plan.price_scope)}の概算 / {plan.min_people}〜
-          {plan.max_people}人
-        </span>
-        <p>{plan.price_note}</p>
-      </div>
-      <div className="day-itinerary">
-        {Array.from({ length: plan.nights + 1 }, (_, i) => i + 1).map((day) => (
-          <section key={day}>
-            <div className="day-marker">
-              <span>{String(day).padStart(2, "0")}</span>
-              <h3>{day}日目</h3>
-            </div>
-            {plan.itinerary
-              .filter((item) => item.day === day)
-              .map((item, index) => (
-                <div className="itinerary-stop" key={index}>
-                  <span>{periods[item.period]}</span>
-                  <div>
-                    <strong>{item.place}</strong>
-                    <p>{item.description}</p>
-                    <small>
-                      {item.travel_minutes === null
-                        ? "移動時間は相談して確認"
-                        : `前の場所からの移動目安 ${item.travel_minutes}分`}
-                    </small>
-                  </div>
-                </div>
-              ))}
-          </section>
-        ))}
-      </div>
-      <Suspense
-        fallback={<p className="quiet-note">参考情報を確認しています…</p>}
-      >
-        <ProviderExperience
-          key={plan.provider.id}
-          providerId={plan.provider.id}
-        />
-      </Suspense>
-      {onChoose && (
-        <div className="plan-detail-action">
-          <p className="muted">
-            次に共有内容を確認します。まだ事業者への連絡は送られません。
-          </p>
-          <button
-            className="button primary full"
-            disabled={disabled}
-            onClick={onChoose}
-          >
-            {chooseLabel}
-            <Icon name="arrow" />
-          </button>
+      <div className="browse-plan-detail">
+        <div className="plan-detail-cover">
+          <LocalPhoto src={coverFor(plan)} alt={`${plan.area}の旅のイメージ`} priority />
+          <span>{plan.area}</span>
         </div>
-      )}
+        <p className="small-label">
+          {plan.area} · {plan.provider.name}
+        </p>
+        <h2 className="plan-detail-title">{plan.title}</h2>
+        <p>{plan.summary}</p>
+        <div className="plan-detail-facts">
+          <div>
+            <Icon name="calendar" />
+            <strong>{nightsLabel(plan)}</strong>
+            <span>所要日数</span>
+          </div>
+          <div>
+            <Icon name="people" />
+            <strong>
+              {plan.min_people}〜{plan.max_people}人
+            </strong>
+            <span>受付人数</span>
+          </div>
+          <div>
+            <Icon name="pin" />
+            <strong>{plan.area}</strong>
+            <span>開催エリア</span>
+          </div>
+        </div>
+        <section className="plan-detail-schedule">
+          <h3>開催日時</h3>
+          <p>{scheduleLabel(plan)}</p>
+          <small>空席・予約可能日は事業者に確認します。</small>
+        </section>
+        <Tags ids={plan.tags} tags={tags} />
+        <div className="price-summary browse-price-summary">
+          <strong>{priceLabel(plan)}</strong>
+          <span>
+            {scopeLabel(plan.price_scope)}の概算 / {plan.min_people}〜
+            {plan.max_people}人
+          </span>
+          <p>
+            <strong>含むもの・含まないもの</strong>
+            {plan.price_note}
+          </p>
+        </div>
+        <div className="day-itinerary browse-itinerary">
+          <h3>行程・訪問先</h3>
+          {Array.from({ length: plan.nights + 1 }, (_, i) => i + 1).map(
+            (day) => (
+              <details
+                className="plan-itinerary-day"
+                key={day}
+                open={day === 1}
+              >
+                <summary className="day-marker">
+                  <span>{String(day).padStart(2, "0")}</span>
+                  <strong>{day}日目</strong>
+                  <small>
+                    {plan.itinerary.filter((item) => item.day === day).length}
+                    か所
+                  </small>
+                </summary>
+                {plan.itinerary
+                  .filter((item) => item.day === day)
+                  .map((item, index) => (
+                    <div className="itinerary-stop" key={index}>
+                      <span>{periods[item.period]}</span>
+                      <div>
+                        <strong>{item.place}</strong>
+                        <p>{item.description}</p>
+                        <small>
+                          {item.travel_minutes === null
+                            ? "移動時間は相談して確認"
+                            : `前の場所からの移動目安 ${item.travel_minutes}分`}
+                        </small>
+                      </div>
+                    </div>
+                  ))}
+              </details>
+            ),
+          )}
+        </div>
+        <details
+          className="plan-reference-details"
+          onToggle={(event) => setShowReference(event.currentTarget.open)}
+        >
+          <summary>利用した旅からの参考情報</summary>
+          <p className="quiet-note">
+            匿名の参考集計です。未評価は低い評価を意味しません。
+          </p>
+          {showReference && (
+            <Suspense
+              fallback={<p className="quiet-note">参考情報を確認しています…</p>}
+            >
+              <ProviderExperience
+                key={plan.provider.id}
+                providerId={plan.provider.id}
+              />
+            </Suspense>
+          )}
+        </details>
+        {onChoose && (
+          <div className="plan-detail-action">
+            <p className="muted">
+              次に共有内容を確認します。予約はまだ確定しません。
+            </p>
+            <button
+              className="button primary full"
+              disabled={disabled}
+              onClick={onChoose}
+            >
+              {chooseLabel}
+              <Icon name="arrow" />
+            </button>
+          </div>
+        )}
+      </div>
     </Modal>
   );
 }

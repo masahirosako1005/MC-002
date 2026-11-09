@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-09T07:31:40.133Z",
+  "results": [
+    "provider creates and edits a dated public plan through the screen",
+    "traveler creates a circle and explicitly confirms matching travel conditions",
+    {
+      "failed": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByLabel('どの講で行く旅を探す？', { exact: true })\u001b[22m\n"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": {
+    "circle": true,
+    "plan": true
+  },
+  "fixtureRetention": "Only this run’s plan is archived and circle closed; no rows deleted.",
+  "passed": false
+}

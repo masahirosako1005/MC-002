@@ -482,6 +482,9 @@ export default function ProviderWorkspace({
     "plans",
   );
   const [plans, setPlans] = useState<ProviderPlan[]>([]);
+  const [planFilter, setPlanFilter] = useState<ProviderPlan["status"] | "all">(
+    "published",
+  );
   const [consultations, setConsultations] = useState<Consultation[]>([]);
   const [editing, setEditing] = useState<ProviderPlan | null>(null);
   const [selected, setSelected] = useState<Consultation | null>(null);
@@ -575,7 +578,7 @@ export default function ProviderWorkspace({
       ) : tab === "plans" ? (
         <>
           <div className="section-title">
-            <h2>公開・下書き</h2>
+            <h2>プランの管理</h2>
             <button
               className="button primary"
               disabled={!providers.length}
@@ -585,27 +588,73 @@ export default function ProviderWorkspace({
               プランをつくる
             </button>
           </div>
-          <div className="provider-plan-list">
-            {plans.map((p) => (
-              <div key={p.id}>
-                <span
-                  className={`plan-state ${p.status === "published" ? "published" : ""}`}
-                >
-                  {p.status === "published"
-                    ? "公開中"
-                    : p.status === "draft"
-                      ? "下書き"
-                      : "公開終了"}
+          <div
+            className="provider-plan-filters"
+            role="group"
+            aria-label="プランの公開状態"
+          >
+            {(
+              [
+                ["published", "公開中"],
+                ["draft", "下書き"],
+                ["archived", "公開終了"],
+                ["all", "すべて"],
+              ] as const
+            ).map(([value, label]) => (
+              <button
+                key={value}
+                aria-pressed={planFilter === value}
+                className={planFilter === value ? "selected" : ""}
+                onClick={() => setPlanFilter(value)}
+              >
+                {label}
+                <span>
+                  {value === "all"
+                    ? plans.length
+                    : plans.filter((plan) => plan.status === value).length}
                 </span>
-                <PlanCard
-                  plan={p}
-                  tags={tags}
-                  onOpen={() => setEditing(p)}
-                  actionLabel="プランを編集する"
-                />
-              </div>
+              </button>
             ))}
           </div>
+          <div className="provider-plan-list">
+            {plans
+              .filter(
+                (plan) => planFilter === "all" || plan.status === planFilter,
+              )
+              .map((p) => (
+                <div key={p.id}>
+                  <span
+                    className={`plan-state ${p.status === "published" ? "published" : ""}`}
+                  >
+                    {p.status === "published"
+                      ? "公開中"
+                      : p.status === "draft"
+                        ? "下書き"
+                        : "公開終了"}
+                  </span>
+                  <PlanCard
+                    plan={p}
+                    tags={tags}
+                    onOpen={() => setEditing(p)}
+                    actionLabel="プランを編集する"
+                  />
+                </div>
+              ))}
+          </div>
+          {!busy &&
+            plans.length > 0 &&
+            !plans.some(
+              (plan) => planFilter === "all" || plan.status === planFilter,
+            ) && (
+              <Empty title="この公開状態のプランはありません">
+                <button
+                  className="button secondary"
+                  onClick={() => setPlanFilter("all")}
+                >
+                  すべてのプランを見る
+                </button>
+              </Empty>
+            )}
           {!busy && !plans.length && (
             <Empty title="登録したプランはありません">
               <p>地域の場所やお店を、日別の行程にまとめられます。</p>

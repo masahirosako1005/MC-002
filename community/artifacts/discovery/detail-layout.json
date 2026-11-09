@@ -1,0 +1,30 @@
+[
+  {
+    "className": "modal-body",
+    "client": 248,
+    "scroll": 248,
+    "left": 36,
+    "right": 284
+  },
+  {
+    "className": "browse-plan-detail",
+    "client": 212,
+    "scroll": 212,
+    "left": 54,
+    "right": 266
+  },
+  {
+    "className": "plan-detail-facts",
+    "client": 212,
+    "scroll": 212,
+    "left": 54,
+    "right": 266
+  },
+  {
+    "className": "price-summary browse-price-summary",
+    "client": 212,
+    "scroll": 212,
+    "left": 54,
+    "right": 266
+  }
+]

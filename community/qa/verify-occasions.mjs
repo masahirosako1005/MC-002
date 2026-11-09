@@ -17,7 +17,7 @@ const context=await browser.newContext({viewport:{width:1440,height:900},locale:
 await context.route('**/*',async r=>{const u=new URL(r.request().url());if(u.hostname!=='127.0.0.1'){external.push(u.origin);await r.abort();}else await r.continue();});
 context.on('page',p=>p.on('pageerror',e=>errors.push(e.name)));
 const page=await context.newPage(),left=page.frameLocator('iframe[title="旅行者の操作画面"]'),right=page.frameLocator('iframe[title="事業者の操作画面"]');
-async function click(scope,name){await scope.getByRole('button',{name,exact:true}).click();}
+async function click(scope,name){await scope.getByRole('button',{name:name==='旅を見つける'?/^(旅を見つける|旅を探す)$/:name,exact:true}).click();}
 async function choose(scope,label,name){await scope.getByLabel(label,{exact:true}).click();await scope.getByRole('option',{name,exact:true}).click();}
 async function login(host,scope,user){await scope.getByLabel('アカウント名',{exact:true}).fill(user);await scope.getByLabel('パスワード',{exact:true}).fill(user+'-local-2026');const pending=host.waitForResponse(r=>r.url().endsWith('/stage/login')&&r.request().method()==='POST');await click(scope,'ログイン');sessions[user]=await(await pending).json();await expect(scope.locator('.app-shell')).toBeVisible();}
 async function api(user,url,method='GET',data){const s=sessions[user],r=await context.request.fetch(base+'/api'+url,{method,headers:{Authorization:`Bearer ${s.access_token}`,Origin:base,'X-CSRF-Token':s.csrf_token},data});assert.equal(r.status(),200,`${method} ${url}: ${r.status()}`);return r.json();}

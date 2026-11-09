@@ -45,16 +45,16 @@ try{
   await nav(left,'みんなの記録').click();await expect.poll(async()=>(await probe(left)).length).toBe(2);
   let record=(await probe(left)).at(-1);assert.equal(record.kind,'navigation');assert.equal(record.options.duration,170);
   await nav(left,'みんなの記録').click();assert.equal((await probe(left)).length,2);
-  await nav(left,'旅を見つける').click();await expect.poll(async()=>(await probe(left)).length).toBe(3);
+  await nav(left,'旅を探す').click();await expect.poll(async()=>(await probe(left)).length).toBe(3);
   await expect(main(left)).toHaveAttribute('data-motion-state','idle');await page.screenshot({path:path.join(out,'after-stage.png')});
  });
  await step('keyboard navigation is immediate and rapid pointer navigation cancels old motion',async()=>{
   const before=(await probe(left)).length;await nav(left,'みんなの記録').focus();await nav(left,'みんなの記録').press('Enter');assert.equal((await probe(left)).length,before);await expect(main(left)).toHaveAttribute('data-motion-trigger','keyboard');
-  await nav(left,'旅を見つける').click();await nav(left,'みんなの記録').click();await expect(main(left)).toHaveAttribute('data-motion-state','idle');
+  await nav(left,'旅を探す').click();await nav(left,'みんなの記録').click();await expect(main(left)).toHaveAttribute('data-motion-state','idle');
   const records=await probe(left);assert.equal(records.length,before+2);assert(records.at(-2).cancelled,'previous navigation must be cancelled');await expect(nav(left,'みんなの記録')).toHaveAttribute('aria-current','page');
  });
  await step('reduced motion disables entrance and navigation; logout removes authenticated content',async()=>{
-  await page.emulateMedia({reducedMotion:'reduce'});const before=(await probe(left)).length;await nav(left,'旅を見つける').click();assert.equal((await probe(left)).length,before);await expect(main(left)).toHaveAttribute('data-motion-policy','reduced');
+  await page.emulateMedia({reducedMotion:'reduce'});const before=(await probe(left)).length;await nav(left,'旅を探す').click();assert.equal((await probe(left)).length,before);await expect(main(left)).toHaveAttribute('data-motion-policy','reduced');
   await left.getByRole('button',{name:'藤沢 葵 アカウントを切り替える',exact:true}).click();await left.getByRole('button',{name:'ログアウトして切り替える',exact:true}).click();await expect(main(left)).toHaveCount(0);await expect(left.getByLabel('パスワード',{exact:true})).toHaveValue('');await expect(right.locator('.provider-workspace')).toBeVisible();
   await login(left,'ren');assert.equal((await probe(left)).length,before);await expect(main(left)).toHaveAttribute('data-motion-policy','reduced');
  });

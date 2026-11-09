@@ -893,6 +893,7 @@ export default function App() {
         {nav.map((n) => (
           <button
             key={n.id}
+            aria-label={n.id === "market" ? "旅を探す" : n.label}
             className={page === n.id ? "active" : ""}
             onClick={(event) =>
               navigate(n.id, event.detail ? "pointer" : "keyboard")
@@ -900,7 +901,17 @@ export default function App() {
             aria-current={page === n.id ? "page" : undefined}
           >
             <Icon name={n.icon} />
-            <span>{n.label}</span>
+            <span>
+              {n.id === "feed"
+                ? "記録"
+                : n.id === "market"
+                  ? "探す"
+                  : n.id === "ko"
+                    ? "講"
+                    : n.id === "journal"
+                      ? "地図"
+                      : "仕事場"}
+            </span>
           </button>
         ))}
         {!data.capabilities.providers.length ? (

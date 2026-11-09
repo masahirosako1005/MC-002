@@ -312,6 +312,50 @@ export default function PlanDiscovery({
   const [page, setPage] = useState(0);
   const [detail, setDetail] = useState<ProviderPlan | null>(null);
   const [saving, setSaving] = useState<ProviderPlan | null>(null);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  const [duration, setDuration] = useState("all");
+  const [schedule, setSchedule] = useState("all");
+  const [area, setArea] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const candidates = data?.items || [];
+  const filtered = candidates.filter(
+    ({ plan }) =>
+      (!query.trim() ||
+        `${plan.area} ${plan.title} ${plan.provider.name}`
+          .toLocaleLowerCase("ja")
+          .includes(query.trim().toLocaleLowerCase("ja"))) &&
+      (!category || plan.tags.includes(category)) &&
+      (duration === "all" ||
+        (duration === "day" ? plan.nights === 0 : plan.nights > 0)) &&
+      (schedule === "all" ||
+        (schedule === "dated"
+          ? plan.schedule_type === "dated"
+          : plan.schedule_type !== "dated")) &&
+      (!area || plan.area === area),
+  );
+  const categories = tags.filter((tag) =>
+    candidates.some(({ plan }) => plan.tags.includes(tag.id)),
+  );
+  const areas = [...new Set(candidates.map(({ plan }) => plan.area))];
+  const filterCount =
+    Number(duration !== "all") + Number(schedule !== "all") + Number(!!area);
+  const hasFilter = !!query || !!category || !!filterCount;
+  const currentPage = Math.min(
+    page,
+    Math.max(0, Math.ceil(filtered.length / 4) - 1),
+  );
+  function clearFilters() {
+    setQuery("");
+    setCategory("");
+    setDuration("all");
+    setSchedule("all");
+    setArea("");
+    setPage(0);
+  }
+  useEffect(() => {
+    setPage(0);
+  }, [query, category, duration, schedule, area]);
   useEffect(() => {
     let active = true;
     setLoading(true);
@@ -355,28 +399,28 @@ export default function PlanDiscovery({
   ]);
   return (
     <section className="plan-discovery">
-      <div className="market-discovery-heading">
-        <div>
-          <p className="eyebrow">
-            {circle || circleId
-              ? "あなたの講へのおすすめ順"
-              : "地域の人が案内する旅"}
-          </p>
-          <h2>{circle ? "この講の旅行プラン" : "旅行プラン"}</h2>
+      {circle ? (
+        <div className="market-discovery-heading">
+          <div>
+            <h2>{circle ? "この講の旅行プラン" : "旅行プラン"}</h2>
+          </div>
+          <button
+            className="text-button"
+            disabled={loading}
+            onClick={() => setLoadKey((value) => value + 1)}
+          >
+            <Icon name="refresh" />
+            <span className="sr-only">おすすめを更新</span>
+          </button>
         </div>
-        <button
-          className="text-button"
-          disabled={loading}
-          onClick={() => setLoadKey((value) => value + 1)}
-        >
-          <Icon name="refresh" />
-          おすすめを更新
-        </button>
-      </div>
+      ) : (
+        <h2 className="sr-only">旅行プラン</h2>
+      )}
       {!circle && (
-        <label className="field">
-          どの講で行く旅を探す？
+        <label className="field discovery-circle-field">
+          <span className="sr-only">どの講で行く旅を探す？</span>
           <Choice
+            ariaLabel="どの講で行く旅を探す？"
             value={circleId}
             disabled={loading}
             onChange={(event) => setCircleId(event.target.value)}
@@ -390,70 +434,161 @@ export default function PlanDiscovery({
           </Choice>
         </label>
       )}
+      <div className="discovery-search-row">
+        <label className="discovery-search">
+          <Icon name="compass" />
+          <span className="sr-only">
+            取得した候補を場所・プラン名で絞り込む
+          </span>
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="場所・プラン名で絞り込む"
+          />
+        </label>
+        <button
+          className="discovery-filter-button"
+          onClick={() => setFiltersOpen(true)}
+          aria-label={`絞り込み${filterCount ? `（${filterCount}件）` : ""}`}
+        >
+          <Icon name="filter" />
+          <span>{filterCount || "条件"}</span>
+        </button>
+      </div>
+      {categories.length > 0 && (
+        <div
+          className="discovery-categories"
+          role="group"
+          aria-label="候補のカテゴリ"
+        >
+          <button
+            aria-pressed={!category}
+            className={!category ? "selected" : ""}
+            onClick={() => setCategory("")}
+          >
+            <Icon name="compass" />
+            すべて
+          </button>
+          {categories.map((tag) => (
+            <button
+              key={tag.id}
+              aria-pressed={category === tag.id}
+              className={category === tag.id ? "selected" : ""}
+              onClick={() => setCategory(tag.id)}
+            >
+              <Icon
+                name={
+                  tag.id === "coast"
+                    ? "wave"
+                    : tag.id === "cafe"
+                      ? "cup"
+                      : tag.id === "nature"
+                        ? "leaf"
+                        : "pin"
+                }
+              />
+              {tag.label}
+            </button>
+          ))}
+        </div>
+      )}
       <ErrorBox message={error} />
       {data && (
-        <p className="discovery-note">
-          {data.context.profile_used
-            ? "このコミュニティで利用を許可した自分の関心"
-            : "プロフィールの関心は使用せず、公開内容"}
-          {data.context.circle_id ? "と、この講の希望・確定した旅行条件" : ""}
-          をもとに、関連する順に表示しています。人気順や予約可能の保証ではありません。
-        </p>
+        <div className="discovery-results">
+          <p role="status">
+            {hasFilter
+              ? `${candidates.length}件から${filtered.length}件`
+              : `${filtered.length}件の候補`}
+          </p>
+          <details className="discovery-method">
+            <summary>
+              {circle || circleId ? "あなたの講へのおすすめ順" : "関連する順"}
+            </summary>
+            <p>
+              {data.context.profile_used
+                ? "このコミュニティで利用を許可した自分の関心"
+                : "プロフィールの関心は使用せず、公開内容"}
+              {data.context.circle_id
+                ? "と、この講の希望・確定した旅行条件"
+                : ""}
+              をもとに並べています。未評価は低い評価を意味しません。空席・予約可能日は事業者に確認します。
+            </p>
+          </details>
+          {!circle && (
+            <button
+              className="icon-button discovery-refresh"
+              aria-label="おすすめを更新"
+              disabled={loading}
+              onClick={() => setLoadKey((value) => value + 1)}
+            >
+              <Icon name="refresh" />
+            </button>
+          )}
+          {hasFilter && (
+            <button className="text-button" onClick={clearFilters}>
+              絞り込みを解除
+            </button>
+          )}
+        </div>
       )}
       {loading ? (
         <p role="status">関連する旅を探しています…</p>
-      ) : data?.items.length ? (
+      ) : filtered.length ? (
         <>
           <div className="market-plan-grid">
-            {data.items.slice(page * 4, (page + 1) * 4).map((item) => (
-              <div className="discovery-plan" key={item.plan.id}>
-                <PlanCard
-                  plan={item.plan}
-                  tags={tags}
-                  reason={item.reasons.join("・")}
-                  onOpen={() => setDetail(item.plan)}
-                  onAdd={() => setSaving(item.plan)}
-                />
-                <p className="discovery-note">
-                  {item.schedule_status === "ongoing"
-                    ? "開催期間中。空席は確認が必要です。"
-                    : item.schedule_status === "upcoming"
-                      ? "開催予定。空席は確認が必要です。"
-                      : "日程は相談。希望日が決まったら確認しましょう。"}
-                </p>
-                {item.experience_reference && (
-                  <ExperienceReference summary={item.experience_reference} />
-                )}
-                {item.unknowns.length > 0 && (
-                  <details className="discovery-unknowns">
-                    <summary>確認が必要なこと</summary>
-                    <ul>
-                      {item.unknowns.map((unknown, index) => (
-                        <li key={index}>{unknown}</li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
-              </div>
-            ))}
+            {filtered
+              .slice(currentPage * 4, (currentPage + 1) * 4)
+              .map((item) => (
+                <div className="discovery-plan" key={item.plan.id}>
+                  <PlanCard
+                    plan={item.plan}
+                    tags={tags}
+                    reason={item.reasons.join("・")}
+                    onOpen={() => setDetail(item.plan)}
+                    onAdd={() => setSaving(item.plan)}
+                  />
+                  {(item.unknowns.length > 0 || item.experience_reference) && (
+                    <details className="discovery-card-details">
+                      <summary>確認事項・参考情報</summary>
+                      {item.experience_reference && (
+                        <ExperienceReference
+                          summary={item.experience_reference}
+                        />
+                      )}
+                      {item.unknowns.length > 0 && (
+                        <details className="discovery-unknowns">
+                          <summary>確認が必要なこと</summary>
+                          <ul>
+                            {item.unknowns.map((unknown, index) => (
+                              <li key={index}>{unknown}</li>
+                            ))}
+                          </ul>
+                        </details>
+                      )}
+                    </details>
+                  )}
+                </div>
+              ))}
           </div>
-          {data.items.length > 4 && (
+          {filtered.length > 4 && (
             <div className="discovery-pager">
               <button
                 className="button secondary"
-                disabled={!page}
-                onClick={() => setPage((value) => value - 1)}
+                disabled={!currentPage}
+                onClick={() => setPage(currentPage - 1)}
               >
                 前へ
               </button>
               <span>
-                {page * 4 + 1}〜{Math.min((page + 1) * 4, data.items.length)} /{" "}
-                {data.items.length}件
+                {currentPage * 4 + 1}〜
+                {Math.min((currentPage + 1) * 4, filtered.length)} /{" "}
+                {filtered.length}件
               </span>
               <button
                 className="button secondary"
-                disabled={(page + 1) * 4 >= data.items.length}
-                onClick={() => setPage((value) => value + 1)}
+                disabled={(currentPage + 1) * 4 >= filtered.length}
+                onClick={() => setPage(currentPage + 1)}
               >
                 次へ
               </button>
@@ -462,10 +597,76 @@ export default function PlanDiscovery({
         </>
       ) : (
         !error && (
-          <Empty title="今の希望に合うプランはありません">
-            <p>講の希望や旅行条件を見直して、もう一度探してみましょう。</p>
+          <Empty
+            title={
+              hasFilter
+                ? "絞り込みに合う候補はありません"
+                : "今の希望に合うプランはありません"
+            }
+          >
+            {hasFilter ? (
+              <button className="button secondary" onClick={clearFilters}>
+                絞り込みを解除
+              </button>
+            ) : (
+              <p>講の希望や旅行条件を見直して、もう一度探せます。</p>
+            )}
           </Empty>
         )
+      )}
+      {filtersOpen && (
+        <Modal title="候補を絞り込む" onClose={() => setFiltersOpen(false)}>
+          <div className="discovery-filter-form">
+            <p className="quiet-note">
+              取得した{candidates.length}件の候補に適用します。
+            </p>
+            <label className="field">
+              開催エリア
+              <Choice
+                value={area}
+                onChange={(event) => setArea(event.target.value)}
+              >
+                <option value="">すべて</option>
+                {areas.map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </Choice>
+            </label>
+            <label className="field">
+              所要日数
+              <Choice
+                value={duration}
+                onChange={(event) => setDuration(event.target.value)}
+              >
+                <option value="all">すべて</option>
+                <option value="day">日帰り</option>
+                <option value="overnight">宿泊を含む</option>
+              </Choice>
+            </label>
+            <label className="field">
+              開催日程
+              <Choice
+                value={schedule}
+                onChange={(event) => setSchedule(event.target.value)}
+              >
+                <option value="all">すべて</option>
+                <option value="dated">日時が決まっている</option>
+                <option value="on_request">日程は相談</option>
+              </Choice>
+            </label>
+            <button
+              className="button primary full"
+              onClick={() => setFiltersOpen(false)}
+            >
+              {filtered.length}件の候補を表示
+            </button>
+            <button className="text-button" onClick={clearFilters}>
+              すべての絞り込みを解除
+            </button>
+          </div>
+        </Modal>
       )}
       {detail && (
         <PlanDetail

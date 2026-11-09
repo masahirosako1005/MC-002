@@ -34,7 +34,7 @@ try{
   await noOverflow(visitor);await noOverflow(provider);await page.screenshot({path:path.join(output,'stage-initial.png'),fullPage:true});
  });
  await step('travel conversation creates only an unconfirmed condition draft',async()=>{
-  await click('旅を見つける',visitor);await click('旅を計画',visitor);await visitor.getByLabel('旅の名前',{exact:true}).fill('高原で過ごす、同期の週末');
+  await click('旅を探す',visitor);await click('旅を計画',visitor);await visitor.getByLabel('旅の名前',{exact:true}).fill('高原で過ごす、同期の週末');
   const created=page.waitForResponse(r=>r.url().endsWith('/travel-parties')&&r.request().method()==='POST');await click('旅の計画をつくる',visitor);partyId=(await (await created).json()).id;
   await visitor.getByLabel('講のメンバーとの会話に送るメッセージ').fill('6人で2泊3日、1人3万円くらいで森とカフェに行こう。内輪の集合相談。');await click('送る',visitor);
   await expect(visitor.locator('.message').last()).toContainText('内輪の集合相談');await click('最近の会話から条件を整理',visitor);
@@ -107,7 +107,7 @@ try{
   assert((await api('aoi','/provider-plans')).items.some(p=>p.id===createdPlanId));
  });
  await step('two phone accessibility, reduced motion and no horizontal overflow',async()=>{
-  await click('旅を見つける',visitor);await noOverflow(page);await noOverflow(visitor);await noOverflow(provider);await axe('stage');
+  await click('旅を探す',visitor);await noOverflow(page);await noOverflow(visitor);await noOverflow(provider);await axe('stage');
   await page.emulateMedia({reducedMotion:'reduce'});const animation=await page.locator('.stage-caption').evaluate(el=>getComputedStyle(el).animationName);assert.equal(animation,'none');
   assert.equal(await page.locator('.stage > .stage-floor > section').count(),2);
   assert.equal(await page.locator('.stage button,.stage a,.stage-activity,.stage-hub,.stage-intro,.stage-controls').count(),0);
@@ -116,7 +116,7 @@ try{
  });
  await step('mobile 390 and 320, enlarged type and keyboard choice',async()=>{
   const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));await p.setViewportSize({width:390,height:844});await p.goto(base+'/stage/visitor');
-  await p.getByLabel('アカウント名',{exact:true}).fill('aoi');await p.getByLabel('パスワード',{exact:true}).fill('aoi-local-2026');await click('ログイン',p);await click('旅を見つける',p);await expect(p.locator('.market-plan-card').first()).toBeVisible();await noOverflow(p);await p.screenshot({path:path.join(output,'mobile-390.png'),fullPage:true});
+  await p.getByLabel('アカウント名',{exact:true}).fill('aoi');await p.getByLabel('パスワード',{exact:true}).fill('aoi-local-2026');await click('ログイン',p);await click('旅を探す',p);await expect(p.locator('.market-plan-card').first()).toBeVisible();await noOverflow(p);await p.screenshot({path:path.join(output,'mobile-390.png'),fullPage:true});
   await p.setViewportSize({width:320,height:740});await noOverflow(p);await p.screenshot({path:path.join(output,'mobile-320.png'),fullPage:true});
   await p.setViewportSize({width:390,height:844});await p.evaluate(()=>document.documentElement.style.fontSize='200%');await noOverflow(p);await p.evaluate(()=>document.documentElement.style.fontSize='');
   const choice=p.getByLabel('旅行の計画',{exact:true});await choice.focus();await p.keyboard.press('ArrowDown');await expect(p.getByRole('listbox')).toBeVisible();await p.keyboard.press('End');await p.keyboard.press('Escape');await expect(choice).toBeFocused();await p.close();

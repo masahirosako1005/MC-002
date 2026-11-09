@@ -25,7 +25,7 @@ context.on('page',p=>p.on('pageerror',e=>errors.push(e.name)));
 const page=await context.newPage();
 const left=page.frameLocator('iframe[title="旅行者の操作画面"]');
 const right=page.frameLocator('iframe[title="事業者の操作画面"]');
-async function click(scope,name){await scope.getByRole('button',{name,exact:true}).click();}
+async function click(scope,name){await scope.getByRole('button',{name:name==='旅を見つける'?/^(旅を見つける|旅を探す)$/:name,exact:true}).click();}
 async function choose(scope,label,name){await scope.getByLabel(label,{exact:true}).click();await scope.getByRole('option',{name,exact:true}).click();}
 async function login(host,scope,user){
   await scope.getByLabel('アカウント名',{exact:true}).fill(user);
@@ -84,7 +84,7 @@ try{
     await d.getByLabel('開催終了（日本時間）',{exact:true}).fill(day+'T19:00');
     const updated=await savePlan(d);assert.equal(updated.version,plan.version+1);
     assert.equal(Date.parse(updated.ends_at),Date.parse(day+'T19:00:00+09:00'));
-    await expect(card).toContainText('日本時間');
+    await expect(card).toContainText('開催');
     await page.screenshot({path:path.join(out,'provider-dates.png')});
   });
   await step('traveler creates a circle and explicitly confirms matching travel conditions',async()=>{
@@ -117,7 +117,16 @@ try{
       if(!(await next.count())||!(await next.isEnabled()))break;
       await next.click();
     }
-    await expect(card).toBeVisible();await expect(card).toContainText('日本時間');await expect(card).toContainText('6人');
+    const search=left.getByRole('searchbox',{name:'取得した候補を場所・プラン名で絞り込む',exact:true});
+    await search.fill('存在しない候補 '+run);await expect(left.getByText('絞り込みに合う候補はありません',{exact:true})).toBeVisible();
+    await search.fill(planTitle);await expect(card).toBeVisible();
+    await left.getByRole('button',{name:'絞り込み',exact:true}).click();
+    const filters=left.getByRole('dialog',{name:'候補を絞り込む',exact:true});
+    await choose(filters,'所要日数','宿泊を含む');await expect(filters.getByRole('button',{name:'0件の候補を表示',exact:true})).toBeVisible();
+    await choose(filters,'所要日数','日帰り');await choose(filters,'開催日程','日時が決まっている');await choose(filters,'開催エリア','岐阜県');
+    await click(filters,'1件の候補を表示');await expect(card).toBeVisible();await expect(card).toContainText('2〜8人');await expect(card).toContainText('4,000円 / 1人');await expect(card).toContainText('概算');
+    await click(card,'日別の行程を見る');
+    const firstDetail=left.getByRole('dialog',{name:'プランの行程と費用',exact:true});await expect(firstDetail).toContainText('日本時間');await expect(firstDetail).toContainText('往復交通費と食事は含みません');await inspectAxe('plan-detail');await click(firstDetail,'閉じる');
     await click(card,'講に追加');
     const save=left.getByRole('dialog',{name:'講に候補を追加する',exact:true});
     await expect(save.getByLabel('追加する講',{exact:true})).toContainText(circleTitle);
@@ -152,6 +161,18 @@ try{
     for(const width of [390,320]){await p.setViewportSize({width,height:844});await noOverflow(p);await p.screenshot({path:path.join(out,`candidate-${width}.png`)});}
     await p.locator('html').evaluate(el=>el.style.fontSize='200%');await noOverflow(p);
     await p.getByLabel('講の内輪の会話に送るメッセージ').scrollIntoViewIfNeeded();await expect(p.getByLabel('講の内輪の会話に送るメッセージ')).toBeInViewport();
+    await p.locator('html').evaluate(el=>el.style.fontSize='');await click(p,'旅を見つける');await choose(p,'どの講で行く旅を探す？',circleTitle);
+    await p.getByRole('searchbox',{name:'取得した候補を場所・プラン名で絞り込む',exact:true}).fill(planTitle);
+    const card=p.locator('.market-plan-card').filter({hasText:planTitle});await expect(card).toBeVisible();
+    for(const width of [390,320]){
+      await p.setViewportSize({width,height:844});await noOverflow(p);await card.scrollIntoViewIfNeeded();await p.screenshot({path:path.join(out,`plan-${width}.png`)});
+      await click(card,'日別の行程を見る');const detail=p.getByRole('dialog',{name:'プランの行程と費用',exact:true});await expect(detail).toContainText('日本時間');await noOverflow(p);await p.screenshot({path:path.join(out,`detail-${width}.png`)});await click(detail,'閉じる');
+    }
+    await p.locator('html').evaluate(el=>el.style.fontSize='200%');await noOverflow(p);await card.scrollIntoViewIfNeeded();await p.screenshot({path:path.join(out,'plan-320-enlarged.png')});
+    await click(card,'日別の行程を見る');const detail=p.getByRole('dialog',{name:'プランの行程と費用',exact:true});await noOverflow(p);
+    const inner=await detail.locator('.modal-body, .browse-plan-detail, .plan-detail-facts, .price-summary').evaluateAll(nodes=>nodes.map(node=>({className:node.className,client:node.clientWidth,scroll:node.scrollWidth,left:node.getBoundingClientRect().left,right:node.getBoundingClientRect().right})));
+    await fs.writeFile(path.join(out,'detail-layout.json'),JSON.stringify(inner,null,2));assert(inner.every(item=>item.scroll<=item.client+1&&item.left>=-1&&item.right<=321),JSON.stringify(inner));
+    await p.screenshot({path:path.join(out,'detail-320-enlarged.png')});await click(detail,'閉じる');
     await p.close();assert.equal(external.length,0);assert.equal(errors.length,0);
   });
 }catch(e){

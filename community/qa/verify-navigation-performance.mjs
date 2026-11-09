@@ -36,7 +36,7 @@ try {
     await expect(frame.locator('.market-plan-card').first()).toBeVisible();
   }
   const targets=[
-    [left,'みんなの記録','.post-card'],[left,'旅を見つける','.market-plan-card'],
+    [left,'みんなの記録','.post-card'],[left,'旅を探す','.market-plan-card'],
     [right,'届いた相談','.consultation-row'],[right,'自社のプラン','.market-plan-card'],
   ];
   for(let cycle=0;cycle<10;cycle++)for(const [frame,label,selector] of targets){
