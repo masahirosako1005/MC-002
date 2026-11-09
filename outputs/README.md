@@ -1,5 +1,7 @@
 # 発表資料
 
+**以下のPowerPoint/PDFは旧版 v1.1 の資料です。コミュニティと「講」を中心にした新版スライドは未制作です。** 新しい[設計書](../DESIGN.md)ではシステムと発表資料に講の思想を反映します。[相関図](community-data-correlations.png)は別用途の開発分析資料であり、講の世界観には合わせません。[分析条件と数値](../docs/COMMUNITY-SAMPLE-ANALYSIS.md)も参照できます。
+
 - [編集用PowerPoint](tang-you-chi-presentation-final.pptx)：13枚。原稿・見出し・図形を編集できます。
 - [閲覧用PDF](tang-you-chi-presentation-final.pdf)：同じ13枚をPowerPointで書き出した固定表示版です。
 

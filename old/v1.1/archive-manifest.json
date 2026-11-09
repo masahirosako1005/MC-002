@@ -1,0 +1,11 @@
+{
+  "revision": "05c3d878e1a42a3f62cdcb704e415282ea5af8ac",
+  "archive": "source-with-history.zip",
+  "sha256": "b91701814c3455419dfc8cf853b82e9b70f957c1e021baf41511367d1d626e73",
+  "bytes": 85610168,
+  "tracked_files": 245,
+  "zip_crc": "passed",
+  "includes_git_history": true,
+  "includes_runtime_data": false,
+  "working_app_moved": false
+}

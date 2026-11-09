@@ -1,5 +1,7 @@
 # tang you chi
 
+> **現在の方針：コミュニティと「講」を中心とする新プラットフォームへ変更しました。** [新設計書](DESIGN.md)、[今後のタスク](TASKS.md)、[CSV分析](docs/COMMUNITY-SAMPLE-ANALYSIS.md)を参照してください。新機能は設計段階です。以下の起動手順と画面は旧版のもので、[旧版の保管](old/v1.1/README.md)にも残しています。
+
 四季の謎解きと旅の記録から、次に訪れる理由を残すスマホ向けWebアプリ。
 
 React / TypeScript、Python / FastAPI、SQLite。Docker上で動作し、通常利用では外部API・外部DB・クラウド・外部素材配信へ接続しません。

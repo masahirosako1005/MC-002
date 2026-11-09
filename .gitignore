@@ -22,4 +22,5 @@ project/.test-work/
 outputs/*-source.zip
 outputs/*-history.bundle
 outputs/release-manifest.json
+old/**/*.zip
 

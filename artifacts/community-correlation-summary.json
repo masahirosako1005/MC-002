@@ -1,0 +1,271 @@
+{
+  "analyzed_at_utc": "2026-11-09T04:58:03.876757+00:00",
+  "method": "Spearman rho: Pearson correlation of average ranks; ties use average ranks; pairwise complete observations.",
+  "source_sha256": {
+    "08_アンケート回答_参加後.csv": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+    "09_アンケート回答_登録時.csv": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+    "12_スタンプ獲得履歴.csv": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+    "13_ユーザー一覧.csv": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+    "18_特典獲得履歴.csv": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c"
+  },
+  "population": 500,
+  "variables": [
+    {
+      "id": "stamp_rows",
+      "label": "スタンプ履歴件数",
+      "plot_label": "スタンプ\n履歴件数",
+      "source": "12_スタンプ獲得履歴.csv の利用者別行数",
+      "unit": "件"
+    },
+    {
+      "id": "stamp_days",
+      "label": "スタンプ記録日数",
+      "plot_label": "スタンプ\n記録日数",
+      "source": "12_スタンプ獲得履歴.csv 獲得日時の日付の異なり数",
+      "unit": "日"
+    },
+    {
+      "id": "distinct_spots",
+      "label": "異なるスポット数",
+      "plot_label": "異なる\nスポット数",
+      "source": "12_スタンプ獲得履歴.csv スポット名の異なる値の数。施設IDによる同定ではない",
+      "unit": "種類"
+    },
+    {
+      "id": "reward_rows",
+      "label": "特典履歴件数",
+      "plot_label": "特典\n履歴件数",
+      "source": "18_特典獲得履歴.csv の利用者別行数。利用・消費を確認する列はない",
+      "unit": "件"
+    },
+    {
+      "id": "satisfaction",
+      "label": "満足度（順序尺度）",
+      "plot_label": "満足度\n（順序尺度）",
+      "source": "08_アンケート回答_参加後.csv アンケート①(満足度を教えてください)",
+      "unit": "順序"
+    }
+  ],
+  "pairs": [
+    {
+      "first": "stamp_rows",
+      "second": "stamp_rows",
+      "n": 500,
+      "rho": 1.0,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_rows",
+      "second": "stamp_days",
+      "n": 500,
+      "rho": 0.16144294888320343,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_rows",
+      "second": "distinct_spots",
+      "n": 500,
+      "rho": 0.9785521617443697,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_rows",
+      "second": "reward_rows",
+      "n": 500,
+      "rho": 0.7421342034386761,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_rows",
+      "second": "satisfaction",
+      "n": 287,
+      "rho": -0.07066311255396192,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_days",
+      "second": "stamp_days",
+      "n": 500,
+      "rho": 1.0,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_days",
+      "second": "distinct_spots",
+      "n": 500,
+      "rho": 0.17314242503901778,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_days",
+      "second": "reward_rows",
+      "n": 500,
+      "rho": 0.1583924279393845,
+      "status": "computed"
+    },
+    {
+      "first": "stamp_days",
+      "second": "satisfaction",
+      "n": 287,
+      "rho": -0.03748443543004913,
+      "status": "computed"
+    },
+    {
+      "first": "distinct_spots",
+      "second": "distinct_spots",
+      "n": 500,
+      "rho": 1.0,
+      "status": "computed"
+    },
+    {
+      "first": "distinct_spots",
+      "second": "reward_rows",
+      "n": 500,
+      "rho": 0.7674479528463644,
+      "status": "computed"
+    },
+    {
+      "first": "distinct_spots",
+      "second": "satisfaction",
+      "n": 287,
+      "rho": -0.06244534479994681,
+      "status": "computed"
+    },
+    {
+      "first": "reward_rows",
+      "second": "reward_rows",
+      "n": 500,
+      "rho": 1.0,
+      "status": "computed"
+    },
+    {
+      "first": "reward_rows",
+      "second": "satisfaction",
+      "n": 287,
+      "rho": -0.000780619011984889,
+      "status": "computed"
+    },
+    {
+      "first": "satisfaction",
+      "second": "satisfaction",
+      "n": 287,
+      "rho": 1.0,
+      "status": "computed"
+    }
+  ],
+  "rho_matrix": [
+    [
+      1.0,
+      0.16144294888320343,
+      0.9785521617443697,
+      0.7421342034386761,
+      -0.07066311255396192
+    ],
+    [
+      0.16144294888320343,
+      1.0,
+      0.17314242503901778,
+      0.1583924279393845,
+      -0.03748443543004913
+    ],
+    [
+      0.9785521617443697,
+      0.17314242503901778,
+      1.0,
+      0.7674479528463644,
+      -0.06244534479994681
+    ],
+    [
+      0.7421342034386761,
+      0.1583924279393845,
+      0.7674479528463644,
+      1.0,
+      -0.000780619011984889
+    ],
+    [
+      -0.07066311255396192,
+      -0.03748443543004913,
+      -0.06244534479994681,
+      -0.000780619011984889,
+      1.0
+    ]
+  ],
+  "n_matrix": [
+    [
+      500,
+      500,
+      500,
+      500,
+      287
+    ],
+    [
+      500,
+      500,
+      500,
+      500,
+      287
+    ],
+    [
+      500,
+      500,
+      500,
+      500,
+      287
+    ],
+    [
+      500,
+      500,
+      500,
+      500,
+      287
+    ],
+    [
+      287,
+      287,
+      287,
+      287,
+      287
+    ]
+  ],
+  "satisfaction_mapping": {
+    "大変不満": 1,
+    "やや不満": 2,
+    "普通": 3,
+    "やや満足": 4,
+    "大変満足": 5
+  },
+  "satisfaction_unknown_rows": 0,
+  "satisfaction_respondents": 287,
+  "satisfaction_missing_master_users": 213,
+  "satisfaction_response_counts": {
+    "やや満足": 104,
+    "普通": 54,
+    "やや不満": 39,
+    "大変満足": 74,
+    "大変不満": 16
+  },
+  "missingness": "履歴の対応行なしは『提供ファイル内で観測した件数0』。実際の活動なし/完全な収録を保証しない。満足度未回答は欠測としてペア単位で除外し、0補完しない。",
+  "count_discrepancy": {
+    "master_reward_count_mismatch_users": 227,
+    "decision": "特典は一覧の集計列でなく履歴行数を使用。差の原因・集計期間・取消状態は未確認。"
+  },
+  "limitations": [
+    "探索的・記述的な相関で、因果を示さない",
+    "スタンプ件数/記録日数/スポット数は同じ履歴から派生し構造的に関連する",
+    "特典獲得とスタンプ条件の制度上の関係は未確認",
+    "満足度は回答者に偏る可能性がある",
+    "趣味適合、人物の相性、再訪率へ読み替えない",
+    "無分散・n不足は計算不可。p値や有意性判定を表示しない",
+    "個票・散布図・識別子を出力しない"
+  ],
+  "plot": {
+    "path": "outputs/community-data-correlations.png",
+    "library": "matplotlib",
+    "version": "3.11.2",
+    "dimensions_pixels": [
+      2070,
+      1980
+    ],
+    "font": "meiryo.ttc"
+  }
+}

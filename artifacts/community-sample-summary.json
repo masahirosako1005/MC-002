@@ -1,0 +1,307 @@
+{
+  "analyzed_at_utc": "2026-11-09T04:58:03.876757+00:00",
+  "source_directory": "C:\\AI-Sprint\\sample-data",
+  "source_unchanged": true,
+  "analysis_scope": "ローカル実読込・全行集計。個人嗜好推定/集団割当/写真生成なし。",
+  "files": [
+    {
+      "kind": "after",
+      "name": "08_アンケート回答_参加後.csv",
+      "encoding": "utf-8-sig",
+      "sha256_before": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "rows": 287,
+      "headers": [
+        "user_id",
+        "user_name",
+        "is_line",
+        "アンケート①(満足度を教えてください)",
+        "アンケート②（旅で良かった点）",
+        "アンケート③（要望がありましたら）"
+      ],
+      "id_column": "user_id",
+      "unique_users": 287,
+      "missing_ids": 0,
+      "duplicate_complete_rows": 0,
+      "nonempty_by_column": {
+        "user_id": 287,
+        "user_name": 287,
+        "is_line": 287,
+        "アンケート①(満足度を教えてください)": 287,
+        "アンケート②（旅で良かった点）": 287,
+        "アンケート③（要望がありましたら）": 287
+      },
+      "sha256_after": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "unchanged": true
+    },
+    {
+      "kind": "before",
+      "name": "09_アンケート回答_登録時.csv",
+      "encoding": "utf-8-sig",
+      "sha256_before": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "rows": 500,
+      "headers": [
+        "user_id",
+        "user_name",
+        "is_line",
+        "2488_性別",
+        "2489_年齢",
+        "2528_居住地",
+        "2529_職業",
+        "何で知りましたか？（複数選択可）"
+      ],
+      "id_column": "user_id",
+      "unique_users": 500,
+      "missing_ids": 0,
+      "duplicate_complete_rows": 0,
+      "nonempty_by_column": {
+        "user_id": 500,
+        "user_name": 500,
+        "is_line": 500,
+        "2488_性別": 500,
+        "2489_年齢": 500,
+        "2528_居住地": 500,
+        "2529_職業": 500,
+        "何で知りましたか？（複数選択可）": 500
+      },
+      "sha256_after": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "unchanged": true
+    },
+    {
+      "kind": "stamps",
+      "name": "12_スタンプ獲得履歴.csv",
+      "encoding": "utf-8-sig",
+      "sha256_before": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "rows": 2629,
+      "headers": [
+        "ユーザID",
+        "RAUND管理ユーザ名",
+        "ユーザ名",
+        "LINEログイン",
+        "周回",
+        "スタンプ名",
+        "スポット名",
+        "獲得日時"
+      ],
+      "id_column": "ユーザID",
+      "unique_users": 480,
+      "missing_ids": 0,
+      "duplicate_complete_rows": 0,
+      "nonempty_by_column": {
+        "ユーザID": 2629,
+        "RAUND管理ユーザ名": 0,
+        "ユーザ名": 2629,
+        "LINEログイン": 2629,
+        "周回": 2629,
+        "スタンプ名": 2629,
+        "スポット名": 2629,
+        "獲得日時": 2629
+      },
+      "sha256_after": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "unchanged": true
+    },
+    {
+      "kind": "users",
+      "name": "13_ユーザー一覧.csv",
+      "encoding": "utf-8-sig",
+      "sha256_before": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "rows": 500,
+      "headers": [
+        "ユーザーID",
+        "ユーザー名",
+        "メールアドレス（マスク済）",
+        "性別",
+        "年代",
+        "居住地域",
+        "スタンプ獲得数",
+        "特典獲得数",
+        "登録日時",
+        "LINEユーザID",
+        "LINEともだちブロック"
+      ],
+      "id_column": "ユーザーID",
+      "unique_users": 500,
+      "missing_ids": 0,
+      "duplicate_complete_rows": 0,
+      "nonempty_by_column": {
+        "ユーザーID": 500,
+        "ユーザー名": 500,
+        "メールアドレス（マスク済）": 500,
+        "性別": 500,
+        "年代": 500,
+        "居住地域": 500,
+        "スタンプ獲得数": 500,
+        "特典獲得数": 500,
+        "登録日時": 500,
+        "LINEユーザID": 215,
+        "LINEともだちブロック": 215
+      },
+      "sha256_after": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "unchanged": true
+    },
+    {
+      "kind": "rewards",
+      "name": "18_特典獲得履歴.csv",
+      "encoding": "utf-8-sig",
+      "sha256_before": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "rows": 584,
+      "headers": [
+        "user_id",
+        "username",
+        "is_line",
+        "reward_name",
+        "prize_name",
+        "timestamp"
+      ],
+      "id_column": "user_id",
+      "unique_users": 355,
+      "missing_ids": 0,
+      "duplicate_complete_rows": 0,
+      "nonempty_by_column": {
+        "user_id": 584,
+        "username": 584,
+        "is_line": 584,
+        "reward_name": 584,
+        "prize_name": 584,
+        "timestamp": 584
+      },
+      "sha256_after": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "unchanged": true
+    }
+  ],
+  "user_count": 500,
+  "joins": {
+    "after": {
+      "matched_unique_users": 287,
+      "unmatched_unique_users": 0,
+      "master_users_without_rows": 213
+    },
+    "before": {
+      "matched_unique_users": 500,
+      "unmatched_unique_users": 0,
+      "master_users_without_rows": 0
+    },
+    "stamps": {
+      "matched_unique_users": 480,
+      "unmatched_unique_users": 0,
+      "master_users_without_rows": 20
+    },
+    "rewards": {
+      "matched_unique_users": 355,
+      "unmatched_unique_users": 0,
+      "master_users_without_rows": 145
+    }
+  },
+  "master_duplicate_user_rows": 0,
+  "registration_duplicate_user_rows": 0,
+  "age_bands": {
+    "40代": 106,
+    "20歳未満": 22,
+    "60代": 61,
+    "30代": 109,
+    "20代": 127,
+    "50代": 75
+  },
+  "age_band_mismatch_between_user_and_registration": 0,
+  "history": {
+    "stamp_rows": 2629,
+    "reward_rows": 584,
+    "unique_spot_name_values": 7,
+    "invalid_stamp_dates": 0,
+    "stamp_month_range": [
+      "2026-10",
+      "2026-10"
+    ],
+    "users_by_distinct_stamp_days": {
+      "履歴なし": 20,
+      "1日": 191,
+      "2日以上": 289
+    },
+    "master_stamp_count_mismatch_users": 0,
+    "master_reward_count_mismatch_users": 227,
+    "invalid_master_count_rows": 0
+  },
+  "survey_after": {
+    "respondents": 287,
+    "registered_users": 500,
+    "response_coverage_percent": 57.4,
+    "nonempty_by_field": {
+      "アンケート②（旅で良かった点）": 287,
+      "アンケート③（要望がありましたら）": 287
+    },
+    "fixed_keyword_topic_respondents": {
+      "自然・景観": 47,
+      "食事": 0,
+      "歴史・文化": 0,
+      "体験・活動": 20,
+      "移動・案内": 81
+    },
+    "method": "固定キーワードの部分一致。自由記述2列を合算しID単位で重複除去。複数カテゴリ該当あり。肯定/否定/要望を区別せず、好み・趣味の判定ではない。",
+    "keywords": {
+      "自然・景観": [
+        "自然",
+        "景色",
+        "風景",
+        "山",
+        "海",
+        "川",
+        "花",
+        "紅葉"
+      ],
+      "食事": [
+        "食事",
+        "食べ",
+        "料理",
+        "グルメ",
+        "ランチ",
+        "カフェ",
+        "居酒屋"
+      ],
+      "歴史・文化": [
+        "歴史",
+        "文化",
+        "神社",
+        "寺",
+        "美術",
+        "博物館"
+      ],
+      "体験・活動": [
+        "体験",
+        "活動",
+        "登山",
+        "ハイキング",
+        "サイクリング",
+        "ボードゲーム"
+      ],
+      "移動・案内": [
+        "移動",
+        "案内",
+        "アクセス",
+        "駐車",
+        "地図",
+        "交通"
+      ]
+    },
+    "minimum_reported_nonzero_category_count": 10,
+    "exact_hobby_labels_present": false
+  },
+  "availability": {
+    "photo_files_in_source_directory": 0,
+    "community_membership_columns": false,
+    "confirmed_hobby_tag_columns": false,
+    "travel_preference_columns": false,
+    "preference_portability_consent_columns": false,
+    "match_participation_consent_columns": false,
+    "trip_id_columns": false,
+    "source_of_availability_findings": "今回の5CSVの全ヘッダーを確認。自由記述中の言及を専用項目や正解ラベルと扱わない。画像の件数は指定ディレクトリ直下の対応拡張子による。"
+  },
+  "privacy": {
+    "raw_identifiers_retained": false,
+    "raw_free_text_retained": false,
+    "individual_rows_retained": false,
+    "cross_tabs_published": false,
+    "individual_preference_inference": false,
+    "community_assignment": false,
+    "external_transmission": false,
+    "suppression": "非ゼロで10人/件未満のカテゴリは数値非表示。小集団との交差集計は作らない。個人識別子をハッシュ化して出力することもない。これは匿名性の形式保証ではない。"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 255,
-  "last_event_hash": "e619e13b821640468b0c120192fea860e43bc46173e0f396cc57c6152329f91f",
-  "updated_at": "2026-11-09T13:39:15+09:00",
+  "revision": 280,
+  "last_event_hash": "3b3eb5146c3460abc5f4fa3781edd2858de4cb33681ce876b0a51013acaaa978",
+  "updated_at": "2026-11-09T14:03:52+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -410,6 +410,430 @@
       "title": "DockerでWebP画像の配信形式が不正",
       "type": "bug",
       "updated_at": "2026-11-09T13:39:13+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "写真→好み→仲間と旅行案→任意参加の講を設計する"
+        },
+        {
+          "checked": true,
+          "text": "同一PC・ローカル制約・仮想スマホ・評価・依存順を記載する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:56+09:00",
+      "dependencies": [],
+      "description": "確定要件・仮置き・未確定と旧版の状態を分ける。講はアプリと発表に反映し、相関図は開発資料として扱う。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:03:51+09:00",
+          "path": "artifacts/community-design-review.md",
+          "text": "設計書・タスク・新版評価計画を作成。主担当の確認と独立レビューで要件と分析用途の一致を確認。"
+        }
+      ],
+      "id": "CP01",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 5,
+      "revisions": [],
+      "status": "done",
+      "title": "新方針の設計書を確定する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:03:52+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "旧版ZIPのハッシュとCRC、収録ファイル数を確認する"
+        },
+        {
+          "checked": true,
+          "text": "旧資料を保管し、復元方法と未移動の範囲を記録する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:57+09:00",
+      "dependencies": [],
+      "description": "旧ゲーム機能を後から使える形で保管し、稼働DBや作業コードを壊さない。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:03:36+09:00",
+          "path": "old/v1.1/archive-manifest.json",
+          "text": "旧版の保管台帳と元ZIPのハッシュ一致・CRCを確認。稼働DBとコードは未削除。"
+        }
+      ],
+      "id": "CP02",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-09T14:03:38+09:00",
+          "hash": "05c3d878e1a42a3f62cdcb704e415282ea5af8ac",
+          "path": "project/revisions/05c3d878e1a42a3f62cdcb704e415282ea5af8ac.txt",
+          "summary": "R08 Link collection delivery evidence and completed tickets"
+        }
+      ],
+      "status": "done",
+      "title": "旧版を履歴付きで保管する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:03:38+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "ID対応・件数・欠測・前後ハッシュを集計し、個票を出力しない"
+        },
+        {
+          "checked": true,
+          "text": "係数と対象人数のある相関図と再現方法をPJ内へ保存する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:57+09:00",
+      "dependencies": [],
+      "description": "実際に5CSVを読み、集団分析から新設計で使える情報と不足を区別する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-09T14:03:37+09:00",
+          "path": "artifacts/community-design-review.md",
+          "text": "5CSVを全行読み込み、集団集計と相関図を保存。主担当が人数・前後ハッシュ・係数行列・画像表示を確認。"
+        }
+      ],
+      "id": "CP03",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 5,
+      "revisions": [],
+      "status": "done",
+      "title": "500人のCSVを分析し相関図を保存する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:03:38+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "実写を含む評価用画像とタグ基準を定め、品質と性能の目標を固定する"
+        },
+        {
+          "checked": false,
+          "text": "実APIのシナリオ再生・停止・リセットと認証境界の方式を決める"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:57+09:00",
+      "dependencies": [
+        "CP01",
+        "CP03"
+      ],
+      "description": "モデルのライセンス、オフライン動作、RAMと精度、仮想スマホの状態分離を実機で比較する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP04",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "画像分析と発表方式を小規模検証する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:57+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "本人切替後に前の利用者の情報を表示しない"
+        },
+        {
+          "checked": false,
+          "text": "招待と退会を反映し、所属外への読み書きを拒否する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:57+09:00",
+      "dependencies": [
+        "CP01",
+        "CP02"
+      ],
+      "description": "旧版とコード・DB・入口を分離し、本人切替、所属、招待、退会の基盤を実装する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP05",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "ローカル認証とコミュニティを作る",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:57+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "形式と展開後画素数を検査し、EXIFを除去して権限付き配信する"
+        },
+        {
+          "checked": false,
+          "text": "失敗・再起動・削除後の遅い結果から回復し、手入力もできる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:58+09:00",
+      "dependencies": [
+        "CP04",
+        "CP05"
+      ],
+      "description": "安全な画像保存、非同期分析、訂正、公開、取消、削除をつなげる。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP06",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "写真投稿と自動タグを実装する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "再分析で本人の訂正を上書きせず、根拠と利用目的を確認できる"
+        },
+        {
+          "checked": false,
+          "text": "別コミュニティへ許可した関心だけを使い、元写真等を漏らさない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:58+09:00",
+      "dependencies": [
+        "CP06"
+      ],
+      "description": "被写体と本人の好みを分け、確認・訂正・除外・利用先・取消を本人が管理する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP07",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "好みの管理と持越し許可を作る",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "必須条件違反・未同意者・退会者を含めず、不足を明示する"
+        },
+        {
+          "checked": false,
+          "text": "候補の理由と複数案を表示し、再訪案と新規旅行案を区別する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:58+09:00",
+      "dependencies": [
+        "CP07"
+      ],
+      "description": "合成200人の中から目的・希望条件・許可された関心をもとに少人数案と行き先を組み立てる。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP08",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "旅仲間と旅行案を提案する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "見送り・取消・同時応答・古い提案への応答を整合的に処理する"
+        },
+        {
+          "checked": false,
+          "text": "役割未選択でも参加でき、強制や貢献順位なしで計画を育てられる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:58+09:00",
+      "dependencies": [
+        "CP08"
+      ],
+      "description": "本人の参加意思で講を成立させ、目的、日程、行き先、任意の協力を計画へ反映する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP09",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "講への参加と小さな協力をつなぐ",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:58+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "写真の出典を管理し、モバイル幅・文字拡大・キーボードを検証する"
+        },
+        {
+          "checked": false,
+          "text": "再生・一時停止・次へ・リセット・拡大が動き、失敗を成功として演出しない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:59+09:00",
+      "dependencies": [
+        "CP04",
+        "CP09"
+      ],
+      "description": "多様な旅行写真を用意し、講の目的と協力が伝わる日本語UIと2〜3視点の発表画面を作る。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP10",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "写真の見せ方と仮想スマホを仕上げる",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:59+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "C1の20項目を証拠付きで評価し、失敗と回復の履歴を残す"
+        },
+        {
+          "checked": false,
+          "text": "利用者の納得度や実再訪効果を技術点と混同せず未測定範囲を示す"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:59+09:00",
+      "dependencies": [
+        "CP05",
+        "CP06",
+        "CP07",
+        "CP08",
+        "CP09",
+        "CP10"
+      ],
+      "description": "権限、画像、保存、復旧、外部通信、推薦の質、待ち時間、使いやすさを測る。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP11",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "新基準で検証と改善を反復する",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:59+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "旧版と新版を区別し、秘密・個票・実写真が配布物に混ざらない"
+        },
+        {
+          "checked": false,
+          "text": "発表資料の画面と説明を検証し、起動・復元・成果物の版を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T14:02:59+09:00",
+      "dependencies": [
+        "CP11"
+      ],
+      "description": "新版のソース、Markdown設計書、講を軸にした発表資料を対応するGit版でそろえる。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [],
+      "id": "CP12",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "新しい提出物3点をそろえる",
+      "type": "task",
+      "updated_at": "2026-11-09T14:02:59+09:00"
     },
     {
       "acceptance": [
