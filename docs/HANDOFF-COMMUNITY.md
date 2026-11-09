@@ -1,0 +1,94 @@
+# 新しいチャットへの引継ぎ：講の旅行プラットフォーム
+
+更新：2026年11月9日。利用者が「これまでを要約し、同じプロジェクトの新しいチャットで継続」を明示的に依頼した。
+
+## 現在の結論
+
+- 新アプリは `community/`、React + Python/FastAPI + SQLite + Docker。`http://127.0.0.1:8081/stage` で左旅行者・右事業者を操作する。引継ぎ直前にもappコンテナーhealthy、gateway稼働を確認。
+- CP26の画面簡素化と、CP28の実連携アニメーション・非表示写真の軽量化は完了・Git保存済み。
+- **CP27：利用者の通常Edgeの応答停止は未解決。** 検証用の別環境で成功したことを修復済みとしない。一時プロファイルでの比較結果は、まだ利用者から返っていない。
+- 本体・資料がすべて完成したわけではない。旧版の成果物や得点を新版へ流用しない。新版の広い要件CP04〜12には未確認・未着手が残り、新版スライドと操作動画は後続。
+
+## ユーザーの製品方針
+
+旧スタンプ・トロフィー中心のアプリから、コミュニティと写真を起点に次の旅行を生む「講」へ方針転換した。講は、やりたいことのために集まり、少しずつ力を持ち寄る仲間。義務的な役割や参加ではなく、本人の意思・任意の協力を扱う。
+
+旅行者（家族・サークル・同期等）、事業者、AI支援の三役がある。写真投稿→自動タグ候補→本人の確認・関心利用許可→仲間と旅行案→各人が参加承諾→講で会話→人数・泊数・予算の確認→候補比較→旅行者がプランを選択し共有内容を確認→事業者への相談→返信。事業者はおすすめプランを下書き・公開できる。6人2泊3日と30人以上の団体旅行が主要シナリオ。
+
+予定旅行人数と実際の参加アカウント数は別。推薦だけで勝手に人を参加させない。以前のコミュニティの写真や内部会話を事業者へ自動共有しない。実予約・決済・外部サービスへの連絡は実装範囲外。
+
+## 継続する制約
+
+- 作業場所・ソース・成果物は `C:/AI-Sprint/workspace/MC-002` 内のみ。既存checkoutを使用し、別worktree/クラウドへコードを置かない。
+- `C:/AI-Sprint/sample-data` は参照専用。**Password.txt.txt等の秘密情報ファイルを読まない。** アプリ用の架空アカウントは `docs/COMMUNITY-TRY.md` を参照できる。
+- アプリの実行時は完全ローカル。外部API、外部DB、CDN、クラウドAIを呼ばない。開発支援の調査・ツールは許可済みだが、元CSV・秘密・ソースを外部へ送らない。
+- UIは日本語、スマホ中心、暖色・写真・余白。「講」の独自性を残し、Airbnbを第一のUI/UX参照にする。LINE/Instagram等も操作の参考。標準selectを使わない。
+- 公開画面にデモ/試作/模擬/ダミー等の制作側の文言を置かない。共有範囲、料金に含むもの、予約未確定など判断に必要な情報は残す。
+- emil-design-engとsecurity-best-practicesを使う。変更をチケットとGitで追跡し、Before/After/Whyと検証根拠を残す。未検証を合格や満点にしない。
+- 利用者は並列エージェントと自律的な改善を許可。ただし16GB PCは空き約1.4〜2.6GBで変動する。Docker・画像モデル・ブラウザー等の重い試験は並べず、必要な範囲だけ実行する。
+- 質問は太字・独立表示。通常の確認でいちいち作業許可を求めない。進捗は具体的な変化だけ報告する。音声側が「待ってください」を大量に繰り返したため利用者が困っている。実行していない作業を「継続中」と言わない。
+
+## 最新の画面仕様と変更
+
+1. CP26：中央の長い説明・履歴・外側ボタンを撤去。上部の短い見出し＋左旅行者/右事業者の2スマホ。1440×900で全体が収まる。見出しは実APIの成功で更新。
+2. CP28：利用者の追加指定で、二台の間に細い糸と朱茶色の結びを追加。旅行者の相談作成成功は左→右。相談メッセージは送信元に応じた方向へ620msで一度だけ流れる。待機は静止し、会話内投稿・下書き保存・GET・失敗を相手への送信に見せない。
+3. アニメーションはtransform/opacityだけ。最大待機8件、CSS中断の後始末は単発1秒。非表示タブ・reduced-motion・縦積みの狭幅では動かさない。外側の説明・履歴・操作ボタンは復活させない。
+4. 二台のログインで隠していた写真をDOMから生成しないよう変更。初期の非表示写真要求は**2件→0件**を実測。写真1ファイル355,761bytes。総転送量・PC全体のメモリ削減率・Edge修復の証明ではない。
+
+主なファイル：`community/frontend/src/Stage.tsx`、`stage.css`、`App.tsx`、`api.ts`。現在配信版は **index-B73dds9S.js / index-NztS_E8R.css**。
+
+## 実装・認証の要点
+
+- 実画像分類はローカルMobileNetV2 ONNX。海/カフェ等は候補あり、森の写真で候補が出ない事例もあり、手動修正可能。精度保証は未達。会話の数値条件抽出とプラン照合は規則ベースであり、汎用生成AIと称さない。
+- schema2。写真・DBはDocker volumeへ永続化。新アプリのcompose名 `kou-community`。旧8080と旧データは残す。
+- 二台は30分の独立Bearer tokenをiframeのメモリ内だけに保持。Cookieへフォールバックしない。CSRFも別。URL/storage/postMessageに認証情報を出さない。
+- 親画面への通知はsource/type/statusだけ。同一origin、左右contentWindow、許可型、successを確認し、固定文を描画する。方向は送信元から決める。
+- 認証写真はBearer fetch→Blob URLで表示し、離脱時abort/revoke。公開coverは同梱の架空素材だけ。
+- CSPのiframe例外は正確な `/stage/visitor` と `/stage/provider` のHTMLだけ。API・他画面は埋込拒否。同一originの悪意あるJSまで隔離する境界とは主張しない。
+- 条件確認・プラン選択・共有内容の明示同意後だけ相談を作る。共有allowlistに元写真/内部会話/個人嗜好を入れない。二重送信・保存原子性・権限解除との競合を試験済み。
+
+## 直近の実測と限界
+
+| 証拠 | 結果 |
+|---|---|
+| `community/artifacts/marketplace-browser/results.json` | 最新版9/9。左右ログイン、写真、会話・条件確認、6/35人比較、選択前非開示、相談・返信、公開、表示/キーボード/外部要求0 |
+| `community/artifacts/stage-security-browser.json` | 最新版8/8。認証分離、写真拒否、誤Bearer、鍵非保存、偽通知、埋込拒否、片側logout等 |
+| `community/artifacts/stage-motion.json` | 5/5。通知を直接送る部品試験。実保存の方向確認は上の9/9と分ける |
+| `community/artifacts/stage-lightening.json` | 非表示写真要求2→0 |
+| `community/artifacts/marketplace-browser/final-smoke.json` | 最終配信版、1440×900、再ログイン後の保存済み相談/返信、native selectなし |
+| `community/artifacts/marketplace-backend-verification.json` | 通常API30成功、その後の同時計画作成/退出1成功。31件一回の実行ではない |
+| `community/artifacts/browser-current/results.json` | 変更前の基盤9/9。写真投稿→タグ/許可→3人承諾→協力/計画保存 |
+| `community/artifacts/schema2-persistence.json` | 14表再起動ハッシュ一致、DB+写真9ファイル/29表を隔離volumeへ復元一致。復元先API/画面起動訓練は未実施 |
+
+旧試験と不合格・回復の履歴は `community/artifacts/*history/` に保管。原則、同じ試験を新しい理由なしに反復しない。
+
+固定評価C1は **30/100のまま**。今回の追加受入を、旧基準を緩めて100点とすることはしない。UI全面適合、実利用者の満足度、再訪効果、タグ独立精度、操作動画・新版スライド等は別に残る。
+
+## Edgeの未解決事項：最優先の切り分け
+
+利用者は開いた直後や複数画面切替でフリーズし、完全終了・再起動しても再発すると回答。WindowsでApplication Hang2回を確認。Edge親プロセスはResponding=falseで約1コアを使用、同じ観測でrenderer/GPUはほぼCPU0。サーバーはhealthy、healthは5回200（147/13/6/7/6ms）、app約110MiBでOOMなし。
+
+独立headless Edgeの新規プロファイルでは40回の切替が成功（中央値96ms/p95 150ms/max208ms）。表示ありの既存プロファイルやGPU経路との比較はまだない。HP Sure ClickとSentinel Agentの連携モジュールが読み込まれていたが、存在だけで原因と断定しない。無効化・除外・削除はしていない。
+
+`community/scripts/open-edge-isolated.cmd` を手動比較用に作成済み。PJ内のGit対象外 `community/artifacts/edge-check-profile` を使用し、普段のプロファイルや保護機能を変更しない。**旧チャットからは実行していない。** 利用者への「比較用で操作できるか」の回答は、別のアニメーション追加要求だったため、比較結果は不明。
+
+詳細は `community/artifacts/edge-hang-investigation.md`。旧チャットではCUAがWindowsのブラウザーURLを確実に判定できず停止したため、別ツールで迂回操作していない。新しいチャットでも安全上の停止を迂回しない。現在状態は必要なツールの正規手順で再確認する。
+
+次は、既存資料を読んで最新状態を確認し、通常Edgeと一時プロファイルの差を絞る。アプリ本体が原因という証拠が出た場合に対象修正・必要な再試験を行う。未送信入力を失う強制終了や普段のプロファイル削除を勝手に行わない。原因が未確定なら未確定と説明する。
+
+## データと企画の根拠
+
+500人の一覧、参加後回答287人、スタンプ2629件/480人、特典584件/355人。満足度と行動量の相関は弱い。良かった点の同行交流69/287、自然景観65/287は観測であり講の効果を証明しない。回答者の活動中央値6、未回答者3の偏り、特典一覧と履歴の227人の不一致、繰り返し文面による限界を記録。実写真/所属/同意/実再訪はCSVにない。500人へ架空写真や趣味を勝手に割り当てない。
+
+`docs/SAMPLE-DATA-TRENDS.md`、`docs/COMMUNITY-UX-RATIONALE.md` に指定チャット「世代や性別に響くサイトの特徴」の分析を反映済み。相関図は開発用統計図のまま、講の世界観はシステムと発表へ適用する。
+
+## 作業ファイル・Git・起動
+
+- 正本：`AGENTS.md`、`DESIGN.md`（2.7）、`TASKS.md`、`docs/EVALUATION-COMMUNITY.md`。
+- 使い方/架空アカウント：`docs/COMMUNITY-TRY.md`。API/安全性：`community/MARKETPLACE-CONTRACT.md`、`community/artifacts/marketplace-security-review.md`。
+- ローカルチケット：`project/tickets.json` + 追記型`events.jsonl`、`scripts/tickets.py`、`outputs/project-board.html`。59件/425イベントで整合確認済み。CP26/28 done、CP27 in_progress。CLIで更新し、直接JSON書換えは避ける。
+- ブランチ `codex/revisit-app`。主要版：`80c6a60` API、`351f2e2` 三役画面、`a764d4d` 簡素化、`487a459` 証拠/引継前文書、`ba14428` 連携+軽量化、`b551f6d` 受入記録。引継前の作業木はclean。
+- ビルド/起動：`community/scripts/start.ps1 -Build`。Windows Pythonは `.venv/Scripts/python.exe -X utf8`。bare pythonは使用不可。ブラウザー試験はNodeと`qa/node_modules`のPlaywright、channel msedge。並行起動しない。
+- 旧版 `old/v1.1` と旧8080は保持。再生成・初期化・volume削除をしない。バックアップ・DB・モデルONNX・ブラウザープロファイルはGit対象外。
+
+この引継ぎ後、旧チャットではコード編集と重い検証を継続せず、新しいチャットに作業を一本化する。
