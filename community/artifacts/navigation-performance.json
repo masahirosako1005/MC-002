@@ -6,189 +6,189 @@
   "switches": [
     {
       "section": "みんなの記録",
-      "ms": 97
+      "ms": 74
     },
     {
-      "section": "旅を見つける",
-      "ms": 113
+      "section": "旅を探す",
+      "ms": 165
     },
     {
       "section": "届いた相談",
-      "ms": 82
+      "ms": 53
     },
     {
       "section": "自社のプラン",
-      "ms": 85
+      "ms": 68
     },
     {
       "section": "みんなの記録",
-      "ms": 89
+      "ms": 71
     },
     {
-      "section": "旅を見つける",
-      "ms": 112
+      "section": "旅を探す",
+      "ms": 173
     },
     {
       "section": "届いた相談",
-      "ms": 101
+      "ms": 56
     },
     {
       "section": "自社のプラン",
-      "ms": 94
+      "ms": 62
     },
     {
       "section": "みんなの記録",
-      "ms": 100
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 129
-    },
-    {
-      "section": "届いた相談",
-      "ms": 95
-    },
-    {
-      "section": "自社のプラン",
-      "ms": 64
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 110
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 127
-    },
-    {
-      "section": "届いた相談",
-      "ms": 96
-    },
-    {
-      "section": "自社のプラン",
-      "ms": 78
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 110
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 208
-    },
-    {
-      "section": "届いた相談",
-      "ms": 91
-    },
-    {
-      "section": "自社のプラン",
-      "ms": 86
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 100
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 133
-    },
-    {
-      "section": "届いた相談",
-      "ms": 95
-    },
-    {
-      "section": "自社のプラン",
-      "ms": 72
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 99
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 150
-    },
-    {
-      "section": "届いた相談",
-      "ms": 98
-    },
-    {
-      "section": "自社のプラン",
-      "ms": 84
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 89
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 146
-    },
-    {
-      "section": "届いた相談",
       "ms": 81
     },
     {
-      "section": "自社のプラン",
-      "ms": 80
-    },
-    {
-      "section": "みんなの記録",
-      "ms": 93
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 116
+      "section": "旅を探す",
+      "ms": 172
     },
     {
       "section": "届いた相談",
-      "ms": 90
+      "ms": 55
     },
     {
       "section": "自社のプラン",
+      "ms": 56
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 70
+    },
+    {
+      "section": "旅を探す",
+      "ms": 162
+    },
+    {
+      "section": "届いた相談",
+      "ms": 53
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 51
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 72
+    },
+    {
+      "section": "旅を探す",
+      "ms": 175
+    },
+    {
+      "section": "届いた相談",
+      "ms": 43
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 49
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 66
+    },
+    {
+      "section": "旅を探す",
+      "ms": 160
+    },
+    {
+      "section": "届いた相談",
+      "ms": 50
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 42
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 66
+    },
+    {
+      "section": "旅を探す",
       "ms": 96
     },
     {
-      "section": "みんなの記録",
-      "ms": 103
-    },
-    {
-      "section": "旅を見つける",
-      "ms": 171
-    },
-    {
       "section": "届いた相談",
-      "ms": 80
+      "ms": 55
     },
     {
       "section": "自社のプラン",
-      "ms": 85
+      "ms": 49
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 65
+    },
+    {
+      "section": "旅を探す",
+      "ms": 103
+    },
+    {
+      "section": "届いた相談",
+      "ms": 62
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 37
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 65
+    },
+    {
+      "section": "旅を探す",
+      "ms": 97
+    },
+    {
+      "section": "届いた相談",
+      "ms": 41
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 48
+    },
+    {
+      "section": "みんなの記録",
+      "ms": 71
+    },
+    {
+      "section": "旅を探す",
+      "ms": 93
+    },
+    {
+      "section": "届いた相談",
+      "ms": 83
+    },
+    {
+      "section": "自社のプラン",
+      "ms": 52
     }
   ],
-  "bothLoginScreensMs": 735,
+  "bothLoginScreensMs": 365,
   "frames": [
     {
       "path": "/stage",
       "longTasks": [],
-      "domNodes": 26
+      "domNodes": 32
     },
     {
       "path": "/stage/visitor",
       "longTasks": [],
-      "domNodes": 240
+      "domNodes": 449
     },
     {
       "path": "/stage/provider",
       "longTasks": [],
-      "domNodes": 194
+      "domNodes": 174
     }
   ],
   "summary": {
     "count": 40,
-    "medianMs": 96,
-    "p95Ms": 150,
-    "maxMs": 208
+    "medianMs": 66,
+    "p95Ms": 172,
+    "maxMs": 175
   },
   "passed": true,
-  "checkedAt": "2026-11-09T06:06:21.592Z"
+  "checkedAt": "2026-11-09T08:00:44.157Z"
 }

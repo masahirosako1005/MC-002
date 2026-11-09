@@ -1,3 +1,4 @@
+import { choiceValue, errorMessage } from "./validation";
 import { useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
@@ -8,7 +9,6 @@ import type {
   Reflection,
   ReflectionMessage,
   ReflectionOptions,
-  ReflectionSentiment,
   ReflectionValue,
 } from "./reflection-types";
 import "./reflections.css";
@@ -81,7 +81,7 @@ function StartReflection({
       );
       if (alive.current) onSaved(result.id);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -205,7 +205,7 @@ function MessageEditor({
         });
       if (alive.current) onSaved();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -265,8 +265,8 @@ function MessageEditor({
                         item.aspect_id === aspect.id
                           ? {
                               ...item,
-                              sentiment: event.target
-                                .value as ReflectionSentiment,
+                              sentiment: choiceValue(event.target.value,
+                                ["positive", "negative", "mixed", "excluded"], item.sentiment),
                             }
                           : item,
                       ),
@@ -351,7 +351,7 @@ function ReflectionChat({
       setBody("");
       await onChanged();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -530,7 +530,7 @@ function ReflectionDetail({ id, onBack }: { id: string; onBack: () => void }) {
       if (alive.current) {
         setData(null);
         setChat(false);
-        setError((e as Error).message);
+        setError(errorMessage(e));
       }
     } finally {
       if (alive.current) setLoading(false);
@@ -575,7 +575,7 @@ function ReflectionDetail({ id, onBack }: { id: string; onBack: () => void }) {
         setAction(null);
       }
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -842,7 +842,7 @@ export default function ReflectionWorkspace({
       );
       if (alive.current) setData(result);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setLoading(false);
     }

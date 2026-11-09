@@ -2,7 +2,17 @@
 
 ReactとPythonの新版プロトタイプ。旧版の8080とは別に、`http://127.0.0.1:8081`で動かす。Composeプロジェクトは`kou-community`、データvolumeは`kou-community_community-data`。旧版のコンテナー・DB・volumeを停止・削除・流用しない。
 
-## 状態
+## 現在の状態
+
+2026-11-09：現行はschema 8。本人別に画面・コミュニティ・承諾済みの講・探索条件を保存し、再ログイン時に現在の権限を確認して再開する。退出・講の終了などで無効になった参照は復元しない。左右スマホの認証は独立している。保存対象は画面の再開状態であり、未送信の文章や入力中の見積をすべて保存する機能ではない。
+
+現在のAI部分はMOC。会話はローカルの規則・定型文と実際の公開カタログを使い、本人確認した条件、候補、招待、相談、見積確認は実データとして保存する。外部AI API・SDK・キーは使用せず、画像モデルの読み込み・推論も停止している。モデルファイルやONNX Runtimeなしで通常起動できる。
+
+写真のタグは本人が選ぶ。同梱の既知素材と内容ハッシュが完全一致する場合だけ事前設定の候補を出し、任意の写真は手動選択にする。旧保存候補を表示する場合も新たな画像認識結果とは扱わない。将来の本番では外部AIを接続する予定だが、今回は未実装。`backend/app/image_guidance.py` と `backend/app/circles/assistant.py` の出力境界にMOCと将来のadapter置換を注記し、認証・同意・入力検証・保存はサーバーに維持する。
+
+現行の根拠は [画像誘導試験](artifacts/guided-runtime/api-tests.json)、[本人別再開の移行保持](artifacts/personalization/migration-preservation.json)、[削除写真の隔離復元](artifacts/deletion-restore.json)を参照。旧モデルの試験結果は以下の履歴であり、現在の推論稼働を示さない。
+
+### 初期段階の履歴（schema 1〜2、旧画像推論）
 
 2026-11-09：三役・中央画面をDockerへ取り込み、8081で起動した。schema 1から2へ移行し全29表を確認、既存の講2件・参加者6件・投稿7件・media7件・所属201件の全行ハッシュが移行前後で一致した。旧8080は継続稼働している。schema 1、schema 2それぞれのDB＋写真を保全・隔離復元済み。三役初回イメージではコンテナー20項目とLinuxのモデル読込み・生成写真4枚の推論を確認した。主担当の初回ブラウザー試験で保存した旅行計画・選択・相談・返信を含め、14表の再起動保持も確認した。現在は画面修正版（`index-B73dds9S.js` / `index-NztS_E8R.css`）へ更新し、配信ファイル一致と新旧health HTTP200を確認済み。今回backend/modelは変更しておらず、モデル・保全の試験は反復していない。三役画面9/9・左右の安全性8/8を再検証し、1440×900の上部見出し＋左右スマホの構図を確認した。通常Edgeの応答停止はCP27で調査中。旧版の試験件数や評価点は新版の証拠として扱わない。
 
@@ -11,25 +21,25 @@ ReactとPythonの新版プロトタイプ。旧版の8080とは別に、`http://
 - `Dockerfile`：Node 24でReactをビルドし、Python 3.12の同一オリジン配信へ含める。
 - `app`：`app.main:app`、8001番。非root UID10001、read-only rootfs、capabilityを除外。DBと権限付き画像は`/app/data`へ保存する。
 - `gateway`：nginx、非root UID101。ホストの127.0.0.1:8081だけへ公開し、固定のappへ転送する。
-- `models/`：開発時に取得したモデルを`/app/models`へ読取専用で渡す。実行中にダウンロードしない。
+- `models/`：過去の画像推論用資産を保存。現行Composeではマウントせず、通常起動には不要。削除はしない。
 - `assets/`：生成した初期写真を`/app/seed-assets`へ読取専用で渡す。画像の公開ディレクトリではなく、バックエンドが権限付き保存領域へ取り込む入力。
 - `.dockerignore`：バックエンドの必要ソースとフロントエンドだけをビルドへ含め、モデル・画像・DB・成果物を除外する。
 
-モデルはMobileNetV2 ONNX（約14MB）、CPUでONNX Runtimeを使う。取得元・固定revision・ハッシュ・ライセンスは`models/manifest.json`、`models/MODEL-README.md`、`models/LICENSE`に記録する。取得スクリプト`models/fetch_model.py`は開発時専用であり、実行アプリから呼び出さない。モデルが使えない場合の表示を推論成功と偽らない。
+休止中の旧画像モデルはMobileNetV2 ONNX（約14MB）で、CPUのONNX Runtimeを使用していた。取得元・固定revision・ハッシュ・ライセンスは`models/manifest.json`、`models/MODEL-README.md`、`models/LICENSE`に保持する。取得スクリプト`models/fetch_model.py`と旧依存定義`backend/requirements-model-legacy.txt`は現行の起動手順に含めない。
 
-LinuxコンテナーのONNX Runtime 1.31.1で実モデル読込みと4枚の生成写真の推論を確認した。読込0.62秒、`coast`は海辺0.9655、`coffee`はカフェ0.6065/食事0.1305、`table`は食事0.8231、`woodland`は候補なし。これは初回イメージの分類器を直接呼び出した確認であり、API処理・画面・分類精度全体の評価ではない。Windowsネイティブでは担当者が1.31.1の初期化終了と1.23.2のDLLエラーを確認しているため、完成アプリの推論はDockerのLinux環境で行う。
+過去にはLinuxコンテナーのONNX Runtime 1.31.1で実モデル読込みと4枚の生成写真の推論を確認した。読込0.62秒、`coast`は海辺0.9655、`coffee`はカフェ0.6065/食事0.1305、`table`は食事0.8231、`woodland`は候補なし。これは初回イメージの分類器を直接呼び出した確認であり、API処理・画面・分類精度全体の評価ではない。Windowsネイティブでは担当者が1.31.1の初期化終了と1.23.2のDLLエラーを確認した。現行はWindows・Dockerとも通常起動でこの分類器を呼び出さない。
 
 初回Linux実行時にはread-only環境でtelemetry device IDを永続化できない警告があった。コードはtelemetryを無効化し、appネットワークは外向き接続を持たない。警告を消すために書込権限や外向き通信を広げていない。
 
 ## 起動
 
-初回はDocker/WSLと依存・モデルの取得が必要。既存PCではDockerが稼働している。`models/`と`assets/`を用意した後、PJルートで実行する。
+初回はDocker/WSLとビルド依存の準備が必要。既存PCではDockerが稼働している。`assets/`を用意した後、PJルートで実行する。モデルディレクトリ・モデルファイル・外部AIキーは不要。
 
 ```powershell
 .\community\scripts\start.ps1 -Build
 ```
 
-ビルド済みの起動は`-Build`を付けない。ビルドとモデル推論・他の重いビルドを同時に走らせない。現在の設定はapp768MiB・1.5CPU、gateway64MiB・0.5CPU。実測によって調整する。
+ビルド済みの起動は`-Build`を付けない。重いビルドやブラウザー試験を無制限に重ねない。現在の設定はapp768MiB・1.5CPU、gateway64MiB・0.5CPU。実測によって調整する。
 
 ```powershell
 docker compose -p kou-community -f community/compose.yaml ps
@@ -39,20 +49,21 @@ docker compose -p kou-community -f community/compose.yaml stop
 
 上記stopは新版だけが対象。`down -v`は保存を削除するので通常の終了手順として使わない。アプリの保存データや画像・認証情報を調査用サービスへ送らない。
 
-## 結合確認
+## 結合確認と旧検証スクリプト
 
-実ブラウザー・推論・ビルドが同時に動いていないことを確認した後、PJルートから実行する。
+現行の画像誘導・モデル不要起動の確認は `backend/tests/test_image_guidance.py`、本人別再開の確認は `backend/tests/test_personalization.py` と対応する成果物を参照する。
+
+以下は旧画像モデル構成で使用したコマンドの記録。`verify_container.py` には現在も `MODEL_DIR` とモデルマウントを要求する検査が残っているため、現行MOCの合否判定にはそのまま実行しない。起動用の `start.ps1` とは別の検証スクリプトである。
 
 ```powershell
 .\.venv\Scripts\python.exe community/scripts/verify_container.py --restart
-.\.venv\Scripts\python.exe community/scripts/verify_model.py
 ```
 
-最初のコマンドは新版appを再起動し、同じCookieの本人情報・好み・所属が保持されること、独立volume、ローカル公開、権限制限、外向きTCP接続拒否、DB完全性・バックアップの表件数一致を確認する。旧8080は前後の稼働確認だけ行う。`--restart`なしでは再起動確認を省く。結果は`community/artifacts/container-verification.json`へ保存し、認証情報・個票は出力しない。
+この旧検証コマンドは新版appを再起動し、同じCookieの本人情報・好み・所属の保持、独立volume、ローカル公開、権限制限、外向きTCP接続拒否、DB完全性・バックアップの表件数一致を検査する。旧8080は前後の稼働確認だけ行う。`--restart`なしでは再起動確認を省く。結果は`community/artifacts/container-verification.json`へ保存し、認証情報・個票は出力しない。モデル前提の検査を更新するまでは、旧履歴として扱う。
 
-2つ目は公開bootstrapのmodel状態と、コンテナー内のCPU分類器を生成写真4枚で確認し、`community/artifacts/model-verification.json`へ保存する。候補なしと推論失敗を区別する。両スクリプトは日時付きの記録も保存するので、失敗後の再実行で元の結果を失わない。
+旧 `community/scripts/verify_model.py` は休止中のモデル検証専用で、現行の結合確認には実行しない。従来は公開bootstrapのmodel状態とCPU分類器を生成写真4枚で確認し、`community/artifacts/model-verification.json`と日時付き記録へ保存していた。現行のモデル不要・手動タグ・保存フローは `backend/tests/test_image_guidance.py` と画像誘導試験記録で確認する。旧結果を現在の推論成功として流用しない。
 
-検証で作るバックアップはvolume内の`/app/data/backups/`に置くDBのコピー。投稿写真ファイル自体は含まないため、これだけで写真を含む完全復元ができるとは扱わない。本運用のバックアップではDBと対応する`media/`、モデルの版、設定を合わせて保全する必要がある。
+コンテナー検証で作るバックアップはvolume内の`/app/data/backups/`に置くDBのコピー。投稿写真ファイル自体は含まないため、これだけで写真を含む完全復元ができるとは扱わない。本運用のバックアップではDBと対応する`media/`、アプリの版、設定を合わせて保全する。旧推論版の再現が必要な場合は対応モデルの版も保持する。
 
 ## DBと写真の一括保全・隔離復元
 
@@ -62,7 +73,7 @@ docker compose -p kou-community -f community/compose.yaml stop
 .\.venv\Scripts\python.exe community/scripts/full_snapshot.py backup --allow-stop
 ```
 
-保存先は必ず`community/backups/日時-識別子/`。DB本体とWAL/SHMを別作業領域へコピーしてからSQLite backupで独立DBを作るため、未checkpointのコミットも含む。`media/`を全件コピーし、各ファイルのサイズ・SHA-256、DB整合性・外部キー・スキーマ版・表件数を`manifest.json`へ保存する。完了manifestがないものは復元対象にしない。`runtime.json`には当時のDockerイメージIDとモデルmanifestを記録する。
+保存先は必ず`community/backups/日時-識別子/`。DB本体とWAL/SHMを別作業領域へコピーしてからSQLite backupで独立DBを作るため、未checkpointのコミットも含む。`media/`を全件コピーし、各ファイルのサイズ・SHA-256、DB整合性・外部キー・スキーマ版・表件数を`manifest.json`へ保存する。完了manifestがないものは復元対象にしない。`runtime.json`には当時のDockerイメージIDとモデルmanifestを記録する。この補助スクリプトには旧 `models/manifest.json` の読み取りが残っており、モデルディレクトリを持たない環境では記録処理の対応が必要。これは通常アプリ起動の依存ではない。既存モデル資産は保全したまま使用する。
 
 実際に保全したschema 1の例：
 
@@ -99,7 +110,7 @@ docker compose -p kou-community -f community/compose.yaml stop
 .\.venv\Scripts\python.exe community/scripts/verify_marketplace_persistence.py --allow-stop
 ```
 
-### 今回の実測記録
+### 初期段階の実測記録（現行の再試験結果ではない）
 
 | 証拠 | 確認結果 | 限界 |
 |---|---|---|
@@ -113,7 +124,7 @@ docker compose -p kou-community -f community/compose.yaml stop
 
 ## 実行時の境界
 
-appは外向き通信を持たないinternal networkのみへ接続する。gatewayはブラウザー入口とappを接続するため別ネットワークも持つ。gateway全体の外向き通信をOSファイアウォールで遮断したという意味ではない。アプリの画像・モデル・フォント・APIはローカルで提供する。
+appは外向き通信を持たないinternal networkのみへ接続する。gatewayはブラウザー入口とappを接続するため別ネットワークも持つ。gateway全体の外向き通信をOSファイアウォールで遮断したという意味ではない。画像・フォント・アプリ内APIはローカルで提供する。外部AI API接続と画像モデル推論は現行MOCでは行わない。
 
 JSON書込みはOriginとCSRF、画像は同じ保護に加えてバックエンドで形式・大きさを検査する。gatewayは12MiB画像とmultipartの余裕として本文13MiBを上限にする。実際の画像上限はAPI契約の12MiB/20MP。写真は静的公開せず、現在の所属・所有者を確認するAPI経由で配信する。
 

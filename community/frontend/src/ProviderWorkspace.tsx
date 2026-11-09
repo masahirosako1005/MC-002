@@ -1,3 +1,4 @@
+import { choiceValue, errorMessage } from "./validation";
 import Choice from "./Choice";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./api";
@@ -108,7 +109,7 @@ function PlanEditor({
       await onSaved();
       onClose();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -183,7 +184,7 @@ function PlanEditor({
             onChange={(event) =>
               setValue((current) => ({
                 ...current,
-                schedule_type: event.target.value as "on_request" | "dated",
+                schedule_type: choiceValue(event.target.value, ["on_request", "dated"], current.schedule_type || "on_request"),
                 starts_at:
                   event.target.value === "on_request"
                     ? null
@@ -289,7 +290,7 @@ function PlanEditor({
               onChange={(e) =>
                 change(
                   "price_basis",
-                  e.target.value as ProviderPlan["price_basis"],
+                  choiceValue(e.target.value, ["per_person", "party_total"], value.price_basis),
                 )
               }
             >
@@ -305,7 +306,7 @@ function PlanEditor({
             onChange={(e) =>
               change(
                 "price_scope",
-                e.target.value as ProviderPlan["price_scope"],
+                choiceValue(e.target.value, ["plan_only", "whole_trip"], value.price_scope),
               )
             }
           >
@@ -388,7 +389,7 @@ function PlanEditor({
                   value={item.period}
                   onChange={(e) =>
                     stop(i, {
-                      period: e.target.value as ItineraryItem["period"],
+                      period: choiceValue(e.target.value, ["morning", "afternoon", "evening"], item.period),
                     })
                   }
                 >
@@ -508,7 +509,7 @@ export default function ProviderWorkspace({
       setPlans(planSets.flatMap((r) => r.items));
       setConsultations(threads.items);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -528,7 +529,7 @@ export default function ProviderWorkspace({
       setSelected(detail);
       setMessages(history.items);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }

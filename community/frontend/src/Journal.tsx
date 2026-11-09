@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import { useEffect, useRef, useState } from "react";
 import { api, mediaUrl } from "./api";
 import Choice from "./Choice";
@@ -21,7 +22,8 @@ function Pager({ page, count, size, onChange, label }: { page: number; count: nu
   return <nav className="journal-pager" aria-label={`${label}のページ`}><button className="button secondary" disabled={page === 0} onClick={() => onChange(page - 1)}>前へ</button><span>{page * size + 1}〜{Math.min((page + 1) * size, count)} / {count}件</span><button className="button secondary" disabled={(page + 1) * size >= count} onClick={() => onChange(page + 1)}>次へ</button></nav>;
 }
 
-function JourneyMap({ prefectures, visits, selected, onSelect, visited = [] }: { prefectures: Prefecture[]; visits: Visit[]; selected?: string; onSelect?: (id: string) => void; visited?: Prefecture[] }) {
+const noVisitedPrefectures: Prefecture[] = [];
+function JourneyMap({ prefectures, visits, selected, onSelect, visited = noVisitedPrefectures }: { prefectures: Prefecture[]; visits: Visit[]; selected?: string; onSelect?: (id: string) => void; visited?: Prefecture[] }) {
   const visitedIds = new Set([...visited.map((p) => p.id), ...visits.map((v) => v.prefecture_id)]);
   return <figure className="journey-map">
     <div className="journey-map-caption"><span><Icon name="pin" />訪問実績</span><small>日本の概略図</small></div>
@@ -98,15 +100,18 @@ export function VisitDialog({ post, visit, initialJourney = "", communities, onC
     let alive = true;
     setLoading(true); setError("");
     Promise.all([api<JournalCatalog>("/journal/catalog"), api<{ items: Journey[] }>("/journal/journeys"), api<{ items: JournalPhoto[] }>("/journal/media")]).then(([c, j, p]) => {
-      if (!alive) return;
+      if (!alive) return undefined;
       setCatalog(c); setJourneys(j.items); setPhotos(p.items);
       const selectablePhotos = post ? p.items.filter((photo) => post.media.some((m) => m.id === photo.id)) : p.items;
-      setPhotoPage(Math.max(0, Math.floor(selectablePhotos.findIndex((photo) => photo.id === mediaId) / 12)));
+      setPhotoPage(Math.max(0, Math.floor(selectablePhotos.findIndex((photo) => photo.id === mediaId) / 12))); return undefined;
     }).catch((e) => { if (alive) setError(e.message); }).finally(() => { if (alive) setLoading(false); });
     return () => { alive = false; };
   }, [loadKey]);
   const storedCandidate = photos.find((photo) => photo.id === mediaId)?.location_candidate;
   const candidate = storedCandidate || (visit?.source === "exif" && mediaId === visit.media_id && visit.latitude != null && visit.longitude != null ? { latitude: visit.latitude, longitude: visit.longitude } : null);
+  const locationModes: [typeof mode, string][] = [["prefecture", "県の目安"]];
+  if (candidate) locationModes.push(["exif", "写真に記録された位置"]);
+  locationModes.push(["precise", "座標を指定"]);
   const availablePhotos = post ? photos.filter((photo) => post.media.some((m) => m.id === photo.id)) : photos;
   const shownPhotos = availablePhotos.slice(photoPage * 12, (photoPage + 1) * 12);
   function requestKey(payload: unknown) { const key = JSON.stringify(payload); if (!keys.current.has(key)) keys.current.set(key, crypto.randomUUID()); return keys.current.get(key)!; }
@@ -123,13 +128,13 @@ export function VisitDialog({ post, visit, initialJourney = "", communities, onC
       const payload = { journey_id: selectedJourney, prefecture_id: prefectureId, visited_on: date, place_label: place.trim(), latitude: mode === "exif" ? candidate?.latitude ?? null : mode === "precise" ? Number(latitude) : null, longitude: mode === "exif" ? candidate?.longitude ?? null : mode === "precise" ? Number(longitude) : null, media_id: mediaId || null, source: mode === "exif" ? "exif" : "manual", visibility, community_id: visibility === "community" ? communityId : null, confirmed: true };
       await api(visit ? `/journal/visits/${visit.id}` : "/journal/visits", visit ? "PUT" : "POST", { ...payload, ...(visit ? { version: visit.version } : { request_key: requestKey(payload) }) });
       if (active.current) onSaved();
-    } catch (e) { if (active.current) setError((e as Error).message); }
+    } catch (e) { if (active.current) setError(errorMessage(e)); }
     finally { if (active.current) setBusy(false); }
   }
   async function discardCandidate() {
     setBusy(true); setError("");
     try { await api(`/journal/media/${mediaId}/location-candidate`, "DELETE", {}); if (!active.current) return; setPhotos((old) => old.map((photo) => photo.id === mediaId ? { ...photo, location_candidate: null } : photo)); if (mode === "exif" && visit?.source !== "exif") setMode("prefecture"); setConfirmed(false); }
-    catch (e) { if (active.current) setError((e as Error).message); }
+    catch (e) { if (active.current) setError(errorMessage(e)); }
     finally { if (active.current) setBusy(false); }
   }
   const validCoordinates = mode !== "precise" || (latitude.trim() !== "" && longitude.trim() !== "" && Number.isFinite(Number(latitude)) && Number.isFinite(Number(longitude)) && Math.abs(Number(latitude)) <= 90 && Math.abs(Number(longitude)) <= 180);
@@ -144,7 +149,7 @@ export function VisitDialog({ post, visit, initialJourney = "", communities, onC
         {availablePhotos.length > 0 && <fieldset className="journal-photo-picker" disabled={busy}><legend>記録に添える写真</legend><div><button type="button" className={!mediaId ? "selected" : ""} aria-pressed={!mediaId} onClick={() => { setMediaId(""); setMode("prefecture"); setConfirmed(false); }}>写真なし</button>{shownPhotos.map((photo, index) => <button type="button" key={photo.id} className={mediaId === photo.id ? "selected" : ""} aria-label={`写真${photoPage * 12 + index + 1}を訪問記録に添える`} aria-pressed={mediaId === photo.id} onClick={() => { setMediaId(photo.id); setMode("prefecture"); setConfirmed(false); }}><LocalPhoto src={mediaUrl(photo.url)} alt={`旅の写真 ${photoPage * 12 + index + 1}`} /></button>)}</div><Pager page={photoPage} count={availablePhotos.length} size={12} onChange={setPhotoPage} label="写真" /></fieldset>}
         <div className="field-row"><label className="field">訪れた都道府県<Choice value={prefectureId} disabled={busy} onChange={(e) => { setPrefectureId(e.target.value); setConfirmed(false); }}><option value="">都道府県を選ぶ</option>{catalog.prefectures.map((prefecture) => <option value={prefecture.id} key={prefecture.id}>{prefecture.name}</option>)}</Choice></label><label className="field">訪れた日<input type="date" value={date} max={today()} disabled={busy} onChange={(e) => { setDate(e.target.value); setConfirmed(false); }} /></label></div>
         <label className="field">訪れた場所<input value={place} maxLength={100} disabled={busy} placeholder="例：名古屋城の庭園" onChange={(e) => { setPlace(e.target.value); setConfirmed(false); }} /></label>
-        <fieldset className="journal-location-options" disabled={busy}><legend>地図に残す位置</legend><div className="journal-option-row">{([['prefecture', '県の目安'], ...(candidate ? [['exif', '写真に記録された位置']] : []), ['precise', '座標を指定']] as [typeof mode, string][]).map(([value, label]) => <button type="button" key={value} aria-pressed={mode === value} className={`chip ${mode === value ? "selected" : ""}`} onClick={() => { setMode(value); setConfirmed(false); }}>{label}</button>)}</div></fieldset>
+        <fieldset className="journal-location-options" disabled={busy}><legend>地図に残す位置</legend><div className="journal-option-row">{locationModes.map(([value, label]) => <button type="button" key={value} aria-pressed={mode === value} className={`chip ${mode === value ? "selected" : ""}`} onClick={() => { setMode(value); setConfirmed(false); }}>{label}</button>)}</div></fieldset>
         {mode === "prefecture" && <p className="journal-note">県の代表点に表示します。実際に訪れた地点の座標は保存しません。</p>}
         {candidate && <div className="journal-candidate"><strong>{storedCandidate ? "写真に位置情報がありました" : "この訪問で確認済みの写真の位置"}</strong><p>緯度 {candidate.latitude.toFixed(5)} / 経度 {candidate.longitude.toFixed(5)}</p><p>場所と都道府県を確かめてから使ってください。</p>{storedCandidate && <button className="text-button" disabled={busy} onClick={() => void discardCandidate()}>読み取った位置候補を破棄する</button>}</div>}
         {mediaId && !candidate && <p className="journal-note">この写真に読み取り済みの位置候補はありません。場所を自分で指定できます。</p>}
@@ -173,13 +178,13 @@ export function TravelProfile({ person, owner, onClose }: { person: User; owner:
   useEffect(() => { active.current = true; return () => { active.current = false; }; }, []);
   useEffect(() => {
     let alive = true; setLoading(true); setError(""); setProfile(null);
-    Promise.all([api<JournalProfile>(`/journal/profile/${person.id}`), api<JournalCatalog>("/journal/catalog")]).then(([p, c]) => { if (alive) { setProfile(p); setCatalog(c); } }).catch((e) => { if (alive) setError(e.message); }).finally(() => { if (alive) setLoading(false); });
+    Promise.all([api<JournalProfile>(`/journal/profile/${person.id}`), api<JournalCatalog>("/journal/catalog")]).then(([p, c]) => { if (alive) { setProfile(p); setCatalog(c); } return undefined; }).catch((e) => { if (alive) setError(e.message); }).finally(() => { if (alive) setLoading(false); });
     return () => { alive = false; };
   }, [person.id, loadKey]);
   async function share(value: boolean) {
     if (!profile) return; setBusy(true); setError("");
     try { const p = await api<JournalProfile>("/journal/profile", "PUT", { share_achievements: value, version: profile.version }); if (active.current) setProfile(p); }
-    catch (e) { if (active.current) setError((e as Error).message); }
+    catch (e) { if (active.current) setError(errorMessage(e)); }
     finally { if (active.current) setBusy(false); }
   }
   const profilePage = Math.min(visitPage, Math.max(0, Math.ceil((profile?.shared_visits.length || 0) / 8) - 1));
@@ -221,13 +226,13 @@ export default function Journal({ user, communities, onProfile }: { user: User; 
   useEffect(() => { active.current = true; return () => { active.current = false; }; }, []);
   useEffect(() => {
     let alive = true; setLoading(true); setError("");
-    Promise.all([api<JournalCatalog>("/journal/catalog"), api<{ items: Journey[] }>("/journal/journeys"), api<JournalProfile>(`/journal/profile/${user.id}`)]).then(([c, j, p]) => { if (alive) { setCatalog(c); setJourneys(j.items); setProfile(p); setJourneyId((id) => j.items.some((journey) => journey.id === id) ? id : ""); } }).catch((e) => { if (alive) setError(e.message); }).finally(() => { if (alive) setLoading(false); });
+    Promise.all([api<JournalCatalog>("/journal/catalog"), api<{ items: Journey[] }>("/journal/journeys"), api<JournalProfile>(`/journal/profile/${user.id}`)]).then(([c, j, p]) => { if (alive) { setCatalog(c); setJourneys(j.items); setProfile(p); setJourneyId((id) => j.items.some((journey) => journey.id === id) ? id : ""); } return undefined; }).catch((e) => { if (alive) setError(e.message); }).finally(() => { if (alive) setLoading(false); });
     return () => { alive = false; };
   }, [user.id, loadKey]);
   useEffect(() => {
-    if (!peopleOpen || !peopleCommunity) return;
+    if (!peopleOpen || !peopleCommunity) return undefined;
     let alive = true; setPeople(null); setPeopleError("");
-    api<{ items: User[] }>(`/journal/people?community_id=${encodeURIComponent(peopleCommunity)}`).then((r) => { if (alive) setPeople(r.items); }).catch((e) => { if (alive) setPeopleError(e.message); });
+    api<{ items: User[] }>(`/journal/people?community_id=${encodeURIComponent(peopleCommunity)}`).then((r) => { if (alive) setPeople(r.items); return undefined; }).catch((e) => { if (alive) setPeopleError(e.message); });
     return () => { alive = false; };
   }, [peopleOpen, peopleCommunity]);
   const visits = (profile?.shared_visits || []).filter((visit) => !journeyId || visit.journey_id === journeyId);
@@ -238,13 +243,13 @@ export default function Journal({ user, communities, onProfile }: { user: User; 
   async function remove() {
     if (!deleting) return; setBusy(true); setError("");
     try { await api(`/journal/${"visited_on" in deleting ? "visits" : "journeys"}/${deleting.id}`, "DELETE", { version: deleting.version }); if (active.current) { setDeleting(null); setSelected(""); refresh(); } }
-    catch (e) { if (active.current) setError((e as Error).message); }
+    catch (e) { if (active.current) setError(errorMessage(e)); }
     finally { if (active.current) setBusy(false); }
   }
   async function renameJourney() {
     if (!rename) return; setBusy(true); setError("");
     try { await api(`/journal/journeys/${rename.id}`, "PUT", { title: title.trim(), version: rename.version }); if (active.current) { setRename(null); refresh(); } }
-    catch (e) { if (active.current) setError((e as Error).message); }
+    catch (e) { if (active.current) setError(errorMessage(e)); }
     finally { if (active.current) setBusy(false); }
   }
   return <section className="journal-page">

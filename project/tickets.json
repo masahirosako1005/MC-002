@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 576,
-  "last_event_hash": "e3190da05033d68b03357c2d3dfed4527993fdcf2981f5ce628cf939f3f9b88e",
-  "updated_at": "2026-11-09T17:01:24+09:00",
+  "revision": 602,
+  "last_event_hash": "5ca764845dd716709663216eb940ec6d2f4156ae28fcd66e135fc222fb4357f3",
+  "updated_at": "2026-11-09T17:05:24+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2519,25 +2519,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T17:05:23+09:00",
+          "hash": "27a26bb1de6afd37952c6a83e603efc1bd555139",
+          "path": "project/revisions/27a26bb1de6afd37952c6a83e603efc1bd555139.txt",
+          "summary": "feat: persist private resume state and disable live AI for MOC runtime"
+        }
+      ],
       "status": "done",
       "title": "実AIを使わない案内と手動写真タグ",
       "type": "task",
-      "updated_at": "2026-11-09T17:01:24+09:00"
+      "updated_at": "2026-11-09T17:05:23+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "解析版・規則・対象・生結果を固定して比較"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "安全な修正後の型・ビルド・回帰試験を確認"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "未達を隠さず独立レビューと継続課題を記録"
         }
       ],
@@ -2550,30 +2557,41 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T17:05:19+09:00",
+          "path": "docs/EVALUATION-TOOLS.md",
+          "text": "同設定の初回/2巡比較、145成功の証拠、coverageと未達"
+        },
+        {
+          "at": "2026-11-09T17:05:19+09:00",
+          "path": "docs/FRONTEND-QUALITY.md",
+          "text": "残125/CSS127と個別理由。CP50で継続"
+        }
+      ],
       "id": "CP46",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 8,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "コード品質の測定と安全な改善",
       "type": "task",
-      "updated_at": "2026-11-09T16:44:24+09:00"
+      "updated_at": "2026-11-09T17:05:20+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "本人分離・関心差・許可OFF・失効・競合を検証"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "schema7から既存データを保ち移行し再起動で保存維持"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "画面再読とユーザー切替で他人の状態を混ぜない"
         }
       ],
@@ -2586,30 +2604,53 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T17:05:17+09:00",
+          "path": "community/artifacts/personalization/browser.json",
+          "text": "最終7項目、本人/別人/再読/講/競合/遅い401/未選択、axe0外部0"
+        },
+        {
+          "at": "2026-11-09T17:05:17+09:00",
+          "path": "community/artifacts/personalization/restart-api.json",
+          "text": "本人再開・記念日・4訪問をDocker再起動で保持"
+        },
+        {
+          "at": "2026-11-09T17:05:17+09:00",
+          "path": "community/artifacts/personalization/migration-preservation.json",
+          "text": "46旧表の旧行と8画像保全"
+        }
+      ],
       "id": "CP47",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
-      "revisions": [],
-      "status": "in_progress",
+      "revision": 10,
+      "revisions": [
+        {
+          "hash": "27a26bb1de6afd37952c6a83e603efc1bd555139",
+          "summary": "feat: persist private resume state and disable live AI for MOC runtime",
+          "path": "project/revisions/27a26bb1de6afd37952c6a83e603efc1bd555139.txt",
+          "at": "2026-11-09T17:05:24+09:00"
+        }
+      ],
+      "status": "done",
       "title": "本人専用DBの再開状態と個人化",
       "type": "task",
-      "updated_at": "2026-11-09T16:44:24+09:00"
+      "updated_at": "2026-11-09T17:05:24+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "8項目のツール・対象・限界と証拠を示す"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "具体的な修正と同条件の再測定差分を記録"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "MOC出力境界と本番AI差替契約をコード/設計に明示"
         }
       ],
@@ -2622,26 +2663,37 @@
       "documents": [
         "docs/EVALUATION-TOOLS.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T17:05:21+09:00",
+          "path": "docs/EVALUATION-TOOLS.md",
+          "text": "8項目の対応と限界・改善数値"
+        },
+        {
+          "at": "2026-11-09T17:05:21+09:00",
+          "path": "community/AI-MOC-CONTRACT.md",
+          "text": "現在MOC・本番AI境界とソース注記"
+        }
+      ],
       "id": "CP48",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 8,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "大会8項目の評価ツール対応と改善ループ",
       "type": "task",
-      "updated_at": "2026-11-09T16:51:09+09:00"
+      "updated_at": "2026-11-09T17:05:22+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "異なる動機の案を比較しアプリ再利用と地域再訪を区別"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "推奨案の具体体験・限界・検証方法を説明"
         }
       ],
@@ -2652,17 +2704,55 @@
       "documents": [
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-09T17:05:23+09:00",
+          "path": "DESIGN.md",
+          "text": "ゼロベース/実現性度外視の未採択案を記録"
+        }
+      ],
       "id": "CP49",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 6,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "集団旅行と再訪の動機をゼロベースで構想",
       "type": "task",
-      "updated_at": "2026-11-09T16:59:42+09:00"
+      "updated_at": "2026-11-09T17:05:23+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "全残指摘を根拠付き分類し修正対象を特定"
+        },
+        {
+          "checked": false,
+          "text": "型/権限切替/画面回帰と同設定再測定で改善確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-09T17:05:17+09:00",
+      "dependencies": [
+        "CP46"
+      ],
+      "description": "今回の2巡後、Oxlint125（error96/warning29）、Stylelint127、Python複雑度12が残る。規則抑制で0にせず実問題/適用上の限界を分け、影響の大きい状態管理/CSS順序は画面回帰付きで改善",
+      "documents": [
+        "docs/FRONTEND-QUALITY.md"
+      ],
+      "evidence": [],
+      "id": "CP50",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "残る静的解析指摘を個別精査する",
+      "type": "task",
+      "updated_at": "2026-11-09T17:05:17+09:00"
     },
     {
       "acceptance": [

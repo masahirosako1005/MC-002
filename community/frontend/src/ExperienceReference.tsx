@@ -59,6 +59,7 @@ export default function ProviderExperience({
     api<PublicExperienceSummary>(`/providers/${providerId}/experience-summary`)
       .then((result) => {
         if (active) setData(result);
+        return undefined;
       })
       .catch(() => {
         if (active) setFailed(true);

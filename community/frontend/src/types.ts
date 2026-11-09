@@ -15,10 +15,12 @@ export type Community = {
   cover_key: string;
 };
 export type Analysis = {
-  status: "queued" | "running" | "succeeded" | "failed";
-  tags: { id: string; label: string; score: number }[];
+  status: "manual" | "guided" | "queued" | "running" | "succeeded" | "failed";
+  tags: { id: string; label: string; score?: number }[];
   message: string;
   model_version: string | null;
+  method?: "manual-photo-tags-v1" | "predefined-photo-tags-v1" | "saved-candidates-manual-review";
+  inference_enabled?: false;
 };
 export type Media = {
   id: string;
@@ -108,5 +110,13 @@ export type Group = {
 };
 export type Bootstrap = {
   tags: Tag[];
-  model: { status: "ready" | "unavailable"; name: string };
+  model: {
+    status: "guided";
+    name: string;
+    mode: "manual-with-predefined-assets";
+    method: "manual-photo-tags-v1";
+    inference_enabled: false;
+    external_ai_enabled: false;
+    description: string;
+  };
 };

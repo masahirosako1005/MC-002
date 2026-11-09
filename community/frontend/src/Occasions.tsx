@@ -1,3 +1,4 @@
+import { choiceValue, errorMessage } from "./validation";
 import { useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
@@ -97,7 +98,7 @@ function OccasionEditor({
       );
       if (alive.current) onSaved();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -122,7 +123,7 @@ function OccasionEditor({
             value={kind}
             disabled={busy || !!initial}
             onChange={(event) =>
-              setKind(event.target.value as OccasionDate["kind"])
+              setKind(choiceValue(event.target.value, ["birthday", "anniversary"], kind))
             }
           >
             {(!hasBirthday || initial?.kind === "birthday") && (
@@ -288,7 +289,7 @@ function SharingEditor({
       });
       if (alive.current) onSaved();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -397,7 +398,7 @@ function SaveOccasionCandidate({
       );
       if (alive.current) onSaved(suggestion.circle_id);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -485,8 +486,8 @@ function SuggestedPlans({
                   <details>
                     <summary>確認が必要なこと</summary>
                     <ul>
-                      {item.unknowns.map((unknown, index) => (
-                        <li key={index}>{unknown}</li>
+                      {[...new Set(item.unknowns)].map((unknown) => (
+                        <li key={unknown}>{unknown}</li>
                       ))}
                     </ul>
                   </details>
@@ -571,12 +572,13 @@ function PrivatePreview({
     setData(null);
     setError("");
     setLoading(!!circleId);
-    if (!circleId) return;
+    if (!circleId) return undefined;
     api<OccasionSuggestion>(
       `/me/occasions/${occasion.id}/preview?circle_id=${encodeURIComponent(circleId)}`,
     )
       .then((result) => {
         if (active) setData(result);
+        return undefined;
       })
       .catch((e) => {
         if (active) setError(e.message);
@@ -657,7 +659,7 @@ export default function Occasions({
     } catch (e) {
       if (alive.current) {
         setData(null);
-        setError((e as Error).message);
+        setError(errorMessage(e));
       }
     } finally {
       if (alive.current) setLoading(false);
@@ -679,7 +681,7 @@ export default function Occasions({
         await load();
       }
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -882,7 +884,7 @@ export function CircleOccasions({
         setDates([]);
         setItems([]);
         setSelected(null);
-        setError((e as Error).message);
+        setError(errorMessage(e));
       }
     } finally {
       if (alive.current) setLoading(false);
@@ -904,7 +906,7 @@ export function CircleOccasions({
       });
       if (alive.current) await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }

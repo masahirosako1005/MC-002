@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import Choice from "./Choice";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { api, ApiError, mediaUrl, setCsrf } from "./api";
@@ -30,6 +31,9 @@ import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
 import { useNavigationMotion } from "./useNavigationMotion";
 import type { MotionTrigger } from "./useNavigationMotion";
+import type { CircleDetail } from "./circle-types";
+import { emptyDiscoveryFilters, useResumeState } from "./useResumeState";
+import type { DiscoveryFilters, ResumeContent, ResumeState } from "./useResumeState";
 const Journal = lazy(() => import("./Journal"));
 const Circles = lazy(() => import("./Circles"));
 const VisitDialog = lazy(() =>
@@ -75,11 +79,12 @@ function CommunityDialog({
   const [error, setError] = useState("");
   const [leave, setLeave] = useState(false);
   useEffect(() => {
-    if (!community) return;
+    if (!community) return undefined;
     let active = true;
     api<{ invite_code: string | null }>(`/communities/${community.id}`)
       .then((r) => {
         if (active) setInvite(r.invite_code);
+        return undefined;
       })
       .catch((e) => {
         if (active) setError(e.message);
@@ -100,7 +105,7 @@ function CommunityDialog({
       await onChange(c);
       onClose();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -114,7 +119,7 @@ function CommunityDialog({
       await onChange();
       onClose();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -259,9 +264,16 @@ export default function App() {
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
   const generation = useRef(0);
-  const motion = useNavigationMotion(page, !!user, !!user && !!data);
+  const resume = useResumeState(user?.id || null);
+  const [appliedResume, setAppliedResume] = useState<{ userId: string; state: ResumeState } | null>(null);
+  const [discoveryFilters, setDiscoveryFilters] = useState<DiscoveryFilters>(emptyDiscoveryFilters);
+  const resumeReady = !!resume.restore && appliedResume === resume.restore;
+  const motion = useNavigationMotion(page, !!user, !!user && !!data && resumeReady);
   function clearSession(text: string) {
     motion.reset();
+    resume.reset();
+    setAppliedResume(null);
+    setDiscoveryFilters(emptyDiscoveryFilters);
     generation.current++;
     setUser(null);
     setData(null);
@@ -297,12 +309,10 @@ export default function App() {
       groups: results[4].items,
       capabilities: results[5],
     });
-    if (results[5].providers.length)
-      setPage((current) => (current === "feed" ? "provider" : current));
     setCommunityId((current) =>
       results[0].items.some((c) => c.id === current)
         ? current
-        : results[0].items[0]?.id || "",
+        : "",
     );
   }
   async function boot() {
@@ -319,7 +329,7 @@ export default function App() {
         if (!(e instanceof ApiError && e.status === 401)) throw e;
       }
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBooting(false);
     }
@@ -334,7 +344,7 @@ export default function App() {
     return () => window.removeEventListener("session-invalid", expire);
   }, []);
   useEffect(() => {
-    if (!user) return;
+    if (!user) return undefined;
     let active = true;
     refresh().catch((e) => {
       if (active) setError(e.message);
@@ -346,12 +356,13 @@ export default function App() {
   useEffect(() => {
     setFeed([]);
     setFeedError("");
-    if (!communityId || !user) return;
+    if (!communityId || !user) return undefined;
     let active = true;
     setFeedBusy(true);
     api<{ items: Post[] }>(`/communities/${communityId}/feed`)
       .then((r) => {
         if (active) setFeed(r.items);
+        return undefined;
       })
       .catch((e) => {
         if (active) setFeedError(e.message);
@@ -363,6 +374,42 @@ export default function App() {
       active = false;
     };
   }, [communityId, user, loadKey]);
+  useEffect(() => {
+    if (!data || !resume.restore || appliedResume === resume.restore) return;
+    const saved = resume.restore.state;
+    setPage(saved.page === "circles" ? "ko" : saved.page);
+    setCommunityId(saved.community_id || (saved.version === 0 ? data.communities[0]?.id || "" : ""));
+    setCircleTarget(saved.circle_id || "");
+    setDiscoveryFilters(saved.filters);
+    setAppliedResume(resume.restore);
+  }, [data, resume.restore, appliedResume]);
+  useEffect(() => {
+    if (!resumeReady || !resume.restore) return;
+    resume.applied(resume.restore.state);
+    let persistedPage: ResumeContent["page"];
+    if (page === "ko") persistedPage = "circles";
+    else if (page === "feed" || page === "market" || page === "journal" || page === "provider") persistedPage = page;
+    else return;
+    resume.queue({ page: persistedPage, community_id: communityId || null,
+      circle_id: communityId ? circleTarget || null : null, filters: discoveryFilters });
+  }, [resumeReady, resume.restore, page, communityId, circleTarget, discoveryFilters, resume.queue, resume.applied]);
+  function chooseCommunity(id: string) {
+    setCommunityId(id);
+    setCircleTarget("");
+    setDiscoveryFilters(emptyDiscoveryFilters);
+  }
+  async function openCircle(id: string) {
+    const epoch = generation.current;
+    try {
+      const selected = await api<CircleDetail>(`/circles/${encodeURIComponent(id)}`);
+      if (epoch !== generation.current) return;
+      setCommunityId(selected.community_id);
+      setCircleTarget(selected.status === "open" ? selected.id : "");
+      navigate("ko");
+    } catch (cause: unknown) {
+      if (epoch === generation.current) setError(errorMessage(cause));
+    }
+  }
   async function changed() {
     await refresh();
     setLoadKey((v) => v + 1);
@@ -374,7 +421,7 @@ export default function App() {
       await api("/logout", "POST", {});
       clearSession("別のアカウントでログインできます。");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setActionBusy(false);
     }
@@ -389,7 +436,7 @@ export default function App() {
       await changed();
       setMessage("記録を削除しました。");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setActionBusy(false);
     }
@@ -443,15 +490,15 @@ export default function App() {
         }}
       />
     );
-  if (!data)
+  if (!data || !resumeReady)
     return (
       <main className="loading-page">
         <p>コミュニティを読み込んでいます…</p>
-        <ErrorBox message={error} />
-        {error && (
+        <ErrorBox message={error || resume.error} />
+        {(error || resume.error) && (
           <button
             className="button primary"
-            onClick={() => setLoadKey((v) => v + 1)}
+            onClick={() => { setLoadKey((v) => v + 1); resume.retry(); }}
           >
             もう一度読み込む
           </button>
@@ -498,12 +545,13 @@ export default function App() {
           </nav>
           <div className="community-list">
             <p className="eyebrow">参加しているコミュニティ</p>
+            {!communityId && data.communities.length > 0 && <p className="quiet-note">コミュニティを選んでください。</p>}
             {data.communities.map((c, i) => (
               <button
                 key={c.id}
                 className={`community-button ${communityId === c.id ? "selected" : ""}`}
                 onClick={() => {
-                  setCommunityId(c.id);
+                  chooseCommunity(c.id);
                   navigate("feed");
                 }}
                 aria-pressed={communityId === c.id}
@@ -568,15 +616,19 @@ export default function App() {
               </label>
               <Choice
                 id="mobile-community"
+                ariaLabel="コミュニティ"
+                ariaDescribedBy={!communityId ? "community-selection-help" : undefined}
                 value={communityId}
-                onChange={(e) => setCommunityId(e.target.value)}
+                onChange={(e) => chooseCommunity(e.target.value)}
               >
+                <option value="">コミュニティを選ぶ</option>
                 {data.communities.map((c) => (
                   <option value={c.id} key={c.id}>
                     {c.name}
                   </option>
                 ))}
               </Choice>
+              {!communityId && <span id="community-selection-help" className="sr-only">講の作成や写真の投稿には、コミュニティの選択が必要です。</span>}
             </>
           ) : (
             <span className="mobile-workspace-name">
@@ -608,6 +660,9 @@ export default function App() {
           data-motion-state="idle"
         >
           <ErrorBox message={error} />
+          <ErrorBox message={resume.error} />
+          {resume.error && <button className="text-button" onClick={resume.retry}>保存状態を再確認</button>}
+          {resume.notice && <p className="quiet-note" role="status">{resume.notice}</p>}
           {message && (
             <div className="notice" role="status">
               <span>{message}</span>
@@ -778,14 +833,17 @@ export default function App() {
             </Suspense>
           ) : page === "market" ? (
             <Marketplace
+              key={`${user.id}-${communityId}`}
               community={community}
               groups={data.groups}
               tags={bootstrap.tags}
               user={user}
-              onOpenCircle={(id) => {
-                setCircleTarget(id);
-                navigate("ko");
-              }}
+              resume={{ filters: discoveryFilters, onFiltersChange: setDiscoveryFilters,
+                selectedCircleId: circleTarget, onCircleChange: setCircleTarget }}
+              interestTags={bootstrap.tags.filter((tag) => data.preferences.tags.includes(tag.id))}
+              interestsAllowed={data.preferences.grants.some((grant) => grant.community_id === communityId && grant.use_for_matching)}
+              onEditInterests={() => navigate("preferences")}
+              onOpenCircle={(id) => void openCircle(id)}
             />
           ) : page === "provider" ? (
             <ProviderWorkspace
@@ -796,12 +854,18 @@ export default function App() {
           ) : page === "ko" ? (
             <Suspense fallback={<p role="status">講をひらいています…</p>}>
               <Circles
-                key={user.id}
+                key={`${user.id}-${communityId}`}
                 community={community}
                 communities={data.communities}
                 user={user}
                 tags={bootstrap.tags}
-                initialCircleId={circleTarget}
+                initialCircleId={communityId ? circleTarget : ""}
+                discoveryResume={{ filters: discoveryFilters, onFiltersChange: setDiscoveryFilters,
+                  selectedCircleId: circleTarget, onCircleChange: setCircleTarget }}
+                onSelectedCircle={(id, selectedCommunity) => {
+                  setCircleTarget(id);
+                  if (selectedCommunity) setCommunityId(selectedCommunity);
+                }}
                 onLegacy={() => navigate("ko-legacy")}
               />
             </Suspense>
@@ -820,10 +884,7 @@ export default function App() {
             <Preferences
               key={user.id}
               initial={data.preferences}
-              onOpenCircle={(id) => {
-                setCircleTarget(id);
-                navigate("ko");
-              }}
+              onOpenCircle={(id) => void openCircle(id)}
               communities={data.communities}
               tags={bootstrap.tags}
               onSaved={changed}
@@ -977,7 +1038,7 @@ export default function App() {
           onClose={() => setCommunityDialog(null)}
           onChange={async (c) => {
             await changed();
-            if (c) setCommunityId(c.id);
+            if (c) chooseCommunity(c.id);
           }}
         />
       )}

@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import { lazy, Suspense, useState } from "react";
 import { api } from "./api";
 import type {
@@ -62,7 +63,7 @@ export default function Preferences({
       await onSaved();
       setSaved(true);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }

@@ -6,6 +6,7 @@ import {
   useId,
   useRef,
   useState,
+  useMemo,
 } from "react";
 import type { ReactNode } from "react";
 import { Icon } from "./ui";
@@ -17,6 +18,7 @@ export default function Choice({
   disabled = false,
   id,
   ariaLabel,
+  ariaDescribedBy,
 }: {
   value: string | number;
   onChange: (event: { target: { value: string } }) => void;
@@ -24,6 +26,7 @@ export default function Choice({
   disabled?: boolean;
   id?: string;
   ariaLabel?: string;
+  ariaDescribedBy?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [labelText, setLabelText] = useState("");
@@ -32,16 +35,14 @@ export default function Choice({
   const trigger = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLSpanElement>(null);
-  const options: Option[] = Children.toArray(children)
-    .filter(isValidElement)
+  const options: Option[] = useMemo(() => Children.toArray(children)
+    .filter(isValidElement<{ value: string | number; children: ReactNode }>)
     .map((child) => {
-      const props = child.props as {
-        value: string | number;
-        children: ReactNode;
-      };
+      const props = child.props;
       return { value: String(props.value), label: props.children };
-    });
+    }), [children]);
   const selected = options.find((o) => o.value === String(value));
+  const selectedIndex = Math.max(0, options.findIndex((o) => o.value === String(value)));
   useLayoutEffect(() => {
     const label = root.current?.closest("label");
     if (!label) return;
@@ -54,25 +55,21 @@ export default function Choice({
     setLabelText(text);
   }, []);
   useEffect(() => {
-    if (!open) return;
+    if (!open) return undefined;
     const outside = (e: PointerEvent) => {
-      if (!root.current?.contains(e.target as Node)) setOpen(false);
+      if (e.target instanceof Node && !root.current?.contains(e.target)) setOpen(false);
     };
     document.addEventListener("pointerdown", outside);
     const frame = requestAnimationFrame(() => {
       const buttons =
         menu.current?.querySelectorAll<HTMLButtonElement>("[role=option]");
-      const index = Math.max(
-        0,
-        options.findIndex((o) => o.value === String(value)),
-      );
-      buttons?.[index]?.focus();
+      buttons?.[selectedIndex]?.focus();
     });
     return () => {
       document.removeEventListener("pointerdown", outside);
       cancelAnimationFrame(frame);
     };
-  }, [open]);
+  }, [open, selectedIndex]);
   useEffect(() => {
     if (disabled) setOpen(false);
   }, [disabled]);
@@ -88,9 +85,10 @@ export default function Choice({
         aria-expanded={open}
         aria-controls={listId}
         aria-label={ariaLabel || labelText || undefined}
-        aria-describedby={
-          ariaLabel || labelText ? `${listId}-value` : undefined
-        }
+        aria-describedby={[
+          ariaLabel || labelText ? `${listId}-value` : "",
+          ariaDescribedBy,
+        ].filter(Boolean).join(" ") || undefined}
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => {
           if (e.key === "ArrowDown" || e.key === "ArrowUp") {
@@ -109,6 +107,7 @@ export default function Choice({
         id={listId}
         className="choice-menu"
         role="listbox"
+        tabIndex={-1}
         aria-label={
           ariaLabel || labelText
             ? `${ariaLabel || labelText}の選択肢`
@@ -121,9 +120,7 @@ export default function Choice({
               "[role=option]",
             ) || [],
           );
-          const index = items.indexOf(
-            document.activeElement as HTMLButtonElement,
-          );
+          const index = items.findIndex((item) => item === document.activeElement);
           let next = index;
           if (e.key === "ArrowDown") next = (index + 1) % items.length;
           else if (e.key === "ArrowUp")

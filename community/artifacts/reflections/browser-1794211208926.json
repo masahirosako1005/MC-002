@@ -1,0 +1,196 @@
+{
+  "checkedAt": "2026-11-09T08:00:21.260Z",
+  "results": [
+    "trip completion is explicit and consent starts off before any automatic analysis",
+    "personal use and all-traveler consent activate clear automatic extraction",
+    "author correction and exclusion update the reference without changing the source",
+    "editing and deleting the original invalidate prior extraction and author corrections",
+    "withdrawal immediately withholds the trip and the public discovery reference",
+    "private reflection conversation stays usable at narrow width and enlarged text"
+  ],
+  "layout": [
+    {
+      "label": "390",
+      "viewport": 390,
+      "height": 844,
+      "content": 390,
+      "font": "16px",
+      "inner": [
+        {
+          "tag": "SECTION",
+          "className": "conversation",
+          "client": 390,
+          "scroll": 390,
+          "left": 0,
+          "right": 390,
+          "top": 61,
+          "bottom": 844
+        },
+        {
+          "tag": "DIV",
+          "className": "conversation-history",
+          "client": 390,
+          "scroll": 390,
+          "left": 0,
+          "right": 390,
+          "top": 61,
+          "bottom": 749.40625
+        },
+        {
+          "tag": "FORM",
+          "className": "message-form",
+          "client": 390,
+          "scroll": 390,
+          "left": 0,
+          "right": 390,
+          "top": 749.40625,
+          "bottom": 844
+        },
+        {
+          "tag": "TEXTAREA",
+          "className": "",
+          "client": 290,
+          "scroll": 290,
+          "left": 12,
+          "right": 304,
+          "top": 760.40625,
+          "bottom": 834
+        },
+        {
+          "tag": "BUTTON",
+          "className": "button primary",
+          "client": 64,
+          "scroll": 64,
+          "left": 312,
+          "right": 378,
+          "top": 790,
+          "bottom": 834
+        }
+      ]
+    },
+    {
+      "label": "320",
+      "viewport": 320,
+      "height": 844,
+      "content": 320,
+      "font": "16px",
+      "inner": [
+        {
+          "tag": "SECTION",
+          "className": "conversation",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 61,
+          "bottom": 844
+        },
+        {
+          "tag": "DIV",
+          "className": "conversation-history",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 61,
+          "bottom": 697.40625
+        },
+        {
+          "tag": "FORM",
+          "className": "message-form",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 697.40625,
+          "bottom": 844
+        },
+        {
+          "tag": "TEXTAREA",
+          "className": "",
+          "client": 294,
+          "scroll": 294,
+          "left": 12,
+          "right": 308,
+          "top": 708.40625,
+          "bottom": 782
+        },
+        {
+          "tag": "BUTTON",
+          "className": "button primary",
+          "client": 64,
+          "scroll": 64,
+          "left": 242,
+          "right": 308,
+          "top": 790,
+          "bottom": 834
+        }
+      ]
+    },
+    {
+      "label": "320+200%",
+      "viewport": 320,
+      "height": 844,
+      "content": 320,
+      "font": "32px",
+      "inner": [
+        {
+          "tag": "SECTION",
+          "className": "conversation",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 113,
+          "bottom": 844
+        },
+        {
+          "tag": "DIV",
+          "className": "conversation-history",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 113,
+          "bottom": 603.8125
+        },
+        {
+          "tag": "FORM",
+          "className": "message-form",
+          "client": 320,
+          "scroll": 320,
+          "left": 0,
+          "right": 320,
+          "top": 603.8125,
+          "bottom": 844
+        },
+        {
+          "tag": "TEXTAREA",
+          "className": "",
+          "client": 294,
+          "scroll": 294,
+          "left": 12,
+          "right": 308,
+          "top": 614.8125,
+          "bottom": 762
+        },
+        {
+          "tag": "BUTTON",
+          "className": "button primary",
+          "client": 79,
+          "scroll": 79,
+          "left": 226.546875,
+          "right": 308,
+          "top": 770,
+          "bottom": 834
+        }
+      ]
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": true,
+  "setup": "Two independently consented fixture trips establish the publication threshold. The third is exercised through the UI.",
+  "retention": "Only this run’s reflection completion claims are cancelled and circles closed. No seed plans, existing conversations, or rows are deleted.",
+  "passed": true
+}

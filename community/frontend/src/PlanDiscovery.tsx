@@ -1,3 +1,7 @@
+import { errorMessage } from "./validation";
+import { choiceValue } from "./validation";
+import { emptyDiscoveryFilters } from "./useResumeState";
+import type { DiscoveryFilters } from "./useResumeState";
 import { useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
@@ -98,8 +102,8 @@ export function SavedCandidateList({
                 <details>
                   <summary>確認が必要なこと</summary>
                   <ul>
-                    {card.unknowns.map((item, index) => (
-                      <li key={index}>{item}</li>
+                    {[...new Set(card.unknowns)].map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </details>
@@ -218,7 +222,7 @@ function SaveToCircle({
       });
       if (alive.current) onSaved(target);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -290,20 +294,33 @@ function SaveToCircle({
   );
 }
 
+export type DiscoveryResume = {
+  filters: DiscoveryFilters;
+  onFiltersChange: (filters: DiscoveryFilters) => void;
+  selectedCircleId: string;
+  onCircleChange: (id: string) => void;
+};
 export default function PlanDiscovery({
   community,
   tags,
   circle,
   onOpenCircle,
   refreshKey = 0,
+  resume,
 }: {
   community: Community;
   tags: Tag[];
   circle?: CircleSummary;
   onOpenCircle: (circleId: string) => void;
   refreshKey?: number;
+  resume?: DiscoveryResume;
 }) {
-  const [circleId, setCircleId] = useState(circle?.id || "");
+  const [localCircleId, setLocalCircleId] = useState(circle?.id || "");
+  const circleId = circle?.id ?? resume?.selectedCircleId ?? localCircleId;
+  function setCircleId(id: string) {
+    if (resume) resume.onCircleChange(id);
+    else setLocalCircleId(id);
+  }
   const [circles, setCircles] = useState<CircleSummary[]>([]);
   const [data, setData] = useState<DiscoveryResult | null>(null);
   const [error, setError] = useState("");
@@ -312,11 +329,20 @@ export default function PlanDiscovery({
   const [page, setPage] = useState(0);
   const [detail, setDetail] = useState<ProviderPlan | null>(null);
   const [saving, setSaving] = useState<ProviderPlan | null>(null);
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("");
-  const [duration, setDuration] = useState("all");
-  const [schedule, setSchedule] = useState("all");
-  const [area, setArea] = useState("");
+  const [localFilters, setLocalFilters] = useState<DiscoveryFilters>(emptyDiscoveryFilters);
+  const filters = resume?.filters || localFilters;
+  const { query, category, duration, schedule, area } = filters;
+  function changeFilters(patch: Partial<DiscoveryFilters>) {
+    const next = { ...filters, ...patch };
+    if (resume) resume.onFiltersChange(next);
+    else setLocalFilters(next);
+    setPage(0);
+  }
+  const setQuery = (value: string) => changeFilters({ query: value });
+  const setCategory = (value: string) => changeFilters({ category: value });
+  const setDuration = (value: string) => changeFilters({ duration: choiceValue(value, ["all", "day", "overnight"], duration) });
+  const setSchedule = (value: string) => changeFilters({ schedule: choiceValue(value, ["all", "dated", "on_request"], schedule) });
+  const setArea = (value: string) => changeFilters({ area: value });
   const [filtersOpen, setFiltersOpen] = useState(false);
   const candidates = data?.items || [];
   const filtered = candidates.filter(
@@ -335,9 +361,9 @@ export default function PlanDiscovery({
       (!area || plan.area === area),
   );
   const categories = tags.filter((tag) =>
-    candidates.some(({ plan }) => plan.tags.includes(tag.id)),
+    tag.id === category || candidates.some(({ plan }) => plan.tags.includes(tag.id)),
   );
-  const areas = [...new Set(candidates.map(({ plan }) => plan.area))];
+  const areas = [...new Set([...candidates.map(({ plan }) => plan.area), ...(area ? [area] : [])])];
   const filterCount =
     Number(duration !== "all") + Number(schedule !== "all") + Number(!!area);
   const hasFilter = !!query || !!category || !!filterCount;
@@ -346,16 +372,8 @@ export default function PlanDiscovery({
     Math.max(0, Math.ceil(filtered.length / 4) - 1),
   );
   function clearFilters() {
-    setQuery("");
-    setCategory("");
-    setDuration("all");
-    setSchedule("all");
-    setArea("");
-    setPage(0);
+    changeFilters(emptyDiscoveryFilters);
   }
-  useEffect(() => {
-    setPage(0);
-  }, [query, category, duration, schedule, area]);
   useEffect(() => {
     let active = true;
     setLoading(true);
@@ -370,7 +388,7 @@ export default function PlanDiscovery({
       api<CircleList>("/circles"),
     ])
       .then(([result, list]) => {
-        if (!active) return;
+        if (!active) return undefined;
         setData(result);
         setCircles(
           list.items.filter(
@@ -378,6 +396,7 @@ export default function PlanDiscovery({
               item.community_id === community.id && item.status === "open",
           ),
         );
+        return undefined;
       })
       .catch((e) => {
         if (active) setError(e.message);
@@ -442,6 +461,7 @@ export default function PlanDiscovery({
           </span>
           <input
             type="search"
+            maxLength={120}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="場所・プラン名で絞り込む"
@@ -560,8 +580,8 @@ export default function PlanDiscovery({
                         <details className="discovery-unknowns">
                           <summary>確認が必要なこと</summary>
                           <ul>
-                            {item.unknowns.map((unknown, index) => (
-                              <li key={index}>{unknown}</li>
+                            {[...new Set(item.unknowns)].map((unknown) => (
+                              <li key={unknown}>{unknown}</li>
                             ))}
                           </ul>
                         </details>

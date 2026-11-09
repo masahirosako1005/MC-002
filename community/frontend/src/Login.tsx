@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import { useRef, useState } from "react";
 import type { SubmitEvent } from "react";
 import { api, setAccessToken, stageFrame } from "./api";
@@ -42,7 +43,7 @@ export default function Login({
       if (result.access_token) setAccessToken(result.access_token);
       onLogin(result.user, result.csrf_token, trigger);
     } catch (cause) {
-      setError((cause as Error).message);
+      setError(errorMessage(cause));
       setPassword("");
       setShowPassword(false);
       requestAnimationFrame(() => passwordInput.current?.focus());

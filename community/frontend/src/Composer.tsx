@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { errorMessage } from "./validation";
+import { useState } from "react";
 import { api, mediaUrl } from "./api";
-import type { Analysis, Community, Media, Post, Tag } from "./types";
+import type { Community, Media, Post, Tag } from "./types";
 import { ErrorBox, Icon, LocalPhoto, Modal, TagPicker } from "./ui";
 
 export default function Composer({
@@ -23,73 +24,9 @@ export default function Composer({
   const [date, setDate] = useState(post?.taken_on || "");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [analysisError, setAnalysisError] = useState("");
   const [draft, setDraft] = useState<Post | undefined>(post);
   const [confirmed, setConfirmed] = useState(false);
   const [readLocation, setReadLocation] = useState(false);
-  const polls = useRef(0);
-  useEffect(() => {
-    if (
-      polls.current >= 40 ||
-      !media.some((m) => ["queued", "running"].includes(m.analysis.status))
-    )
-      return;
-    let active = true;
-    const timer = window.setTimeout(async () => {
-      try {
-        const updated = await Promise.all(
-          media.map(async (m) =>
-            ["queued", "running"].includes(m.analysis.status)
-              ? {
-                  ...m,
-                  analysis: await api<Analysis>(`/media/${m.id}/analysis`),
-                }
-              : m,
-          ),
-        );
-        if (active) {
-          polls.current++;
-          setMedia(updated);
-          if (polls.current >= 40)
-            setAnalysisError(
-              "写真の確認に時間がかかっています。タグを自分で選んで投稿できます。",
-            );
-        }
-      } catch (e) {
-        if (active) setAnalysisError((e as Error).message);
-      }
-    }, 1800);
-    return () => {
-      active = false;
-      clearTimeout(timer);
-    };
-  }, [media]);
-  async function retryAnalysis() {
-    setBusy(true);
-    setAnalysisError("");
-    try {
-      const updated = await Promise.all(
-        media.map(async (m) =>
-          m.analysis.status === "failed"
-            ? {
-                ...m,
-                analysis: await api<Analysis>(
-                  `/media/${m.id}/analyze`,
-                  "POST",
-                  {},
-                ),
-              }
-            : m,
-        ),
-      );
-      polls.current = 0;
-      setMedia(updated);
-    } catch (e) {
-      setAnalysisError((e as Error).message);
-    } finally {
-      setBusy(false);
-    }
-  }
   async function upload(files: FileList | null) {
     if (!files) return;
     setError("");
@@ -110,9 +47,8 @@ export default function Composer({
         const item = await api<Media>(readLocation ? "/media?read_location=true" : "/media", "POST", data);
         setMedia((previous) => [...previous, item]);
       }
-      polls.current = 0;
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -143,7 +79,7 @@ export default function Composer({
       await onSaved();
       onClose();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }
@@ -177,14 +113,12 @@ export default function Composer({
           <div className="upload-item" key={m.id}>
             <LocalPhoto src={mediaUrl(m.url)} alt="選択した旅の写真" />
             <span className="image-status">
-              {m.analysis.status === "succeeded"
-                ? m.analysis.tags.length > 0
-                  ? "タグ候補を確認できます"
-                  : m.analysis.message ||
-                    "候補を絞れませんでした。タグを選べます"
-                : m.analysis.status === "failed"
-                  ? "タグを選んで続けられます"
-                  : "写真を確認しています"}
+              {m.analysis.message ||
+                (m.analysis.method === "predefined-photo-tags-v1"
+                  ? "この写真に登録されたタグ候補があります"
+                  : m.analysis.tags.length
+                    ? "以前のタグ候補を確認できます"
+                    : "写真のタグを自分で選べます")}
             </span>
             {!draft && (
               <button
@@ -250,9 +184,9 @@ export default function Composer({
       </div>
       {candidates.length > 0 && (
         <div className="hint-box">
-          <strong>写真から見つかった候補</strong>
+          <strong>タグの候補</strong>
           <p>
-            写っているものの候補です。あなたの好みには、ここでは設定されません。
+            使うタグだけ選んでください。好みには自動で設定しません。
           </p>
           <div className="tag-options">
             {candidates.map((id) => (
@@ -277,28 +211,12 @@ export default function Composer({
           </div>
         </div>
       )}
-      {media.some((m) => m.analysis.status === "failed") && (
-        <p className="muted">
-          写真のタグ候補を取得できませんでした。下から選んでそのまま公開できます。
-        </p>
-      )}
-      <ErrorBox message={analysisError} />
-      {(analysisError || media.some((m) => m.analysis.status === "failed")) && (
-        <button
-          type="button"
-          className="text-button"
-          disabled={busy}
-          onClick={() => void retryAnalysis()}
-        >
-          写真のタグ候補をもう一度確認
-        </button>
-      )}
       <TagPicker
         tags={tags}
         value={selected}
         onChange={setSelected}
         disabled={busy}
-        label="写真のタグを確認・訂正する"
+        label="写真のタグを選ぶ"
       />
       <label className="check-row">
         <input

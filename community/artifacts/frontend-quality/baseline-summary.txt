@@ -1,0 +1,254 @@
+src/ExperienceReference.tsx:57 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/ExperienceReference.tsx:4 import(no-unassigned-import) Imported module should be assigned
+src/ExperienceReference.tsx:60 promise(always-return) Each then() should return a value or throw
+src/ExperienceReference.tsx:73 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/ReflectionWorkspace.tsx:540 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/ReflectionWorkspace.tsx:851 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/ReflectionWorkspace.tsx:540 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/ReflectionWorkspace.tsx:851 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/ReflectionWorkspace.tsx:14 import(no-unassigned-import) Imported module should be assigned
+src/ReflectionWorkspace.tsx:372 jsx-a11y(no-noninteractive-tabindex) `tabIndex` should only be declared on interactive elements.
+src/ReflectionWorkspace.tsx:371 jsx-a11y(prefer-tag-over-role) Prefer `section` over `role` attribute `region`.
+src/ReflectionWorkspace.tsx:540 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/ReflectionWorkspace.tsx:583 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/ReflectionWorkspace.tsx:851 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/ReflectionWorkspace.tsx:874 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/useNavigationMotion.ts:46 react(exhaustive-effect-dependencies) Found missing effect dependencies
+src/useNavigationMotion.ts:49 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/ProviderWorkspace.tsx:517 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/ProviderWorkspace.tsx:517 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/ProviderWorkspace.tsx:20 import(no-unassigned-import) Imported module should be assigned
+src/ProviderWorkspace.tsx:179 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/ProviderWorkspace.tsx:285 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/ProviderWorkspace.tsx:301 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/ProviderWorkspace.tsx:337 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/ProviderWorkspace.tsx:517 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/ProviderWorkspace.tsx:575 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/ProviderWorkspace.tsx:593 jsx-a11y(prefer-tag-over-role) Prefer `address, details, fieldset, hgroup, optgroup` over `role` attribute `group`.
+src/marketplace-ui.tsx:312 react(refs) Cannot access refs during render
+src/marketplace-ui.tsx:312 react(refs) Cannot access refs during render
+src/marketplace-ui.tsx:249 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/marketplace-ui.tsx:368 jsx-a11y(no-noninteractive-tabindex) `tabIndex` should only be declared on interactive elements.
+src/marketplace-ui.tsx:369 jsx-a11y(prefer-tag-over-role) Prefer `section` over `role` attribute `region`.
+src/PlanDiscovery.tsx:358 react(exhaustive-effect-dependencies) Found extra effect dependencies
+src/PlanDiscovery.tsx:394 react(exhaustive-effect-dependencies) Found extra effect dependencies
+src/PlanDiscovery.tsx:357 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/PlanDiscovery.tsx:361 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/PlanDiscovery.tsx:16 import(no-unassigned-import) Imported module should be assigned
+src/PlanDiscovery.tsx:102 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/PlanDiscovery.tsx:372 promise(always-return) Each then() should return a value or throw
+src/PlanDiscovery.tsx:462 jsx-a11y(prefer-tag-over-role) Prefer `address, details, fieldset, hgroup, optgroup` over `role` attribute `group`.
+src/PlanDiscovery.tsx:499 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/PlanDiscovery.tsx:536 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/PlanDiscovery.tsx:564 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/PlanDiscovery.tsx:637 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/PlanDiscovery.tsx:648 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Choice.tsx:75 react(exhaustive-effect-dependencies) Found missing effect dependencies
+src/Choice.tsx:77 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Choice.tsx:67 react-hooks(exhaustive-deps) React Hook useEffect has missing dependencies: 'options', and 'value'
+src/Choice.tsx:107 jsx-a11y(interactive-supports-focus) Elements with the 'listbox' interactive role must be focusable.
+src/Choice.tsx:111 jsx-a11y(prefer-tag-over-role) Prefer `datalist, select` over `role` attribute `listbox`.
+src/Choice.tsx:151 jsx-a11y(prefer-tag-over-role) Prefer `option` over `role` attribute `option`.
+src/ui.tsx:278 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/ui.tsx:284 promise(always-return) Each then() should return a value or throw
+src/Marketplace.tsx:345 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Marketplace.tsx:345 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Marketplace.tsx:25 import(no-unassigned-import) Imported module should be assigned
+src/Marketplace.tsx:44 react(no-object-type-as-default-prop) Do not use an array literal as default prop value. Use a stable reference instead.
+src/Marketplace.tsx:215 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Marketplace.tsx:228 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Marketplace.tsx:345 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Marketplace.tsx:662 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Marketplace.tsx:800 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Marketplace.tsx:1046 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Preferences.tsx:77 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Preferences.tsx:116 jsx-a11y(label-has-associated-control) A form label must have accessible text.
+src/Preferences.tsx:188 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Occasions.tsx:668 react(exhaustive-effect-dependencies) Found missing effect dependencies
+src/Occasions.tsx:892 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Occasions.tsx:571 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Occasions.tsx:667 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Occasions.tsx:892 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Occasions.tsx:23 import(no-unassigned-import) Imported module should be assigned
+src/Occasions.tsx:184 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Occasions.tsx:213 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Occasions.tsx:489 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Occasions.tsx:578 promise(always-return) Each then() should return a value or throw
+src/Occasions.tsx:618 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Occasions.tsx:667 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Occasions.tsx:715 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Occasions.tsx:892 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Occasions.tsx:983 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Composer.tsx:110 eslint(no-await-in-loop) Unexpected `await` inside a loop.
+src/Circles.tsx:754 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Circles.tsx:1058 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Circles.tsx:1740 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Circles.tsx:1992 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Circles.tsx:754 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Circles.tsx:1058 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Circles.tsx:1740 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Circles.tsx:1992 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Circles.tsx:31 import(no-unassigned-import) Imported module should be assigned
+src/Circles.tsx:92 promise(always-return) Each then() should return a value or throw
+src/Circles.tsx:248 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:355 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Circles.tsx:373 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Circles.tsx:451 oxc(no-map-spread) Spreading to modify object properties in `map` calls is inefficient
+src/Circles.tsx:562 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Circles.tsx:668 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Circles.tsx:678 jsx-a11y(label-has-associated-control) A form label must be associated with a control.
+src/Circles.tsx:754 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Circles.tsx:787 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:1058 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Circles.tsx:1157 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:1306 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:1319 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:1383 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Circles.tsx:1649 react(no-array-index-key) Usage of Array index in keys is not allowed
+src/Circles.tsx:1740 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Circles.tsx:1837 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Circles.tsx:1992 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'load'
+src/Circles.tsx:2037 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Journal.tsx:104 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/Journal.tsx:178 react(exhaustive-effect-dependencies) Found extra effect dependencies
+src/Journal.tsx:226 react(exhaustive-effect-dependencies) Found extra effect dependencies
+src/Journal.tsx:99 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Journal.tsx:175 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Journal.tsx:223 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Journal.tsx:229 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/Journal.tsx:7 import(no-unassigned-import) Imported module should be assigned
+src/Journal.tsx:24 react(no-object-type-as-default-prop) Do not use an array literal as default prop value. Use a stable reference instead.
+src/Journal.tsx:28 jsx-a11y(prefer-tag-over-role) Prefer `img` over `role` attribute `img`.
+src/Journal.tsx:103 react-hooks(exhaustive-deps) React Hook useEffect has missing dependencies: 'post.media', 'post', and 'mediaId'
+src/Journal.tsx:100 promise(always-return) Each then() should return a value or throw
+src/Journal.tsx:141 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Journal.tsx:176 promise(always-return) Each then() should return a value or throw
+src/Journal.tsx:190 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Journal.tsx:191 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Journal.tsx:224 promise(always-return) Each then() should return a value or throw
+src/Journal.tsx:230 promise(always-return) Each then() should return a value or throw
+src/Journal.tsx:253 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Journal.tsx:259 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/KoPage.tsx:209 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/KoPage.tsx:274 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/KoPage.tsx:398 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/KoPage.tsx:520 jsx-a11y(no-autofocus) The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+src/Login.tsx:7 import(no-unassigned-import) Imported module should be assigned
+src/Login.tsx:81 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/Stage.tsx:47 react(exhaustive-effect-dependencies) Found missing effect dependencies
+src/Stage.tsx:2 import(no-unassigned-import) Imported module should be assigned
+src/Stage.tsx:135 react(iframe-missing-sandbox) An iframe element is missing a sandbox attribute
+src/Stage.tsx:179 react(iframe-missing-sandbox) An iframe element is missing a sandbox attribute
+src/main.tsx:6 import(no-unassigned-import) Imported module should be assigned
+src/main.tsx:7 import(no-unassigned-import) Imported module should be assigned
+src/App.tsx:335 react(exhaustive-effect-dependencies) Found missing effect dependencies
+src/App.tsx:339 react(exhaustive-effect-dependencies) Found missing/extra effect dependencies
+src/App.tsx:365 react(exhaustive-effect-dependencies) Found extra effect dependencies
+src/App.tsx:605 react(refs) Cannot access refs during render
+src/App.tsx:328 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/App.tsx:339 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/App.tsx:347 react(set-state-in-effect) Calling setState synchronously within an effect can trigger cascading renders
+src/App.tsx:81 promise(always-return) Each then() should return a value or throw
+src/App.tsx:330 react-hooks(exhaustive-deps) React Hook useEffect has a missing dependency: 'clearSession'
+src/App.tsx:353 promise(always-return) Each then() should return a value or throw
+src/App.tsx:612 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/App.tsx:675 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/App.tsx:771 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/App.tsx:797 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/App.tsx:941 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/App.tsx:961 jsx-a11y(prefer-tag-over-role) Prefer `output` over `role` attribute `status`.
+src/api.ts:119 typescript(no-unsafe-type-assertion) Unsafe assertion from `any` detected.
+src/Choice.tsx:38 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '{ value: string | number; children: ReactNode; }' is more narrow than the original type.
+src/ui.tsx:229 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'HTMLElement' is more narrow than the original type.
+src/Choice.tsx:59 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Node' is more narrow than the original type.
+src/Choice.tsx:71 typescript(consistent-return) Function expected no return value.
+src/ui.tsx:292 typescript(consistent-return) Function expected no return value.
+src/Composer.tsx:59 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Composer.tsx:62 typescript(consistent-return) Function expected no return value.
+src/Composer.tsx:88 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Choice.tsx:125 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'HTMLButtonElement' is more narrow than the original type.
+src/Composer.tsx:115 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Composer.tsx:146 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/useNavigationMotion.ts:94 typescript(consistent-return) Function expected no return value.
+src/Login.tsx:45 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/marketplace-ui.tsx:358 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/PlanDiscovery.tsx:221 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:100 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:125 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"anniversary" | "birthday"' is more narrow than the original type.
+src/Occasions.tsx:291 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:400 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:587 typescript(consistent-return) Function expected no return value.
+src/Preferences.tsx:65 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:660 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:682 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:885 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Occasions.tsx:907 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/KoPage.tsx:125 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:219 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'BudgetBasis' is more narrow than the original type.
+src/Marketplace.tsx:232 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'BudgetScope' is more narrow than the original type.
+src/KoPage.tsx:326 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/KoPage.tsx:347 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/KoPage.tsx:358 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:339 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:362 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:395 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:413 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:435 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:453 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:84 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:483 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:518 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:541 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:208 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Marketplace.tsx:557 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:268 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'ReflectionSentiment' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:354 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:533 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:578 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ReflectionWorkspace.tsx:845 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:101 typescript(consistent-return) Function expected no return value.
+src/Circles.tsx:122 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:148 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ProviderWorkspace.tsx:111 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:513 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ProviderWorkspace.tsx:186 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"dated" | "on_request"' is more narrow than the original type.
+src/Circles.tsx:569 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"afternoon" | "evening" | "morning"' is more narrow than the original type.
+src/ProviderWorkspace.tsx:292 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'BudgetBasis' is more narrow than the original type.
+src/ProviderWorkspace.tsx:308 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'BudgetScope' is more narrow than the original type.
+src/Circles.tsx:672 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"party_total" | "per_person"' is more narrow than the original type.
+src/ProviderWorkspace.tsx:391 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"afternoon" | "evening" | "morning"' is more narrow than the original type.
+src/Circles.tsx:682 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '"plan_only" | "whole_trip"' is more narrow than the original type.
+src/Circles.tsx:747 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:772 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:909 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ProviderWorkspace.tsx:511 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1051 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1074 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1089 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1105 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1123 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/ProviderWorkspace.tsx:531 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1152 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1362 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1734 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1756 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1775 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:1986 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Circles.tsx:2014 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/App.tsx:87 typescript(consistent-return) Function expected no return value.
+src/App.tsx:103 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/App.tsx:117 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:126 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:132 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:147 typescript(no-unsafe-type-assertion) Unsafe type assertion: type '["exif" | "precise" | "prefecture", string][]' is more narrow than the original type.
+src/App.tsx:322 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/App.tsx:342 typescript(consistent-return) Function expected no return value.
+src/App.tsx:362 typescript(consistent-return) Function expected no return value.
+src/App.tsx:377 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/App.tsx:392 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:182 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:231 typescript(consistent-return) Function expected no return value.
+src/Journal.tsx:241 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Journal.tsx:247 typescript(no-unsafe-type-assertion) Unsafe type assertion: type 'Error' is more narrow than the original type.
+src/Stage.tsx:46 typescript(consistent-return) Function expected no return value.
+src/Stage.tsx:81 typescript(no-unsafe-type-assertion) Unsafe assertion from `any` detected.

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./stage.css";
 
 const captions = {
@@ -14,6 +14,9 @@ const captions = {
   "circle-reply": "講の仲間と地域の人が、旅の相談を交わす。",
 } as const;
 type Caption = { event: keyof typeof captions | "initial"; text: string };
+function isCaptionType(value: unknown): value is keyof typeof captions {
+  return typeof value === "string" && Object.hasOwn(captions, value);
+}
 type Transfer = {
   sequence: number;
   event: "selection" | "reply" | "circle-invite" | "circle-joined" | "circle-reply";
@@ -33,18 +36,18 @@ export default function Stage() {
   const transferActive = useRef(false);
   const transferQueue = useRef<Transfer[]>([]);
 
-  function finishTransfer() {
+  const finishTransfer = useCallback(() => {
     const next = transferQueue.current.shift() || null;
     transferActive.current = next !== null;
     setTransfer(next);
-  }
+  }, []);
 
   useEffect(() => {
-    if (!transfer) return;
+    if (!transfer) return undefined;
     // A single finite fallback releases the queue if a browser cancels CSS animation.
     const timer = window.setTimeout(finishTransfer, 1000);
     return () => window.clearTimeout(timer);
-  }, [transfer]);
+  }, [transfer, finishTransfer]);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -66,19 +69,21 @@ export default function Stage() {
         event.source !== provider.current?.contentWindow
       )
         return;
-      const value = event.data;
+      const value: unknown = event.data;
       if (
         !value ||
         typeof value !== "object" ||
+        !("source" in value) ||
         value.source !== "ko-stage" ||
+        !("status" in value) ||
         value.status !== "success" ||
-        typeof value.type !== "string" ||
-        !Object.hasOwn(captions, value.type)
+        !("type" in value) ||
+        !isCaptionType(value.type)
       )
         return;
       // Only completed, meaningful operations change the scene caption.
       // Login, read requests, failure events, and private message bodies are ignored.
-      const type = value.type as keyof typeof captions;
+      const type = value.type;
       const fromVisitor = event.source === visitor.current?.contentWindow;
       if ((type === "circle-invite" && !fromVisitor) || (type === "circle-joined" && fromVisitor)) return;
       setCaption({ event: type, text: captions[type] });

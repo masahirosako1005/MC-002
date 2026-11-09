@@ -1,9 +1,11 @@
 let csrf = "";
 let bearer = "";
+let authGeneration = 0;
 export const stageFrame = /^\/stage\/(visitor|provider)\/?$/.test(
   window.location.pathname,
 );
 export function setAccessToken(value: string) {
+  authGeneration++;
   bearer = value;
 }
 function stageEvent(path: string, method: string, ok: boolean, result?: unknown) {
@@ -58,6 +60,7 @@ export class ApiError extends Error {
   }
 }
 export function setCsrf(value: string) {
+  authGeneration++;
   csrf = value;
   if (!value) bearer = "";
 }
@@ -66,6 +69,10 @@ export async function api<T>(
   method = "GET",
   data?: unknown,
 ): Promise<T> {
+  const requestGeneration = authGeneration;
+  const notifyStage = (ok: boolean, result?: unknown) => {
+    if (requestGeneration === authGeneration) stageEvent(path, method, ok, result);
+  };
   const headers: Record<string, string> = { Accept: "application/json" };
   if (stageFrame && bearer) headers.Authorization = `Bearer ${bearer}`;
   const multipart = data instanceof FormData;
@@ -89,14 +96,14 @@ export async function api<T>(
       signal: AbortSignal.timeout(45000),
     });
   } catch {
-    stageEvent(path, method, false);
+    notifyStage(false);
     throw new ApiError(
       "接続できませんでした。接続を確かめて、もう一度お試しください。",
       0,
     );
   }
   if (!response.ok) {
-    stageEvent(path, method, false);
+    notifyStage(false);
     let detail = "操作を完了できませんでした。もう一度お試しください。";
     try {
       const body = await response.json();
@@ -105,19 +112,21 @@ export async function api<T>(
       /* Keep a safe local message for non-JSON failures. */
     }
     if (
+      requestGeneration === authGeneration &&
       (response.status === 401 ||
         response.headers.get("X-Session-Invalid") === "true") &&
       path != "/me" &&
       path != "/login" &&
       path != "/stage/login"
     ) {
+      authGeneration++;
       csrf = "";
       window.dispatchEvent(new Event("session-invalid"));
     }
     throw new ApiError(detail, response.status);
   }
   const result = (await response.json()) as T;
-  stageEvent(path, method, true, result);
+  notifyStage(true, result);
   return result;
 }
 export async function privateImage(

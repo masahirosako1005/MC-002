@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-11-09T08:00:26.187Z",
+  "results": [
+    "pointer login animates only main content; other phone stays logged out",
+    "pointer navigation is short and repeat selection does not replay",
+    "keyboard navigation is immediate and rapid pointer navigation cancels old motion",
+    "reduced motion disables entrance and navigation; logout removes authenticated content",
+    "keyboard login, failed authentication and narrow viewport remain usable"
+  ],
+  "measurements": [
+    {
+      "left": [
+        {
+          "frames": [
+            {
+              "opacity": 0,
+              "transform": "translateY(8px)"
+            },
+            {
+              "opacity": 1,
+              "transform": "translateY(0)"
+            }
+          ],
+          "options": {
+            "duration": 220,
+            "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            "fill": "none"
+          },
+          "kind": "login",
+          "trigger": "pointer",
+          "finished": true,
+          "cancelled": false
+        },
+        {
+          "frames": [
+            {
+              "opacity": 0,
+              "transform": "translateY(5px)"
+            },
+            {
+              "opacity": 1,
+              "transform": "translateY(0)"
+            }
+          ],
+          "options": {
+            "duration": 170,
+            "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            "fill": "none"
+          },
+          "kind": "navigation",
+          "trigger": "pointer",
+          "finished": false,
+          "cancelled": true
+        },
+        {
+          "frames": [
+            {
+              "opacity": 0,
+              "transform": "translateY(5px)"
+            },
+            {
+              "opacity": 1,
+              "transform": "translateY(0)"
+            }
+          ],
+          "options": {
+            "duration": 170,
+            "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            "fill": "none"
+          },
+          "kind": "navigation",
+          "trigger": "pointer",
+          "finished": true,
+          "cancelled": false
+        },
+        {
+          "frames": [
+            {
+              "opacity": 0,
+              "transform": "translateY(5px)"
+            },
+            {
+              "opacity": 1,
+              "transform": "translateY(0)"
+            }
+          ],
+          "options": {
+            "duration": 170,
+            "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            "fill": "none"
+          },
+          "kind": "navigation",
+          "trigger": "pointer",
+          "finished": false,
+          "cancelled": true
+        },
+        {
+          "frames": [
+            {
+              "opacity": 0,
+              "transform": "translateY(5px)"
+            },
+            {
+              "opacity": 1,
+              "transform": "translateY(0)"
+            }
+          ],
+          "options": {
+            "duration": 170,
+            "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            "fill": "none"
+          },
+          "kind": "navigation",
+          "trigger": "pointer",
+          "finished": true,
+          "cancelled": false
+        }
+      ],
+      "right": []
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "passed": true,
+  "scope": "Headless separate browser; no claim of repairing ordinary Edge. Captured WAAPI timings, actual DOM/auth transitions and viewport behavior."
+}

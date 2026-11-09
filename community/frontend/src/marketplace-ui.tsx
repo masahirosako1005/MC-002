@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { api } from "./api";
@@ -355,7 +356,7 @@ export function Conversation({
       requestKey.reset();
       await onSent();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy(false);
     }

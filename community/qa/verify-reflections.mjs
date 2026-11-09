@@ -43,7 +43,7 @@ async function setupCircle(user,extra=false){
   fixture.invitationId=invitation.id;return fixture;
 }
 async function setupReferenceTrip(user){const f=await setupCircle(user);const r=await api(user,`/circles/${f.circleId}/reflections`,'POST',{invitation_id:f.invitationId,ended_on:today,trip_finished:true,client_request_id:key('reflection-'+user)});f.reflectionId=r.id;await ownParticipation(user,r.id);await api(user,`/reflections/${r.id}/messages`,'POST',{body:positive,client_request_id:key('message-'+user)});}
-async function openMain(scope){await click(scope,'講を見つける');await scope.locator('.circle-list-card').filter({hasText:main.title}).click();await click(scope,'振り返り');}
+async function openMain(scope){await click(scope,'講を見つける');await expect(scope.locator('.circles-page,.circle-workspace')).toBeVisible();const back=scope.getByRole('button',{name:/講の一覧へ/});if(await back.isVisible())await back.click();await scope.locator('.circle-list-card').filter({hasText:main.title}).click();await click(scope,'振り返り');}
 async function reopenReflection(){await click(left,'旅を見つける');await openMain(left);await click(left,'この旅の振り返りをひらく');}
 async function summary(){return api('aoi',`/providers/${providerPlan.provider.id}/experience-summary`);}
 async function waitMessage(status){await expect.poll(async()=>{const r=await api('aoi',`/reflections/${reflectionId}`);return r.messages.find(m=>m.id===messageId)?.extraction.status;}).toBe(status);}
@@ -123,3 +123,4 @@ finally{
   const record={checkedAt:new Date().toISOString(),results,layout,external,errors,cleanup,setup:'Two independently consented fixture trips establish the publication threshold. The third is exercised through the UI.',retention:'Only this run’s reflection completion claims are cancelled and circles closed. No seed plans, existing conversations, or rows are deleted.',passed:results.length===6&&results.every(r=>typeof r==='string')&&cleanup};
   await fs.writeFile(path.join(out,'browser.json'),JSON.stringify(record,null,2));await fs.writeFile(path.join(out,`browser-${run}.json`),JSON.stringify(record,null,2));await browser.close();
 }
+

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-09T07:56:10.276Z",
+  "results": [
+    "provider creates and edits a dated public plan through the screen",
+    "traveler creates a circle and explicitly confirms matching travel conditions",
+    "ranked discovery adds a candidate and opens the internal circle conversation",
+    "saved candidate survives reopening and explicit destination sharing creates only a pending invitation",
+    {
+      "failed": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('コミュニティ', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" id=\"mobile-community\" aria-expanded=\"false\" class=\"choice-trigger\" aria-haspopup=\"listbox\" aria-controls=\"choice-_r_0_\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": {
+    "circle": true,
+    "plan": true
+  },
+  "fixtureRetention": "Only this run’s plan is archived and circle closed; no rows deleted.",
+  "passed": false
+}

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-09T07:54:46.003Z",
+  "results": [
+    "provider creates and edits a dated public plan through the screen",
+    {
+      "failed": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('iframe[title=\"旅行者の操作画面\"]').contentFrame().getByRole('button', { name: /仲間を選んでつくる/ })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled>…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "cleanup": {
+    "circle": true,
+    "plan": true
+  },
+  "fixtureRetention": "Only this run’s plan is archived and circle closed; no rows deleted.",
+  "passed": false
+}

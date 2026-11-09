@@ -628,3 +628,19 @@
     gap: 8px;
   }
 }
+.home-interests {
+  min-width: 0;
+  padding: 0 2px 6px;
+  display: grid;
+  gap: 3px;
+}
+.home-interests > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.home-interests strong { font-size: .85rem; }
+.home-interests .text-button { min-height: 44px; }
+.home-interest-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.home-interests small { color: var(--muted); }

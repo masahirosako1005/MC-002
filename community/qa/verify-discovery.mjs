@@ -33,6 +33,11 @@ async function login(host,scope,user){
   const response=host.waitForResponse(r=>r.url().endsWith('/stage/login')&&r.request().method()==='POST');
   await click(scope,'ログイン');sessions[user]=await(await response).json();
   await expect(scope.locator('.app-shell')).toBeVisible();
+  // CP47 resumes the last private context; this scenario explicitly selects its fixture community.
+  if(user==='aoi') {
+    if(await scope.getByLabel('コミュニティ',{exact:true}).isVisible()) await choose(scope,'コミュニティ','同期の旅じたく');
+    else await scope.getByRole('button',{name:/^同期の旅じたく/}).click();
+  }
 }
 async function api(user,url,method='GET',data){
   const s=sessions[user];

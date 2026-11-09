@@ -1,0 +1,3 @@
+リビジョン: 27a26bb1de6afd37952c6a83e603efc1bd555139
+件名: feat: persist private resume state and disable live AI for MOC runtime
+確認日時: 2026-11-09T17:05:24+09:00

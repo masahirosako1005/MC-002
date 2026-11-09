@@ -1,0 +1,64 @@
+{
+  "phase": "after-first",
+  "image": "node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8",
+  "scope": "community\\frontend\\src",
+  "files": {
+    "App.tsx": "56dbef328f6e96c81d4121b477cd8288577f6ecdd4303fdcfeb88728d459a56a",
+    "Choice.tsx": "26b430bdbd052ce884bd87c2c8c65a603e7afc5b02380a605ae6dae89b5733b8",
+    "Circles.tsx": "f06c703807be6d5cfa680759c356128a24952c711dff3ff46e8269130a671f64",
+    "Composer.tsx": "e19de22041ca43205bb47117ccbba87b36cbf7d315dd81921e73f88940662bd3",
+    "ExperienceReference.tsx": "837b5cd4ee5de4fff6c67ffb6d6cd15f3c1ac5bd49a45c51cffed3e216d604ab",
+    "Journal.tsx": "1d77fb4cc2cd645ba3968f59328b6a6483bc17e082226a32b4762f1a7cfe3381",
+    "KoPage.tsx": "5d45aef172db0672011bbbf9efbc19fa1fa6ffa361f41c3a30457d9b930833f1",
+    "Login.tsx": "898b60ec4f5c57753bf5c07b58ca92a2a8b3bb0ff3442efbf9b0cdd24c7d59df",
+    "Marketplace.tsx": "6d3dfbed4d316b6bca83a151a5bb03c663da9b93fc38e2baf4fed36abc473a7f",
+    "Occasions.tsx": "b2d2a7cc1d5111a278ce54ebba201ee1bd8f3a2108b39b7bad3ff0ff27e8436e",
+    "PlanDiscovery.tsx": "fa894017af9d7e1f5c56c7117556399c7d57404d4f6a3d9d295f1187c2966056",
+    "Preferences.tsx": "57dbe820a78ee521e6a2a33da10a73dbd0fb6d79e558c0ca2478ec71a3d19a9f",
+    "ProviderWorkspace.tsx": "8e6c904c8b3e33b9d5e91e2260eeef4c24388741008232821fb1bbab328db53b",
+    "ReflectionWorkspace.tsx": "235db5367b051f8fe61c184fd147dfea34df20d7a28758003a3cb754406bf3df",
+    "Stage.tsx": "8b5fd8a834507a23c70ad00437462d21b0d4a2b2dd761988abc42bc76f885767",
+    "api.ts": "963b8099a841d947fff15361d10bf656216a5c2cac268329780704e68128b291",
+    "browse.css": "1c93f742358029988cae9145482f900f2ff70fff41f8ca4f34bca2eb0456a033",
+    "circle-types.ts": "5ca511f11bcaaef6ae4b230b8e449d1ac52fab7afd17cc16f225ac7dafc86ec3",
+    "circles.css": "cb80630d39e1a19bc690691359795d7360998e3c57491e8a647e22cecc554443",
+    "discovery.css": "ec40b847a375a50d7681e1b6205f6fc4202e11d1412e360cc383dfc245f56122",
+    "journal-types.ts": "d595e7457d23cb1e92120fda040a7c6038bb161363199a6de0b09db3ae59e7f5",
+    "journal.css": "91cb1c4c279feb4811ceb39c3299170052d3bd665b6dbbeaf940b426a0397251",
+    "login.css": "55e60781a339d588b95ae74f4804b71102ce04818f1c2a01c9382c331faaa598",
+    "main.tsx": "66ce2a6f85ca0593c169700027516b84d09ed4eefbc3a9c9c1af32808570bb84",
+    "marketplace-types.ts": "a0758d323bed9695762d754bdbaa025bd3d45a3980ea2a3ff898ac581116426a",
+    "marketplace-ui.tsx": "5b227967e5ee5223825ae31ea966fcfca94866f664bf0386d0beb2c4241a8022",
+    "marketplace.css": "c03407d0e2e024d43d60d5eee66210f709eb0e82300636e6c389301b0494cca1",
+    "occasion-types.ts": "2ffc8a63c9d72447b6560c6880c0b0b65bf66c3c1ac08d24d85ea826918fb637",
+    "occasions.css": "80ad98c051a1b80e903e6873426ba9f8eef6d74271faf768ddc33b7f5ace37ed",
+    "reflection-types.ts": "4837fab3d47c80242daf8e9b8f4d067c916e2fe692dffa74b18be208dd8c80c0",
+    "reflections.css": "60388bbd8eedd9e48f3146c9eb62627aebbbd5a2875dde9b640d1aac8931b334",
+    "stage.css": "acb8ff9e30ab0ee4de6d9428ec65c9048a1ca0fe07b5c508963e5a7b3bbee3c2",
+    "styles.css": "3695b338b20e02395cb70737a1765e4800fadc5f6a3882b7aaf576995bdbd021",
+    "types.ts": "1887e6c10113b7c8a091ac0113c7719aee86f90df9576e452a574d226f168f8b",
+    "ui.tsx": "4315a2330d3c4e3ab690af6818f342431da8bb9c473fb2761b4336d2ef58804a",
+    "useNavigationMotion.ts": "8f86b721e8af03d9e0e0a81782e5e53cb7c34418abf9f142064b456d554f125e",
+    "validation.ts": "01c8f82db7d06ddb7e535bc9bb77b17e18ca4ef10fabf7710cdaee972b16b708",
+    "vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+  },
+  "configs": {
+    ".oxlintrc.json": "22e9b6f08f23283a224b1001eecda61c033557a1a4f886643397098595648cfb",
+    ".stylelintrc.json": "b78d1bea4cc3f04bd5d2e8ef1ba44662bdf79c3c924df452b405b9af0837460c",
+    "tsconfig.json": "b39a960917c36600ce484020129ead394ea91ccecf8b773b421c917cbb431116"
+  },
+  "results": {
+    "oxlint": {
+      "exit": 1,
+      "milliseconds": 5340
+    },
+    "stylelint": {
+      "exit": 2,
+      "milliseconds": 1289
+    },
+    "tsc": {
+      "exit": 0,
+      "milliseconds": 1036
+    }
+  }
+}

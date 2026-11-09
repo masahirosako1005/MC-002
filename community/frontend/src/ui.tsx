@@ -226,12 +226,12 @@ export function Modal({
   const id = useId();
   useEffect(() => {
     const dialog = ref.current;
-    const trigger = document.activeElement as HTMLElement;
+    const trigger = document.activeElement;
     const unlock = lockPageScroll();
     dialog?.showModal();
     return () => {
       dialog?.close();
-      trigger?.focus({ preventScroll: true });
+      if (trigger instanceof HTMLElement) trigger.focus({ preventScroll: true });
       unlock();
     };
   }, []);
@@ -260,31 +260,34 @@ export function Modal({
     </dialog>
   );
 }
-export function LocalPhoto({
-  src,
-  alt = "",
-  className = "",
-  priority = false,
-}: {
+type PhotoProps = {
   src: string;
   alt?: string;
   className?: string;
   priority?: boolean;
-}) {
+};
+export function LocalPhoto(props: PhotoProps) {
+  return <PhotoContent key={props.src} {...props} />;
+}
+function PhotoContent({
+  src,
+  alt = "",
+  className = "",
+  priority = false,
+}: PhotoProps) {
   const [failed, setFailed] = useState(false);
   const [authenticatedSrc, setAuthenticatedSrc] = useState("");
   const needsAuth = stageFrame && src.startsWith("/api/media/");
   useEffect(() => {
-    setFailed(false);
-    setAuthenticatedSrc("");
-    if (!needsAuth) return;
+    if (!needsAuth) return undefined;
     const controller = new AbortController();
     let objectUrl = "";
     privateImage(src, controller.signal)
       .then((blob) => {
-        if (controller.signal.aborted) return;
+        if (controller.signal.aborted) return undefined;
         objectUrl = URL.createObjectURL(blob);
         setAuthenticatedSrc(objectUrl);
+        return undefined;
       })
       .catch(() => {
         if (!controller.signal.aborted) setFailed(true);

@@ -1,11 +1,13 @@
 {
-  "checkedAt": "2026-11-09T07:54:00.618Z",
+  "checkedAt": "2026-11-09T08:03:35.580Z",
   "checks": [
     "own search and page restored after reload",
+    "accepted circle selection restored after reload",
     "last opened page restored",
     "CAS conflict loads latest state without overwriting it",
     "late old-account 401 cannot clear the new account",
-    "two accounts keep independent private filters"
+    "two accounts keep independent private filters",
+    "cleared community stays unselected until explicit choice"
   ],
   "external": [],
   "errors": [],

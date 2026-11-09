@@ -1,3 +1,4 @@
+import { choiceValue, errorMessage } from "./validation";
 import Choice from "./Choice";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./api";
@@ -24,6 +25,7 @@ import {
 import { Empty, ErrorBox, Icon, Modal, TagPicker } from "./ui";
 import "./marketplace.css";
 const PlanDiscovery = lazy(() => import("./PlanDiscovery"));
+import type { DiscoveryResume } from "./PlanDiscovery";
 export const emptyRequirements: Requirements = {
   planned_people: 6,
   nights: 2,
@@ -35,13 +37,14 @@ export const emptyRequirements: Requirements = {
   departure_label: "",
   version: 0,
 };
+const noUnknownFields: string[] = [];
 export function RequirementEditor({
   initial,
   tags,
   draft,
   busy,
   onSave,
-  unknownFields = [],
+  unknownFields = noUnknownFields,
   requireBudget = false,
 }: {
   initial: Requirements | null;
@@ -216,7 +219,7 @@ export function RequirementEditor({
               予算の単位
               <Choice
                 value={basis}
-                onChange={(e) => setBasis(e.target.value as BudgetBasis)}
+                onChange={(e) => setBasis(choiceValue(e.target.value, ["", "per_person", "party_total"], basis))}
                 disabled={!amount || busy}
               >
                 <option value="">単位を選ぶ</option>
@@ -229,7 +232,7 @@ export function RequirementEditor({
             どこまで含む予算？
             <Choice
               value={scope}
-              onChange={(e) => setScope(e.target.value as BudgetScope)}
+              onChange={(e) => setScope(choiceValue(e.target.value, ["", "plan_only", "whole_trip"], scope))}
               disabled={!amount || busy}
             >
               <option value="">費用の範囲を選ぶ</option>
@@ -285,12 +288,20 @@ export default function Marketplace({
   tags,
   user,
   onOpenCircle,
+  resume,
+  interestTags,
+  interestsAllowed = false,
+  onEditInterests,
 }: {
   community: Community | null;
   groups: Group[];
   tags: Tag[];
   user: User;
   onOpenCircle: (id: string) => void;
+  resume?: DiscoveryResume;
+  interestTags?: Tag[];
+  interestsAllowed?: boolean;
+  onEditInterests?: () => void;
 }) {
   const [parties, setParties] = useState<Party[]>([]);
   const [party, setParty] = useState<Party | null>(null);
@@ -336,7 +347,7 @@ export default function Marketplace({
         setParty(latest);
       }
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -359,7 +370,7 @@ export default function Marketplace({
       setThread(null);
       setNotice("");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -392,7 +403,7 @@ export default function Marketplace({
       setGroupId("");
       setMemberIds([]);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -410,7 +421,7 @@ export default function Marketplace({
       setDraft(result);
       setTab("conditions");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -432,7 +443,7 @@ export default function Marketplace({
       setNotice("旅行条件を保存しました。この条件に合う候補を探せます。");
       setTab("plans");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -450,7 +461,7 @@ export default function Marketplace({
       setRun(result);
       setSource("recommended");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -480,7 +491,7 @@ export default function Marketplace({
       setShareNote("");
       setShareConfirmed(false);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
       setDetail(null);
     } finally {
       setBusy("");
@@ -515,7 +526,7 @@ export default function Marketplace({
       setTab("consultation");
       setNotice("相談を送りました。予約はまだ確定していません。");
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -538,7 +549,7 @@ export default function Marketplace({
       setNotice("計画を閉じました。新しい相談や条件の変更はできません。");
       await load();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -554,7 +565,7 @@ export default function Marketplace({
       setThread(latest);
       setThreadMessages(history.items);
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -798,11 +809,17 @@ export default function Marketplace({
         </>
       ) : !party && community ? (
         <Suspense fallback={<p role="status">関連する旅をひらいています…</p>}>
+          {onEditInterests && <section className="home-interests" aria-label="自分の関心">
+            <div><strong>自分の関心</strong><button className="text-button" onClick={onEditInterests}>変更</button></div>
+            <div className="home-interest-tags">{interestTags?.length ? interestTags.map((tag) => <span className="tag" key={tag.id}>{tag.label}</span>) : <span>未設定</span>}</div>
+            {!interestsAllowed && <small>このコミュニティのおすすめには使用しません</small>}
+          </section>}
           <PlanDiscovery
             key={`${user.id}-${community.id}`}
             community={community}
             tags={tags}
             onOpenCircle={onOpenCircle}
+            resume={resume}
           />
         </Suspense>
       ) : (
@@ -810,7 +827,7 @@ export default function Marketplace({
           <div className="market-discovery-heading">
             <div>
               <h2>
-                {party ? "この仲間で、こんな旅。" : "地域の人が案内する旅"}
+                {party ? "講の旅行プラン" : "事業者の旅行プラン"}
               </h2>
             </div>
             {party && (
@@ -1042,8 +1059,8 @@ export default function Marketplace({
           </div>
           <h3>{chosen.title}</h3>
           <RequirementsSummary value={preview.shared_conditions} />
-          {preview.match.unknowns.map((w, i) => (
-            <p className="muted" key={i}>
+          {[...new Set(preview.match.unknowns)].map((w) => (
+            <p className="muted" key={w}>
               {w}
             </p>
           ))}

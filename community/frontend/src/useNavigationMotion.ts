@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 export type MotionTrigger = "pointer" | "keyboard" | "programmatic";
 type MotionKind = "login" | "navigation";
@@ -16,11 +16,11 @@ export function useNavigationMotion(
   const animation = useRef<Animation | null>(null);
   const sequence = useRef(0);
 
-  function cancel() {
+  const cancel = useCallback(() => {
     animation.current?.cancel();
     animation.current = null;
     if (target.current) target.current.dataset.motionState = "idle";
-  }
+  }, []);
   function request(kind: MotionKind, trigger: MotionTrigger) {
     cancel();
     pending.current = { kind, trigger };
@@ -43,15 +43,15 @@ export function useNavigationMotion(
       document.removeEventListener("keydown", onKeyboard, true);
       cancel();
     };
-  }, []);
+  }, [cancel]);
 
   useLayoutEffect(() => {
     cancel();
     if (!authenticated) {
       pending.current = null;
-      return;
+      return undefined;
     }
-    if (!ready || !target.current || !pending.current) return;
+    if (!ready || !target.current || !pending.current) return undefined;
     const node = target.current;
     const intent = pending.current;
     pending.current = null;
@@ -68,7 +68,7 @@ export function useNavigationMotion(
       intent.trigger !== "pointer" ||
       typeof node.animate !== "function"
     )
-      return;
+      return undefined;
     const current = node.animate(
       [
         {
@@ -92,7 +92,7 @@ export function useNavigationMotion(
       }
     };
     return () => cancel();
-  }, [route, authenticated, ready]);
+  }, [route, authenticated, ready, cancel]);
 
   return { target, request, reset };
 }

@@ -32,7 +32,11 @@ const main=scope=>scope.locator('#main');
 const nav=(scope,name)=>scope.getByRole('navigation',{name:'モバイルメニュー'}).getByRole('button',{name,exact:true});
 async function login(scope,user,keyboard=false){await scope.getByLabel('アカウント名',{exact:true}).fill(user);await scope.getByLabel('パスワード',{exact:true}).fill(user+'-local-2026');if(keyboard)await scope.getByLabel('パスワード',{exact:true}).press('Enter');else await scope.getByRole('button',{name:'ログイン',exact:true}).click();await expect(main(scope)).toBeVisible();}
 async function step(name,fn){await fn();results.push(name);console.log('PASS '+name);}
+let auditSession,originalResume;
+async function resumeRequest(method='GET',body){const r=await fetch('http://127.0.0.1:8081/api/me/resume-state',{method,headers:{Origin:'http://127.0.0.1:8081','Content-Type':'application/json',Authorization:'Bearer '+auditSession.access_token,'X-CSRF-Token':auditSession.csrf_token},body:body?JSON.stringify(body):undefined});assert(r.ok);return r.json();}
 try{
+ // CP47 restores the prior page; establish this animation scenario's start and restore it afterwards.
+ const auth=await fetch('http://127.0.0.1:8081/api/stage/login',{method:'POST',headers:{Origin:'http://127.0.0.1:8081','Content-Type':'application/json'},body:JSON.stringify({username:'aoi',password:'aoi-local-2026'})});assert(auth.ok);auditSession=await auth.json();originalResume=await resumeRequest();await resumeRequest('PUT',{...originalResume,page:'market'});
  await page.goto('http://127.0.0.1:8081/stage');
  await step('pointer login animates only main content; other phone stays logged out',async()=>{
   await login(left,'aoi');await expect.poll(async()=>(await probe(left)).length).toBe(1);
@@ -65,4 +69,4 @@ try{
  });
  measurements.push({left:await probe(left),right:await probe(right)});
 }catch(e){results.push({failed:String(e.message).slice(0,1600)});await page.screenshot({path:path.join(out,'failure.png')});process.exitCode=1;}
-finally{const report={checkedAt:new Date().toISOString(),results,measurements,external,errors,passed:results.length===5&&results.every(r=>typeof r==='string'),scope:'Headless separate browser; no claim of repairing ordinary Edge. Captured WAAPI timings, actual DOM/auth transitions and viewport behavior.'};await fs.writeFile(path.join(out,'results.json'),JSON.stringify(report,null,2));await fs.writeFile(path.join(out,`results-${Date.now()}.json`),JSON.stringify(report,null,2));await browser.close();}
+finally{await browser.close();if(originalResume){const latest=await resumeRequest();await resumeRequest('PUT',{...originalResume,version:latest.version});}const report={checkedAt:new Date().toISOString(),results,measurements,external,errors,passed:results.length===5&&results.every(r=>typeof r==='string'),scope:'Headless separate browser; no claim of repairing ordinary Edge. Captured WAAPI timings, actual DOM/auth transitions and viewport behavior.'};await fs.writeFile(path.join(out,'results.json'),JSON.stringify(report,null,2));await fs.writeFile(path.join(out,`results-${Date.now()}.json`),JSON.stringify(report,null,2));}

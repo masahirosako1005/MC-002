@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-09T08:03:58.701Z",
+  "results": [
+    "pointer login animates only main content; other phone stays logged out",
+    {
+      "failed": "expect(received).toBe(expected) // Object.is equality\n\nExpected: 2\nReceived: 1\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+    }
+  ],
+  "measurements": [],
+  "external": [],
+  "errors": [],
+  "passed": false,
+  "scope": "Headless separate browser; no claim of repairing ordinary Edge. Captured WAAPI timings, actual DOM/auth transitions and viewport behavior."
+}

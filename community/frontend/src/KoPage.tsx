@@ -1,3 +1,4 @@
+import { errorMessage } from "./validation";
 import Choice from "./Choice";
 import { useEffect, useRef, useState } from "react";
 import { api } from "./api";
@@ -122,7 +123,7 @@ function GroupPanel({
           : "できることを保存しました。",
       );
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -323,7 +324,7 @@ export default function KoPage({
         "仲間候補を見つけました。それぞれの参加意思を確認しましょう。",
       );
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -344,7 +345,7 @@ export default function KoPage({
           : "今回は見送りました。理由はほかの人には伝えません。",
       );
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }
@@ -355,7 +356,7 @@ export default function KoPage({
     try {
       await onRefresh();
     } catch (e) {
-      setError((e as Error).message);
+      setError(errorMessage(e));
     } finally {
       setBusy("");
     }

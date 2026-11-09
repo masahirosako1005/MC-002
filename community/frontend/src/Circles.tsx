@@ -1,3 +1,4 @@
+import { choiceValue, errorMessage } from "./validation";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
@@ -30,7 +31,7 @@ import type {
 } from "./circle-types";
 import "./circles.css";
 import PlanDiscovery, { SavedCandidateList } from "./PlanDiscovery";
-import type { CandidateCard } from "./PlanDiscovery";
+import type { CandidateCard, DiscoveryResume } from "./PlanDiscovery";
 const ReflectionWorkspace = lazy(() => import("./ReflectionWorkspace"));
 const CircleOccasions = lazy(() =>
   import("./Occasions").then((module) => ({ default: module.CircleOccasions })),
@@ -84,13 +85,14 @@ function CreateCircle({
   const alive = useAlive();
   const key = useRequestKey();
   useEffect(() => {
-    if (mode !== "manual") return;
+    if (mode !== "manual") return undefined;
     let active = true;
     api<{ items: User[] }>(
       `/journal/people?community_id=${encodeURIComponent(community.id)}`,
     )
       .then((r) => {
         if (active) setPeople(r.items);
+        return undefined;
       })
       .catch((e) => {
         if (active) setError(e.message);
@@ -119,7 +121,7 @@ function CreateCircle({
       );
       if (alive.current) setCandidates(result);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -145,7 +147,7 @@ function CreateCircle({
       );
       if (alive.current) onSaved(result);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -369,8 +371,8 @@ function ProposalView({
         <strong>まだ確認が必要なこと</strong>
         {proposal.unknowns.length ? (
           <ul>
-            {proposal.unknowns.map((item, index) => (
-              <li key={index}>{item}</li>
+            {[...new Set(proposal.unknowns)].map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
         ) : (
@@ -510,7 +512,7 @@ function ProposalEditor({
       );
       if (alive.current) onSaved();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -566,7 +568,7 @@ function ProposalEditor({
                         value={item.period}
                         onChange={(e) =>
                           patch(index, {
-                            period: e.target.value as ItineraryItem["period"],
+                            period: choiceValue(e.target.value, ["morning", "afternoon", "evening"], item.period),
                           })
                         }
                       >
@@ -669,7 +671,7 @@ function ProposalEditor({
             費用の単位
             <Choice
               value={basis}
-              onChange={(e) => setBasis(e.target.value as typeof basis)}
+              onChange={(e) => setBasis(choiceValue(e.target.value, ["per_person", "party_total"], basis))}
             >
               <option value="per_person">1人あたり</option>
               <option value="party_total">全員分</option>
@@ -679,7 +681,7 @@ function ProposalEditor({
             費用の範囲
             <Choice
               value={scope}
-              onChange={(e) => setScope(e.target.value as typeof scope)}
+              onChange={(e) => setScope(choiceValue(e.target.value, ["plan_only", "whole_trip"], scope))}
             >
               <option value="plan_only">プラン部分</option>
               <option value="whole_trip">旅行全体</option>
@@ -744,7 +746,7 @@ export function SharedCircleRoom({
     } catch (e) {
       if (alive.current) {
         setRoom(null);
-        setError((e as Error).message);
+        setError(errorMessage(e));
       }
     } finally {
       if (alive.current) setLoading(false);
@@ -769,7 +771,7 @@ export function SharedCircleRoom({
       );
       if (alive.current) await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -906,7 +908,7 @@ function InviteProvider({
       });
       if (alive.current) onSaved();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy(false);
     }
@@ -985,6 +987,7 @@ function CircleWorkspace({
   tags,
   onBack,
   onOpenCircle,
+  discoveryResume,
 }: {
   id: string;
   communities: Community[];
@@ -992,6 +995,7 @@ function CircleWorkspace({
   tags: Tag[];
   onBack: () => void;
   onOpenCircle: (id: string) => void;
+  discoveryResume?: DiscoveryResume;
 }) {
   const [circle, setCircle] = useState<CircleDetail | null>(null);
   const [messages, setMessages] = useState<MarketMessage[]>([]);
@@ -1048,7 +1052,7 @@ function CircleWorkspace({
     } catch (e) {
       if (alive.current) {
         setCircle(null);
-        setError((e as Error).message);
+        setError(errorMessage(e));
       }
     } finally {
       if (alive.current) setLoading(false);
@@ -1071,7 +1075,7 @@ function CircleWorkspace({
       setBody("");
       await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1086,7 +1090,7 @@ function CircleWorkspace({
       await load();
       setTab("plans");
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1102,7 +1106,7 @@ function CircleWorkspace({
       });
       if (alive.current) await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1120,7 +1124,7 @@ function CircleWorkspace({
       setEditingTags(null);
       await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1149,7 +1153,7 @@ function CircleWorkspace({
       if (confirmAction === "leave") onBack();
       else await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1359,7 +1363,7 @@ function CircleWorkspace({
                     }>("/circles/help");
                     if (alive.current) setHelp(result);
                   } catch (e) {
-                    if (alive.current) setError((e as Error).message);
+                    if (alive.current) setError(errorMessage(e));
                   }
                 }}
               >
@@ -1379,8 +1383,8 @@ function CircleWorkspace({
                   <p>{turn.reply}</p>
                   {turn.ambiguities.length > 0 && (
                     <ul>
-                      {turn.ambiguities.map((item, i) => (
-                        <li key={i}>{item}</li>
+                      {[...new Set(turn.ambiguities)].map((item) => (
+                        <li key={item}>{item}</li>
                       ))}
                     </ul>
                   )}
@@ -1474,6 +1478,7 @@ function CircleWorkspace({
               community={community}
               tags={tags}
               circle={circle}
+              resume={discoveryResume}
               onOpenCircle={(nextId) => {
                 if (nextId === id) {
                   setTab("conversation");
@@ -1645,8 +1650,8 @@ function CircleWorkspace({
         <Modal title="旅の案内役について" onClose={() => setHelp(null)}>
           <p>{help.description}</p>
           <ul>
-            {help.limitations.map((item, i) => (
-              <li key={i}>{item}</li>
+            {[...new Set(help.limitations)].map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
           <p className="circle-note">
@@ -1707,6 +1712,8 @@ export default function Circles({
   tags,
   onLegacy,
   initialCircleId = "",
+  onSelectedCircle,
+  discoveryResume,
 }: {
   community: Community | null;
   communities: Community[];
@@ -1714,9 +1721,17 @@ export default function Circles({
   tags: Tag[];
   onLegacy: () => void;
   initialCircleId?: string;
+  onSelectedCircle?: (id: string, communityId: string) => void;
+  discoveryResume?: DiscoveryResume;
 }) {
   const [data, setData] = useState<CircleList | null>(null);
-  const [circleId, setCircleId] = useState(initialCircleId);
+  const [circleId, updateCircleId] = useState(initialCircleId);
+  function setCircleId(id: string) {
+    updateCircleId(id);
+    const selected = data?.items.find((item) => item.id === id);
+    if (!id) onSelectedCircle?.("", community?.id || "");
+    else if (selected?.status === "open") onSelectedCircle?.(id, selected.community_id);
+  }
   const [createMode, setCreateMode] = useState<"recommended" | "manual" | null>(
     null,
   );
@@ -1731,7 +1746,7 @@ export default function Circles({
       const result = await api<CircleList>("/circles");
       if (alive.current) setData(result);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setLoading(false);
     }
@@ -1753,7 +1768,7 @@ export default function Circles({
       });
       if (alive.current) await load();
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1769,10 +1784,11 @@ export default function Circles({
       });
       if (alive.current) {
         setCircleId(result.id);
+        onSelectedCircle?.(result.id, result.community_id);
         await load();
       }
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
@@ -1785,6 +1801,7 @@ export default function Circles({
         communities={communities}
         user={user}
         tags={tags}
+        discoveryResume={discoveryResume}
         onOpenCircle={setCircleId}
         onBack={() => {
           setCircleId("");
@@ -1959,6 +1976,7 @@ export default function Circles({
           onSaved={(circle) => {
             setCreateMode(null);
             setCircleId(circle.id);
+            onSelectedCircle?.(circle.id, circle.community_id);
             void load();
           }}
         />
@@ -1983,7 +2001,7 @@ export function ProviderCircleInvites({ user }: { user: User }) {
       );
       if (alive.current) setItems(result.items);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setLoading(false);
     }
@@ -2011,7 +2029,7 @@ export function ProviderCircleInvites({ user }: { user: User }) {
       await load();
       if (result.status === "accepted") setRoom(result);
     } catch (e) {
-      if (alive.current) setError((e as Error).message);
+      if (alive.current) setError(errorMessage(e));
     } finally {
       if (alive.current) setBusy("");
     }
