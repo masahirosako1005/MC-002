@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 612,
-  "last_event_hash": "4563e8080c5b6fa059a01069f16aa92baad9878e2c1b7c27cfba42d2e10f9225",
-  "updated_at": "2026-11-09T17:13:08+09:00",
+  "revision": 613,
+  "last_event_hash": "aec1f9a725608b6af2a08a0a9eb02e6289267f15af122fccf76e38e2141f167a",
+  "updated_at": "2026-11-09T17:17:49+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2798,7 +2798,12 @@
           "text": "講である意味と現地再訪への接続の違いを説明"
         }
       ],
-      "comments": [],
+      "comments": [
+        {
+          "at": "2026-11-09T17:17:49+09:00",
+          "text": "利用者は③に関心を示し、再訪視点を再確認。同じ地域への実再訪を核に③を深化しDESIGNへ追記。関心表明を実装承認とは扱わない。"
+        }
+      ],
       "created_at": "2026-11-09T17:13:07+09:00",
       "dependencies": [
         "CP49"
@@ -2818,12 +2823,12 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 5,
+      "revision": 6,
       "revisions": [],
       "status": "done",
       "title": "異なる欲求と立場から体験構想を広げる",
       "type": "task",
-      "updated_at": "2026-11-09T17:13:08+09:00"
+      "updated_at": "2026-11-09T17:17:49+09:00"
     },
     {
       "acceptance": [
