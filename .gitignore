@@ -11,4 +11,8 @@ data/*.db*
 data/.import-key
 artifacts/browser-profile/
 artifacts/*.webm
+artifacts/tmp*/
+artifacts/browser-results/
+**/.backend-test-tmp/
+backend/data/
 

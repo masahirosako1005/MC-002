@@ -1,0 +1,1 @@
+"""Local tourism journal API."""
