@@ -1,0 +1,96 @@
+{
+  "files": [
+    {
+      "name": "08_アンケート回答_参加後.csv",
+      "sha256": "31e9e07ee06ce0ce9c9b259a7c3f87918776eaebd4ddcde64537b1738ad64355",
+      "encoding": "utf-8-sig",
+      "status": "processed",
+      "rows": 287,
+      "duplicate_rows": 0,
+      "missing_user": 0,
+      "invalid_time": 0,
+      "invalid_shape": 0,
+      "missing_subject": 0,
+      "inserted": 287,
+      "already_present": 0
+    },
+    {
+      "name": "09_アンケート回答_登録時.csv",
+      "sha256": "d969ec79feff2788ec62fa4065d989abaedb4ff41cc74f8d438d572c1a7a9e17",
+      "encoding": "utf-8-sig",
+      "status": "processed",
+      "rows": 500,
+      "duplicate_rows": 0,
+      "missing_user": 0,
+      "invalid_time": 0,
+      "invalid_shape": 0,
+      "missing_subject": 0,
+      "inserted": 500,
+      "already_present": 0
+    },
+    {
+      "name": "12_スタンプ獲得履歴.csv",
+      "sha256": "6cf36e002c95267f84dbc90d19395bad479703d9eea4b6ed37b6c44054c2a40c",
+      "encoding": "utf-8-sig",
+      "status": "processed",
+      "rows": 2629,
+      "duplicate_rows": 0,
+      "missing_user": 0,
+      "invalid_time": 0,
+      "invalid_shape": 0,
+      "missing_subject": 0,
+      "inserted": 2629,
+      "already_present": 0
+    },
+    {
+      "name": "13_ユーザー一覧.csv",
+      "sha256": "0b8ca36e79ae05d4ca500807c093ce62322d6bb7b8ea8d82b805983a876d3b0d",
+      "encoding": "utf-8-sig",
+      "status": "processed",
+      "rows": 500,
+      "duplicate_rows": 0,
+      "missing_user": 0,
+      "invalid_time": 0,
+      "invalid_shape": 0,
+      "missing_subject": 0,
+      "inserted": 500,
+      "already_present": 0
+    },
+    {
+      "name": "18_特典獲得履歴.csv",
+      "sha256": "660874b85171f549552ffe465c5a8a7689209894466dddea4a08616630e8809c",
+      "encoding": "utf-8-sig",
+      "status": "processed",
+      "rows": 584,
+      "duplicate_rows": 0,
+      "missing_user": 0,
+      "invalid_time": 0,
+      "invalid_shape": 0,
+      "missing_subject": 0,
+      "inserted": 584,
+      "already_present": 0
+    }
+  ],
+  "source_unchanged": true,
+  "retained_fields": [
+    "kind",
+    "pseudonymous_user",
+    "pseudonymous_subject",
+    "occurred_at"
+  ],
+  "limitations": [
+    "仮名化された履歴は個人関連データとして保護する",
+    "旅行IDがないため日付の違いから実際の再訪率は断定できない",
+    "氏名・メール・LINE・属性・自由記述は出力DBに保存しない"
+  ],
+  "unmatched_users": 0,
+  "stored_records": {
+    "reward": 584,
+    "stamp": 2629,
+    "survey_after": 287,
+    "survey_before": 500,
+    "user": 500
+  },
+  "stamp_users_with_multiple_dates": 289,
+  "integrity_check": "ok"
+}

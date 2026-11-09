@@ -1,0 +1,9 @@
+test_foreign_users_and_key_loss_are_reported (test_samples.ImportTests.test_foreign_users_and_key_loss_are_reported) ... ok
+test_invalid_rows_and_missing_schema_do_not_become_records (test_samples.ImportTests.test_invalid_rows_and_missing_schema_do_not_become_records) ... ok
+test_output_must_remain_inside_project (test_samples.ImportTests.test_output_must_remain_inside_project) ... ok
+test_repeat_import_preserves_sources_and_removes_direct_identifiers (test_samples.ImportTests.test_repeat_import_preserves_sources_and_removes_direct_identifiers) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.172s
+
+OK
