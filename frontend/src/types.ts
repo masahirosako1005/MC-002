@@ -46,6 +46,7 @@ export interface Attempt {
   id: string;
   game_id: string;
   title: string;
+  season: Season;
   status: string;
   score: number | null;
   hints_used: number;

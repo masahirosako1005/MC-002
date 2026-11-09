@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { api, errorMessage } from './api';
+import { api, errorMessage, sessionInvalidEvent } from './api';
 import type { ActiveAttempt, Catalog, Game, Journal, Plan, Spot } from './types';
 import { emptyJournal, seasonName } from './types';
 import { ErrorNotice, Icon, SeasonSeal } from './ui';
@@ -40,6 +40,19 @@ export default function App() {
   useEffect(() => {
     void boot();
   }, [boot]);
+  useEffect(() => {
+    const invalidated = () => {
+      setPlay(null);
+      setSpot(null);
+      setJournal(emptyJournal);
+      setNotice('');
+      setError(
+        '手帳の接続が変わりました。もう一度読み込んでください。以前の記録は「引き継ぎ」から開けます。',
+      );
+    };
+    window.addEventListener(sessionInvalidEvent, invalidated);
+    return () => window.removeEventListener(sessionInvalidEvent, invalidated);
+  }, []);
   useEffect(() => {
     document.title = `${play ? '水門の謎' : (spot?.name ?? tabNames[tab])} · tang you chi`;
     heading.current?.focus({ preventScroll: true });

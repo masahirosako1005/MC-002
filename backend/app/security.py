@@ -18,6 +18,24 @@ from .seed import fingerprint
 
 COOKIE_NAME = "journey_session"
 SAFE_METHODS = {"GET", "HEAD", "OPTIONS"}
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Content-Security-Policy": (
+        "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
+        "font-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; "
+        "base-uri 'none'; form-action 'self'"
+    ),
+}
+
+
+def response_security_headers(path: str) -> dict[str, str]:
+    headers = dict(SECURITY_HEADERS)
+    if path == "/api" or path.startswith("/api/"):
+        headers["Cache-Control"] = "no-store"
+    return headers
 
 
 def request_time(request: Request) -> datetime:
@@ -38,7 +56,7 @@ def find_session(request: Request, current: datetime) -> sqlite3.Row | None:
 def check_csrf(request: Request, session: sqlite3.Row) -> None:
     supplied = request.headers.get("x-csrf-token", "")
     if len(supplied) > 128 or not secrets.compare_digest(supplied.encode("utf-8"), session["csrf_token"].encode("utf-8")):
-        raise HTTPException(403, "操作の確認情報が一致しません。画面を開き直してください。")
+        raise HTTPException(403, "操作の確認情報が一致しません。画面を開き直してください。", headers={"X-Session-Invalid": "true"})
 
 
 def authenticated(request: Request, current: datetime = Depends(request_time)) -> sqlite3.Row:
@@ -81,17 +99,7 @@ class SecurityMiddleware:
         async def secure_send(message: Message) -> None:
             if message["type"] == "http.response.start":
                 output = MutableHeaders(scope=message)
-                output["X-Content-Type-Options"] = "nosniff"
-                output["X-Frame-Options"] = "DENY"
-                output["Referrer-Policy"] = "no-referrer"
-                output["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
-                output["Content-Security-Policy"] = (
-                    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
-                    "font-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; "
-                    "base-uri 'none'; form-action 'self'"
-                )
-                if scope["path"].startswith("/api"):
-                    output["Cache-Control"] = "no-store"
+                output.update(response_security_headers(scope["path"]))
             await send(message)
 
         async def reject(status: int, detail: str) -> None:

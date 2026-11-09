@@ -16,7 +16,7 @@ SPOT_FIELDS = ("id", "name", "area", "kind", "description", "walk_minutes", "dwe
 EXPERIENCE_FIELDS = ("id", "spot_id", "title", "season", "description", "month_label", "duration_minutes", "kind")
 GAME_FIELDS = ("id", "spot_id", "title", "season", "difficulty", "description", "version")
 VISIT_FIELDS = ("id", "spot_id", "spot_name", "visited_at")
-ATTEMPT_FIELDS = ("id", "game_id", "title", "status", "score", "hints_used", "created_at", "completed_at")
+ATTEMPT_FIELDS = ("id", "game_id", "title", "season", "status", "score", "hints_used", "created_at", "completed_at")
 ACHIEVEMENT_FIELDS = ("id", "title", "description", "earned_at", "season")
 PLAN_FIELDS = ("id", "experience_id", "title", "spot_name", "season", "month_label", "reason", "created_at")
 
@@ -64,7 +64,7 @@ class JourneyService:
         with self.database.transaction() as connection:
             return {
                 "visits": [project(row, VISIT_FIELDS) for row in connection.execute("SELECT * FROM visits WHERE user_id=? ORDER BY visited_at DESC, id", (user_id,))],
-                "attempts": [project(row, ATTEMPT_FIELDS) for row in connection.execute("SELECT * FROM attempts WHERE user_id=? ORDER BY created_at DESC, id", (user_id,))],
+                "attempts": [project(row, ATTEMPT_FIELDS) for row in connection.execute("SELECT a.*,g.season FROM attempts a JOIN games g ON g.id=a.game_id WHERE a.user_id=? ORDER BY a.created_at DESC,a.id", (user_id,))],
                 "achievements": [project(row, ACHIEVEMENT_FIELDS) for row in connection.execute("SELECT * FROM achievements WHERE user_id=? ORDER BY earned_at DESC, id", (user_id,))],
                 "plans": [project(row, PLAN_FIELDS) for row in connection.execute("SELECT * FROM plans WHERE user_id=? ORDER BY created_at DESC, id", (user_id,))],
             }

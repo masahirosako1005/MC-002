@@ -32,13 +32,9 @@ export function JournalPage({
     })),
   ].sort((a, b) => b.time.localeCompare(a.time));
   const unfinished = journal.attempts.filter((a) => !a.completed_at);
+  // A recorded season belongs to the attempt, even after its game leaves the current catalog.
   const puzzleSeasons = new Set(
-    journal.attempts
-      .filter((a) => a.completed_at)
-      .flatMap((a) => {
-        const game = catalog.games.find((g) => g.id === a.game_id);
-        return game ? [game.season] : [];
-      }),
+    journal.attempts.filter((a) => a.completed_at).map((a) => a.season),
   );
   return (
     <div className="journal-page page-padding">

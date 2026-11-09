@@ -1,0 +1,159 @@
+[
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "tags": [
+      "cat.color",
+      "wcag2aa",
+      "wcag143",
+      "TTv5",
+      "TT13.c",
+      "EN-301-549",
+      "EN-9.1.4.3",
+      "ACT",
+      "RGAAv4",
+      "RGAA-3.2.1"
+    ],
+    "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#747c70",
+              "bgColor": "#f6f3eb",
+              "contrastRatio": 3.89,
+              "fontSize": "6.4pt (8.48px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<div class=\"app-paper\">",
+                "target": [
+                  ".app-paper"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<span>これから</span>",
+        "target": [
+          ".collection-seasons > div:nth-child(1) > span"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#747c70",
+              "bgColor": "#f6f3eb",
+              "contrastRatio": 3.89,
+              "fontSize": "6.4pt (8.48px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<div class=\"app-paper\">",
+                "target": [
+                  ".app-paper"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<span>これから</span>",
+        "target": [
+          ".collection-seasons > div:nth-child(2) > span"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#747c70",
+              "bgColor": "#f6f3eb",
+              "contrastRatio": 3.89,
+              "fontSize": "6.4pt (8.48px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<div class=\"app-paper\">",
+                "target": [
+                  ".app-paper"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<span>これから</span>",
+        "target": [
+          ".collection-seasons > div:nth-child(3) > span"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#747c70",
+              "bgColor": "#f6f3eb",
+              "contrastRatio": 3.89,
+              "fontSize": "6.4pt (8.48px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<div class=\"app-paper\">",
+                "target": [
+                  ".app-paper"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<span>これから</span>",
+        "target": [
+          "div:nth-child(4) > span"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #747c70, background color: #f6f3eb, font size: 6.4pt (8.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+    ]
+  }
+]

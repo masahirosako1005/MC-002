@@ -9,6 +9,7 @@ import pytest
 from app.clock import JST
 from app.config import Settings
 from app.main import create_app
+from app.service import JourneyService
 from conftest import Client
 
 
@@ -151,6 +152,22 @@ def test_transaction_failure_rolls_back_completion_and_can_retry(harness):
     assert harness.client.post(f"/attempts/{attempt['id']}/answer", {"values": [1, 2, 3]}).json()["correct"]
 
 
+def test_unexpected_error_keeps_security_headers_and_hides_details(harness, monkeypatch):
+    def fail_journal(self, user_id):
+        raise RuntimeError("private details must not reach the client")
+
+    monkeypatch.setattr(JourneyService, "journal", fail_journal)
+    response = harness.client.get("/journal")
+    assert response.status_code == 500
+    assert "private details" not in response.text
+    assert response.headers["Cache-Control"] == "no-store"
+    assert "object-src 'none'" in response.headers["Content-Security-Policy"]
+    assert "base-uri 'none'" in response.headers["Content-Security-Policy"]
+    assert response.headers["X-Content-Type-Options"] == "nosniff"
+    assert response.headers["X-Frame-Options"] == "DENY"
+    assert response.headers["Referrer-Policy"] == "no-referrer"
+
+
 def test_visit_and_trophy_fail_together(harness):
     with harness.app.state.database.transaction(write=True) as connection:
         connection.execute("CREATE TRIGGER fail_visit_award BEFORE INSERT ON achievements BEGIN SELECT RAISE(ABORT, 'failure'); END")
@@ -214,6 +231,24 @@ def test_leaderboard_compares_only_same_version_and_best_score(harness):
     assert board["entries"] == [{"rank": 1, "nickname": "旅人", "score": 100}]
     assert len(harness.client.get("/journal").json()["achievements"]) == 3
     assert "user_id" not in json.dumps(board)
+
+
+def test_completed_attempt_keeps_season_when_catalog_moves_to_next_year(harness):
+    harness.visit()
+    attempt = harness.start().json()
+    assert harness.client.post(f"/attempts/{attempt['id']}/answer", {"values": [1, 2, 3]}).json()["correct"]
+    recovery_code = harness.client.post("/recovery").json()["recovery_code"]
+    before = harness.client.get("/journal").json()["attempts"][0]
+    assert before["season"] == "autumn"
+    harness.current[0] = datetime(2027, 11, 9, 10, tzinfo=JST)
+    recovered = harness.client.post("/session/recover", {"recovery_code": recovery_code})
+    assert recovered.status_code == 200
+    harness.client.client.headers["X-CSRF-Token"] = recovered.json()["csrf_token"]
+    current_game_ids = {game["id"] for game in harness.client.get("/catalog").json()["games"]}
+    assert before["game_id"] not in current_game_ids
+    after = harness.client.get("/journal").json()["attempts"][0]
+    assert after == before
+    assert after["season"] == "autumn"
 
 
 def test_recommendations_include_roundtrip_buffer_and_respect_hours(harness):

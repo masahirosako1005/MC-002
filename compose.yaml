@@ -2,8 +2,6 @@ name: tang-you-chi
 services:
   app:
     build: .
-    ports:
-      - "127.0.0.1:8080:8000"
     environment:
       APP_DB_PATH: /app/data/journey.db
       STATIC_DIR: /app/static
@@ -23,7 +21,29 @@ services:
     restart: unless-stopped
     networks:
       - local-only
+  gateway:
+    image: nginx:stable-alpine
+    user: "101:101"
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      app:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 40
+    mem_limit: 64m
+    cpus: 0.5
+    restart: unless-stopped
+    networks: [local-only, browser-entry]
 networks:
+  browser-entry:
   local-only:
     internal: true
 volumes:

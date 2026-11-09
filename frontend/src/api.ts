@@ -21,6 +21,10 @@ export class ApiError extends Error {
 // Session credentials remain in an HttpOnly cookie. Only the CSRF token is held in memory.
 let csrfToken = '';
 let sessionPromise: Promise<void> | null = null;
+let sessionOpened = false;
+export const sessionInvalidEvent = 'journey:session-invalid';
+const reconnectMessage =
+  '手帳の接続が変わりました。もう一度読み込んでください。以前の記録は「引き継ぎ」から開けます。';
 
 async function request<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
   const controller = new AbortController();
@@ -41,6 +45,14 @@ async function request<T>(path: string, method = 'GET', body?: unknown): Promise
     });
     const data: unknown = await response.json().catch(() => null);
     if (!response.ok) {
+      if (
+        (response.status === 401 && !path.startsWith('/session')) ||
+        (response.status === 403 && response.headers.get('X-Session-Invalid') === 'true')
+      ) {
+        // Never replay a rejected write or silently attach it to a new anonymous journal.
+        window.dispatchEvent(new Event(sessionInvalidEvent));
+        throw new ApiError(reconnectMessage, response.status);
+      }
       const detail =
         data && typeof data === 'object' && 'detail' in data && typeof data.detail === 'string'
           ? data.detail
@@ -70,16 +82,17 @@ async function openSession() {
     session = await request<Session>('/session');
   } catch (error) {
     if (!(error instanceof ApiError) || error.status !== 401) throw error;
+    if (sessionOpened) throw new ApiError(reconnectMessage, 401);
     session = await request<Session>('/session', 'POST', {});
   }
   csrfToken = session.csrf_token;
+  sessionOpened = true;
 }
 
 export const api = {
   session() {
-    return (sessionPromise ??= openSession().catch((error) => {
+    return (sessionPromise ??= openSession().finally(() => {
       sessionPromise = null;
-      throw error;
     }));
   },
   catalog: () => request<Catalog>('/catalog'),
@@ -112,7 +125,8 @@ export const api = {
       { recovery_code: code },
     );
     csrfToken = session.csrf_token;
-    sessionPromise = Promise.resolve();
+    sessionOpened = true;
+    sessionPromise = null;
   },
 };
 

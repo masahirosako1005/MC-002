@@ -1,0 +1,11 @@
+test_append_only_and_snapshot_recovers_after_interrupted_write (test_tickets.TicketTests.test_append_only_and_snapshot_recovers_after_interrupted_write) ... ok
+test_board_escapes_script_data_and_rejects_outside_paths (test_tickets.TicketTests.test_board_escapes_script_data_and_rejects_outside_paths) ... ok
+test_concurrent_updates_do_not_lose_events (test_tickets.TicketTests.test_concurrent_updates_do_not_lose_events) ... ok
+test_done_requires_checked_acceptance_and_evidence (test_tickets.TicketTests.test_done_requires_checked_acceptance_and_evidence) ... ok
+test_ledger_corruption_is_reported_without_overwriting_snapshot (test_tickets.TicketTests.test_ledger_corruption_is_reported_without_overwriting_snapshot) ... ok
+test_task_import_is_idempotent_and_preserves_acceptance (test_tickets.TicketTests.test_task_import_is_idempotent_and_preserves_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.490s
+
+OK

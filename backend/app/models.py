@@ -112,6 +112,7 @@ class AttemptOut(BaseModel):
     id: str
     game_id: str
     title: str
+    season: Season
     status: str
     score: int | None
     hints_used: int

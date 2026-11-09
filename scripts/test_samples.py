@@ -62,6 +62,15 @@ class ImportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             analyze(self.source, ROOT.parent / "outside.db", self.key)
 
+    def test_person_name_correction_does_not_duplicate_event(self):
+        headers = ["user_id", "username", "reward_name", "timestamp", "prize_name"]
+        self.write("18_rewards.csv", headers, [["u1", "old name", "r", "2026/11/09 10:00:00", "prize"]])
+        analyze(self.source, self.db, self.key)
+        self.write("18_rewards.csv", headers, [["u1", "corrected name", "r", "2026-11-09 10:00:00", "prize"]])
+        report = analyze(self.source, self.db, self.key)
+        self.assertEqual(report["stored_records"], {"reward":1})
+        self.assertEqual(report["files"][0]["already_present"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -153,7 +153,7 @@ a {
 }
 .desktop-intro-bottom {
   margin-top: auto;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
 }
 .desktop-intro-bottom > span {
@@ -208,7 +208,7 @@ a {
 .brand small {
   display: block;
   font-family: Meiryo, sans-serif;
-  font-size: 0.59rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   margin-top: 6px;
 }
@@ -223,7 +223,7 @@ a {
   min-width: 48px;
 }
 .type-toggle > span {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   line-height: 1.1;
 }
 .type-toggle > span > span {
@@ -231,7 +231,7 @@ a {
   margin-left: 2px;
 }
 .type-toggle small {
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   margin-top: 4px;
 }
 .type-toggle[aria-pressed='true'] {
@@ -268,7 +268,7 @@ a {
 .page-meta {
   display: flex;
   justify-content: space-between;
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   margin-bottom: 23px;
   color: var(--muted);
@@ -287,7 +287,7 @@ a {
   z-index: 1;
 }
 .eyebrow {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: var(--muted);
@@ -379,14 +379,14 @@ a {
   width: 57px;
 }
 .hero-seal span {
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
 }
 .picture-caption {
   position: absolute;
   right: 15px;
   bottom: 15px;
-  font-size: 0.53rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   background: #f4f0e4e6;
   padding: 5px 8px;
@@ -421,7 +421,7 @@ a {
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   padding: 18px 0;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   gap: 10px;
 }
 .guide-summary > div {
@@ -494,7 +494,7 @@ a {
   display: grid;
   place-items: center;
   font-family: Georgia, serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   border-radius: 50%;
 }
 .spot-art .scene {
@@ -504,7 +504,7 @@ a {
   padding: 13px 1px 0;
 }
 .spot-copy .eyebrow {
-  font-size: 0.59rem;
+  font-size: 0.75rem;
 }
 .spot-copy h3 {
   display: flex;
@@ -520,12 +520,12 @@ a {
   height: 17px;
 }
 .spot-copy p {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.8;
 }
 .spot-meta {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -549,7 +549,7 @@ a {
   margin: 4px 0;
 }
 .next-teaser p:not(.eyebrow) {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .next-teaser > .round-button {
@@ -610,13 +610,13 @@ a {
   margin-top: 10px;
 }
 .map-details > p {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 10px;
 }
 .page-footer {
   padding: 22px 32px;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.09em;
   display: flex;
   justify-content: space-between;
@@ -653,7 +653,7 @@ a {
   min-height: 59px;
   padding: 6px 8px;
   color: #687369;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 .bottom-nav button[aria-current='page'] {
   color: var(--ink);
@@ -677,7 +677,7 @@ a {
   background: var(--red);
   color: #fff;
   border-radius: 20px;
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   min-width: 17px;
   line-height: 17px;
   padding: 0 4px;
@@ -688,7 +688,7 @@ a {
 .announcer {
   position: relative;
   padding: 0 32px;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
 }
 .announcer > span {
   padding: 12px 14px;
@@ -711,7 +711,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 19px;
 }
@@ -731,7 +731,7 @@ a {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  font-size: 0.69rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .tag-row > span {
@@ -769,7 +769,7 @@ a {
   font-size: 1.27rem;
 }
 .numbered-heading .eyebrow {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
 }
 .visit-section {
   background: #efede1;
@@ -784,7 +784,7 @@ a {
 }
 .code-form > label {
   display: block;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   margin-bottom: 8px;
 }
 .code-form > div {
@@ -898,7 +898,7 @@ a {
   margin: 12px 0 17px;
 }
 .small-note {
-  font-size: 0.69rem !important;
+  font-size: 0.75rem !important;
   color: var(--muted);
   line-height: 1.85;
 }
@@ -994,7 +994,7 @@ a {
   right: 25px;
   top: 25px;
   writing-mode: vertical-rl;
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
 }
 .journal-cover > .icon {
@@ -1026,7 +1026,7 @@ a {
   font-weight: 400;
 }
 .journal-totals span {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: #dedfcb;
 }
 .collection {
@@ -1044,7 +1044,7 @@ a {
   align-items: center;
   flex-direction: column;
   gap: 7px;
-  color: #747c70;
+  color: #56624f;
 }
 .collection-seasons .season-seal {
   width: 57px;
@@ -1056,7 +1056,7 @@ a {
   font-weight: 500;
 }
 .collection-seasons span {
-  font-size: 0.59rem;
+  font-size: 0.75rem;
 }
 .collection-seasons .collected {
   color: var(--red);
@@ -1105,12 +1105,12 @@ a {
   color: var(--red);
 }
 .timeline time {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .record-type {
   display: inline-block;
-  font-size: 0.57rem;
+  font-size: 0.75rem;
   padding: 2px 6px;
   background: #e8e9de;
   margin-left: 10px;
@@ -1120,7 +1120,7 @@ a {
   font-size: 1rem;
 }
 .timeline p {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 5px;
 }
@@ -1164,7 +1164,7 @@ a {
   font-size: 1.2rem;
 }
 .journal-next p {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin: 7px 0 20px;
 }
@@ -1194,7 +1194,7 @@ a {
 .unfinished-row small {
   display: block;
   color: var(--muted);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   margin-top: 5px;
 }
 .trip-finder {
@@ -1213,7 +1213,7 @@ a {
   font-size: 1.2rem;
 }
 .trip-finder > p {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: #5d6d5e;
   margin: 10px 0 18px;
 }
@@ -1223,7 +1223,7 @@ a {
   gap: 13px;
 }
 .finder-selects label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1244,7 +1244,7 @@ a {
   margin-bottom: 0;
 }
 .recommendation-reason {
-  font-size: 0.71rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin: -8px 0 18px;
 }
@@ -1283,7 +1283,7 @@ a {
   gap: 2px;
   background: #f8f5e9ef;
   padding: 4px 9px;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   border-radius: 2px;
 }
 .duration-badge strong {
@@ -1295,7 +1295,7 @@ a {
   padding: 19px;
 }
 .recommendation-copy > .eyebrow {
-  font-size: 0.61rem;
+  font-size: 0.75rem;
 }
 .recommendation-copy h3 {
   font-family: 'Yu Mincho', serif;
@@ -1303,7 +1303,7 @@ a {
   margin: 7px 0 9px;
 }
 .recommendation-copy > p:not(.eyebrow) {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
 }
 .time-breakdown {
   display: flex;
@@ -1311,7 +1311,7 @@ a {
   margin: 15px 0;
   padding-block: 10px;
   border-block: 1px solid var(--line);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .time-breakdown > span {
@@ -1330,7 +1330,7 @@ a {
   gap: 8px;
   color: #4e6753;
   line-height: 1.8;
-  font-size: 0.68rem !important;
+  font-size: 0.75rem !important;
   margin-bottom: 15px;
 }
 .why-recommended .icon {
@@ -1339,12 +1339,12 @@ a {
   margin-top: 3px;
 }
 .recommendation-copy .button {
-  font-size: 0.71rem;
+  font-size: 0.75rem;
   padding: 10px 14px;
   min-height: 44px;
 }
 .recommendation-copy > .text-button {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   margin-top: 4px;
 }
 .recommendation-card.featured {
@@ -1397,12 +1397,12 @@ a {
   margin: 5px 0;
 }
 .plan-copy > p:not(.eyebrow) {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .planned-label {
   display: inline-block;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   margin-top: 11px;
   background: #e9ecdf;
   padding: 3px 7px;
@@ -1432,7 +1432,7 @@ a {
   margin-right: -32px;
 }
 .remove-confirm p {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
 }
 .remove-confirm > div {
   display: flex;
@@ -1500,11 +1500,11 @@ a {
   margin: 4px 0;
 }
 .resource-story p:not(.eyebrow) {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .resource-story .text-button {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   padding: 7px 0;
 }
 .inline-loading {
@@ -1555,7 +1555,7 @@ a {
 .machine-label {
   display: flex;
   justify-content: space-between;
-  font-size: 0.54rem;
+  font-size: 0.75rem;
   letter-spacing: 0.13em;
   padding-bottom: 14px;
   border-bottom: 1px solid #6e8780;
@@ -1565,7 +1565,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
 }
 .water-source-line {
   height: 15px;
@@ -1587,7 +1587,7 @@ a {
 }
 .gate-number {
   font-family: Georgia, serif;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   margin-bottom: 10px;
   color: #c9c5a3;
 }
@@ -1649,7 +1649,7 @@ a {
   padding: 13px 0 1px;
   border-top: 2px solid #86aeaa;
   margin-top: 12px;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
 }
 .puzzle-form {
   margin-top: 26px;
@@ -1675,7 +1675,7 @@ a {
 }
 .gate-control-label label > span {
   font-family: Georgia, serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--red);
 }
 .gate-control-label output {
@@ -1713,7 +1713,7 @@ a {
   padding: 7px 0;
 }
 .puzzle-utilities .text-button {
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 .answer-feedback {
@@ -1778,7 +1778,7 @@ a {
   font-weight: 400;
 }
 .score-list small {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   margin-left: 3px;
 }
 .completion {
@@ -1821,7 +1821,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   border-top: 1px solid #cfc6ae;
   padding-top: 17px;
   margin-top: 18px;
@@ -1872,7 +1872,7 @@ a {
   font-size: 1.2rem;
 }
 .loading-state > span {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 9px;
 }
@@ -1983,7 +1983,7 @@ a {
     height: 36px;
   }
   .brand small {
-    font-size: 0.52rem;
+    font-size: 0.75rem;
   }
   .guide-page {
     padding: 21px 23px 24px;
@@ -1992,7 +1992,7 @@ a {
     padding: 27px 23px;
   }
   .page-meta {
-    font-size: 0.56rem;
+    font-size: 0.75rem;
     margin-bottom: 20px;
   }
   .page-meta > span:last-child {
@@ -2007,7 +2007,7 @@ a {
     margin: 13px 0;
   }
   .hero-description {
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     line-height: 1.95;
   }
   .hero-picture {
@@ -2031,10 +2031,10 @@ a {
   }
   .picture-caption {
     bottom: 12px;
-    font-size: 0.48rem;
+    font-size: 0.75rem;
   }
   .guide-summary {
-    font-size: 0.63rem;
+    font-size: 0.75rem;
     padding: 17px 0;
   }
   .guide-summary p > span {
@@ -2056,10 +2056,10 @@ a {
     font-size: 1.3rem;
   }
   .section-heading .eyebrow {
-    font-size: 0.59rem;
+    font-size: 0.75rem;
   }
   .section-number {
-    font-size: 0.69rem;
+    font-size: 0.75rem;
   }
   .spot-grid {
     gap: 22px 14px;
@@ -2084,10 +2084,10 @@ a {
     height: 14px;
   }
   .spot-copy .eyebrow {
-    font-size: 0.53rem;
+    font-size: 0.75rem;
   }
   .spot-copy p {
-    font-size: 0.66rem;
+    font-size: 0.75rem;
     line-height: 1.8;
   }
   .spot-index {
@@ -2095,10 +2095,10 @@ a {
     height: 21px;
     top: 8px;
     left: 8px;
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
   .spot-meta {
-    font-size: 0.59rem;
+    font-size: 0.75rem;
   }
   .next-teaser {
     margin-top: 30px;
@@ -2112,7 +2112,7 @@ a {
     font-size: 1.1rem;
   }
   .next-teaser p:not(.eyebrow) {
-    font-size: 0.64rem;
+    font-size: 0.75rem;
   }
   .next-teaser > .round-button {
     width: 39px;
@@ -2120,7 +2120,7 @@ a {
     height: 44px;
   }
   .page-footer {
-    font-size: 0.49rem;
+    font-size: 0.75rem;
     padding: 21px 23px;
   }
   .bottom-nav {
@@ -2129,7 +2129,7 @@ a {
     padding-inline: 12px;
   }
   .bottom-nav button {
-    font-size: 0.59rem;
+    font-size: 0.75rem;
     min-height: 56px;
   }
   .bottom-nav .icon {
@@ -2140,7 +2140,7 @@ a {
     padding-inline: 23px;
   }
   .announcer > span {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
   .detail-page,
   .puzzle-page {
@@ -2166,7 +2166,7 @@ a {
     font-size: 1.15rem;
   }
   .visit-section > p {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
   .code-form input {
     padding: 10px;
@@ -2174,7 +2174,7 @@ a {
   }
   .code-form .button {
     padding: 10px 11px;
-    font-size: 0.73rem;
+    font-size: 0.75rem;
     gap: 5px;
   }
   .season-picker {
@@ -2196,10 +2196,10 @@ a {
     font-size: 0.91rem;
   }
   .experience-row p:not(.eyebrow) {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
   .experience-row .text-button {
-    font-size: 0.69rem;
+    font-size: 0.75rem;
   }
   .season-tag {
     padding: 7px;
@@ -2224,7 +2224,7 @@ a {
     font-size: 1.65rem;
   }
   .journal-totals span {
-    font-size: 0.58rem;
+    font-size: 0.75rem;
   }
   .collection-seasons {
     gap: 8px;
@@ -2233,7 +2233,7 @@ a {
     width: 51px;
   }
   .collection-seasons span {
-    font-size: 0.53rem;
+    font-size: 0.75rem;
   }
   .trip-finder {
     padding: 20px 17px;
@@ -2248,7 +2248,7 @@ a {
     font-size: 0.8rem;
   }
   .trip-finder > p {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
   .segmented button {
     font-size: 0.75rem;
@@ -2284,10 +2284,10 @@ a {
     font-size: 1.1rem;
   }
   .recommendation-copy > p:not(.eyebrow) {
-    font-size: 0.73rem;
+    font-size: 0.75rem;
   }
   .recommendation-copy > .text-button {
-    font-size: 0.67rem;
+    font-size: 0.75rem;
   }
   .recommendation-copy .button {
     font-size: 0.75rem;
@@ -2306,10 +2306,10 @@ a {
     font-size: 0.9rem;
   }
   .plan-copy > .eyebrow {
-    font-size: 0.56rem;
+    font-size: 0.75rem;
   }
   .plan-copy > p:not(.eyebrow) {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
   .puzzle-title h1 {
     font-size: 1.55rem;
@@ -2337,7 +2337,7 @@ a {
     font-size: 0.78rem;
   }
   .puzzle-utilities .text-button {
-    font-size: 0.62rem;
+    font-size: 0.75rem;
   }
   .return-invitation h2 {
     font-size: 1.4rem;
@@ -2363,7 +2363,7 @@ a {
     font-size: 1.85rem;
   }
   .hero-description {
-    font-size: 0.66rem;
+    font-size: 0.75rem;
   }
   .spot-grid {
     gap: 20px 12px;
@@ -2372,7 +2372,7 @@ a {
     font-size: 0.83rem;
   }
   .guide-summary {
-    font-size: 0.59rem;
+    font-size: 0.75rem;
   }
   .page-meta > span:last-child {
     display: none;
@@ -2396,10 +2396,10 @@ a {
     font-size: 0.98rem;
   }
   .next-teaser p:not(.eyebrow) {
-    font-size: 0.59rem;
+    font-size: 0.75rem;
   }
   .page-footer {
-    font-size: 0.45rem;
+    font-size: 0.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2465,7 +2465,7 @@ a {
   height: 20px;
 }
 .recovery-trigger small {
-  font-size: 0.55rem;
+  font-size: 0.75rem;
 }
 .recovery-dialog {
   border: 1px solid #aab9a2;
@@ -2508,13 +2508,13 @@ a {
   margin-bottom: 9px;
 }
 .recovery-section > p {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 16px;
 }
 .recovery-section label {
   display: block;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   margin-bottom: 8px;
 }
 .recovery-section input,
@@ -2543,7 +2543,7 @@ a {
   overflow-wrap: anywhere;
 }
 .recovery-issued p {
-  font-size: 0.69rem;
+  font-size: 0.75rem;
   margin-top: 10px;
   color: #485e43;
 }
@@ -2571,6 +2571,26 @@ button:focus-visible {
 }
 button:focus-visible:active:not(:disabled) {
   transform: none;
+}
+
+/* Keep functional copy readable on small screens; decorative labels have a 12px floor. */
+.app main p:not(.eyebrow):not(.small-note) {
+  font-size: 0.875rem !important;
+}
+.app main .button {
+  font-size: 0.875rem;
+}
+.app.large-text main p:not(.eyebrow):not(.small-note) {
+  font-size: 1.03em !important;
+}
+.app.large-text main .button {
+  font-size: 1.03em;
+}
+.guide-summary {
+  flex-wrap: wrap;
+}
+.page-footer {
+  flex-wrap: wrap;
 }
 @media (max-width: 400px) {
   .header-actions {

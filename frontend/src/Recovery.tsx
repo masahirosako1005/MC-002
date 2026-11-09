@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { api, errorMessage } from './api';
+import { api, errorMessage, sessionInvalidEvent } from './api';
 import { ErrorNotice, Icon } from './ui';
 
 export function Recovery({ onRecovered }: { onRecovered: () => Promise<void> }) {
@@ -12,6 +12,15 @@ export function Recovery({ onRecovered }: { onRecovered: () => Promise<void> }) 
   const [busy, setBusy] = useState(false);
   const lock = useRef(false);
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const invalidated = () => {
+      setIssued('');
+      setCode('');
+      setOpen(false);
+    };
+    window.addEventListener(sessionInvalidEvent, invalidated);
+    return () => window.removeEventListener(sessionInvalidEvent, invalidated);
+  }, []);
   useEffect(() => {
     if (open) dialog.current?.showModal();
     else dialog.current?.close();
@@ -83,6 +92,8 @@ export function Recovery({ onRecovered }: { onRecovered: () => Promise<void> }) 
         onClose={() => {
           setIssued('');
           setCode('');
+          setError('');
+          setMessage('');
           setOpen(false);
         }}
       >

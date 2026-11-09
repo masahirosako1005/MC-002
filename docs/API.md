@@ -24,7 +24,7 @@ Experience = `{id,spot_id,title,season,description,month_label,duration_minutes,
 Game = `{id,spot_id,title,season,difficulty,description,version}`。difficulty beginner/advanced。
 Puzzle = `{title,instruction,labels:string[],max_value:number,clue:string}`。valuesの正解を返さない。水路の条件を手掛かりに3つの水門の値を選ぶ。
 Visit = `{id,spot_id,spot_name,visited_at}`。
-Attempt = `{id,game_id,title,status,score,hints_used,created_at,completed_at}`。
+Attempt = `{id,game_id,title,season,status,score,hints_used,created_at,completed_at}`。seasonは挑戦した問題版の季節を返す。旧年度の問題が現在のカタログから外れても、履歴の季節は保持する。
 Achievement = `{id,title,description,earned_at,season}`。
 Plan = `{id,experience_id,title,spot_name,season,month_label,reason,created_at}`。
 Recommendation = `{experience:Experience,spot:Spot,total_minutes,travel_minutes,buffer_minutes,reason}`。
@@ -53,3 +53,10 @@ Recommendation = `{experience:Experience,spot:Spot,total_minutes,travel_minutes,
 - POST `/session/recover` body `{recovery_code:string}` → `{nickname,csrf_token}` と新しいセッションCookie。未認証で利用でき、必ずOrigin・JSONを検証する。有効な既存Cookieがある場合はそのセッションのCSRFも要求する。復旧成功は以前の全セッションを無効にする。
 - 復旧コードはセッション寿命に依存せず、次の再発行まで有効。コードを知る人は手帳へアクセスできるため、端末内の安全な場所へ保存し、URL・ログ・ランキング等へ出さない。応答はno-store。
 - 無効コードは一般的な401を返し、コードの内容や所有者を出さない。復旧要求はIPあたり5回/分、超過は429。コードを失った場合の本人確認による救済は未実装。
+
+## 接続が失効・更新された場合の画面側の契約
+
+- CSRF不一致403には `X-Session-Invalid: true` を付ける。訪問コード不一致の403には付けず、入力の訂正を促す。
+- 通常APIの401、またはCSRF専用403では、古い画面の記録・挑戦をいったん隠し、明示的な再読込と引き継ぎへの案内を表示する。失敗したPOST/DELETEを自動再送しない。
+- その画面で既に開いたセッションが失効したとき、再読込操作で新しい匿名手帳を勝手に作らない。別タブでCookieが更新されていればGET /sessionで新しいCSRFを取得し、利用者の次の操作から使用する。
+- /session/recoverの無効コード401はダイアログ内に表示。CSRF専用403はダイアログを閉じ、全体の再読込へ移す。コード入力や発行済みの表示を残さない。

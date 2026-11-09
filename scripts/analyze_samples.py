@@ -117,11 +117,11 @@ def analyze(source: Path, database: Path, key_path: Path) -> dict:
                     metrics["invalid_shape"] += 1
                     continue
                 canonical = json.dumps(row, ensure_ascii=False, sort_keys=True)
-                identity = token(key, kind, canonical)
-                if identity in seen:
+                row_digest = token(key, "row", canonical)
+                if row_digest in seen:
                     metrics["duplicate_rows"] += 1
                     continue
-                seen.add(identity)
+                seen.add(row_digest)
                 user = row[user_field].strip()
                 if not user:
                     metrics["missing_user"] += 1
@@ -135,6 +135,10 @@ def analyze(source: Path, database: Path, key_path: Path) -> dict:
                     metrics["missing_subject"] += 1
                     continue
                 user_ref = token(key, "user", user)
+                # Names and contact corrections must not create another event.
+                # The source has no event IDs; use its documented natural key.
+                extra = [row.get("周回", ""), row.get("スタンプ名", "")] if kind == "stamp" else [row.get("prize_name", "")] if kind == "reward" else []
+                identity = token(key, kind, json.dumps([user, subject, occurred, *extra], ensure_ascii=False))
                 (imported_users if kind == "user" else referenced_users).add(user_ref)
                 cursor = conn.execute("INSERT OR IGNORE INTO records VALUES(?,?,?,?,?,?)", (identity, kind, user_ref, token(key, "subject", subject) if subject else None, occurred, digest))
                 metrics["inserted" if cursor.rowcount else "already_present"] += 1
@@ -150,7 +154,7 @@ def analyze(source: Path, database: Path, key_path: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=Path("C:/AI-Sprint/sample-data"))
-    parser.add_argument("--database", type=Path, default=ROOT / "data/analytics.db")
+    parser.add_argument("--database", type=Path, default=ROOT / "data/analytics-v2.db")
     parser.add_argument("--key", type=Path, default=ROOT / "data/.import-key")
     parser.add_argument("--report", type=Path, default=ROOT / "artifacts/sample-quality.json")
     args = parser.parse_args()

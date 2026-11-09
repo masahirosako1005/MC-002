@@ -20,7 +20,7 @@ from .models import (
     HintOut, JournalOut, LeaderboardOut, PlanInput, PlanOut, RecommendationsOut, RecoveryInput, RecoveryOut,
     Season, SessionOut, StartedAttemptOut, VisitInput, VisitOut,
 )
-from .security import COOKIE_NAME, SecurityMiddleware, authenticated, check_csrf, find_session, request_time
+from .security import COOKIE_NAME, SecurityMiddleware, authenticated, check_csrf, find_session, request_time, response_security_headers
 from .seed import fingerprint
 from .service import JourneyService, identifier
 
@@ -62,7 +62,7 @@ def create_app(settings: Settings | None = None, now_provider: Callable[[], date
     @application.exception_handler(Exception)
     async def unexpected_error(request: Request, exc: Exception) -> JSONResponse:
         logger.error("Unexpected operation failure (%s)", type(exc).__name__)
-        return JSONResponse({"detail": "操作を完了できませんでした。画面を開き直してください。"}, status_code=500)
+        return JSONResponse({"detail": "操作を完了できませんでした。画面を開き直してください。"}, status_code=500, headers=response_security_headers(request.url.path))
 
     public = APIRouter(prefix="/api")
     protected = APIRouter(prefix="/api", dependencies=[Depends(authenticated)])
