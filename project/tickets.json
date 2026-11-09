@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 602,
-  "last_event_hash": "5ca764845dd716709663216eb940ec6d2f4156ae28fcd66e135fc222fb4357f3",
-  "updated_at": "2026-11-09T17:05:24+09:00",
+  "revision": 607,
+  "last_event_hash": "e5cc42a78c8d23d184333b9a873350577a462c2179cf99e70131401aab047def",
+  "updated_at": "2026-11-09T17:05:54+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2519,19 +2519,25 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 9,
+      "revision": 10,
       "revisions": [
         {
           "at": "2026-11-09T17:05:23+09:00",
           "hash": "27a26bb1de6afd37952c6a83e603efc1bd555139",
           "path": "project/revisions/27a26bb1de6afd37952c6a83e603efc1bd555139.txt",
           "summary": "feat: persist private resume state and disable live AI for MOC runtime"
+        },
+        {
+          "at": "2026-11-09T17:05:52+09:00",
+          "hash": "145401d39c3ffdc8f9a6edd4dc373309f8913690",
+          "path": "project/revisions/145401d39c3ffdc8f9a6edd4dc373309f8913690.txt",
+          "summary": "feat: restore personal workspace and improve measured frontend quality"
         }
       ],
       "status": "done",
       "title": "実AIを使わない案内と手動写真タグ",
       "type": "task",
-      "updated_at": "2026-11-09T17:05:23+09:00"
+      "updated_at": "2026-11-09T17:05:52+09:00"
     },
     {
       "acceptance": [
@@ -2573,12 +2579,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T17:05:53+09:00",
+          "hash": "145401d39c3ffdc8f9a6edd4dc373309f8913690",
+          "path": "project/revisions/145401d39c3ffdc8f9a6edd4dc373309f8913690.txt",
+          "summary": "feat: restore personal workspace and improve measured frontend quality"
+        }
+      ],
       "status": "done",
       "title": "コード品質の測定と安全な改善",
       "type": "task",
-      "updated_at": "2026-11-09T17:05:20+09:00"
+      "updated_at": "2026-11-09T17:05:53+09:00"
     },
     {
       "acceptance": [
@@ -2625,19 +2638,25 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 10,
+      "revision": 11,
       "revisions": [
         {
+          "at": "2026-11-09T17:05:24+09:00",
           "hash": "27a26bb1de6afd37952c6a83e603efc1bd555139",
-          "summary": "feat: persist private resume state and disable live AI for MOC runtime",
           "path": "project/revisions/27a26bb1de6afd37952c6a83e603efc1bd555139.txt",
-          "at": "2026-11-09T17:05:24+09:00"
+          "summary": "feat: persist private resume state and disable live AI for MOC runtime"
+        },
+        {
+          "at": "2026-11-09T17:05:53+09:00",
+          "hash": "145401d39c3ffdc8f9a6edd4dc373309f8913690",
+          "path": "project/revisions/145401d39c3ffdc8f9a6edd4dc373309f8913690.txt",
+          "summary": "feat: restore personal workspace and improve measured frontend quality"
         }
       ],
       "status": "done",
       "title": "本人専用DBの再開状態と個人化",
       "type": "task",
-      "updated_at": "2026-11-09T17:05:24+09:00"
+      "updated_at": "2026-11-09T17:05:53+09:00"
     },
     {
       "acceptance": [
@@ -2679,12 +2698,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-09T17:05:53+09:00",
+          "hash": "145401d39c3ffdc8f9a6edd4dc373309f8913690",
+          "path": "project/revisions/145401d39c3ffdc8f9a6edd4dc373309f8913690.txt",
+          "summary": "feat: restore personal workspace and improve measured frontend quality"
+        }
+      ],
       "status": "done",
       "title": "大会8項目の評価ツール対応と改善ループ",
       "type": "task",
-      "updated_at": "2026-11-09T17:05:22+09:00"
+      "updated_at": "2026-11-09T17:05:53+09:00"
     },
     {
       "acceptance": [
@@ -2715,12 +2741,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "hash": "145401d39c3ffdc8f9a6edd4dc373309f8913690",
+          "summary": "feat: restore personal workspace and improve measured frontend quality",
+          "path": "project/revisions/145401d39c3ffdc8f9a6edd4dc373309f8913690.txt",
+          "at": "2026-11-09T17:05:54+09:00"
+        }
+      ],
       "status": "done",
       "title": "集団旅行と再訪の動機をゼロベースで構想",
       "type": "task",
-      "updated_at": "2026-11-09T17:05:23+09:00"
+      "updated_at": "2026-11-09T17:05:54+09:00"
     },
     {
       "acceptance": [
