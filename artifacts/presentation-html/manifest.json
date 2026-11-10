@@ -1,0 +1,30 @@
+{
+  "ticket": "PR01",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 39799,
+      "sha256": "7a20e4af8fb798fdf2b022aecafd4e75f1d9be0338b42ec83cccc3338f8a947a"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 10211,
+      "sha256": "859d8ebce425c319d0a16afbfc4a9edd69636376192c3b443f81d7df2a41504d"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 3880,
+      "sha256": "c43b23e50ec8887166ed576807e80d3caa691207e2caaa7518b541cc54bd7faf"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13.mp4",
+      "bytes": 4402409,
+      "sha256": "cb45b9a0ebe9e620b8d776c20d33715d56459751afb894dc1e51c40b19600411"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13-ja.vtt",
+      "bytes": 1248,
+      "sha256": "0a686a27f86b0ae6442d0011dc8b987090a535c22756811735ff7d00032003bd"
+    }
+  ]
+}

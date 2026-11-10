@@ -1,0 +1,25 @@
+{
+  "ticket": "PR01",
+  "date": "2026-11-10",
+  "scope": "Local HTML presentation and speaker script, not application-wide acceptance",
+  "duration": {"planned_seconds": 260, "limit_seconds": 270, "speech_seconds": 175, "video_slot_seconds": 85, "video_seconds": 77.9, "human_rehearsal": "not_performed"},
+  "slides": 8,
+  "content_review": {"independent_review": true, "sample": "500 people; 287 post-visit responses; exchange 69, nature 65", "quality_scope": "EV02 revision 21eb465: 433 tests; 32 subtests separately", "ai": "Local rules and templates; no external AI inference", "revisit_effect": "not_measured", "reflection": "Dedicated reflection with all participant usage declarations and consent; not private group chat analysis", "distance": "20–40 km is a proposed setting, not an established optimum"},
+  "browser": {
+    "url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
+    "surface": "ChatGPT in-app browser",
+    "visual_review": "All eight slides inspected at 1440x900; video and closing also checked at 1280x720",
+    "screenshots": ["slide-01.png", "slide-02.png", "slide-03.png", "slide-04.png", "slide-05.png", "slide-06.png", "slide-07.png", "slide-08.png", "video-1280.png", "closing-1280.png", "cover-preview.png"],
+    "passed": ["Next and previous slide controls", "Home, End and arrow-key navigation in normal mode", "N and button speaker-notes opening, closing and focus", "Video play with audio enabled and duration 77.9 seconds", "Leaving the video slide pauses playback", "Video arrow keys do not advance slides", "Timer start, elapsed display, stop and reset", "Video fits vertically: document height equals viewport at 1440x900 and 1280x720", "All eight slides render with local media"],
+    "fullscreen": "Button switches its visible state; stable full-screen keyboard operation could not be fully verified in this embedded browser. Use the target browser for rehearsal.",
+    "print": "Print CSS statically reviewed; physical/PDF page output not tested for this HTML version",
+    "unverified": ["Human rehearsal within 270 seconds", "Audience readability and voice warmth", "Normal Edge responsiveness", "file URL caption-origin behavior"]
+  },
+  "improvements": ["Body and numbers use readable sans-serif while titles retain the Japanese visual style", "Cover line breaks avoid splitting phrases", "Reduced video height to remove observed vertical overflow", "Qualified provider progress access, consent conditions and proposed revisit effect after independent review"],
+  "tooling": {
+    "unit_tests": {"command": "python -m unittest discover -s test/tooling -p test_presentation_server.py -v", "passed": 6, "failures": 0, "seconds": 0.664, "coverage": ["Explicit public-file allowlist", "Root redirect", "HEAD response", "Exact video byte-range response", "Invalid range rejection", "Range boundaries"]},
+    "ruff": {"files": ["scripts/serve_presentation.py", "test/tooling/test_presentation_server.py"], "findings_before": "Two I001 import-order findings; one C901 complexity finding", "findings_after": 0, "complexity_threshold": 10},
+    "static_html_review": "Independent review found no P1/P2 issue; local references exist, keyboard guards and media pause hooks inspected",
+    "application_quality_score_changed": false
+  }
+}

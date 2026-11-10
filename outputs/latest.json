@@ -373,5 +373,22 @@
     "evidence": "artifacts/document-freshness-20261110.json",
     "checked_at_utc": "2026-11-10T05:29:18.782809+00:00"
   },
-  "audit_scope": "Historical output metadata audit; current document and evaluation pointers are recorded under document_freshness and quality."
+  "audit_scope": "Historical output metadata audit; current document and evaluation pointers are recorded under document_freshness and quality.",
+  "html_presentation": {
+    "version": "four-and-a-half-minute-v1",
+    "status": "created_browser_reviewed",
+    "path": "presentation/kou-presentation.html",
+    "content": "presentation/presentation-content.js",
+    "speaker_script": "presentation/speaker-script.txt",
+    "slides": 8,
+    "planned_seconds": 260,
+    "limit_seconds": 270,
+    "speech_seconds": 175,
+    "video_slot_seconds": 85,
+    "video_seconds": 77.9,
+    "preview_url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
+    "verification": "artifacts/presentation-html/verification.json",
+    "manifest": "artifacts/presentation-html/manifest.json",
+    "limits": "Human timed rehearsal and actual HTML print output not tested. Saved PPTX/PDF are separate older artifacts."
+  }
 }

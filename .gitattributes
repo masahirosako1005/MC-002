@@ -16,3 +16,9 @@ outputs/video-preview/narration-ja.vtt -text
 scripts/render_revisit_v13.py -text
 scripts/narrate_revisit_neural.py -text
 scripts/revisit-video-female-v13-scenes.json -text
+
+# Preserve HTML presentation provenance bytes across Windows checkouts.
+presentation/kou-presentation.html -text
+presentation/presentation-content.js -text
+presentation/speaker-script.txt -text
+artifacts/presentation-html/** -text

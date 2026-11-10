@@ -2,6 +2,8 @@
 
 更新：2026-11-10。対象は、ルート `backend/`・`frontend/` にある現行の講アプリです。最新動画は **第13版（ログインから写真・仲間探し・事業者への相談・次回の提案までの操作紹介）**。第12版の現地QR・お地蔵さんを含む構成も比較用に保持しています。旧スタンプラリー版の資料や過去の検査結果を、現在の完成度として扱いません。
 
+最新の発表入口は [8枚のHTML資料](../presentation/kou-presentation.html) と [登壇者原稿](../presentation/speaker-script.txt)。全体4分20秒を目標、4分30秒を上限とし、原稿175秒＋動画枠85秒で構成しています。実際の通し練習は未確認です。旧10枚PPTX/PDFは保存版として維持します。
+
 第13版は77.9秒、8場面。女性の音声をNanamiNeuralへ差し替え、通常速度で会話調の原稿を読みます。実際の操作画面と、その同じ画面の拡大を併用します。[制作記録](../docs/REVISIT-VIDEO.md)に検証範囲を記録しています。ソースZIPは固定コミットの配布物であり、今回の動画制作コードや文書変更を含む最新HEADの複製ではありません。
 
 ## 閲覧するもの
@@ -11,11 +13,16 @@
 | 現行ソース | [ソースZIP](kou-current-source.zip) / [配布manifest](kou-current-source-manifest.json) | カメラAR修正を含むcommit `b05211c`、446ファイル。稼働DB・バックアップ・導入済み依存は含めない |
 | 現行の機能・設計 | [DESIGN](../DESIGN.md) / [起動手順](../README.md) | 仕様・実装範囲・制約の正本 |
 | 紹介動画 | [MP4・第13版](kou-revisit-intro-v13.mp4) / [日本語字幕](kou-revisit-intro-v13-ja.vtt) / [再生ページ](video-preview/index.html) | 女性の案内役と新しい声、77.9秒。左右ログイン→写真とタグ→仲間→陶芸のプランと共有相談→振り返り条件→通う旅の誘い |
-| 発表資料・2026-11-10版 | [PowerPoint](kou-current-20261110.pptx) / [PDF](kou-current-20261110.pdf) / [制作手順](../presentation/README.md) | 全10枚。月次くじ追加時点の保存資料。後続のカメラAR画面とEV02評価は未反映 |
+| 最新の発表資料・原稿 | [HTML・8枚](../presentation/kou-presentation.html) / [登壇原稿](../presentation/speaker-script.txt) / [起動と操作](../presentation/README.md) | 4分20秒目標／4分30秒上限。動画77.9秒を85秒枠に配置、登壇原稿175秒。通し練習未確認 |
+| 保存版の発表資料 | [PowerPoint](kou-current-20261110.pptx) / [PDF](kou-current-20261110.pdf) | 月次くじ追加時点の10枚。後続のカメラAR画面とEV02評価は未反映。最新HTMLの代用にはしない |
 | 作業と未完了項目 | [TASKS](../TASKS.md) / [チケットボード](project-board.html) | 未確認・未解決事項を含む現在の状態 |
 | 最新の全体評価 | [EV02・21eb465](../docs/evaluation-frameworks/EV02-REPORT.md) / [試験XML](../artifacts/quality/ev02-full/tests.xml) / [評価入口](../docs/QUALITY-CURRENT.md) | 433試験＋32細分成功。静的ゲートregressionと残課題を保持。後続AR/QRへ転用しない |
 
-発表資料は [構造・文字領域の検査](../artifacts/presentation-current/validation.json) と [全10枚の描画・目視確認記録](../artifacts/presentation-current/VISUAL-QA.json) に対応する完成ファイルです。実ファイルのハッシュも両記録と照合しました。旧名に `final` とある資料は代用しません。機械向けの入口は [latest.json](latest.json) です。
+保存版PPTX/PDFは [構造・文字領域の検査](../artifacts/presentation-current/validation.json) と [全10枚の描画・目視確認記録](../artifacts/presentation-current/VISUAL-QA.json) に対応するファイルです。この記録を最新HTMLの検証結果として流用しません。旧名に `final` とある資料も代用しません。機械向けの入口は [latest.json](latest.json) です。
+
+## 発表を開く
+
+プロジェクトルートで `python scripts/serve_presentation.py` を実行し、[発表ページ](http://127.0.0.1:8093/presentation/kou-presentation.html)を開きます。←／→でページ移動、Nで原稿、Fで全画面。「計時開始」で経過時間を確認し、3枚目の動画は手動再生します。4分20秒は計画値で、話す速さと切替を含む実測ではありません。ブラウザー検証の詳細は主担当が別記録で管理します。
 
 ## 動画の確認範囲
 
@@ -31,7 +38,7 @@
 
 過去の構成移動時の `root-layout-final` 測定は、おみくじ追加前の363試験＋32 subtests・失敗0・エラー0・スキップ0。静的指摘はBandit中19／高0、Ruff 0、C901複雑度14、oxlint 115、stylelint 126。固定基準からの新規指摘0ですが、既存指摘や変更箇所のレビューは残り、結果は `review-required` です。これらは認証・安全性保証・使いやすさの点数ではありません。
 
-動画の最終評価、既存静的指摘、通常Edgeの応答停止、未確認画面の文字拡大、実利用者・再訪効果の評価などは [TASKS](../TASKS.md) と [現行評価](../docs/EVALUATION-COMMUNITY.md) で区別します。発表資料は作成当時の363試験＋32細分と追加おみくじ12ケースを示し、EV02の433件＋32細分やカメラARは未反映です。最新の全体評価と同一の資料ではありません。
+動画の最終評価、既存静的指摘、通常Edgeの応答停止、未確認画面の文字拡大、実利用者・再訪効果の評価などは [TASKS](../TASKS.md) と [現行評価](../docs/EVALUATION-COMMUNITY.md) で区別します。最新HTMLはEV02対象版の433試験を版限定で説明します。保存版PPTX/PDFは作成当時の363試験＋32細分と追加おみくじ12ケースを示し、EV02やカメラARは未反映です。両資料を同じ評価時点として扱いません。
 
 おみくじの追加検証は別枠で12ケース成功。最初の分割実行に続き、[最終12ケース通し実行](../artifacts/omikuji/release-tests.xml)も30.647秒・失敗0で成功しました。[対象検証](../artifacts/omikuji/verification.json) / [APIと条件](../docs/OMIKUJI-CONTRACT.md)。新モジュール限定Ruff・C901・Banditは0件。既存363試験へ足して「全体375件通過」とは扱いません。
 

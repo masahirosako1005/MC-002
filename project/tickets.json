@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 981,
-  "last_event_hash": "3c403f5efe0ee2f84200704d0549d776f710e2df608f4fbf6b37f3cee26f6aee",
-  "updated_at": "2026-11-10T14:46:14+09:00",
+  "revision": 990,
+  "last_event_hash": "8cf527862c144c71698ee6a8d7523fb53c2810d029e3284ee015b93f7851b23c",
+  "updated_at": "2026-11-10T15:10:07+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5038,10 +5038,10 @@
       "revision": 12,
       "revisions": [
         {
+          "at": "2026-11-10T14:46:14+09:00",
           "hash": "a7446af8c6100be33b827abc84d8806e48fd6002",
-          "summary": "feat: publish v13 usage tour with warm female narration",
           "path": "project/revisions/a7446af8c6100be33b827abc84d8806e48fd6002.txt",
-          "at": "2026-11-10T14:46:14+09:00"
+          "summary": "feat: publish v13 usage tour with warm female narration"
         }
       ],
       "status": "done",
@@ -5274,6 +5274,55 @@
       "title": "大会8項目の評価・改善・再検証",
       "type": "task",
       "updated_at": "2026-11-10T14:10:49+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "全体260秒の構成で、上限270秒内の原稿と動画枠を対応づける"
+        },
+        {
+          "checked": true,
+          "text": "HTML8枚を外部読み込みなしで表示し、動画・送り戻り・原稿表示が動作する"
+        },
+        {
+          "checked": true,
+          "text": "統計・再訪施策・評価対象版・実AI未接続を区別する"
+        },
+        {
+          "checked": true,
+          "text": "最新版の発表入口とGit履歴に対応する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T15:01:31+09:00",
+      "dependencies": [],
+      "description": "動画77.9秒を含む全体4分20秒の構成。8枚のローカルHTMLと約3分の登壇者原稿を作り、キーボード操作・原稿表示・動画・印刷と出典を確認する。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T15:10:05+09:00",
+          "path": "artifacts/presentation-html/verification.json",
+          "text": "8枚の画面と操作を確認。6配信試験成功、Ruff/C901対象指摘0。260秒の計画で人の通し練習は未確認。"
+        },
+        {
+          "at": "2026-11-10T15:10:05+09:00",
+          "path": "artifacts/presentation-html/manifest.json",
+          "text": "HTML・原稿・動画・字幕のSHA-256を保存。旧PPTX/PDFと区別して最新版入口を更新。"
+        }
+      ],
+      "id": "PR01",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "4分半以内のHTML発表資料と原稿",
+      "type": "task",
+      "updated_at": "2026-11-10T15:10:07+09:00"
     },
     {
       "acceptance": [

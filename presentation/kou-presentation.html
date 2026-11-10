@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>講 — プレゼンテーション</title>
+  <style>
+    @font-face {
+      font-family: "Yuji Mai";
+      src: url("../frontend/public/fonts/yujimai/YujiMai-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --paper: #f7f2e5;
+      --ink: #2b2d27;
+      --muted: #625f54;
+      --vermilion: #a13728;
+      --forest: #3f5948;
+      --line: #c4baa5;
+      --body: Meiryo, "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      --heading: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      --footer-height: 64px;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.65;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      background: linear-gradient(#f7f2e5e8, #f7f2e5e8), url("../frontend/public/art/wa/washi-paper-v1.webp");
+      -webkit-font-smoothing: antialiased;
+    }
+    button, video, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    button, a { touch-action: manipulation; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; opacity: .4; }
+    button:focus-visible, a:focus-visible, video:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--vermilion);
+      outline-offset: 4px;
+    }
+    a { color: var(--forest); text-underline-offset: .2em; }
+    p, h1, h2, h3, figure { margin: 0; }
+    img { display: block; max-width: 100%; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+    .deck {
+      height: calc(100vh - var(--footer-height));
+      height: calc(100svh - var(--footer-height));
+      overflow: auto;
+      scrollbar-gutter: stable;
+    }
+    .slide {
+      min-height: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: clamp(26px, 3.4vh, 40px) clamp(28px, 4.5vw, 72px) 28px;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 3vh, 34px);
+    }
+    .slide-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 24px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+    }
+    .eyebrow { color: var(--vermilion); font-size: 16px; font-weight: 700; letter-spacing: .08em; }
+    .slide-title {
+      font-family: var(--heading);
+      font-size: clamp(32px, 3.5vw, 54px);
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: .01em;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+    }
+    .eyebrow + .slide-title { margin-top: 6px; }
+    .folio { padding-top: 4px; color: var(--muted); font-size: 17px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .slide-body { flex: 1; min-width: 0; }
+    .lead {
+      font-size: clamp(22px, 2vw, 29px);
+      line-height: 1.6;
+      max-width: 36em;
+      white-space: pre-line;
+      text-wrap: pretty;
+    }
+    .slide-footnote { font-size: 15px; color: var(--muted); line-height: 1.65; }
+    .slide-sources { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 8px; font-size: 13px; }
+    .content-stack { display: flex; flex-direction: column; gap: 26px; }
+    .definition { font-size: 22px; color: var(--muted); border-left: 2px solid var(--vermilion); padding-left: 20px; }
+    .takeaway { font-size: 23px; font-weight: 600; line-height: 1.6; }
+    .prompt-list { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); font-size: 20px; color: var(--muted); }
+    .evidence-layout .metrics { margin: 10px 0; padding: 30px 0; gap: 60px; }
+    .evidence-layout .metric-value { font-size: clamp(60px, 7vw, 100px); }
+    .evidence-layout .metric-label { font-size: 27px; }
+    .evidence-layout .metric-note { font-size: 20px; }
+    .technology { color: var(--muted); font-size: 22px; letter-spacing: .02em; }
+    .quality-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; }
+    .quality-column { border-top: 1px solid var(--line); padding-top: 16px; }
+    .quality-column h3 { font-size: 23px; color: var(--forest); }
+    .quality-column ul { padding-left: 1.15em; margin: 12px 0 0; font-size: 21px; }
+    .quality-column li + li { margin-top: 8px; }
+    .verification-layout .closing { border-top: 1px solid var(--line); padding-top: 15px; font-size: 24px; }
+    .split-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+    .cover-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .cover-layout .lead { font-size: clamp(25px, 2.6vw, 36px); text-wrap: balance; }
+    .lead-phrase { display: inline-block; max-width: 100%; }
+    .cover .slide-title { font-family: "Yuji Mai", var(--heading); font-size: clamp(64px, 7vw, 108px); font-weight: 400; line-height: 1.2; }
+    .cover .slide-header { border-bottom: 0; padding-bottom: 0; }
+    .cover .visual { border: 0; background: transparent; }
+    .cover .visual img { mix-blend-mode: multiply; max-height: 440px; object-fit: contain; }
+    .visual { margin: 0; min-width: 0; }
+    .visual img {
+      width: 100%;
+      height: auto;
+      max-height: min(58vh, 570px);
+      object-fit: contain;
+      object-position: center;
+    }
+    .visual figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+    .visual.phone img { width: auto; max-width: 100%; margin: auto; border: 1px solid var(--line); }
+    .points { list-style: none; padding: 0; margin: 0; counter-reset: point; }
+    .points > li { position: relative; padding: 18px 0 18px 52px; border-top: 1px solid var(--line); font-size: 22px; line-height: 1.65; }
+    .points > li::before { counter-increment: point; content: counter(point, decimal-leading-zero); position: absolute; top: 21px; left: 0; color: var(--vermilion); font-size: 17px; font-variant-numeric: tabular-nums; }
+    .points h3 { font-size: 24px; font-weight: 700; line-height: 1.5; }
+    .points h3 + p { margin-top: 5px; }
+    .points p { color: var(--muted); font-size: 20px; }
+    .metrics { display: flex; flex-wrap: wrap; gap: 28px 54px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metric { flex: 1 1 150px; }
+    .metric-value { display: block; color: var(--vermilion); font-weight: 650; font-size: clamp(36px, 4.5vw, 65px); line-height: 1.2; font-variant-numeric: tabular-nums; letter-spacing: -.025em; }
+    .metric-label { display: block; margin-top: 9px; font-size: 20px; }
+    .metric-note { display: block; margin-top: 5px; font-size: 15px; color: var(--muted); }
+    .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+    .steps li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 17px 0; border-top: 1px solid var(--line); }
+    .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); color: var(--vermilion); font-size: 28px; font-variant-numeric: tabular-nums; }
+    .steps h3 { font-size: 25px; font-weight: 600; }
+    .steps p { margin-top: 4px; font-size: 20px; color: var(--muted); }
+    .evidence-layout { display: flex; flex-direction: column; gap: 25px; }
+    .evidence-layout .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 60px; }
+    .evidence-layout .points > li { padding-bottom: 24px; }
+    .evidence-layout .takeaway { margin-top: auto; }
+    .video .slide-header { padding-bottom: 12px; }
+    .video .slide-title { font-size: clamp(30px, 3vw, 46px); }
+    .video .slide-body { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+    .video-frame { width: min(100%, 1000px, calc((100svh - 340px) * 16 / 9)); margin: auto; }
+    .video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #262722; }
+    .video-caption { font-size: 16px; color: var(--muted); margin-top: 8px; }
+    .video .lead { font-size: 20px; }
+    .video-print { display: none; }
+    .provider-layout { display: grid; grid-template-columns: minmax(240px, .65fr) minmax(0, 1.35fr); gap: 36px; align-items: center; }
+    .provider-layout .points > li { padding-left: 0; font-size: 20px; }
+    .provider-layout .points > li::before { content: none; }
+    .provider-layout .points h3 { font-size: 22px; }
+    .provider-layout .points p { font-size: 18px; }
+    .provider-layout .visual img { max-height: 500px; border: 1px solid var(--line); }
+    .verification-layout { display: flex; flex-direction: column; gap: 24px; }
+    .verification-layout .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 42px; }
+    .verification-layout .points > li { font-size: 20px; padding-top: 12px; padding-bottom: 12px; }
+    .verification-layout .points > li::before { top: 16px; }
+    .verification-layout .points h3 { font-size: 22px; }
+    .verification-layout .points p { font-size: 18px; }
+    .verification-layout .metrics { padding: 12px 0 18px; }
+    .verification-layout .metric-value { font-size: clamp(32px, 3.7vw, 54px); }
+    .verification-layout .lead { font-size: 23px; }
+    .deck-footer {
+      position: relative;
+      height: var(--footer-height);
+      border-top: 1px solid var(--line);
+      padding: 7px clamp(16px, 3vw, 44px);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      background: #f6f0e3;
+      font-size: 14px;
+    }
+    .deck-brand { color: var(--muted); white-space: nowrap; }
+    .slide-nav { display: flex; align-items: center; gap: 9px; }
+    .slide-counter { min-width: 48px; text-align: center; font-variant-numeric: tabular-nums; }
+    .footer-actions { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .control { min-height: 44px; padding: 8px 13px; border: 1px solid transparent; background: transparent; color: var(--ink); border-radius: 2px; line-height: 1.3; }
+    .control:hover:enabled { background: #e8e0ce; }
+    .control:active:enabled { transform: scale(.97); }
+    .control[aria-expanded="true"], .control[aria-pressed="true"] { border-color: var(--vermilion); color: var(--vermilion); }
+    .nav-control { font-size: 23px; width: 44px; padding: 6px; }
+    .timer-text { display: inline-block; min-width: 101px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .timer-text.over { color: var(--vermilion); font-weight: 700; }
+    .progress { position: absolute; left: 0; top: -3px; width: 100%; height: 3px; border: 0; appearance: none; background: #ddd4bf; color: var(--vermilion); }
+    .progress::-webkit-progress-bar { background: #ddd4bf; }
+    .progress::-webkit-progress-value { background: var(--vermilion); }
+    .progress::-moz-progress-bar { background: var(--vermilion); }
+    .notes-panel { position: fixed; z-index: 10; top: 0; right: 0; bottom: var(--footer-height); width: min(520px, 94vw); padding: 28px; overflow: auto; background: #fffaf0; border-left: 2px solid var(--line); box-shadow: -8px 0 24px #28271e20; }
+    .notes-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+    .notes-heading h2 { font-size: 22px; }
+    .notes-title { margin-top: 22px; font-size: 23px; font-family: var(--heading); }
+    .notes-time { margin-top: 8px; font-size: 14px; color: var(--muted); }
+    .notes-copy { margin-top: 22px; font-size: 19px; line-height: 1.9; white-space: pre-line; }
+    .notes-copy p + p { margin-top: 1em; }
+    .notes-help { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .notes-sources { margin-top: 22px; display: grid; gap: 8px; font-size: 14px; overflow-wrap: anywhere; }
+    .load-error { padding: 48px; max-width: 760px; font-size: 20px; }
+
+    @media (min-width: 1050px) and (max-height: 760px) {
+      .slide { gap: 20px; padding-top: 22px; padding-bottom: 20px; }
+      .slide-header { padding-bottom: 14px; }
+      .slide-title { font-size: 40px; }
+      .cover .slide-title { font-size: 78px; }
+      .content-stack { gap: 18px; }
+      .visual img { max-height: 440px; }
+      .points > li { padding-top: 12px; padding-bottom: 12px; font-size: 21px; }
+      .points > li::before { top: 16px; }
+      .points h3 { font-size: 22px; }
+      .points p { font-size: 18px; }
+      .steps li { padding: 12px 0; }
+      .steps h3 { font-size: 23px; }
+      .steps p { font-size: 18px; }
+      .metrics { padding: 13px 0; }
+      .verification-layout { gap: 17px; }
+      .metric-value { font-size: 48px; }
+      .evidence-layout .metrics { padding: 22px 0; }
+      .evidence-layout .metric-value { font-size: 70px; }
+      .quality-column ul { font-size: 19px; }
+      .video-frame { width: min(100%, 1000px, calc((100svh - 310px) * 16 / 9)); }
+    }
+    @media (max-width: 900px) {
+      .slide { padding: 28px 26px; }
+      .split-layout, .provider-layout { gap: 30px; grid-template-columns: minmax(0, 1fr); }
+      .cover-layout { grid-template-columns: 1fr; }
+      .cover-layout .visual img { max-height: 320px; }
+      .visual img { max-height: 480px; }
+      .visual.phone img { max-height: 500px; }
+      .evidence-layout .points, .verification-layout .points { grid-template-columns: 1fr; }
+      .slide-title { font-size: 36px; }
+      .lead { font-size: 23px; }
+      .deck-brand { display: none; }
+      .deck-footer { gap: 6px; padding-inline: 12px; }
+      .footer-actions { gap: 0; }
+      .control { padding-inline: 10px; }
+      .video-frame { width: 100%; }
+      .video .slide-body { justify-content: center; }
+      .quality-columns { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 620px) {
+      :root { --footer-height: 112px; }
+      .deck-footer { flex-wrap: wrap; justify-content: center; align-content: center; gap: 3px; }
+      .slide-nav { justify-content: center; width: 100%; }
+      .footer-actions { margin: 0; flex-wrap: wrap; justify-content: center; }
+      .timer-text { min-width: 88px; font-size: 12px; }
+      .footer-actions .control { padding: 8px; font-size: 13px; }
+      .slide { padding: 25px 20px 30px; gap: 24px; }
+      .slide-header { column-gap: 12px; }
+      .slide-title { font-size: 30px; }
+      .eyebrow, .folio { font-size: 13px; }
+      .cover .slide-title { font-size: 64px; }
+      .cover-layout .lead { font-size: 25px; }
+      .lead { font-size: 21px; }
+      .points > li { padding-left: 40px; font-size: 19px; }
+      .points h3 { font-size: 21px; }
+      .points p { font-size: 18px; }
+      .metrics { gap: 22px; }
+      .metric { flex-basis: 120px; }
+      .metric-value { font-size: 38px; }
+      .metric-label { font-size: 18px; }
+      .evidence-layout .metrics { gap: 22px; }
+      .evidence-layout .metric-value { font-size: 56px; }
+      .evidence-layout .metric-note { font-size: 17px; }
+      .steps li { grid-template-columns: 36px 1fr; gap: 10px; }
+      .steps h3 { font-size: 22px; }
+      .steps p { font-size: 18px; }
+      .notes-panel { padding: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .control:active:enabled { transform: none; }
+    }
+    @page { size: A4 landscape; margin: 0; }
+    @media print {
+      html, body { width: 297mm; height: auto; overflow: visible; background: #f7f2e5; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .deck { height: auto; overflow: visible; scrollbar-gutter: auto; }
+      .slide, .slide[hidden] { display: flex !important; width: 297mm; height: 210mm; min-height: 0; max-width: none; padding: 12mm 15mm 10mm; gap: 5mm; break-after: page; break-inside: avoid; page-break-after: always; overflow: hidden; }
+      .slide:last-child { break-after: auto; page-break-after: auto; }
+      .slide-header { padding-bottom: 4mm; }
+      .slide-title { font-size: 27pt; }
+      .cover .slide-title { font-size: 62pt; }
+      .eyebrow, .folio { font-size: 10pt; }
+      .lead, .cover-layout .lead { font-size: 17pt; }
+      .slide-footnote, .visual figcaption { font-size: 9pt; }
+      .slide-sources { font-size: 8pt; }
+      .content-stack, .evidence-layout, .verification-layout { gap: 5mm; }
+      .split-layout { grid-template-columns: 1.25fr .75fr; gap: 12mm; }
+      .cover-layout { grid-template-columns: 1fr 1fr; }
+      .provider-layout { grid-template-columns: .65fr 1.35fr; gap: 9mm; }
+      .visual img, .visual.phone img { max-height: 137mm; }
+      .cover-layout .visual img { max-height: 120mm; }
+      .points > li { padding: 4mm 0 4mm 10mm; font-size: 14pt; }
+      .points > li::before { top: 5mm; font-size: 10pt; }
+      .points h3, .verification-layout .points h3 { font-size: 15pt; }
+      .points p, .verification-layout .points p, .provider-layout .points p { font-size: 12pt; }
+      .evidence-layout .points, .verification-layout .points { grid-template-columns: 1fr 1fr; gap: 0 12mm; }
+      .metrics, .verification-layout .metrics { padding: 4mm 0; gap: 8mm; }
+      .metric-value, .verification-layout .metric-value { font-size: 32pt; }
+      .metric-label { font-size: 13pt; }
+      .metric-note { font-size: 9pt; }
+      .steps li { padding: 4mm 0; }
+      .steps h3 { font-size: 16pt; }
+      .steps p { font-size: 12pt; }
+      .definition, .takeaway { font-size: 15pt; }
+      .prompt-list { font-size: 13pt; }
+      .evidence-layout .metrics { padding: 8mm 0; }
+      .evidence-layout .metric-value { font-size: 50pt; }
+      .evidence-layout .metric-label { font-size: 18pt; }
+      .evidence-layout .metric-note { font-size: 13pt; }
+      .technology { font-size: 14pt; }
+      .quality-columns { grid-template-columns: 1fr 1fr; gap: 10mm; }
+      .quality-column h3 { font-size: 16pt; }
+      .quality-column ul { font-size: 14pt; }
+      .verification-layout .closing { font-size: 16pt; }
+      .deck-footer, .notes-panel, .video-frame video, .video-caption, .load-error, .skip-link { display: none !important; }
+      .video-print { display: block; font-size: 16pt; }
+      .video-print img { width: 230mm; max-height: 125mm; object-fit: contain; margin-bottom: 5mm; }
+      .video .slide-body { align-items: flex-start; }
+      a { color: var(--ink); }
+    }
+  </style>
+</head>
+<body>
+  <main id="deck" class="deck" aria-label="講 プレゼンテーション">
+    <p class="load-error">資料を読み込んでいます。</p>
+  </main>
+  <footer class="deck-footer" aria-label="発表の操作">
+    <progress id="progress" class="progress" max="8" value="1" aria-label="スライドの進捗"></progress>
+    <span class="deck-brand">講</span>
+    <nav class="slide-nav" aria-label="スライドを移動">
+      <button id="previous" class="control nav-control" type="button" aria-label="前のスライド" aria-keyshortcuts="ArrowLeft">←</button>
+      <span id="counter" class="slide-counter">1 / 8</span>
+      <button id="next" class="control nav-control" type="button" aria-label="次のスライド" aria-keyshortcuts="ArrowRight">→</button>
+    </nav>
+    <div class="footer-actions">
+      <button id="notes-toggle" class="control" type="button" aria-expanded="false" aria-controls="notes-panel" aria-keyshortcuts="N" title="発表者原稿を開閉（N）">原稿 <span aria-hidden="true">N</span></button>
+      <button id="fullscreen" class="control" type="button" aria-pressed="false" aria-keyshortcuts="F" title="全画面を切り替え（F）">全画面 <span aria-hidden="true">F</span></button>
+      <button id="timer-toggle" class="control" type="button" aria-pressed="false">計時開始</button>
+      <span id="timer" class="timer-text" aria-label="経過時間">00:00</span>
+      <button id="timer-reset" class="control" type="button" aria-label="計時をリセット" title="計時をリセット">↺</button>
+    </div>
+  </footer>
+  <aside id="notes-panel" class="notes-panel" aria-labelledby="notes-heading" hidden>
+    <div class="notes-heading"><h2 id="notes-heading">発表者原稿</h2><button id="notes-close" class="control" type="button" aria-label="原稿を閉じる">閉じる</button></div>
+    <h3 id="notes-title" class="notes-title"></h3>
+    <p id="notes-time" class="notes-time"></p>
+    <div id="notes-copy" class="notes-copy"></div>
+    <div id="notes-sources" class="notes-sources" aria-label="このページの出典"></div>
+    <p class="notes-help">← →：ページ移動　Home / End：最初 / 最後<br>N：原稿　F：全画面　Esc：原稿を閉じる<br>動画は手動再生です。ページを離れると一時停止します。</p>
+  </aside>
+  <p id="announcement" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+  <noscript><p class="load-error">この資料の表示にはJavaScriptが必要です。</p></noscript>
+  <script src="presentation-content.js"></script>
+  <script>
+    (() => {
+      "use strict";
+      const content = window.KOU_DECK;
+      const deck = document.getElementById("deck");
+      if (!content || !Array.isArray(content.slides) || content.slides.length === 0) {
+        deck.replaceChildren(Object.assign(document.createElement("p"), { className: "load-error", textContent: "資料を読み込めませんでした。presentation-content.js をこのHTMLと同じフォルダーに置いて開き直してください。" }));
+        document.querySelectorAll(".deck-footer button").forEach(button => { button.disabled = true; });
+        return;
+      }
+
+      const slides = content.slides.map(slide => ({
+        ...slide,
+        layout: ({ business: "provider", quality: "verification" })[slide.type] || slide.type,
+        kicker: slide.section,
+        lead: slide.subtitle,
+        seconds: slide.duration,
+        points: slide.items,
+        steps: slide.steps?.map(step => ({ title: step.title, text: step.description })),
+        metrics: slide.metrics?.map(metric => ({ value: `${metric.count}人`, label: metric.label, note: `回答${metric.total}人の${metric.percent}%` })),
+        video: slide.type === "video" ? content.video : undefined,
+      }));
+      const totalSeconds = Number(content.duration) || slides.reduce((sum, slide) => sum + (Number(slide.seconds) || 0), 0);
+      const limitSeconds = Number(content.limit) || totalSeconds;
+      const element = (tag, className, text) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined && text !== null) node.textContent = String(text);
+        return node;
+      };
+      const localUrl = value => {
+        if (typeof value !== "string" || !value || /^[a-z][a-z\d+.-]*:/i.test(value) || value.startsWith("//") || value.includes("\\")) return null;
+        return value;
+      };
+      const safeLink = value => {
+        if (typeof value !== "string") return null;
+        if (/^https?:\/\//i.test(value)) return value;
+        return localUrl(value);
+      };
+      const appendLead = (container, slide) => {
+        if (!slide.lead) return;
+        const lead = element("p", "lead");
+        if (slide.layout === "cover") {
+          const phrases = slide.lead.split(/(仲間探しと|事業者への相談を|まとめ、)/u).filter(Boolean);
+          phrases.forEach((phrase, index) => {
+            if (index) lead.append(element("wbr"));
+            lead.append(element("span", "lead-phrase", phrase));
+          });
+        } else lead.textContent = slide.lead;
+        container.append(lead);
+      };
+      const appendPoints = (container, points, className = "points") => {
+        if (!Array.isArray(points) || points.length === 0) return;
+        const list = element("ol", className);
+        points.forEach(point => {
+          const li = element("li");
+          if (typeof point === "string") li.textContent = point;
+          else {
+            const group = element("div");
+            if (point.title) group.append(element("h3", "", point.title));
+            if (point.text || point.body) group.append(element("p", "", point.text || point.body));
+            li.append(group);
+          }
+          list.append(li);
+        });
+        container.append(list);
+      };
+      const appendMetrics = (container, metrics) => {
+        if (!Array.isArray(metrics) || metrics.length === 0) return;
+        const group = element("div", "metrics");
+        metrics.forEach(metric => {
+          const item = element("p", "metric");
+          item.append(element("strong", "metric-value", metric.value));
+          item.append(element("span", "metric-label", metric.label));
+          if (metric.note) item.append(element("span", "metric-note", metric.note));
+          group.append(item);
+        });
+        container.append(group);
+      };
+      const visual = (slide, phone = false) => {
+        const imageSource = typeof slide.image === "object" ? slide.image.src : slide.image;
+        const path = localUrl(imageSource);
+        if (!path) return null;
+        const figure = element("figure", `visual${phone ? " phone" : ""}`);
+        const image = element("img");
+        image.src = path;
+        const descriptions = {
+          program: "通う旅の進捗と各工程を表示した利用者画面",
+          leader: "階級と確認済みの活動を表示した旅の手帳画面",
+          zone: "対象地域への追加割引と利用条件を表示したクーポン画面",
+          provider: "N西市全体の来訪・再訪集計を表示した事業者画面",
+        };
+        image.alt = slide.imageAlt || (typeof slide.image === "object" && slide.image.alt) || descriptions[slide.layout] || "";
+        image.decoding = "async";
+        figure.append(image);
+        const caption = slide.imageCaption || (typeof slide.image === "object" && slide.image.caption);
+        if (caption) figure.append(element("figcaption", "", caption));
+        return figure;
+      };
+      const renderVideo = (container, slide) => {
+        appendLead(container, slide);
+        const videoData = typeof slide.video === "object" ? slide.video : { src: slide.video };
+        const videoSource = localUrl(videoData.src) || "../outputs/kou-revisit-intro-v13.mp4";
+        const frame = element("figure", "video-frame");
+        const video = element("video");
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        video.src = videoSource;
+        video.setAttribute("aria-label", slide.videoLabel || "講の実操作紹介動画");
+        const poster = localUrl(videoData.poster || slide.poster);
+        if (poster) video.poster = poster;
+        const captions = localUrl(videoData.captions);
+        if (captions) {
+          const track = element("track");
+          track.kind = "captions"; track.srclang = "ja"; track.label = "日本語"; track.src = captions;
+          video.append(track);
+        }
+        video.append(element("p", "", "動画を再生できません。ローカルの動画ファイルを確認してください。"));
+        frame.append(video);
+        const caption = element("figcaption", "video-caption", slide.videoCaption || "再生ボタンで開始します。音量は動画の操作欄で調整できます。");
+        frame.append(caption);
+        video.addEventListener("error", () => { caption.textContent = "動画を読み込めませんでした。outputs/kou-revisit-intro-v13.mp4 があるか確認してください。"; });
+        container.append(frame);
+        const printed = element("div", "video-print");
+        if (poster) {
+          const image = element("img"); image.src = poster; image.alt = "実操作紹介動画の一場面"; printed.append(image);
+        }
+        printed.append(element("p", "", "実操作紹介動画：kou-revisit-intro-v13.mp4"));
+        if (slide.videoCaption) printed.append(element("p", "", slide.videoCaption));
+        container.append(printed);
+      };
+      const renderBody = slide => {
+        const body = element("div", "slide-body");
+        const layout = slide.layout || "evidence";
+        if (layout === "video") { renderVideo(body, slide); return body; }
+        if (layout === "evidence") {
+          body.classList.add(`${layout}-layout`);
+          appendLead(body, slide);
+          appendMetrics(body, slide.metrics);
+          appendPoints(body, slide.points || slide.bullets);
+          if (slide.takeaway) body.append(element("p", "takeaway", slide.takeaway));
+          return body;
+        }
+        if (layout === "verification") {
+          body.classList.add("verification-layout");
+          if (slide.technology) body.append(element("p", "technology", `${slide.technology.join(" ／ ")}　ローカル動作`));
+          if (slide.metric) appendMetrics(body, [{ value: `${slide.metric.number}件`, label: slide.metric.label, note: slide.metric.scope }]);
+          const columns = element("div", "quality-columns");
+          [["確認したこと", slide.verified], ["これから測ること", slide.next]].forEach(([label, items]) => {
+            const column = element("section", "quality-column");
+            column.append(element("h3", "", label));
+            const list = element("ul");
+            (items || []).forEach(item => list.append(element("li", "", item)));
+            column.append(list); columns.append(column);
+          });
+          body.append(columns);
+          if (slide.closing) body.append(element("p", "closing", slide.closing));
+          return body;
+        }
+        body.classList.add(layout === "provider" ? "provider-layout" : "split-layout");
+        if (layout === "cover") body.classList.add("cover-layout");
+        const copy = element("div", "content-stack");
+        appendLead(copy, slide);
+        if (slide.definition) copy.append(element("p", "definition", slide.definition));
+        if (slide.prompts) {
+          const prompts = element("ul", "prompt-list");
+          slide.prompts.forEach(prompt => prompts.append(element("li", "", prompt)));
+          copy.append(prompts);
+        }
+        if (slide.range) appendMetrics(copy, [{ value: `${slide.range.min}–${slide.range.max}`, label: `片道の参考距離 ${slide.range.unit}` }]);
+        appendMetrics(copy, slide.metrics);
+        appendPoints(copy, slide.steps, "steps");
+        appendPoints(copy, slide.points || slide.bullets);
+        if (slide.takeaway) copy.append(element("p", "takeaway", slide.takeaway));
+        body.append(copy);
+        const picture = visual(slide, ["program", "leader", "zone"].includes(layout));
+        if (picture) body.append(picture);
+        else body.style.gridTemplateColumns = "1fr";
+        return body;
+      };
+      const renderSlide = (slide, index) => {
+        const section = element("section", `slide ${slide.layout || "evidence"}`);
+        section.id = `slide-${index + 1}`;
+        section.hidden = index !== 0;
+        section.setAttribute("aria-labelledby", `title-${index + 1}`);
+        section.setAttribute("aria-roledescription", "スライド");
+        const header = element("header", "slide-header");
+        const titleGroup = element("div");
+        if (slide.kicker || slide.eyebrow) titleGroup.append(element("p", "eyebrow", slide.kicker || slide.eyebrow));
+        const title = element(index === 0 ? "h1" : "h2", "slide-title", slide.title);
+        title.id = `title-${index + 1}`;
+        titleGroup.append(title);
+        header.append(titleGroup, element("p", "folio", `${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`));
+        section.append(header, renderBody(slide));
+        const footnote = slide.caption || slide.footnote;
+        if (footnote) {
+          const footer = element("div", "slide-footnote");
+          if (footnote) footer.append(element("p", "", footnote));
+          section.append(footer);
+        }
+        return section;
+      };
+
+      document.title = content.title || "講 — プレゼンテーション";
+      const sections = slides.map(renderSlide);
+      deck.replaceChildren(...sections);
+      const previous = document.getElementById("previous");
+      const next = document.getElementById("next");
+      const progress = document.getElementById("progress");
+      const counter = document.getElementById("counter");
+      const notesPanel = document.getElementById("notes-panel");
+      const notesToggle = document.getElementById("notes-toggle");
+      const fullscreen = document.getElementById("fullscreen");
+      const timerToggle = document.getElementById("timer-toggle");
+      const timerDisplay = document.getElementById("timer");
+      let current = 0;
+      let elapsed = 0;
+      let startedAt = null;
+      let interval = null;
+      progress.max = slides.length;
+      const timeText = value => `${String(Math.floor(value / 60)).padStart(2, "0")}:${String(Math.floor(value % 60)).padStart(2, "0")}`;
+      const pauseVideos = () => deck.querySelectorAll("video").forEach(video => video.pause());
+      const updateNotes = () => {
+        const slide = slides[current];
+        document.getElementById("notes-title").textContent = `${current + 1}. ${slide.title}`;
+        const prior = slides.slice(0, current).reduce((sum, item) => sum + (Number(item.seconds) || 0), 0);
+        const seconds = Number(slide.seconds) || 0;
+        document.getElementById("notes-time").textContent = `このページ ${seconds}秒 ／ 目安 ${timeText(prior)}–${timeText(prior + seconds)}`;
+        const copy = document.getElementById("notes-copy");
+        const paragraphs = Array.isArray(slide.notes) ? slide.notes : [slide.notes || "このページの原稿はありません。"];
+        copy.replaceChildren(...paragraphs.map(text => element("p", "", text)));
+        const sourceLinks = document.getElementById("notes-sources");
+        sourceLinks.replaceChildren();
+        (slide.sources || []).forEach(source => {
+          const path = safeLink(typeof source === "string" ? source : source.href || source.url);
+          if (!path) return;
+          const link = element("a", "", typeof source === "string" ? source.replace(/^\.\.\//, "") : source.label || source.title || "出典");
+          link.href = path; link.target = "_blank"; link.rel = "noopener noreferrer";
+          sourceLinks.append(link);
+        });
+        notesPanel.scrollTop = 0;
+      };
+      const showSlide = (index, announce = true) => {
+        const target = Math.min(slides.length - 1, Math.max(0, index));
+        if (target !== current) pauseVideos();
+        current = target;
+        sections.forEach((section, number) => { section.hidden = number !== current; });
+        previous.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+        counter.textContent = `${current + 1} / ${slides.length}`;
+        progress.value = current + 1;
+        deck.scrollTop = 0;
+        updateNotes();
+        if (announce) document.getElementById("announcement").textContent = `${current + 1} / ${slides.length}、${slides[current].title}`;
+        try { history.replaceState(null, "", `#slide-${current + 1}`); } catch { /* Some file viewers disable history updates. */ }
+      };
+      const toggleNotes = force => {
+        const open = typeof force === "boolean" ? force : notesPanel.hidden;
+        notesPanel.hidden = !open;
+        notesToggle.setAttribute("aria-expanded", String(open));
+        if (open) document.getElementById("notes-close").focus();
+        else notesToggle.focus();
+      };
+      const toggleFullscreen = async () => {
+        try {
+          if (document.fullscreenElement) await document.exitFullscreen();
+          else await document.documentElement.requestFullscreen();
+        } catch {
+          document.getElementById("announcement").textContent = "全画面に切り替えられませんでした。ブラウザーの全画面操作をお使いください。";
+        }
+      };
+      const updateTimer = () => {
+        const seconds = elapsed + (startedAt === null ? 0 : (performance.now() - startedAt) / 1000);
+        timerDisplay.textContent = `${timeText(seconds)} / ${timeText(totalSeconds)}`;
+        timerDisplay.classList.toggle("over", seconds > limitSeconds);
+        timerDisplay.title = `目標 ${timeText(totalSeconds)} ／ 上限 ${timeText(limitSeconds)}`;
+      };
+      const pauseTimer = () => {
+        if (startedAt !== null) elapsed += (performance.now() - startedAt) / 1000;
+        startedAt = null;
+        if (interval !== null) clearInterval(interval);
+        interval = null;
+        timerToggle.textContent = elapsed ? "計時再開" : "計時開始";
+        timerToggle.setAttribute("aria-pressed", "false");
+        updateTimer();
+      };
+      previous.addEventListener("click", () => showSlide(current - 1));
+      next.addEventListener("click", () => showSlide(current + 1));
+      notesToggle.addEventListener("click", () => toggleNotes());
+      document.getElementById("notes-close").addEventListener("click", () => toggleNotes(false));
+      fullscreen.addEventListener("click", () => { void toggleFullscreen(); });
+      document.addEventListener("fullscreenchange", () => {
+        const active = Boolean(document.fullscreenElement);
+        fullscreen.setAttribute("aria-pressed", String(active));
+        fullscreen.textContent = active ? "全画面を終了" : "全画面 F";
+      });
+      if (!document.documentElement.requestFullscreen) fullscreen.hidden = true;
+      timerToggle.addEventListener("click", () => {
+        if (startedAt !== null) { pauseTimer(); return; }
+        startedAt = performance.now();
+        timerToggle.textContent = "計時停止";
+        timerToggle.setAttribute("aria-pressed", "true");
+        interval = setInterval(updateTimer, 250);
+        updateTimer();
+      });
+      document.getElementById("timer-reset").addEventListener("click", () => { pauseTimer(); elapsed = 0; timerToggle.textContent = "計時開始"; updateTimer(); });
+      document.addEventListener("keydown", event => {
+        if (event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey || event.isComposing) return;
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest("input, textarea, select, video, audio, [contenteditable='true'], [role='textbox']")) return;
+        if (event.key === "Escape" && !notesPanel.hidden) { event.preventDefault(); toggleNotes(false); return; }
+        if (event.key.toLowerCase() === "n") { event.preventDefault(); toggleNotes(); return; }
+        if (event.key.toLowerCase() === "f") { event.preventDefault(); void toggleFullscreen(); return; }
+        if (target?.closest(".notes-panel")) return;
+        const targets = { ArrowRight: current + 1, ArrowLeft: current - 1, Home: 0, End: slides.length - 1 };
+        if (Object.hasOwn(targets, event.key)) { event.preventDefault(); showSlide(targets[event.key]); }
+      });
+      document.addEventListener("visibilitychange", () => { if (document.hidden) pauseVideos(); });
+      window.addEventListener("pagehide", () => { pauseVideos(); pauseTimer(); });
+      window.addEventListener("beforeprint", pauseVideos);
+      const initial = /^#slide-(\d+)$/.exec(location.hash);
+      showSlide(initial ? Number(initial[1]) - 1 : 0, false);
+      updateTimer();
+    })();
+  </script>
+</body>
+</html>
