@@ -1,0 +1,43 @@
+{
+  "source_sha256": "56b44b2570f5edb49adf6144f8cc022a8f5a7b3bfadebf67c185f05551dd0b48",
+  "complexity": [
+    {
+      "cell": null,
+      "code": "C901",
+      "end_location": {
+        "column": 15,
+        "row": 86
+      },
+      "filename": "C:\\AI-Sprint\\workspace\\MC-002\\community\\scripts\\render_revisit_video.py",
+      "fix": null,
+      "location": {
+        "column": 5,
+        "row": 86
+      },
+      "message": "`make_scene` is too complex (15 > 10)",
+      "name": "complex-structure",
+      "noqa_row": 86,
+      "severity": "error",
+      "url": "https://docs.astral.sh/ruff/rules/complex-structure"
+    }
+  ],
+  "complexity_returncode": 1,
+  "protected_artifacts": {
+    "artifacts/video-revisit/v5/scene-00.png": "7a0413251a8e92d9b97bb9652adaef4e7cd1da6fe09857d3747a390d1c95ee2e",
+    "artifacts/video-revisit/v5/scene-01.png": "a40921ebe6064ba632c35a7a0e4ac4b08c5ba90209f1b198e761e50ee04554dc",
+    "artifacts/video-revisit/v5/scene-02-alt.png": "9aef5559be47eff1aad6f9ef671c254f58e52e2ea3cb3ba5341d0465ebcaf98a",
+    "artifacts/video-revisit/v5/scene-02.png": "f2afd45da466d2002bb0b495ae1a9c06daa4771ecea63001c1661accc59632dd",
+    "artifacts/video-revisit/v5/scene-03-alt.png": "2124dbbc668cdc2db5c1181938956ee31c8357a5ed2673706bd3889ffa9b5548",
+    "artifacts/video-revisit/v5/scene-03.png": "a830eb3127a540f0698b3aac137bd362365b3f3a55db2d916d6ffa0aecb38fdd",
+    "artifacts/video-revisit/v5/scene-04.png": "d53fcd2f1c0f6a0d30bb9472dbb6549736522b4526fac5a003f9f133b36ff48e",
+    "artifacts/video-revisit/v5/scene-05.png": "0bb2bc3ae20cacaf6db6aa6249098c6aa593109a476a0c4bc6c9126bd3527923",
+    "artifacts/video-revisit/v5/scene-06.png": "46af2ea1213d4ee2b3a81fbb3db0ec0d1f84252e9420b4bc8189a433604966e3",
+    "artifacts/video-revisit/v5/scene-07.png": "91a205120633fc77558ac710fd040b81e89cd1f8f3bbfd5fb69261a839761bd6",
+    "outputs/kou-revisit-intro-v1.mp4": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+    "outputs/kou-revisit-intro-v2.mp4": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+    "outputs/kou-revisit-intro-v3.mp4": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+    "outputs/kou-revisit-intro-v4.mp4": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+    "outputs/kou-revisit-intro-v5.mp4": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+    "outputs/kou-revisit-intro-v6.mp4": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30"
+  }
+}

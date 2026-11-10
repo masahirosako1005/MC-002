@@ -1,0 +1,445 @@
+{
+  "source_scene_json": "artifacts/video-revisit/v4/scenes.json",
+  "source_scene_json_sha256": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0",
+  "script_sha256": "f2c07531a5877d152f2bccaddf6fa90a6307221eaafb190bfab503f2b76841b5",
+  "method": "Real captured UI; crossfades and short attention outlines only; no simulated clicks or UI state changes",
+  "transition_seconds": 0.28,
+  "playback_indicator": "Elapsed film time only",
+  "max_voice_tempo": 1.55,
+  "contact_sheet_samples": [
+    {
+      "scene": 0,
+      "local_frame": 42
+    },
+    {
+      "scene": 0,
+      "local_frame": 150
+    },
+    {
+      "scene": 1,
+      "local_frame": 39
+    },
+    {
+      "scene": 1,
+      "local_frame": 150
+    },
+    {
+      "scene": 2,
+      "local_frame": 45
+    },
+    {
+      "scene": 2,
+      "local_frame": 210
+    },
+    {
+      "scene": 3,
+      "local_frame": 45
+    },
+    {
+      "scene": 3,
+      "local_frame": 210
+    },
+    {
+      "scene": 4,
+      "local_frame": 45
+    },
+    {
+      "scene": 4,
+      "local_frame": 210
+    },
+    {
+      "scene": 5,
+      "local_frame": 45
+    },
+    {
+      "scene": 5,
+      "local_frame": 210
+    },
+    {
+      "scene": 6,
+      "local_frame": 45
+    },
+    {
+      "scene": 6,
+      "local_frame": 300
+    },
+    {
+      "scene": 7,
+      "local_frame": 33
+    },
+    {
+      "scene": 7,
+      "local_frame": 120
+    }
+  ],
+  "visual_review": "Decoded 16-frame contact sheet reviewed: scene 06 missing glyph corrected, provider reply/dashboard switch and latest rank crop confirmed; headings, captions and image framing have no observed clipping. Full-motion playback remains pending.",
+  "audio_listening_review": "Not performed; all fitted PCM samples retained and AAC fully decoded",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "intro",
+      "seconds": 6.0,
+      "frames": 180,
+      "source": "artifacts/video-revisit/v4/scene-00.png",
+      "source_sha256": "7a0413251a8e92d9b97bb9652adaef4e7cd1da6fe09857d3747a390d1c95ee2e",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.9,
+          "duration": 1.5,
+          "box": [
+            84,
+            394,
+            650,
+            226
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "kind": "overview",
+      "seconds": 6.0,
+      "frames": 180,
+      "source": "artifacts/video-revisit/v4/scene-01.png",
+      "source_sha256": "a40921ebe6064ba632c35a7a0e4ac4b08c5ba90209f1b198e761e50ee04554dc",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.8,
+          "duration": 1.4,
+          "box": [
+            94,
+            207,
+            408,
+            730
+          ]
+        },
+        {
+          "start": 3.4,
+          "duration": 1.5,
+          "box": [
+            665,
+            255,
+            1170,
+            650
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "kind": "visitor",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v4/scene-02.png",
+      "source_sha256": "f2afd45da466d2002bb0b495ae1a9c06daa4771ecea63001c1661accc59632dd",
+      "alternate": "artifacts/video-revisit/v4/scene-02-alt.png",
+      "alternate_sha256": "9aef5559be47eff1aad6f9ef671c254f58e52e2ea3cb3ba5341d0465ebcaf98a",
+      "alternate_at": 3.0,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.4,
+          "box": [
+            155,
+            190,
+            475,
+            755
+          ]
+        },
+        {
+          "start": 4.2,
+          "duration": 1.5,
+          "box": [
+            1205,
+            190,
+            475,
+            755
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "kind": "provider",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v4/scene-03.png",
+      "source_sha256": "a830eb3127a540f0698b3aac137bd362365b3f3a55db2d916d6ffa0aecb38fdd",
+      "alternate": "artifacts/video-revisit/v4/scene-03-alt.png",
+      "alternate_sha256": "2124dbbc668cdc2db5c1181938956ee31c8357a5ed2673706bd3889ffa9b5548",
+      "alternate_at": 4.0,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.6,
+          "box": [
+            578,
+            255,
+            1260,
+            650
+          ]
+        },
+        {
+          "start": 4.6,
+          "duration": 1.4,
+          "box": [
+            80,
+            650,
+            460,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "kind": "program",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v4/scene-04.png",
+      "source_sha256": "d53fcd2f1c0f6a0d30bb9472dbb6549736522b4526fac5a003f9f133b36ff48e",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.5,
+          "box": [
+            100,
+            724,
+            805,
+            160
+          ]
+        },
+        {
+          "start": 4.8,
+          "duration": 1.6,
+          "box": [
+            1185,
+            200,
+            460,
+            740
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "kind": "rank",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v4/scene-05.png",
+      "source_sha256": "0bb2bc3ae20cacaf6db6aa6249098c6aa593109a476a0c4bc6c9126bd3527923",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.6,
+          "box": [
+            92,
+            296,
+            445,
+            180
+          ]
+        },
+        {
+          "start": 4.7,
+          "duration": 1.5,
+          "box": [
+            1255,
+            200,
+            440,
+            740
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "kind": "zone",
+      "seconds": 11.0,
+      "frames": 330,
+      "source": "artifacts/video-revisit/v4/scene-06.png",
+      "source_sha256": "46af2ea1213d4ee2b3a81fbb3db0ec0d1f84252e9420b4bc8189a433604966e3",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.5,
+          "box": [
+            594,
+            450,
+            1030,
+            75
+          ]
+        },
+        {
+          "start": 6.1,
+          "duration": 1.7,
+          "box": [
+            640,
+            697,
+            1140,
+            236
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "kind": "closing",
+      "seconds": 5.0,
+      "frames": 150,
+      "source": "artifacts/video-revisit/v4/scene-07.png",
+      "source_sha256": "91a205120633fc77558ac710fd040b81e89cd1f8f3bbfd5fb69261a839761bd6",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.6,
+          "duration": 1.1,
+          "box": [
+            95,
+            345,
+            540,
+            510
+          ]
+        },
+        {
+          "start": 1.9,
+          "duration": 1.1,
+          "box": [
+            690,
+            345,
+            540,
+            510
+          ]
+        },
+        {
+          "start": 3.2,
+          "duration": 1.1,
+          "box": [
+            1285,
+            345,
+            540,
+            510
+          ]
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "scene": 0,
+      "original_seconds": 5.793786848072562,
+      "tempo": 1.0630801556096445,
+      "fitted_seconds": 5.4293125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.3506875,
+      "original_sha256": "dac544f4998be502ff873dff0be8e65f2cb77b359f3e9538df93dec725fa0b03",
+      "trimmed": false
+    },
+    {
+      "scene": 1,
+      "original_seconds": 4.922040816326531,
+      "tempo": 1.0,
+      "fitted_seconds": 4.898833333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.8811666666666667,
+      "original_sha256": "6bdcfcd935ed1f74c8aea8f1ed97fea6a41b075219cefe5a05b164ef2fa18c97",
+      "trimmed": false
+    },
+    {
+      "scene": 2,
+      "original_seconds": 9.592290249433107,
+      "tempo": 1.2875557381789406,
+      "fitted_seconds": 7.4324375,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.3475625,
+      "original_sha256": "33e27136954465bee2fd3c354014bcef341e22beccc289c1524b42acf5060ac1",
+      "trimmed": false
+    },
+    {
+      "scene": 3,
+      "original_seconds": 8.913197278911564,
+      "tempo": 1.1964023193169884,
+      "fitted_seconds": 7.430666666666666,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.34933333333333333,
+      "original_sha256": "553cc53a1a67edabc91292d4309c2e5fb8c65aae9af3b353fdaecef0bb2b4751",
+      "trimmed": false
+    },
+    {
+      "scene": 4,
+      "original_seconds": 8.25873015873016,
+      "tempo": 1.108554383722169,
+      "fitted_seconds": 7.4289375,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.3510625,
+      "original_sha256": "ce0bc1b237321f5ad1dd75c799972078cbc8703ed2c7082623b1561a8cbd2de1",
+      "trimmed": false
+    },
+    {
+      "scene": 5,
+      "original_seconds": 7.871383219954649,
+      "tempo": 1.056561506034181,
+      "fitted_seconds": 7.429208333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.35079166666666667,
+      "original_sha256": "6252910ddca5e83faeb3665b99a460b25cec17541c59263a5d2b83be20c747b5",
+      "trimmed": false
+    },
+    {
+      "scene": 6,
+      "original_seconds": 10.320226757369614,
+      "tempo": 1.0,
+      "fitted_seconds": 10.297020833333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.4829791666666667,
+      "original_sha256": "5cd7a4b720f8f8dc357ab18679e1418c9035a3e6de43a4bf2eda63bf1682b5d0",
+      "trimmed": false
+    },
+    {
+      "scene": 7,
+      "original_seconds": 4.966303854875283,
+      "tempo": 1.1160233381742208,
+      "fitted_seconds": 4.431208333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.34879166666666667,
+      "original_sha256": "671f6c83c670223a40bb8608b96304bacc1eba919bef9c879f9bade347783e4c",
+      "trimmed": false
+    }
+  ],
+  "frames": 1800,
+  "duration_seconds": 60,
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "decode": "passed",
+  "decoded_duration_seconds": 60.0,
+  "sha256": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+  "bytes": 5381110,
+  "decoded_contact_sheet": "artifacts/video-revisit/v4/motion-decoded-contact-sheet.jpg",
+  "status": "encoded_and_decoded",
+  "output": "outputs/kou-revisit-intro-v4.mp4",
+  "preserved_revisions": {
+    "outputs\\kou-revisit-intro-v1.mp4": true,
+    "outputs\\kou-revisit-intro-v2.mp4": true,
+    "outputs\\kou-revisit-intro-v3.mp4": true
+  },
+  "title_font_coverage": "All eight title strings checked against the installed project Yuji Mai cmap: zero missing glyphs"
+}

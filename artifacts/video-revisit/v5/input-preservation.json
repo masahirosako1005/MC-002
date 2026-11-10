@@ -1,0 +1,24 @@
+{
+  "stills_unchanged_from_v4": {
+    "scene-00.png": true,
+    "scene-01.png": true,
+    "scene-02-alt.png": true,
+    "scene-02.png": true,
+    "scene-03-alt.png": true,
+    "scene-03.png": true,
+    "scene-04.png": true,
+    "scene-05.png": true,
+    "scene-06.png": true,
+    "scene-07.png": true
+  },
+  "voices_unchanged_from_v4": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ]
+}

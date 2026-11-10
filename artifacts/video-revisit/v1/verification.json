@@ -1,0 +1,66 @@
+{
+  "revision": 1,
+  "scenes": [
+    {
+      "scene": 1,
+      "seconds": 6,
+      "voice_seconds": 6.606167800453515,
+      "tempo": 1.212
+    },
+    {
+      "scene": 2,
+      "seconds": 6,
+      "voice_seconds": 7.52485260770975,
+      "tempo": 1.381
+    },
+    {
+      "scene": 3,
+      "seconds": 8,
+      "voice_seconds": 9.556780045351474,
+      "tempo": 1.283
+    },
+    {
+      "scene": 4,
+      "seconds": 8,
+      "voice_seconds": 9.32281179138322,
+      "tempo": 1.251
+    },
+    {
+      "scene": 5,
+      "seconds": 8,
+      "voice_seconds": 10.184761904761904,
+      "tempo": 1.367
+    },
+    {
+      "scene": 6,
+      "seconds": 8,
+      "voice_seconds": 9.219047619047618,
+      "tempo": 1.237
+    },
+    {
+      "scene": 7,
+      "seconds": 11,
+      "voice_seconds": 12.30172335600907,
+      "tempo": 1.177
+    },
+    {
+      "scene": 8,
+      "seconds": 5,
+      "voice_seconds": 6.405034013605442,
+      "tempo": 1.439
+    }
+  ],
+  "capture_method": "Real CUA screenshots; edited framing and explanatory overlays; no simulated UI state.",
+  "output": "outputs/kou-revisit-intro-v1.mp4",
+  "frames": 1800,
+  "duration_seconds": 60,
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "audio": "Installed Japanese Sayaka voice, time-fitted per scene",
+  "sha256": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+  "bytes": 4049272,
+  "visual_review": "pending"
+}

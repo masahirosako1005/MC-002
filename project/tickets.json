@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 813,
-  "last_event_hash": "889f57d60804bfcbac6c76a3b0372cdb8cecad99a4196a04e52bbf554fe8384f",
-  "updated_at": "2026-11-10T12:30:40+09:00",
+  "revision": 840,
+  "last_event_hash": "d0dab2408c51ff0da0a34a04827954fbc00d1e2161847ce2e101bb779160aedf",
+  "updated_at": "2026-11-10T12:43:45+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3265,13 +3265,18 @@
           "at": "2026-11-10T11:32:55+09:00",
           "path": "docs/CLEANUP-AUDIT.md",
           "text": "削除できた旧追跡ソースと未追跡の残存物・拒否を区別。"
+        },
+        {
+          "at": "2026-11-10T12:43:45+09:00",
+          "text": "内容一致の中間MP4削除が自動承認レビューのblocked by policyで実行前に拒否された。削除・別経路での再試行は行わず保持。",
+          "path": "artifacts/video-revisit/cleanup-blocked.json"
         }
       ],
       "id": "CP65",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 5,
+      "revision": 6,
       "revisions": [
         {
           "at": "2026-11-10T11:34:04+09:00",
@@ -3283,7 +3288,7 @@
       "status": "in_progress",
       "title": "旧版と未使用ソースの撤去・現行構成への整理",
       "type": "task",
-      "updated_at": "2026-11-10T11:34:04+09:00"
+      "updated_at": "2026-11-10T12:43:45+09:00"
     },
     {
       "acceptance": [
@@ -3841,12 +3846,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:30+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "N西市の事業者を統合する集計API",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:50+09:00"
+      "updated_at": "2026-11-10T12:32:30+09:00"
     },
     {
       "acceptance": [
@@ -3904,12 +3916,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 13,
-      "revisions": [],
+      "revision": 14,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:30+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "事業者の分析画面を再構成",
       "type": "task",
-      "updated_at": "2026-11-10T12:30:40+09:00"
+      "updated_at": "2026-11-10T12:32:30+09:00"
     },
     {
       "acceptance": [
@@ -3952,12 +3971,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 10,
-      "revisions": [],
+      "revision": 11,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:30+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "市全体分析の独立レビューと統合検証",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:51+09:00"
+      "updated_at": "2026-11-10T12:32:30+09:00"
     },
     {
       "acceptance": [
@@ -3995,12 +4021,19 @@
       "origin": "この時点で新規起票",
       "owner": "daytrip_evidence",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:30+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "数か月運用の旅・会話・地図データ",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:51+09:00"
+      "updated_at": "2026-11-10T12:32:30+09:00"
     },
     {
       "acceptance": [
@@ -4033,12 +4066,19 @@
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "日帰り候補とクーポン探索",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:51+09:00"
+      "updated_at": "2026-11-10T12:32:31+09:00"
     },
     {
       "acceptance": [
@@ -4075,18 +4115,30 @@
           "at": "2026-11-10T12:30:40+09:00",
           "path": "artifacts/video-revisit/screens/rank-v4-stage.jpg",
           "text": "主担当が年2027表示と同一維持条件の説明短縮を最終配信で目視確認。文字200%は今回IABの対応操作で確認できず未検証。SHA-256 148dcc792a2eff05e2c89d20c6b3dbfe40ed891e07245fa5069798797bea2e19"
+        },
+        {
+          "at": "2026-11-10T12:43:45+09:00",
+          "path": "artifacts/city/mobile-final-verification.json",
+          "text": "320pxの横はみ出し0、通う旅とクーポンのキーボード操作を確認。200%文字拡大は未検証のまま。"
         }
       ],
       "id": "CP83",
       "origin": "この時点で新規起票",
       "owner": "wa_frontend",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "review",
       "title": "筆文字見出しと和紙・挿絵の統一",
       "type": "task",
-      "updated_at": "2026-11-10T12:30:40+09:00"
+      "updated_at": "2026-11-10T12:43:45+09:00"
     },
     {
       "acceptance": [
@@ -4124,12 +4176,19 @@
       "origin": "この時点で新規起票",
       "owner": "daytrip_evidence",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "通う旅：複数回の目的と実施進捗",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:52+09:00"
+      "updated_at": "2026-11-10T12:32:31+09:00"
     },
     {
       "acceptance": [
@@ -4167,12 +4226,19 @@
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "投稿の続きを安全に読む",
       "type": "task",
-      "updated_at": "2026-11-10T12:23:23+09:00"
+      "updated_at": "2026-11-10T12:32:31+09:00"
     },
     {
       "acceptance": [
@@ -4210,12 +4276,19 @@
       "origin": "この時点で新規起票",
       "owner": "rank_plan_review",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "hash": "5df5a4e0178a0ca05ae355c08f59999d1e1c50a5",
+          "path": "project/revisions/5df5a4e0178a0ca05ae355c08f59999d1e1c50a5.txt",
+          "summary": "feat: complete city analytics, repeat-visit programs and budgeted zone benefits"
+        }
+      ],
       "status": "done",
       "title": "日帰りゾーン追加割引と予算管理",
       "type": "task",
-      "updated_at": "2026-11-10T12:21:52+09:00"
+      "updated_at": "2026-11-10T12:32:31+09:00"
     },
     {
       "acceptance": [
@@ -4224,24 +4297,101 @@
           "text": "約60秒・音声字幕・実画面・全体確認・修正履歴・ユーザー確認用出力"
         }
       ],
-      "comments": [],
+      "comments": [
+        {
+          "at": "2026-11-10T12:43:45+09:00",
+          "text": "v1からv6へ原稿・画面・欠字・開始画面・音量を改善。技術検証は完了。人の聴取と利用者の最終OKは未確認なのでreviewを維持。"
+        }
+      ],
       "created_at": "2026-11-10T12:06:14+09:00",
       "dependencies": [],
       "description": "講の説明から利用者・事業者・3施策まで実画面で紹介し複数版を改善",
       "documents": [
         "docs/REVISIT-VIDEO.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "path": "artifacts/video-revisit/v4/motion-verification.json",
+          "text": "第4版60秒・1800フレームの全decode成功。実画面の送受信・市集計・3施策と字幕を確認。"
+        },
+        {
+          "at": "2026-11-10T12:32:31+09:00",
+          "path": "artifacts/video-revisit/v4/browser-ended.png",
+          "text": "ブラウザーで60秒の最後まで再生。currentTime60/ended=true/error=null。人による聞き取り評価とは区別する。"
+        },
+        {
+          "at": "2026-11-10T12:43:44+09:00",
+          "path": "artifacts/video-revisit/v6/verification.json",
+          "text": "第6版は60秒・1800フレーム全復号、映像不変、音量-18.1LUFS・ピーク-2.2dBFS。"
+        },
+        {
+          "at": "2026-11-10T12:43:44+09:00",
+          "path": "artifacts/video-revisit/v6/browser-playback.json",
+          "text": "第6版をネイティブ動画プレーヤーで最後まで再生。60秒・終了・エラーなし。"
+        },
+        {
+          "at": "2026-11-10T12:43:44+09:00",
+          "path": "artifacts/video-revisit/renderer-check/verification.json",
+          "text": "制作ソースの複雑度超過を修正。Ruff/C901指摘0、再生成10画像の完全一致。"
+        },
+        {
+          "at": "2026-11-10T12:43:45+09:00",
+          "path": "docs/REVISIT-VIDEO-REVIEW.md",
+          "text": "独立レビュー8項目は7PASS、実視聴者による細かなUIの連続視認は未検証。主担当によるv6差分確認を追補。"
+        }
+      ],
       "id": "CP87",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P2",
-      "revision": 1,
+      "revision": 10,
       "revisions": [],
-      "status": "todo",
+      "status": "review",
       "title": "三つの再訪施策を伝える約1分動画",
       "type": "task",
-      "updated_at": "2026-11-10T12:06:14+09:00"
+      "updated_at": "2026-11-10T12:43:45+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "取得中は手帳／確認中を表示し、取得後に大先達／2476点へ切り替わる"
+        },
+        {
+          "checked": true,
+          "text": "対象の型検査と厳格lintを通しDocker配信で実表示を確認する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T12:43:44+09:00",
+      "dependencies": [],
+      "description": "ログイン直後の階級未取得状態を本人の実階級と区別する。",
+      "documents": [
+        "docs/CHANGELOG.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:43:44+09:00",
+          "path": "artifacts/quality/revisit-release/loading-state-followup.json",
+          "text": "現行Daytrip.tsxのハッシュ、型検査と厳格lintの成功を保存。"
+        },
+        {
+          "at": "2026-11-10T12:43:44+09:00",
+          "path": "artifacts/city/mobile-final-verification.json",
+          "text": "再配信後の実画面で取得前と取得後の表示、320pxの横はみ出しとキーボード操作を確認。"
+        }
+      ],
+      "id": "CP88",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "階級取得前に新客と誤表示しない",
+      "type": "bug",
+      "updated_at": "2026-11-10T12:43:44+09:00"
     },
     {
       "acceptance": [

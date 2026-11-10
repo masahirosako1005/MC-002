@@ -1,0 +1,14 @@
+[aist#0:0/pcm_s16le @ 000001c6021ae6c0] Guessed Channel Layout: mono
+Input #0, wav, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\audio\voice-03.wav':
+  Duration: 00:00:08.91, bitrate: 352 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 22050 Hz, mono, s16, 352 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, wav, to 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v5\motion-audio\voice-03-fitted.wav':
+  Metadata:
+    ISFT            : Lavf61.7.100
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+[out#0/wav @ 000001c6021ace40] video:0KiB audio:1393KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.005467%
+size=    1393KiB time=00:00:07.43 bitrate=1536.1kbits/s speed=1e+03x    

@@ -1,0 +1,46 @@
+Input #0, png_pipe, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v1\scene-01.png':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown), 1920x1080, 30 fps, 30 tbr, 30 tbn
+[aist#1:0/pcm_s16le @ 000001c1b2ba1b80] Guessed Channel Layout: mono
+Input #1, wav, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\audio\voice-01.wav':
+  Duration: 00:00:07.52, bitrate: 352 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 22050 Hz, mono, s16, 352 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (pcm_s16le (native) -> aac (native))
+[libx264 @ 000001c1b2bae240] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001c1b2bae240] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 000001c1b2bae240] 264 - core 164 r3192 c24e06c - H.264/MPEG-4 AVC codec - Copyleft 2003-2024 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=19.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v1\segment-01.mp4':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1920x1080, q=2-31, 30 fps, 15360 tbn
+      Metadata:
+        encoder         : Lavc61.19.100 libx264
+      Side data:
+        cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 160 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 aac
+frame=    6 fps=0.0 q=25.0 size=       0KiB time=00:00:00.13 bitrate=   2.9kbits/s speed=0.256x    frame=   53 fps= 51 q=25.0 size=     256KiB time=00:00:01.70 bitrate=1233.8kbits/s speed=1.64x    frame=  106 fps= 68 q=25.0 size=     256KiB time=00:00:03.46 bitrate= 605.1kbits/s speed=2.24x    frame=  171 fps= 83 q=25.0 size=     256KiB time=N/A bitrate=N/A speed=N/A    [mp4 @ 000001c1b392c940] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001c1b392c280] video:296KiB audio:81KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 2.048104%
+frame=  180 fps= 81 q=-1.0 Lsize=     385KiB time=00:00:05.93 bitrate= 532.1kbits/s speed=2.68x    
+[libx264 @ 000001c1b2bae240] frame I:2     Avg QP:13.04  size: 30953
+[libx264 @ 000001c1b2bae240] frame P:48    Avg QP:16.06  size:  4541
+[libx264 @ 000001c1b2bae240] frame B:130   Avg QP:14.17  size:   177
+[libx264 @ 000001c1b2bae240] consecutive B-frames:  3.3%  1.1%  0.0% 95.6%
+[libx264 @ 000001c1b2bae240] mb I  I16..4: 68.5% 24.1%  7.4%
+[libx264 @ 000001c1b2bae240] mb P  I16..4:  4.0%  3.8%  0.2%  P16..4:  3.1%  0.2%  0.3%  0.0%  0.0%    skip:88.3%
+[libx264 @ 000001c1b2bae240] mb B  I16..4:  0.4%  0.0%  0.0%  B16..8:  0.1%  0.0%  0.0%  direct: 0.4%  skip:99.1%  L0:32.9% L1:67.1% BI: 0.1%
+[libx264 @ 000001c1b2bae240] 8x8 transform intra:36.6% inter:58.8%
+[libx264 @ 000001c1b2bae240] coded y,uvDC,uvAC intra: 4.9% 16.0% 9.0% inter: 0.4% 1.0% 0.1%
+[libx264 @ 000001c1b2bae240] i16 v,h,dc,p: 65% 32%  2%  0%
+[libx264 @ 000001c1b2bae240] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 36% 17% 46%  0%  0%  0%  0%  0%  0%
+[libx264 @ 000001c1b2bae240] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 32% 32% 19%  3%  3%  3%  3%  3%  4%
+[libx264 @ 000001c1b2bae240] i8c dc,h,v,p: 71% 20%  8%  1%
+[libx264 @ 000001c1b2bae240] Weighted P-Frames: Y:14.6% UV:14.6%
+[libx264 @ 000001c1b2bae240] ref P L0: 93.7%  6.3%
+[libx264 @ 000001c1b2bae240] ref B L0: 57.5% 42.5%
+[libx264 @ 000001c1b2bae240] ref B L1: 98.5%  1.5%
+[libx264 @ 000001c1b2bae240] kb/s:403.82
+[aac @ 000001c1b2beeb80] Qavg: 34761.656

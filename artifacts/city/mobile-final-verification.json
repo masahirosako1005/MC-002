@@ -1,0 +1,20 @@
+{
+  "viewport": {
+    "width": 320,
+    "height": 800
+  },
+  "body_client_width": 320,
+  "body_scroll_width": 320,
+  "keyboard": [
+    "Enter opens next-stage picker",
+    "Escape closes picker",
+    "Enter/ArrowDown/Enter filters coupon list17 to1"
+  ],
+  "initial_rank": "手帳/確認中 then 大先達/2476点",
+  "pictures": {
+    "artifacts/city/visitor-program-320.png": "40adc2dde6bf21308aae6980ae117cacd5be4f2456c2342a6f330b8af42b36b7",
+    "artifacts/city/visitor-coupon-keyboard-320.png": "702b257f7ec787585124da051c1bec8f6fcc0cb3c7ac3d611ee540da2dc0a759",
+    "artifacts/city/visitor-loaded-320.png": "aacc194f5e27aea231b3025f2ec2f68d6bf7b839cae2be6abb58f1ca518a4a03",
+    "artifacts/video-revisit/screens/release-stage.png": "fa9846256c530ef65439d2b928388c4bedda7db877af2efbfb1ddb47d0dbe3b4"
+  }
+}

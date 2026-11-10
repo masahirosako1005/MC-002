@@ -1,0 +1,65 @@
+{
+  "scene_json_sha256": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0",
+  "images": [
+    {
+      "file": "scene-00.png",
+      "original_v5_sha256": "7a0413251a8e92d9b97bb9652adaef4e7cd1da6fe09857d3747a390d1c95ee2e",
+      "regenerated_sha256": "7a0413251a8e92d9b97bb9652adaef4e7cd1da6fe09857d3747a390d1c95ee2e",
+      "identical": true
+    },
+    {
+      "file": "scene-01.png",
+      "original_v5_sha256": "a40921ebe6064ba632c35a7a0e4ac4b08c5ba90209f1b198e761e50ee04554dc",
+      "regenerated_sha256": "a40921ebe6064ba632c35a7a0e4ac4b08c5ba90209f1b198e761e50ee04554dc",
+      "identical": true
+    },
+    {
+      "file": "scene-02.png",
+      "original_v5_sha256": "f2afd45da466d2002bb0b495ae1a9c06daa4771ecea63001c1661accc59632dd",
+      "regenerated_sha256": "f2afd45da466d2002bb0b495ae1a9c06daa4771ecea63001c1661accc59632dd",
+      "identical": true
+    },
+    {
+      "file": "scene-02-alt.png",
+      "original_v5_sha256": "9aef5559be47eff1aad6f9ef671c254f58e52e2ea3cb3ba5341d0465ebcaf98a",
+      "regenerated_sha256": "9aef5559be47eff1aad6f9ef671c254f58e52e2ea3cb3ba5341d0465ebcaf98a",
+      "identical": true
+    },
+    {
+      "file": "scene-03.png",
+      "original_v5_sha256": "a830eb3127a540f0698b3aac137bd362365b3f3a55db2d916d6ffa0aecb38fdd",
+      "regenerated_sha256": "a830eb3127a540f0698b3aac137bd362365b3f3a55db2d916d6ffa0aecb38fdd",
+      "identical": true
+    },
+    {
+      "file": "scene-03-alt.png",
+      "original_v5_sha256": "2124dbbc668cdc2db5c1181938956ee31c8357a5ed2673706bd3889ffa9b5548",
+      "regenerated_sha256": "2124dbbc668cdc2db5c1181938956ee31c8357a5ed2673706bd3889ffa9b5548",
+      "identical": true
+    },
+    {
+      "file": "scene-04.png",
+      "original_v5_sha256": "d53fcd2f1c0f6a0d30bb9472dbb6549736522b4526fac5a003f9f133b36ff48e",
+      "regenerated_sha256": "d53fcd2f1c0f6a0d30bb9472dbb6549736522b4526fac5a003f9f133b36ff48e",
+      "identical": true
+    },
+    {
+      "file": "scene-05.png",
+      "original_v5_sha256": "0bb2bc3ae20cacaf6db6aa6249098c6aa593109a476a0c4bc6c9126bd3527923",
+      "regenerated_sha256": "0bb2bc3ae20cacaf6db6aa6249098c6aa593109a476a0c4bc6c9126bd3527923",
+      "identical": true
+    },
+    {
+      "file": "scene-06.png",
+      "original_v5_sha256": "46af2ea1213d4ee2b3a81fbb3db0ec0d1f84252e9420b4bc8189a433604966e3",
+      "regenerated_sha256": "46af2ea1213d4ee2b3a81fbb3db0ec0d1f84252e9420b4bc8189a433604966e3",
+      "identical": true
+    },
+    {
+      "file": "scene-07.png",
+      "original_v5_sha256": "91a205120633fc77558ac710fd040b81e89cd1f8f3bbfd5fb69261a839761bd6",
+      "regenerated_sha256": "91a205120633fc77558ac710fd040b81e89cd1f8f3bbfd5fb69261a839761bd6",
+      "identical": true
+    }
+  ]
+}

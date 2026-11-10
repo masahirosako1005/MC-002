@@ -1221,9 +1221,9 @@ export default function Daytrip({
           aria-label="旅の手帳と階級を開く"
         >
           <SealMark className="daytrip-seal">
-            {rankLabel(me?.rank || 1)}
+            {me ? rankLabel(me.rank) : "手帳"}
           </SealMark>
-          <small>{me ? `${me.points}点` : "手帳"}</small>
+          <small>{me ? `${me.points}点` : loading ? "確認中" : "未取得"}</small>
         </button>
       </header>
       <fieldset className="daytrip-tabs" aria-label="日帰りのメニュー">

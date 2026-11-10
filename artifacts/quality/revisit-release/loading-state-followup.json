@@ -1,0 +1,26 @@
+{
+  "loading-tsc": {
+    "exit_code": 0,
+    "command": [
+      "node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--pretty",
+      "false"
+    ]
+  },
+  "loading-oxlint": {
+    "exit_code": 0,
+    "command": [
+      "node",
+      "node_modules/oxlint/bin/oxlint",
+      "--type-aware",
+      "--no-ignore",
+      "--deny-warnings",
+      "src/Daytrip.tsx"
+    ]
+  },
+  "source_sha256": "79a7412bafd19ec29e4e4373c6580017616fcbf7d93d35eafd871bda82e66e52",
+  "checked_at": "2026-11-10T03:36:39.268859+00:00",
+  "ui_observation": "320px: loading shows 手帳/確認中, then 大先達/2476点; program dialog Enter and Escape, coupon filter Enter/ArrowDown/Enter passed. Body width320=scrollWidth320."
+}

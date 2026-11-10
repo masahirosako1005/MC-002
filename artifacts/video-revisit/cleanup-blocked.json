@@ -1,0 +1,6 @@
+{
+  "action": "Remove only hash-identical intermediate MP4 copies, retain canonical outputs",
+  "status": "not executed",
+  "reason": "Automatic approval review: blocked by policy",
+  "retried": false
+}
