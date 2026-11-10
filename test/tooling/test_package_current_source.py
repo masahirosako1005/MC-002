@@ -32,6 +32,10 @@ def repo(tmp_path):
 
 
 def test_committed_content_only_and_reproducible_zip(repo):
+    policy = repo / "backend/app/password_policy.py"
+    policy.write_text("def validate_password(value): return bool(value)\n")
+    git(repo, "add", "backend/app/password_policy.py")
+    git(repo, "commit", "-qm", "public password validation source")
     commit = git(repo, "rev-parse", "HEAD")
     (repo / "frontend/src/app.ts").write_text("uncommitted change")
     (repo / "frontend/src/new.ts").write_text("untracked change")
@@ -41,6 +45,7 @@ def test_committed_content_only_and_reproducible_zip(repo):
         assert bundle.read("frontend/src/app.ts") == b"committed fixture\n"
         assert "frontend/src/new.ts" not in bundle.namelist()
     names = {item["path"] for item in first["files"]}
+    assert "backend/app/password_policy.py" in names
     assert "docs/history/notes.md" in names and "models/manifest.json" in names
     assert not any("node_modules" in name or "runtime/" in name or name.startswith(("outputs/", "backups/")) for name in names)
     second = package.package_source(repo, revision=commit)

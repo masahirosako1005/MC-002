@@ -81,7 +81,7 @@ def included(name: str) -> bool:
             or lowered[:3] == ["test", "fixtures", "runtime"]):
         return False
     filename = lowered[-1]
-    if (filename == ".env" or filename.startswith(".env.") or filename.startswith("password")
+    if (filename == ".env" or filename.startswith(".env.") or (filename.startswith("password") and name != "backend/app/password_policy.py")
             or filename in {"credentials.json", "credentials.yaml", "credentials.yml", "secrets.json", "secrets.yaml", "secrets.yml", ".npmrc", ".pypirc", "id_rsa", "id_ed25519", ".import-key"}
             or filename.endswith((".pem", ".key", ".p12", ".pfx"))):
         raise PackageError(f"Secret candidate in committed source: {name}")
