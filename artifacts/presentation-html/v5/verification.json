@@ -1,0 +1,27 @@
+{
+  "ticket": "PR05",
+  "version": "four-and-a-half-minute-v5-community-matching",
+  "date": "2026-11-10",
+  "scope": "Slide 3 matching explanation and slide 3/4 script timing; application unchanged.",
+  "slides": 9,
+  "planned_seconds": 260,
+  "slide3_seconds": 25,
+  "slide4_seconds": 15,
+  "video_starts_at": 80,
+  "passed": [
+    "All 9 notes match script; presenters and continuous timeline retained",
+    "Independent wording and fact-boundary review passed",
+    "Slide 3 fits at 1440x900 and 1280x720 without overflow",
+    "Inputs, permission, candidate result and participant acceptance are visible",
+    "Umeki notes show 00:40-01:05 and 01:05-01:20",
+    "JS syntax passed"
+  ],
+  "prior_unaffected_checks": "artifacts/presentation-html/v4/verification.json",
+  "not_verified": [
+    "Human timed rehearsal",
+    "Audience comprehension",
+    "New full-video playback",
+    "Full application regression"
+  ],
+  "boundary": "Known-photo tag candidates/user selection and local rules; no general image-recognition AI or external SNS integration."
+}

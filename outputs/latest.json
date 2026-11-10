@@ -375,6 +375,97 @@
   },
   "audit_scope": "Historical output metadata audit; current document and evaluation pointers are recorded under document_freshness and quality.",
   "html_presentation": {
+    "version": "four-and-a-half-minute-v5-community-matching",
+    "status": "created_browser_reviewed",
+    "path": "presentation/kou-presentation.html",
+    "content": "presentation/presentation-content.js",
+    "speaker_script": "presentation/speaker-script.txt",
+    "slides": 9,
+    "planned_seconds": 260,
+    "limit_seconds": 270,
+    "speech_seconds": 175,
+    "video_slot_seconds": 85,
+    "video_seconds": 77.9,
+    "preview_url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
+    "verification": "artifacts/presentation-html/v5/verification.json",
+    "manifest": "artifacts/presentation-html/v5/manifest.json",
+    "limits": "Human timed rehearsal and actual HTML print output not tested. Saved PPTX/PDF are separate older artifacts.",
+    "video_slide": 5,
+    "opening_sequence": [
+      "問題提起",
+      "本質課題",
+      "講の提案"
+    ],
+    "opening_seconds": [
+      25,
+      15,
+      25
+    ],
+    "opening_summary": "旅行準備のサービスがバラバラ → 再訪には準備をひと続きに → 講で実現",
+    "presenters": [
+      {
+        "name": "野村",
+        "segments": [
+          {
+            "slides": [
+              1,
+              2
+            ],
+            "start": 0,
+            "end": 40,
+            "role": "問題提起・本質課題"
+          },
+          {
+            "slides": [
+              9
+            ],
+            "start": 240,
+            "end": 260,
+            "role": "事業者の価値・締め"
+          }
+        ],
+        "speech_seconds": 60,
+        "video_seconds": 0
+      },
+      {
+        "name": "梅木",
+        "segments": [
+          {
+            "slides": [
+              3,
+              4,
+              5
+            ],
+            "start": 40,
+            "end": 165,
+            "role": "講の提案・根拠・動画紹介"
+          }
+        ],
+        "speech_seconds": 40,
+        "video_seconds": 85
+      },
+      {
+        "name": "樋口",
+        "segments": [
+          {
+            "slides": [
+              6,
+              7,
+              8
+            ],
+            "start": 165,
+            "end": 240,
+            "role": "動画後の再訪3施策"
+          }
+        ],
+        "speech_seconds": 75,
+        "video_seconds": 0
+      }
+    ],
+    "design": "Community x permitted individual interests, automatic candidates and participant acceptance; nine pages.",
+    "matching_explanation_slide": 3
+  },
+  "previous_html_presentation": {
     "version": "four-and-a-half-minute-v4-presenters",
     "status": "created_browser_reviewed",
     "path": "presentation/kou-presentation.html",
@@ -462,36 +553,7 @@
         "video_seconds": 0
       }
     ],
-    "design": "Nine distinct diagram and image layouts, readable Japanese body, paper/ink/vermilion palette."
-  },
-  "previous_html_presentation": {
-    "version": "four-and-a-half-minute-v3-simple-opening",
-    "status": "created_browser_reviewed",
-    "path": "presentation/kou-presentation.html",
-    "content": "presentation/presentation-content.js",
-    "speaker_script": "presentation/speaker-script.txt",
-    "slides": 9,
-    "planned_seconds": 260,
-    "limit_seconds": 270,
-    "speech_seconds": 175,
-    "video_slot_seconds": 85,
-    "video_seconds": 77.9,
-    "preview_url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
-    "verification": "artifacts/presentation-html/v3/verification.json",
-    "manifest": "artifacts/presentation-html/v3/manifest.json",
-    "limits": "Human timed rehearsal and actual HTML print output not tested. Saved PPTX/PDF are separate older artifacts.",
-    "video_slide": 5,
-    "opening_sequence": [
-      "問題提起",
-      "本質課題",
-      "講の提案"
-    ],
-    "opening_seconds": [
-      25,
-      15,
-      20
-    ],
-    "opening_summary": "旅行準備のサービスがバラバラ → 再訪には準備をひと続きに → 講で実現",
-    "source_revision": "bb66162"
+    "design": "Nine distinct diagram and image layouts, readable Japanese body, paper/ink/vermilion palette.",
+    "source_revision": "1074699"
   }
 }

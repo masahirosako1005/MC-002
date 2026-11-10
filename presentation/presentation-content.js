@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v4-presenters",
+  "version": "four-and-a-half-minute-v5-community-matching",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -88,24 +88,31 @@ window.KOU_DECK = {
       "type": "cover",
       "section": "03 講の提案",
       "title": "講",
-      "subtitle": "仲間探しから事業者への相談まで、一つの「講」で。",
+      "subtitle": "コミュニティと、一人ひとりの「好き」を掛け合わせる。",
       "definition": "共通の目的で集まり、少しずつ力を持ち寄る仲間。",
       "prompts": [
-        "写真・関心から仲間候補へ",
-        "講で行き先と条件を決める",
-        "共有を確認して直接相談へ"
+        "投稿のタグを確認",
+        "旅仲間の候補を自動提案",
+        "承諾して旅を計画"
       ],
       "image": "../frontend/public/art/wa/travel-woodcut-v1-960.webp",
-      "duration": 20,
-      "notes": "この分断を、私たちは「講」でぶっ壊しにきました。写真から仲間候補を見つけ、行き先を決め、選んだ事業者に直接相談する。準備をひと続きにして、次の旅行を始める負担を減らす提案です。講は、目的のために力を持ち寄る仲間です。",
+      "duration": 25,
+      "notes": "「講」は、目的のために力を持ち寄る仲間です。私たちは、学校や職場のコミュニティに、投稿から得た一人ひとりの趣味・嗜好を掛け合わせます。本人が共有を許可したタグを使い、同じコミュニティから趣味の合う旅仲間の候補を自動で提案します。",
       "sources": [
         "../DESIGN.md"
       ],
       "start": 40,
-      "end": 60,
-      "footnote": "講に投稿した写真と本人が許可した関心を利用します。LINE・Instagramとの実連携や予約決済の代行はありません。",
+      "end": 65,
+      "footnote": "現在は既知写真のタグ候補・本人選択と規則による提案。汎用AIの写真認識やLINE・Instagramとの実連携はありません。",
       "speaker": "梅木",
-      "speaker_role": "03 講の提案"
+      "speaker_role": "03 講の提案",
+      "matching": {
+        "community": "学校・職場などのつながり",
+        "interests": "投稿から得た趣味・嗜好タグ",
+        "permission": "本人が確認し、共有を許可",
+        "result": "共通の「好き」から旅仲間の候補へ",
+        "consent": "参加する人が選び、承諾して講をつくる"
+      }
     },
     {
       "id": "evidence",
@@ -129,13 +136,13 @@ window.KOU_DECK = {
       ],
       "takeaway": "写真や関心の共有を、今回の旅を計画する「講」へ。",
       "footnote": "提供サンプル500人のうち回答287人。需要や再訪効果を証明する数値ではありません。",
-      "duration": 20,
-      "notes": "提供サンプルの回答者287人では、旅で良かった点として、同行・交流が69人、自然・景観が65人でした。人と地域の体験をつなぐ設計に着目しました。まず、実際の操作をご覧ください。",
+      "duration": 15,
+      "notes": "回答者287人のうち、同行・交流を良かった点に挙げたのは69人、自然・景観は65人でした。人と地域の体験をつなぐ提案です。実際の操作をご覧ください。",
       "sources": [
         "../docs/COMMUNITY-UX-RATIONALE.md",
         "../artifacts/survey-content-summary.json"
       ],
-      "start": 60,
+      "start": 65,
       "end": 80,
       "speaker": "梅木",
       "speaker_role": "データからの着目"
