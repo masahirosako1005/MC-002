@@ -1,0 +1,591 @@
+[
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.backend-test-tmp",
+    "Files": 36,
+    "Directories": 34,
+    "Bytes": 4468785.0,
+    "LatestFileUtc": "2026-11-09T03:04:45.1987513Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".html",
+        "Count": 1
+      },
+      {
+        "Name": ".sqlite3",
+        "Count": 34
+      },
+      {
+        "Name": ".txt",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.test-work",
+    "Files": 571,
+    "Directories": 900,
+    "Bytes": 305366569.0,
+    "LatestFileUtc": "2026-11-10T02:06:43.8946544Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 445
+      },
+      {
+        "Name": ".jpg",
+        "Count": 103
+      },
+      {
+        "Name": ".json",
+        "Count": 9
+      },
+      {
+        "Name": ".png",
+        "Count": 12
+      },
+      {
+        "Name": ".webp",
+        "Count": 2
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.pytest_cache",
+    "Files": 5,
+    "Directories": 2,
+    "Bytes": 24526.0,
+    "LatestFileUtc": "2026-11-10T01:36:43.4561817Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": "",
+        "Count": 2
+      },
+      {
+        "Name": ".gitignore",
+        "Count": 1
+      },
+      {
+        "Name": ".md",
+        "Count": 1
+      },
+      {
+        "Name": ".TAG",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.backend-test-tmp",
+    "Files": 55,
+    "Directories": 51,
+    "Bytes": 7123011.0,
+    "LatestFileUtc": "2026-11-09T04:23:04.9752907Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".bin",
+        "Count": 1
+      },
+      {
+        "Name": ".html",
+        "Count": 1
+      },
+      {
+        "Name": ".sqlite3",
+        "Count": 51
+      },
+      {
+        "Name": ".txt",
+        "Count": 1
+      },
+      {
+        "Name": ".webp",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.pytest_cache",
+    "Files": 5,
+    "Directories": 2,
+    "Bytes": 4809.0,
+    "LatestFileUtc": "2026-11-09T04:23:04.9860299Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": "",
+        "Count": 2
+      },
+      {
+        "Name": ".gitignore",
+        "Count": 1
+      },
+      {
+        "Name": ".md",
+        "Count": 1
+      },
+      {
+        "Name": ".TAG",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\tests",
+    "Files": 4,
+    "Directories": 1,
+    "Bytes": 238753.0,
+    "LatestFileUtc": "2026-11-09T04:22:22.8495232Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".pyc",
+      "Count": 4
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\tests",
+    "Files": 16,
+    "Directories": 1,
+    "Bytes": 1012641.0,
+    "LatestFileUtc": "2026-11-10T01:36:43.4114613Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".pyc",
+      "Count": 16
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\project\\.test-work",
+    "Files": 0,
+    "Directories": 0,
+    "Bytes": null,
+    "LatestFileUtc": null,
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": null
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-migration-tmp",
+    "Files": 1,
+    "Directories": 1,
+    "Bytes": 466944.0,
+    "LatestFileUtc": "2026-11-09T06:50:41.5914641Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 1
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-regression-tmp",
+    "Files": 55,
+    "Directories": 86,
+    "Bytes": 20916621.0,
+    "LatestFileUtc": "2026-11-09T06:50:14.1415414Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 46
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      },
+      {
+        "Name": ".webp",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-tmp",
+    "Files": 12,
+    "Directories": 23,
+    "Bytes": 5611520.0,
+    "LatestFileUtc": "2026-11-09T06:49:07.6063667Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 12
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp39-regression-tmp",
+    "Files": 76,
+    "Directories": 126,
+    "Bytes": 35076493.0,
+    "LatestFileUtc": "2026-11-09T07:10:14.0615774Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 67
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      },
+      {
+        "Name": ".webp",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp40-regression-tmp",
+    "Files": 88,
+    "Directories": 149,
+    "Bytes": 45779341.0,
+    "LatestFileUtc": "2026-11-09T07:17:59.4478627Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 79
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      },
+      {
+        "Name": ".webp",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-date-test-tmp",
+    "Files": 1,
+    "Directories": 2,
+    "Bytes": 212992.0,
+    "LatestFileUtc": "2026-11-09T05:32:20.8187874Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 1
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-final-tmp",
+    "Files": 12,
+    "Directories": 23,
+    "Bytes": 6397952.0,
+    "LatestFileUtc": "2026-11-09T06:57:36.7804522Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 12
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-regression-tmp",
+    "Files": 66,
+    "Directories": 107,
+    "Bytes": 27425165.0,
+    "LatestFileUtc": "2026-11-09T06:57:04.2203448Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 57
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      },
+      {
+        "Name": ".webp",
+        "Count": 1
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-tmp",
+    "Files": 9,
+    "Directories": 17,
+    "Bytes": 4386816.0,
+    "LatestFileUtc": "2026-11-09T06:55:40.7063441Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 9
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-guidance-tmp",
+    "Files": 46,
+    "Directories": 45,
+    "Bytes": 13857928.0,
+    "LatestFileUtc": "2026-11-09T07:47:33.2401293Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 23
+      },
+      {
+        "Name": ".jpg",
+        "Count": 19
+      },
+      {
+        "Name": ".png",
+        "Count": 4
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-final-tmp",
+    "Files": 24,
+    "Directories": 30,
+    "Bytes": 6179208.0,
+    "LatestFileUtc": "2026-11-09T06:37:53.3089702Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 16
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-regression-tmp",
+    "Files": 75,
+    "Directories": 93,
+    "Bytes": 18504032.0,
+    "LatestFileUtc": "2026-11-09T06:37:22.5720984Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 48
+      },
+      {
+        "Name": ".jpg",
+        "Count": 23
+      },
+      {
+        "Name": ".png",
+        "Count": 4
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-tmp",
+    "Files": 23,
+    "Directories": 29,
+    "Bytes": 5732744.0,
+    "LatestFileUtc": "2026-11-09T06:36:23.8080173Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 15
+      },
+      {
+        "Name": ".jpg",
+        "Count": 8
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-final-tmp",
+    "Files": 12,
+    "Directories": 23,
+    "Bytes": 7077888.0,
+    "LatestFileUtc": "2026-11-09T07:18:25.3272659Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 12
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-tmp",
+    "Files": 12,
+    "Directories": 23,
+    "Bytes": 7077888.0,
+    "LatestFileUtc": "2026-11-09T07:15:50.562279Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 12
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-final-tmp",
+    "Files": 9,
+    "Directories": 17,
+    "Bytes": 4853760.0,
+    "LatestFileUtc": "2026-11-09T07:10:49.904367Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 9
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-tmp",
+    "Files": 6,
+    "Directories": 11,
+    "Bytes": 3235840.0,
+    "LatestFileUtc": "2026-11-09T07:08:02.7149026Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 6
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-test-tmp",
+    "Files": 36,
+    "Directories": 36,
+    "Bytes": 3629016.0,
+    "LatestFileUtc": "2026-11-09T05:31:31.4301691Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 17
+      },
+      {
+        "Name": ".jpg",
+        "Count": 15
+      },
+      {
+        "Name": ".png",
+        "Count": 4
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-all-test-tmp",
+    "Files": 47,
+    "Directories": 54,
+    "Bytes": 9539544.0,
+    "LatestFileUtc": "2026-11-09T05:42:22.4894729Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 28
+      },
+      {
+        "Name": ".jpg",
+        "Count": 15
+      },
+      {
+        "Name": ".png",
+        "Count": 4
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-final-test-tmp",
+    "Files": 51,
+    "Directories": 61,
+    "Bytes": 10899416.0,
+    "LatestFileUtc": "2026-11-09T05:45:21.3446424Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": [
+      {
+        "Name": ".db",
+        "Count": 32
+      },
+      {
+        "Name": ".jpg",
+        "Count": 15
+      },
+      {
+        "Name": ".png",
+        "Count": 4
+      }
+    ]
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-race-test-tmp",
+    "Files": 1,
+    "Directories": 2,
+    "Bytes": 339968.0,
+    "LatestFileUtc": "2026-11-09T05:45:32.5817204Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 1
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-role-test-tmp",
+    "Files": 1,
+    "Directories": 2,
+    "Bytes": 339968.0,
+    "LatestFileUtc": "2026-11-09T05:44:34.0163453Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 1
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-stage-test-tmp",
+    "Files": 14,
+    "Directories": 24,
+    "Bytes": 4771840.0,
+    "LatestFileUtc": "2026-11-09T05:43:11.976344Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 14
+    }
+  },
+  {
+    "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-test-tmp",
+    "Files": 8,
+    "Directories": 13,
+    "Bytes": 2666496.0,
+    "LatestFileUtc": "2026-11-09T05:41:03.2963436Z",
+    "ReparsePoints": 0,
+    "UnreadableDirectories": 0,
+    "Extensions": {
+      "Name": ".db",
+      "Count": 8
+    }
+  }
+]

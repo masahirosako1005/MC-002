@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-10",
+  "status": "cleanup_blocked_before_execution",
+  "inventory": "artifacts/test-layout-cleanup-inventory.json",
+  "audited_targets": 32,
+  "audited_files": 1377,
+  "audited_child_directories": 1988,
+  "audited_bytes": 563218474,
+  "audited_reparse_points": 0,
+  "audited_unreadable_directories": 0,
+  "removed_targets": 0,
+  "remaining_targets_from_inventory": 32,
+  "safety_checks": {
+    "paths_inside_workspace": true,
+    "running_test_processes_found": 0,
+    "docker_mount_conflicts_found": 0,
+    "basis": "Metadata and process/mount checks completed before the rejected operation; no removal process started."
+  },
+  "approval_result": {
+    "operation": "Removal of the 32 audited obsolete test directories",
+    "result": "blocked by policy",
+    "detail": "The tool rejected the operation before process creation. No further reason was supplied. No alternate removal or move was attempted.",
+    "follow_up": "A combined non-removal reporting and verification command was also rejected. This file records only previously observed results; it does not claim that command ran."
+  },
+  "implementation": {
+    "runtime_root": "test/fixtures/runtime",
+    "standard_config": "pytest.ini",
+    "config_retained_reason": "Bare pytest must discover only current test/backend and test/tooling tests, not old code or dependencies.",
+    "changed": ["test/conftest.py", "test/tooling/test_test_layout.py", "test/run.py", "scripts/quality_check.py"]
+  },
+  "validation": {
+    "targeted_tests": {"passed": 15, "seconds": 0.25, "evidence": "artifacts/test-layout.xml"},
+    "collection": {"passed": true, "evidence": "artifacts/test-runs/20261110T040053Z-bd67c03a/result.json"},
+    "retired_basetemp_rejected": true,
+    "forbidden_child_created": false,
+    "ruff_new_files": 0,
+    "ruff_changed_existing_files": 4,
+    "ruff_same_files_at_head": 4,
+    "new_ruff_findings": 0,
+    "full_suite_rerun": false
+  },
+  "excluded": [
+    "Operational database and media",
+    "Backups and Docker volumes",
+    "Secrets",
+    "Retained quality reports and visual evidence",
+    "Old source archives",
+    "Video outputs and their temporary files"
+  ]
+}

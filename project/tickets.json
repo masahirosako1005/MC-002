@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 843,
-  "last_event_hash": "4587fded3ddb6c58f3b5f2f73cbf4f18235de4e01d4458768e461693e108b6ac",
-  "updated_at": "2026-11-10T12:46:14+09:00",
+  "revision": 868,
+  "last_event_hash": "09dc0fc6d43cb3ac78d55487881759802e57960ae5fa89c4f68911200ad0c956",
+  "updated_at": "2026-11-10T13:10:35+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3252,6 +3252,10 @@
         {
           "at": "2026-11-10T11:32:55+09:00",
           "text": "追加指定の .test-work/.backend-test-tmp は旧試験一時領域で不要。絶対パス・リンク検査後の削除要求も自動承認レビューで blocked by policy。迂回せず未削除として継続。"
+        },
+        {
+          "at": "2026-11-10T13:09:39+09:00",
+          "text": "2026-11-10再確認。32旧一時領域1377files/563218474bytesの削除は自動承認レビューが実行前拒否。削除0、再試行なし。生成先のtest制限と15試験は完了。"
         }
       ],
       "created_at": "2026-11-10T10:31:57+09:00",
@@ -3270,13 +3274,18 @@
           "at": "2026-11-10T12:43:45+09:00",
           "path": "artifacts/video-revisit/cleanup-blocked.json",
           "text": "内容一致の中間MP4削除が自動承認レビューのblocked by policyで実行前に拒否された。削除・別経路での再試行は行わず保持。"
+        },
+        {
+          "at": "2026-11-10T13:09:39+09:00",
+          "path": "artifacts/test-layout-cleanup-result.json",
+          "text": "削除拒否、残存と生成先制限・15試験の記録。"
         }
       ],
       "id": "CP65",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 6,
+      "revision": 8,
       "revisions": [
         {
           "at": "2026-11-10T11:34:04+09:00",
@@ -3288,7 +3297,7 @@
       "status": "in_progress",
       "title": "旧版と未使用ソースの撤去・現行構成への整理",
       "type": "task",
-      "updated_at": "2026-11-10T12:43:45+09:00"
+      "updated_at": "2026-11-10T13:09:39+09:00"
     },
     {
       "acceptance": [
@@ -4301,6 +4310,14 @@
         {
           "at": "2026-11-10T12:43:45+09:00",
           "text": "v1からv6へ原稿・画面・欠字・開始画面・音量を改善。技術検証は完了。人の聴取と利用者の最終OKは未確認なのでreviewを維持。"
+        },
+        {
+          "at": "2026-11-10T12:50:52+09:00",
+          "text": "ユーザーから和の雰囲気・演出を最優先する回答。CP89でv6を基に第7版へ改訂。最終OKではないためreviewを維持。"
+        },
+        {
+          "at": "2026-11-10T12:57:22+09:00",
+          "text": "利用者から男性音声と抑揚の要望。CP90で原稿を短縮してv8へ差替え。最終OK未確認。"
         }
       ],
       "created_at": "2026-11-10T12:06:14+09:00",
@@ -4342,15 +4359,15 @@
         },
         {
           "at": "2026-11-10T12:46:14+09:00",
-          "text": "制作ソースに既存版の上書き防止を追加。既存v5の拒否と6動画・10画像の不変を確認。",
-          "path": "artifacts/video-revisit/renderer-check/output-guard.json"
+          "path": "artifacts/video-revisit/renderer-check/output-guard.json",
+          "text": "制作ソースに既存版の上書き防止を追加。既存v5の拒否と6動画・10画像の不変を確認。"
         }
       ],
       "id": "CP87",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P2",
-      "revision": 12,
+      "revision": 14,
       "revisions": [
         {
           "at": "2026-11-10T12:46:14+09:00",
@@ -4362,7 +4379,7 @@
       "status": "review",
       "title": "三つの再訪施策を伝える約1分動画",
       "type": "task",
-      "updated_at": "2026-11-10T12:46:14+09:00"
+      "updated_at": "2026-11-10T12:57:22+09:00"
     },
     {
       "acceptance": [
@@ -4411,6 +4428,162 @@
       "title": "階級取得前に新客と誤表示しない",
       "type": "bug",
       "updated_at": "2026-11-10T12:46:14+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "60秒・既存の説明と割引条件・実画面を保持する"
+        },
+        {
+          "checked": false,
+          "text": "和紙・巻物・朱印・筆文字を統一し、短い一度の章間演出を確認する"
+        },
+        {
+          "checked": false,
+          "text": "全復号・旧版不変・読みやすさの独立レビューと修正履歴を残す"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T12:57:22+09:00",
+          "text": "追加指定で説明見出し・本文・数値をメイリオへ。筆文字は講印・章番号に限定。v7出力60秒・1800frame成功、最終提示は男性音声v8へ進める。"
+        },
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "text": "並列レビューと画面修正を統合した第9版を提示。ユーザーの面白さ・声の聴取評価と最終OKは未確認。"
+        }
+      ],
+      "created_at": "2026-11-10T12:50:52+09:00",
+      "dependencies": [],
+      "description": "ユーザーの第2版への回答を最新第6版へ適用。装丁・朱印・章間の巻物を全8場面へ統一。",
+      "documents": [
+        "docs/REVISIT-VIDEO.md",
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "path": "artifacts/video-revisit/v9/final/verification.json",
+          "text": "第9版60秒/1800frame、男性声原速、音量−18LUFS/peak−3.7を検証。"
+        },
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "path": "artifacts/video-revisit/v9/player-verification.json",
+          "text": "プレイヤーで先頭から60秒の再生完了、エラーなし。"
+        }
+      ],
+      "id": "CP89",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "review",
+      "title": "紹介動画の和の雰囲気と演出を統一",
+      "type": "task",
+      "updated_at": "2026-11-10T13:10:34+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "男性音声の実利用と句間・抑揚の指定を記録する"
+        },
+        {
+          "checked": false,
+          "text": "早口へ加速せず60秒の構成と3施策の主旨・字幕対応を保つ"
+        },
+        {
+          "checked": false,
+          "text": "旧版を保持し、映像不変・全復号・音量・再生を確認する"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "text": "並列レビューと画面修正を統合した第9版を提示。ユーザーの面白さ・声の聴取評価と最終OKは未確認。"
+        }
+      ],
+      "created_at": "2026-11-10T12:57:22+09:00",
+      "dependencies": [],
+      "description": "利用者が音声の聞き取りづらさを指摘。原稿を短縮して加速せず男性音声で再制作する。",
+      "documents": [
+        "docs/REVISIT-VIDEO.md",
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "path": "artifacts/video-revisit/v9/final/verification.json",
+          "text": "第9版60秒/1800frame、男性声原速、音量−18LUFS/peak−3.7を検証。"
+        },
+        {
+          "at": "2026-11-10T13:10:34+09:00",
+          "path": "artifacts/video-revisit/v9/player-verification.json",
+          "text": "プレイヤーで先頭から60秒の再生完了、エラーなし。"
+        }
+      ],
+      "id": "CP90",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "review",
+      "title": "紹介動画を男性音声と明確な抑揚へ変更",
+      "type": "task",
+      "updated_at": "2026-11-10T13:10:35+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "8場面・原速男性音声・読みやすい説明を統合する"
+        },
+        {
+          "checked": true,
+          "text": "完成動画60秒の再生と音量、UI遮蔽を検証する"
+        },
+        {
+          "checked": false,
+          "text": "利用者が完成版を見て最終評価する"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T13:10:35+09:00",
+          "text": "並列レビューと画面修正を統合した第9版を提示。ユーザーの面白さ・声の聴取評価と最終OKは未確認。"
+        }
+      ],
+      "created_at": "2026-11-10T13:09:39+09:00",
+      "dependencies": [],
+      "description": "利用者の追加指定。淡々としたツアーから、男性案内役の問いかけと実画面で再訪の仕組みを示す。",
+      "documents": [
+        "docs/REVISIT-VIDEO.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:10:35+09:00",
+          "path": "artifacts/video-revisit/v9/final/verification.json",
+          "text": "第9版60秒/1800frame、男性声原速、音量−18LUFS/peak−3.7を検証。"
+        },
+        {
+          "at": "2026-11-10T13:10:35+09:00",
+          "path": "artifacts/video-revisit/v9/player-verification.json",
+          "text": "プレイヤーで先頭から60秒の再生完了、エラーなし。"
+        }
+      ],
+      "id": "CP91",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "review",
+      "title": "案内役が語る60秒の紹介動画",
+      "type": "task",
+      "updated_at": "2026-11-10T13:10:35+09:00"
     },
     {
       "acceptance": [

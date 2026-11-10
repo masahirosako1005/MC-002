@@ -1,0 +1,17 @@
+{
+  "refused_existing_output": true,
+  "evidence_unchanged": true,
+  "protected_hashes": {
+    "artifacts\\video-revisit\\v9\\scenes.json": "b4ba3bf8f51841669373de4a80a6db8a7d38c285be0c5a55e5123d805db8695a",
+    "artifacts\\video-revisit\\v9\\layers\\scene-00.png": "c64d4e65e1a7bbb037cd43043872ad3611e7b6ff52d53cffb819d25df3e5e9a3",
+    "artifacts\\video-revisit\\v9\\layers\\scene-01.png": "b64be7bb0972e26884c97cf8490aa1bd8ee1bfd97db5dbb49dc5fa2171e1b5b3",
+    "artifacts\\video-revisit\\v9\\layers\\scene-02-alt.png": "923e84ce763dfc5d63213622b4970814f80524a74c37d3ce7628ef99afb4f657",
+    "artifacts\\video-revisit\\v9\\layers\\scene-02.png": "953830662f6c7067d2d3da9c72739d4ac61de149e2aa587b05c497d509206b70",
+    "artifacts\\video-revisit\\v9\\layers\\scene-03-alt.png": "a30fdb36ba6a1640233351c079c69064bc179b8d60bd183ea6df38989ce4ae22",
+    "artifacts\\video-revisit\\v9\\layers\\scene-03.png": "dbf7f77ad28b7b77b9f5837255f0a3736748bf59d4184bd912252aeced72e687",
+    "artifacts\\video-revisit\\v9\\layers\\scene-04.png": "05884b5ea125d500e6b1482b86eb40ead57cd76a4abd31a876dfec2bab6f590e",
+    "artifacts\\video-revisit\\v9\\layers\\scene-05.png": "7b14adec2c593ab0013704e6572e9597daaf63a35822943d8c9af4724246f841",
+    "artifacts\\video-revisit\\v9\\layers\\scene-06.png": "cc65f72e366c1dcd2407280f8228232384f9194575018660cb10543667b37fbe",
+    "artifacts\\video-revisit\\v9\\layers\\scene-07.png": "0c09b889ba0a1c4d5dbd55c6de0488c41dd9b0e22e00a4226d2daaabba7d8330"
+  }
+}

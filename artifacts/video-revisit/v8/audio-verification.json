@@ -1,0 +1,105 @@
+{
+  "adopted_take": "take-04",
+  "source_fields_except_voice_identical": true,
+  "scene_seconds": [
+    6,
+    6,
+    8,
+    8,
+    8,
+    8,
+    11,
+    5
+  ],
+  "wav_verified": [
+    {
+      "scene": 0,
+      "seconds": 4.849875,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "cb30affeab130b37fe78bb6f29b56b2118e5d88fa0bc1b248e260bd6d7278648"
+    },
+    {
+      "scene": 1,
+      "seconds": 5.2730625,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "b020ab1f0afe271b38066fec6b129c2edd787fbc40c5379b05366293547d3add"
+    },
+    {
+      "scene": 2,
+      "seconds": 6.645,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "d5028cbfc65d4ca4622541bf10ce8de7f75845cfbb0613163ca15826aca84051"
+    },
+    {
+      "scene": 3,
+      "seconds": 7.20275,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "3723c6f03069db88f065ec3daa4edd2ebcb5fb5b7447381c5cee7098ac3fffcc"
+    },
+    {
+      "scene": 4,
+      "seconds": 7.0915625,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "f284a00ae7d338bc4f5e5b9bbab1212bc7f9ad76fa9a38c8e5acd5c81b29f51d"
+    },
+    {
+      "scene": 5,
+      "seconds": 7.1798125,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "4e3c717477430f9bf29dca90e4eb40e4cf94ff1dc17f16baa51219d3b2b2b664"
+    },
+    {
+      "scene": 6,
+      "seconds": 9.79725,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "4c8d179b886a8a998d04bb7f289de23c2e263b5db5a3e8e93d22aa2f906f7697"
+    },
+    {
+      "scene": 7,
+      "seconds": 3.5103125,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "dbd8771a7aaeb35bc37ae424a68049f66a9adc4003b6cb8e9bf8eb12597371b8"
+    }
+  ],
+  "vtt_matches_voice": true,
+  "protected_unchanged": {
+    "outputs/kou-revisit-intro-v1.mp4": true,
+    "outputs/kou-revisit-intro-v2.mp4": true,
+    "outputs/kou-revisit-intro-v3.mp4": true,
+    "outputs/kou-revisit-intro-v4.mp4": true,
+    "outputs/kou-revisit-intro-v5.mp4": true,
+    "outputs/kou-revisit-intro-v6.mp4": true,
+    "outputs/kou-revisit-intro-v7.mp4": true,
+    "artifacts/video-revisit/audio/voice-00.wav": true,
+    "artifacts/video-revisit/audio/voice-01.wav": true,
+    "artifacts/video-revisit/audio/voice-02.wav": true,
+    "artifacts/video-revisit/audio/voice-03.wav": true,
+    "artifacts/video-revisit/audio/voice-04.wav": true,
+    "artifacts/video-revisit/audio/voice-05.wav": true,
+    "artifacts/video-revisit/audio/voice-06.wav": true,
+    "artifacts/video-revisit/audio/voice-07.wav": true
+  },
+  "total_voice_seconds": 51.549625,
+  "min_trailing_seconds": 0.5069375000000003,
+  "clipped_samples": 0,
+  "max_sample_peak_dbfs": -1.5758882559472795,
+  "engine_checks": {
+    "emphasis_pcm_changed": true,
+    "repeated_plain_pcm_identical": true,
+    "pause_duration_delta_seconds": 0.19581250000000017,
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "pitch_pcm_changed": true
+  },
+  "script_sha256": "5ac1f758b9650ec422223f9d45a56b1020d1f06262c93dba3f54934a41a440ad",
+  "scenes_sha256": "11a375483adc146d6acd1c4ff333df8949df015bf3153724320adb8672e10b32",
+  "listening_review": "not performed",
+  "no_acceleration": true
+}

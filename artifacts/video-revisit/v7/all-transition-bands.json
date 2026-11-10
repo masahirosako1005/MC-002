@@ -1,0 +1,62 @@
+{
+  "boundaries": 9,
+  "frames_checked": 117,
+  "transition_seconds": 0.4,
+  "checks": [
+    {
+      "boundary": "chapter-1",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-2",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-3",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-4",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-5",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-6",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "chapter-7",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "alternate-2",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    },
+    {
+      "boundary": "alternate-3",
+      "frames_checked": 13,
+      "header_and_subtitle_whole": true,
+      "settled_frame_identical": true
+    }
+  ],
+  "scope": "Uncompressed compositor frames. Full v7 movie also separately decoded, and v8 will inherit its unchanged compressed video."
+}

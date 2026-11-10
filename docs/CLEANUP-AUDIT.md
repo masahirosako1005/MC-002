@@ -2,6 +2,18 @@
 
 ## 主担当による実施状況
 
+### テスト配置の統一と残存一時領域（2026-11-10追補）
+
+現行の試験ソース・fixture・実行時一時領域は `test/` 配下に統一する。pytestの一時DB/画像/キャッシュは `test/fixtures/runtime/` の子ディレクトリに限定し、`test/conftest.py` が旧ルートへの指定や範囲外への解決を実行前に拒否する。PJ直下の `pytest.ini` は通常の探索対象を `test/backend` と `test/tooling` に絞る標準入口として保持し、`test/run.py` と `scripts/quality_check.py` も明示して使う。確定済みの試験XML/JSONや画面は検証証拠なので、`artifacts/` / `community/artifacts/` に保持し、参照を切る移動は行わない。
+
+旧 `.backend-test-tmp`、`.test-work`、旧pytestキャッシュ、ソース移設後の旧tests内キャッシュ等を32フォルダー監査した。合計1,377ファイル・563,218,474 bytes（約537 MiB）。解決済みパスはPJ内、再解析ポイントと読取不能ディレクトリは0、稼働試験プロセスと対象に重なるDockerマウントも検出しなかった。運用DB・写真・バックアップ・秘密・旧配布物・動画の一時領域は今回の処理対象から除外した。
+
+この32フォルダーの削除要求は自動承認レビューがプロセス開始前に `blocked by policy` と拒否し、詳細理由は示さなかった。**削除0件、残存32件**であり、整理完了とはしない。別手段での削除・移動や対象を分割した再試行は行っていない。後続の記録・再検証をまとめた非削除コマンドも拒否されたため、その実行結果は成功根拠に含めない。
+
+保存先制限と品質runnerの対象試験は15件成功（0.25秒）、標準runnerの収集も成功した。重い全体試験は再実行していない。新規2ファイルのRuff指摘は0、変更した既存runner2ファイルの4指摘は変更前と同数で、新規指摘0。
+
+証拠：[対象別監査](../artifacts/test-layout-cleanup-inventory.json)、[実施・拒否・残存記録](../artifacts/test-layout-cleanup-result.json)、[15試験XML](../artifacts/test-layout.xml)、[標準runner収集](../artifacts/test-runs/20261110T040053Z-bd67c03a/result.json)。下記の旧棚卸し表は当時の配置を含むため、現行の試験配置は本追補と [test/README](../test/README.md) を優先する。
+
 ### 最新の指定2フォルダ（2026-11-10）
 
 `.test-work` は日帰り・投稿・番付等の過去の試験用DB/画像、`.backend-test-tmp` は旧アプリのpytest一時保存先。いずれもアプリ起動に不要。現行ソースの通常試験は `test/fixtures/runtime` に統一済みで、旧パスの残存参照は除外設定・過去の検証記録に限る。

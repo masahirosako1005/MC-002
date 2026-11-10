@@ -1,0 +1,370 @@
+{
+  "source_scene_json": "artifacts/video-revisit/v7/scenes.json",
+  "source_scene_json_sha256": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0",
+  "script_sha256": "a4e0144496c332625879c02030d532058b9a14ee27622655049eaf28c2047d68",
+  "method": "Stationary real UI, left-to-right paper reveals and single vermilion corner cues; no simulated clicks or UI state changes",
+  "style": "wa",
+  "transition_seconds": 0.4,
+  "playback_indicator": "Elapsed film time only",
+  "max_voice_tempo": null,
+  "audio_video": "outputs/kou-revisit-intro-v6.mp4",
+  "audio_video_sha256": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+  "contact_sheet_samples": [
+    {
+      "scene": 0,
+      "local_frame": 42
+    },
+    {
+      "scene": 0,
+      "local_frame": 150
+    },
+    {
+      "scene": 1,
+      "local_frame": 39
+    },
+    {
+      "scene": 1,
+      "local_frame": 150
+    },
+    {
+      "scene": 2,
+      "local_frame": 45
+    },
+    {
+      "scene": 2,
+      "local_frame": 210
+    },
+    {
+      "scene": 3,
+      "local_frame": 45
+    },
+    {
+      "scene": 3,
+      "local_frame": 210
+    },
+    {
+      "scene": 4,
+      "local_frame": 45
+    },
+    {
+      "scene": 4,
+      "local_frame": 210
+    },
+    {
+      "scene": 5,
+      "local_frame": 45
+    },
+    {
+      "scene": 5,
+      "local_frame": 210
+    },
+    {
+      "scene": 6,
+      "local_frame": 45
+    },
+    {
+      "scene": 6,
+      "local_frame": 300
+    },
+    {
+      "scene": 7,
+      "local_frame": 33
+    },
+    {
+      "scene": 7,
+      "local_frame": 120
+    }
+  ],
+  "visual_review": "pending",
+  "audio_listening_review": "pending",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "intro",
+      "seconds": 6.0,
+      "frames": 180,
+      "source": "artifacts/video-revisit/v7/scene-00.png",
+      "source_sha256": "9a192c8dc2b8fb4317ce6a0abf8ce07d9206ee15b507fc85abcd1950f43546ed",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.9,
+          "duration": 1.5,
+          "box": [
+            84,
+            394,
+            650,
+            226
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "kind": "overview",
+      "seconds": 6.0,
+      "frames": 180,
+      "source": "artifacts/video-revisit/v7/scene-01.png",
+      "source_sha256": "23a363c1b9535d949ca1392fafed7ed13019d75d01be28b87e0168536d5cef8b",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.8,
+          "duration": 1.4,
+          "box": [
+            94,
+            207,
+            408,
+            730
+          ]
+        },
+        {
+          "start": 3.4,
+          "duration": 1.5,
+          "box": [
+            665,
+            255,
+            1170,
+            650
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "kind": "visitor",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v7/scene-02.png",
+      "source_sha256": "43f4531caf52317ba4793ec6677f8cfeb5a7964f2c8dd668a4fb1400e92cc917",
+      "alternate": "artifacts/video-revisit/v7/scene-02-alt.png",
+      "alternate_sha256": "604862be688658910c5fc7357bd9bf11df1e60b69c16fe8a28472293b28a2c15",
+      "alternate_at": 3.0,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.4,
+          "box": [
+            155,
+            190,
+            475,
+            755
+          ]
+        },
+        {
+          "start": 4.2,
+          "duration": 1.5,
+          "box": [
+            1205,
+            190,
+            475,
+            755
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "kind": "provider",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v7/scene-03.png",
+      "source_sha256": "14efcc935181d03704a392c8f3c115c7c41690e2157f85cf50b154e191007f89",
+      "alternate": "artifacts/video-revisit/v7/scene-03-alt.png",
+      "alternate_sha256": "159ce67c6a30c3689f12e1b4da1f5388360daf3d883092511dae506996b15ce6",
+      "alternate_at": 4.0,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.6,
+          "box": [
+            578,
+            255,
+            1260,
+            650
+          ]
+        },
+        {
+          "start": 4.6,
+          "duration": 1.4,
+          "box": [
+            80,
+            650,
+            460,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "kind": "program",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v7/scene-04.png",
+      "source_sha256": "0a95b5da170c9dbdcfea97acae1e270df7b5afbf4502077244c1af03adcce7c7",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.5,
+          "box": [
+            100,
+            724,
+            805,
+            160
+          ]
+        },
+        {
+          "start": 4.8,
+          "duration": 1.6,
+          "box": [
+            1185,
+            200,
+            460,
+            740
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "kind": "rank",
+      "seconds": 8.0,
+      "frames": 240,
+      "source": "artifacts/video-revisit/v7/scene-05.png",
+      "source_sha256": "8af1ee71cd4fb887377d63d1ba845e2f6d5db041cf85d24f3a90dd1385684ae5",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.6,
+          "box": [
+            92,
+            296,
+            445,
+            180
+          ]
+        },
+        {
+          "start": 4.7,
+          "duration": 1.5,
+          "box": [
+            1255,
+            200,
+            440,
+            740
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "kind": "zone",
+      "seconds": 11.0,
+      "frames": 330,
+      "source": "artifacts/video-revisit/v7/scene-06.png",
+      "source_sha256": "8a2630a096e06282ac6579ddd008d0d67dddaede00a5022a1229c4071697ea78",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 1.0,
+          "duration": 1.5,
+          "box": [
+            594,
+            450,
+            1030,
+            75
+          ]
+        },
+        {
+          "start": 6.1,
+          "duration": 1.7,
+          "box": [
+            640,
+            697,
+            1140,
+            236
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "kind": "closing",
+      "seconds": 5.0,
+      "frames": 150,
+      "source": "artifacts/video-revisit/v7/scene-07.png",
+      "source_sha256": "9c1a3a76372e211ed5077675f2edd449829327dcb15bfb00ffce1eaff63e10cb",
+      "alternate": null,
+      "alternate_sha256": null,
+      "alternate_at": null,
+      "highlights": [
+        {
+          "start": 0.6,
+          "duration": 1.1,
+          "box": [
+            95,
+            345,
+            540,
+            510
+          ]
+        },
+        {
+          "start": 1.9,
+          "duration": 1.1,
+          "box": [
+            690,
+            345,
+            540,
+            510
+          ]
+        },
+        {
+          "start": 3.2,
+          "duration": 1.1,
+          "box": [
+            1285,
+            345,
+            540,
+            510
+          ]
+        }
+      ]
+    }
+  ],
+  "audio": {
+    "method": "stream_copy_existing_audio",
+    "source_video": "outputs/kou-revisit-intro-v6.mp4",
+    "source_video_sha256": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+    "source_stream_sha256": "96b6954a4d607b7c4d0d7924f8c77c786caa5de223677ed6cecffd5dfb2c0665",
+    "trimmed": false,
+    "reencoded": false,
+    "output_stream_sha256": "96b6954a4d607b7c4d0d7924f8c77c786caa5de223677ed6cecffd5dfb2c0665",
+    "stream_identical": true
+  },
+  "frames": 1800,
+  "duration_seconds": 60,
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "decode": "passed",
+  "decoded_duration_seconds": 60.0,
+  "sha256": "59a2b9ebf441ab47f345e52c8c4863b6a4a84140c34415a62c81d99a31c909a4",
+  "bytes": 4044912,
+  "decoded_contact_sheet": "artifacts/video-revisit/v7/motion-decoded-contact-sheet.jpg",
+  "status": "encoded_and_decoded",
+  "output": "outputs/kou-revisit-intro-v7.mp4"
+}

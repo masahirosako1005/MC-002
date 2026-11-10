@@ -1,6 +1,6 @@
 # 日帰り・通う旅の紹介動画
 
-2026-11-10、v6候補。60 秒、8 シーン。画面撮影・編集は主担当。実画面の操作と保存結果を撮影し、下記は構成・字幕・読み上げ原稿とする。音声・秒数・見出しの正本は `community/scripts/revisit-video-scenes.json`。v2 は変更前に `artifacts/video-revisit/v2/scenes.json` へ保存し、以後上書きしない（SHA256 `4A6F808FC4898B57AFC62E073978514C8846241DA9051FA9F2911161586E7CFA`）。
+2026-11-10、最新の確認用は第9版。和の装丁・読みやすい書体・男性の案内役を統合した。以下の初期原稿はv3〜7の履歴として保持する。60 秒、8 シーン。画面撮影・編集は主担当。実画面の操作と保存結果を撮影し、下記は構成・字幕・読み上げ原稿とする。v9の音声・秒数・見出しは `community/scripts/revisit-video-guide-scenes.json`、初期原稿は `community/scripts/revisit-video-scenes.json`。v2 は変更前に `artifacts/video-revisit/v2/scenes.json` へ保存し、以後上書きしない（SHA256 `4A6F808FC4898B57AFC62E073978514C8846241DA9051FA9F2911161586E7CFA`）。
 
 ## ナレーション
 
@@ -95,3 +95,45 @@ v4/v5/v6はブラウザーの動画要素で `duration=60 / currentTime=60 / end
 生成にはプロジェクト内の `.venv/Scripts/python.exe`（Python 3.13.17）、Pillow 13.0.0、imageio-ffmpeg 0.6.0同梱のFFmpeg 7.1を使った。品質検査は `.tools/quality-venv/Scripts/python.exe` を使用。読み上げはWindowsのMicrosoft Sayakaをローカルで使用し、音声を外部へ送信しない。見出しはYuji Mai、本文は端末内のメイリオ。Yuji Maiのライセンスは `community/frontend/public/fonts/yujimai/OFL.txt`。
 
 次の改訂は未使用の版番号・出力先で作成する。原稿は `community/scripts/revisit-video-scenes.json`、音声生成は `narrate_revisit_video.ps1`、画面生成は `render_revisit_video.py <新しい版番号> --stills-only`、合成は `animate_revisit_video.py --scene-dir <同ディレクトリ> --output <新しいMP4>`。音量調整の `finish_revisit_audio.py` はv5のPCMを前提とするため、別版に適用する際は入力と保存先を明示して検査記録も更新する。既存版を上書きするオプションは通常の改訂で使わない。
+
+## 第7版：和の雰囲気・演出
+
+利用者の改善希望を、最新の第6版へ適用する。過去の第2版へ内容を戻すものではない。アプリの実画面を描き換えるのではなく、紹介動画の装丁と視線誘導を揃える。
+
+| Before | After | Why |
+|---|---|---|
+| 薄い紙色と一般的な横線 | 和紙の質感、左右の装丁、少し揺らぎのある墨線 | 全8場面を同じ巻物・冊子の世界観に揃える |
+| 章番号は算用数字、工程は丸番号 | 章は漢数字、講と工程は朱印風の意匠 | 導入だけでなく中盤の仕組み説明にも和の表現を続ける |
+| 通常のクロスフェード | 一方向へ短く開く巻物の章間転換 | 内容が重なる時間を減らし、画面の切替自体も世界観に合わせる |
+| 角丸の長方形の注目枠 | 細い朱の隅飾りで一度だけ強調 | 実画面と文字を覆わずに注目点を示す |
+
+静止画生成後、利用者と事業者の実画面10領域が第5/6版とピクセル単位で一致することを確認。章見出し・タイトルの欠字0。根拠は `artifacts/video-revisit/v7/ui-preservation.json`。動画の全復号・動きの確認は生成後に記録する。
+
+### 追加指定：説明の字体
+
+第7版の初稿後、利用者から「紹介ムービー内の説明文は見やすい字体にして」と追加された。説明見出し・本文・字幕・50点や20〜40kmの数値はメイリオへ変更。筆文字は講の印と漢数字の章番号・工程印などに限定する。太字で強弱を付け、下字幕は通常のメイリオを維持。初稿コンタクトシートは `contact-sheet-brush-draft.jpg` に残し、最終の `contact-sheet.jpg` と区別する。
+
+## 第8版：男性音声と句間・抑揚の改善（制作中）
+
+利用者から音声が聞き取りづらいとの指摘を受けた。Microsoft Ichiro（ja-JP / Male）が端末上で利用可能であることを確認。説明の原稿を短縮し、句ごとの区切りと抑揚をSSMLで指定して再生成する。和の第7版の映像と60秒の構成は保持し、音声を速めて合わせる手法は使わない。実際の聞き取りやすさは利用者の評価を受ける。
+
+
+## 第9版：案内役による問いかけと実画面
+
+最新候補：`outputs/kou-revisit-intro-v9.mp4`。1920×1080、30fps、60秒、1800フレーム。旅装の男性案内役が「一度来て、おしまい？」と問い、講の全体→利用者→事業者→通う旅・先達・地域割引→結びへ進む。新しい人物画は実在人物の写真や利用者の体験談ではなく、紹介用のオリジナルイラスト。実画面・利用条件・数字は撮影素材のまま。
+
+| 変更前 | 第9版 | 検証 |
+|---|---|---|
+| 画面説明を順番に読む | 案内役の問いと実画面の答え | 8場面＋2切替の独立目視 |
+| 説明の筆文字が読みにくい | メイリオ・太字で説明し、筆は印のみ | 見出し・字幕の欠けと重なり確認 |
+| 女性声、一部時間圧縮 | 男性Ichiro、182字、原速と句間 | 8WAV・字幕一致、全tempo1.0 |
+| 声の大きさが揃わない | 2:1の穏やかなピーク制御と全体音量調整 | -18.0 LUFS / true peak -3.7 dBFS |
+| キャラが実UIを覆う懸念 | 画面外に案内役を配置 | 移動範囲を含む18組の重なり0 |
+
+音声の原速を維持し、原稿の短縮で場面に収めた。語間の間と高低/strong強調はSSMLに設定し、音声出力の差を検証した。percent指定が無効だった初期試行は採用していない。人の聴取による自然さは未評価で、測定だけで「聞きやすさが満点」とは扱わない。
+
+`render_revisit_guide.py --encode` → `balance_revisit_guide_audio.py` → `finish_revisit_audio.py` の順で再構成可能。前の出力がある場合は上書き前に停止する。既存音声処理の再現は `balance_revisit_guide_audio.py --verify-existing` でPCM一致を確認済み。最新検証は `artifacts/video-revisit/v9/final/verification.json`、音声処理は `artifacts/video-revisit/v9/audio-balance.json`、レビューは [REVISIT-VIDEO-WA-REVIEW.md](REVISIT-VIDEO-WA-REVIEW.md)。
+
+v8は男性音声比較として保持し、単独の動画ファイルは作っていない。v9の軽い身体の強調動作は口形同期ではなく、実UIの操作成功を演じるものでもない。観光効果を実証済みとは表現しない。
+
+最終プレイヤー確認：60秒の先頭から終端まで再生し、終了フラグtrue・メディアエラーなし。証拠は `artifacts/video-revisit/v9/player-verification.json` と `player-ended.png`。等速の音声結合ではatempo=1.0が各WAV末尾の無音を21.33ms短縮したが、独立レビューで削れた部分は完全無音と確認。発話切詰めはなく、原WAVとの全サンプル一致は主張しない。

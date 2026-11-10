@@ -43,9 +43,9 @@ PJ直下で実行する。事前に `scripts/setup-local.ps1` で依存を準備
 ## 個別実行
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest test/backend -q
-.\.venv\Scripts\python.exe -m pytest test/tooling -q
-.\.venv\Scripts\python.exe -m pytest test/backend/test_daytrip.py -q
+.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/backend -q
+.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/tooling -q
+.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/backend/test_daytrip.py -q
 node test/browser/verify-login.mjs
 node test/tooling/check_board.cjs
 
@@ -54,6 +54,8 @@ node test/browser/verify-journal-restart.mjs --schema 11
 ```
 
 root `pytest.ini` がPythonの参照先と通常対象を指定する。通常のpytestはbackend/toolingだけを収集し、Dockerを使うintegrationは自動実行しない。API試験同士の `conftest` /補助関数importはbackend配下で維持する。
+
+`pytest.ini` は旧版や依存まで探索を広げないため、PJ直下の標準入口として保持する。`test/run.py` と `scripts/quality_check.py` もこの設定を明示して実行する。`test/conftest.py` は一時領域・pytestキャッシュを `test/fixtures/runtime/` の子ディレクトリに限定し、旧 `.backend-test-tmp` / `.test-work` 等への指定を実行前に拒否する。独自の `--basetemp` もこの範囲内に置く。
 
 ブラウザー依存の正本は `test/browser/package.json` とlockファイル。導入だけなら `npm.cmd ci --prefix test/browser`。紹介動画もこの依存を使う。`community/scripts/create_intro_video.mjs` は動画の運用生成器なのでtestへ移さない。
 
@@ -67,3 +69,5 @@ root `pytest.ini` がPythonの参照先と通常対象を指定する。通常�
 - 過去の `community/artifacts/`、旧試験ログ、拒否済みの旧cache/ZIPは今回移動・削除していない。再起動の運用helperは自身の履歴を引き続き `community/artifacts/restart/` に出す。
 
 `result.json` はコマンドごとの終了コード・時間・ログ先と実行/収集の区別を残す。失敗・起動不可・時間超過があれば成功にしない。新しい投稿UIなどでシナリオのラベルや操作が変わった場合は該当試験も更新し、古い画面試験の結果を現在版の成功として流用しない。
+
+2026-11-10の統一確認では、保存先制限と品質runnerの対象15試験が成功し、標準runnerの収集も成功した。一時データは `test/` 配下へ統一するが、確定済みのXML/JSON・画面などの検証証拠は `artifacts/` と既存の `community/artifacts/` に保持する。旧一時領域32フォルダーの削除は自動承認レビューが実行前に `blocked by policy` と拒否したため、削除0件・残存32件。拒否を迂回する再試行は行っていない。[検証・残存記録](../artifacts/test-layout-cleanup-result.json)、[対象15試験](../artifacts/test-layout.xml)を参照。

@@ -1,0 +1,143 @@
+{
+  "v6_uses_v5_unchanged_video": true,
+  "all_ten_captured_UI_regions_identical": true,
+  "comparisons": [
+    {
+      "scene": "scene-01.png",
+      "screen": "visitor-home.jpg",
+      "box": [
+        90,
+        209,
+        500,
+        935
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-01.png",
+      "screen": "provider-overview.jpg",
+      "box": [
+        785,
+        260,
+        1714,
+        900
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-02.png",
+      "screen": "visitor-home.jpg",
+      "box": [
+        182,
+        195,
+        603,
+        940
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-02-alt.png",
+      "screen": "visitor-chat.jpg",
+      "box": [
+        1232,
+        195,
+        1653,
+        940
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-03.png",
+      "screen": "provider-reply.jpg",
+      "box": [
+        697,
+        220,
+        1713,
+        920
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-03-alt.png",
+      "screen": "provider-chart.jpg",
+      "box": [
+        697,
+        220,
+        1713,
+        920
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-04.png",
+      "screen": "03-program-phone.jpg",
+      "box": [
+        1206,
+        200,
+        1624,
+        940
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-05.png",
+      "screen": "06-rank-phone.jpg",
+      "box": [
+        1260,
+        204,
+        1690,
+        935
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-06.png",
+      "screen": "07-zone-phone.jpg",
+      "box": [
+        91,
+        200,
+        509,
+        940
+      ],
+      "identical": true
+    },
+    {
+      "scene": "scene-06.png",
+      "screen": "provider-budget.jpg",
+      "box": [
+        771,
+        700,
+        1648,
+        930
+      ],
+      "identical": true
+    }
+  ],
+  "missing_title_chapter_glyphs": [],
+  "prior_outputs": {
+    "kou-revisit-intro-v1.mp4": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+    "kou-revisit-intro-v2.mp4": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+    "kou-revisit-intro-v3.mp4": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+    "kou-revisit-intro-v4.mp4": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+    "kou-revisit-intro-v5.mp4": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+    "kou-revisit-intro-v6.mp4": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30"
+  },
+  "final_typefaces": {
+    "heading": "Meiryo Bold",
+    "body_subtitle_numbers": "Meiryo (numbers bold)",
+    "decorative_seals_numerals": "Yuji Mai"
+  },
+  "missing_subtitle_glyphs": [],
+  "final_still_hashes": {
+    "scene-00.png": "9a192c8dc2b8fb4317ce6a0abf8ce07d9206ee15b507fc85abcd1950f43546ed",
+    "scene-01.png": "23a363c1b9535d949ca1392fafed7ed13019d75d01be28b87e0168536d5cef8b",
+    "scene-02-alt.png": "604862be688658910c5fc7357bd9bf11df1e60b69c16fe8a28472293b28a2c15",
+    "scene-02.png": "43f4531caf52317ba4793ec6677f8cfeb5a7964f2c8dd668a4fb1400e92cc917",
+    "scene-03-alt.png": "159ce67c6a30c3689f12e1b4da1f5388360daf3d883092511dae506996b15ce6",
+    "scene-03.png": "14efcc935181d03704a392c8f3c115c7c41690e2157f85cf50b154e191007f89",
+    "scene-04.png": "0a95b5da170c9dbdcfea97acae1e270df7b5afbf4502077244c1af03adcce7c7",
+    "scene-05.png": "8af1ee71cd4fb887377d63d1ba845e2f6d5db041cf85d24f3a90dd1385684ae5",
+    "scene-06.png": "8a2630a096e06282ac6579ddd008d0d67dddaede00a5022a1229c4071697ea78",
+    "scene-07.png": "9c1a3a76372e211ed5077675f2edd449829327dcb15bfb00ffce1eaff63e10cb"
+  }
+}

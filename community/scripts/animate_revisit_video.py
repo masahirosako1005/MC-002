@@ -27,6 +27,8 @@ MAX_TEMPO = 1.55
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 PAPER = (247, 243, 232)
 RED = (157, 59, 45)
+INK = (66, 57, 49)
+WA_TRANSITION = .4
 
 # x, y, width, height. These surround existing explanatory/screen regions, not
 # fictional controls. A scene's motion.highlights can replace them entirely.
@@ -96,7 +98,7 @@ def highlights_for(data, seconds):
     return highlights
 
 
-def load_scenes(scene_file, directory):
+def load_scenes(scene_file, directory, style='classic'):
     data = json.loads(scene_file.read_text(encoding='utf-8'))
     if not isinstance(data, list) or len(data) != 8:
         raise ValueError('Exactly eight scene descriptions are required')
@@ -109,7 +111,8 @@ def load_scenes(scene_file, directory):
         source = directory / f'scene-{index:02}.png'
         alternate = directory / f'scene-{index:02}-alt.png'
         alt_at = item.get('motion', {}).get('alt_at', 3.0 if item['kind'] == 'visitor' else seconds / 2)
-        checked_number(alt_at, TRANSITION, seconds - TRANSITION, 'alternate switch')
+        duration = transition_seconds(style)
+        checked_number(alt_at, duration, seconds - duration, 'alternate switch')
         scenes.append(Scene(index, item['kind'], seconds, frames, elapsed, image(source),
             image(alternate) if alternate.exists() else None, alt_at,
             highlights_for(item, seconds), source, alternate if alternate.exists() else None))
@@ -124,13 +127,48 @@ def smooth(value):
     return 1 - (1 - value) ** 3
 
 
-def still_at(scene, local):
+def transition_seconds(style):
+    return WA_TRANSITION if style == 'wa' else TRANSITION
+
+
+def paper_edge(frame, edge):
+    """A narrow, deterministic paper fold; it never shifts the captured image."""
+    draw = ImageDraw.Draw(frame, 'RGBA')
+    for offset in range(1, 15):
+        draw.line((edge + offset, 0, edge + offset, SIZE[1]),
+                  fill=(*INK, round(24 * (1 - offset / 15))))
+    for offset in range(-10, 1):
+        shade = tuple(round(channel - 16 * ((offset + 10) / 10) ** 2) for channel in PAPER)
+        draw.line((edge + offset, 0, edge + offset, SIZE[1]), fill=(*shade, 235))
+    draw.line((edge - 10, 0, edge - 10, SIZE[1]), fill=(255, 252, 242, 170))
+    # Fixed fibers avoid random noise or flashing between adjacent frames.
+    for y in range(19, SIZE[1], 43):
+        draw.line((edge - 8, y, edge - 4, y + 3), fill=(*INK, 26), width=1)
+
+
+def transition_frame(previous, current, phase, style):
+    if style != 'wa':
+        return Image.blend(previous, current, smooth(phase))
+    if phase >= 1:
+        return current.copy()
+    frame = previous.copy()
+    if phase > 0:
+        edge = round(SIZE[0] * smooth(phase))
+        frame.paste(current.crop((0, 0, edge, SIZE[1])), (0, 0))
+        paper_edge(frame, edge)
+    # Chapter and subtitle bands switch together, never splicing two sentences.
+    frame.paste(current.crop((0, 0, SIZE[0], 94)), (0, 0))
+    frame.paste(current.crop((0, 965, SIZE[0], SIZE[1])), (0, 965))
+    return frame
+
+
+def still_at(scene, local, style='classic'):
     if scene.alternate is None or local < scene.alternate_at:
         return scene.image
-    phase = (local - scene.alternate_at) / TRANSITION
+    phase = (local - scene.alternate_at) / transition_seconds(style)
     if phase >= 1:
         return scene.alternate
-    return Image.blend(scene.image, scene.alternate, smooth(phase))
+    return transition_frame(scene.image, scene.alternate, phase, style)
 
 
 def outline(draw, mark, local):
@@ -145,22 +183,48 @@ def outline(draw, mark, local):
                            outline=(*RED, round(185 * alpha)), width=3)
 
 
-def render_frame(scenes, index, local_frame):
+def seal_corners(draw, mark, local):
+    """One quiet emphasis per cue, with no seal text or completion symbol."""
+    elapsed = local - mark['start']
+    duration = min(1.0, mark['duration'])
+    if not 0 <= elapsed <= duration:
+        return
+    alpha = min(smooth(elapsed / .16), smooth((duration - elapsed) / .26))
+    x, y, width, height = mark['box']
+    arm = min(26, width / 4, height / 4)
+    for corner_x, corner_y, dx, dy in ((x, y, 1, 1), (x + width, y, -1, 1),
+            (x, y + height, 1, -1), (x + width, y + height, -1, -1)):
+        draw.line(((corner_x + dx * arm, corner_y), (corner_x, corner_y),
+                   (corner_x, corner_y + dy * arm)), fill=(*RED, round(205 * alpha)), width=3)
+        draw.line(((corner_x + dx * arm, corner_y + dy * 5),
+                   (corner_x + dx * 5, corner_y + dy * 5),
+                   (corner_x + dx * 5, corner_y + dy * arm)),
+                  fill=(*RED, round(95 * alpha)), width=1)
+
+
+def playback_line(draw, progress, style):
+    # A linear, outside-the-UI playback indicator; it never represents a task.
+    track = (*INK, 115) if style == 'wa' else (214, 199, 173, 220)
+    draw.rectangle((72, 1053, 1848, 1056), fill=track)
+    draw.rectangle((72, 1053, 72 + 1776 * progress, 1056), fill=(*RED, 230))
+
+
+def render_frame(scenes, index, local_frame, style='classic'):
     scene = scenes[index]
     local = local_frame / FPS
-    current = still_at(scene, local)
-    if index > 0 and local < TRANSITION:
-        previous = still_at(scenes[index - 1], scenes[index - 1].seconds)
-        frame = Image.blend(previous, current, smooth(local / TRANSITION))
+    current = still_at(scene, local, style)
+    duration = transition_seconds(style)
+    if index > 0 and local < duration:
+        previous = still_at(scenes[index - 1], scenes[index - 1].seconds, style)
+        frame = transition_frame(previous, current, local / duration, style)
     else:
         frame = current.copy()
     draw = ImageDraw.Draw(frame, 'RGBA')
+    highlight = seal_corners if style == 'wa' else outline
     for mark in scene.highlights:
-        outline(draw, mark, local)
-    # A linear, outside-the-UI playback indicator; it never represents a task.
+        highlight(draw, mark, local)
     progress = (scene.start_frame + local_frame + 1) / 1800
-    draw.rectangle((72, 1053, 1848, 1056), fill=(214, 199, 173, 220))
-    draw.rectangle((72, 1053, 72 + 1776 * progress, 1056), fill=(*RED, 230))
+    playback_line(draw, progress, style)
     return frame
 
 
@@ -219,7 +283,7 @@ def prepare_audio(scenes, voices, directory):
     return destination, reports
 
 
-def contact_sheet(scenes, destination):
+def contact_sheet(scenes, destination, style='classic'):
     sheet = Image.new('RGB', (1920, 1080), PAPER)
     samples = []
     for scene in scenes:
@@ -227,7 +291,7 @@ def contact_sheet(scenes, destination):
         second = max(scene.alternate_at + .6, scene.seconds - 1.0)
         for slot, local in enumerate((first, second)):
             local_frame = min(scene.frames - 1, round(local * FPS))
-            thumb = render_frame(scenes, scene.index, local_frame).resize((480, 270), Image.Resampling.LANCZOS)
+            thumb = render_frame(scenes, scene.index, local_frame, style).resize((480, 270), Image.Resampling.LANCZOS)
             draw = ImageDraw.Draw(thumb)
             draw.rectangle((0, 0, 150, 18), fill=PAPER)
             draw.text((6, 3), f'{scene.index + 1:02}  +{local_frame / FPS:.2f}s', fill=RED)
@@ -238,18 +302,22 @@ def contact_sheet(scenes, destination):
     return samples
 
 
-def encode(scenes, narration, destination, log):
+def encode(scenes, narration, destination, log, style='classic', copy_audio=False, frame_renderer=None):
+    audio_options = ['-c:a', 'copy'] if copy_audio else ['-c:a', 'aac', '-b:a', '160k',
+        '-ar', str(SAMPLE_RATE), '-ac', '2']
     command = [FFMPEG, '-hide_banner', '-nostdin', '-y', '-f', 'rawvideo', '-pixel_format', 'rgb24',
         '-video_size', '1920x1080', '-framerate', str(FPS), '-i', 'pipe:0', '-i', str(narration),
         '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'libx264', '-preset', 'fast', '-crf', '19',
-        '-pix_fmt', 'yuv420p', '-threads', '2', '-filter_threads', '1', '-c:a', 'aac', '-b:a', '160k',
-        '-ar', str(SAMPLE_RATE), '-ac', '2', '-t', '60', '-movflags', '+faststart', str(destination)]
+        '-pix_fmt', 'yuv420p', '-threads', '2', '-filter_threads', '1', *audio_options,
+        '-t', '60', '-movflags', '+faststart', str(destination)]
     with log.open('wb') as errors:
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=errors)
         try:
             for scene in scenes:
                 for frame in range(scene.frames):
-                    process.stdin.write(render_frame(scenes, scene.index, frame).tobytes())
+                    rendered = (frame_renderer(scenes, scene.index, frame, style) if frame_renderer
+                                else render_frame(scenes, scene.index, frame, style))
+                    process.stdin.write(rendered.tobytes())
                 print(f'Animated scene {scene.index + 1}/8', flush=True)
             process.stdin.close()
             code = process.wait()
@@ -289,11 +357,59 @@ def decoded_contact_sheet(destination, directory, samples, scenes):
     return target.relative_to(ROOT).as_posix()
 
 
+def audio_stream_hash(path, log):
+    result = run_ffmpeg(['-v', 'error', '-i', str(path), '-map', '0:a:0', '-c:a', 'copy',
+        '-f', 'hash', '-hash', 'sha256', 'pipe:1'], log)
+    digest = result.stdout.decode('ascii').strip().removeprefix('SHA256=')
+    if not re.fullmatch('[0-9a-f]{64}', digest):
+        raise ValueError('Could not verify the copied audio stream')
+    return digest
+
+
+def output_audio(args, scenes, report):
+    if args.audio_video is None:
+        voices = voice_plan(scenes, args.audio_dir)
+        narration, report['audio'] = prepare_audio(scenes, voices, args.scene_dir / 'motion-audio')
+        return narration
+    digest = audio_stream_hash(args.audio_video, args.scene_dir / 'audio-source-hash.log')
+    report['audio'] = {'method': 'stream_copy_existing_audio',
+        'source_video': args.audio_video.relative_to(ROOT).as_posix(),
+        'source_video_sha256': hashlib.sha256(args.audio_video.read_bytes()).hexdigest(),
+        'source_stream_sha256': digest, 'trimmed': False, 'reencoded': False}
+    return args.audio_video
+
+
+def render_output(args, scenes, report, samples):
+    destination = args.scene_dir / f'{args.scene_dir.name}-motion.mp4'
+    if args.audio_video in (destination, args.output):
+        raise ValueError('The source audio video must not be overwritten')
+    if args.output.suffix.lower() != '.mp4':
+        raise ValueError('Output must be an MP4 file')
+    if not args.overwrite and (destination.exists() or args.output.exists()):
+        raise FileExistsError('Output already exists; choose a new path or explicitly use --overwrite')
+    narration = output_audio(args, scenes, report)
+    encode(scenes, narration, destination, args.scene_dir / 'motion-encode.log',
+           args.style, copy_audio=args.audio_video is not None)
+    report.update(verify(destination, args.scene_dir))
+    if args.audio_video is not None:
+        digest = audio_stream_hash(destination, args.scene_dir / 'audio-output-hash.log')
+        if digest != report['audio']['source_stream_sha256']:
+            raise ValueError('Output audio differs from the supplied audio; output was not published')
+        report['audio'].update(output_stream_sha256=digest, stream_identical=True)
+    report['decoded_contact_sheet'] = decoded_contact_sheet(destination, args.scene_dir, samples, scenes)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(destination, args.output)
+    report.update(status='encoded_and_decoded', output=args.output.relative_to(ROOT).as_posix())
+
+
 def arguments():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--scene-dir', type=project_path, default=WORK / 'v2')
     parser.add_argument('--scene-json', type=project_path, default=Path(__file__).with_name('revisit-video-scenes.json'))
     parser.add_argument('--audio-dir', type=project_path, default=WORK / 'audio')
+    parser.add_argument('--audio-video', type=project_path,
+                        help='Copy an existing video audio stream without recreating narration')
+    parser.add_argument('--style', choices=('classic', 'wa'), default='classic')
     parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/kou-revisit-intro-v2.mp4')
     parser.add_argument('--preview-only', action='store_true')
     parser.add_argument('--overwrite', action='store_true')
@@ -302,14 +418,20 @@ def arguments():
 
 def main():
     args = arguments()
-    scenes = load_scenes(args.scene_json, args.scene_dir)
-    voices = voice_plan(scenes, args.audio_dir)
-    samples = contact_sheet(scenes, args.scene_dir / 'motion-contact-sheet.jpg')
+    scenes = load_scenes(args.scene_json, args.scene_dir, args.style)
+    if args.audio_video is None:
+        voice_plan(scenes, args.audio_dir)
+    samples = contact_sheet(scenes, args.scene_dir / 'motion-contact-sheet.jpg', args.style)
+    method = ('Stationary real UI, left-to-right paper reveals and single vermilion corner cues'
+              if args.style == 'wa' else 'Real captured UI; crossfades and short attention outlines only')
     report = {'source_scene_json': args.scene_json.relative_to(ROOT).as_posix(),
         'source_scene_json_sha256': hashlib.sha256(args.scene_json.read_bytes()).hexdigest(),
         'script_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        'method': 'Real captured UI; crossfades and short attention outlines only; no simulated clicks or UI state changes',
-        'transition_seconds': TRANSITION, 'playback_indicator': 'Elapsed film time only', 'max_voice_tempo': MAX_TEMPO,
+        'method': f'{method}; no simulated clicks or UI state changes', 'style': args.style,
+        'transition_seconds': transition_seconds(args.style), 'playback_indicator': 'Elapsed film time only',
+        'max_voice_tempo': MAX_TEMPO if args.audio_video is None else None,
+        'audio_video': args.audio_video.relative_to(ROOT).as_posix() if args.audio_video else None,
+        'audio_video_sha256': hashlib.sha256(args.audio_video.read_bytes()).hexdigest() if args.audio_video else None,
         'contact_sheet_samples': samples, 'visual_review': 'pending', 'audio_listening_review': 'pending',
         'scenes': [{'index': scene.index, 'kind': scene.kind, 'seconds': scene.seconds, 'frames': scene.frames,
             'source': scene.source.relative_to(ROOT).as_posix(), 'source_sha256': hashlib.sha256(scene.source.read_bytes()).hexdigest(),
@@ -319,18 +441,7 @@ def main():
     if args.preview_only:
         report['status'] = 'preview_only_not_encoded'
     else:
-        destination = args.scene_dir / f'{args.scene_dir.name}-motion.mp4'
-        if args.output.suffix.lower() != '.mp4':
-            raise ValueError('Output must be an MP4 file')
-        if not args.overwrite and (destination.exists() or args.output.exists()):
-            raise FileExistsError('Output already exists; choose a new path or explicitly use --overwrite')
-        narration, report['audio'] = prepare_audio(scenes, voices, args.scene_dir / 'motion-audio')
-        encode(scenes, narration, destination, args.scene_dir / 'motion-encode.log')
-        report.update(verify(destination, args.scene_dir))
-        report['decoded_contact_sheet'] = decoded_contact_sheet(destination, args.scene_dir, samples, scenes)
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(destination, args.output)
-        report.update(status='encoded_and_decoded', output=args.output.relative_to(ROOT).as_posix())
+        render_output(args, scenes, report, samples)
     name = 'motion-preview.json' if args.preview_only else 'motion-verification.json'
     (args.scene_dir / name).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'status': report['status'], 'report': (args.scene_dir / name).relative_to(ROOT).as_posix()}, ensure_ascii=False))

@@ -1,0 +1,82 @@
+[
+  {
+    "scene": 0,
+    "original_seconds": 4.8130625,
+    "tempo": 1.0,
+    "fitted_seconds": 4.791729166666666,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.9882708333333333,
+    "original_sha256": "65580f2b2eb62deeaaf17de6bddbf3b61308a4e9caf8d10da3c0c8cb8af54dba",
+    "trimmed": false
+  },
+  {
+    "scene": 1,
+    "original_seconds": 4.6255625,
+    "tempo": 1.0,
+    "fitted_seconds": 4.604229166666666,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 1.1757708333333334,
+    "original_sha256": "eb88727fa68d52a1eb5afb8372b285fa5893a22afa8eaee6930516f1e5cd4b63",
+    "trimmed": false
+  },
+  {
+    "scene": 2,
+    "original_seconds": 6.9264375,
+    "tempo": 1.0,
+    "fitted_seconds": 6.905104166666667,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.8748958333333333,
+    "original_sha256": "5f5707f78e145109af5da7df7ea1a1eb1125c4b58cffe93ab1a3caf9adf2403d",
+    "trimmed": false
+  },
+  {
+    "scene": 3,
+    "original_seconds": 6.8678125,
+    "tempo": 1.0,
+    "fitted_seconds": 6.846479166666667,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.9335208333333334,
+    "original_sha256": "427b6dc58a8694711ce5dfd6000bcc705e9168a55b31f4cf3f5a18ca56bc5449",
+    "trimmed": false
+  },
+  {
+    "scene": 4,
+    "original_seconds": 6.845875,
+    "tempo": 1.0,
+    "fitted_seconds": 6.824541666666667,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.9554583333333333,
+    "original_sha256": "a91272900a6be73163ab14ab7775df6adab62e55f753d48dda7b2ec946bf5367",
+    "trimmed": false
+  },
+  {
+    "scene": 5,
+    "original_seconds": 7.4235,
+    "tempo": 1.0,
+    "fitted_seconds": 7.402166666666667,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.37783333333333335,
+    "original_sha256": "5db67a06b6e68cebb5350f442c155515e3a313490b2eeb64c7429cdedc90ae86",
+    "trimmed": false
+  },
+  {
+    "scene": 6,
+    "original_seconds": 9.3413125,
+    "tempo": 1.0,
+    "fitted_seconds": 9.319979166666666,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 1.4600208333333333,
+    "original_sha256": "b116b6b00721a6db2ee4554e9190df3a70e7a0dba695660e43c54cf30637ae68",
+    "trimmed": false
+  },
+  {
+    "scene": 7,
+    "original_seconds": 4.2059375,
+    "tempo": 1.0,
+    "fitted_seconds": 4.1846041666666665,
+    "lead_seconds": 0.22,
+    "trailing_seconds": 0.5953958333333333,
+    "original_sha256": "aaa472a0acffb4e6cc888d41ed29708e035f4325ed3961212c7cb4b39116ddbb",
+    "trimmed": false
+  }
+]

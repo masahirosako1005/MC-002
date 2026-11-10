@@ -1,0 +1,20 @@
+{
+  "protected": {
+    "outputs/kou-revisit-intro-v1.mp4": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+    "outputs/kou-revisit-intro-v2.mp4": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+    "outputs/kou-revisit-intro-v3.mp4": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+    "outputs/kou-revisit-intro-v4.mp4": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+    "outputs/kou-revisit-intro-v5.mp4": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+    "outputs/kou-revisit-intro-v6.mp4": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+    "outputs/kou-revisit-intro-v7.mp4": "59a2b9ebf441ab47f345e52c8c4863b6a4a84140c34415a62c81d99a31c909a4",
+    "artifacts/video-revisit/audio/voice-00.wav": "dac544f4998be502ff873dff0be8e65f2cb77b359f3e9538df93dec725fa0b03",
+    "artifacts/video-revisit/audio/voice-01.wav": "6bdcfcd935ed1f74c8aea8f1ed97fea6a41b075219cefe5a05b164ef2fa18c97",
+    "artifacts/video-revisit/audio/voice-02.wav": "33e27136954465bee2fd3c354014bcef341e22beccc289c1524b42acf5060ac1",
+    "artifacts/video-revisit/audio/voice-03.wav": "553cc53a1a67edabc91292d4309c2e5fb8c65aae9af3b353fdaecef0bb2b4751",
+    "artifacts/video-revisit/audio/voice-04.wav": "ce0bc1b237321f5ad1dd75c799972078cbc8703ed2c7082623b1561a8cbd2de1",
+    "artifacts/video-revisit/audio/voice-05.wav": "6252910ddca5e83faeb3665b99a460b25cec17541c59263a5d2b83be20c747b5",
+    "artifacts/video-revisit/audio/voice-06.wav": "5cd7a4b720f8f8dc357ab18679e1418c9035a3e6de43a4bf2eda63bf1682b5d0",
+    "artifacts/video-revisit/audio/voice-07.wav": "671f6c83c670223a40bb8608b96304bacc1eba919bef9c879f9bade347783e4c"
+  },
+  "original_json_sha256": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0"
+}

@@ -1,0 +1,22 @@
+{
+  "script_before_sha256": "7e44322274370601999351f0d93904bac42b34cff80a869fc54999aec58bc3d0",
+  "protected": {
+    "outputs\\kou-revisit-intro-v1.mp4": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+    "outputs\\kou-revisit-intro-v2.mp4": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+    "outputs\\kou-revisit-intro-v3.mp4": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+    "outputs\\kou-revisit-intro-v4.mp4": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+    "outputs\\kou-revisit-intro-v5.mp4": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+    "outputs\\kou-revisit-intro-v6.mp4": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+    "artifacts\\video-revisit\\v7\\scene-00.png": "f19a1944dfe333a6d6a263b89a97fedf2bffad2aa34f69720059a897d0b94e40",
+    "artifacts\\video-revisit\\v7\\scene-01.png": "15a06d1cc2e601ef0cf03948a07b885356bf685ea7eb3b2806c01b9d7f0ad98e",
+    "artifacts\\video-revisit\\v7\\scene-02-alt.png": "8368785a371392a64aa180d310d38b7dca3fd98fc38e0cc8ef149f72f2c93cbb",
+    "artifacts\\video-revisit\\v7\\scene-02.png": "292bca72d972661d4007958079d33459de2f144a57cf3c23d7a776e80524d938",
+    "artifacts\\video-revisit\\v7\\scene-03-alt.png": "89233299c5d289d39ae3e7947f991af98a61af4a173c0983e443fe469c715b09",
+    "artifacts\\video-revisit\\v7\\scene-03.png": "60e92f1e518a3c971517c10b8c79efa815aae81b0046edbbff6d7797c8b36fae",
+    "artifacts\\video-revisit\\v7\\scene-04.png": "3cc2b11e1d24c9943029fa3d1f3fe305f4a73f55cc4a4d6e6c1e01e54cd96d1b",
+    "artifacts\\video-revisit\\v7\\scene-05.png": "b3757e611749580cde57687b66a663d801efd8a7fa58d552991dad45ada88887",
+    "artifacts\\video-revisit\\v7\\scene-06.png": "af76560fd6f02605f828fa9fb2cf51fdc0b38d0514626ca2399ad7ab231ecba2",
+    "artifacts\\video-revisit\\v7\\scene-07.png": "93a947fa151b02dca5136031b23b2269a6e8801da38fad45d2f22312ce73649f",
+    "artifacts\\video-revisit\\v7\\scenes.json": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0"
+  }
+}

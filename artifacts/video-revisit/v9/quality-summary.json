@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-10",
+  "ruff_current_video_and_new_tests": {
+    "targets": [
+      "community/scripts/render_revisit_video.py",
+      "community/scripts/animate_revisit_video.py",
+      "community/scripts/finish_revisit_audio.py",
+      "community/scripts/render_revisit_guide.py",
+      "community/scripts/balance_revisit_guide_audio.py",
+      "test/conftest.py",
+      "test/tooling/test_test_layout.py"
+    ],
+    "findings": 0,
+    "cache": false
+  },
+  "complexity_new_video_scripts": {
+    "findings": 0
+  },
+  "targeted_test_count": 15,
+  "full_application_suite_rerun": false,
+  "existing_runner_findings": 4,
+  "new_runner_findings": 0,
+  "whole_project_clean": false,
+  "cleanup": "blocked by automatic approval; no deletion executed"
+}

@@ -1,0 +1,48 @@
+{
+  "frames": 1800,
+  "duration_seconds": 60,
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "decode": "passed",
+  "decoded_duration_seconds": 60.0,
+  "sha256": "d745eae40259e5d2b4116c79409e7cf5e941274af0900c84cfbb9601de7e1a5a",
+  "bytes": 3256816,
+  "output": "outputs/kou-revisit-intro-v9.mp4",
+  "script_sha256": "a390d52ef65468fc2db9afe3d480f62970181166509e195c992d7331768d52e9",
+  "method": "Original PCM scalar gain; H.264 stream copy",
+  "source_pcm_loudness": {
+    "integrated_lufs": -23.9,
+    "true_peak_dbfs": -9.6,
+    "loudness_range_lu": 7.4
+  },
+  "final_aac_loudness": {
+    "integrated_lufs": -18.0,
+    "true_peak_dbfs": -3.7,
+    "loudness_range_lu": 7.4
+  },
+  "gain_db": 5.9,
+  "target_integrated_lufs": -18.0,
+  "maximum_true_peak_dbfs": -1.5,
+  "audio_codec": "AAC 160 kbps / 48000 Hz / stereo",
+  "trimmed": false,
+  "bgm_added": false,
+  "silence_handling": "Complete original PCM consumed; scalar multiplication preserves its silent padding",
+  "video_stream_sha256": "8849a024c9e6271abad9dc7aadbf0ff56b6f4f3eba7650c49c3cf8a53be3496b",
+  "source_video_stream_sha256": "8849a024c9e6271abad9dc7aadbf0ff56b6f4f3eba7650c49c3cf8a53be3496b",
+  "video_hash_method": "SHA256 of stream-copied H.264 Annex B packets",
+  "preserved_revisions": {
+    "outputs/kou-revisit-intro-v1.mp4": true,
+    "outputs/kou-revisit-intro-v2.mp4": true,
+    "outputs/kou-revisit-intro-v3.mp4": true,
+    "outputs/kou-revisit-intro-v4.mp4": true,
+    "outputs/kou-revisit-intro-v5.mp4": true,
+    "outputs/kou-revisit-intro-v6.mp4": true,
+    "outputs/kou-revisit-intro-v7.mp4": true
+  },
+  "input_manifest": "input-manifest.json",
+  "visual_review": "Inherited unchanged source compressed video; same 1800 frames verified",
+  "audio_listening_review": "Not performed; loudness/true peak measured and all audio/video decoded"
+}

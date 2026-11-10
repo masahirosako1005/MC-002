@@ -1,0 +1,173 @@
+{
+  "source_scene_json": "artifacts/video-revisit/v9/scenes.json",
+  "source_scene_json_sha256": "b4ba3bf8f51841669373de4a80a6db8a7d38c285be0c5a55e5123d805db8695a",
+  "character_sha256": "3cab116169168f8006dd806b5d451e9ea8b0771992a3783b8955da94bd1e61ac",
+  "capture_regions": [
+    {
+      "source": "artifacts/video-revisit/screens/visitor-home.jpg",
+      "box": [
+        613,
+        505,
+        239,
+        424
+      ],
+      "sha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-overview.jpg",
+      "box": [
+        1102,
+        535,
+        566,
+        390
+      ],
+      "sha256": "b98e0101c730d4a1ea50bfa4e672f8b6576cfdeefdb221e1b0b9e10b0b052b15"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/visitor-home.jpg",
+      "box": [
+        1326,
+        205,
+        418,
+        740
+      ],
+      "sha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/visitor-chat.jpg",
+      "box": [
+        1326,
+        205,
+        418,
+        740
+      ],
+      "sha256": "c04f999e0bee4b4c81ac4a7acaaf7d66b98d923f39524543be3b4cf093ba73c7"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-reply.jpg",
+      "box": [
+        853,
+        407,
+        754,
+        520
+      ],
+      "sha256": "e70a856333d64fe0990d32da9c445fb43f0c86d0b358fec2ddc20751000bbd67"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-chart.jpg",
+      "box": [
+        853,
+        407,
+        754,
+        520
+      ],
+      "sha256": "b98e0101c730d4a1ea50bfa4e672f8b6576cfdeefdb221e1b0b9e10b0b052b15"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/03-program-progress.jpg",
+      "box": [
+        1285,
+        419,
+        500,
+        312
+      ],
+      "sha256": "3c9992f0c5faca11071d0e7891a140389d18ed982523e945c458ccd227d5fcce"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/06-rank-phone.jpg",
+      "box": [
+        1317,
+        205,
+        435,
+        740
+      ],
+      "sha256": "69dcb4aa0c4ed884add443af273f7c061a2f3fa998594527be21fffc7b75e21b"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-budget.jpg",
+      "box": [
+        806,
+        745,
+        667,
+        175
+      ],
+      "sha256": "e3e3840c72b7561c4f64967bcb436b4af2477e531f1748d17808fc9f9a4acb2b"
+    }
+  ],
+  "character_motion": "Entrance 0.42s; two 0.45s emphasis beats; no lip-sync claim",
+  "font": "Meiryo / Meiryo Bold for explanations; brush only for seals and decorative numerals",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "intro",
+      "seconds": 6.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-00.png",
+      "source_sha256": "c64d4e65e1a7bbb037cd43043872ad3611e7b6ff52d53cffb819d25df3e5e9a3",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 1,
+      "kind": "overview",
+      "seconds": 6.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-01.png",
+      "source_sha256": "b64be7bb0972e26884c97cf8490aa1bd8ee1bfd97db5dbb49dc5fa2171e1b5b3",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 2,
+      "kind": "visitor",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-02.png",
+      "source_sha256": "953830662f6c7067d2d3da9c72739d4ac61de149e2aa587b05c497d509206b70",
+      "alternate": "artifacts/video-revisit/v9/layers/scene-02-alt.png",
+      "alternate_sha256": "923e84ce763dfc5d63213622b4970814f80524a74c37d3ce7628ef99afb4f657"
+    },
+    {
+      "index": 3,
+      "kind": "provider",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-03.png",
+      "source_sha256": "dbf7f77ad28b7b77b9f5837255f0a3736748bf59d4184bd912252aeced72e687",
+      "alternate": "artifacts/video-revisit/v9/layers/scene-03-alt.png",
+      "alternate_sha256": "a30fdb36ba6a1640233351c079c69064bc179b8d60bd183ea6df38989ce4ae22"
+    },
+    {
+      "index": 4,
+      "kind": "program",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-04.png",
+      "source_sha256": "1d267278ae4d528e051d52fe4dd068defd9716c2b15b1ea74faa3ca11527e5d3",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 5,
+      "kind": "rank",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-05.png",
+      "source_sha256": "7b14adec2c593ab0013704e6572e9597daaf63a35822943d8c9af4724246f841",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 6,
+      "kind": "zone",
+      "seconds": 11.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-06.png",
+      "source_sha256": "2e18255b7bfbc9ee16be4d862d5fba27cc3771bebc2deb9540824fbafc55b848",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 7,
+      "kind": "closing",
+      "seconds": 5.0,
+      "source": "artifacts/video-revisit/v9/layers/scene-07.png",
+      "source_sha256": "4e4bc66f52e2dba75ea7f5458b97bcb1b17a9f1835feb63f8c4003b872b0b2c3",
+      "alternate": null,
+      "alternate_sha256": null
+    }
+  ]
+}

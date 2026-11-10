@@ -1,0 +1,131 @@
+{
+  "adopted_take": "take-03",
+  "characters": 182,
+  "length_tradeoff": "Shortened to 182 characters to retain pauses and emphasis at Rate 0 inside the fixed scene slots; no time compression.",
+  "duration_and_kind_preserved": true,
+  "scene_seconds": [
+    6,
+    6,
+    8,
+    8,
+    8,
+    8,
+    11,
+    5
+  ],
+  "wav_verified": [
+    {
+      "scene": 0,
+      "seconds": 4.8130625,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "65580f2b2eb62deeaaf17de6bddbf3b61308a4e9caf8d10da3c0c8cb8af54dba"
+    },
+    {
+      "scene": 1,
+      "seconds": 4.6255625,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "eb88727fa68d52a1eb5afb8372b285fa5893a22afa8eaee6930516f1e5cd4b63"
+    },
+    {
+      "scene": 2,
+      "seconds": 6.9264375,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "5f5707f78e145109af5da7df7ea1a1eb1125c4b58cffe93ab1a3caf9adf2403d"
+    },
+    {
+      "scene": 3,
+      "seconds": 6.8678125,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "427b6dc58a8694711ce5dfd6000bcc705e9168a55b31f4cf3f5a18ca56bc5449"
+    },
+    {
+      "scene": 4,
+      "seconds": 6.845875,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "a91272900a6be73163ab14ab7775df6adab62e55f753d48dda7b2ec946bf5367"
+    },
+    {
+      "scene": 5,
+      "seconds": 7.4235,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "5db67a06b6e68cebb5350f442c155515e3a313490b2eeb64c7429cdedc90ae86"
+    },
+    {
+      "scene": 6,
+      "seconds": 9.3413125,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "b116b6b00721a6db2ee4554e9190df3a70e7a0dba695660e43c54cf30637ae68"
+    },
+    {
+      "scene": 7,
+      "seconds": 4.2059375,
+      "channels": 1,
+      "sample_rate": 48000,
+      "sha256": "aaa472a0acffb4e6cc888d41ed29708e035f4325ed3961212c7cb4b39116ddbb"
+    }
+  ],
+  "vtt_matches_voice": true,
+  "protected_unchanged": {
+    "artifacts/video-revisit/v8/audio/voice-00.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-01.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-02.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-03.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-04.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-05.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-06.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-07.wav": true,
+    "community/scripts/narrate_revisit_male.ps1": true,
+    "community/scripts/revisit-video-male-scenes.json": true,
+    "outputs/kou-revisit-intro-v1.mp4": true,
+    "outputs/kou-revisit-intro-v2.mp4": true,
+    "outputs/kou-revisit-intro-v3.mp4": true,
+    "outputs/kou-revisit-intro-v4.mp4": true,
+    "outputs/kou-revisit-intro-v5.mp4": true,
+    "outputs/kou-revisit-intro-v6.mp4": true,
+    "outputs/kou-revisit-intro-v7.mp4": true,
+    "artifacts/video-revisit/audio/voice-00.wav": true,
+    "artifacts/video-revisit/audio/voice-01.wav": true,
+    "artifacts/video-revisit/audio/voice-02.wav": true,
+    "artifacts/video-revisit/audio/voice-03.wav": true,
+    "artifacts/video-revisit/audio/voice-04.wav": true,
+    "artifacts/video-revisit/audio/voice-05.wav": true,
+    "artifacts/video-revisit/audio/voice-06.wav": true,
+    "artifacts/video-revisit/audio/voice-07.wav": true
+  },
+  "total_voice_seconds": 51.0495,
+  "min_trailing_seconds": 0.3565000000000005,
+  "clipped_samples": 0,
+  "max_sample_peak_dbfs": -1.4496880825009395,
+  "final_encoded_true_peak": "parent mux/normalization check required; sample peak is not true peak",
+  "engine_checks": {
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "pitch_pcm_changed": true,
+    "repeated_plain_pcm_identical": true,
+    "pause_duration_delta_seconds": 0.19581250000000017,
+    "emphasis_pcm_changed": true
+  },
+  "script_sha256": "b62ecfdf4f2278f44dab951e7230027199e3e00978d309ddfc70dac5df4de46b",
+  "scenes_sha256": "3f852c63fd20516323dbb314776b7394d7506e87544794f1b48b545cee2143c6",
+  "listening_review": "not performed",
+  "no_acceleration": true,
+  "external_api_used": false,
+  "independent_review": {
+    "reviewer": "/root/daytrip_evidence",
+    "status": "passed read-only checks",
+    "scope": [
+      "all 8 WAV PCM/file hashes, 48 kHz/16-bit/mono, scene timing and no clipping",
+      "scene voice and SSML spoken_text match",
+      "five probe PCM comparisons and effective/ineffective settings distinction",
+      "function conditions and non-causal wording"
+    ],
+    "mandatory_corrections": 0,
+    "remaining": "Human listening and final mux loudness/true peak are still unverified here."
+  }
+}

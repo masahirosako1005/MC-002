@@ -1,7 +1,7 @@
 """Adjust narration gain from original PCM and copy the verified H.264 stream.
 
 No trim, limiter, time fitting or background sound is applied. All preceding
-revisions remain unchanged; v6 references their inputs instead of copying stills.
+revisions remain unchanged; each revision references inputs instead of copying stills.
 """
 from __future__ import annotations
 
@@ -70,11 +70,11 @@ def input_manifest(source, narration, previous):
                 path = ROOT / scene[kind]
                 saved_hash = scene['source_sha256' if kind == 'source' else 'alternate_sha256']
                 if digest(path) != saved_hash:
-                    raise ValueError('A referenced v5 still has changed')
+                    raise ValueError('A referenced source still has changed')
                 references.append({'path': scene[kind], 'sha256': saved_hash})
     scene_json = ROOT / previous['source_scene_json']
     if digest(scene_json) != previous['source_scene_json_sha256']:
-        raise ValueError('The saved v5 scene description has changed')
+        raise ValueError('The saved source scene description has changed')
     return {'source_video': source.relative_to(ROOT).as_posix(), 'source_video_sha256': digest(source),
         'source_pcm': narration.relative_to(ROOT).as_posix(), 'source_pcm_sha256': digest(narration),
         'scenes_json': scene_json.relative_to(ROOT).as_posix(), 'scenes_json_sha256': digest(scene_json),
@@ -103,19 +103,27 @@ def arguments():
     parser.add_argument('--pcm', type=project_path, default=WORK / 'v5/motion-audio/narration-60s.wav')
     parser.add_argument('--directory', type=project_path, default=WORK / 'v6')
     parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/kou-revisit-intro-v6.mp4')
+    parser.add_argument('--source-verification', type=project_path, default=WORK / 'v5/motion-verification.json')
+    parser.add_argument('--narration-json', type=project_path,
+                        help='Optional changed narration description; visual source description is preserved separately')
     return parser.parse_args()
 
 
 def main():
     args = arguments()
     args.directory.mkdir(parents=True, exist_ok=True)
-    candidate = args.directory / 'v6-audio.mp4'
+    candidate = args.directory / 'finished-audio.mp4'
     if candidate.exists() or args.output.exists():
         raise FileExistsError('Refusing to replace an existing candidate or output')
-    prior_paths = [ROOT / f'outputs/kou-revisit-intro-v{revision}.mp4' for revision in range(1, 6)]
+    prior_paths = sorted((ROOT / 'outputs').glob('kou-revisit-intro-v*.mp4'))
     prior = {path.relative_to(ROOT).as_posix(): digest(path) for path in prior_paths}
-    previous = json.loads((WORK / 'v5/motion-verification.json').read_text(encoding='utf-8'))
+    previous = json.loads(args.source_verification.read_text(encoding='utf-8'))
+    if digest(args.source) != previous['sha256']:
+        raise ValueError('Source video does not match its verification record')
     manifest = input_manifest(args.source, args.pcm, previous)
+    if args.narration_json:
+        manifest['narration_json'] = args.narration_json.relative_to(ROOT).as_posix()
+        manifest['narration_json_sha256'] = digest(args.narration_json)
     (args.directory / 'input-manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
     before = loudness(args.pcm, args.directory / 'source-pcm-loudness.txt')
     gain = round(min(TARGET_LUFS - before['integrated_lufs'],
@@ -142,7 +150,7 @@ def main():
         'video_stream_sha256': final_video_hash, 'source_video_stream_sha256': source_video_hash,
         'video_hash_method': 'SHA256 of stream-copied H.264 Annex B packets',
         'preserved_revisions': preserved, 'input_manifest': 'input-manifest.json',
-        'visual_review': 'Inherited unchanged v5 compressed video; same 1800 frames verified',
+        'visual_review': 'Inherited unchanged source compressed video; same 1800 frames verified',
         'audio_listening_review': 'Not performed; loudness/true peak measured and all audio/video decoded'}
     (args.directory / 'verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'output': report['output'], 'gain_db': gain, 'loudness': after,

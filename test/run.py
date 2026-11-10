@@ -76,7 +76,7 @@ def main(argv=None):
         return result["passed"]
 
     if args.suite in ("local", "unit", "all"):
-        command = [sys.executable, "-m", "pytest", "test/backend", "test/tooling", "-q", "--basetemp=" + str(fixtures / "pytest")]
+        command = [sys.executable, "-m", "pytest", "-c", str(ROOT / "pytest.ini"), "test/backend", "test/tooling", "-q", "--basetemp=" + str(fixtures / "pytest")]
         command += ["--collect-only"] if args.collect_only else ["--junitxml=" + str(evidence / "pytest.xml")]
         execute("pytest-collect" if args.collect_only else "pytest", command)
     if args.suite in ("local", "syntax", "all"):

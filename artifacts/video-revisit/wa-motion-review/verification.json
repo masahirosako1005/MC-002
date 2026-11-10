@@ -1,0 +1,763 @@
+{
+  "script_before_sha256": "7e44322274370601999351f0d93904bac42b34cff80a869fc54999aec58bc3d0",
+  "script_after_sha256": "a4e0144496c332625879c02030d532058b9a14ee27622655049eaf28c2047d68",
+  "transition_seconds": 0.4,
+  "classic_comparisons": [
+    {
+      "scene": 0,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 27,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 32,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 42,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 57,
+      "classic_identical": true
+    },
+    {
+      "scene": 0,
+      "frame": 179,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 24,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 29,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 39,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 54,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 102,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 107,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 117,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 132,
+      "classic_identical": true
+    },
+    {
+      "scene": 1,
+      "frame": 179,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 30,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 35,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 45,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 60,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 90,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 91,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 94,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 98,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 99,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 102,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 126,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 131,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 141,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 156,
+      "classic_identical": true
+    },
+    {
+      "scene": 2,
+      "frame": 239,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 30,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 35,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 45,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 60,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 120,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 121,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 124,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 128,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 129,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 132,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 138,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 143,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 153,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 168,
+      "classic_identical": true
+    },
+    {
+      "scene": 3,
+      "frame": 239,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 30,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 35,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 45,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 60,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 144,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 149,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 159,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 174,
+      "classic_identical": true
+    },
+    {
+      "scene": 4,
+      "frame": 239,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 30,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 35,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 45,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 60,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 141,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 146,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 156,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 171,
+      "classic_identical": true
+    },
+    {
+      "scene": 5,
+      "frame": 239,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 30,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 35,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 45,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 60,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 183,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 188,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 198,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 213,
+      "classic_identical": true
+    },
+    {
+      "scene": 6,
+      "frame": 329,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 0,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 1,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 4,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 8,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 9,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 12,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 18,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 23,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 33,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 48,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 57,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 62,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 72,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 87,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 96,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 101,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 111,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 126,
+      "classic_identical": true
+    },
+    {
+      "scene": 7,
+      "frame": 149,
+      "classic_identical": true
+    }
+  ],
+  "classic_identical": true,
+  "first_frame_visible": true,
+  "settled_after_12_frames": true,
+  "previews": [
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/01-intro-first-frame.png",
+      "scene": 0,
+      "local_frame": 0,
+      "sha256": "d1a7b3e2317185ba223e36f64988073e3d4a2a81253e794c13ae32e23d65b72f"
+    },
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/02-unroll-early.png",
+      "scene": 1,
+      "local_frame": 2,
+      "sha256": "eb4b5c4d095898553ab87f9acd3be0740ae2ff294a36a5f9bd7c79669ea9f25b"
+    },
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/03-unroll-late.png",
+      "scene": 1,
+      "local_frame": 5,
+      "sha256": "13ec1542a7dac2b9706ef4abe14db5d860e4e78b5135eda9a6d88ebce7f3ae3f"
+    },
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/04-unroll-settled.png",
+      "scene": 1,
+      "local_frame": 12,
+      "sha256": "160bac32011de2408bba4c12387d548a5d50106b513de6eab0a64cc1c91f9f06"
+    },
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/05-chat-image-unroll.png",
+      "scene": 2,
+      "local_frame": 95,
+      "sha256": "dcb917cc8ef6a274ef23e888045bbb4fecc83ddcca45996ee188bc542e8d7d83"
+    },
+    {
+      "file": "artifacts/video-revisit/wa-motion-review/06-rank-corner-focus.png",
+      "scene": 5,
+      "local_frame": 39,
+      "sha256": "2062a5efb27048b0cebb9b96d94361fd67bda4047c24768beaa73b917fddde2e"
+    }
+  ],
+  "protected_unchanged": {
+    "outputs\\kou-revisit-intro-v1.mp4": true,
+    "outputs\\kou-revisit-intro-v2.mp4": true,
+    "outputs\\kou-revisit-intro-v3.mp4": true,
+    "outputs\\kou-revisit-intro-v4.mp4": true,
+    "outputs\\kou-revisit-intro-v5.mp4": true,
+    "outputs\\kou-revisit-intro-v6.mp4": true
+  },
+  "encoded": false,
+  "audio_stream_copy_integration": "pending parent encode",
+  "visual_review": {
+    "status": "six latest Meiryo still previews inspected",
+    "notes": "Header and subtitle switch as complete bands; no mixed sentences. Main content stays fixed under the 0.4 second paper reveal. Vermilion corner cue has no status symbol. Intro is visible from the first frame.",
+    "audio_listening": "not performed",
+    "continuous_motion_playback": "not performed; parent encode pending"
+  },
+  "audio_listening": "not performed",
+  "static_checks": {
+    "root-ruff": {
+      "exit_code": 0,
+      "findings": 0
+    },
+    "isolated-c901": {
+      "exit_code": 0,
+      "findings": 0
+    }
+  },
+  "runtime": {
+    "python": "C:\\AI-Sprint\\workspace\\MC-002\\.venv\\Scripts\\python.exe"
+  },
+  "chapter_bands_atomic": {
+    "header": [
+      0,
+      94
+    ],
+    "subtitle": [
+      965,
+      1080
+    ],
+    "compared_transition_frames": 13
+  },
+  "preview_input_sha256": {
+    "artifacts/video-revisit/v7/scene-00.png": "9a192c8dc2b8fb4317ce6a0abf8ce07d9206ee15b507fc85abcd1950f43546ed",
+    "artifacts/video-revisit/v7/scene-01.png": "23a363c1b9535d949ca1392fafed7ed13019d75d01be28b87e0168536d5cef8b",
+    "artifacts/video-revisit/v7/scene-02-alt.png": "604862be688658910c5fc7357bd9bf11df1e60b69c16fe8a28472293b28a2c15",
+    "artifacts/video-revisit/v7/scene-02.png": "43f4531caf52317ba4793ec6677f8cfeb5a7964f2c8dd668a4fb1400e92cc917",
+    "artifacts/video-revisit/v7/scene-03-alt.png": "159ce67c6a30c3689f12e1b4da1f5388360daf3d883092511dae506996b15ce6",
+    "artifacts/video-revisit/v7/scene-03.png": "14efcc935181d03704a392c8f3c115c7c41690e2157f85cf50b154e191007f89",
+    "artifacts/video-revisit/v7/scene-04.png": "0a95b5da170c9dbdcfea97acae1e270df7b5afbf4502077244c1af03adcce7c7",
+    "artifacts/video-revisit/v7/scene-05.png": "8af1ee71cd4fb887377d63d1ba845e2f6d5db041cf85d24f3a90dd1385684ae5",
+    "artifacts/video-revisit/v7/scene-06.png": "8a2630a096e06282ac6579ddd008d0d67dddaede00a5022a1229c4071697ea78",
+    "artifacts/video-revisit/v7/scene-07.png": "9c1a3a76372e211ed5077675f2edd449829327dcb15bfb00ffce1eaff63e10cb",
+    "artifacts/video-revisit/v7/scenes.json": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0"
+  },
+  "preview_input_note": "Parent regenerated v7 stills using Meiryo text after the original before.json snapshot; no v1-v6 changes."
+}

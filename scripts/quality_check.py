@@ -132,7 +132,7 @@ def main() -> int:
             run([node, "community/frontend/scripts/measure-quality.mjs", args.phase], output / "frontend.log")
             run([sys.executable, "community/scripts/measure_backend_quality.py", args.phase], output / "backend.log")
             if not args.skip_tests:
-                exit_code = run([sys.executable, "-m", "pytest", "test/backend", "test/tooling", "-q",
+                exit_code = run([sys.executable, "-m", "pytest", "-c", str(ROOT / "pytest.ini"), "test/backend", "test/tooling", "-q",
                                  f"--junitxml={output / 'tests.xml'}"], output / "tests.log")
                 test_status = "passed" if exit_code == 0 else "failed"
                 if exit_code:

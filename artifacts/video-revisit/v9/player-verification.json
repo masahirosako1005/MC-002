@@ -1,0 +1,10 @@
+{
+  "currentTime": 60,
+  "duration": 60,
+  "ended": true,
+  "error": null,
+  "paused": true,
+  "source": "http://127.0.0.1:8092/kou-revisit-intro-v9.mp4",
+  "videoHeight": 1080,
+  "videoWidth": 1920
+}

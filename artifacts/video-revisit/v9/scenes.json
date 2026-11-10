@@ -1,0 +1,90 @@
+[
+  {
+    "duration": 6,
+    "chapter": "次の訪問へ",
+    "title": "一度来て、おしまい？",
+    "voice": "一度来て、おしまい？もったいない！",
+    "subtitle": "通う目的・先達への加点・地域条件に応じた追加割引",
+    "kind": "intro",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 6,
+    "chapter": "講の仕組み",
+    "title": "目的を持つ仲間で、役割を持ち寄る",
+    "voice": "こうは、目的と役割を持ち寄る仲間だ！",
+    "subtitle": "旅を選ぶ・話し合う・次の目的をつくる",
+    "kind": "overview",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 8,
+    "chapter": "利用者の操作",
+    "title": "行き先を選び、講で相談する",
+    "voice": "行き先を共有！事業者の承諾後、相談しよう。",
+    "subtitle": "仲間内の会話は分け、決めた内容だけを事業者と共有。",
+    "kind": "visitor",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 8,
+    "chapter": "事業者の操作",
+    "title": "相談に応じ、市全体の動きを見る",
+    "voice": "事業者も出番だ！相談とプラン、市全体の再訪を見よう。",
+    "subtitle": "来訪・再訪の推移と居住地域を確認。少人数の内訳は非表示。",
+    "kind": "provider",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 8,
+    "chapter": "再訪の仕組み 1",
+    "title": "目的に合わせて複数回通う",
+    "voice": "成形、絵付け、受け取り。次に来る目的をつくろう！",
+    "subtitle": "成形 → 絵付け → 受け取り。各回の利用確認を残す。",
+    "kind": "program",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 8,
+    "chapter": "再訪の仕組み 2",
+    "title": "先達の参加確認に50点",
+    "voice": "せんだつには？確認後に五十点！階級の特典も。",
+    "subtitle": "本人承諾と全行程の参加確認で＋50点。特典は階級などの条件に応じて。",
+    "kind": "rank",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 11,
+    "chapter": "再訪の仕組み 3",
+    "title": "20から40kmの日帰り圏に追加割引",
+    "voice": "片道二十から四十キロを、日帰り圏と想定。限りある予算内で割引を手厚くするぞ！",
+    "subtitle": "条件を満たす場合5％ → 10％。1回の上限・予算上限内で適用。",
+    "kind": "zone",
+    "motion": {
+      "highlights": []
+    }
+  },
+  {
+    "duration": 5,
+    "chapter": "再訪を促す三つの仕組み",
+    "title": "再訪を後押しする三つの仕組み",
+    "voice": "次の訪問を、後押しする仕組みだ！",
+    "subtitle": "通う目的 ／ 先達への加点 ／ 地域条件に応じた追加割引",
+    "kind": "closing",
+    "motion": {
+      "highlights": []
+    }
+  }
+]
