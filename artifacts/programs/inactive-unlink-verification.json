@@ -1,0 +1,21 @@
+{
+  "evidence": "artifacts/programs/inactive-unlink.xml",
+  "passed": 1,
+  "seconds": 3.16,
+  "ruff_findings": 0,
+  "change": "Owner has_link keeps unlink available while outing_id is redacted",
+  "hashes": [
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\service.py",
+      "sha256": "D9E135C6ACA0B5C696ACC048D52B4FED2B522AF9A6C3D0FD1C5FEE144AD80DE9"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\schemas.py",
+      "sha256": "708B6A3A1F12F929C843418DBC9AB284248AAD248DA58EBC86D75AC14064BA6B"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\backend\\test_programs.py",
+      "sha256": "67B1579A29BD3EFCF1E15269AD2E7FAC78DDB84D7EF28388545562F2A3AF9CC0"
+    }
+  ]
+}

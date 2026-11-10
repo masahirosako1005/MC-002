@@ -234,7 +234,7 @@ def test_schema3_is_additive_and_reopen_preserves_records(harness):
     marketplace_migrate(reopened)
     migrate(reopened)
     with reopened.transaction() as conn:
-        assert conn.execute('PRAGMA user_version').fetchone()[0] == 11
+        assert conn.execute('PRAGMA user_version').fetchone()[0] == 12
         assert expected_users == [tuple(row) for row in conn.execute('SELECT * FROM users ORDER BY id')]
         assert expected_posts == [tuple(row) for row in conn.execute('SELECT * FROM posts ORDER BY id')]
         assert not conn.execute('PRAGMA foreign_key_check').fetchall()

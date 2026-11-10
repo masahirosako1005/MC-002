@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 729,
-  "last_event_hash": "8123e2ab1fa80c6bc126a4246c0d5034cd30587ac4dd8bfae157d47cd650d00f",
-  "updated_at": "2026-11-10T11:34:08+09:00",
+  "revision": 813,
+  "last_event_hash": "889f57d60804bfcbac6c76a3b0372cdb8cecad99a4196a04e52bbf554fe8384f",
+  "updated_at": "2026-11-10T12:30:40+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3794,16 +3794,454 @@
       "revision": 7,
       "revisions": [
         {
+          "at": "2026-11-10T11:34:08+09:00",
           "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
-          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage",
           "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
-          "at": "2026-11-10T11:34:08+09:00"
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
         }
       ],
       "status": "done",
       "title": "事業者PCの横長比率と中央の連携表示",
       "type": "bug",
       "updated_at": "2026-11-10T11:34:08+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "市内事業者だけを対象とし重複と同日回遊を分ける"
+        },
+        {
+          "checked": true,
+          "text": "権限・少人数・撤回・非公開情報の非開示を試験する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:36:59+09:00",
+      "dependencies": [],
+      "description": "自社認可を維持し市全体の実人数・別日再訪・地域・公開事業者比較を集計",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:50+09:00",
+          "path": "artifacts/city-analytics/verification.json",
+          "text": "専用18試験成功。市の認可・再訪定義・秘匿・DB読取不変を確認。"
+        },
+        {
+          "at": "2026-11-10T12:21:50+09:00",
+          "path": "artifacts/quality/revisit-integrated/tests.xml",
+          "text": "統合322試験と12 subtestsが成功。JUnitは334件、失敗0。"
+        }
+      ],
+      "id": "CP78",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "N西市の事業者を統合する集計API",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:50+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "集計範囲・期間切替と不十分/欠測を正確に表示"
+        },
+        {
+          "checked": true,
+          "text": "854pxのPC内と320pxで操作でき利用者UIを維持"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T12:30:40+09:00",
+          "text": "別windowの同一アカウント併用時に初回scope切替が反映されない事象を観測。再開保存競合で画面が再生成されるコード経路はあるが、当該操作の409や再生成は未確認。原因・再現条件は未確定であり、競合が原因とは断定しない。"
+        }
+      ],
+      "created_at": "2026-11-10T11:36:59+09:00",
+      "dependencies": [],
+      "description": "自社とN西市全体の切替、グラフと地図、比較表を読みやすいPC業務UIへ",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:50+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当の自社/市切替・地図切替の観測と実画面7枚のSHA-256。記録担当の再実行ではない。"
+        },
+        {
+          "at": "2026-11-10T12:21:50+09:00",
+          "path": "docs/CITY-ANALYTICS-REVIEW.md",
+          "text": "null/0/少人数の区別、単一区分グラフ、scope切替と古い応答破棄の独立読取レビュー。"
+        },
+        {
+          "at": "2026-11-10T12:30:39+09:00",
+          "path": "artifacts/city/provider-320-after.png",
+          "text": "主担当CUA: 自社320pxは修正前client305/scroll403から修正後305/305へ改善。 SHA-256 64cdfb2ae9e54c1d4f7aa1a28c6dff12f03a933df2e610a2ee5858f7c6729d03"
+        },
+        {
+          "at": "2026-11-10T12:30:39+09:00",
+          "path": "artifacts/city/provider-320-city.png",
+          "text": "主担当CUA: 市全体320pxはclient305/scroll305。表は内部スクロール。 SHA-256 be89a0219165260fa77cacb6ef303923122606e85bde3a3ba4ba9b0640d1c37e"
+        },
+        {
+          "at": "2026-11-10T12:30:39+09:00",
+          "path": "artifacts/video-revisit/screens/final-stage.png",
+          "text": "主担当CUA: stage1440x900の外側1440/1440、右843/843、左410/410。単独854pxも839/839で文書の横はみ出しなし。 SHA-256 08242393c0bb2a75afe7235095949bb2a9f25507c91ef8cecc4e03d6d1cdf19a"
+        }
+      ],
+      "id": "CP79",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 13,
+      "revisions": [],
+      "status": "done",
+      "title": "事業者の分析画面を再構成",
+      "type": "task",
+      "updated_at": "2026-11-10T12:30:40+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "独立レビュー・API試験・静的解析の結果を記録"
+        },
+        {
+          "checked": true,
+          "text": "Docker上の自社/市全体の操作と画面を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:36:59+09:00",
+      "dependencies": [],
+      "description": "保存と自社権限を保持してDockerで集計と画面を検証",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "docs/CITY-DASHBOARD-ACCEPTANCE.md",
+          "text": "API・保全・独立レビュー・static・実画面を分けて集約。C1 40点据置。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/quality/revisit-final/summary.json",
+          "text": "最終static新規指摘0。Ruff0/型0、Oxlint115/CSS126/C90114/Bandit19が残り、判定はreview-required。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当のDocker実画面で自社とN西市全体の90日集計を切替確認。"
+        }
+      ],
+      "id": "CP80",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 10,
+      "revisions": [],
+      "status": "done",
+      "title": "市全体分析の独立レビューと統合検証",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:51+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "再適用で増殖せず、既存行不変、記録・地図・相談・事業者集計が同じ保存済み履歴につながる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:46:55+09:00",
+      "dependencies": [],
+      "description": "利用者の初期アカウントと市内事業者へ同じ履歴が届く架空データpack。既存入力維持。",
+      "documents": [
+        "DESIGN.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/operational-seed/pytest.xml",
+          "text": "分離DBの専用3試験成功。再適用・行/画像保持・会話/写真権限と集計を確認。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/seed-preservation.json",
+          "text": "実DBの比較62表の旧行と既存画像36件を保持、integrity ok、外部キー違反0。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "20件の記録から地図の9月2日を選んで17〜20件へ連動。共有相談の双方返信を確認。"
+        }
+      ],
+      "id": "CP81",
+      "origin": "この時点で新規起票",
+      "owner": "daytrip_evidence",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "数か月運用の旅・会話・地図データ",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:51+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "初期大阪駅で8候補以上、公開中の対象プランだけを表示、場所・事業者・期間・条件からクーポンを選べる"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:46:55+09:00",
+      "dependencies": [],
+      "description": "大阪駅から複数候補、場所と特典の対応、階級一覧と直接導線を整備。",
+      "documents": [
+        "DESIGN.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/live-experience.json",
+          "text": "実配信12 GETの成功。候補8・クーポン17、閲覧範囲と市の集計を確認。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当CUAで階級から17クーポン一覧へ到達。候補/番付の実画面ハッシュを保持。"
+        }
+      ],
+      "id": "CP82",
+      "origin": "この時点で新規起票",
+      "owner": "root",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "日帰り候補とクーポン探索",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:51+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "ライセンスと出典を同梱、外部配信なし、ログイン後も一貫、200%と狭幅で操作できる"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T12:30:40+09:00",
+          "text": "狭幅と通常表示の最終確認は追加したが、受入条件の文字200%が未確認のためreviewを維持する。過去版の拡大試験を流用しない。"
+        }
+      ],
+      "created_at": "2026-11-10T11:46:56+09:00",
+      "dependencies": [],
+      "description": "ローカル配信可能な筆書体を見出しへ適用し、本文と操作の可読性を維持。",
+      "documents": [
+        "DESIGN.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "docs/FONT-PROVENANCE.md",
+          "text": "Yuji Maiの固定出典・OFL・変換・ハッシュ・全グリフ保持を記録。"
+        },
+        {
+          "at": "2026-11-10T12:21:51+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当の実画面で番付・通う旅・手帳等を観測。200%/狭幅の今回受入は別途残す。"
+        },
+        {
+          "at": "2026-11-10T12:30:40+09:00",
+          "path": "artifacts/video-revisit/screens/rank-v4-stage.jpg",
+          "text": "主担当が年2027表示と同一維持条件の説明短縮を最終配信で目視確認。文字200%は今回IABの対応操作で確認できず未検証。SHA-256 148dcc792a2eff05e2c89d20c6b3dbfe40ed891e07245fa5069798797bea2e19"
+        }
+      ],
+      "id": "CP83",
+      "origin": "この時点で新規起票",
+      "owner": "wa_frontend",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "review",
+      "title": "筆文字見出しと和紙・挿絵の統一",
+      "type": "task",
+      "updated_at": "2026-11-10T12:30:40+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "順序・専用プラン・別日・参加と事業者確認・取消再計算・権限と画面を検証"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:59:30+09:00",
+      "dependencies": [],
+      "description": "専用プランの工程を複数日で進めるパッケージ。本人登録と開催を保存。",
+      "documents": [
+        "DESIGN.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/programs/verification.json",
+          "text": "最終専用5試験成功。初回7成功/1失敗と修正経緯を保持。"
+        },
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/programs/inactive-unlink-verification.json",
+          "text": "閲覧権失効後はIDを隠したまま本人のhas_linkで解除を維持する追加試験成功。"
+        },
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当CUAで通う旅1/3の利用確認済み進捗と次回開催選択ダイアログを確認。"
+        }
+      ],
+      "id": "CP84",
+      "origin": "この時点で新規起票",
+      "owner": "daytrip_evidence",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "通う旅：複数回の目的と実施進捗",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:52+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "100件超を重複なく取得、非共有下書きや他コミュニティを隠し、切替後に旧応答を描画しない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:59:31+09:00",
+      "dependencies": [],
+      "description": "最新100件固定から24件ずつのkeysetページングへ。",
+      "documents": [
+        "DESIGN.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/city/paging-operational.xml",
+          "text": "ページングと運用データの4試験成功。ただしページング専用追加データは83行で100件超の証拠は未成立。"
+        },
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "community/frontend/src/useCommunityFeed.ts",
+          "text": "本人/コミュニティ/revisionのscope、abort、request参照比較、二重送信防止を読取確認。ブラウザーの遅延注入試験とは区別。"
+        },
+        {
+          "at": "2026-11-10T12:23:23+09:00",
+          "path": "artifacts/city/feed-over-100.xml",
+          "text": "123行・本人可視122行で対象1試験成功（1.159秒）。24件ずつの取得、重複なし、途中の新規投稿、他者下書き非表示と退会後の拒否を確認。"
+        }
+      ],
+      "id": "CP85",
+      "origin": "この時点で新規起票",
+      "owner": "root",
+      "priority": "P1",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "投稿の続きを安全に読む",
+      "type": "task",
+      "updated_at": "2026-11-10T12:23:23+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "境界・未登録・同時予約・取消・既存予約固定・画面を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T12:06:13+09:00",
+      "dependencies": [],
+      "description": "登録地域に基づく20〜40kmの追加割引と予約時予算保護",
+      "documents": [
+        "docs/DAYTRIP-ZONE-BENEFITS.md",
+        "docs/CITY-DASHBOARD-ACCEPTANCE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/zone-benefits/pytest.xml",
+          "text": "追加割引・予算の専用9試験成功。"
+        },
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/zone-benefits/initial-budget-display.xml",
+          "text": "初回予算設定前の既存確保・利用額を返す追加1試験成功。"
+        },
+        {
+          "at": "2026-11-10T12:21:52+09:00",
+          "path": "artifacts/city/browser-acceptance.json",
+          "text": "主担当CUAで事業者の予算を同値保存し成功表示を確認。"
+        }
+      ],
+      "id": "CP86",
+      "origin": "この時点で新規起票",
+      "owner": "rank_plan_review",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "日帰りゾーン追加割引と予算管理",
+      "type": "task",
+      "updated_at": "2026-11-10T12:21:52+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "約60秒・音声字幕・実画面・全体確認・修正履歴・ユーザー確認用出力"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T12:06:14+09:00",
+      "dependencies": [],
+      "description": "講の説明から利用者・事業者・3施策まで実画面で紹介し複数版を改善",
+      "documents": [
+        "docs/REVISIT-VIDEO.md"
+      ],
+      "evidence": [],
+      "id": "CP87",
+      "origin": "この時点で新規起票",
+      "owner": "root",
+      "priority": "P2",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "三つの再訪施策を伝える約1分動画",
+      "type": "task",
+      "updated_at": "2026-11-10T12:06:14+09:00"
     },
     {
       "acceptance": [

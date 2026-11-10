@@ -11,7 +11,7 @@ DDL = """CREATE TABLE residence_profiles(
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version == 11:
+        if version in (11, 12):
             return
         if version != 10:
             raise RuntimeError('Unsupported residence migration source')

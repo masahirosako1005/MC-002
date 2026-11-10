@@ -1,0 +1,82 @@
+{
+  "scope": "CP78–86 acceptance update; current evidence only. CP87 is owned by the primary agent.",
+  "tickets": [
+    {
+      "id": "CP78", "status": "done", "checked": [1, 2],
+      "note": "市対象・重複排除・同日回遊・認可・少人数・撤回・非公開情報の制限を専用18試験と統合回帰で確認。",
+      "evidence": [
+        {"path": "artifacts/city-analytics/verification.json", "text": "専用18試験成功。市の認可・再訪定義・秘匿・DB読取不変を確認。"},
+        {"path": "artifacts/quality/revisit-integrated/tests.xml", "text": "統合322試験と12 subtestsが成功。JUnitは334件、失敗0。"}
+      ]
+    },
+    {
+      "id": "CP79", "status": "review", "checked": [1],
+      "note": "自社/市90日と地図範囲の実操作は主担当CUAで確認。320pxと左右端末の横はみ出し計測は未完のため検証中。",
+      "evidence": [
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当の自社/市切替・地図切替の観測と実画面7枚のSHA-256。記録担当の再実行ではない。"},
+        {"path": "docs/CITY-ANALYTICS-REVIEW.md", "text": "null/0/少人数の区別、単一区分グラフ、scope切替と古い応答破棄の独立読取レビュー。"}
+      ]
+    },
+    {
+      "id": "CP80", "status": "done", "checked": [1, 2],
+      "note": "独立レビュー、API/保存試験、全体静的解析、Dockerの自社/市切替を確認。既存品質指摘は別課題として残す。",
+      "evidence": [
+        {"path": "docs/CITY-DASHBOARD-ACCEPTANCE.md", "text": "API・保全・独立レビュー・static・実画面を分けて集約。C1 40点据置。"},
+        {"path": "artifacts/quality/revisit-final/summary.json", "text": "最終static新規指摘0。Ruff0/型0、Oxlint115/CSS126/C90114/Bandit19が残り、判定はreview-required。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当のDocker実画面で自社とN西市全体の90日集計を切替確認。"}
+      ]
+    },
+    {
+      "id": "CP81", "status": "done", "checked": [1],
+      "note": "再投入不変、旧行/写真の保持、記録/地図/相談/市集計の関連をAPIと実画面で確認。実来訪効果ではない。",
+      "evidence": [
+        {"path": "artifacts/operational-seed/pytest.xml", "text": "分離DBの専用3試験成功。再適用・行/画像保持・会話/写真権限と集計を確認。"},
+        {"path": "artifacts/city/seed-preservation.json", "text": "実DBの比較62表の旧行と既存画像36件を保持、integrity ok、外部キー違反0。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "20件の記録から地図の9月2日を選んで17〜20件へ連動。共有相談の双方返信を確認。"}
+      ]
+    },
+    {
+      "id": "CP82", "status": "done", "checked": [1],
+      "note": "大阪駅の8候補と17クーポン、対象プラン/場所/事業者/期間/階級の表示と導線を確認。",
+      "evidence": [
+        {"path": "artifacts/city/live-experience.json", "text": "実配信12 GETの成功。候補8・クーポン17、閲覧範囲と市の集計を確認。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当CUAで階級から17クーポン一覧へ到達。候補/番付の実画面ハッシュを保持。"}
+      ]
+    },
+    {
+      "id": "CP83", "status": "review", "checked": [],
+      "note": "見出し書体の出典/OFL同梱とローカル配信、ログイン後の紙面は確認済み。今回の文字200%と狭幅の最終操作確認は未実施。",
+      "evidence": [
+        {"path": "docs/FONT-PROVENANCE.md", "text": "Yuji Maiの固定出典・OFL・変換・ハッシュ・全グリフ保持を記録。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当の実画面で番付・通う旅・手帳等を観測。200%/狭幅の今回受入は別途残す。"}
+      ]
+    },
+    {
+      "id": "CP84", "status": "done", "checked": [1],
+      "note": "専用プラン・工程順/別日・参加/事業者確認・取消再計算・権限をAPIで、1/3進捗と次回選択を実画面で確認。停止後の個別解除も追加試験成功。",
+      "evidence": [
+        {"path": "artifacts/programs/verification.json", "text": "最終専用5試験成功。初回7成功/1失敗と修正経緯を保持。"},
+        {"path": "artifacts/programs/inactive-unlink-verification.json", "text": "閲覧権失効後はIDを隠したまま本人のhas_linkで解除を維持する追加試験成功。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当CUAで通う旅1/3の利用確認済み進捗と次回開催選択ダイアログを確認。"}
+      ]
+    },
+    {
+      "id": "CP85", "status": "done", "checked": [1],
+      "note": "当初83行で100件超の証拠が不足しreviewに残した後、123行・本人可視122行の追加対象試験1件が成功。非共有下書き・所属失効・重複なしとscope/abortによる旧応答破棄の読取を合わせて受入。",
+      "evidence": [
+        {"path": "artifacts/city/paging-operational.xml", "text": "ページングと運用データの4試験成功。ただしページング専用追加データは83行で100件超の証拠は未成立。"},
+        {"path": "community/frontend/src/useCommunityFeed.ts", "text": "本人/コミュニティ/revisionのscope、abort、request参照比較、二重送信防止を読取確認。ブラウザーの遅延注入試験とは区別。"},
+        {"path": "artifacts/city/feed-over-100.xml", "text": "123行・本人可視122行で対象1試験成功（1.159秒）。24件ずつの取得、重複なし、途中の新規投稿、他者下書き非表示と退会後の拒否を確認。"}
+      ]
+    },
+    {
+      "id": "CP86", "status": "done", "checked": [1],
+      "note": "距離境界・未登録・同時予約・取消・既存確保額固定をAPIで、予算の同値保存を主担当CUAで確認。",
+      "evidence": [
+        {"path": "artifacts/zone-benefits/pytest.xml", "text": "追加割引・予算の専用9試験成功。"},
+        {"path": "artifacts/zone-benefits/initial-budget-display.xml", "text": "初回予算設定前の既存確保・利用額を返す追加1試験成功。"},
+        {"path": "artifacts/city/browser-acceptance.json", "text": "主担当CUAで事業者の予算を同値保存し成功表示を確認。"}
+      ]
+    }
+  ]
+}

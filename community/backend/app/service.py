@@ -10,7 +10,7 @@ from .database import TRIPS, digest, identifier, now, password_hash
 from .image_guidance import photo_guidance
 from .images import cleanup_deleted_media, location_candidate, sanitize_image
 
-COVER_KEYS = ("woodland", "coffee", "coast", "table")
+COVER_KEYS = ("woodland", "coffee", "coast", "table", "pottery", "garden", "riverside")
 TRIP_BY_ID = {trip["id"]: {**trip, "cover_key": {"mountain": "woodland", "coast": "coast", "cafe": "coffee", "games": "table"}[trip["cover_key"]]} for trip in TRIPS}
 
 
@@ -177,10 +177,21 @@ class Service:
         return {"id": row["id"], "community_id": row["community_id"], "author": user_out(author), "body": row["body"], "tags": json.loads(row["tags"]), "media": media,
                 "status": row["status"], "created_at": row["created_at"], "place_label": row["place_label"], "taken_on": row["taken_on"], "can_edit": row["user_id"] == uid}
 
-    def feed(self, uid, cid):
+    def feed(self, uid, cid, before=None, limit=24):
         with self.db.transaction() as conn:
             member(conn, uid, cid)
-            return {"items": [self.post_out(conn, row, uid) for row in conn.execute("SELECT * FROM posts WHERE community_id=? AND (status='published' OR (status='draft' AND user_id=?)) ORDER BY created_at DESC,id LIMIT 100", (cid, uid))]}
+            if type(limit) is not int or not 1 <= limit <= 100:
+                raise HTTPException(422, '一度に読む件数を確認してください。')
+            created = None
+            if before is not None:
+                cursor = require(conn.execute("SELECT created_at FROM posts WHERE id=? AND community_id=? AND (status='published' OR (status='draft' AND user_id=?))", (before, cid, uid)).fetchone())
+                created = cursor['created_at']
+            rows = conn.execute("""SELECT * FROM posts WHERE community_id=? AND
+                (status='published' OR (status='draft' AND user_id=?)) AND
+                (? IS NULL OR created_at<? OR (created_at=? AND id>?))
+                ORDER BY created_at DESC,id LIMIT ?""", (cid, uid, before, created, created, before, limit + 1)).fetchall()
+            return dict(items=[self.post_out(conn, row, uid) for row in rows[:limit]],
+                        next_cursor=rows[limit - 1]['id'] if len(rows) > limit else None)
 
     @staticmethod
     def validate_post_media(conn, uid, media_ids, pid=None):

@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from typing import Annotated, Literal
 
-from pydantic import Field, StringConstraints, field_validator, model_validator
+from pydantic import BaseModel, Field, StringConstraints, field_validator, model_validator
 
 from ..schemas import Id, Input, Short
 
@@ -99,3 +99,17 @@ class BenefitInput(Input):
 class ReserveInput(Input):
     outing_id: Id
     client_request_id: Id
+
+
+class ZonePolicyInput(VersionInput):
+    additional_percent: Annotated[int, Field(strict=True, ge=0, le=100)]
+    budget_yen: PositiveYen
+
+
+class ZonePolicyState(BaseModel):
+    version: int
+    additional_percent: int
+    budget_yen: int
+    used_yen: int
+    remaining_yen: int
+    distance_version: str

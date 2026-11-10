@@ -1,0 +1,211 @@
+.journal-map-view {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid #d7ddcf;
+  border-radius: 18px;
+  background: var(--white, #fffdf7);
+  overflow: hidden;
+}
+.journal-map-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+}
+.journal-map-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+.journal-map-heading p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.journal-map-scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.journal-map-scopes button {
+  min-height: 44px;
+  padding: 7px 12px;
+  border: 1px solid #c9d0c3;
+  border-radius: 8px;
+  background: #fffdf7;
+  font: inherit;
+  font-size: 0.8rem;
+}
+.journal-map-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  aspect-ratio: 1.4;
+  background: #e7ede3;
+  overflow: hidden;
+}
+.journal-map-canvas > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.journal-map-coast {
+  fill: #f8f5ed;
+  stroke: #bfcbb7;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.journal-map-prefecture {
+  fill: #b4c0ab;
+}
+.journal-map-prefecture.visited {
+  fill: #55765b;
+}
+.journal-map-area-label {
+  font-size: 10px;
+  fill: #52624b;
+}
+.journal-map-north,
+.journal-map-scale-note {
+  position: absolute;
+  font-size: 0.7rem;
+  color: #465b43;
+  pointer-events: none;
+}
+.journal-map-north {
+  top: 10px;
+  right: 12px;
+}
+.journal-map-scale-note {
+  bottom: 8px;
+  left: 12px;
+  background: #f8f5ede0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.journal-map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid #fffdf7;
+  border-radius: 50%;
+  background: #9b3d2c;
+  color: #fffdf7;
+  box-shadow: 0 2px 6px #35452a30;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.journal-map-marker small {
+  font-size: 0.6rem;
+  margin-left: 2px;
+}
+.journal-map-marker.selected {
+  background: #2d4d3b;
+  outline: 3px solid #2d4d3b55;
+  outline-offset: 2px;
+  z-index: 1;
+}
+.journal-map-view figcaption {
+  padding: 12px 18px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.journal-map-selection {
+  display: grid;
+  gap: 4px;
+  padding: 12px 18px;
+  min-height: 70px;
+  border-block: 1px solid var(--line);
+  background: #f1f3ea;
+  overflow-wrap: anywhere;
+}
+.journal-map-selection strong {
+  font-size: 0.95rem;
+}
+.journal-map-selection span,
+.journal-map-selection small {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.journal-map-view figcaption span {
+  display: block;
+  margin-top: 4px;
+}
+.journal-map-records summary {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.journal-map-records ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px 10px;
+  max-height: 17rem;
+  overflow-y: auto;
+}
+.journal-map-records li + li {
+  border-top: 1px solid var(--line);
+}
+.journal-map-records button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+.journal-map-records button > span:first-child {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  flex: 1 1 160px;
+}
+.journal-map-records button strong {
+  font-size: 0.85rem;
+}
+.journal-map-records button small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.journal-map-records button[aria-pressed="true"] {
+  background: #edf1e4;
+}
+.journal-map-record-position {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: #57684e;
+}
+.journal-map-scopes button[aria-pressed="true"] {
+  background: #405a49;
+  color: #fffdf7;
+  border-color: #405a49;
+}
+.journal-map-scopes button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.journal-map-view button:focus-visible,
+.journal-map-view summary:focus-visible {
+  outline: 3px solid #244a39;
+  outline-offset: 3px;
+}

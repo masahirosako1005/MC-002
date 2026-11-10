@@ -1,0 +1,40 @@
+{
+  "tests": {
+    "failures": 0,
+    "junit": "artifacts/city-analytics/pytest.xml",
+    "passed": 18,
+    "errors": 0,
+    "seconds": 16.81
+  },
+  "city_get_database_unchanged": true,
+  "source_sha256": {
+    "community/backend/app/analytics/city_privacy.py": "4f7669d3ead3c0ca0345509bf5fc7b493d781d930ab077edf913914cd1905ac3",
+    "community/backend/app/analytics/city_schemas.py": "6ce8f8cbbd86414acda57b307d803bc0c840c2c0d48a47ca2964b4386a0e0d74",
+    "community/backend/app/analytics/city_scope.py": "faacac7920dc67234e32b5fdd99265ec0c17f735cd7b7e88cd50d605a3212e36",
+    "community/backend/app/analytics/city_service.py": "108fb431b781df308405edbc554d361ca0fccb23a2b436e8ec6c67171b6e21bf",
+    "test/backend/test_city_analytics.py": "05e15ac5e97026bac405922d5868e28777f5526bbebc1e0c54bd94476178559f",
+    "community/backend/app/analytics/router.py": "8dfb951ce0c61b64fe7df3bfaee5df957a9bc0c75d9df012d837d6acfe1fa7dc"
+  },
+  "self_api_unchanged": true,
+  "bandit_errors": 0,
+  "bandit_count": 0,
+  "fixture_integration": {
+    "period_days": 90,
+    "regions": 6,
+    "returning_visitors": 36,
+    "participations": 144,
+    "published_plans": 15,
+    "visit_days": 144,
+    "provenance": "Fictional local content, not measured tourism outcomes",
+    "visitors": 36
+  },
+  "ruff_count": 0,
+  "not_executed": [
+    "full regression by root",
+    "Docker and browser integration by root"
+  ],
+  "privacy": "Small-cell and complementary breakdown suppression only; overlapping periods and result changes may permit inference.",
+  "checked_at": "2026-11-10T02:43:42.0460126Z",
+  "complexity_count": 0,
+  "scope": "city analytics API and dedicated isolated tests"
+}

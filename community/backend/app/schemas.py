@@ -114,6 +114,7 @@ class PostOutput(BaseModel):
 
 class PostFeed(BaseModel):
     items: list[PostOutput]
+    next_cursor: str | None = None
 
 
 class Removed(BaseModel):

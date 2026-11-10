@@ -21,6 +21,21 @@ export type ProviderOrigins = {
   privacy_threshold: number;
   definitions: string[];
 };
+export type CityOrigins = Omit<
+  ProviderOrigins,
+  | "total_visitors"
+  | "consented_visitors"
+  | "missing_visitors"
+  | "withheld_visitors"
+  | "suppressed_visitors"
+> & {
+  total_visitors: number | null;
+  consented_visitors: number | null;
+  missing_visitors: number | null;
+  withheld_visitors: number | null;
+  suppressed_visitors: number | null;
+  reason: string | null;
+};
 type Focus = "national" | "kansai" | "nearby";
 type Mode = "visitors" | "returning_visitors";
 const bounds: Record<Focus, [number, number, number, number]> = {
@@ -82,15 +97,21 @@ const number = new Intl.NumberFormat("ja-JP");
 
 export default function ProviderOriginMap({
   value,
+  compact = false,
 }: {
-  value: ProviderOrigins;
+  value: ProviderOrigins | CityOrigins;
+  compact?: boolean;
 }) {
   const [focus, setFocus] = useState<Focus>("nearby");
   const [mode, setMode] = useState<Mode>("visitors");
   const [selectedId, setSelectedId] = useState("");
   const selected = value.areas.find((area) => area.id === selectedId);
   const visible = value.areas.filter((area) => within(area, focus));
-  const maximum = Math.max(5, ...value.areas.map((area) => area[mode] || 0));
+  const maximum = value.areas.reduce(
+    (maximumCount, area) =>
+      area[mode] === null ? maximumCount : Math.max(maximumCount, area[mode]),
+    5,
+  );
   const destination = project(
     value.destination.longitude,
     value.destination.latitude,
@@ -107,8 +128,8 @@ export default function ProviderOriginMap({
     const radius = 5 + Math.sqrt(count / maximum) * 12;
     // The nearby Osaka/Suita labels sit on opposite sides of their close markers.
     const left =
-      point.x > width - 140 ||
-      (point.x > 130 &&
+      point.x > width - (compact ? 190 : 140) ||
+      (point.x > (compact ? 210 : 130) &&
         (point.x < destination.x - 40 || area.city === "大阪市"));
     return [
       {
@@ -131,39 +152,49 @@ export default function ProviderOriginMap({
     if (!within(area, focus)) setFocus("national");
   }
   return (
-    <section className="dashboard-panel origin-panel">
+    <section
+      className={`dashboard-panel origin-panel ${compact ? "origin-compact" : ""}`}
+    >
       <header className="dashboard-panel-heading">
         <div>
-          <h2>来訪・再訪者の居住地域</h2>
-          <p>
-            目的地：{value.destination.prefecture} {value.destination.name}
-          </p>
+          <h2>{compact ? "居住地域" : "来訪・再訪者の居住地域"}</h2>
+          {!compact && (
+            <p>
+              目的地：{value.destination.prefecture} {value.destination.name}
+            </p>
+          )}
         </div>
+        {compact && <span className="dashboard-unit">市区町村の代表点</span>}
       </header>
-      <p className="dashboard-method-note">
-        事業者確認まで完了した参加者を集計しています。市区町村の代表地点で、自宅や実際の出発地ではありません。
-      </p>
+      {!compact && (
+        <p className="dashboard-method-note">
+          事業者確認まで完了した参加者を集計しています。市区町村の代表地点で、自宅や実際の出発地ではありません。
+        </p>
+      )}
       <div className="origin-controls">
         <div className="dashboard-chart-switch" aria-label="地域図の指標">
           <button
             aria-pressed={mode === "visitors"}
+            aria-label="来訪者"
             onClick={() => setMode("visitors")}
           >
-            来訪者
+            {compact ? "来訪" : "来訪者"}
           </button>
           <button
             aria-pressed={mode === "returning_visitors"}
+            aria-label="再訪者"
             onClick={() => setMode("returning_visitors")}
           >
-            再訪者
+            {compact ? "再訪" : "再訪者"}
           </button>
         </div>
         <div className="dashboard-chart-switch" aria-label="地域図の範囲">
           <button
             aria-pressed={focus === "nearby"}
+            aria-label="N西市周辺"
             onClick={() => setFocus("nearby")}
           >
-            N西市周辺
+            {compact ? "周辺" : "N西市周辺"}
           </button>
           <button
             aria-pressed={focus === "kansai"}
@@ -276,14 +307,19 @@ export default function ProviderOriginMap({
             <b />
             目的地
           </span>
-          <span>人数0人の地域は円を表示しません。</span>
+          {!compact && <span>人数0人の地域は円を表示しません。</span>}
         </figcaption>
       </figure>
       {value.status !== "available" && (
         <p className="origin-status">
-          {value.status === "no_data"
-            ? "この期間に地図へ表示できる居住地域の記録はありません。"
-            : "共有が許可された地域の人数が少ないため、地図に表示していません。"}
+          {compact
+            ? value.status === "no_data"
+              ? "表示できる居住地域の記録はありません。"
+              : "少人数の内訳を含むため地域図は非表示です。"
+            : ("reason" in value && value.reason) ||
+              (value.status === "no_data"
+                ? "この期間に地図へ表示できる居住地域の記録はありません。"
+                : "共有が許可された地域の人数が少ないため、地図に表示していません。")}
         </p>
       )}
       {focus !== "national" &&
@@ -292,74 +328,92 @@ export default function ProviderOriginMap({
             表示範囲外の地域があります。全国に切り替えると確認できます。
           </p>
         )}
-      <dl className="origin-coverage">
-        {(
-          [
-            ["確認済み来訪者", value.total_visitors],
-            ["地域共有あり", value.consented_visitors],
-            ["地域未登録", value.missing_visitors],
-            ["地域共有なし", value.withheld_visitors],
-            ["少人数で非表示", value.suppressed_visitors],
-          ] as const
-        ).map(([label, count]) => (
-          <div key={label}>
-            <dt>{label}</dt>
-            <dd>
-              {number.format(count)}
-              <small>人</small>
-            </dd>
-          </div>
-        ))}
-      </dl>
-      <p className="dashboard-muted">
-        地域ごとに{value.privacy_threshold}
-        人未満の場合や、再訪の内訳に少人数が含まれる場合は、その地域の名前・位置・人数を表示しません。
+      <p className="origin-brief">
+        未登録{" "}
+        {value.missing_visitors === null
+          ? "非表示"
+          : `${number.format(value.missing_visitors)}人`}{" "}
+        · 未共有{" "}
+        {value.withheld_visitors === null
+          ? "非表示"
+          : `${number.format(value.withheld_visitors)}人`}{" "}
+        · 少人数の地域は非表示
       </p>
-      {value.areas.length > 0 && (
-        <div className="dashboard-table-wrap">
-          <table className="origin-table">
-            <caption>地域名を選ぶと、地図上の位置を強調します。</caption>
-            <thead>
-              <tr>
-                <th scope="col">居住地域</th>
-                <th scope="col">来訪者</th>
-                <th scope="col">再訪者</th>
-              </tr>
-            </thead>
-            <tbody>
-              {value.areas.map((area) => (
-                <tr
-                  key={area.id}
-                  className={area.id === selectedId ? "selected" : ""}
-                >
-                  <th scope="row">
-                    <button
-                      className="text-button"
-                      aria-pressed={area.id === selectedId}
-                      onClick={() => select(area)}
-                    >
-                      {area.label}
-                    </button>
-                  </th>
-                  <td>{number.format(area.visitors)}人</td>
-                  <td>
-                    {area.returning_visitors === null
-                      ? "少数のため非表示"
-                      : `${number.format(area.returning_visitors)}人`}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      <details className="dashboard-definitions">
-        <summary>地域集計と再訪の数え方</summary>
-        <ul>
-          {value.definitions.map((definition) => (
-            <li key={definition}>{definition}</li>
+      <details className="origin-details" open={!compact}>
+        <summary>地域別の数値と集計条件</summary>
+        <dl className="origin-coverage">
+          {(
+            [
+              ["確認済み来訪者", value.total_visitors],
+              ["地域共有あり", value.consented_visitors],
+              ["地域未登録", value.missing_visitors],
+              ["地域共有なし", value.withheld_visitors],
+              ["少人数で非表示", value.suppressed_visitors],
+            ] as const
+          ).map(([label, count]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>
+                {count === null ? "非表示" : number.format(count)}
+                {count !== null && <small>人</small>}
+              </dd>
+            </div>
           ))}
-        </ul>
+        </dl>
+        <p className="dashboard-muted">
+          {"reason" in value
+            ? `市全体では、${value.privacy_threshold}人未満の内訳がある場合は地域図全体を非表示にします。`
+            : `地域ごとに${value.privacy_threshold}人未満の場合や、再訪の内訳に少人数が含まれる場合は、その地域の名前・位置・人数を表示しません。`}
+        </p>
+        {"reason" in value && value.reason && (
+          <p className="dashboard-muted">{value.reason}</p>
+        )}
+        {value.areas.length > 0 && (
+          <div className="dashboard-table-wrap">
+            <table className="origin-table">
+              <caption>地域名を選ぶと、地図上の位置を強調します。</caption>
+              <thead>
+                <tr>
+                  <th scope="col">居住地域</th>
+                  <th scope="col">来訪者</th>
+                  <th scope="col">再訪者</th>
+                </tr>
+              </thead>
+              <tbody>
+                {value.areas.map((area) => (
+                  <tr
+                    key={area.id}
+                    className={area.id === selectedId ? "selected" : ""}
+                  >
+                    <th scope="row">
+                      <button
+                        className="text-button"
+                        aria-pressed={area.id === selectedId}
+                        onClick={() => select(area)}
+                      >
+                        {area.label}
+                      </button>
+                    </th>
+                    <td>{number.format(area.visitors)}人</td>
+                    <td>
+                      {area.returning_visitors === null
+                        ? "少数のため非表示"
+                        : `${number.format(area.returning_visitors)}人`}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <div className="dashboard-definitions">
+          <p>市区町村の代表地点です。自宅や実際の出発地ではありません。</p>
+          <ul>
+            {value.definitions.map((definition) => (
+              <li key={definition}>{definition}</li>
+            ))}
+          </ul>
+        </div>
       </details>
     </section>
   );

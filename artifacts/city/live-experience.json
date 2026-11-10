@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "error_type": null,
+  "error_line": null,
+  "checks": {
+    "visitor": {
+      "choices": 8,
+      "coupons": 17,
+      "completed": 21,
+      "journal_records": 20,
+      "photo_records": 20,
+      "circles": 58,
+      "internal_messages": 5,
+      "shared_messages": 5
+    },
+    "city_30": {
+      "providers": 6,
+      "plans": 33,
+      "visitors": 42,
+      "returning": 42,
+      "regions": 6,
+      "trend_buckets": 5
+    },
+    "city_90": {
+      "providers": 6,
+      "plans": 33,
+      "visitors": 42,
+      "returning": 42,
+      "regions": 6,
+      "trend_buckets": 3
+    },
+    "city_365": {
+      "providers": 6,
+      "plans": 33,
+      "visitors": 42,
+      "returning": 42,
+      "regions": 6,
+      "trend_buckets": 53
+    },
+    "access": "visitor city denied; peer private analytics denied; own analytics available"
+  },
+  "read_requests": 12,
+  "maximum_read_ms": 59.2,
+  "timings_ms": [
+    59.2,
+    10.6,
+    8.6,
+    24.1,
+    7.9,
+    7.7,
+    10.9,
+    25.3,
+    24.6,
+    26.2,
+    15.1,
+    8.5
+  ],
+  "scope": "Local populated app API reads; not browser or tourism-effect measurement."
+}

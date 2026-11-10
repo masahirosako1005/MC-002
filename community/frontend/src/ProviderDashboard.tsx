@@ -1,296 +1,385 @@
-import { lazy, Suspense, useEffect, useId, useState } from "react";
-import type { ProviderOrigins } from "./ProviderOriginMap";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
 import type { Provider } from "./marketplace-types";
+import type {
+  Analytics,
+  CityAnalytics,
+  CityMetricKey,
+  DisplayMetric,
+  Scope,
+  SelfMetricKey,
+  WorkspaceTab,
+} from "./provider-analytics-types";
 import { Empty, ErrorBox, Icon } from "./ui";
 import { errorMessage } from "./validation";
+import ProviderTrend from "./ProviderTrend";
+import Breakdown from "./ProviderBreakdown";
 const ProviderOriginMap = lazy(() => import("./ProviderOriginMap"));
-
-type MetricKey =
-  | "consultations"
-  | "confirmed_users"
-  | "confirmed_visits"
-  | "completed_outings";
-type WorkspaceTab = "plans" | "consultations" | "circles" | "daytrip";
-type Metric = {
-  count: number;
-  previous_count: number;
-  change_count: number;
-  change_percent: number | null;
-  unit: string;
-  definition: string;
-};
-type Daily = { date: string } & Record<MetricKey, number>;
-type Distribution = {
-  label: string;
-  status: "available" | "insufficient_sample" | "no_data";
-  known_count: number;
-  missing_count: number;
-  bins: { key: string; label: string; count: number | null }[];
-  reason: string | null;
-};
-type Analytics = {
-  provider_id: string;
-  generated_at: string;
-  period: {
-    days: number;
-    timezone: string;
-    start_date: string;
-    end_date: string;
-    previous_start_date: string;
-    previous_end_date: string;
-    today_partial: boolean;
-  };
-  summary: Record<MetricKey, Metric>;
-  daily: Daily[];
-  plans: ({ id: string; title: string; status: "published" } & Record<
-    MetricKey,
-    number
-  >)[];
-  conditions: {
-    population_unit: string;
-    sample_count: number;
-    unique_sharers: number;
-    consultation_count: number;
-    people: Distribution;
-    nights: Distribution;
-    budget_per_person: Distribution;
-  };
-  demographics: Record<
-    "age" | "gender" | "interests",
-    {
-      status: "not_collected";
-      reason: string;
-      known_count: number;
-      missing_count: number;
-    }
-  >;
-  notes: string[];
-  origins: ProviderOrigins;
-};
-const metrics: { key: MetricKey; label: string; short: string }[] = [
-  { key: "consultations", label: "届いた相談", short: "相談" },
-  { key: "confirmed_users", label: "実参加を確認した人", short: "実参加者" },
-  { key: "confirmed_visits", label: "確認済みの延べ参加", short: "延べ参加" },
-  { key: "completed_outings", label: "実施確認のある開催", short: "開催" },
-];
 const number = new Intl.NumberFormat("ja-JP");
-function shortDate(value: string) {
-  return value.slice(5).replace("-", "/");
+const selfMetrics: { key: SelfMetricKey; label: string; short: string }[] = [
+  { key: "consultations", label: "相談件数", short: "相談" },
+  { key: "confirmed_users", label: "利用者数", short: "利用者" },
+  { key: "confirmed_visits", label: "延べ参加回数", short: "参加" },
+  { key: "completed_outings", label: "実施開催数", short: "開催" },
+];
+const cityMetrics: { key: CityMetricKey; label: string; short: string }[] = [
+  { key: "visitors", label: "来訪者数", short: "来訪" },
+  { key: "returning_visitors", label: "再訪者数", short: "再訪" },
+  { key: "visit_days", label: "延べ来訪日数", short: "来訪日" },
+  { key: "participations", label: "延べ参加回数", short: "参加" },
+];
+function count(value: number | null, unit = "") {
+  return value === null ? "非表示" : `${number.format(value)}${unit}`;
 }
 
-function Trend({
-  daily,
-  summary,
-}: {
-  daily: Daily[];
-  summary: Analytics["summary"];
-}) {
-  const [metric, setMetric] = useState<MetricKey>("consultations");
-  const [tableOpen, setTableOpen] = useState(false);
-  const titleId = useId();
-  const title =
-    metrics.find((item) => item.key === metric)?.label || "日別推移";
-  const maximum = Math.max(1, ...daily.map((item) => item[metric]));
-  const top = maximum > 4 ? Math.ceil(maximum / 4) * 4 : maximum;
-  const ticks = [...new Set([0, Math.ceil(top / 2), top])];
-  const positionX = (index: number) =>
-    (index / Math.max(1, daily.length - 1)) * 504;
-  const positionY = (value: number) => 132 - (value / top) * 132;
-  const points = daily
-    .map((item, index) => `${positionX(index)},${positionY(item[metric])}`)
-    .join(" ");
-  const dates = [
-    ...new Set([0, Math.floor((daily.length - 1) / 2), daily.length - 1]),
-  ].filter((index) => index >= 0);
+function MetricRibbon({ metrics }: { metrics: DisplayMetric[] }) {
   return (
-    <section
-      className="dashboard-panel dashboard-trend"
-      aria-labelledby={titleId}
-    >
-      <header className="dashboard-panel-heading">
-        <div>
-          <h2 id={titleId}>日別の推移</h2>
-          <p>1日ごとの記録 · {summary[metric].unit}</p>
-        </div>
-      </header>
-      <div className="dashboard-chart-switch" aria-label="推移の指標">
-        {metrics.map((item) => (
+    <div className="dashboard-metrics">
+      {metrics.map(({ key, label, value }) => (
+        <article
+          className="dashboard-metric"
+          key={key}
+          title={value.definition}
+        >
+          <h2>{label}</h2>
+          <p>
+            {value.count === null ? (
+              <strong className="dashboard-metric-hidden">非表示</strong>
+            ) : (
+              <>
+                <strong>{number.format(value.count)}</strong>
+                <span>{value.unit}</span>
+              </>
+            )}
+          </p>
+          <small>
+            {value.count === null ? (
+              "少人数のため非表示"
+            ) : (
+              <>
+                前期 {count(value.previous_count, value.unit)}
+                {value.change_count !== null && (
+                  <span className="dashboard-difference">
+                    {value.change_count === 0
+                      ? "増減なし"
+                      : `${value.change_count > 0 ? "+" : ""}${number.format(value.change_count)}${value.unit}`}
+                  </span>
+                )}
+              </>
+            )}
+          </small>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function SelfDetails({
+  data,
+  onNavigate,
+}: {
+  data: Analytics;
+  onNavigate: (tab: WorkspaceTab) => void;
+}) {
+  const [tab, setTab] = useState<"plans" | "conditions" | "demographics">(
+    "plans",
+  );
+  return (
+    <section className="dashboard-detail-section">
+      <div className="dashboard-detail-tabs" aria-label="自社集計の詳細">
+        {(
+          [
+            ["plans", "プラン別実績"],
+            ["conditions", "共有された条件"],
+            ["demographics", "属性の収集状況"],
+          ] as const
+        ).map(([key, label]) => (
           <button
-            key={item.key}
-            aria-pressed={metric === item.key}
-            onClick={() => setMetric(item.key)}
+            key={key}
+            aria-pressed={tab === key}
+            onClick={() => setTab(key)}
           >
-            {item.short}
+            {label}
           </button>
         ))}
       </div>
-      {daily.length > 0 ? (
-        <div className="dashboard-chart-area">
-          <div className="dashboard-y-axis" aria-hidden="true">
-            {ticks.map((tick) => (
-              <span key={tick} style={{ bottom: `${(tick / top) * 100}%` }}>
-                {tick}
-              </span>
-            ))}
-          </div>
-          <svg
-            className="dashboard-chart"
-            viewBox="0 0 504 132"
-            preserveAspectRatio="none"
-            aria-label={`${title}の日別推移。詳しい値は日別の数値表で確認できます。`}
-          >
-            <title>{title}の日別推移</title>
-            {ticks.map((tick) => (
-              <line
-                key={tick}
-                className="dashboard-chart-grid"
-                x1="0"
-                x2="504"
-                y1={positionY(tick)}
-                y2={positionY(tick)}
-              />
-            ))}
-            <polyline className="dashboard-chart-line" points={points} />
-            {daily.length === 1 && (
-              <circle
-                className="dashboard-chart-dot"
-                cx={0}
-                cy={positionY(daily[0][metric])}
-                r="3"
-              />
-            )}
-          </svg>
-          <div className="dashboard-x-axis" aria-hidden="true">
-            {dates.map((index) => (
-              <span key={daily[index].date}>
-                {shortDate(daily[index].date)}
-              </span>
-            ))}
+      {tab === "plans" ? (
+        <div className="dashboard-panel">
+          <header className="dashboard-panel-heading">
+            <div>
+              <h2>公開中のプラン別実績</h2>
+              <p>非公開の相談件数は自社だけに表示</p>
+            </div>
+            <button className="text-button" onClick={() => onNavigate("plans")}>
+              管理へ
+              <Icon name="arrow" />
+            </button>
+          </header>
+          {data.plans.length ? (
+            <div className="dashboard-table-wrap">
+              <table className="dashboard-plan-table">
+                <thead>
+                  <tr>
+                    <th scope="col">プラン</th>
+                    <th scope="col">相談</th>
+                    <th scope="col">利用者</th>
+                    <th scope="col">参加</th>
+                    <th scope="col">開催</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.plans.map((plan) => (
+                    <tr key={plan.id}>
+                      <th scope="row">{plan.title}</th>
+                      <td>{count(plan.consultations, "件")}</td>
+                      <td>{count(plan.confirmed_users, "人")}</td>
+                      <td>{count(plan.confirmed_visits, "人回")}</td>
+                      <td>{count(plan.completed_outings, "回")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="dashboard-unavailable">
+              公開中のプランはありません。
+            </p>
+          )}
+        </div>
+      ) : tab === "conditions" ? (
+        <div className="dashboard-panel">
+          <header className="dashboard-panel-heading">
+            <div>
+              <h2>相談者が共有した条件</h2>
+              <p>
+                相談{count(data.conditions.consultation_count, "件")}・
+                {count(data.conditions.sample_count, "人")}の最新の相談
+              </p>
+            </div>
+          </header>
+          <p className="dashboard-method-note">
+            希望人数や予算です。参加者本人の年齢・性別とは異なります。
+          </p>
+          <div className="dashboard-breakdowns">
+            <Breakdown value={data.conditions.people} />
+            <Breakdown value={data.conditions.nights} />
+            <Breakdown value={data.conditions.budget_per_person} />
           </div>
         </div>
       ) : (
-        <p className="dashboard-muted">この期間の日別記録はありません。</p>
+        <div className="dashboard-panel dashboard-demographics">
+          <header className="dashboard-panel-heading">
+            <div>
+              <h2>属性の収集状況</h2>
+              <p>
+                対象：共有した相談者 {count(data.conditions.sample_count, "人")}
+              </p>
+            </div>
+          </header>
+          <dl>
+            {(
+              [
+                ["age", "年齢"],
+                ["gender", "性別"],
+                ["interests", "関心"],
+              ] as const
+            ).map(([key, label]) => (
+              <div key={key}>
+                <dt>
+                  {label}
+                  <span>未収集</span>
+                </dt>
+                <dd>
+                  {data.demographics[key].reason}
+                  <span className="dashboard-demographic-count">
+                    回答あり{count(data.demographics[key].known_count, "人")}
+                    ・未回答{count(data.demographics[key].missing_count, "人")}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       )}
-      {metric === "confirmed_users" && (
-        <p className="dashboard-muted">
-          同じ人の別の日の参加は日ごとに計上します。期間全体の人数は重複を除きます。
+    </section>
+  );
+}
+
+function CityComparison({
+  data,
+  providerId,
+}: {
+  data: CityAnalytics;
+  providerId: string;
+}) {
+  return (
+    <section className="dashboard-panel dashboard-city-comparison">
+      <header className="dashboard-panel-heading">
+        <div>
+          <h2>公開事業者の比較</h2>
+          <p>
+            {count(data.provider_count, "事業者")}・
+            {count(data.published_plan_count, "公開プラン")}が対象
+          </p>
+        </div>
+        <span className="dashboard-public-badge">市内の集計</span>
+      </header>
+      <p className="dashboard-method-note">
+        市全体の人数は事業者をまたいで重複を除きます。各社の人数は合算できません。
+      </p>
+      {data.providers.status === "insufficient_sample" && (
+        <p className="dashboard-unavailable">
+          {data.providers.reason ||
+            "少人数の内訳を含むため、事業者別の利用実績は非表示です。"}
         </p>
       )}
-      <details
-        className="dashboard-data-table"
-        onToggle={(event) => setTableOpen(event.currentTarget.open)}
-      >
-        <summary>日別の数値を見る</summary>
-        {tableOpen && (
-          <table>
-            <caption>{title}の日別記録</caption>
+      {data.providers.items.length ? (
+        <div className="dashboard-table-wrap">
+          <table className="dashboard-comparison-table">
             <thead>
               <tr>
-                <th scope="col">日付</th>
-                <th scope="col">
-                  {title}（{summary[metric].unit}）
-                </th>
+                <th scope="col">事業者</th>
+                <th scope="col">公開プラン</th>
+                <th scope="col">利用者</th>
+                <th scope="col">参加</th>
+                <th scope="col">開催</th>
               </tr>
             </thead>
             <tbody>
-              {daily.map((item) => (
-                <tr key={item.date}>
-                  <th scope="row">{item.date}</th>
-                  <td>{number.format(item[metric])}</td>
+              {data.providers.items.map((provider) => (
+                <tr
+                  key={provider.id}
+                  className={provider.id === providerId ? "is-own" : ""}
+                >
+                  <th scope="row">
+                    <span>
+                      {provider.name}
+                      {provider.id === providerId && (
+                        <small className="dashboard-own-label">自社</small>
+                      )}
+                    </span>
+                    <small className="dashboard-provider-area">
+                      {provider.area}
+                    </small>
+                  </th>
+                  <td>{count(provider.published_plan_count, "件")}</td>
+                  <td>
+                    {data.providers.status !== "insufficient_sample"
+                      ? count(provider.visitors, "人")
+                      : "非表示"}
+                  </td>
+                  <td>
+                    {data.providers.status !== "insufficient_sample"
+                      ? count(provider.participations, "人回")
+                      : "非表示"}
+                  </td>
+                  <td>
+                    {data.providers.status !== "insufficient_sample"
+                      ? count(provider.completed_outings, "回")
+                      : "非表示"}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        )}
-      </details>
-    </section>
-  );
-}
-
-function Breakdown({ value }: { value: Distribution }) {
-  const maximum = Math.max(1, ...value.bins.map((bin) => bin.count || 0));
-  return (
-    <section className="dashboard-breakdown">
-      <h3>{value.label}</h3>
-      <p className="dashboard-muted">
-        回答あり {number.format(value.known_count)}人 · 対象外・未回答{" "}
-        {number.format(value.missing_count)}人
-      </p>
-      {value.status === "available" ? (
-        <ul className="dashboard-bars">
-          {value.bins.map((bin) => (
-            <li key={bin.key}>
-              <span>{bin.label}</span>
-              <div className="dashboard-bar-track">
-                <span
-                  className="dashboard-bar-fill"
-                  style={{ width: `${((bin.count || 0) / maximum) * 100}%` }}
-                />
-              </div>
-              <strong>
-                {bin.count === null
-                  ? "非表示"
-                  : `${number.format(bin.count)}人`}
-              </strong>
-            </li>
-          ))}
-        </ul>
+        </div>
       ) : (
-        <p className="dashboard-unavailable">
-          {value.reason || "集計できる回答がまだありません。"}
-        </p>
+        <p className="dashboard-unavailable">公開対象の事業者はありません。</p>
       )}
-      {value.status === "available" && value.reason && (
-        <p className="dashboard-muted">{value.reason}</p>
+      {data.plan_categories.length > 0 && (
+        <details className="dashboard-definitions">
+          <summary>公開プランの分野を見る</summary>
+          <p className="dashboard-muted">
+            公開プランについたタグの本数です。複数タグは重複し、利用者の属性は表しません。
+          </p>
+          <ul className="dashboard-category-list">
+            {data.plan_categories.map((category) => (
+              <li key={category.id}>
+                <span>{category.label}</span>
+                <strong>{count(category.plan_count, "件")}</strong>
+              </li>
+            ))}
+          </ul>
+        </details>
       )}
     </section>
   );
 }
 
+type Result =
+  { scope: "self"; data: Analytics } | { scope: "city"; data: CityAnalytics };
 function AnalyticsContent({
   providerId,
   days,
+  scope,
   onNavigate,
 }: {
   providerId: string;
   days: number;
+  scope: Scope;
   onNavigate: (tab: WorkspaceTab) => void;
 }) {
-  const [result, setResult] = useState<{
-    data: Analytics | null;
-    error: string;
-  }>({ data: null, error: "" });
+  const [result, setResult] = useState<Result | null>(null);
+  const [error, setError] = useState("");
   useEffect(() => {
     const controller = new AbortController();
-    api<Analytics>(
-      `/providers/${encodeURIComponent(providerId)}/analytics?days=${days}`,
-      "GET",
-      undefined,
-      { signal: controller.signal },
-    )
-      .then((data) => {
-        if (!controller.signal.aborted) setResult({ data, error: "" });
-        return undefined;
-      })
-      .catch((cause: unknown) => {
-        if (!controller.signal.aborted)
-          setResult({ data: null, error: errorMessage(cause) });
-      });
+    async function load() {
+      try {
+        if (scope === "city") {
+          const data = await api<CityAnalytics>(
+            `/providers/${encodeURIComponent(providerId)}/city-analytics?days=${days}`,
+            "GET",
+            undefined,
+            { signal: controller.signal },
+          );
+          if (!controller.signal.aborted) setResult({ scope: "city", data });
+        } else {
+          const data = await api<Analytics>(
+            `/providers/${encodeURIComponent(providerId)}/analytics?days=${days}`,
+            "GET",
+            undefined,
+            { signal: controller.signal },
+          );
+          if (!controller.signal.aborted) setResult({ scope: "self", data });
+        }
+      } catch (cause) {
+        if (!controller.signal.aborted) setError(errorMessage(cause));
+      }
+    }
+    void load();
     return () => controller.abort();
-  }, [providerId, days]);
-  if (result.error) return <ErrorBox message={result.error} />;
-  if (!result.data)
+  }, [providerId, days, scope]);
+  if (error) return <ErrorBox message={error} />;
+  if (!result)
     return (
       <output className="dashboard-loading" aria-live="polite">
-        実績を読み込んでいます…
+        {scope === "city" ? "N西市全体の集計" : "自社の実績"}を読み込んでいます…
       </output>
     );
   const data = result.data;
+  const metrics: DisplayMetric[] =
+    result.scope === "city"
+      ? cityMetrics.map((item) => ({
+          ...item,
+          value: result.data.summary[item.key],
+        }))
+      : selfMetrics.map((item) => ({
+          ...item,
+          value: result.data.summary[item.key],
+        }));
+  const daily =
+    result.scope === "city"
+      ? result.data.trend.items.map((item) => ({
+          date: item.date,
+          endDate: item.end_date,
+          values: cityMetrics.map((metric) => item[metric.key]),
+        }))
+      : result.data.daily.map((item) => ({
+          date: item.date,
+          values: selfMetrics.map((metric) => item[metric.key]),
+        }));
   const updated = new Intl.DateTimeFormat("ja-JP", {
-    month: "numeric",
-    day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Asia/Tokyo",
@@ -298,169 +387,58 @@ function AnalyticsContent({
   return (
     <div className="dashboard-results">
       <div className="dashboard-period">
+        <span className={`dashboard-scope-label ${scope}`}>
+          {scope === "city" ? "市全体の集計" : "自社専用"}
+        </span>
         <p>
           {data.period.start_date} — {data.period.end_date}
-          <span>
-            日本時間{data.period.today_partial ? " · 本日分は途中集計" : ""}
-          </span>
         </p>
-        <small>{updated} 更新</small>
+        <small>
+          {updated}更新{data.period.today_partial ? " · 本日は途中集計" : ""}
+        </small>
       </div>
-      <div className="dashboard-metrics">
-        {metrics.map(({ key, label }) => {
-          const item = data.summary[key];
-          return (
-            <article className="dashboard-metric" key={key}>
-              <h2>{label}</h2>
-              <p>
-                <strong>{number.format(item.count)}</strong>
-                <span>{item.unit}</span>
-              </p>
-              <small>
-                前期間 {number.format(item.previous_count)}
-                {item.unit}
-                <span className="dashboard-difference">
-                  {item.change_count === 0
-                    ? "増減なし"
-                    : `（${item.change_count > 0 ? "+" : ""}${number.format(item.change_count)}${item.unit}）`}
-                </span>
-              </small>
-            </article>
-          );
-        })}
+      <MetricRibbon metrics={metrics} />
+      <div className="dashboard-analysis-grid">
+        <ProviderTrend
+          intervalDays={
+            result.scope === "city" ? result.data.trend.interval_days : 1
+          }
+          metrics={metrics}
+          items={daily}
+          status={
+            result.scope === "city" ? result.data.trend.status : "available"
+          }
+          reason={result.scope === "city" ? result.data.trend.reason : null}
+        />
+        <Suspense
+          fallback={
+            <output className="dashboard-loading">
+              居住地域を読み込んでいます…
+            </output>
+          }
+        >
+          <ProviderOriginMap value={data.origins} compact />
+        </Suspense>
       </div>
-      <div className="dashboard-work-links">
-        <button onClick={() => onNavigate("consultations")}>
-          <Icon name="people" />
-          相談を確認
-          <Icon name="arrow" />
-        </button>
-        <button onClick={() => onNavigate("daytrip")}>
-          <Icon name="calendar" />
-          実施確認・特典
-          <Icon name="arrow" />
-        </button>
-        <button onClick={() => onNavigate("plans")}>
-          <Icon name="compass" />
-          プランを管理
-          <Icon name="arrow" />
-        </button>
-      </div>
-      <Suspense
-        fallback={
-          <output className="dashboard-loading">
-            居住地域の集計をひらいています…
-          </output>
-        }
-      >
-        <ProviderOriginMap value={data.origins} />
-      </Suspense>
-      <Trend daily={data.daily} summary={data.summary} />
-      <section className="dashboard-panel">
-        <header className="dashboard-panel-heading">
-          <div>
-            <h2>相談者が共有した条件</h2>
-            <p>
-              相談 {number.format(data.conditions.consultation_count)}件 ·
-              相談者 {number.format(data.conditions.sample_count)}人の最新の相談
-            </p>
-          </div>
-        </header>
-        <p className="dashboard-method-note">
-          希望人数や予算の内訳です。参加者本人の年齢・性別とは異なります。
-        </p>
-        <div className="dashboard-breakdowns">
-          <Breakdown value={data.conditions.people} />
-          <Breakdown value={data.conditions.nights} />
-          <Breakdown value={data.conditions.budget_per_person} />
-        </div>
-      </section>
-      <section className="dashboard-panel">
-        <header className="dashboard-panel-heading">
-          <div>
-            <h2>公開中のプラン別実績</h2>
-            <p>選択した期間内の記録</p>
-          </div>
-          <button className="text-button" onClick={() => onNavigate("plans")}>
-            プラン管理
-            <Icon name="arrow" />
-          </button>
-        </header>
-        {data.plans.length ? (
-          <div className="dashboard-table-wrap">
-            <table className="dashboard-plan-table">
-              <thead>
-                <tr>
-                  <th scope="col">プラン</th>
-                  <th scope="col">相談</th>
-                  <th scope="col">実参加者</th>
-                  <th scope="col">延べ参加</th>
-                  <th scope="col">開催</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.plans.map((plan) => (
-                  <tr key={plan.id}>
-                    <th scope="row">{plan.title}</th>
-                    <td>{number.format(plan.consultations)}件</td>
-                    <td>{number.format(plan.confirmed_users)}人</td>
-                    <td>{number.format(plan.confirmed_visits)}人回</td>
-                    <td>{number.format(plan.completed_outings)}回</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <p className="dashboard-unavailable">公開中のプランはありません。</p>
-        )}
-      </section>
-      <section className="dashboard-panel dashboard-demographics">
-        <header className="dashboard-panel-heading">
-          <div>
-            <h2>利用者の属性</h2>
-            <p>
-              対象：共有した相談者 {number.format(data.conditions.sample_count)}
-              人。未収集の値は推定しません。
-            </p>
-          </div>
-        </header>
-        <dl>
-          {(
-            [
-              ["age", "年齢"],
-              ["gender", "性別"],
-              ["interests", "関心"],
-            ] as const
-          ).map(([key, label]) => (
-            <div key={key}>
-              <dt>
-                {label}
-                <span>未収集</span>
-              </dt>
-              <dd>
-                {data.demographics[key].reason}
-                <span className="dashboard-demographic-count">
-                  回答あり {number.format(data.demographics[key].known_count)}人
-                  · 未回答 {number.format(data.demographics[key].missing_count)}
-                  人
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {result.scope === "city" ? (
+        <CityComparison data={result.data} providerId={providerId} />
+      ) : (
+        <SelfDetails data={result.data} onNavigate={onNavigate} />
+      )}
       <details className="dashboard-definitions">
-        <summary>集計の範囲と数え方</summary>
+        <summary>集計の対象・定義・非表示の条件</summary>
         <p>
           比較期間：{data.period.previous_start_date} —{" "}
-          {data.period.previous_end_date}
+          {data.period.previous_end_date}（日本時間）
         </p>
         <dl>
-          {metrics.map(({ key, label }) => (
+          {metrics.map(({ key, label, value }) => (
             <div key={key}>
               <dt>{label}</dt>
-              <dd>{data.summary[key].definition}</dd>
+              <dd>
+                {value.definition}
+                {"reason" in value && value.reason && <p>{value.reason}</p>}
+              </dd>
             </div>
           ))}
         </dl>
@@ -482,6 +460,7 @@ export default function ProviderDashboard({
   onNavigate: (tab: WorkspaceTab) => void;
 }) {
   const [selectedId, setSelectedId] = useState(providers[0]?.id || "");
+  const [scope, setScope] = useState<Scope>("self");
   const [days, setDays] = useState(90);
   const [revision, setRevision] = useState(0);
   const provider =
@@ -489,10 +468,45 @@ export default function ProviderDashboard({
   if (!provider) return <Empty title="管理できる事業者がありません" />;
   return (
     <div className="provider-dashboard">
+      <h1 className="sr-only">自社とN西市全体の実績</h1>
       <div className="dashboard-toolbar">
+        <div className="dashboard-scope-switch" aria-label="集計の範囲">
+          <button
+            aria-pressed={scope === "self"}
+            onClick={() => setScope("self")}
+          >
+            自社
+          </button>
+          <button
+            aria-pressed={scope === "city"}
+            onClick={() => setScope("city")}
+          >
+            N西市全体
+          </button>
+        </div>
+        <div className="dashboard-range" aria-label="集計期間">
+          {[30, 90, 365].map((value) => (
+            <button
+              key={value}
+              aria-label={`過去${value}日`}
+              aria-pressed={days === value}
+              onClick={() => setDays(value)}
+            >
+              {value}日
+            </button>
+          ))}
+        </div>
+        <button
+          className="dashboard-refresh"
+          aria-label="集計を更新する"
+          title="集計を更新する"
+          onClick={() => setRevision((value) => value + 1)}
+        >
+          <Icon name="refresh" />
+        </button>
         {providers.length > 1 && (
           <Choice
-            ariaLabel="集計する事業者"
+            ariaLabel="管理する事業者"
             value={provider.id}
             onChange={(event) => setSelectedId(event.target.value)}
           >
@@ -503,29 +517,12 @@ export default function ProviderDashboard({
             ))}
           </Choice>
         )}
-        <div className="dashboard-range" aria-label="集計期間">
-          {[30, 90, 365].map((value) => (
-            <button
-              key={value}
-              aria-pressed={days === value}
-              onClick={() => setDays(value)}
-            >
-              過去{value}日
-            </button>
-          ))}
-        </div>
-        <button
-          className="text-button"
-          onClick={() => setRevision((value) => value + 1)}
-        >
-          <Icon name="refresh" />
-          再集計
-        </button>
       </div>
       <AnalyticsContent
-        key={`${provider.id}-${days}-${revision}`}
+        key={`${provider.id}-${scope}-${days}-${revision}`}
         providerId={provider.id}
         days={days}
+        scope={scope}
         onNavigate={onNavigate}
       />
     </div>

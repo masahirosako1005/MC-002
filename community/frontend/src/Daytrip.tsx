@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { api, ApiError } from "./api";
 import Choice from "./Choice";
 import type { CircleDetail, CircleList, CircleSummary } from "./circle-types";
@@ -14,16 +14,20 @@ import type {
 } from "./daytrip-types";
 import { RANK_NAMES } from "./daytrip-types";
 import type { User } from "./types";
-import { Empty, ErrorBox, Icon, LocalPhoto, Modal } from "./ui";
+import { Empty, ErrorBox, Icon, Modal } from "./ui";
+import DaytripCover from "./DaytripCover";
+import {
+  BenefitLocation,
+  BenefitTerms,
+  DaytripBenefits,
+  benefitsForRoute,
+} from "./DaytripBenefits";
 import { errorMessage } from "./validation";
 import "./daytrip.css";
-import {
-  JourneyDrawing,
-  ScrollHeading,
-  SealMark,
-  TravelCrest,
-  WoodcutArt,
-} from "./WaArt";
+import { ScrollHeading, SealMark, TravelCrest, WoodcutArt } from "./WaArt";
+import type { ProgramStep } from "./journey-program-types";
+const JourneyPrograms = lazy(() => import("./JourneyPrograms"));
+const BenefitZonePolicy = lazy(() => import("./BenefitZonePolicy"));
 
 const yen = (value: number) => `${value.toLocaleString("ja-JP")}円`;
 const rankLabel = (rank: number) => RANK_NAMES[rank - 1] || RANK_NAMES[0];
@@ -40,8 +44,9 @@ const statusLabel = {
   cancelled: "中止・取消",
 };
 const encoded = encodeURIComponent;
-function japanDate(value: string) {
+function japanDate(value: string, includeYear = false) {
   return new Intl.DateTimeFormat("ja-JP", {
+    year: includeYear ? "numeric" : undefined,
     month: "long",
     day: "numeric",
     weekday: "short",
@@ -72,7 +77,7 @@ function RouteFacts({ route }: { route: Route }) {
         <Icon name="calendar" />
         {route.one_way_minutes === null
           ? "時間未確認"
-          : `駅間 約${route.one_way_minutes}分`}
+          : `片道 約${route.one_way_minutes}分`}
       </span>
       <span>
         {route.mode === "rail"
@@ -84,25 +89,25 @@ function RouteFacts({ route }: { route: Route }) {
     </div>
   );
 }
-function BenefitTerms({ benefit }: { benefit: Benefit }) {
-  return (
-    <>
-      <p className="benefit-price">
-        {benefit.discount_type === "percent"
-          ? `${benefit.discount_value}%`
-          : yen(benefit.discount_value)}
-        割引 <small>一人あたり・上限 {yen(benefit.max_discount_yen)}</small>
-      </p>
-      <p className="quiet-note">
-        特典対象階級 {rankLabel(benefit.min_rank)}から · {benefit.starts_on}〜
-        {benefit.ends_on}
-        <br />
-        事業者負担・他の特典との併用不可
-      </p>
-    </>
-  );
-}
 
+function sameRankProgress(first: RankStatus, second: RankStatus) {
+  const fields: (keyof RankStatus)[] = [
+    "policy_version",
+    "rank",
+    "name",
+    "lifetime_points",
+    "recent_points",
+    "lifetime_rank",
+    "guaranteed_rank",
+    "maintenance_points",
+    "next_rank",
+    "next_rank_points",
+    "next_lifetime_points_needed",
+    "next_recent_points_needed",
+    "next_demotion_at",
+  ];
+  return fields.every((key) => first[key] === second[key]);
+}
 function RankProgress({ status }: { status: RankStatus }) {
   return (
     <div className="rank-progress">
@@ -129,7 +134,7 @@ function RankProgress({ status }: { status: RankStatus }) {
       )}
       {status.next_demotion_at ? (
         <p className="rank-maintenance-note">
-          新しい活動がなければ、{japanDate(status.next_demotion_at)}
+          新しい活動がなければ、{japanDate(status.next_demotion_at, true)}
           に階級が下がります。
         </p>
       ) : null}
@@ -201,6 +206,7 @@ function CreateOuting({
   circles,
   catalog,
   initialCircleId,
+  requiredPlan,
   onClose,
   onCreated,
   onOpenCircle,
@@ -209,13 +215,18 @@ function CreateOuting({
   circles: CircleSummary[];
   catalog: DaytripCatalog;
   initialCircleId: string;
+  requiredPlan?: { id: string; title: string };
   onClose: () => void;
   onCreated: (outing: Outing) => void;
   onOpenCircle: (id: string) => void;
 }) {
   const [circleId, setCircleId] = useState(initialCircleId);
   const [circle, setCircle] = useState<CircleDetail | null>(null);
-  const [title, setTitle] = useState(`${route.destination}の日帰り`);
+  const [title, setTitle] = useState(
+    requiredPlan?.title ||
+      route.experience_title ||
+      `${route.destination}の日帰り`,
+  );
   const [date, setDate] = useState(tomorrowDate);
   const [start, setStart] = useState("09:00");
   const [end, setEnd] = useState("18:00");
@@ -258,6 +269,7 @@ function CreateOuting({
   const invitation = circle?.active_provider_invitation;
   const linkedPlan =
     invitation?.status === "accepted" &&
+    (!requiredPlan || invitation.snapshot.plan.id === requiredPlan.id) &&
     catalog.plans.some(
       (link) =>
         link.plan_id === invitation.snapshot.plan.id &&
@@ -278,7 +290,8 @@ function CreateOuting({
     !!date &&
     end > start &&
     participants.length >= 2 &&
-    participants.includes(leader);
+    participants.includes(leader) &&
+    (!requiredPlan || linkedPlan?.id === requiredPlan.id);
   async function create() {
     if (!valid || submitting.current) return;
     submitting.current = true;
@@ -295,7 +308,7 @@ function CreateOuting({
           ends_at: `${date}T${end}:00+09:00`,
           participant_ids: participants,
           leader_id: leader,
-          plan_id: useProvider ? linkedPlan?.id || null : null,
+          plan_id: useProvider || requiredPlan ? linkedPlan?.id || null : null,
           client_request_id: requestId.current,
         },
       );
@@ -314,6 +327,12 @@ function CreateOuting({
           {route.origin} → {route.destination}
         </p>
         <RouteFacts route={route} />
+        {requiredPlan && (
+          <p className="daytrip-disclosure">
+            通う旅の対象プラン：{requiredPlan.title}
+            。このプランで事業者の招待承諾を得た講を選んでください。
+          </p>
+        )}
         <ErrorBox message={error} />
         <fieldset disabled={busy}>
           <label className="field">
@@ -446,7 +465,8 @@ function CreateOuting({
                 <label className="daytrip-check">
                   <input
                     type="checkbox"
-                    checked={useProvider}
+                    checked={!!requiredPlan || useProvider}
+                    disabled={!!requiredPlan}
                     onChange={(event) => setUseProvider(event.target.checked)}
                   />
                   <span>
@@ -472,7 +492,7 @@ function CreateOuting({
               )}
               <p className="daytrip-disclosure">
                 集合地点は「{route.origin}」。保存すると講の参加者
-                {useProvider && linkedPlan
+                {(useProvider || requiredPlan) && linkedPlan
                   ? `と${linkedPlan.provider.name}`
                   : ""}
                 に開催の情報が共有されます。予約は別途必要です。
@@ -1027,7 +1047,9 @@ export default function Daytrip({
   onFindCircles: () => void;
   onExplore: () => void;
 }) {
-  const [tab, setTab] = useState<"explore" | "outings" | "journal">("explore");
+  const [tab, setTab] = useState<
+    "explore" | "programs" | "outings" | "journal" | "coupons"
+  >("explore");
   const [catalog, setCatalog] = useState<DaytripCatalog | null>(null);
   const [me, setMe] = useState<DaytripMe | null>(null);
   const [circles, setCircles] = useState<CircleSummary[]>([]);
@@ -1036,9 +1058,12 @@ export default function Daytrip({
   const [zone, setZone] = useState("target");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [chosenRoute, setChosenRoute] = useState<Route | null>(null);
+  const [programStep, setProgramStep] = useState<ProgramStep | null>(null);
   const [selected, setSelected] = useState<Outing | null>(null);
   const [benefit, setBenefit] = useState<Benefit | null>(null);
+  const [benefitRoute, setBenefitRoute] = useState<Route | null>(null);
   const [benefitOuting, setBenefitOuting] = useState("");
+  const [reservationAt, setReservationAt] = useState(0);
   const [loadedRevision, setLoadedRevision] = useState(-1);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -1048,6 +1073,8 @@ export default function Daytrip({
   const live = useRef(true);
   const lock = useRef(false);
   const reserveId = useRef(crypto.randomUUID());
+  const pageStart = useRef<HTMLElement>(null);
+  const pageTitle = useRef<HTMLHeadingElement>(null);
   const personalReview = me?.rank_status.next_demotion_at;
   const eligibleReview = me?.eligible_rank_status.next_demotion_at;
   const nextReview =
@@ -1132,33 +1159,65 @@ export default function Daytrip({
       if (live.current) setBusy(false);
     }
   }
-  const routes =
+  const matchingRoutes =
     catalog?.routes.filter(
       (route) =>
         route.origin === origin && (zone === "all" || route.zone === zone),
     ) || [];
+  const routes = [
+    ...matchingRoutes.filter((route) => route.experience_title),
+    ...matchingRoutes.filter((route) => !route.experience_title),
+  ];
   const origins = [
     ...new Set(catalog?.routes.map((route) => route.origin) || []),
   ];
+  const reservableOutings = benefit
+    ? outings.filter((outing) => {
+        const day = new Intl.DateTimeFormat("sv-SE", {
+          timeZone: "Asia/Tokyo",
+        }).format(new Date(outing.starts_at));
+        return (
+          outing.plan_id === benefit.plan_id &&
+          outing.status === "scheduled" &&
+          Date.parse(outing.starts_at) > reservationAt &&
+          day >= benefit.starts_on &&
+          day <= benefit.ends_on &&
+          outing.participants.some(
+            (person) =>
+              person.user_id === user.id && person.accepted && !person.revoked,
+          ) &&
+          !me?.redemptions.some((item) => item.outing_id === outing.id)
+        );
+      })
+    : [];
+  function openTab(next: typeof tab, focusTitle = true) {
+    setTab(next);
+    pageStart.current?.scrollIntoView({ block: "start", behavior: "auto" });
+    if (focusTitle) pageTitle.current?.focus({ preventScroll: true });
+  }
   const refresh = () => {
     setError("");
     setRevision((value) => value + 1);
   };
   return (
-    <section className="daytrip-page">
+    <section className="daytrip-page" ref={pageStart}>
       <header className="daytrip-heading">
         <ScrollHeading>
-          <h1>
+          <h1 className="wa-title-script" ref={pageTitle} tabIndex={-1}>
             {tab === "explore"
               ? "日帰りを探す"
-              : tab === "outings"
-                ? "講の開催"
-                : "旅の手帳"}
+              : tab === "programs"
+                ? "通う旅"
+                : tab === "outings"
+                  ? "講の開催"
+                  : tab === "coupons"
+                    ? "クーポン"
+                    : "旅の手帳"}
           </h1>
         </ScrollHeading>
         <button
           className="daytrip-rank-link"
-          onClick={() => setTab("journal")}
+          onClick={() => openTab("journal")}
           aria-label="旅の手帳と階級を開く"
         >
           <SealMark className="daytrip-seal">
@@ -1170,16 +1229,21 @@ export default function Daytrip({
       <fieldset className="daytrip-tabs" aria-label="日帰りのメニュー">
         {(
           [
-            ["explore", "行き先"],
-            ["outings", "開催と参加"],
-            ["journal", "手帳・特典"],
+            ["explore", "日帰り"],
+            ["programs", "通う旅"],
+            ["outings", "開催"],
+            ["journal", "手帳"],
+            ["coupons", "クーポン"],
           ] as const
         ).map(([value, label]) => (
           <button
             key={value}
             aria-pressed={tab === value}
             className={tab === value ? "selected" : ""}
-            onClick={() => setTab(value)}
+            onClick={() => {
+              if (value === "coupons") setBenefitRoute(null);
+              openTab(value, false);
+            }}
           >
             {label}
           </button>
@@ -1219,32 +1283,26 @@ export default function Daytrip({
             {routes.map((route, index) => (
               <article className="daytrip-route-card" key={route.id}>
                 <div className="daytrip-route-photo">
-                  {index === 0 ? (
-                    <WoodcutArt priority />
-                  ) : (
-                    <LocalPhoto
-                      src={`/api/covers/${/海|浜|鳥羽|蒲郡/.test(route.destination) ? "coast" : /町田/.test(route.destination) ? "coffee" : "woodland"}`}
-                      alt="旅の過ごし方を表すイメージ"
-                      priority={index === 0}
-                    />
-                  )}
+                  <DaytripCover route={route} priority={index === 0} />
                   <span className="daytrip-photo-caption">イメージ</span>
                   <span className="daytrip-route-tag">
                     {zoneLabel[route.zone]}
                   </span>
                 </div>
                 <div className="daytrip-route-content">
-                  <p className="small-label">{route.origin}発 · 日帰り</p>
-                  <h2>{route.destination}</h2>
+                  <p className="small-label">{route.destination} · 日帰り</p>
+                  <h2>{route.experience_title || route.destination}</h2>
                   <RouteFacts route={route} />
                   <p className="daytrip-distance-note">
-                    駅間の参考経路。待ち時間・現地の移動は別に確認。
+                    距離・時間は参考値。現地の移動は別に確認。
                   </p>
                   <button
                     className="button primary full"
                     onClick={() => {
-                      if (circles.length) setChosenRoute(route);
-                      else onFindCircles();
+                      if (circles.length) {
+                        setProgramStep(null);
+                        setChosenRoute(route);
+                      } else onFindCircles();
                     }}
                   >
                     {circles.length
@@ -1252,12 +1310,34 @@ export default function Daytrip({
                       : "一緒に出かける講を選ぶ"}
                     <Icon name="arrow" />
                   </button>
+                  <button
+                    className="daytrip-coupon-link"
+                    onClick={() => {
+                      setBenefitRoute(route);
+                      openTab("coupons");
+                    }}
+                  >
+                    <span>この場所のクーポン</span>
+                    <strong>
+                      {
+                        benefitsForRoute(me?.benefits || [], route, catalog)
+                          .length
+                      }
+                      件
+                    </strong>
+                    <Icon name="arrow" />
+                  </button>
                   <details className="daytrip-source">
-                    <summary>経路と所要時間の確認情報</summary>
+                    <summary>体験・経路の詳細</summary>
+                    {route.summary && (
+                      <p className="daytrip-experience-summary">
+                        {route.summary}
+                      </p>
+                    )}
                     <p>{route.distance_note}</p>
                     <p>
-                      {route.checked_on}確認 ·
-                      混雑や運行状況により変わります。実測GPS距離ではありません。
+                      {route.checked_on}条件更新 · 実測GPS距離ではありません。
+                      当日の運行と集合場所を確認してください。
                     </p>
                     {route.source_url.startsWith("https://") && (
                       <a
@@ -1296,6 +1376,32 @@ export default function Daytrip({
           </button>
         </>
       )}
+      {tab === "programs" && catalog && (
+        <Suspense
+          fallback={
+            <output className="loading-inline">通う旅をひらいています…</output>
+          }
+        >
+          <JourneyPrograms
+            key={`${user.id}-${revision}`}
+            onOpenOuting={setSelected}
+            onFindCircles={onFindCircles}
+            onCreateStep={(step) => {
+              const route = catalog.routes.find(
+                (item) => item.id === step.route_id,
+              );
+              if (route && circles.length) {
+                setProgramStep(step);
+                setChosenRoute(route);
+              } else if (!circles.length) onFindCircles();
+              else
+                setError(
+                  "この回の経路を確認できません。一覧を更新してください。",
+                );
+            }}
+          />
+        </Suspense>
+      )}
       {filtersOpen && (
         <Modal title="日帰りの条件" onClose={() => setFiltersOpen(false)}>
           <div className="daytrip-form">
@@ -1329,7 +1435,7 @@ export default function Daytrip({
               ))}
             </fieldset>
             <p className="quiet-note">
-              同じ日に帰る旅を探します。距離と時間は駅間の参考値です。待ち時間や現地での移動を含めて、当日の行程を確認してください。
+              同じ日に帰る旅を探します。距離と時間は発地からの参考条件です。待ち時間や現地での移動を含めて、当日の行程を確認してください。
             </p>
             <button
               className="button primary full"
@@ -1372,7 +1478,7 @@ export default function Daytrip({
               <p>講の仲間と出かける日帰りを選びましょう。</p>
               <button
                 className="button primary"
-                onClick={() => setTab("explore")}
+                onClick={() => openTab("explore")}
               >
                 日帰りの行き先を見る
               </button>
@@ -1388,7 +1494,7 @@ export default function Daytrip({
                 <TravelCrest />
                 <span>講の旅帳</span>
               </div>
-              <JourneyDrawing />
+              <WoodcutArt />
             </div>
             <div className="passbook-rank">
               <SealMark className="daytrip-seal large">
@@ -1396,7 +1502,9 @@ export default function Daytrip({
               </SealMark>
               <div>
                 <p className="small-label">{user.name}さんの旅の階級</p>
-                <h2 className="rank-current-name">{me.rank_status.name}</h2>
+                <h2 className="rank-current-name wa-title-script">
+                  {me.rank_status.name}
+                </h2>
                 <p className="passbook-points">
                   {me.points.toLocaleString()}
                   <span>累積点</span>
@@ -1423,7 +1531,23 @@ export default function Daytrip({
               {me.eligible_points.toLocaleString("ja-JP")}
               点が対象です。仲間の確認だけの点は特典資格に含めません。
             </p>
-            <RankProgress status={me.eligible_rank_status} />
+            {sameRankProgress(me.rank_status, me.eligible_rank_status) ? (
+              <p className="quiet-note">
+                昇格・維持の見通しは、上の旅の階級と同じです。
+              </p>
+            ) : (
+              <RankProgress status={me.eligible_rank_status} />
+            )}
+            <button
+              className="button secondary full"
+              onClick={() => {
+                setBenefitRoute(null);
+                openTab("coupons");
+              }}
+            >
+              階級別のクーポンを見る
+              <Icon name="arrow" />
+            </button>
             <button
               className="text-button"
               disabled={loading}
@@ -1449,54 +1573,6 @@ export default function Daytrip({
               {catalog?.rules.version}
             </p>
           </details>
-          <section className="daytrip-benefits">
-            <h2>次の開催で使う特典</h2>
-            {me.benefits.length ? (
-              me.benefits.map((item) => (
-                <article key={item.id} className="daytrip-benefit">
-                  <p className="small-label">{rankLabel(item.min_rank)}から</p>
-                  <h3>{item.title}</h3>
-                  <BenefitTerms benefit={item} />
-                  <button
-                    className="button secondary full"
-                    disabled={
-                      busy ||
-                      me.eligible_points <= 0 ||
-                      me.eligible_rank < item.min_rank
-                    }
-                    onClick={() => {
-                      setBenefit(item);
-                      setBenefitOuting("");
-                      reserveId.current = crypto.randomUUID();
-                    }}
-                  >
-                    {me.eligible_points <= 0
-                      ? "事業者の利用確認後に選べます"
-                      : me.eligible_rank < item.min_rank
-                        ? "特典資格に達すると選べます"
-                        : "対象の開催を選ぶ"}
-                  </button>
-                </article>
-              ))
-            ) : (
-              <p className="quiet-note">
-                事業者が公開した特典がここに表示されます。
-              </p>
-            )}
-          </section>
-          <RedemptionList
-            items={me.redemptions}
-            benefits={me.benefits}
-            outings={outings}
-            busy={busy}
-            onAction={(item) =>
-              void mutate(
-                `/daytrip/redemptions/${encoded(item.id)}/cancel`,
-                { version: item.version },
-                "特典の確保を取り消しました。",
-              )
-            }
-          />
           <section className="daytrip-ledger">
             <h2>獲得・訂正の内訳</h2>
             {me.ledger.length ? (
@@ -1532,10 +1608,49 @@ export default function Daytrip({
           </section>
         </>
       )}
+      {tab === "coupons" && me && catalog && (
+        <>
+          <DaytripBenefits
+            key={benefitRoute?.id || "all"}
+            benefits={me.benefits}
+            catalog={catalog}
+            route={benefitRoute}
+            eligibleRank={me.eligible_rank}
+            eligiblePoints={me.eligible_points}
+            busy={busy}
+            onClearRoute={() => setBenefitRoute(null)}
+            onExplore={() => openTab("explore")}
+            onSelect={(item) => {
+              setBenefit(item);
+              setBenefitOuting("");
+              setReservationAt(Date.now());
+              reserveId.current = crypto.randomUUID();
+            }}
+          />
+          <RedemptionList
+            items={me.redemptions}
+            benefits={me.benefits}
+            outings={outings}
+            busy={busy}
+            onAction={(item) =>
+              void mutate(
+                `/daytrip/redemptions/${encoded(item.id)}/cancel`,
+                { version: item.version },
+                "特典の確保を取り消しました。",
+              )
+            }
+          />
+        </>
+      )}
       {chosenRoute && catalog && (
         <CreateOuting
           route={chosenRoute}
           catalog={catalog}
+          requiredPlan={
+            programStep
+              ? { id: programStep.plan_id, title: programStep.plan_title }
+              : undefined
+          }
           circles={circles}
           initialCircleId={
             circles.some((circle) => circle.id === initialCircleId)
@@ -1544,12 +1659,21 @@ export default function Daytrip({
                 ? circles[0].id
                 : ""
           }
-          onClose={() => setChosenRoute(null)}
+          onClose={() => {
+            setChosenRoute(null);
+            setProgramStep(null);
+          }}
           onOpenCircle={onOpenCircle}
           onCreated={(outing) => {
             setChosenRoute(null);
             setSelected(outing);
-            setTab("outings");
+            if (programStep) {
+              openTab("programs");
+              setNotice(
+                "開催を作成しました。参加承諾後、通う旅の該当する回でこの開催を選んでください。",
+              );
+            } else openTab("outings");
+            setProgramStep(null);
             refresh();
           }}
         />
@@ -1564,45 +1688,61 @@ export default function Daytrip({
       )}
       {benefit && (
         <Modal
-          title="特典を使う開催"
+          title="クーポンを使う開催"
           onClose={() => setBenefit(null)}
           busy={busy}
         >
           <div className="daytrip-form">
+            <BenefitLocation benefit={benefit} />
             <h3>{benefit.title}</h3>
             <BenefitTerms benefit={benefit} />
             <ErrorBox message={error} />
-            <label className="field">
-              対象プランを利用する開催
-              <Choice
-                value={benefitOuting}
-                disabled={busy}
-                onChange={(event) => setBenefitOuting(event.target.value)}
-              >
-                <option value="">開催を選ぶ</option>
-                {outings
-                  .filter(
-                    (outing) =>
-                      outing.plan_id === benefit.plan_id &&
-                      outing.status === "scheduled" &&
-                      outing.participants.some(
-                        (person) =>
-                          person.user_id === user.id && person.accepted,
-                      ),
-                  )
-                  .map((outing) => (
+            {reservableOutings.length > 0 ? (
+              <label className="field" htmlFor="coupon-outing">
+                対象プランを利用する開催
+                <Choice
+                  id="coupon-outing"
+                  value={benefitOuting}
+                  disabled={busy}
+                  onChange={(event) => setBenefitOuting(event.target.value)}
+                >
+                  <option value="">開催を選ぶ</option>
+                  {reservableOutings.map((outing) => (
                     <option key={outing.id} value={outing.id}>
                       {outing.title} · {japanDate(outing.starts_at)}
                     </option>
                   ))}
-              </Choice>
-            </label>
+                </Choice>
+              </label>
+            ) : (
+              <div className="coupon-empty-outing">
+                <h4>対象の開催がありません</h4>
+                <p>
+                  講で対象プランを決め、事業者の招待承諾後に開催を作って参加承諾してください。対象期間内で、まだ始まっていない開催を選べます。
+                </p>
+                <button
+                  className="button secondary full"
+                  disabled={busy}
+                  onClick={() => {
+                    setBenefit(null);
+                    onFindCircles();
+                  }}
+                >
+                  講でプランを相談する
+                  <Icon name="arrow" />
+                </button>
+              </div>
+            )}
             <p className="quiet-note">
               対象プランの開催に本人が参加承諾済みであることが必要です。本人一人分の料金に適用し、講全員への適用は行いません。
             </p>
             <button
               className="button primary full"
-              disabled={busy || !benefitOuting}
+              disabled={
+                busy ||
+                benefit.zone_offer?.can_reserve === false ||
+                !reservableOutings.some((outing) => outing.id === benefitOuting)
+              }
               onClick={() =>
                 void mutate(
                   `/daytrip/benefits/${encoded(benefit.id)}/reserve`,
@@ -1614,7 +1754,7 @@ export default function Daytrip({
                 )
               }
             >
-              条件を確認して特典を確保
+              条件を確認してクーポンを確保
             </button>
           </div>
         </Modal>
@@ -1848,6 +1988,18 @@ export function ProviderDaytrip({ user }: { user: User }) {
               </p>
               <BenefitTerms benefit={item} />
               <p className="quiet-note">最大{item.max_redemptions}件</p>
+              <Suspense fallback={<output>割引予算をひらいています…</output>}>
+                <BenefitZonePolicy
+                  key={`${item.id}-${item.version}`}
+                  benefit={item}
+                  disabled={busy || loading}
+                  onSaved={() => {
+                    setNotice("追加率と割引予算を保存しました。");
+                    setRevision((value) => value + 1);
+                  }}
+                  onRefresh={() => setRevision((value) => value + 1)}
+                />
+              </Suspense>
               {["active", "published"].includes(item.status) && (
                 <button
                   className="text-button"

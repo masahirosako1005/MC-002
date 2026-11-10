@@ -1,0 +1,3 @@
+oxlint: exit 1
+stylelint: exit 2
+tsc: exit 0

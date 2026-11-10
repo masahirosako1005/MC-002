@@ -1,4 +1,11 @@
 /* Light paper, ink and a restrained vermilion seal. All fonts are local. */
+@font-face {
+  font-family: "Yuji Mai";
+  src: url("/fonts/yujimai/YujiMai-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 :root {
   --paper: #f8f5ed;
   --white: #fffdf7;
@@ -27,8 +34,23 @@ body h3 {
   letter-spacing: 0.025em;
   font-weight: 600;
 }
+body .wa-title-script {
+  font-family: "Yuji Mai", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
 output.page-load-status {
   display: block;
+}
+.feed-pagination {
+  display: grid;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid #c9c0aa;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
 }
 body .brand-mark {
   font-family: var(--wa-heading);

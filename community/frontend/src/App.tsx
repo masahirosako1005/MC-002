@@ -28,6 +28,7 @@ import KoPage, { tripCover } from "./KoPage";
 import Marketplace from "./Marketplace";
 import ProviderWorkspace from "./ProviderWorkspace";
 import type { Capabilities } from "./marketplace-types";
+import { useCommunityFeed } from "./useCommunityFeed";
 import { useNavigationMotion } from "./useNavigationMotion";
 import type { MotionTrigger } from "./useNavigationMotion";
 import type { CircleDetail } from "./circle-types";
@@ -252,9 +253,6 @@ export default function App() {
     window.location.pathname === "/stage/provider" ? "provider" : "daytrip",
   );
   const [communityId, setCommunityId] = useState("");
-  const [feed, setFeed] = useState<Post[]>([]);
-  const [feedBusy, setFeedBusy] = useState(false);
-  const [feedError, setFeedError] = useState("");
   const [composer, setComposer] = useState<Post | true | null>(null);
   const [postAfterCommunity, setPostAfterCommunity] = useState(false);
   const [communityDialog, setCommunityDialog] = useState<
@@ -268,6 +266,7 @@ export default function App() {
   const [circleTarget, setCircleTarget] = useState("");
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
+  const { items: feed, loading: feedBusy, error: feedError, nextCursor: feedNextCursor, loadMore: loadMoreFeed } = useCommunityFeed(user?.id || null, communityId, loadKey);
   const generation = useRef(0);
   const resume = useResumeState(user?.id || null);
   const [appliedResume, setAppliedResume] = useState<{ userId: string; state: ResumeState } | null>(null);
@@ -282,7 +281,6 @@ export default function App() {
     generation.current++;
     setUser(null);
     setData(null);
-    setFeed([]);
     setComposer(null);
     setPostAfterCommunity(false);
     setCommunityDialog(null);
@@ -360,27 +358,6 @@ export default function App() {
       active = false;
     };
   }, [user, loadKey]);
-  useEffect(() => {
-    setFeed([]);
-    setFeedError("");
-    if (!communityId || !user) return undefined;
-    let active = true;
-    setFeedBusy(true);
-    api<{ items: Post[] }>(`/communities/${communityId}/feed`)
-      .then((r) => {
-        if (active) setFeed(r.items);
-        return undefined;
-      })
-      .catch((e) => {
-        if (active) setFeedError(e.message);
-      })
-      .finally(() => {
-        if (active) setFeedBusy(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [communityId, user, loadKey]);
   useEffect(() => {
     if (!data || !resume.restore || appliedResume === resume.restore) return;
     const saved = resume.restore.state;
@@ -737,8 +714,8 @@ export default function App() {
                 <span>写真・文章を投稿する</span>
                 <Icon name="photo" />
               </button>
-              <ErrorBox message={feedError} />
-              {feedError && (
+              {!feed.length && <ErrorBox message={feedError} />}
+              {feedError && !feed.length && (
                 <button
                   className="button secondary"
                   onClick={() => setLoadKey((v) => v + 1)}
@@ -746,11 +723,11 @@ export default function App() {
                   記録を読み直す
                 </button>
               )}
-              {feedBusy ? (
-                <p className="loading-inline" role="status">
+              {feedBusy && !feed.length ? (
+                <output className="loading-inline">
                   みんなの記録を読んでいます…
-                </p>
-              ) : feed.length === 0 ? (
+                </output>
+              ) : feed.length === 0 && !feedError ? (
                 <Empty title="投稿はありません">
                   <p>写真や文章を、参加しているコミュニティに共有できます。</p>
                   <button
@@ -839,6 +816,7 @@ export default function App() {
                   </article>
                 ))
               )}
+              {feed.length > 0 && <div className="feed-pagination"><output aria-live="polite">{feed.length}件を表示しています</output><ErrorBox message={feedError} />{feedError && <button className="text-button" disabled={feedBusy} onClick={() => setLoadKey((value) => value + 1)}>最新の記録から読み直す</button>}{feedNextCursor ? <button className="button secondary full" disabled={feedBusy} onClick={() => void loadMoreFeed()}>{feedBusy ? "続きを読み込んでいます…" : feedError ? "続きをもう一度読み込む" : "続きを読み込む"}</button> : <p>このコミュニティの記録はここまでです。</p>}</div>}
             </>
           ) : page === "journal" ? (
             <Suspense fallback={<p role="status">旅の地図をひらいています…</p>}>

@@ -73,7 +73,7 @@ function ResidenceEditor({
         onIncompleteChange={setIncomplete}
       />
       <p className="residence-note">
-        保存した地域と共有設定が、事業者の地域集計に反映されます。共有を外すと、以後の集計対象から外れます。
+        保存した地域と共有設定が、利用した事業者とN西市全体の地域別集計に反映されます。共有を外すと、以後の集計対象から外れます。
       </p>
       <ErrorBox message={error} />
       {incomplete && (

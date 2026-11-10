@@ -127,7 +127,7 @@ export default function ResidenceFields({
           onChange={(event) => onSharedChange(event.target.checked)}
         />
         <span>
-          居住地域を事業者の地域別集計に含める
+          居住地域を、利用した事業者とN西市全体の地域別集計に含める
           <small>
             任意。個人の住所は渡さず、少人数の地域は表示しません。あとから変更できます。
           </small>

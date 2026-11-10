@@ -3,6 +3,7 @@
   gap: 14px;
   min-width: 0;
   padding-bottom: 24px;
+  scroll-margin-top: 80px;
 }
 .daytrip-heading {
   display: flex;
@@ -13,6 +14,9 @@
 .daytrip-heading h1 {
   margin-top: 0;
   font-size: 1.8rem;
+}
+body .daytrip-heading .wa-title-script {
+  font-size: 1.75rem;
 }
 .daytrip-rank-link {
   display: grid;
@@ -54,11 +58,12 @@
   padding: 0;
   min-width: 0;
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid #c6cbbf;
   gap: 0;
 }
 .daytrip-tabs > button {
-  flex: 1;
+  flex: 1 1 52px;
   border: 0;
   border-bottom: 2px solid transparent;
   min-height: 46px;
@@ -128,19 +133,22 @@
   min-width: 0;
 }
 .daytrip-route-card:not(:first-child) {
-  margin-left: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #c9c0ab;
 }
 .daytrip-route-photo {
   position: relative;
   overflow: hidden;
   height: 176px;
-  border-radius: 3px 3px 22px 3px;
-  background: #e4e6da;
+  border: 1px solid #bdb49f;
+  border-radius: 2px;
+  background: #eee7d6;
 }
 .daytrip-route-photo > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(0.65) contrast(0.96);
 }
 .daytrip-photo-caption {
   position: absolute;
@@ -174,8 +182,37 @@
   margin-left: 6px;
 }
 .daytrip-route-content h2 {
-  font-size: 1.4rem;
-  margin: 4px 0 10px;
+  font-size: 1.2rem;
+  margin: 4px 0 7px;
+  line-height: 1.5;
+}
+.daytrip-experience-summary {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #5e6258;
+  margin: 0 0 10px;
+}
+.daytrip-coupon-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 0;
+  border: 0;
+  border-bottom: 1px solid #d3c9b2;
+  background: none;
+  text-align: left;
+  font-size: 0.8rem;
+  color: #7c3d2c;
+}
+.daytrip-coupon-link strong {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.daytrip-coupon-link .icon {
+  width: 17px;
+  height: 17px;
 }
 .daytrip-facts {
   display: flex;
@@ -470,10 +507,11 @@
   font-size: 0.75rem;
   margin-top: 10px;
 }
-.passbook-inscription .wa-journey-drawing {
-  width: 137px;
-  height: 76px;
-  opacity: 0.85;
+.passbook-inscription .wa-woodcut-art {
+  width: 104px;
+  height: 72px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
 }
 .passbook-rank {
   display: flex;
@@ -610,6 +648,192 @@
   color: var(--muted);
   margin-top: 4px;
 }
+.benefit-price > span {
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+.benefit-zone-rates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.benefit-zone-rates > span {
+  color: #89462f;
+}
+.benefit-zone-summary {
+  display: grid;
+  gap: 7px;
+  padding: 10px 0 10px 11px;
+  border-left: 2px solid #b89b72;
+  color: #606253;
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+.benefit-zone-eligible {
+  color: #7d402d;
+  font-weight: 600;
+}
+.benefit-budget-unavailable {
+  color: #9c3528;
+  font-weight: 600;
+}
+.benefit-zone-summary summary {
+  min-height: 44px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.benefit-location {
+  display: grid;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.benefit-place {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.benefit-location .icon {
+  width: 15px;
+  height: 15px;
+}
+.benefit-location .benefit-provider {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.benefit-plan {
+  line-height: 1.6;
+}
+.benefit-terms {
+  display: grid;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+.benefit-terms > div {
+  display: grid;
+  grid-template-columns: 5.8em minmax(0, 1fr);
+  gap: 10px;
+}
+.benefit-terms dt {
+  color: var(--muted);
+}
+.benefit-terms dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.benefit-conditions {
+  border-top: 1px dashed #c8bda4;
+  font-size: 0.75rem;
+  color: #606253;
+}
+.benefit-funding {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.benefit-conditions > summary {
+  min-height: 44px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+.benefit-conditions > p {
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+.coupon-directory {
+  display: grid;
+  gap: 16px;
+}
+.coupon-qualification {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 7px 0 13px;
+  border-bottom: 3px double #b6ac92;
+}
+.coupon-rank-seal {
+  width: 50px;
+  height: 54px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+.coupon-qualification p {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.coupon-qualification strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-top: 2px;
+}
+.coupon-qualification small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.coupon-place-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-left: 10px;
+  border-left: 2px solid var(--orange);
+}
+.coupon-place-filter span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.coupon-place-filter strong {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+.coupon-rank-filter.field {
+  margin: 0;
+}
+.coupon-count {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.coupon-rank-group {
+  display: grid;
+  gap: 12px;
+}
+.coupon-rank-group > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ada58d;
+}
+.coupon-rank-group h2 {
+  font-size: 1.15rem;
+}
+.coupon-rank-group > header > span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.coupon-ticket {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid #bcb19a;
+  border-top: 3px double #a88e6a;
+  background: #fffaf0;
+  box-shadow: 3px 3px 0 #ded6c652;
+}
+.coupon-empty-outing {
+  padding: 12px 0;
+  border-block: 1px solid var(--line);
+}
+.coupon-empty-outing p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin: 8px 0 12px;
+}
 .daytrip-totals {
   margin: 0;
   display: grid;
@@ -705,6 +929,11 @@
   }
   .daytrip-heading h1 {
     font-size: 1.55rem;
+  }
+  .daytrip-tabs > button {
+    min-width: 0;
+    padding-inline: 3px;
+    font-size: 0.75rem;
   }
   .daytrip-route-photo {
     height: 136px;

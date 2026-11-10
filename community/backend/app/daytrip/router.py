@@ -1,5 +1,8 @@
+from typing import Annotated
+
 from fastapi import APIRouter, Depends
 
+from ..schemas import Id
 from ..security import authenticated
 from .schemas import (
     AcceptInput,
@@ -13,13 +16,23 @@ from .schemas import (
     ReserveInput,
     RouteInput,
     VersionInput,
+    ZonePolicyInput,
+    ZonePolicyState,
 )
 from .service import Daytrip
+
+
+def add_zone_policy_route(router, service):
+    @router.put('/daytrip/benefits/{bid}/zone-policy')
+    def zone_policy(bid: Id, body: ZonePolicyInput,
+                    session: Annotated[dict, Depends(authenticated)]) -> ZonePolicyState:
+        return service.zone_policy(session['user_id'], bid, body.model_dump())
 
 
 def create_router(database):
     router = APIRouter(prefix='/api', dependencies=[Depends(authenticated)])
     service = Daytrip(database)
+    add_zone_policy_route(router, service)
 
     @router.get('/daytrip/catalog')
     def catalog():

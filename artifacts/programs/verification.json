@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-11-10T03:05:07.5389320Z",
+  "programs_tests": {
+    "passed": 5,
+    "seconds": 15.78,
+    "evidence": "artifacts/programs/pytest-final.xml"
+  },
+  "initial_combined_run": {
+    "correction": "Explicit accepted / plan / provider Boolean check, then full program suite passed",
+    "passed": 7,
+    "evidence": "artifacts/programs/pytest.xml",
+    "failed": 1
+  },
+  "ruff_findings": 0,
+  "c901_findings": 0,
+  "bandit_findings": 0,
+  "real_database_modified_by_agent": false,
+  "hashes": [
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\__init__.py",
+      "sha256": "493025C34ED65929EA53C923FDBBCB9E03E591DF189D3D2738ADF726365EBB41"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\catalog.py",
+      "sha256": "D8AE0ED3CD03617A2E90C829221A1DBB6138F317B396F5E276CE840E417BE2BE"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\router.py",
+      "sha256": "FC748729E0DD3F8E43D5FD3E7B097595D839D72FF3674D3800E614FB39A411DE"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\schema.py",
+      "sha256": "92FD7D896E326DF886B82284AB44F42280115A63E20C71D01FB0E4778967C61E"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\schemas.py",
+      "sha256": "A677CA108BDEA19A222DED491838C170CAE9DFA2261C1B07FE33AF99898D7AD8"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\seed.py",
+      "sha256": "5B499129DD57CEA7AF5D94A22B0FDA1E152D14734391E2EE6718384B0C3FC21D"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\service.py",
+      "sha256": "7E37B958F18326399F9814D2FC7EFBAF4BC529BC4C746C1913989AC5621B5655"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\backend\\test_programs.py",
+      "sha256": "EF06157EFE5A4439DD39862E763B88BA3890EBD456234CE5597E29E1561CFB95"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\operational_seed.py",
+      "sha256": "D090B49C16F04FBE64E814891D07521142C865EBBD783F6E82C8787B94A9657B"
+    },
+    {
+      "path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\backend\\test_operational_seed.py",
+      "sha256": "90145522BE952FCE49E7A6AE192AC3F7F842432D928A74D794B267663A1B775E"
+    }
+  ]
+}

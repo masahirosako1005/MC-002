@@ -6,7 +6,7 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, Response
+from fastapi import APIRouter, Depends, FastAPI, HTTPException, Query, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -15,6 +15,7 @@ from .analytics.router import create_router as analytics_router
 from .circles.discovery_schema import migrate as migrate_discovery
 from .circles.router import create_router as circles_router
 from .circles.schema import migrate as migrate_circles
+from .city_registry import migrate as migrate_city_registry
 from .config import Settings
 from .database import TAGS, Database, digest
 from .daytrip.router import create_router as daytrip_router
@@ -29,6 +30,8 @@ from .occasions.router import create_router as occasions_router
 from .occasions.schema import migrate as migrate_occasions
 from .personalization.router import create_router as personalization_router
 from .personalization.schema import migrate as migrate_personalization
+from .programs.router import create_router as programs_router
+from .programs.schema import migrate as migrate_programs
 from .reflections.router import create_router as reflections_router
 from .reflections.schema import migrate as migrate_reflections
 from .residence.router import create_router as residence_router
@@ -82,6 +85,8 @@ def create_app(settings=None):
         migrate_personalization(database)
         migrate_daytrip(database)
         migrate_residence(database)
+        migrate_programs(database)
+        migrate_city_registry(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         worker.cleanup_deleted()
         service.seed_assets()
@@ -192,8 +197,9 @@ def create_app(settings=None):
         return service.leave(session["user_id"], cid)
 
     @private.get("/communities/{cid}/feed", response_model=PostFeed)
-    def feed(cid: Id, session: CurrentSession):
-        return service.feed(session["user_id"], cid)
+    def feed(cid: Id, session: CurrentSession, before: Id | None = None,
+             limit: Annotated[int, Query(ge=1, le=100)] = 24):
+        return service.feed(session["user_id"], cid, before, limit)
 
     @private.post("/media", response_model=UploadedMedia)
     async def upload(request: Request, session: CurrentSession, read_location: bool = False):
@@ -288,6 +294,7 @@ def create_app(settings=None):
     app.include_router(daytrip_router(database))
     app.include_router(analytics_router(database))
     app.include_router(residence_router(database))
+    app.include_router(programs_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

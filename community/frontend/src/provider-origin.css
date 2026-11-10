@@ -5,6 +5,16 @@
   gap: 12px;
   margin: 18px 0 14px;
 }
+.origin-compact .origin-controls {
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.origin-compact .dashboard-chart-switch {
+  gap: 3px;
+}
+.origin-compact .dashboard-chart-switch > button {
+  padding-inline: 7px;
+}
 .origin-figure {
   margin: 0;
 }
@@ -52,6 +62,10 @@
   font-size: 15px;
   font-weight: 600;
   pointer-events: none;
+}
+.origin-compact .origin-city-label {
+  font-size: 26px;
+  stroke-width: 5px;
 }
 .origin-selection {
   fill: none;
@@ -138,6 +152,26 @@
   line-height: 1.8;
   color: #64705a;
 }
+.origin-compact .origin-status {
+  padding: 0 0 8px;
+  font-size: 12px;
+}
+.origin-brief {
+  margin: 0 0 8px;
+  color: #697361;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.origin-details {
+  border-top: 1px solid #d8dece;
+  color: #67705d;
+  font-size: 12px;
+}
+.origin-details > summary {
+  min-height: 44px;
+  padding: 13px 0 9px;
+  cursor: pointer;
+}
 .origin-table {
   margin-top: 14px;
 }
@@ -154,6 +188,9 @@
   min-width: 90px;
 }
 @media (max-width: 679px) {
+  .origin-compact .origin-city-label {
+    font-size: 23px;
+  }
   .origin-coverage {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

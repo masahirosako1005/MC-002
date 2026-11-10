@@ -41,6 +41,10 @@ export type Route = {
   time_source_url?: string;
   checked_on: string;
   zone: "target" | "nearby" | "outside" | "unknown";
+  experience_title?: string;
+  summary?: string;
+  cover_id?: string;
+  distance_basis?: string;
 };
 export type DaytripCatalog = {
   routes: Route[];
@@ -55,7 +59,14 @@ export type DaytripCatalog = {
     rank_window_days: number;
     rank_lifetime_floor_max: number;
   };
-  plans: { plan_id: string; provider_id: string; route_id: string }[];
+  plans: {
+    plan_id: string;
+    provider_id: string;
+    route_id: string;
+    plan_title?: string;
+    provider_name?: string;
+    area?: string;
+  }[];
 };
 export type Outing = {
   id: string;
@@ -85,6 +96,27 @@ export type Outing = {
     revoked: boolean;
   }[];
 };
+export type ZoneOffer = {
+  eligible: boolean;
+  reason: string;
+  base_percent: number;
+  target_percent: number;
+  effective_percent: number;
+  additional_percent: number;
+  one_way_km: number | null;
+  distance_version: string;
+  distance_basis: "fictional_planning_assumption";
+  distance_note: string;
+  discount_yen: number;
+  can_reserve: boolean;
+};
+export type ZonePolicy = {
+  additional_percent: number;
+  budget_yen: number;
+  used_yen: number;
+  remaining_yen: number;
+  distance_version: string;
+};
 export type Benefit = {
   id: string;
   provider_id: string;
@@ -103,6 +135,14 @@ export type Benefit = {
   version: number;
   funding: "provider";
   combinable: false;
+  provider_name?: string;
+  plan_title?: string;
+  area?: string;
+  route_ids?: string[];
+  zone_offer?: ZoneOffer | null;
+  zone_policy?: ZonePolicy | null;
+  zone_policy_configurable?: boolean;
+  zone_used_yen?: number;
 };
 export type Redemption = {
   id: string;

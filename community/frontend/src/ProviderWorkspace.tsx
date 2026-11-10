@@ -588,10 +588,10 @@ export default function ProviderWorkspace({
     <section className="provider-workspace">
       <div className="provider-console">
         <nav className="provider-workspace-nav" aria-label="事業者の業務">
-          <p>管理メニュー</p>
+          <p>事業者管理</p>
           {(
             [
-              ["overview", "実績の概要", "home"],
+              ["overview", "実績・地域", "home"],
               ["consultations", "相談", "people"],
               ["circles", "講の招待", "people"],
               ["plans", "プラン", "compass"],
@@ -610,29 +610,31 @@ export default function ProviderWorkspace({
           ))}
         </nav>
         <div className="provider-workspace-content">
-          <header className="provider-workspace-heading">
-            <h1>
-              {
+          {tab !== "overview" && (
+            <header className="provider-workspace-heading">
+              <h1>
                 {
-                  overview: "実績の概要",
-                  plans: "プラン管理",
-                  consultations: "届いた相談",
-                  circles: "講からの招待",
-                  daytrip: "日帰りの運営",
-                }[tab]
-              }
-            </h1>
-            {tab !== "daytrip" && tab !== "overview" && (
-              <button
-                className="text-button"
-                disabled={busy}
-                onClick={() => void load()}
-              >
-                <Icon name="refresh" />
-                更新
-              </button>
-            )}
-          </header>
+                  {
+                    overview: "実績の概要",
+                    plans: "プラン管理",
+                    consultations: "届いた相談",
+                    circles: "講からの招待",
+                    daytrip: "日帰りの運営",
+                  }[tab]
+                }
+              </h1>
+              {tab !== "daytrip" && (
+                <button
+                  className="text-button"
+                  disabled={busy}
+                  onClick={() => void load()}
+                >
+                  <Icon name="refresh" />
+                  更新
+                </button>
+              )}
+            </header>
+          )}
           <ErrorBox message={error} />
           {tab === "overview" ? (
             <Suspense

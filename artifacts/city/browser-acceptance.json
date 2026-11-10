@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-10",
+  "observer": "root",
+  "recorder": "wa_frontend",
+  "observation_source": "Primary agent's CUA observations, reported in the shared task. The recorder did not repeat browser operations.",
+  "scope": "Local Docker app, visitor phone and provider desktop in /stage. Controlled fictional operational data.",
+  "checks": [
+    {
+      "id": "city-scope",
+      "result": "passed",
+      "observation": "自社とN西市全体の90日集計を切り替え、全国とN西市周辺の地域図を確認した。"
+    },
+    {
+      "id": "program-progress",
+      "result": "passed",
+      "observation": "通う旅の1/3回の利用確認済み進捗と、次回の開催選択ダイアログを確認した。"
+    },
+    {
+      "id": "rank-coupons",
+      "result": "passed",
+      "observation": "階級から17件のクーポン一覧へ到達した。"
+    },
+    {
+      "id": "zone-budget",
+      "result": "passed",
+      "observation": "事業者の追加割引予算を同じ値で保存し、成功表示を確認した。"
+    },
+    {
+      "id": "journal-map",
+      "result": "passed",
+      "observation": "20件の記録の地図で9月2日を選び、17〜20件の一覧ページへ連動した。"
+    },
+    {
+      "id": "shared-conversation",
+      "result": "passed",
+      "observation": "利用者から共有相談を送信し、事業者の受信と返信、利用者側の返信受信を確認した。"
+    }
+  ],
+  "screens": [
+    {
+      "path": "artifacts/video-revisit/screens/actual-full.jpg",
+      "sha256": "cfde5b1cf0b4608365b149f9362a562a88fff933ddf090b4a681933458376e7b",
+      "bytes": 115140
+    },
+    {
+      "path": "artifacts/video-revisit/screens/reply-stage.jpg",
+      "sha256": "816ecfe53a4f34b64b22252d2f8717b35d6715da6ededb5a00fa764bc75f878e",
+      "bytes": 103924
+    },
+    {
+      "path": "artifacts/video-revisit/screens/program-stage.jpg",
+      "sha256": "eabc69631b6d29b12898eeb0ad3b4028854397dd83a12394dbd6a6a0457220d8",
+      "bytes": 111917
+    },
+    {
+      "path": "artifacts/video-revisit/screens/zone-stage.jpg",
+      "sha256": "f9a4961f36406faa581e6ab272a004cab30d8967110828913e2216065da10452",
+      "bytes": 92547
+    },
+    {
+      "path": "artifacts/video-revisit/screens/journal-stage.jpg",
+      "sha256": "b3179ade31df2c9863906efe4dba2f690901173eb502bcb7ffe326de12abcabf",
+      "bytes": 95244
+    },
+    {
+      "path": "artifacts/video-revisit/screens/home-stage.jpg",
+      "sha256": "494922b9c093345b570f060ff37e674d888ab91da16bee11e88fffa8c7629d25",
+      "bytes": 125915
+    },
+    {
+      "path": "artifacts/video-revisit/screens/rank-stage.jpg",
+      "sha256": "70845c137402c0e39970d66d64f14c3e51d3f62231ba314cf941bb506169e201",
+      "bytes": 120935
+    }
+  ],
+  "pending": [
+    "320pxと左右端末の横方向のはみ出し計測は主担当の後続確認。CP79はreviewを維持。",
+    "今回の文字200%と狭幅の最終操作確認は未検証。CP83はreviewを維持。",
+    "CP87の約1分動画の最終制作・目視受入は別作業。"
+  ],
+  "limits": "API tests, static analysis, browser observations, and actual tourism outcomes are separate evidence categories. Screenshots alone do not prove all save, authorization, responsive, or accessibility behavior.",
+  "recorded_at": "2026-11-10T03:20:52.360792+00:00"
+}

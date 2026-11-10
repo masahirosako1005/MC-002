@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="8" time="28.149" timestamp="2026-11-10T12:02:07.983516+09:00" hostname="Jisui-share002"><testcase classname="test.backend.test_programs" name="test_seed_is_append_only_idempotent_and_only_first_dedicated_stage_is_complete" time="5.446" /><testcase classname="test.backend.test_programs" name="test_enrollment_replay_csrf_owner_scope_and_cancellation_preserve_attendance" time="4.688" /><testcase classname="test.backend.test_programs" name="test_sequence_same_jst_day_wrong_plan_and_correction_recompute_all_steps" time="4.122"><failure message="AssertionError: assert 409 == 404&#10; +  where 409 = &lt;Response [409 Conflict]&gt;.status_code&#10; +    where &lt;Response [409 Conflict]&gt; = link(&lt;conftest.Client object at 0x00000161BD66BCE0&gt;, 'decorate', 'program26-outing-past-0', 1)">programs = Harness(app=&lt;fastapi.applications.FastAPI object at 0x00000161BDE0E0D0&gt;, settings=Settings(db_path=WindowsPath('C:/AI-...runner=&lt;asyncio.runners.Runner object at 0x00000161BDD825D0&gt;, clients=[&lt;conftest.Client object at 0x00000161BD66BCE0&gt;])
+
+    def test_sequence_same_jst_day_wrong_plan_and_correction_recompute_all_steps(programs):
+        db = programs.app.state.database
+        program_content(db, programs.settings, NOW)
+        aoi = programs.client('aoi')
+        first = aoi.get(BASE + '/' + PID + '/outings').json()['items'][0]
+        first_day = service.datetime.fromisoformat(first['ends_at']).astimezone(service.JST).date()
+        second = extra_stage(programs, 1, first_day)
+        assert link(aoi, 'decorate', second, 1).status_code == 409
+&gt;       assert link(aoi, 'decorate', first['id'], 1).status_code == 404
+E       AssertionError: assert 409 == 404
+E        +  where 409 = &lt;Response [409 Conflict]&gt;.status_code
+E        +    where &lt;Response [409 Conflict]&gt; = link(&lt;conftest.Client object at 0x00000161BD66BCE0&gt;, 'decorate', 'program26-outing-past-0', 1)
+
+test\backend\test_programs.py:116: AssertionError</failure></testcase><testcase classname="test.backend.test_programs" name="test_future_and_unshared_outings_never_complete_and_private_snapshot_stays_manageable" time="3.954" /><testcase classname="test.backend.test_programs" name="test_migration_failure_rolls_back_only_new_tables" time="0.011" /><testcase classname="test.backend.test_operational_seed" name="test_pack_preserves_every_existing_row_and_photo_and_is_idempotent" time="3.096" /><testcase classname="test.backend.test_operational_seed" name="test_initial_accounts_have_visible_history_messages_private_map_and_usable_coupons" time="3.756" /><testcase classname="test.backend.test_operational_seed" name="test_missing_manifest_collision_and_mid_apply_failure_rollback" time="2.647" /></testsuite></testsuites>

@@ -24,6 +24,14 @@ from .ranks import (
     legacy_eligible_points,
 )
 from .ranks import rank as rank
+from .zone_benefits import (
+    budget_status,
+    can_configure,
+    configure,
+    personal_offer,
+    reservation_discount,
+    used_yen,
+)
 
 JST = timezone(timedelta(hours=9))
 RULES = dict(version='D1', base_points=100, distance_cap_km=200, leader_points=50,
@@ -121,7 +129,7 @@ class Daytrip:
 
     def catalog(self):
         with self.db.transaction() as conn:
-            links = [dict(row) for row in conn.execute("SELECT l.plan_id,p.provider_id,l.route_id FROM daytrip_plan_routes l JOIN provider_plans p ON p.id=l.plan_id JOIN providers v ON v.id=p.provider_id WHERE p.status='published' AND v.active=1")]
+            links = [dict(row) for row in conn.execute("SELECT l.plan_id,p.provider_id,l.route_id,json_extract(p.body,'$.title') AS plan_title,v.name AS provider_name,v.area FROM daytrip_plan_routes l JOIN provider_plans p ON p.id=l.plan_id JOIN providers v ON v.id=p.provider_id WHERE p.status='published' AND v.active=1 ORDER BY l.route_id,l.plan_id")]
             return dict(routes=[route_out(item) for item in ROUTES], rules=RULES, plans=links)
 
     def outings(self, uid, cid):
@@ -354,9 +362,20 @@ class Daytrip:
         return tuple(evaluate(sum(row[key] for row in rows), [(datetime.fromisoformat(row['ends_at']), row[key]) for row in rows], at) for key in ('points','eligible_points'))
 
     @staticmethod
-    def benefit_out(conn, row):
-        return dict(row) | dict(min_rank=benefit_level(conn, row), rank_policy_version=VERSION,
-                                original_rank_policy=benefit_policy(conn, row), funding='provider', combinable=False)
+    def benefit_out(conn, row, uid=None, staff=False):
+        place = conn.execute('SELECT v.name AS provider_name,v.area,p.body FROM providers v JOIN provider_plans p ON p.provider_id=v.id WHERE p.id=? AND v.id=?', (row['plan_id'], row['provider_id'])).fetchone()
+        details = dict(provider_name=place['provider_name'], area=place['area'],
+                       plan_title=json.loads(place['body']).get('title', ''),
+                       route_ids=[item[0] for item in conn.execute('SELECT route_id FROM daytrip_plan_routes WHERE plan_id=? ORDER BY route_id', (row['plan_id'],))]) if place else {}
+        result = dict(row) | dict(min_rank=benefit_level(conn, row), rank_policy_version=VERSION,
+                                 original_rank_policy=benefit_policy(conn, row), funding='provider', combinable=False) | details
+        if uid is not None:
+            result['zone_offer'] = personal_offer(conn, uid, row, json.loads(place['body'])['price_yen']) if place else None
+        if staff:
+            result['zone_policy'] = budget_status(conn, row['id'])
+            result['zone_policy_configurable'] = can_configure(conn, row)
+            result['zone_used_yen'] = used_yen(conn, row['id'])
+        return result
 
     @staticmethod
     def redemption_out(row):
@@ -370,7 +389,7 @@ class Daytrip:
             awarded = conn.execute("SELECT COUNT(*) FROM daytrip_participants p JOIN daytrip_outings o ON o.id=p.outing_id WHERE p.user_id=? AND p.points>0 AND o.status!='cancelled'", (uid,)).fetchone()[0]
             leaders = conn.execute("SELECT COUNT(*) FROM daytrip_participants p JOIN daytrip_outings o ON o.id=p.outing_id WHERE p.user_id=? AND p.points>0 AND p.full_route=1 AND o.leader_id=p.user_id AND o.status!='cancelled'", (uid,)).fetchone()[0]
             ledger = [dict(row) for row in conn.execute('SELECT id,outing_id,kind,points,eligible_points,reason,created_at FROM daytrip_ledger WHERE user_id=? ORDER BY created_at DESC,id DESC LIMIT 200', (uid,))]
-            benefits = [self.benefit_out(conn, row) for row in conn.execute("SELECT b.* FROM daytrip_benefits b JOIN providers p ON p.id=b.provider_id JOIN provider_plans q ON q.id=b.plan_id WHERE b.status='published' AND b.ends_on>=? AND p.active=1 AND q.status='published' ORDER BY b.created_at DESC LIMIT 100", (clock_now().astimezone(JST).date().isoformat(),))]
+            benefits = [self.benefit_out(conn, row, uid=uid) for row in conn.execute("SELECT b.* FROM daytrip_benefits b JOIN providers p ON p.id=b.provider_id JOIN provider_plans q ON q.id=b.plan_id WHERE b.status='published' AND b.ends_on>=? AND p.active=1 AND q.status='published' ORDER BY b.created_at DESC LIMIT 100", (clock_now().astimezone(JST).date().isoformat(),))]
             redemptions = [self.redemption_out(row) for row in conn.execute('SELECT * FROM daytrip_redemptions WHERE user_id=? ORDER BY created_at DESC LIMIT 100', (uid,))]
             return dict(points=personal['lifetime_points'], eligible_points=eligible['lifetime_points'], rank=personal['rank'],
                         eligible_rank=eligible['rank'], rank_status=personal, eligible_rank_status=eligible,
@@ -385,7 +404,7 @@ class Daytrip:
                 result['plans'].extend(self.market.plan_out(conn, row) for row in conn.execute('SELECT * FROM provider_plans WHERE provider_id=? ORDER BY updated_at DESC', (pid,)))
                 result['links'].extend(dict(row) for row in conn.execute('SELECT l.plan_id,l.route_id FROM daytrip_plan_routes l JOIN provider_plans p ON p.id=l.plan_id WHERE p.provider_id=?', (pid,)))
                 result['outings'].extend(self.out(conn,uid,row,True) for row in conn.execute("SELECT o.* FROM daytrip_outings o JOIN circle_provider_invitations i ON i.id=o.invitation_id JOIN travel_parties p ON p.id=o.circle_id WHERE o.provider_id=? AND i.status='accepted' AND p.status='open' ORDER BY o.starts_at DESC LIMIT 100", (pid,)))
-                result['benefits'].extend(self.benefit_out(conn, row) for row in conn.execute('SELECT * FROM daytrip_benefits WHERE provider_id=? ORDER BY created_at DESC LIMIT 100', (pid,)))
+                result['benefits'].extend(self.benefit_out(conn, row, staff=True) for row in conn.execute('SELECT * FROM daytrip_benefits WHERE provider_id=? ORDER BY created_at DESC LIMIT 100', (pid,)))
                 result['redemptions'].extend(self.redemption_out(row) for row in conn.execute('SELECT * FROM daytrip_redemptions WHERE provider_id=? ORDER BY created_at DESC LIMIT 100', (pid,)))
             return result
 
@@ -426,6 +445,13 @@ class Daytrip:
             conn.execute("UPDATE daytrip_redemptions SET status='cancelled',version=version+1 WHERE benefit_id=? AND status='reserved'", (bid,))
             return self.benefit_out(conn, conn.execute('SELECT * FROM daytrip_benefits WHERE id=?', (bid,)).fetchone())
 
+    def zone_policy(self, uid, bid, data):
+        with self.db.transaction(True) as conn:
+            row = require(conn.execute('SELECT * FROM daytrip_benefits WHERE id=?', (bid,)).fetchone())
+            self.market.staff(conn, uid, row['provider_id'])
+            self.version(row, data['version'])
+            return configure(conn, row, data)
+
     def check_benefit(self, conn, uid, benefit, outing, check_rank=True, at=None):
         at = at or clock_now()
         self.mutable(outing)
@@ -464,13 +490,15 @@ class Daytrip:
             if uses >= benefit['max_redemptions']:
                 raise HTTPException(409, 'この特典の利用枠は埋まっています。')
             original = plan['price_yen']
-            raw = benefit['discount_value'] if benefit['discount_type'] == 'amount' else original * benefit['discount_value'] // 100
-            discount = min(original, raw, benefit['max_discount_yen'])
+            # This quote and the subsequent insertion share BEGIN IMMEDIATE;
+            # concurrent requests cannot both spend the same remaining budget.
+            discount, zone_offer = reservation_discount(conn, uid, benefit, original)
             rid = identifier()
             _, qualified = self.rank_states(conn, uid, outing['id'], evaluated_at)
             conditions = dict(benefit=self.benefit_out(conn, benefit),rank_qualification=qualified,
                               rank_evidence=capture_evidence(self.eligible_entries(conn, uid, outing['id'])),
-                              plan_version=plan_row['version'],price_note=plan['price_note'],price_scope=plan['price_scope'],price_basis=plan['price_basis'])
+                              plan_version=plan_row['version'],price_note=plan['price_note'],price_scope=plan['price_scope'],price_basis=plan['price_basis'],
+                              zone_offer=zone_offer)
             conn.execute("INSERT INTO daytrip_redemptions(id,benefit_id,outing_id,user_id,provider_id,status,original_yen,discount_yen,total_yen,conditions_json,created_at) VALUES(?,?,?,?,?,'reserved',?,?,?,?,?)", (rid,bid,outing['id'],uid,benefit['provider_id'],original,discount,original-discount,dump(conditions),now()))
             self.market.remember(conn, uid, operation, data, fingerprint, rid)
             self.event(conn, outing['id'], uid, 'benefit_reserved', {'redemption_id': rid})

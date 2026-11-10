@@ -1,0 +1,115 @@
+{
+  "checked_at": "2026-11-10T03:12:12.133026+00:00",
+  "baseline": "nnishi-revision",
+  "measured": "revisit-integrated",
+  "method": "Multiset comparison by file, rule, message; ignore line offsets. Bandit code comparison removes source line-number prefixes.",
+  "frontend": {
+    "source_count_before": 54,
+    "source_count_after": 67,
+    "same_configs": true,
+    "same_oxlint_image": true,
+    "added_files": [
+      "BenefitZonePolicy.tsx",
+      "DaytripBenefits.tsx",
+      "DaytripCover.tsx",
+      "JournalMap.tsx",
+      "JourneyPrograms.tsx",
+      "ProviderBreakdown.tsx",
+      "ProviderTrend.tsx",
+      "benefit-zone.css",
+      "journal-map.css",
+      "journey-program-types.ts",
+      "journey-programs.css",
+      "provider-analytics-types.ts",
+      "useCommunityFeed.ts"
+    ],
+    "removed_files": [],
+    "tsc_exit": 0,
+    "oxlint": {
+      "before": 119,
+      "after": 115,
+      "added": [],
+      "removed": [
+        {
+          "key": [
+            "src/Journal.tsx",
+            "jsx-a11y(prefer-tag-over-role)",
+            "Prefer `img` over `role` attribute `img`."
+          ],
+          "count": 1
+        },
+        {
+          "key": [
+            "src/App.tsx",
+            "react(exhaustive-effect-dependencies)",
+            "Found extra effect dependencies"
+          ],
+          "count": 1
+        },
+        {
+          "key": [
+            "src/App.tsx",
+            "react(set-state-in-effect)",
+            "Calling setState synchronously within an effect can trigger cascading renders"
+          ],
+          "count": 1
+        },
+        {
+          "key": [
+            "src/App.tsx",
+            "jsx-a11y(prefer-tag-over-role)",
+            "Prefer `output` over `role` attribute `status`."
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "stylelint": {
+      "before": 126,
+      "after": 126,
+      "added": [],
+      "removed": []
+    },
+    "post_measurement_changes": [
+      "JourneyPrograms.tsx",
+      "journey-program-types.ts"
+    ]
+  },
+  "backend": {
+    "source_count_before": 69,
+    "source_count_after": 84,
+    "same_config": true,
+    "post_measurement_changes": [
+      "community/backend/app/main.py",
+      "community/backend/app/programs/schemas.py",
+      "community/backend/app/programs/service.py"
+    ],
+    "ruff": {
+      "before": 0,
+      "after": 1,
+      "added": [
+        {
+          "key": [
+            "main.py",
+            "I001",
+            "Import block is un-sorted or un-formatted"
+          ],
+          "count": 1
+        }
+      ],
+      "removed": []
+    },
+    "complexity": {
+      "before": 14,
+      "after": 14,
+      "added": [],
+      "removed": []
+    },
+    "bandit": {
+      "before": 19,
+      "after": 19,
+      "added": [],
+      "removed": []
+    }
+  }
+}

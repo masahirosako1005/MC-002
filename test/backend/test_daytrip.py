@@ -4,11 +4,11 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 
 import pytest
-from fastapi import HTTPException
-
+from app.analytics.city_scope import CITY_ROUTE_IDS
 from app.daytrip import service as module
 from app.daytrip.schema import migrate
 from app.daytrip.service import Daytrip, rank, route_out
+from fastapi import HTTPException
 from test_circles import circle, requirements
 
 
@@ -18,7 +18,7 @@ def trip(harness, monkeypatch):
     monkeypatch.setattr(module, 'clock_now', lambda: time[0])
     aoi, ren, mio, forest, shore = [harness.client(name) for name in ('aoi','ren','mio','forest','shore')]
     group = circle(aoi, invitee_ids=['u-ren','u-mio'])
-    for invitation, client in zip(group['invitations'], (ren,mio)):
+    for invitation in group['invitations']:
         # Invitation order is not assumed by the public contract.
         client = ren if invitation['invitee']['id'] == 'u-ren' else mio
         checked(client.write('POST', '/circle-invitations/' + invitation['id'] + '/respond', dict(version=1,decision='accepted',client_request_id='accept-' + invitation['id'])))
@@ -241,32 +241,32 @@ def test_restart_migration_is_idempotent_and_resume_keeps_data(trip):
     with db.transaction() as conn:
         counts = [conn.execute('SELECT COUNT(*) FROM ' + table).fetchone()[0] for table in ('users','media','travel_parties','daytrip_outings')]
     db.initialize()
-    from app.marketplace.schema import migrate as m2
-    from app.journal.schema import migrate as m3
-    from app.circles.schema import migrate as m4
     from app.circles.discovery_schema import migrate as m5
-    from app.reflections.schema import migrate as m6
+    from app.circles.schema import migrate as m4
+    from app.journal.schema import migrate as m3
+    from app.marketplace.schema import migrate as m2
     from app.occasions.schema import migrate as m7
     from app.personalization.schema import migrate as m8
+    from app.reflections.schema import migrate as m6
     for step in (m2,m3,m4,m5,m6,m7,m8,migrate,migrate):
         step(db)
     assert checked(trip['aoi'].get('/me/resume-state')) == saved
     with db.transaction() as conn:
-        assert conn.execute('PRAGMA user_version').fetchone()[0] == 11
+        assert conn.execute('PRAGMA user_version').fetchone()[0] == 12
         assert not conn.execute('PRAGMA foreign_key_check').fetchall()
         assert [conn.execute('SELECT COUNT(*) FROM ' + table).fetchone()[0] for table in ('users','media','travel_parties','daytrip_outings')] == counts
 
 
 def test_old_v8_migration_preserves_rows_and_rolls_back(tmp_path, monkeypatch):
+    from app.circles.discovery_schema import migrate as m5
+    from app.circles.schema import migrate as m4
     from app.database import Database
     from app.daytrip import schema as day_schema
-    from app.marketplace.schema import migrate as m2
     from app.journal.schema import migrate as m3
-    from app.circles.schema import migrate as m4
-    from app.circles.discovery_schema import migrate as m5
-    from app.reflections.schema import migrate as m6
+    from app.marketplace.schema import migrate as m2
     from app.occasions.schema import migrate as m7
     from app.personalization import schema as resume_schema
+    from app.reflections.schema import migrate as m6
     db = Database(tmp_path / 'before.db')
     db.initialize()
     for step in (m2,m3,m4,m5,m6,m7):
@@ -500,3 +500,37 @@ def test_provider_conflict_reload_uses_current_shared_access(trip):
     invitation = circle_now['active_provider_invitation']
     checked(trip['aoi'].write('POST','/circle-provider-invitations/' + invitation['id'] + '/cancel',dict(version=invitation['version'],client_request_id='stop-provider-access')))
     assert trip['forest'].get('/daytrip/outings/' + outing['id']).status_code == 404
+
+
+
+def test_discovery_has_distinct_local_experiences_and_public_plan_context(trip):
+    client = trip['aoi']
+    catalog = checked(client.get('/daytrip/catalog'))
+    choices = [row for row in catalog['routes'] if row['origin'] == '大阪駅']
+    assert len(choices) >= 8
+    assert len({row['destination'] for row in choices}) == len(choices)
+    assert all(row['zone'] == 'target' and row['id'] in CITY_ROUTE_IDS for row in choices)
+    assert all(row['distance_basis'] == 'fictional_planning_assumption' for row in choices)
+    published = next(row for row in catalog['plans'] if row['plan_id'] == 'forest-day')
+    assert published['provider_name'] and published['plan_title'] and published['area']
+    coupon = benefit(trip)
+    assert coupon['provider_name'] == published['provider_name']
+    assert coupon['plan_title'] == published['plan_title']
+    assert coupon['route_ids'] == [trip['route']]
+    assert any(row['id'] == coupon['id'] for row in checked(client.get('/daytrip/me'))['benefits'])
+
+
+def test_unpublished_plan_and_inactive_provider_do_not_leak_through_coupons(trip):
+    coupon = benefit(trip)
+    db = trip['harness'].app.state.database
+    for update in (
+        "UPDATE provider_plans SET status='draft' WHERE id='forest-day'",
+        "UPDATE provider_plans SET status='published' WHERE id='forest-day'",
+        "UPDATE providers SET active=0 WHERE id='forest-house'",
+    ):
+        with db.transaction(True) as conn:
+            conn.execute(update)
+        if "status='published'" in update:
+            continue
+        assert all(row['plan_id'] != 'forest-day' for row in checked(trip['aoi'].get('/daytrip/catalog'))['plans'])
+        assert all(row['id'] != coupon['id'] for row in checked(trip['aoi'].get('/daytrip/me'))['benefits'])

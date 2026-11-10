@@ -50,7 +50,7 @@ def add_schema9(conn):
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (10, 11):
+        if version in (10, 11, 12):
             return
         if version not in (8, 9):
             raise RuntimeError('Unsupported daytrip migration source')

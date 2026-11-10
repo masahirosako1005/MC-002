@@ -1,0 +1,49 @@
+{
+  "post-fix-tsc": {
+    "exit_code": 0,
+    "command": [
+      "node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--pretty",
+      "false"
+    ],
+    "output": "artifacts/quality/revisit-integrated/post-fix-tsc.txt"
+  },
+  "post-fix-oxlint": {
+    "exit_code": 0,
+    "command": [
+      "node",
+      "node_modules/oxlint/bin/oxlint",
+      "--type-aware",
+      "--no-ignore",
+      "--deny-warnings",
+      "src/BenefitZonePolicy.tsx",
+      "src/daytrip-types.ts",
+      "src/JourneyPrograms.tsx",
+      "src/journey-program-types.ts"
+    ],
+    "output": "artifacts/quality/revisit-integrated/post-fix-oxlint.txt"
+  },
+  "post-fix-main-ruff": {
+    "exit_code": 0,
+    "command": [
+      "C:\\AI-Sprint\\workspace\\MC-002\\.tools\\quality-venv\\Scripts\\python.exe",
+      "-m",
+      "ruff",
+      "check",
+      "--config",
+      "community/quality/ruff.toml",
+      "community/backend/app/main.py"
+    ],
+    "output": "artifacts/quality/revisit-integrated/post-fix-main-ruff.txt"
+  },
+  "checked_at": "2026-11-10T03:12:13.310772+00:00",
+  "source_sha256": {
+    "community/frontend/src/BenefitZonePolicy.tsx": "3ac230dcbef72878a67577d8a1b614aecd672339472d78755e1e45981ccec366",
+    "community/frontend/src/daytrip-types.ts": "9134de42c5c8e6d172eabc3038e3639aafdd3162916cb94d821eee3f5d57b10d",
+    "community/frontend/src/JourneyPrograms.tsx": "84f7731b7d12319cf5969409bf3e8ee4a7ed228c809070def28d04addfe2633d",
+    "community/frontend/src/journey-program-types.ts": "665f3aa4c382dfdc65558bdb0ece857c56163b41290e07ce99fc87d2ba122a1c",
+    "community/backend/app/main.py": "bc2b404759687ece362001b3c8dc638e28e4f16f79d0b9ca5c982bb33cc97504"
+  }
+}
