@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-11-10T05:14:36.050241+00:00",
+  "evaluated_source_commit": "21eb4657adf57f666959d384c3bacee4b4b9bdf4",
+  "files_checked": 112,
+  "git_blob_byte_mismatches": 0,
+  "method": "Compare each staged Git blob SHA-256 to the unchanged original file bytes after -text renormalization",
+  "raw_tool_whitespace": "preserved",
+  "scope": "EV02 evidence only; no databases, fixture rows, source behavior, or AR evaluation changes"
+}
