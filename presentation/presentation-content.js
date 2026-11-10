@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v3-simple-opening",
+  "version": "four-and-a-half-minute-v4-presenters",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -39,7 +39,9 @@ window.KOU_DECK = {
         "../DESIGN.md"
       ],
       "start": 0,
-      "end": 25
+      "end": 25,
+      "speaker": "野村",
+      "speaker_role": "01 問題提起"
     },
     {
       "id": "essence",
@@ -67,12 +69,19 @@ window.KOU_DECK = {
       "takeaway": "探す・仲間と決める・事業者に相談する。この流れを途切れさせない。",
       "footnote": "前のページの場面例から整理した設計上の課題です。負担の大きさや再訪への因果は未測定です。",
       "duration": 15,
-      "notes": "また気軽に行けるようにするには、旅の準備がひと続きにつながることが大切です。毎回探し直す、同じ条件を伝え直す。その手間を減らすことを、再訪への入口にします。",
+      "notes": "また気軽に行くには、探す・誘う・相談する準備が、ひと続きにつながることが大切です。探し直す、伝え直す手間をどう減らすか。ここから梅木が、「講」を説明します。",
       "sources": [
         "../DESIGN.md"
       ],
       "start": 25,
-      "end": 40
+      "end": 40,
+      "speaker": "野村",
+      "speaker_role": "02 本質課題",
+      "handoff": {
+        "to": "梅木",
+        "text": "このページを話し終えたら、3枚目へ進めて梅木さんに交代。",
+        "spoken": false
+      }
     },
     {
       "id": "intro",
@@ -94,7 +103,9 @@ window.KOU_DECK = {
       ],
       "start": 40,
       "end": 60,
-      "footnote": "講に投稿した写真と本人が許可した関心を利用します。LINE・Instagramとの実連携や予約決済の代行はありません。"
+      "footnote": "講に投稿した写真と本人が許可した関心を利用します。LINE・Instagramとの実連携や予約決済の代行はありません。",
+      "speaker": "梅木",
+      "speaker_role": "03 講の提案"
     },
     {
       "id": "evidence",
@@ -125,7 +136,9 @@ window.KOU_DECK = {
         "../artifacts/survey-content-summary.json"
       ],
       "start": 60,
-      "end": 80
+      "end": 80,
+      "speaker": "梅木",
+      "speaker_role": "データからの着目"
     },
     {
       "id": "usage",
@@ -140,7 +153,14 @@ window.KOU_DECK = {
       ],
       "start": 80,
       "end": 165,
-      "footnote": "現在の案内はローカルの規則・定型処理です。汎用の写真認識AIや外部AIには接続していません。"
+      "footnote": "現在の案内はローカルの規則・定型処理です。汎用の写真認識AIや外部AIには接続していません。",
+      "speaker": "梅木",
+      "speaker_role": "操作紹介",
+      "handoff": {
+        "to": "樋口",
+        "text": "動画終了後、6枚目へ。樋口さんが再訪の仕組みを話し始める。",
+        "spoken": false
+      }
     },
     {
       "id": "program",
@@ -171,7 +191,9 @@ window.KOU_DECK = {
         "../docs/JOURNEY-PROGRAMS-CONTRACT.md"
       ],
       "start": 165,
-      "end": 190
+      "end": 190,
+      "speaker": "樋口",
+      "speaker_role": "再訪の仕組み 1"
     },
     {
       "id": "leader",
@@ -202,7 +224,9 @@ window.KOU_DECK = {
         "../DESIGN.md"
       ],
       "start": 190,
-      "end": 215
+      "end": 215,
+      "speaker": "樋口",
+      "speaker_role": "再訪の仕組み 2"
     },
     {
       "id": "zone",
@@ -223,13 +247,20 @@ window.KOU_DECK = {
       "image": "assets/current/zone-coupon.jpg",
       "footnote": "今回採用した参考距離の条件です。実道路距離や、実証された最適距離ではありません。",
       "duration": 25,
-      "notes": "三つ目は、20〜40キロの地域への追加割引です。限られた予算を、日帰りで繰り返し来やすいと想定する地域に重点配分します。事業者は予算上限も設定できます。この距離は今回の設定で、最適な範囲かどうかは今後検証します。",
+      "notes": "三つ目は、20〜40キロの地域への追加割引です。限られた予算を、繰り返し来やすいと想定する地域に重点配分します。予算上限も設定でき、この距離が最適かは今後検証します。最後に野村から、事業者側の価値をお伝えします。",
       "sources": [
         "../docs/DAYTRIP-ROUTES.md",
         "../DESIGN.md"
       ],
       "start": 215,
-      "end": 240
+      "end": 240,
+      "speaker": "樋口",
+      "speaker_role": "再訪の仕組み 3",
+      "handoff": {
+        "to": "野村",
+        "text": "9枚目へ進め、野村さんへ戻す。野村さんが事業者の価値と締めを担当。",
+        "spoken": false
+      }
     },
     {
       "id": "business",
@@ -251,8 +282,70 @@ window.KOU_DECK = {
         "../docs/contracts/REFLECTIONS-CONTRACT.md"
       ],
       "start": 240,
-      "end": 260
+      "end": 260,
+      "speaker": "野村",
+      "speaker_role": "事業者の価値"
     }
   ],
-  "limit": 270
+  "limit": 270,
+  "presenter_plan": [
+    {
+      "name": "野村",
+      "segments": [
+        {
+          "slides": [
+            1,
+            2
+          ],
+          "start": 0,
+          "end": 40,
+          "role": "問題提起・本質課題"
+        },
+        {
+          "slides": [
+            9
+          ],
+          "start": 240,
+          "end": 260,
+          "role": "事業者の価値・締め"
+        }
+      ],
+      "speech_seconds": 60,
+      "video_seconds": 0
+    },
+    {
+      "name": "梅木",
+      "segments": [
+        {
+          "slides": [
+            3,
+            4,
+            5
+          ],
+          "start": 40,
+          "end": 165,
+          "role": "講の提案・根拠・動画紹介"
+        }
+      ],
+      "speech_seconds": 40,
+      "video_seconds": 85
+    },
+    {
+      "name": "樋口",
+      "segments": [
+        {
+          "slides": [
+            6,
+            7,
+            8
+          ],
+          "start": 165,
+          "end": 240,
+          "role": "動画後の再訪3施策"
+        }
+      ],
+      "speech_seconds": 75,
+      "video_seconds": 0
+    }
+  ]
 };

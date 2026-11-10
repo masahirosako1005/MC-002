@@ -1,0 +1,40 @@
+{
+  "ticket": "PR04",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 61611,
+      "sha256": "c7c4340ba38b3eaf0df476e36f71d8fe3ae8db85d17b415fc3e6c7ffe9f36cb1"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 13784,
+      "sha256": "eda8e082e513ff4777ca60202e856f1d28cd3d5be9e479545ac6d8c72142de99"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 5822,
+      "sha256": "6738ea9d73b4dc2f3d47bb3db561ac1dff8b7a268ff00436724c148e110c4cd0"
+    },
+    {
+      "path": "scripts/serve_presentation.py",
+      "bytes": 5382,
+      "sha256": "edc949d3b7dc2efdb6e63d0721d9877ab795d83b431a6ecdd979417ed9c1c132"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13.mp4",
+      "bytes": 4402409,
+      "sha256": "cb45b9a0ebe9e620b8d776c20d33715d56459751afb894dc1e51c40b19600411"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13-ja.vtt",
+      "bytes": 1248,
+      "sha256": "0a686a27f86b0ae6442d0011dc8b987090a535c22756811735ff7d00032003bd"
+    },
+    {
+      "path": "frontend/public/fonts/yujimai/YujiMai-Regular.woff2",
+      "bytes": 4089912,
+      "sha256": "8196c14a9c38184f78d56bfa06a8fc2609793404b9186521caef5e528de0b270"
+    }
+  ]
+}

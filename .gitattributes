@@ -22,3 +22,4 @@ presentation/kou-presentation.html -text
 presentation/presentation-content.js -text
 presentation/speaker-script.txt -text
 artifacts/presentation-html/** -text
+scripts/serve_presentation.py -text

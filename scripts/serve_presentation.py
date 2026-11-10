@@ -16,6 +16,7 @@ PUBLIC_FILES = {
     '/outputs/kou-revisit-intro-v13-ja.vtt': 'outputs/kou-revisit-intro-v13-ja.vtt',
     '/frontend/public/art/wa/washi-paper-v1.webp': 'frontend/public/art/wa/washi-paper-v1.webp',
     '/frontend/public/art/wa/travel-woodcut-v1-960.webp': 'frontend/public/art/wa/travel-woodcut-v1-960.webp',
+    '/frontend/public/fonts/yujimai/YujiMai-Regular.woff2': 'frontend/public/fonts/yujimai/YujiMai-Regular.woff2',
     '/artifacts/video-revisit/v13/final/decoded-01-login_before.png': 'artifacts/video-revisit/v13/final/decoded-01-login_before.png',
 }
 for name in ('program-progress.jpg', 'rank-phone.jpg', 'zone-coupon.jpg',
@@ -116,5 +117,6 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     mimetypes.add_type('text/javascript', '.js')
     mimetypes.add_type('text/vtt', '.vtt')
+    mimetypes.add_type('font/woff2', '.woff2')
     print('http://127.0.0.1:8093/presentation/kou-presentation.html', flush=True)
     ThreadingHTTPServer(('127.0.0.1', 8093), Handler).serve_forever()

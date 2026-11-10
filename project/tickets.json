@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1014,
-  "last_event_hash": "60db6c8b902f380949b05c33489306db0d2f5b21df8e2a2fd5be9682ad4f1c09",
-  "updated_at": "2026-11-10T15:26:15+09:00",
+  "revision": 1022,
+  "last_event_hash": "1d3580ea25596deea8e58d168d6ce83832978bf32128e5a8b848edded8d39d05",
+  "updated_at": "2026-11-10T15:35:14+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5438,16 +5438,60 @@
       "revision": 10,
       "revisions": [
         {
+          "at": "2026-11-10T15:26:15+09:00",
           "hash": "bb66162a1e7dd676190189982da3674a6b3b2a65",
-          "summary": "feat: simplify opening and connect seamless planning to revisits",
           "path": "project/revisions/bb66162a1e7dd676190189982da3674a6b3b2a65.txt",
-          "at": "2026-11-10T15:26:15+09:00"
+          "summary": "feat: simplify opening and connect seamless planning to revisits"
         }
       ],
       "status": "done",
       "title": "問題提起を3サービスで簡潔にする",
       "type": "task",
       "updated_at": "2026-11-10T15:26:15+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "野村1–2/9、梅木3–5、樋口6–8を原稿とHTML原稿欄へ表示し、交代位置を明記"
+        },
+        {
+          "checked": true,
+          "text": "問題・本質・講の3段階と全9枚260秒を維持し、投影用HTMLを全面再設計"
+        },
+        {
+          "checked": true,
+          "text": "1440x900と1280x720で表示・動画・原稿・移動を確認し、ローカル素材参照を検証"
+        },
+        {
+          "checked": true,
+          "text": "設計・最新資料の入口・検証・Gitへ更新を記録"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T15:27:47+09:00",
+      "dependencies": [],
+      "description": "野村が導入と締め、梅木が講の説明から動画、樋口が動画後の再訪3施策を担当する。HTMLは図解・情報階層・和の質感を全面的に改善し、9枚260秒を維持する。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T15:35:12+09:00",
+          "path": "artifacts/presentation-html/v4/verification.json",
+          "text": "全9枚を1440x900と1280x720で確認。担当交代3か所・動画開始と移動停止・計時を確認。独立レビューと配信補助6試験成功。"
+        }
+      ],
+      "id": "PR04",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "発表担当と交代を明記し、HTMLを全面再設計",
+      "type": "task",
+      "updated_at": "2026-11-10T15:35:14+09:00"
     },
     {
       "acceptance": [

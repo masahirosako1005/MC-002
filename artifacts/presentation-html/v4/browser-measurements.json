@@ -1,0 +1,326 @@
+{
+  "large": [
+    {
+      "height": 900,
+      "id": "slide-1",
+      "images": [],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-2",
+      "images": [],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-3",
+      "images": [
+        {
+          "loaded": true,
+          "src": "../frontend/public/art/wa/travel-woodcut-v1-960.webp"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-4",
+      "images": [],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-5",
+      "images": [
+        {
+          "loaded": true,
+          "src": "../artifacts/video-revisit/v13/final/decoded-01-login_before.png"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1440,
+        1440,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-6",
+      "images": [
+        {
+          "loaded": true,
+          "src": "assets/current/program-progress.jpg"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-7",
+      "images": [
+        {
+          "loaded": true,
+          "src": "assets/current/rank-phone.jpg"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-8",
+      "images": [
+        {
+          "loaded": true,
+          "src": "assets/current/zone-coupon.jpg"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "id": "slide-9",
+      "images": [
+        {
+          "loaded": true,
+          "src": "assets/current/city-dashboard.jpg"
+        }
+      ],
+      "page": [
+        1440,
+        900
+      ],
+      "slide": [
+        1425,
+        1425,
+        842,
+        842
+      ],
+      "width": 1440
+    }
+  ],
+  "small": [
+    {
+      "height": 720,
+      "id": "slide-1",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-2",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-3",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-4",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-5",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1280,
+        1280,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-6",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-7",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-8",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "id": "slide-9",
+      "page": [
+        1280,
+        720
+      ],
+      "slide": [
+        1265,
+        1265,
+        662,
+        662
+      ],
+      "width": 1280
+    }
+  ],
+  "video_play": {
+    "duration": 77.9,
+    "error": null,
+    "paused": false,
+    "time": 19.673158
+  },
+  "video_pause_on_leave": {
+    "paused": true,
+    "time": 19.736352
+  },
+  "timer": "00:20 / 04:20"
+}

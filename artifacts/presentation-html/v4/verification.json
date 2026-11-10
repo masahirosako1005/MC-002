@@ -1,0 +1,100 @@
+{
+  "ticket": "PR04",
+  "version": "four-and-a-half-minute-v4-presenters",
+  "date": "2026-11-10",
+  "slides": 9,
+  "planned_seconds": 260,
+  "limit_seconds": 270,
+  "presenters": [
+    {
+      "name": "野村",
+      "segments": [
+        {
+          "slides": [
+            1,
+            2
+          ],
+          "start": 0,
+          "end": 40,
+          "role": "問題提起・本質課題"
+        },
+        {
+          "slides": [
+            9
+          ],
+          "start": 240,
+          "end": 260,
+          "role": "事業者の価値・締め"
+        }
+      ],
+      "speech_seconds": 60,
+      "video_seconds": 0
+    },
+    {
+      "name": "梅木",
+      "segments": [
+        {
+          "slides": [
+            3,
+            4,
+            5
+          ],
+          "start": 40,
+          "end": 165,
+          "role": "講の提案・根拠・動画紹介"
+        }
+      ],
+      "speech_seconds": 40,
+      "video_seconds": 85
+    },
+    {
+      "name": "樋口",
+      "segments": [
+        {
+          "slides": [
+            6,
+            7,
+            8
+          ],
+          "start": 165,
+          "end": 240,
+          "role": "動画後の再訪3施策"
+        }
+      ],
+      "speech_seconds": 75,
+      "video_seconds": 0
+    }
+  ],
+  "passed": [
+    "All nine layouts inspected at 1440x900 and 1280x720; no page or slide overflow",
+    "All local images loaded",
+    "Speaker and handoff drawers confirmed at slides 2, 5 and 8",
+    "Keyboard Home and Escape, navigation and notes operated",
+    "Video played to 19.67 seconds without error and paused on leaving slide",
+    "Timer started, advanced, stopped and reset",
+    "Script notes and assigned presenters match; independent review found no unresolved mandatory issue",
+    "Presentation helper: 6 tests passed, Ruff and C901 findings 0"
+  ],
+  "corrected_during_review": [
+    "Rank diagram line crossing labels",
+    "Business text orphan wrapping",
+    "Video slide scrollbar gutter white strip",
+    "Opening service window numbers removed"
+  ],
+  "not_verified": [
+    "Human timed rehearsal",
+    "Human preference evaluation",
+    "Actual print output",
+    "Physical fullscreen rehearsal",
+    "Actual revisit effect",
+    "Full application retest"
+  ],
+  "evidence": [
+    "browser-measurements.json",
+    "content-review.json",
+    "nomura-handoff.png",
+    "umeki-handoff.png",
+    "higuchi-handoff.png"
+  ],
+  "boundary": "Current local rules/templates are not external AI. Supplied survey and seeded UI figures are not proof of revisit effect. Prior PPTX/PDF remain separate saved versions."
+}

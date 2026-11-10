@@ -1,0 +1,46 @@
+{
+  "ticket": "PR04",
+  "scope": "Presenter assignments, canonical content, script and presentation helper only",
+  "reviewer": "independent parallel reviewer",
+  "checks": {
+    "speaker_assignment": "passed",
+    "handoffs_2_3_5_6_8_9": "passed",
+    "all_nine_notes_match_script": "passed",
+    "continuous_timeline": "passed",
+    "planned_seconds": 260,
+    "limit_seconds": 270,
+    "speech_seconds": 175,
+    "video_slot_seconds": 85,
+    "video_seconds": 77.9,
+    "local_mock_boundary": "retained"
+  },
+  "speech_density": {
+    "slide_2": {
+      "characters": 78,
+      "seconds": 15,
+      "characters_per_minute": 312
+    },
+    "slide_3": {
+      "characters": 108,
+      "seconds": 20,
+      "characters_per_minute": 324
+    }
+  },
+  "tests": {
+    "presentation_server": {
+      "passed": 6,
+      "failures": 0,
+      "seconds": 0.633
+    },
+    "ruff_findings": 0,
+    "complexity_findings": 0,
+    "content_js_syntax": "passed",
+    "local_font_http_status": 200,
+    "local_font_mime": "font/woff2"
+  },
+  "limits": [
+    "Speech density is a character-count estimate, not a timed human rehearsal.",
+    "Rehearse slides 2 and 3 with the handoff.",
+    "Application-wide tests and previous source quality results are not rerun or claimed by this report."
+  ]
+}
