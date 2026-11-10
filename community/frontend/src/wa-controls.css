@@ -1,0 +1,149 @@
+/* Shared paper-and-ink controls, following the generated interface reference. */
+body .button {
+  border-radius: 3px 5px 2px 4px;
+  box-shadow: none;
+}
+body .button.primary {
+  background: #9b3d2c;
+  border: 1px solid #853426;
+  color: #fffdf7;
+  box-shadow:
+    inset 0 0 0 2px #fffdf7,
+    inset 0 0 0 3px #c2725c;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+body .button.primary:disabled {
+  opacity: 1;
+  background: #797267;
+  border-color: #6c665c;
+  box-shadow:
+    inset 0 0 0 2px #fffdf7,
+    inset 0 0 0 3px #aba396;
+}
+body .button.secondary {
+  color: #373b32;
+  background: #faf6ec;
+  border: 1px solid #5f6557;
+  box-shadow:
+    inset 0 0 0 2px #faf6ec,
+    inset 0 0 0 3px #b9b7a65c;
+}
+body .button.danger-button {
+  border: 1px solid #7f3025;
+  border-radius: 3px 5px 2px 4px;
+  box-shadow: inset 0 0 0 2px #fffdf7;
+}
+body .field > input,
+body .field > textarea {
+  border: 0;
+  border-bottom: 1px solid #747767;
+  border-radius: 0;
+  background: #faf8f1;
+  color: var(--ink);
+}
+body .field > input:focus,
+body .field > textarea:focus {
+  border-bottom-color: var(--orange);
+  background: #fffcf3;
+}
+body .choice-field > .choice-trigger,
+body .daytrip-condition-summary {
+  border: 1px solid #6c7164;
+  border-radius: 2px 3px 2px 1px;
+  background: #fcf9f0;
+  box-shadow: none;
+}
+body .choice-menu {
+  border-radius: 2px 4px 2px 3px;
+  background: #fcf9f0;
+  border-color: #777c6b;
+  box-shadow: 3px 4px 0 #d6cebc70;
+}
+body .choice-option {
+  border-radius: 1px;
+  border-bottom: 1px solid #e3ddce;
+}
+body .choice-option[aria-selected="true"] {
+  background: #f0e5d2;
+  color: #8c3527;
+  box-shadow: inset 2px 0 #a34b38;
+}
+body .market-tabs,
+body .circle-tabs,
+body .daytrip-tabs {
+  border-bottom: 1px solid #aaa58f;
+}
+body .market-tabs > button:where(:not(.text-button)),
+body .circle-tabs > button,
+body .daytrip-tabs > button {
+  border: 0;
+  border-right: 1px solid #ddd5c2;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 3px 0 0;
+  color: #343a30;
+  background: #f8f4e9;
+}
+body .market-tabs > button.selected,
+body .circle-tabs > button.selected,
+body .daytrip-tabs > button.selected {
+  border-bottom-color: var(--orange);
+  color: var(--orange);
+  background: #f2e8d8;
+}
+body .chip,
+body .segmented,
+body .segmented button,
+body .daytrip-filter > button,
+body .provider-plan-filters > button {
+  border-radius: 2px 4px 1px 2px;
+}
+body .daytrip-filter > button.selected,
+body .provider-plan-filters > button.selected {
+  color: #863627;
+  border-color: #a56750;
+  background: #f2e5d2;
+}
+body .avatar {
+  border: 1px solid #a44b36;
+  border-radius: 3px 2px 4px 2px;
+  background: #f6edda;
+  color: #853c2c;
+  box-shadow:
+    inset 0 0 0 2px #f6edda,
+    inset 0 0 0 3px #b4775c55;
+  font-family: var(--wa-heading);
+}
+body .avatar-button {
+  border-radius: 3px;
+}
+body .bottom-nav {
+  background: #f8f3e7;
+  border-top: 3px double #c1b293;
+  box-shadow: 0 -3px 8px #32281f05;
+}
+body .bottom-nav button {
+  border-radius: 3px 5px 1px 2px;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  color: #464d3f;
+}
+body .bottom-nav button.active {
+  color: #8e3828;
+  border-color: #cbb696;
+  background: #f1e5cf;
+}
+body .error-box {
+  border-radius: 2px;
+  border-left: 3px solid #9b3d2c;
+  background: #f7eadc;
+  color: #833427;
+}
+@media (hover: hover) {
+  body .button.primary:hover:not(:disabled) {
+    background: #873427;
+  }
+  body .button.secondary:hover:not(:disabled) {
+    background: #f0eadb;
+  }
+}

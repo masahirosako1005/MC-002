@@ -1,6 +1,6 @@
 import { choiceValue, errorMessage } from "./validation";
 import Choice from "./Choice";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { api } from "./api";
 import type { Tag, User } from "./types";
 import type {
@@ -19,10 +19,15 @@ import {
 } from "./marketplace-ui";
 import { Empty, ErrorBox, Icon, Modal, TagPicker } from "./ui";
 import "./marketplace.css";
+import "./provider-dashboard.css";
+const ProviderDashboard = lazy(() => import("./ProviderDashboard"));
 const ProviderCircleInvites = lazy(() =>
   import("./Circles").then((module) => ({
     default: module.ProviderCircleInvites,
   })),
+);
+const ProviderDaytrip = lazy(() =>
+  import("./Daytrip").then((module) => ({ default: module.ProviderDaytrip })),
 );
 function japanDateInput(value: string | null | undefined) {
   if (!value) return "";
@@ -46,8 +51,8 @@ function blankPlan(provider: Provider): ProviderPlan {
     area: provider.area,
     min_people: 1,
     max_people: 6,
-    nights: 2,
-    price_yen: 20000,
+    nights: 0,
+    price_yen: 5000,
     price_basis: "per_person",
     price_scope: "plan_only",
     price_note: "",
@@ -156,7 +161,7 @@ function PlanEditor({
             value={value.title}
             onChange={(e) => change("title", e.target.value)}
             maxLength={120}
-            placeholder="例：6人で森とカフェをめぐる2泊3日"
+            placeholder="例：6人で森とカフェをめぐる日帰り"
           />
         </label>
         <label className="field">
@@ -184,7 +189,11 @@ function PlanEditor({
             onChange={(event) =>
               setValue((current) => ({
                 ...current,
-                schedule_type: choiceValue(event.target.value, ["on_request", "dated"], current.schedule_type || "on_request"),
+                schedule_type: choiceValue(
+                  event.target.value,
+                  ["on_request", "dated"],
+                  current.schedule_type || "on_request",
+                ),
                 starts_at:
                   event.target.value === "on_request"
                     ? null
@@ -290,7 +299,11 @@ function PlanEditor({
               onChange={(e) =>
                 change(
                   "price_basis",
-                  choiceValue(e.target.value, ["per_person", "party_total"], value.price_basis),
+                  choiceValue(
+                    e.target.value,
+                    ["per_person", "party_total"],
+                    value.price_basis,
+                  ),
                 )
               }
             >
@@ -306,7 +319,11 @@ function PlanEditor({
             onChange={(e) =>
               change(
                 "price_scope",
-                choiceValue(e.target.value, ["plan_only", "whole_trip"], value.price_scope),
+                choiceValue(
+                  e.target.value,
+                  ["plan_only", "whole_trip"],
+                  value.price_scope,
+                ),
               )
             }
           >
@@ -389,7 +406,11 @@ function PlanEditor({
                   value={item.period}
                   onChange={(e) =>
                     stop(i, {
-                      period: choiceValue(e.target.value, ["morning", "afternoon", "evening"], item.period),
+                      period: choiceValue(
+                        e.target.value,
+                        ["morning", "afternoon", "evening"],
+                        item.period,
+                      ),
                     })
                   }
                 >
@@ -479,9 +500,9 @@ export default function ProviderWorkspace({
   tags: Tag[];
   user: User;
 }) {
-  const [tab, setTab] = useState<"plans" | "consultations" | "circles">(
-    "plans",
-  );
+  const [tab, setTab] = useState<
+    "overview" | "plans" | "consultations" | "circles" | "daytrip"
+  >("overview");
   const [plans, setPlans] = useState<ProviderPlan[]>([]);
   const [planFilter, setPlanFilter] = useState<ProviderPlan["status"] | "all">(
     "published",
@@ -492,7 +513,13 @@ export default function ProviderWorkspace({
   const [messages, setMessages] = useState<MarketMessage[]>([]);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const activeRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => activeRequest.current?.abort(), []);
   async function load() {
+    activeRequest.current?.abort();
+    const controller = new AbortController();
+    activeRequest.current = controller;
     setBusy(true);
     setError("");
     try {
@@ -501,222 +528,293 @@ export default function ProviderWorkspace({
           providers.map((p) =>
             api<{ items: ProviderPlan[] }>(
               `/provider-plans?provider_id=${encodeURIComponent(p.id)}&mine=true`,
+              "GET",
+              undefined,
+              { signal: controller.signal },
             ),
           ),
         ),
-        api<{ items: Consultation[] }>("/consultations"),
+        api<{ items: Consultation[] }>("/consultations", "GET", undefined, {
+          signal: controller.signal,
+        }),
       ]);
+      if (controller.signal.aborted) return;
       setPlans(planSets.flatMap((r) => r.items));
       setConsultations(threads.items);
+      setLoaded(true);
     } catch (e) {
-      setError(errorMessage(e));
+      if (!controller.signal.aborted) setError(errorMessage(e));
     } finally {
-      setBusy(false);
+      if (!controller.signal.aborted) setBusy(false);
     }
   }
-  useEffect(() => {
-    void load();
-  }, [user.id]);
+  function changeTab(next: typeof tab) {
+    activeRequest.current?.abort();
+    setBusy(false);
+    setError("");
+    setSelected(null);
+    setTab(next);
+    if (!loaded && (next === "plans" || next === "consultations")) void load();
+  }
   async function openThread(thread: Consultation) {
+    activeRequest.current?.abort();
+    const controller = new AbortController();
+    activeRequest.current = controller;
     setError("");
     setBusy(true);
     setSelected(null);
     try {
       const [detail, history] = await Promise.all([
-        api<Consultation>(`/consultations/${thread.id}`),
-        api<{ items: MarketMessage[] }>(`/consultations/${thread.id}/messages`),
+        api<Consultation>(`/consultations/${thread.id}`, "GET", undefined, {
+          signal: controller.signal,
+        }),
+        api<{ items: MarketMessage[] }>(
+          `/consultations/${thread.id}/messages`,
+          "GET",
+          undefined,
+          { signal: controller.signal },
+        ),
       ]);
+      if (controller.signal.aborted) return;
       setSelected(detail);
       setMessages(history.items);
     } catch (e) {
-      setError(errorMessage(e));
+      if (!controller.signal.aborted) setError(errorMessage(e));
     } finally {
-      setBusy(false);
+      if (!controller.signal.aborted) setBusy(false);
     }
   }
   return (
     <section className="provider-workspace">
-      <div className="page-heading">
-        <p className="eyebrow">{providers.map((p) => p.name).join("・")}</p>
-        <h1>旅のプランと相談</h1>
-      </div>
-      <div className="market-tabs">
-        <button
-          aria-pressed={tab === "plans"}
-          className={tab === "plans" ? "selected" : ""}
-          onClick={() => setTab("plans")}
-        >
-          自社のプラン
-        </button>
-        <button
-          aria-pressed={tab === "consultations"}
-          className={tab === "consultations" ? "selected" : ""}
-          onClick={() => setTab("consultations")}
-        >
-          届いた相談
-        </button>
-        <button
-          aria-pressed={tab === "circles"}
-          className={tab === "circles" ? "selected" : ""}
-          onClick={() => setTab("circles")}
-        >
-          講への招待
-        </button>
-        <button
-          className="text-button"
-          disabled={busy}
-          onClick={() => void load()}
-        >
-          <Icon name="refresh" />
-          更新
-        </button>
-      </div>
-      <ErrorBox message={error} />
-      {tab === "circles" ? (
-        <Suspense fallback={<p role="status">講への招待をひらいています…</p>}>
-          <ProviderCircleInvites key={user.id} user={user} />
-        </Suspense>
-      ) : tab === "plans" ? (
-        <>
-          <div className="section-title">
-            <h2>プランの管理</h2>
+      <div className="provider-console">
+        <nav className="provider-workspace-nav" aria-label="事業者の業務">
+          <p>管理メニュー</p>
+          {(
+            [
+              ["overview", "実績の概要", "home"],
+              ["consultations", "相談", "people"],
+              ["circles", "講の招待", "people"],
+              ["plans", "プラン", "compass"],
+              ["daytrip", "日帰り・特典", "calendar"],
+            ] as const
+          ).map(([id, label, icon]) => (
             <button
-              className="button primary"
-              disabled={!providers.length}
-              onClick={() => setEditing(blankPlan(providers[0]))}
+              key={id}
+              aria-current={tab === id ? "page" : undefined}
+              className={tab === id ? "selected" : ""}
+              onClick={() => changeTab(id)}
             >
-              <Icon name="plus" />
-              プランをつくる
+              <Icon name={icon} />
+              <span>{label}</span>
             </button>
-          </div>
-          <div
-            className="provider-plan-filters"
-            role="group"
-            aria-label="プランの公開状態"
-          >
-            {(
-              [
-                ["published", "公開中"],
-                ["draft", "下書き"],
-                ["archived", "公開終了"],
-                ["all", "すべて"],
-              ] as const
-            ).map(([value, label]) => (
+          ))}
+        </nav>
+        <div className="provider-workspace-content">
+          <header className="provider-workspace-heading">
+            <h1>
+              {
+                {
+                  overview: "実績の概要",
+                  plans: "プラン管理",
+                  consultations: "届いた相談",
+                  circles: "講からの招待",
+                  daytrip: "日帰りの運営",
+                }[tab]
+              }
+            </h1>
+            {tab !== "daytrip" && tab !== "overview" && (
               <button
-                key={value}
-                aria-pressed={planFilter === value}
-                className={planFilter === value ? "selected" : ""}
-                onClick={() => setPlanFilter(value)}
+                className="text-button"
+                disabled={busy}
+                onClick={() => void load()}
               >
-                {label}
-                <span>
-                  {value === "all"
-                    ? plans.length
-                    : plans.filter((plan) => plan.status === value).length}
-                </span>
+                <Icon name="refresh" />
+                更新
               </button>
-            ))}
-          </div>
-          <div className="provider-plan-list">
-            {plans
-              .filter(
-                (plan) => planFilter === "all" || plan.status === planFilter,
-              )
-              .map((p) => (
-                <div key={p.id}>
-                  <span
-                    className={`plan-state ${p.status === "published" ? "published" : ""}`}
-                  >
-                    {p.status === "published"
-                      ? "公開中"
-                      : p.status === "draft"
-                        ? "下書き"
-                        : "公開終了"}
-                  </span>
-                  <PlanCard
-                    plan={p}
-                    tags={tags}
-                    onOpen={() => setEditing(p)}
-                    actionLabel="プランを編集する"
-                  />
-                </div>
-              ))}
-          </div>
-          {!busy &&
-            plans.length > 0 &&
-            !plans.some(
-              (plan) => planFilter === "all" || plan.status === planFilter,
-            ) && (
-              <Empty title="この公開状態のプランはありません">
-                <button
-                  className="button secondary"
-                  onClick={() => setPlanFilter("all")}
-                >
-                  すべてのプランを見る
-                </button>
-              </Empty>
             )}
-          {!busy && !plans.length && (
-            <Empty title="登録したプランはありません">
-              <p>地域の場所やお店を、日別の行程にまとめられます。</p>
-            </Empty>
-          )}
-        </>
-      ) : (
-        <>
-          <p className="muted">
-            旅行者がプランを選び、共有を確認した相談だけが届きます。
-          </p>
-          {consultations.length === 0 ? (
-            <Empty title="相談はありません">
-              <p>公開したプランを選んだ旅行者から、ここに相談が届きます。</p>
-            </Empty>
-          ) : (
-            <div className="consultation-list">
-              {consultations.map((c) => (
+          </header>
+          <ErrorBox message={error} />
+          {tab === "overview" ? (
+            <Suspense
+              fallback={
+                <output className="page-load-status">
+                  実績を読み込んでいます…
+                </output>
+              }
+            >
+              <ProviderDashboard
+                key={user.id}
+                providers={providers}
+                onNavigate={changeTab}
+              />
+            </Suspense>
+          ) : tab === "daytrip" ? (
+            <Suspense
+              fallback={
+                <output className="page-load-status">
+                  日帰りの開催をひらいています…
+                </output>
+              }
+            >
+              <ProviderDaytrip key={user.id} user={user} />
+            </Suspense>
+          ) : tab === "circles" ? (
+            <Suspense
+              fallback={
+                <output className="page-load-status">
+                  講への招待をひらいています…
+                </output>
+              }
+            >
+              <ProviderCircleInvites key={user.id} user={user} />
+            </Suspense>
+          ) : tab === "plans" ? (
+            <>
+              <div className="section-title">
+                <h2>プランの管理</h2>
                 <button
-                  key={c.id}
-                  className="consultation-row"
-                  data-consultation-id={c.id}
-                  disabled={busy}
-                  onClick={() => void openThread(c)}
+                  className="button primary"
+                  disabled={!providers.length}
+                  onClick={() => setEditing(blankPlan(providers[0]))}
                 >
-                  <span className="round-icon">
-                    <Icon name="people" />
-                  </span>
-                  <span>
-                    <strong>{c.selection.plan.title}</strong>
-                    <small>
-                      {c.selection.shared_conditions.planned_people}人 ·{" "}
-                      {c.selection.shared_conditions.nights === 0
-                        ? "日帰り"
-                        : `${c.selection.shared_conditions.nights}泊${c.selection.shared_conditions.nights + 1}日`}{" "}
-                      ·{" "}
-                      {c.selection.shared_conditions.date_start || "希望日未定"}
-                    </small>
-                    {c.selection.share_note.trim() && (
-                      <small className="consultation-preview">
-                        {c.selection.share_note
-                          .replace(/\s+/g, " ")
-                          .trim()
-                          .slice(0, 70)}
-                        {c.selection.share_note.replace(/\s+/g, " ").trim()
-                          .length > 70
-                          ? "…"
-                          : ""}
-                      </small>
-                    )}
-                    <span className="thread-status">
-                      {c.status === "open" ? "相談中" : "終了"}
-                    </span>
-                  </span>
-                  <Icon name="arrow" />
+                  <Icon name="plus" />
+                  プランをつくる
                 </button>
-              ))}
-            </div>
+              </div>
+              <div
+                className="provider-plan-filters"
+                role="group"
+                aria-label="プランの公開状態"
+              >
+                {(
+                  [
+                    ["published", "公開中"],
+                    ["draft", "下書き"],
+                    ["archived", "公開終了"],
+                    ["all", "すべて"],
+                  ] as const
+                ).map(([value, label]) => (
+                  <button
+                    key={value}
+                    aria-pressed={planFilter === value}
+                    className={planFilter === value ? "selected" : ""}
+                    onClick={() => setPlanFilter(value)}
+                  >
+                    {label}
+                    <span>
+                      {value === "all"
+                        ? plans.length
+                        : plans.filter((plan) => plan.status === value).length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <div className="provider-plan-list">
+                {plans
+                  .filter(
+                    (plan) =>
+                      planFilter === "all" || plan.status === planFilter,
+                  )
+                  .map((p) => (
+                    <div key={p.id}>
+                      <span
+                        className={`plan-state ${p.status === "published" ? "published" : ""}`}
+                      >
+                        {p.status === "published"
+                          ? "公開中"
+                          : p.status === "draft"
+                            ? "下書き"
+                            : "公開終了"}
+                      </span>
+                      <PlanCard
+                        plan={p}
+                        tags={tags}
+                        onOpen={() => setEditing(p)}
+                        actionLabel="プランを編集する"
+                      />
+                    </div>
+                  ))}
+              </div>
+              {!busy &&
+                plans.length > 0 &&
+                !plans.some(
+                  (plan) => planFilter === "all" || plan.status === planFilter,
+                ) && (
+                  <Empty title="この公開状態のプランはありません">
+                    <button
+                      className="button secondary"
+                      onClick={() => setPlanFilter("all")}
+                    >
+                      すべてのプランを見る
+                    </button>
+                  </Empty>
+                )}
+              {!busy && !plans.length && (
+                <Empty title="登録したプランはありません">
+                  <p>地域の場所やお店を、日別の行程にまとめられます。</p>
+                </Empty>
+              )}
+            </>
+          ) : (
+            <>
+              <p className="muted">
+                旅行者がプランを選び、共有を確認した相談だけが届きます。
+              </p>
+              {consultations.length === 0 ? (
+                <Empty title="相談はありません">
+                  <p>
+                    公開したプランを選んだ旅行者から、ここに相談が届きます。
+                  </p>
+                </Empty>
+              ) : (
+                <div className="consultation-list">
+                  {consultations.map((c) => (
+                    <button
+                      key={c.id}
+                      className="consultation-row"
+                      data-consultation-id={c.id}
+                      disabled={busy}
+                      onClick={() => void openThread(c)}
+                    >
+                      <span className="round-icon">
+                        <Icon name="people" />
+                      </span>
+                      <span>
+                        <strong>{c.selection.plan.title}</strong>
+                        <small>
+                          {c.selection.shared_conditions.planned_people}人 ·{" "}
+                          {c.selection.shared_conditions.nights === 0
+                            ? "日帰り"
+                            : `${c.selection.shared_conditions.nights}泊${c.selection.shared_conditions.nights + 1}日`}{" "}
+                          ·{" "}
+                          {c.selection.shared_conditions.date_start ||
+                            "希望日未定"}
+                        </small>
+                        {c.selection.share_note.trim() && (
+                          <small className="consultation-preview">
+                            {c.selection.share_note
+                              .replace(/\s+/g, " ")
+                              .trim()
+                              .slice(0, 70)}
+                            {c.selection.share_note.replace(/\s+/g, " ").trim()
+                              .length > 70
+                              ? "…"
+                              : ""}
+                          </small>
+                        )}
+                        <span className="thread-status">
+                          {c.status === "open" ? "相談中" : "終了"}
+                        </span>
+                      </span>
+                      <Icon name="arrow" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
           )}
-        </>
-      )}
+        </div>
+      </div>
       {editing && (
         <PlanEditor
           initial={editing}

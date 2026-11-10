@@ -1,45 +1,28 @@
-# 講コミュニティ：ローカル起動
+# 講：ローカル運用
 
-ReactとPythonの新版プロトタイプ。旧版の8080とは別に、`http://127.0.0.1:8081`で動かす。Composeプロジェクトは`kou-community`、データvolumeは`kou-community_community-data`。旧版のコンテナー・DB・volumeを停止・削除・流用しない。
+更新：2026年11月10日。現行データベースは **schema 10**。実装の正本はプロジェクトの [DESIGN.md](../DESIGN.md)、作業状態は [TASKS.md](../TASKS.md)、変更履歴は [CHANGELOG.md](../docs/CHANGELOG.md)。この文書は現行の起動・保存・検証手順を扱う。
 
-## 現在の状態
+## 現行の構成と動作
 
-2026-11-09：現行はschema 8。本人別に画面・コミュニティ・承諾済みの講・探索条件を保存し、再ログイン時に現在の権限を確認して再開する。退出・講の終了などで無効になった参照は復元しない。左右スマホの認証は独立している。保存対象は画面の再開状態であり、未送信の文章や入力中の見積をすべて保存する機能ではない。
+- ReactとPythonをDockerで起動し、[ローカル画面](http://127.0.0.1:8081)で使う。Composeプロジェクトは `kou-community`、保存volumeは `kou-community_community-data`。
+- 日帰りの主ゾーンは片道20〜40km。初期経路は新宿〜町田、新宿〜新百合ヶ丘の鉄道参考経路。距離・所要時間の出典と限界は [経路調査](../docs/DAYTRIP-ROUTES.md)に記録している。
+- 講ごとに開催を保存し、先達の事前承諾、実参加の本人申告、別参加者の確認を分ける。通常ポイントと、事業者の利用確認がある特典資格ポイントも別管理。先達は開催ごとの役割で、利用ランクとは別。
+- 割引は事業者が公開した条件だけを使う。参加失効や講・相談の閉鎖で、対象の未利用分だけ取消して利用枠を戻す。利用済み金額と他人の有効な確保は変えない。
+- 通常起動ではモデル推論・外部AI API・SDK・キーを使わない。対話は規則と定型文、実カタログによる案内。写真は手動タグ選択を基本とし、既知の同梱素材だけ内容ハッシュ一致による事前候補を表示する。
+- 写真、訪問記録、訪問バッジ、関心と許可、記念日、宿泊プラン、従来の会話は保持する。旧写真・見積確認・訪問記録を、新しい開催実績やポイントへ自動換算しない。
+- 左右スマホは独立認証。前回画面・コミュニティ・参加済み講・探索条件を本人別に保存し、再開時に現在の権限を確認する。未送信の文章や入力中の見積すべてを自動保存する機能ではない。
 
-現在のAI部分はMOC。会話はローカルの規則・定型文と実際の公開カタログを使い、本人確認した条件、候補、招待、相談、見積確認は実データとして保存する。外部AI API・SDK・キーは使用せず、画像モデルの読み込み・推論も停止している。モデルファイルやONNX Runtimeなしで通常起動できる。
+予約・入金・現地訪問の外部認証は行わない。見積や割引の記録は予約確定を意味しない。詳しい状態と権限は [日帰りAPI](DAYTRIP-CONTRACT.md)、[既存API](API-CONTRACT.md)、[旅の記録API](JOURNAL-CONTRACT.md)を参照する。
 
-写真のタグは本人が選ぶ。同梱の既知素材と内容ハッシュが完全一致する場合だけ事前設定の候補を出し、任意の写真は手動選択にする。旧保存候補を表示する場合も新たな画像認識結果とは扱わない。将来の本番では外部AIを接続する予定だが、今回は未実装。`backend/app/image_guidance.py` と `backend/app/circles/assistant.py` の出力境界にMOCと将来のadapter置換を注記し、認証・同意・入力検証・保存はサーバーに維持する。
+## 起動と停止
 
-現行の根拠は [画像誘導試験](artifacts/guided-runtime/api-tests.json)、[本人別再開の移行保持](artifacts/personalization/migration-preservation.json)、[削除写真の隔離復元](artifacts/deletion-restore.json)を参照。旧モデルの試験結果は以下の履歴であり、現在の推論稼働を示さない。
-
-### 初期段階の履歴（schema 1〜2、旧画像推論）
-
-2026-11-09：三役・中央画面をDockerへ取り込み、8081で起動した。schema 1から2へ移行し全29表を確認、既存の講2件・参加者6件・投稿7件・media7件・所属201件の全行ハッシュが移行前後で一致した。旧8080は継続稼働している。schema 1、schema 2それぞれのDB＋写真を保全・隔離復元済み。三役初回イメージではコンテナー20項目とLinuxのモデル読込み・生成写真4枚の推論を確認した。主担当の初回ブラウザー試験で保存した旅行計画・選択・相談・返信を含め、14表の再起動保持も確認した。現在は画面修正版（`index-B73dds9S.js` / `index-NztS_E8R.css`）へ更新し、配信ファイル一致と新旧health HTTP200を確認済み。今回backend/modelは変更しておらず、モデル・保全の試験は反復していない。三役画面9/9・左右の安全性8/8を再検証し、1440×900の上部見出し＋左右スマホの構図を確認した。通常Edgeの応答停止はCP27で調査中。旧版の試験件数や評価点は新版の証拠として扱わない。
-
-## 構成
-
-- `Dockerfile`：Node 24でReactをビルドし、Python 3.12の同一オリジン配信へ含める。
-- `app`：`app.main:app`、8001番。非root UID10001、read-only rootfs、capabilityを除外。DBと権限付き画像は`/app/data`へ保存する。
-- `gateway`：nginx、非root UID101。ホストの127.0.0.1:8081だけへ公開し、固定のappへ転送する。
-- `models/`：過去の画像推論用資産を保存。現行Composeではマウントせず、通常起動には不要。削除はしない。
-- `assets/`：生成した初期写真を`/app/seed-assets`へ読取専用で渡す。画像の公開ディレクトリではなく、バックエンドが権限付き保存領域へ取り込む入力。
-- `.dockerignore`：バックエンドの必要ソースとフロントエンドだけをビルドへ含め、モデル・画像・DB・成果物を除外する。
-
-休止中の旧画像モデルはMobileNetV2 ONNX（約14MB）で、CPUのONNX Runtimeを使用していた。取得元・固定revision・ハッシュ・ライセンスは`models/manifest.json`、`models/MODEL-README.md`、`models/LICENSE`に保持する。取得スクリプト`models/fetch_model.py`と旧依存定義`backend/requirements-model-legacy.txt`は現行の起動手順に含めない。
-
-過去にはLinuxコンテナーのONNX Runtime 1.31.1で実モデル読込みと4枚の生成写真の推論を確認した。読込0.62秒、`coast`は海辺0.9655、`coffee`はカフェ0.6065/食事0.1305、`table`は食事0.8231、`woodland`は候補なし。これは初回イメージの分類器を直接呼び出した確認であり、API処理・画面・分類精度全体の評価ではない。Windowsネイティブでは担当者が1.31.1の初期化終了と1.23.2のDLLエラーを確認した。現行はWindows・Dockerとも通常起動でこの分類器を呼び出さない。
-
-初回Linux実行時にはread-only環境でtelemetry device IDを永続化できない警告があった。コードはtelemetryを無効化し、appネットワークは外向き接続を持たない。警告を消すために書込権限や外向き通信を広げていない。
-
-## 起動
-
-初回はDocker/WSLとビルド依存の準備が必要。既存PCではDockerが稼働している。`assets/`を用意した後、PJルートで実行する。モデルディレクトリ・モデルファイル・外部AIキーは不要。
+Docker/WSL、ビルド依存、同梱の `community/assets` が必要。コマンドは `C:/AI-Sprint/workspace/MC-002` で実行する。通常起動にモデルディレクトリや外部AIキーは不要。
 
 ```powershell
 .\community\scripts\start.ps1 -Build
 ```
 
-ビルド済みの起動は`-Build`を付けない。重いビルドやブラウザー試験を無制限に重ねない。現在の設定はapp768MiB・1.5CPU、gateway64MiB・0.5CPU。実測によって調整する。
+ビルド済みなら `-Build` を省く。保存volumeを接続したまま起動し、schema 8/9のデータは追加移行でschema 10へ進む。移行前に下記の一括保全を行う。未知のスキーマ版は起動時に拒否する。
 
 ```powershell
 docker compose -p kou-community -f community/compose.yaml ps
@@ -47,87 +30,61 @@ docker compose -p kou-community -f community/compose.yaml logs --tail 50 app
 docker compose -p kou-community -f community/compose.yaml stop
 ```
 
-上記stopは新版だけが対象。`down -v`は保存を削除するので通常の終了手順として使わない。アプリの保存データや画像・認証情報を調査用サービスへ送らない。
+`stop` は新版だけを停止する。`down -v` は保存内容を削除するため通常の終了には使わない。旧8080系のソース整理と、旧Dockerイメージ・コンテナー・保存volumeの削除は別の操作であり、現在の手順は旧Docker資源を削除しない。
 
-## 結合確認と旧検証スクリプト
+## 保存とバックアップ
 
-現行の画像誘導・モデル不要起動の確認は `backend/tests/test_image_guidance.py`、本人別再開の確認は `backend/tests/test_personalization.py` と対応する成果物を参照する。
+appは `/app/data/community.db` と `/app/data/media` に保存する。写真は静的公開せず、所有者と現在の所属を検証するAPIを通して配信する。
 
-以下は旧画像モデル構成で使用したコマンドの記録。`verify_container.py` には現在も `MODEL_DIR` とモデルマウントを要求する検査が残っているため、現行MOCの合否判定にはそのまま実行しない。起動用の `start.ps1` とは別の検証スクリプトである。
-
-```powershell
-.\.venv\Scripts\python.exe community/scripts/verify_container.py --restart
-```
-
-この旧検証コマンドは新版appを再起動し、同じCookieの本人情報・好み・所属の保持、独立volume、ローカル公開、権限制限、外向きTCP接続拒否、DB完全性・バックアップの表件数一致を検査する。旧8080は前後の稼働確認だけ行う。`--restart`なしでは再起動確認を省く。結果は`community/artifacts/container-verification.json`へ保存し、認証情報・個票は出力しない。モデル前提の検査を更新するまでは、旧履歴として扱う。
-
-旧 `community/scripts/verify_model.py` は休止中のモデル検証専用で、現行の結合確認には実行しない。従来は公開bootstrapのmodel状態とCPU分類器を生成写真4枚で確認し、`community/artifacts/model-verification.json`と日時付き記録へ保存していた。現行のモデル不要・手動タグ・保存フローは `backend/tests/test_image_guidance.py` と画像誘導試験記録で確認する。旧結果を現在の推論成功として流用しない。
-
-コンテナー検証で作るバックアップはvolume内の`/app/data/backups/`に置くDBのコピー。投稿写真ファイル自体は含まないため、これだけで写真を含む完全復元ができるとは扱わない。本運用のバックアップではDBと対応する`media/`、アプリの版、設定を合わせて保全する。旧推論版の再現が必要な場合は対応モデルの版も保持する。
-
-## DBと写真の一括保全・隔離復元
-
-`scripts/full_snapshot.py`はDBと`media/`全体を同じ停止期間に保存する。バックアップの前に、ブラウザー試験や写真処理を担当者間で止める。`backup --allow-stop`は**新版appだけを短時間停止**し、終了時には元のappを再開する。旧8080は操作しない。
+`full_snapshot.py` はDBと写真を同じ停止期間に保存する。実行前に画面操作・書込みを止める。`--allow-stop` は新版appの短時間停止と、その後の再開を許可する指定。旧版は停止しない。
 
 ```powershell
 .\.venv\Scripts\python.exe community/scripts/full_snapshot.py backup --allow-stop
 ```
 
-保存先は必ず`community/backups/日時-識別子/`。DB本体とWAL/SHMを別作業領域へコピーしてからSQLite backupで独立DBを作るため、未checkpointのコミットも含む。`media/`を全件コピーし、各ファイルのサイズ・SHA-256、DB整合性・外部キー・スキーマ版・表件数を`manifest.json`へ保存する。完了manifestがないものは復元対象にしない。`runtime.json`には当時のDockerイメージIDとモデルmanifestを記録する。この補助スクリプトには旧 `models/manifest.json` の読み取りが残っており、モデルディレクトリを持たない環境では記録処理の対応が必要。これは通常アプリ起動の依存ではない。既存モデル資産は保全したまま使用する。
+保存先は `community/backups/日時-識別子/`。完了したmanifestに、各ファイルのSHA-256、SQLite完全性・外部キー・表件数、アプリのイメージIDを記録する。モデルmanifestは存在するときだけ補助メタデータとして保持し、ない場合はnull。旧形式のバックアップも引き続き読める。モデルの読込みや推論は行わない。
 
-実際に保全したschema 1の例：
-
-```powershell
-.\.venv\Scripts\python.exe community/scripts/full_snapshot.py verify --snapshot community/backups/20261109T054148Z-0b0b96873966
-.\.venv\Scripts\python.exe community/scripts/full_snapshot.py restore --snapshot community/backups/20261109T054148Z-0b0b96873966
-```
-
-`restore`は**必ず新しい`kou-community-restore-…`volumeを作り**、ファイル一覧・ハッシュ・DB整合性・全表件数を照合する。空でない復元先へは書き込まない。現行volumeの上書き・削除・Composeの保存先切替は行わない。旧スキーマへ戻す必要がある場合は、復元されたvolumeを別構成で起動し、対応する旧イメージとモデルを確認してから別途切替を計画する。
-
-バックアップには認証用データと写真が含まれる。Git・ソース配布物・クラウド調査へ含めない。モデル重みはこのバックアップに含めず、プロジェクトの`models/`を保持する。記録したDockerイメージも保持する。検証・復元用コンテナーは外部ネットワークなし、非root、read-only rootfs、限定mountで実行し、イメージを自動取得しない。
-
-### 移行前保全の実測
-
-- [合成試験](artifacts/snapshot-tests.json)：7項目成功。未checkpointのWAL保存、コミット行保持、正常検証、空の隔離先への復元、写真バイト一致、非空先拒否、写真破損の拒否を確認。初回はWindows bind mountルートの属性変更が拒否されたため、ルート属性を変えず内容をコピーする方式へ修正した。初回失敗は`artifacts/snapshot-tests-first.json`、後続試験の各結果はfixtureフォルダに保持する。
-- [実バックアップ](artifacts/full-snapshot-20261109T054156496503Z.json)：schema 1、DB＋写真9ファイル、3,965,322 bytes。講2件・参加者6件、全15表。取得後appを再開。
-- [独立した再検証](artifacts/full-snapshot-20261109T054201813688Z.json)：ファイル一覧・SHA・DB整合性・外部キー・表件数が一致。
-- [隔離復元](artifacts/full-snapshot-20261109T054204273733Z.json)：新規volume`kou-community-restore-431549f81b054d22bcdac6f593a49ae0`へ復元し、同じ検査に成功。現行volume不変。終了後8081/8080ともhealth HTTP200。
-
-この復元試験はschema 1のファイルとDBの一致確認。復元先からの全API・画面操作は対象外。続く稼働volumeのschema 2移行は別工程として実施し、[移行記録](artifacts/schema2-migration-container.json)へ保存した。
-
-### schema 2の保全・再起動保持
-
-主担当の画面試験が停止した時間に、旅行計画・相談・返信を保存済みのschema 2を保全した。[実測記録](artifacts/schema2-persistence.json)には次を区別して保存している。
-
-- 保存先`backups/20261109T055041Z-9862048da5c5`。DB＋写真9ファイル、4,096,394 bytes、全29表。旅行計画・条件・内部会話・選択・相談・返信各1件、冪等キー3件を含む。
-- 既存講・参加者・投稿・写真、新しい旅行計画と関連記録の14表について、appの停止・再開前後で件数と全行SHAが一致。
-- 独立したverifyと、新規volume`kou-community-restore-ec75912fd2944b13bc4e2021dcf2003b`へのrestoreが成功。全ファイルSHA・DB完全性・外部キー・29表件数が一致。現行volumeへ戻していない。
-- 最後に旧8080・新8081ともhealth HTTP200。復元先のAPI・画面を起動した検査ではない。復元時点の認証・所属も保存されるため、実運用で切り替える場合は、その後に取り消した権限やセッションを再無効化する。
-
-同じ確認を行う場合は画面・写真処理を止めた時間に実行する。このコマンドはschema 2を前提とし、新版appを短時間停止・再開する。
+検証・隔離復元では、作成された保存先を明示する。
 
 ```powershell
-.\.venv\Scripts\python.exe community/scripts/verify_marketplace_persistence.py --allow-stop
+.\.venv\Scripts\python.exe community/scripts/full_snapshot.py verify --snapshot community/backups/保存先名
+.\.venv\Scripts\python.exe community/scripts/full_snapshot.py restore --snapshot community/backups/保存先名
 ```
 
-### 初期段階の実測記録（現行の再試験結果ではない）
+復元先は毎回新しい `kou-community-restore-…` volume。空でない先への上書き、現行volumeの削除、Composeの保存先切替は行わない。復元後のアプリ操作・利用者データの正しさ・復元時点以後の権限取消の再反映は、ファイル一致とは別に確認する。バックアップには認証データと写真が含まれるため、Git・配布用ソース・クラウド調査へ含めない。
 
-| 証拠 | 確認結果 | 限界 |
-|---|---|---|
-| [container-verification.json](artifacts/container-verification.json) | 三役初回イメージ`7dcac589…`で20チェック成功。非root・capability 0・NoNewPrivs・read-only実設定/書込拒否・内部ネットワーク・外向TCP不可・独立volume・127.0.0.1公開・DB整合/外部キー・DBバックアップ一致・旧8080健康を確認 | この実行はrestart_tested=false。baselineで実施した再起動保持21項目の記録は日時付きファイルへ保持。全UI・全権限・写真完全復元の保証ではない |
-| [frontend-refresh-deployment.json](artifacts/frontend-refresh-deployment.json) | 画面修正版`ba2c2758…`へ更新。HTML内のJS/CSS名一致、両ファイルと8080/8081 health HTTP200 | frontendのみの更新。モデル・保全・20項目をこのイメージで再実行したという記録ではない |
-| [schema2-migration-container.json](artifacts/schema2-migration-container.json) | schema 1→2、29表。講・参加者・投稿・media・所属の件数と全行SHAが一致 | 対象5表の既存行保持。新機能の全操作や選択・相談の再起動保持は別試験 |
-| [model-verification.json](artifacts/model-verification.json) | bootstrap ready、ONNX Runtime 1.31.1、CPUExecutionProvider、モデルSHA-256一致。読込0.2721秒、生成4枚の推論各0.2338〜0.266秒、全呼出し成功 | 精度評価用データセットではない。候補スコアは本人の好みの確率ではなく、木立の写真は候補0件。実利用者の体験・推薦効果は未測定 |
-| Docker stats（確認終了後の1回測定） | 新app87.45MiB/768MiB、新gateway2.273MiB/64MiB、旧app/旧gatewayも稼働。ホスト空き約2.26GiB | 推論中のピークメモリ・長時間負荷ではない。並列ビルド・大量の写真処理前には再確認する |
+## 現行の検証
 
-コンテナー記録には実イメージID・起動時刻・メモリ/CPU/PIDの実設定も保存した。構成を変えたら旧記録だけを根拠に合格とせず、該当する確認をやり直す。
+バックエンドの受入は `test/backend`。主な対象は次のとおり。
 
-## 実行時の境界
+| 対象 | 試験 |
+|---|---|
+| 開催、先達、相互確認、ポイント、特典、競合、追加移行 | `test_daytrip.py` |
+| 推論・ネットワーク不要の起動、手動タグ、旧jobs保持、削除再試行 | `test_image_guidance.py` |
+| 認証、権限、入力画像の検証・再符号化、保存 | `test_api.py` |
+| 訪問記録、公開範囲、画像位置確認、保存・再起動 | `test_journal.py` |
+| 本人別の再開と退出時の失効 | `test_personalization.py` |
+| バックアップの任意モデルメタデータと旧形式読取り | `test_snapshot_metadata.py`（Docker・実volume操作なし） |
 
-appは外向き通信を持たないinternal networkのみへ接続する。gatewayはブラウザー入口とappを接続するため別ネットワークも持つ。gateway全体の外向き通信をOSファイアウォールで遮断したという意味ではない。画像・フォント・アプリ内APIはローカルで提供する。外部AI API接続と画像モデル推論は現行MOCでは行わない。
+```powershell
+New-Item -ItemType Directory -Path test/fixtures/runtime -Force | Out-Null
+.\.venv\Scripts\python.exe -m pytest test/backend -q --basetemp=C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/current-api
+```
 
-JSON書込みはOriginとCSRF、画像は同じ保護に加えてバックエンドで形式・大きさを検査する。gatewayは12MiB画像とmultipartの余裕として本文13MiBを上限にする。実際の画像上限はAPI契約の12MiB/20MP。写真は静的公開せず、現在の所属・所有者を確認するAPI経由で配信する。
+`test/fixtures/runtime` は隔離試験専用。実DBや写真の保存先に指定しない。各試験の適用範囲は成果物で区別する。
 
-API・ログイン・データ条件は[API-CONTRACT.md](API-CONTRACT.md)を参照。認証設定の実データ運用、公開インターネット運用、実利用者による有効性は別途検証が必要。
+- [日帰りの境界修正後27試験](../outputs/daytrip-boundary-after.xml)：プラン改訂後の旧同意の拒否、事業者の競合後再取得も含む。
+- [schema 10・未利用枠返還の26試験](../outputs/daytrip-release-holds-tests.xml)：日帰り25件と訪問記録の再起動確認1件。
+- [モデルソース整理後の38試験](../outputs/model-source-cleanup-tests.xml)：画像案内、API、旅の記録。
+- [バックアップメタデータ4試験](../outputs/snapshot-metadata-tests.xml)：モデルmanifestなしの保全と旧形式の読取り。実バックアップ/復元の試験とは分ける。
+- [全現行Pythonの静的測定](artifacts/quality/daytrip-final/summary.json)：55モジュール、Ruff 0、Bandit Medium 19/High 0、複雑度14件。既存指摘や未達を隠さず、対象変更による件数変化を品質点へ換算しない。
 
-構成の参考：[Docker Compose networks](https://docs.docker.com/reference/compose-file/networks/)、[Docker Compose services](https://docs.docker.com/reference/compose-file/services/)（2026-11-09確認）。これらの設定を採用しただけで全面的な安全性を証明するものではない。
+全体試験・対象試験・画面確認は別の結果で、同じ試験を合算して成功数を水増ししない。大会点や実再訪効果は自動試験の件数から算出しない。
+
+## 実行時の境界と資産
+
+`app` は外向き通信を持たないinternal networkに接続し、非root・read-only rootfsで動作する。`gateway` は127.0.0.1:8081に入口を公開する。画像・フォント・アプリ内APIはローカル提供。gateway全体の外向き通信をOSファイアウォールで遮断したという意味ではない。
+
+書込みはOriginとCSRFを確認する。写真の上限は12MiB/2000万画素、静止JPEG・PNG・WebP。配信画像はEXIFを除去し、位置候補は本人の事前許可がある場合だけ読み取る。削除再試行は論理削除済み写真だけを対象にし、残す写真・カバー画像・保存先外のファイルを削除しない。
+
+現行の通常起動に使わない旧分類器、モデル専用依存、旧モデル/旧コンテナー構成の検証スクリプト、常時スキップの実モデル試験は撤去した。スキップ削除を試験成功へ換算しない。モデル重み・取得根拠・ライセンス・写真素材と旧試験の成果物は保持する。以前のschema 1〜2やモデル推論の実測は [CHANGELOG.md](../docs/CHANGELOG.md)と対応する歴史的成果物を参照し、現行の動作証拠には流用しない。

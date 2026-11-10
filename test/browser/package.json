@@ -1,0 +1,12 @@
+{
+  "name": "kou-community-verification",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:board": "node ../tooling/check_board.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@axe-core/playwright": "4.14.0"
+  }
+}

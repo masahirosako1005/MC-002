@@ -16,7 +16,7 @@
 | 他人への漏えい防止 | 同モジュールの共有候補snapshotと `card_out` | 個人的な推薦理由は共有snapshotに複製せず、講の条件だけで共有理由を再生成 |
 | 再起動後の保全 | 既存の移行/再起動記録、`verify-journal-restart.mjs`、`restart-api.json` | 主担当が既に実施した証拠。今回のreadonly監査では再起動していない |
 
-現DBの集約結果は `community/artifacts/personalization/current-readonly.json`。監査コードは `community/qa/audit-personalization.py`。ID、タグ値、本文、日付、認証情報は結果へ出さない。動画収録と並行中の一時点であり、件数を利用者数や利用実績として扱わない。
+現DBの集約結果は `community/artifacts/personalization/current-readonly.json`。監査コードは `test/integration/audit-personalization.py`。ID、タグ値、本文、日付、認証情報は結果へ出さない。動画収録と並行中の一時点であり、件数を利用者数や利用実績として扱わない。
 
 同じコミュニティに参加する3旅行者について、確認済み関心集合は1種類、候補順位・スコア集合も1種類だった。全員で関心の利用は有効。したがって今回同じ候補が出る理由は「個人化がない」ではなく「現在の確認済み設定が同じ」である。差を演出するために既存アカウントの関心や許可を勝手に変えない。異なる本人入力による差は隔離テストで確かめる。
 

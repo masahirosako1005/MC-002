@@ -17,7 +17,7 @@ DDL = (
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (3, 4, 5, 6, 7, 8):
+        if version in (3, 4, 5, 6, 7, 8, 9, 10, 11):
             return
         if version != 2:
             raise RuntimeError('Unsupported journal migration source')

@@ -1,0 +1,738 @@
+.daytrip-page {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding-bottom: 24px;
+}
+.daytrip-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.daytrip-heading h1 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+.daytrip-rank-link {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  background: none;
+  border: 0;
+  padding: 0 3px;
+}
+.daytrip-rank-link small {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.daytrip-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  color: var(--orange);
+  border: 0;
+  border-radius: 3px;
+  font-family: var(--wa-heading);
+  font-weight: 600;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+.daytrip-seal.large {
+  width: 72px;
+  height: 76px;
+  font-size: 1.08rem;
+}
+.daytrip-tabs {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  border-bottom: 1px solid #c6cbbf;
+  gap: 0;
+}
+.daytrip-tabs > button {
+  flex: 1;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  min-height: 46px;
+  background: none;
+  padding: 9px 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.daytrip-tabs > button.selected {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+  font-weight: 700;
+}
+.daytrip-origin.field {
+  margin: 0;
+}
+.daytrip-origin .choice-trigger {
+  background: var(--white);
+}
+.daytrip-condition-summary {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid #c5c9bc;
+  border-radius: 4px;
+  background: var(--white);
+  text-align: left;
+  font-size: 0.77rem;
+}
+.daytrip-condition-summary > .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--green);
+}
+.daytrip-condition-summary > :where(.icon:last-child) {
+  margin-left: auto;
+}
+.daytrip-filter {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+}
+.daytrip-filter > button {
+  min-height: 38px;
+  padding: 7px 17px;
+  border: 1px solid #c5c9bc;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 0.75rem;
+}
+.daytrip-filter > button.selected {
+  background: #e8ecdf;
+  border-color: #83907d;
+  color: #33452e;
+}
+.daytrip-route-list {
+  display: grid;
+  gap: 26px;
+}
+.daytrip-route-card {
+  min-width: 0;
+}
+.daytrip-route-card:not(:first-child) {
+  margin-left: 12px;
+}
+.daytrip-route-photo {
+  position: relative;
+  overflow: hidden;
+  height: 176px;
+  border-radius: 3px 3px 22px 3px;
+  background: #e4e6da;
+}
+.daytrip-route-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.daytrip-photo-caption {
+  position: absolute;
+  bottom: 8px;
+  right: 9px;
+  border-radius: 3px;
+  padding: 2px 6px;
+  background: #fffdf7;
+  color: #484d42;
+  font-size: 0.64rem;
+}
+.daytrip-route-card:not(:first-child) .daytrip-route-photo {
+  height: 124px;
+}
+.daytrip-route-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #fffdf7;
+  padding: 3px 9px;
+  font-size: 0.7rem;
+  border-radius: 1px 4px 2px 3px;
+  border: 1px solid #9b3d2c;
+  color: #9b3d2c;
+  transform: rotate(-3deg);
+}
+.daytrip-route-content {
+  padding-top: 10px;
+  padding-left: 12px;
+  border-left: 1px solid #b7b6a5;
+  margin-left: 6px;
+}
+.daytrip-route-content h2 {
+  font-size: 1.4rem;
+  margin: 4px 0 10px;
+}
+.daytrip-facts {
+  display: flex;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+  font-size: 0.77rem;
+  font-variant-numeric: tabular-nums;
+}
+.daytrip-facts > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.daytrip-facts .icon {
+  width: 16px;
+  height: 16px;
+  color: #66715e;
+}
+.daytrip-distance-note {
+  font-size: 0.71rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 10px 0 14px;
+}
+.daytrip-source {
+  font-size: 0.69rem;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.daytrip-source summary {
+  min-height: 34px;
+  padding: 6px 0;
+  cursor: pointer;
+}
+.daytrip-source p {
+  margin-bottom: 5px;
+}
+.daytrip-source a {
+  display: block;
+  width: fit-content;
+  margin: 5px 0;
+}
+.daytrip-other-plans {
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+.daytrip-form {
+  display: grid;
+  gap: 16px;
+}
+.daytrip-form fieldset {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+:where(.daytrip-form) .field {
+  margin: 0;
+  min-width: 0;
+}
+.daytrip-form .field-row {
+  gap: 12px;
+}
+:where(.daytrip-form .field-row) > .field {
+  flex: 1;
+  min-width: 0;
+}
+.daytrip-route-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.daytrip-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  min-height: 44px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.daytrip-check input {
+  width: 18px;
+  height: 18px;
+  margin: 4px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--orange);
+}
+.daytrip-check small {
+  color: var(--muted);
+}
+.daytrip-disclosure {
+  padding: 13px 14px;
+  background: #efeee4;
+  border-left: 2px solid #9caa8e;
+  font-size: 0.75rem;
+}
+.daytrip-status {
+  width: fit-content;
+  padding: 3px 9px;
+  background: #e9eee1;
+  border: 1px solid #d9dfd0;
+  font-size: 0.7rem;
+  color: #405439;
+  border-radius: 3px;
+}
+.daytrip-leader {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 17px 0;
+  border-block: 1px solid var(--line);
+}
+.daytrip-leader h3 {
+  font-size: 0.95rem;
+}
+.daytrip-leader p {
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
+.daytrip-action-box {
+  display: grid;
+  gap: 12px;
+  border: 1px solid #c9d2bf;
+  background: #f1f3eb;
+  padding: 16px;
+  border-radius: 4px;
+}
+.daytrip-action-box h3 {
+  font-size: 1rem;
+}
+.daytrip-attendees {
+  margin: 10px 0;
+}
+.daytrip-attendee {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+.daytrip-attendee strong {
+  font-size: 0.84rem;
+}
+.daytrip-attendee small {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.daytrip-attendee .daytrip-earned {
+  color: var(--orange);
+  font-weight: 700;
+}
+.daytrip-attendee .button {
+  padding: 7px 10px;
+  min-width: 104px;
+  font-size: 0.72rem;
+  min-height: 42px;
+}
+.daytrip-details {
+  border-block: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+.daytrip-details summary {
+  padding: 15px 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+.daytrip-details > p,
+.daytrip-details > .field,
+.daytrip-details > button {
+  margin-bottom: 14px;
+}
+.daytrip-outing-list {
+  border-top: 1px solid var(--line);
+}
+.daytrip-outing-row {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+.daytrip-outing-row > :where(span:nth-child(2)) {
+  flex: 1;
+  min-width: 0;
+}
+.daytrip-outing-row strong {
+  display: block;
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+.daytrip-outing-row small {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.daytrip-outing-row > .icon {
+  width: 17px;
+}
+.outing-date {
+  min-width: 62px;
+  padding: 2px 10px 2px 0;
+  border-right: 1px solid var(--line);
+}
+.outing-date strong {
+  font-family: var(--wa-heading);
+  font-size: 1.1rem;
+}
+.outing-date small {
+  max-width: 65px;
+}
+.daytrip-passbook {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #c9cbbd;
+  border-left: 7px solid #9e8666;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    0deg,
+    #fffdf7 0 33px,
+    #eeeddf 33px 34px
+  );
+  padding: 22px 20px 22px 27px;
+}
+.daytrip-passbook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  border-left: 1px solid #d8cdb7;
+}
+.daytrip-passbook::after {
+  content: "";
+  position: absolute;
+  top: 29px;
+  left: 4px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #a79372;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow:
+    0 40px #a7937270,
+    0 80px #a7937270,
+    0 120px #a7937270,
+    0 160px #a7937270,
+    0 200px #a7937270,
+    0 240px #a7937270,
+    0 280px #a7937270;
+}
+.passbook-inscription {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.passbook-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.passbook-title > span {
+  writing-mode: vertical-rl;
+  font-family: var(--wa-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: #645f4e;
+}
+.daytrip-empty-scroll {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 7px;
+  border-top: 1px solid #c5b99e;
+  border-bottom: 3px double #c5b99e;
+}
+.daytrip-empty-scroll h3 {
+  font-size: 1rem;
+}
+.daytrip-empty-scroll p {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 10px;
+}
+.passbook-inscription .wa-journey-drawing {
+  width: 137px;
+  height: 76px;
+  opacity: 0.85;
+}
+.passbook-rank {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.rank-current-name {
+  font-family: var(--wa-heading);
+  font-size: 1.6rem;
+  margin-top: 4px;
+}
+.rank-progress {
+  display: grid;
+  gap: 8px;
+  margin-block: 12px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.rank-maintenance-note {
+  border-left: 2px solid var(--orange);
+  padding-left: 10px;
+  color: var(--text);
+}
+.rank-banzuke {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
+  margin: 15px 0;
+  list-style: none;
+  border: 3px double #b7a88c;
+  background: #f8f1df;
+}
+.rank-banzuke > li {
+  display: flex;
+  gap: 7px;
+  min-width: 0;
+  padding: 12px 8px;
+  border-bottom: 1px solid #d9cdb7;
+}
+.rank-banzuke > li:nth-child(odd) {
+  border-right: 1px solid #d9cdb7;
+}
+.rank-banzuke > li.current {
+  background: #efe1be;
+  box-shadow: inset 0 0 0 2px #92703e;
+}
+.rank-position {
+  font-size: 0.65rem;
+  color: #6c5d44;
+  padding-top: 5px;
+}
+.rank-banzuke strong {
+  display: inline;
+  font-family: var(--wa-heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+}
+.rank-banzuke small {
+  display: block;
+  color: #65563f;
+  font-size: 0.63rem;
+  line-height: 1.8;
+}
+.rank-current-label {
+  display: inline-block;
+  font-size: 0.6rem;
+  margin-left: 5px;
+  color: #784120;
+}
+.passbook-points {
+  font-size: 2.15rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1.5;
+}
+.passbook-points > span {
+  font-size: 0.8rem;
+  padding-left: 7px;
+}
+.passbook-stats {
+  display: flex;
+  gap: 28px;
+  margin: 18px 0 15px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.passbook-stats strong {
+  font-size: 1.25rem;
+  margin-right: 10px;
+  font-weight: 500;
+}
+.passbook-stats span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.69rem;
+}
+.daytrip-passbook > :where(p) > strong {
+  font-size: 0.82rem;
+}
+.daytrip-passbook hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 16px 0;
+}
+.daytrip-benefits,
+.daytrip-ledger,
+.daytrip-redemptions {
+  display: grid;
+  gap: 13px;
+  margin-top: 5px;
+}
+.daytrip-benefit {
+  display: grid;
+  gap: 11px;
+  margin-top: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 2px solid #a9ae99;
+  padding: 18px;
+  border-radius: 3px;
+}
+.daytrip-benefit h3 {
+  font-size: 1.05rem;
+}
+.benefit-price {
+  font-size: 1.3rem;
+  color: var(--orange);
+  font-weight: 600;
+}
+.benefit-price small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.daytrip-totals {
+  margin: 0;
+  display: grid;
+  gap: 7px;
+  font-size: 0.8rem;
+}
+.daytrip-totals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.daytrip-totals > div:last-child {
+  padding-top: 7px;
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+.daytrip-totals dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.daytrip-actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+.ledger-row {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.ledger-row strong {
+  font-size: 0.77rem;
+  font-weight: 500;
+}
+.ledger-row small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.67rem;
+  margin-top: 5px;
+}
+.ledger-row b {
+  white-space: nowrap;
+  font-size: 0.92rem;
+  color: var(--orange);
+}
+.ledger-row > span:not(.wa-seal) {
+  flex: 1;
+}
+.ledger-stamp {
+  width: 37px;
+  height: 39px;
+  flex: 0 0 auto;
+  font-size: 0.69rem;
+}
+.provider-daytrip {
+  display: grid;
+  gap: 15px;
+}
+.provider-daytrip > .section-title {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.daytrip-update {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.daytrip-cost-preview {
+  padding: 15px;
+  background: #edf0e5;
+  border-left: 2px solid #7d8e6e;
+}
+.daytrip-cost-preview strong {
+  font-size: 0.78rem;
+}
+.daytrip-cost-preview p {
+  margin-top: 5px;
+  font-variant-numeric: tabular-nums;
+}
+.daytrip-cost-preview small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 5px;
+}
+@media (max-width: 450px) {
+  .daytrip-page {
+    gap: 12px;
+  }
+  .daytrip-heading h1 {
+    font-size: 1.55rem;
+  }
+  .daytrip-route-photo {
+    height: 136px;
+  }
+  .daytrip-facts {
+    gap: 8px 12px;
+    font-size: 0.73rem;
+  }
+  .daytrip-passbook {
+    padding: 19px 16px 19px 25px;
+  }
+  .passbook-stats {
+    gap: 24px;
+  }
+  .daytrip-form .field-row {
+    display: flex;
+  }
+  .daytrip-form .field-row .field input {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+@media (min-width: 900px) {
+  .daytrip-route-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .daytrip-route-photo {
+    height: 190px;
+  }
+}

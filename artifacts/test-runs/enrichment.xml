@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="2.689" timestamp="2026-11-10T11:02:04.543113+09:00" hostname="Jisui-share002"><testcase classname="test.backend.test_enrichment" name="test_content_pack_is_additive_repeatable_and_coherent" time="1.948"><failure message="sqlite3.OperationalError: 10 values for 9 columns">harness = Harness(app=&lt;fastapi.applications.FastAPI object at 0x000001F1EABDD590&gt;, settings=Settings(db_path=WindowsPath('C:/AI-...x_image_bytes=12582912, max_pixels=20000000), runner=&lt;asyncio.runners.Runner object at 0x000001F1EABD5010&gt;, clients=[])
+
+    def test_content_pack_is_additive_repeatable_and_coherent(harness):
+        db = harness.app.state.database
+        with db.transaction() as conn:
+            original_users = [tuple(r) for r in conn.execute('SELECT * FROM users ORDER BY id')]
+            original_posts = [tuple(r) for r in conn.execute('SELECT * FROM posts ORDER BY id')]
+&gt;       report = enrich(db, harness.settings, datetime(2026, 11, 10, 0, tzinfo=UTC))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\backend\test_enrichment.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+community\backend\app\enrichment.py:234: in enrich
+    outings += int(seed_outing(conn, index, base, circle))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+community\backend\app\enrichment.py:208: in seed_outing
+    insert(conn, "daytrip_participants", dict(outing_id=oid, user_id=uid, accepted=1, claimed=1,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+conn = &lt;sqlite3.Connection object at 0x000001F1EAB8DE40&gt;
+table = 'daytrip_participants'
+values = {'outing_id': 'extra26-outing-000', 'user_id': 'extra26-person-000', 'accepted': 1, 'claimed': 1, ...}
+
+    def insert(conn, table, values):
+        query = INSERT_SQL[table]
+        columns = query.split("(", 1)[1].split(")", 1)[0].split(",")
+        if set(columns) != values.keys():
+            raise ValueError("Unexpected enrichment columns")
+&gt;       conn.execute(query, tuple(values[column] for column in columns))
+E       sqlite3.OperationalError: 10 values for 9 columns
+
+community\backend\app\enrichment.py:78: OperationalError</failure></testcase><testcase classname="test.backend.test_enrichment" name="test_content_pack_rolls_back_on_collision" time="0.408" /></testsuite></testsuites>

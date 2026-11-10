@@ -11,10 +11,10 @@ from uuid import uuid4
 TAGS = {"mountain": "山の景色", "coast": "海辺", "food": "食事", "cafe": "カフェ", "walk": "街歩き", "fashion": "服・小物", "games": "ボードゲーム", "stay": "宿で過ごす", "nature": "自然"}
 ACCOUNTS = (("aoi", "藤沢 葵", "葵", "#A05C42"), ("ren", "高橋 蓮", "蓮", "#436D68"), ("mio", "小野 美緒", "美緒", "#806483"))
 TRIPS = (
-    {"id": "karuizawa", "title": "軽井沢で森とカフェをめぐる", "area": "軽井沢", "description": "木立を歩き、カフェで旅の続きを話す。", "tags": ["mountain", "nature", "cafe", "walk"], "duration": "day", "budget": 12000, "season_label": "春から秋", "cover_key": "mountain"},
-    {"id": "coast-day", "title": "海辺を歩いて昼ごはん", "area": "海辺のまち", "description": "浜を歩いてから、まちの食堂へ。", "tags": ["coast", "food", "walk"], "duration": "day", "budget": 8000, "season_label": "春・秋", "cover_key": "coast"},
-    {"id": "town-weekend", "title": "商店街と喫茶店の週末", "area": "街歩きのまち", "description": "小さな店をのぞき、好きな場所を持ち寄る。", "tags": ["walk", "cafe", "fashion", "food"], "duration": "day", "budget": 6000, "season_label": "通年", "cover_key": "cafe"},
-    {"id": "lodge-games", "title": "宿でボードゲームを囲む", "area": "森の宿", "description": "散策の後、宿のテーブルに集まる。", "tags": ["games", "stay", "nature", "food"], "duration": "overnight", "budget": 18000, "season_label": "通年", "cover_key": "games"},
+    {"id": "karuizawa", "title": "N西市で森とカフェをめぐる", "area": "N西市", "description": "木立を歩き、カフェで休憩する。", "tags": ["mountain", "nature", "cafe", "walk"], "duration": "day", "budget": 12000, "season_label": "春から秋", "cover_key": "mountain"},
+    {"id": "coast-day", "title": "川辺を歩いて昼ごはん", "area": "N西市・川辺", "description": "川辺を歩いてから、まちの食堂へ。", "tags": ["coast", "food", "walk"], "duration": "day", "budget": 8000, "season_label": "春・秋", "cover_key": "coast"},
+    {"id": "town-weekend", "title": "商店街と喫茶店の週末", "area": "N西市・門前町", "description": "小さな店をのぞき、好きな場所を持ち寄る。", "tags": ["walk", "cafe", "fashion", "food"], "duration": "day", "budget": 6000, "season_label": "通年", "cover_key": "cafe"},
+    {"id": "lodge-games", "title": "宿でボードゲームを囲む", "area": "N西市・北山", "description": "散策の後、宿のテーブルに集まる。", "tags": ["games", "stay", "nature", "food"], "duration": "overnight", "budget": 18000, "season_label": "通年", "cover_key": "games"},
 )
 for trip in TRIPS:
     trip["source_note"] = "ローカルの企画素材。料金は概算で、営業・交通・空席は未確認。"
@@ -85,7 +85,7 @@ class Database:
         conn = self.connect()
         try:
             version = conn.execute("PRAGMA user_version").fetchone()[0]
-            if version not in (0, 1, 2, 3, 4, 5, 6, 7, 8):
+            if version not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
                 raise RuntimeError("Unknown database version")
             conn.execute("PRAGMA journal_mode=WAL")
             conn.executescript(SCHEMA)

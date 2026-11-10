@@ -10,7 +10,7 @@ React/Python結合用。全て `/api`、同一オリジン。Cookie `ko_session`
 type User={id:string,username:string,name:string,initials:string,color:string};
 type Tag={id:string,label:string};
 type Community={id:string,name:string,description:string,member_count:number,role:'owner'|'member',cover_key:string};
-type Analysis={status:'queued'|'running'|'succeeded'|'failed',tags:{id:string,label:string,score:number}[],message:string,model_version:string|null};
+type Analysis={status:'guided'|'manual',tags:{id:string,label:string,score?:number}[],message:string,model_version:string|null,method:string,inference_enabled:false};
 type Media={id:string,url:string,width:number,height:number,analysis:Analysis};
 type Post={id:string,community_id:string,author:User,body:string,tags:string[],media:Media[],status:'draft'|'published',created_at:string,place_label:string,taken_on:string|null,can_edit:boolean};
 type Grant={community_id:string,use_for_matching:boolean,display_in_matches:boolean,participate:boolean};
@@ -38,12 +38,14 @@ type Group={id:string,community_id:string,purpose:string,trip:Trip,members:User[
 
 ## 写真と投稿
 
-- POST `/media` multipart `file`（1ファイル、JPEG/PNG/WebP、12MiB/20MPまで）→ Media。再エンコード/EXIF除去済み、分析を永続ジョブへ投入。filenameを分類に使わない。
-- GET `/media/{id}/analysis` → Analysis。所有者のみ。UIはqueued/runningの間に1〜2秒程度で確認する。
-- POST `/media/{id}/analyze` `{}` → Analysis。所有者のみ再試行。
+- POST `/media` multipart `file`（1ファイル、JPEG/PNG/WebP、12MiB/20MPまで）→ `Media & {location_candidate:{latitude:number,longitude:number}|null}`。静止画のみ、再エンコード/EXIF除去済み。通常は推論なしの手入力案内、登録済み素材の完全一致だけ定義済みタグ候補を返す。filenameを分類に使わない。GPS候補の読取は任意の `?read_location=true` のときだけ。
+- GET `/media/{id}/analysis` → Analysis。所有者のみ。現行はguided/manualで即時完了し、ポーリングしない。過去の候補値は本人の確認用として保持する。
+- POST `/media/{id}/analyze` `{}` → Analysis。所有者のみ。同じ保存済み候補・手入力案内を返す。モデル推論は行わない。
 - GET `/media/{id}` → image/jpeg。本人または公開投稿先の現在メンバーのみ。独立した公開画像ディレクトリは作らない。
-- POST `/posts` `{community_id,body,media_ids:string[],tags:string[],place_label?:string,taken_on?:string|null}` → Post。1〜5枚、まず下書き。タグはbootstrap辞書に限定。
-- PATCH `/posts/{id}` `{body?:string,tags?:string[],status?:'draft'|'published',place_label?:string,taken_on?:string|null}` → Post。本人のみ。公開は画像処理済みと所属を確認。分析失敗でも手入力タグで公開可。
+- DELETE `/media/{id}` `{}` → `{ok:true}`。本人の未使用写真だけを論理削除し、物理削除を再試行可能にする。投稿か旅の記録で使用中は409。他人の写真は404。本人の削除済み写真への再送は200。
+- POST `/posts` `{community_id,body?:string,media_ids?:string[],tags?:string[],place_label?:string,taken_on?:string|null,client_request_id?:string}` → Post。写真0〜5枚、文章2000文字まで。文章だけ・写真だけの両方可、空白文章＋写真なしは422。まず本人だけの下書きとして保存。タグはbootstrap辞書に限定。
+- `client_request_id` は作成画面1回につき固定する（英数字/`_`/`-`、1〜100文字）。同じ本人・同じ共有先・同じキーなら本文や写真を訂正して再送しても現在の同じ投稿を返し、内容/公開状態は変更しない。続くPATCHで明示保存する。別共有先への同じキーの流用、削除済み投稿の再作成は409。新しい投稿または共有先変更時は新しいキーを使う。既存のキーなしクライアントは動作するが再送の重複防止対象外。
+- PATCH `/posts/{id}` `{body?:string,media_ids?:string[],tags?:string[],status?:'draft'|'published',place_label?:string,taken_on?:string|null}` → Post。本人・現在の所属のみ。本文/写真/タグ/公開状態を一度の処理で保存し、失敗時は全て元の状態に戻る。写真は本人の未削除画像かつ他の投稿で未使用、重複不可。写真を外すだけでは元画像や旅の記録を削除しない。処理済み写真に手入力タグを付けて公開できる。共有先の変更は不可。
 - DELETE `/posts/{id}` JSON `{}` → `{ok:true}`。本人のみ。配信禁止と分析取消、派生画像を削除。
 
 画像の推論は本物のローカルモデル。モデルなし/失敗時は `failed` と日本語messageで手入力を案内し、推論成功を偽装しない。モデルの対応分類にない活動は手入力になる。候補は被写体の候補であり本人の嗜好の断定ではない。

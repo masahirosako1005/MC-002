@@ -1,0 +1,35 @@
+{
+  "fixture_integration": {
+    "period_days": 90,
+    "consultations": 35,
+    "confirmed_users": 36,
+    "provenance": "Requested fictional local content; not measured tourism outcomes",
+    "confirmed_visits": 144,
+    "completed_outings": 30,
+    "condition_population": 31
+  },
+  "bandit_count": 0,
+  "checked_at": "2026-11-10T02:07:07.6752240Z",
+  "scope": "community/backend/app/analytics + test/backend/test_provider_analytics.py",
+  "tests": {
+    "errors": 0,
+    "seconds": 19.03,
+    "failures": 0,
+    "passed": 15,
+    "junit": "artifacts/analytics/pytest.xml"
+  },
+  "not_executed": [
+    "full regression by root",
+    "live browser by root"
+  ],
+  "bandit_errors": 0,
+  "complexity_count": 0,
+  "source_sha256": {
+    "community/backend/app/analytics/service.py": "44b4eb3f77a7267e205bc02613b87c593e2776f2fead18cd7cadba53ad3601ae",
+    "community/backend/app/analytics/__init__.py": "821e2688b0f04ff16760fc34f58a79385bda39d2c45307e0ab18faa4927cf7d6",
+    "community/backend/app/analytics/schemas.py": "8b00eec12288d833ecc6cc308282eb7be375d9a8683a2c5684895ace2c80372f",
+    "community/backend/app/analytics/router.py": "6861cf18928753678aec8a1dc0768cd85de7d933e2459908f8cd0e770bf7470a",
+    "test/backend/test_provider_analytics.py": "a351082e7d1f3d4d315cfb4ef6ce5368639ab3fd5ff063a69da19345689a7e39"
+  },
+  "ruff_count": 0
+}

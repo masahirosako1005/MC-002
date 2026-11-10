@@ -1,0 +1,304 @@
+{
+  "before_snapshot": "20261110T012642Z-ac4dc92f62e4",
+  "after_snapshot": "20261110T012710Z-85f03b6fae1e",
+  "before_integrity": "ok",
+  "after_integrity": "ok",
+  "before_fk_violations": 0,
+  "after_fk_violations": 0,
+  "existing_tables": {
+    "users": {
+      "before_count": 202,
+      "after_count": 202,
+      "identical": true
+    },
+    "sessions": {
+      "before_count": 21,
+      "after_count": 21,
+      "identical": true
+    },
+    "communities": {
+      "before_count": 2,
+      "after_count": 2,
+      "identical": true
+    },
+    "memberships": {
+      "before_count": 201,
+      "after_count": 201,
+      "identical": true
+    },
+    "preferences": {
+      "before_count": 202,
+      "after_count": 202,
+      "identical": true
+    },
+    "grants": {
+      "before_count": 201,
+      "after_count": 201,
+      "identical": true
+    },
+    "media": {
+      "before_count": 18,
+      "after_count": 18,
+      "identical": true
+    },
+    "jobs": {
+      "before_count": 18,
+      "after_count": 18,
+      "identical": true
+    },
+    "posts": {
+      "before_count": 18,
+      "after_count": 18,
+      "identical": true
+    },
+    "post_media": {
+      "before_count": 18,
+      "after_count": 18,
+      "identical": true
+    },
+    "proposals": {
+      "before_count": 3,
+      "after_count": 3,
+      "identical": true
+    },
+    "responses": {
+      "before_count": 9,
+      "after_count": 9,
+      "identical": true
+    },
+    "ko_groups": {
+      "before_count": 3,
+      "after_count": 3,
+      "identical": true
+    },
+    "group_members": {
+      "before_count": 9,
+      "after_count": 9,
+      "identical": true
+    },
+    "settings": {
+      "before_count": 3,
+      "after_count": 3,
+      "identical": true
+    },
+    "stage_sessions": {
+      "before_count": 2,
+      "after_count": 2,
+      "identical": true
+    },
+    "providers": {
+      "before_count": 2,
+      "after_count": 2,
+      "identical": true
+    },
+    "provider_staff": {
+      "before_count": 2,
+      "after_count": 2,
+      "identical": true
+    },
+    "provider_plans": {
+      "before_count": 15,
+      "after_count": 15,
+      "identical": true
+    },
+    "travel_parties": {
+      "before_count": 56,
+      "after_count": 56,
+      "identical": true
+    },
+    "travel_party_members": {
+      "before_count": 71,
+      "after_count": 71,
+      "identical": true
+    },
+    "travel_requirements": {
+      "before_count": 51,
+      "after_count": 51,
+      "identical": true
+    },
+    "party_messages": {
+      "before_count": 8,
+      "after_count": 8,
+      "identical": true
+    },
+    "condition_drafts": {
+      "before_count": 6,
+      "after_count": 6,
+      "identical": true
+    },
+    "recommendation_runs": {
+      "before_count": 10,
+      "after_count": 10,
+      "identical": true
+    },
+    "plan_selections": {
+      "before_count": 34,
+      "after_count": 34,
+      "identical": true
+    },
+    "consultations": {
+      "before_count": 34,
+      "after_count": 34,
+      "identical": true
+    },
+    "consultation_messages": {
+      "before_count": 40,
+      "after_count": 40,
+      "identical": true
+    },
+    "operation_keys": {
+      "before_count": 333,
+      "after_count": 333,
+      "identical": true
+    },
+    "journal_journeys": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "journal_visits": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "journal_location_candidates": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "journal_profiles": {
+      "before_count": 1,
+      "after_count": 1,
+      "identical": true
+    },
+    "circle_rooms": {
+      "before_count": 55,
+      "after_count": 55,
+      "identical": true
+    },
+    "circle_member_invitations": {
+      "before_count": 21,
+      "after_count": 21,
+      "identical": true
+    },
+    "circle_assistant_turns": {
+      "before_count": 6,
+      "after_count": 6,
+      "identical": true
+    },
+    "circle_provider_invitations": {
+      "before_count": 32,
+      "after_count": 32,
+      "identical": true
+    },
+    "circle_proposals": {
+      "before_count": 3,
+      "after_count": 3,
+      "identical": true
+    },
+    "circle_confirmations": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "circle_candidate_cards": {
+      "before_count": 16,
+      "after_count": 16,
+      "identical": true
+    },
+    "reflection_sessions": {
+      "before_count": 24,
+      "after_count": 24,
+      "identical": true
+    },
+    "reflection_participants": {
+      "before_count": 32,
+      "after_count": 32,
+      "identical": true
+    },
+    "reflection_messages": {
+      "before_count": 29,
+      "after_count": 29,
+      "identical": true
+    },
+    "occasions": {
+      "before_count": 12,
+      "after_count": 12,
+      "identical": true
+    },
+    "occasion_sharing": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "occasion_suggestions": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "occasion_suggestion_states": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "occasion_card_state": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "occasion_card_origins": {
+      "before_count": 4,
+      "after_count": 4,
+      "identical": true
+    },
+    "daytrip_plan_routes": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_outings": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_participants": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_events": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_daily_awards": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_ledger": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_benefits": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "daytrip_redemptions": {
+      "before_count": 0,
+      "after_count": 0,
+      "identical": true
+    },
+    "user_resume_state": {
+      "before_count": 2,
+      "after_count": 2,
+      "identical": true
+    }
+  },
+  "new_tables": {},
+  "media_count_before": 8,
+  "media_count_after": 8,
+  "all_media_identical": true
+}

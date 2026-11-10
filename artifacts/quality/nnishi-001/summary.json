@@ -1,0 +1,87 @@
+{
+  "measured_at": "2026-11-10T02:17:08.561807+00:00",
+  "phase": "nnishi-001",
+  "baseline": {
+    "frontend": "daytrip-wa-verified",
+    "backend": "daytrip-final"
+  },
+  "status": "review-required",
+  "tests": "not-run",
+  "errors": [],
+  "counts": {
+    "bandit": {
+      "before": 19,
+      "after": 19
+    },
+    "complexity": {
+      "before": 14,
+      "after": 14
+    },
+    "oxlint": {
+      "before": 124,
+      "after": 119
+    },
+    "ruff": {
+      "before": 0,
+      "after": 0
+    },
+    "stylelint": {
+      "before": 126,
+      "after": 126
+    }
+  },
+  "new": [],
+  "resolved": [
+    {
+      "tool": "oxlint",
+      "file": "src/Composer.tsx",
+      "rule": "eslint(no-await-in-loop)",
+      "message": "Unexpected `await` inside a loop.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react(exhaustive-effect-dependencies)",
+      "message": "Found missing/extra effect dependencies",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react(set-state-in-effect)",
+      "message": "Calling setState synchronously within an effect can trigger cascading renders",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react-hooks(exhaustive-deps)",
+      "message": "React Hook useEffect has a missing dependency: 'load'",
+      "count": 1
+    }
+  ],
+  "remaining": 278,
+  "new_count": 0,
+  "review_required_files": [
+    "community/backend/app/daytrip/service.py",
+    "community/backend/app/main.py",
+    "community/backend/app/personalization/schema.py",
+    "community/backend/app/security.py",
+    "community/backend/app/service.py",
+    "src/App.tsx",
+    "src/KoPage.tsx",
+    "src/Marketplace.tsx",
+    "src/ProviderWorkspace.tsx",
+    "src/Stage.tsx",
+    "src/api.ts"
+  ],
+  "limits": "Static findings are not an app score, certification, security guarantee, or usability test. Existing debt remains visible. No upload or automatic baseline reset."
+}

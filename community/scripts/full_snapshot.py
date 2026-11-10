@@ -100,8 +100,9 @@ def main():
                 raise ValueError("Backup destination escapes project")
             snapshot.mkdir()
             report["snapshot"] = str(snapshot)
+            model_manifest = ROOT / "models/manifest.json"
             metadata = {"image": app["Image"], "created_at": report["checked_at"], "active_volume": ACTIVE_VOLUME,
-                        "model_manifest": json.loads((ROOT / "models/manifest.json").read_text(encoding="utf-8"))}
+                        "model_manifest": json.loads(model_manifest.read_text(encoding="utf-8")) if model_manifest.is_file() else None}
             (snapshot / "runtime.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
             was_running = app["State"]["Running"]
             try:

@@ -23,7 +23,7 @@ _provider_guard = (
 DDL = (
     "CREATE TABLE user_resume_state("
     "user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,"
-    "page TEXT NOT NULL CHECK(page IN ('feed','market','circles','journal','provider')),"
+    "page TEXT NOT NULL CHECK(page IN ('feed','market','circles','journal','provider','daytrip')),"
     "community_id TEXT REFERENCES communities(id) ON DELETE SET NULL,"
     "circle_id TEXT REFERENCES travel_parties(id) ON DELETE SET NULL,"
     "filters_json TEXT NOT NULL,version INTEGER NOT NULL CHECK(version>=1))",
@@ -71,7 +71,7 @@ DDL = (
 def migrate(database):
     with database.transaction(True) as conn:
         version = conn.execute("PRAGMA user_version").fetchone()[0]
-        if version == 8:
+        if version in (8, 9, 10, 11):
             return
         if version != 7:
             raise RuntimeError("Unsupported personalization migration source")

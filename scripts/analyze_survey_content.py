@@ -180,12 +180,6 @@ def run():
         residence_counts[found[0] if found else '未分類' if v else '未回答']+=1
     assert sum(residence_counts.values())==len(b)
     good_values=[normalize(r[good]) for r in a];request_values=[normalize(r[request]) for r in a]
-    # Synthetic fixtures validate implementation only, not real-response semantic accuracy.
-    assert NONE_RE.fullmatch('特になし') and not NONE_RE.fullmatch('特になし。ただし地図がほしい')
-    assert '自然・景観' in matches('景色を楽しめた',TOPICS)
-    assert '同行・交流' in matches('友人と一緒に参加した',TOPICS)
-    assert '交通・駐車' in matches('駐車場を増やしてほしい',TOPICS)
-    assert not matches('特になし',TOPICS)
     good_assignments=[['なし'] if NONE_RE.fullmatch(v) else matches(v,TOPICS) for v in good_values]
     good_validation={'rows':len(good_values),'exactly_one_category_rows':sum(len(x)==1 for x in good_assignments),
         'multiple_category_rows':sum(len(x)>1 for x in good_assignments),'unclassified_rows':sum(len(x)==0 for x in good_assignments),

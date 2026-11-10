@@ -1,0 +1,42 @@
+{
+  "subsequent_enrichment_assertions": {
+    "junit": "artifacts/residence/enrichment.xml",
+    "passed": 1,
+    "note": "Existing integration case extended to assert 6 cities x 6 fictional visitors; not an additional distinct case",
+    "seconds": 2.45
+  },
+  "not_executed": [
+    "full regression by root",
+    "Docker migration by root",
+    "live browser by root"
+  ],
+  "checked_at": "2026-11-10T02:17:11.2550105Z",
+  "privacy": "Small-cell suppression only; overlapping time windows and result changes may permit inference. No anonymity guarantee.",
+  "bandit_count": 0,
+  "scope": "community/backend/app/residence + analytics; dedicated tests",
+  "tests": {
+    "junit": "artifacts/residence/pytest.xml",
+    "passed": 29,
+    "seconds": 20.47,
+    "failures": 0,
+    "errors": 0
+  },
+  "complexity_count": 0,
+  "bandit_errors": 0,
+  "ruff_count": 0,
+  "source_sha256": {
+    "community/backend/app/analytics/service.py": "d970edfe5f4caef3de6343bb9b5c1f2ec4f6c84d7782faf231e54b4cad81b89c",
+    "community/backend/app/analytics/schemas.py": "0ee8bd141d6213d007feca28b8dd82e29d07e3c6fc8b023eee74041c799119ee",
+    "community/backend/app/residence/schemas.py": "25bc5ffa1bf980662267afca9b59f77fb40e303381e90b0f095b040483d35678",
+    "community/backend/app/analytics/router.py": "6861cf18928753678aec8a1dc0768cd85de7d933e2459908f8cd0e770bf7470a",
+    "community/backend/app/residence/__init__.py": "b498de811f057801db851c1a483dc8333599fb87458bc5dfba9a060921082044",
+    "community/backend/app/analytics/__init__.py": "821e2688b0f04ff16760fc34f58a79385bda39d2c45307e0ab18faa4927cf7d6",
+    "community/backend/app/residence/schema.py": "51d1349dbd9e212e90d6adcf157ebb7b236db8753dfb5c7dcf43d501ccdf050d",
+    "community/backend/app/residence/catalog.py": "e799d71f5821a75a4ea261b302089693e995dce8161e4562b494efb1f70a3635",
+    "community/backend/app/analytics/origins.py": "90da2af8586e6281764fa807c27f41ae78724124790cff8f737b086aecfdbc4e",
+    "community/backend/app/residence/service.py": "c20ece343bee5eb4397893b0e0236f790e0715c4dc1617ad04fe3c1ac764a469",
+    "test/backend/test_provider_analytics.py": "70e6e9cd41ac5f729d906303ce5c2c2d3016a8866233cbefbbf291a8becbd6ae",
+    "community/backend/app/residence/router.py": "262a1bfe8d25aaba963af559a3e30803372e4ef4f9671aa72ae363b6bcb5da9a",
+    "test/backend/test_residence.py": "c72a98ea131756c3b40bd96f5081b044993bbfad231af2de04d85184d43cb866"
+  }
+}

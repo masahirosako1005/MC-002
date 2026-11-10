@@ -4,7 +4,7 @@
 
 ## CLI・データ保存
 
-コマンド: `.venv/Scripts/python.exe -m unittest discover -s scripts -p test_tickets.py -v`
+コマンド: `.venv/Scripts/python.exe -m pytest test/tooling/test_tickets.py -q`
 
 結果: 6件成功。以下を合成チケットで確認した。
 
@@ -19,7 +19,7 @@
 
 ## ローカルHTML
 
-コマンド: `node project/check_board.cjs`
+コマンド: `node test/tooling/check_board.cjs`
 
 Microsoft Edgeのヘッドレス実行、デスクトップ1450×1000とスマホ390×844で9件成功。ローカルファイルとして表示、全チケット数、4列、検索、詳細、状態・優先度フィルター、横溢れなし、外部HTTP要求0件、JavaScriptエラー0件を確認。
 

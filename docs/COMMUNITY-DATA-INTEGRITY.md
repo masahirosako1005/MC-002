@@ -4,7 +4,7 @@
 
 ## 検証すること
 
-`community/qa/verify-deletion-restore.py` は、実アプリの初期化と Service を使って検証専用 DB を作る。合成画像を3件投稿し、公開済み1件を保持、下書き1件と公開済み1件を削除する。削除処理を SQL で模倣せず、実際の `delete_post` による論理削除・画像ファイル削除を通す。
+`test/integration/verify-deletion-restore.py` は、実アプリの初期化と Service を使って検証専用 DB を作る。合成画像を3件投稿し、公開済み1件を保持、下書き1件と公開済み1件を削除する。削除処理を SQL で模倣せず、実際の `delete_post` による論理削除・画像ファイル削除を通す。
 
 既存 `community/scripts/snapshot_worker.py` をそのまま使い、バックアップ・検証・新しい空領域への復元を実行する。確認範囲は次のとおり。
 
@@ -18,7 +18,7 @@
 
 ## 隔離と再実行
 
-プロジェクトの Python で `community/qa/verify-deletion-restore.py` を実行する。Docker のローカル構築済み app イメージが必要。イメージ取得は `--pull=never`、補助コンテナはネットワークなし、読み取り専用ルート、権限削減、メモリ256MB、CPU1個で実行する。アプリの停止・起動や実運用 volume のマウントは行わない。
+プロジェクトの Python で `test/integration/verify-deletion-restore.py` を実行する。Docker のローカル構築済み app イメージが必要。イメージ取得は `--pull=never`、補助コンテナはネットワークなし、読み取り専用ルート、権限削減、メモリ256MB、CPU1個で実行する。アプリの停止・起動や実運用 volume のマウントは行わない。
 
 毎回 `community/artifacts/snapshot-tests/deletion-restore-<乱数>/` に source / snapshot / restored を新規作成する。source は補助コンテナに読み取り専用で渡す。既存領域を消して使い回さない。検証用DB・写真は Git 管理外、公開する結果には原文・認証情報・写真識別子を含めず件数とハッシュを記録する。
 

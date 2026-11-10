@@ -1,0 +1,66 @@
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+.................F............F......................................... [ 76%]
+............................................................ [ 97%]
+.......                                                                  [100%]
+================================== FAILURES ===================================
+___ test_personal_values_survive_new_connection_without_cross_account_leak ____
+
+personal = Harness(app=<fastapi.applications.FastAPI object at 0x00000254932CB390>, settings=Settings(db_path=WindowsPath('C:/AI-...2549278E3D0>, clients=[<conftest.Client object at 0x00000254918FDAF0>, <conftest.Client object at 0x000002549239DA90>])
+
+    def test_personal_values_survive_new_connection_without_cross_account_leak(personal):
+        aoi, ren = personal.client("aoi"), personal.client("ren")
+        chosen = circle(aoi)
+        first = state(aoi)
+        assert first == dict(
+            version=0, page="daytrip", community_id=None, circle_id=None, filters=filters()
+        )
+>       own = save(
+            aoi,
+            page="circles",
+            community_id="peers",
+            circle_id=chosen["id"],
+            filters=filters(query="�{�l��p�̌���", category="cafe", area="�y������"),
+        )
+
+test\backend\test_personalization.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+client = <conftest.Client object at 0x00000254918FDAF0>
+changes = {'page': 'circles', 'community_id': 'peers', 'circle_id': '24e2dc11520f45e2a4b0fd19db420b5b', 'filters': {'query': '�{�l��p�̌���', 'category': 'cafe', 'duration': 'all', 'schedule': 'all', ...}}
+
+    def save(client, **changes):
+        response = client.write("PUT", "/me/resume-state", state(client, **changes))
+>       assert response.status_code == 200, response.text
+E       AssertionError: {"detail":"���J����Ă���J�ÃG���A��I��ł��������B"}
+E       assert 422 == 200
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+test\backend\test_personalization.py:41: AssertionError
+_ test_public_area_only_and_removed_area_normalization_commit_before_conflict _
+
+personal = Harness(app=<fastapi.applications.FastAPI object at 0x000002549335B890>, settings=Settings(db_path=WindowsPath('C:/AI-...runner=<asyncio.runners.Runner object at 0x0000025492D31B50>, clients=[<conftest.Client object at 0x00000254917EA270>])
+
+    def test_public_area_only_and_removed_area_normalization_commit_before_conflict(personal):
+        aoi = personal.client("aoi")
+>       original = save(aoi, community_id="peers", filters=filters(area="�y������"))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test\backend\test_personalization.py:252: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+client = <conftest.Client object at 0x00000254917EA270>
+changes = {'community_id': 'peers', 'filters': {'query': '', 'category': '', 'duration': 'all', 'schedule': 'all', ...}}
+
+    def save(client, **changes):
+        response = client.write("PUT", "/me/resume-state", state(client, **changes))
+>       assert response.status_code == 200, response.text
+E       AssertionError: {"detail":"���J����Ă���J�ÃG���A��I��ł��������B"}
+E       assert 422 == 200
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+test\backend\test_personalization.py:41: AssertionError
+=========================== short test summary info ===========================
+FAILED test/backend/test_personalization.py::test_personal_values_survive_new_connection_without_cross_account_leak
+FAILED test/backend/test_personalization.py::test_public_area_only_and_removed_area_normalization_commit_before_conflict
+2 failed, 281 passed, 12 subtests passed in 201.62s (0:03:21)

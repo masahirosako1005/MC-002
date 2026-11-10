@@ -1,0 +1,27 @@
+{
+  "suite": "unit",
+  "mode": "execution",
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "test/backend",
+        "test/tooling",
+        "-q",
+        "--basetemp=C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\20261110T022022Z-2ab5837a\\pytest",
+        "--junitxml=C:\\AI-Sprint\\workspace\\MC-002\\artifacts\\test-runs\\20261110T022022Z-2ab5837a\\pytest.xml"
+      ],
+      "exit_code": 0,
+      "seconds": 201.411,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T022022Z-2ab5837a/pytest-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T022022Z-2ab5837a/pytest-stderr.txt"
+    }
+  ],
+  "not_executed": [],
+  "passed": true,
+  "scope": "Collection/syntax is not proof of browser or live database behavior. No build, dependency installation, or app startup is performed."
+}

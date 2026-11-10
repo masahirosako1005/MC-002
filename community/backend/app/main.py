@@ -4,17 +4,21 @@ import sqlite3
 from contextlib import asynccontextmanager
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import Annotated
 
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from .analytics.router import create_router as analytics_router
 from .circles.discovery_schema import migrate as migrate_discovery
 from .circles.router import create_router as circles_router
 from .circles.schema import migrate as migrate_circles
 from .config import Settings
 from .database import TAGS, Database, digest
+from .daytrip.router import create_router as daytrip_router
+from .daytrip.schema import migrate as migrate_daytrip
 from .image_guidance import IMAGE_PROCESSING, ImageGuidance
 from .images import AnalysisWorker
 from .journal.router import create_router as journal_router
@@ -27,23 +31,36 @@ from .personalization.router import create_router as personalization_router
 from .personalization.schema import migrate as migrate_personalization
 from .reflections.router import create_router as reflections_router
 from .reflections.schema import migrate as migrate_reflections
+from .residence.router import create_router as residence_router
+from .residence.schema import migrate as migrate_residence
 from .schemas import (
     CommunityInput,
     ContributionInput,
     Empty,
+    Id,
     JoinInput,
     Login,
+    PhotoAnalysis,
     PlanInput,
+    PostFeed,
     PostInput,
+    PostOutput,
     PostPatch,
     PreferencesInput,
     ProposalInput,
+    Removed,
     ResponseInput,
+    UploadedMedia,
 )
 from .security import COOKIE, HEADERS, SecurityMiddleware, authenticated, csrf, current_session
 from .service import COVER_KEYS, TRIP_BY_ID, Service, user_out
 
 logger = logging.getLogger("ko")
+CurrentSession = Annotated[sqlite3.Row, Depends(authenticated)]
+
+
+def discard_media(mid: Id, body: Empty, request: Request, session: CurrentSession):
+    return request.app.state.service.delete_unused_media(session["user_id"], mid)
 
 
 def create_app(settings=None):
@@ -63,6 +80,8 @@ def create_app(settings=None):
         migrate_reflections(database)
         migrate_occasions(database)
         migrate_personalization(database)
+        migrate_daytrip(database)
+        migrate_residence(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         worker.cleanup_deleted()
         service.seed_assets()
@@ -172,12 +191,12 @@ def create_app(settings=None):
     def leave(cid: str, body: Empty, session=Depends(authenticated)):
         return service.leave(session["user_id"], cid)
 
-    @private.get("/communities/{cid}/feed")
-    def feed(cid: str, session=Depends(authenticated)):
+    @private.get("/communities/{cid}/feed", response_model=PostFeed)
+    def feed(cid: Id, session: CurrentSession):
         return service.feed(session["user_id"], cid)
 
-    @private.post("/media")
-    async def upload(request: Request, read_location: bool = False, session=Depends(authenticated)):
+    @private.post("/media", response_model=UploadedMedia)
+    async def upload(request: Request, session: CurrentSession, read_location: bool = False):
         async with request.form(max_files=1, max_fields=0, max_part_size=settings.max_image_bytes) as form:
             file = form.get("file")
             if len(form) != 1 or file is None or not hasattr(file, "read"):
@@ -185,31 +204,33 @@ def create_app(settings=None):
             raw = await file.read(settings.max_image_bytes + 1)
         return await asyncio.to_thread(service.upload, session["user_id"], raw, read_location)
 
-    @private.get("/media/{mid}/analysis")
-    def analysis(mid: str, session=Depends(authenticated)):
+    @private.get("/media/{mid}/analysis", response_model=PhotoAnalysis)
+    def analysis(mid: Id, session: CurrentSession):
         return service.analysis(session["user_id"], mid)
 
-    @private.post("/media/{mid}/analyze")
-    def analyze(mid: str, body: Empty, session=Depends(authenticated)):
+    @private.post("/media/{mid}/analyze", response_model=PhotoAnalysis)
+    def analyze(mid: Id, body: Empty, session: CurrentSession):
         return service.analysis(session["user_id"], mid, True)
 
     @private.get("/media/{mid}")
-    def media(mid: str, session=Depends(authenticated)):
+    def media(mid: Id, session: CurrentSession):
         path = service.media_path(session["user_id"], mid)
         if not path.is_file():
             raise HTTPException(404, "写真が見つかりません。")
         return FileResponse(path, media_type="image/jpeg")
 
-    @private.post("/posts")
-    def post(body: PostInput, session=Depends(authenticated)):
+    private.add_api_route("/media/{mid}", discard_media, methods=["DELETE"], response_model=Removed)
+
+    @private.post("/posts", response_model=PostOutput)
+    def post(body: PostInput, session: CurrentSession):
         return service.create_post(session["user_id"], body.model_dump(mode="json"))
 
-    @private.patch("/posts/{pid}")
-    def patch(pid: str, body: PostPatch, session=Depends(authenticated)):
+    @private.patch("/posts/{pid}", response_model=PostOutput)
+    def patch(pid: Id, body: PostPatch, session: CurrentSession):
         return service.patch_post(session["user_id"], pid, body.model_dump(mode="json", exclude_unset=True))
 
-    @private.delete("/posts/{pid}")
-    def delete(pid: str, body: Empty, session=Depends(authenticated)):
+    @private.delete("/posts/{pid}", response_model=Removed)
+    def delete(pid: Id, body: Empty, session: CurrentSession):
         return service.delete_post(session["user_id"], pid)
 
     @private.get("/me/preferences")
@@ -264,6 +285,9 @@ def create_app(settings=None):
     app.include_router(reflections_router(database))
     app.include_router(occasions_router(database))
     app.include_router(personalization_router(database))
+    app.include_router(daytrip_router(database))
+    app.include_router(analytics_router(database))
+    app.include_router(residence_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

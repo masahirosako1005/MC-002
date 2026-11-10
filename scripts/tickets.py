@@ -235,6 +235,17 @@ class TicketStore:
                 if ticket["status"] == "done" and not values["checked"]:
                     raise TicketError("完了したチケットは先に再開してください。")
                 ticket["acceptance"][index]["checked"] = bool(values["checked"])
+            elif action == "acceptance":
+                if not note:
+                    raise TicketError("受入条件を改訂する理由を--noteで残してください。")
+                index = values["index"]
+                if type(index) is not int or not 1 <= index <= len(ticket["acceptance"]):
+                    raise TicketError("受入条件の番号が範囲外です。")
+                condition = ticket["acceptance"][index - 1]
+                condition["text"] = bounded_text(values["text"], 1000)
+                condition["checked"] = False
+                if ticket["status"] == "done":
+                    ticket["status"] = "review"
             elif action == "document":
                 document = self.document_path(values["path"])
                 if document not in ticket["documents"]:
@@ -326,6 +337,11 @@ def parser():
     check.add_argument("index", type=int)
     check.add_argument("--undo", action="store_true")
     check.add_argument("--note", default="")
+    acceptance = subparsers.add_parser("acceptance", help="受入条件を改訂し、確認を未達へ戻す（履歴を保持）")
+    acceptance.add_argument("id")
+    acceptance.add_argument("index", type=int)
+    acceptance.add_argument("--text", required=True)
+    acceptance.add_argument("--note", required=True)
     document = subparsers.add_parser("document")
     document.add_argument("id")
     document.add_argument("path")
@@ -347,7 +363,7 @@ def main(argv=None):
         elif arguments.command == "create":
             ticket = store.create(arguments.id, arguments.title, arguments.description, arguments.accept, arguments.priority, arguments.owner, arguments.type, arguments.depends, arguments.doc)
             print(f"{ticket['id']} を起票しました。")
-        elif arguments.command in {"status", "comment", "evidence", "check", "document", "revision"}:
+        elif arguments.command in {"status", "comment", "evidence", "check", "acceptance", "document", "revision"}:
             values = {}
             note = getattr(arguments, "note", "")
             if arguments.command == "status":
@@ -358,6 +374,8 @@ def main(argv=None):
                 values = {"text": arguments.text, "path": arguments.file}
             elif arguments.command == "check":
                 values = {"index": arguments.index, "checked": not arguments.undo}
+            elif arguments.command == "acceptance":
+                values = {"index": arguments.index, "text": arguments.text}
             elif arguments.command == "document":
                 values = {"path": arguments.path}
             elif arguments.command == "revision":

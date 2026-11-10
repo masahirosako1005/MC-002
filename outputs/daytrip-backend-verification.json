@@ -1,0 +1,68 @@
+{
+  "measured_at_utc": "2026-11-10T10:23:15.5284628+09:00",
+  "scope": "community/backend/tests full regression once; static analysis restricted to new app/daytrip",
+  "pytest_version": "9.2.0",
+  "full_regression": {
+    "skipped": 1,
+    "evidence": "outputs/daytrip-backend-regression.xml",
+    "failure": "test_journal.py old schema 8 expectation; actual schema 9",
+    "seconds": 123.48,
+    "passed": 163,
+    "failed": 1
+  },
+  "targeted_recheck": {
+    "seconds": 0.65,
+    "passed": 1,
+    "failed": 0,
+    "evidence": "outputs/daytrip-journal-recheck.xml"
+  },
+  "daytrip_tests": {
+    "passed": 19,
+    "failed": 0,
+    "evidence": "outputs/daytrip-backend-tests.xml"
+  },
+  "ruff": {
+    "evidence": "outputs/daytrip-ruff-schema9.json",
+    "after": 0,
+    "before": 2,
+    "before_evidence": "outputs/daytrip-ruff-before.json",
+    "version": "0.17.4",
+    "fix": "I001 import ordering only",
+    "config": "community/quality/ruff.toml"
+  },
+  "bandit": {
+    "errors": 0,
+    "version": "1.9.4",
+    "findings": 0,
+    "evidence": "outputs/daytrip-bandit-schema9.json",
+    "loc": 601
+  },
+  "exclusions": "Existing static findings outside app/daytrip are not compared or removed. C1 score unchanged. No broad test rerun after one expectation update.",
+  "source_sha256": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\__init__.py",
+      "Hash": "90D67C9C2DEC0225515BAF51CBD8E1DB9C494449D7C452A407150BF0082C32D2"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\catalog.py",
+      "Hash": "1727FB4333C8B3FCBA4B2C0D1C9DF003742BC2C34F2161B22DB71864BA5629BA"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\router.py",
+      "Hash": "11ECB86196FE4A9E89551C87820C7E507651494CE8CF143646A6F2075D368493"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\schema.py",
+      "Hash": "AB830EB2160AAB8F5AB76D90C81C60A357A4A54A12E417EB210A2D936618780D"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\schemas.py",
+      "Hash": "0AEDB0754F8CF89AE26054B90DEC80257E11E6EAC94F629013FED48B4B36A64C"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\service.py",
+      "Hash": "80DC85681343481EF443DFC9A48ED0B8464F0E06486D5FEF16D5BBC20403F592"
+    }
+  ],
+  "superseded_by": "outputs/daytrip-release-holds-verification.json"
+}

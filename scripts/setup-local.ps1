@@ -17,16 +17,22 @@ try {
         & $PythonExecutable -m venv .venv
         if ($LASTEXITCODE -ne 0) { throw 'Python virtual environment creation failed.' }
     }
-    & ./.venv/Scripts/python.exe -m pip install -r backend/requirements-dev.txt
+    & ./.venv/Scripts/python.exe -m pip install -r community/backend/requirements-dev.txt
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency installation failed.' }
     & ./.venv/Scripts/python.exe -m pip check
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency validation failed.' }
-    Push-Location frontend
+    Push-Location community/frontend
     try {
         & npm.cmd ci
         if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed.' }
         & npm.cmd run build
         if ($LASTEXITCODE -ne 0) { throw 'Frontend build failed.' }
+    }
+    finally { Pop-Location }
+    Push-Location test/browser
+    try {
+        & npm.cmd ci
+        if ($LASTEXITCODE -ne 0) { throw 'Browser test dependency installation failed.' }
     }
     finally { Pop-Location }
     Write-Output 'Local dependencies and frontend build are ready.'

@@ -226,10 +226,6 @@ def spearman(left, right):
 
 
 def correlations(tables, summary):
-    assert average_ranks([1, 1, 3, 2]) == [1.5, 1.5, 4.0, 3.0]
-    assert abs(spearman([1, 2, 3], [3, 2, 1])[0] + 1) < 1e-12
-    assert spearman([1, 1], [1, 2]) == (None, 2)
-    assert spearman([1, None, 3], [1, 2, 3])[1] == 2
     users = [row["ユーザーID"].strip() for row in tables["users"]]
     counts = Counter(row["ユーザID"].strip() for row in tables["stamps"])
     rewards = Counter(row["user_id"].strip() for row in tables["rewards"])

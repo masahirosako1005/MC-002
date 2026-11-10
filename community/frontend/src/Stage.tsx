@@ -2,6 +2,16 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./stage.css";
 
 const captions = {
+  "post-published": "コミュニティに投稿を公開した。",
+  "outing-created": "日帰りの開催を保存し、仲間に参加を依頼した。",
+  "outing-accepted": "開催への参加を承諾した。",
+  "outing-claimed": "今回の実参加を申告した。",
+  "outing-confirmed": "他の参加者が実施を確認し、ポイントを記録した。",
+  "outing-provider-confirmed": "事業者が利用を確認し、特典の資格に反映した。",
+  "outing-cancelled": "開催・参加の取消を保存した。",
+  "benefit-published": "事業者が条件と負担を決め、ランク特典を公開した。",
+  "benefit-reserved": "次の開催で使う特典を確保した。",
+  "benefit-redeemed": "事業者が特典の利用を記録した。",
   conversation: "仲間と希望を話し、旅の条件を考える。",
   conditions: "会話から見つけた条件を、自分たちで確かめる。",
   requirements: "人数・泊数・予算を決めて、旅を具体的にする。",
@@ -19,7 +29,8 @@ function isCaptionType(value: unknown): value is keyof typeof captions {
 }
 type Transfer = {
   sequence: number;
-  event: "selection" | "reply" | "circle-invite" | "circle-joined" | "circle-reply";
+  event:
+    "selection" | "reply" | "circle-invite" | "circle-joined" | "circle-reply";
   direction: "visitor-to-provider" | "provider-to-visitor";
 };
 
@@ -28,7 +39,7 @@ export default function Stage() {
   const provider = useRef<HTMLIFrameElement>(null);
   const [caption, setCaption] = useState<Caption>({
     event: "initial",
-    text: "仲間と旅を探し、地域の人に相談する。",
+    text: "日帰りの行き先と、講の開催を決める。",
   });
   const [transfer, setTransfer] = useState<Transfer | null>(null);
   const [lastTransfer, setLastTransfer] = useState<Transfer | null>(null);
@@ -51,7 +62,7 @@ export default function Stage() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const stackedLayout = window.matchMedia("(max-width: 760px)");
+    const stackedLayout = window.matchMedia("(max-width: 1100px)");
     const canAnimate = () =>
       document.visibilityState === "visible" &&
       !reducedMotion.matches &&
@@ -85,10 +96,21 @@ export default function Stage() {
       // Login, read requests, failure events, and private message bodies are ignored.
       const type = value.type;
       const fromVisitor = event.source === visitor.current?.contentWindow;
-      if ((type === "circle-invite" && !fromVisitor) || (type === "circle-joined" && fromVisitor)) return;
+      if (
+        (type === "circle-invite" && !fromVisitor) ||
+        (type === "circle-joined" && fromVisitor)
+      )
+        return;
       setCaption({ event: type, text: captions[type] });
       // An internal conversation, draft, or read is not a message to the other role.
-      if (type !== "reply" && type !== "circle-reply" && type !== "circle-joined" && !(type === "selection" && fromVisitor) && !(type === "circle-invite" && fromVisitor)) return;
+      if (
+        type !== "reply" &&
+        type !== "circle-reply" &&
+        type !== "circle-joined" &&
+        !(type === "selection" && fromVisitor) &&
+        !(type === "circle-invite" && fromVisitor)
+      )
+        return;
       const next: Transfer = {
         sequence: ++transferSequence.current,
         event: type,
@@ -133,14 +155,16 @@ export default function Stage() {
         </h1>
       </header>
       <div className="stage-floor">
-        <section className="stage-device visitor-device" aria-label="旅行者">
-          <h2 className="device-label">旅行者</h2>
+        <section className="stage-device visitor-device" aria-label="利用者">
+          <h2 className="device-label">
+            利用者 <span>スマートフォン</span>
+          </h2>
           <div className="phone-frame">
             <div className="phone-camera" aria-hidden="true" />
             <iframe
               ref={visitor}
               src="/stage/visitor"
-              title="旅行者の操作画面"
+              title="利用者のスマートフォン画面"
             />
           </div>
         </section>
@@ -155,13 +179,13 @@ export default function Stage() {
         >
           <svg
             className="stage-connection-thread"
-            viewBox="0 0 140 48"
+            viewBox="0 0 100 48"
             fill="none"
           >
-            <path d="M4 24H51M89 24H136" />
+            <path d="M0 22H36M64 22H100M0 26H36M64 26H100" />
             <path
               className="stage-connection-knot"
-              d="M70 24C61 12 51 17 58 26C65 35 73 29 82 20C89 12 77 12 70 24C63 36 53 35 58 26C65 17 75 16 82 20C90 28 80 36 70 24Z"
+              d="M50 24C41 12 31 17 38 26C45 35 53 29 62 20C69 12 57 12 50 24C43 36 33 35 38 26C45 17 55 16 62 20C70 28 60 36 50 24Z"
             />
           </svg>
           {transfer && (
@@ -178,13 +202,19 @@ export default function Stage() {
           )}
         </div>
         <section className="stage-device provider-device" aria-label="事業者">
-          <h2 className="device-label">事業者</h2>
-          <div className="phone-frame">
-            <div className="phone-camera" aria-hidden="true" />
+          <h2 className="device-label">
+            事業者 <span>パソコン</span>
+          </h2>
+          <div className="desktop-frame">
+            <div className="desktop-windowbar" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <iframe
               ref={provider}
               src="/stage/provider"
-              title="事業者の操作画面"
+              title="事業者のパソコン管理画面"
             />
           </div>
         </section>

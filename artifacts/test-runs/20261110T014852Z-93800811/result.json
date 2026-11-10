@@ -1,0 +1,342 @@
+{
+  "suite": "all",
+  "mode": "collection",
+  "results": [
+    {
+      "name": "pytest-collect",
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "test/backend",
+        "test/tooling",
+        "-q",
+        "--basetemp=C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\20261110T014852Z-93800811\\pytest",
+        "--collect-only"
+      ],
+      "exit_code": 0,
+      "seconds": 4.003,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/pytest-collect-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/pytest-collect-stderr.txt"
+    },
+    {
+      "name": "syntax-capture-current",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\capture-current.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-current-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-current-stderr.txt"
+    },
+    {
+      "name": "syntax-capture-refresh",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\capture-refresh.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.099,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-refresh-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-refresh-stderr.txt"
+    },
+    {
+      "name": "syntax-capture-stage",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\capture-stage.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.089,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-stage-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-capture-stage-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-browser",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-browser.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-browser-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-browser-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-circles",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-circles.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.105,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-circles-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-circles-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-conversation-layout",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-conversation-layout.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-conversation-layout-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-conversation-layout-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-discovery",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-discovery.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-discovery-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-discovery-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-guidance",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-guidance.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.099,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-guidance-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-guidance-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-journal-restart",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-journal-restart.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.099,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-journal-restart-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-journal-restart-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-journal",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-journal.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-journal-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-journal-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-login",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-login.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.097,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-login-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-login-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-marketplace",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-marketplace.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-marketplace-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-marketplace-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-motion",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-motion.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.091,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-motion-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-motion-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-navigation-performance",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-navigation-performance.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.089,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-navigation-performance-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-navigation-performance-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-occasions",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-occasions.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.082,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-occasions-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-occasions-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-personalization",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-personalization.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-personalization-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-personalization-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-reflections",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-reflections.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.089,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-reflections-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-reflections-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-stage-motion",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-stage-motion.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.087,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-stage-motion-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-stage-motion-stderr.txt"
+    },
+    {
+      "name": "syntax-verify-stage-security",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\browser\\verify-stage-security.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-stage-security-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-verify-stage-security-stderr.txt"
+    },
+    {
+      "name": "syntax-check_board",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--check",
+        "C:\\AI-Sprint\\workspace\\MC-002\\test\\tooling\\check_board.cjs"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/syntax-check_board-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/syntax-check_board-stderr.txt"
+    },
+    {
+      "name": "syntax-audit-personalization",
+      "passed": true,
+      "scope": "Python parse only"
+    },
+    {
+      "name": "syntax-test_snapshot",
+      "passed": true,
+      "scope": "Python parse only"
+    },
+    {
+      "name": "syntax-verify-deletion-restore",
+      "passed": true,
+      "scope": "Python parse only"
+    },
+    {
+      "name": "browser-dependencies",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "--input-type=module",
+        "-e",
+        "import {createRequire} from 'node:module';import path from 'node:path';const r=createRequire(path.resolve('test/browser/package.json'));r.resolve('@playwright/test');r.resolve('@axe-core/playwright');console.log('Browser dependencies resolve');"
+      ],
+      "exit_code": 0,
+      "seconds": 0.099,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T014852Z-93800811/browser-dependencies-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T014852Z-93800811/browser-dependencies-stderr.txt"
+    },
+    {
+      "name": "live-test-inventory",
+      "passed": true,
+      "scope": "File presence only; listed tests were not executed"
+    }
+  ],
+  "not_executed": [
+    "test/browser/verify-browser.mjs",
+    "test/browser/verify-circles.mjs",
+    "test/browser/verify-conversation-layout.mjs",
+    "test/browser/verify-discovery.mjs",
+    "test/browser/verify-guidance.mjs",
+    "test/browser/verify-journal.mjs",
+    "test/browser/verify-login.mjs",
+    "test/browser/verify-marketplace.mjs",
+    "test/browser/verify-motion.mjs",
+    "test/browser/verify-navigation-performance.mjs",
+    "test/browser/verify-occasions.mjs",
+    "test/browser/verify-personalization.mjs",
+    "test/browser/verify-reflections.mjs",
+    "test/browser/verify-stage-motion.mjs",
+    "test/browser/verify-stage-security.mjs",
+    "test/tooling/check_board.cjs",
+    "test/integration/test_snapshot.py",
+    "test/integration/verify-deletion-restore.py",
+    "test/integration/audit-personalization.py",
+    "test/browser/verify-journal-restart.mjs"
+  ],
+  "passed": true,
+  "scope": "Collection/syntax is not proof of browser or live database behavior. No build, dependency installation, or app startup is performed."
+}

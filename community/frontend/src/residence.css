@@ -1,0 +1,82 @@
+.residence-fields {
+  display: grid;
+  gap: 16px;
+  border: 0;
+  border-top: 3px double #c4b79a;
+  padding: 18px 0 0;
+  margin: 0;
+  min-width: 0;
+}
+.residence-fields legend {
+  padding-right: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.residence-note {
+  color: #666653;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  border-left: 1px solid #b8ab8b;
+  padding-left: 10px;
+}
+.residence-area-row {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.residence-area-row > .field {
+  margin: 0;
+  font-size: 0.84rem;
+}
+.residence-sharing {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.residence-sharing > input {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin-top: 4px;
+  accent-color: #9b3d2c;
+}
+.residence-sharing small {
+  display: block;
+  font-size: 0.75rem;
+  color: #696958;
+  margin-top: 5px;
+}
+.residence-loading {
+  display: block;
+  padding: 20px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.residence-profile-form {
+  display: grid;
+  gap: 20px;
+}
+.registration-form .welcome-field > small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #696958;
+}
+.registration-form .welcome-field > .registration-mismatch {
+  color: #973f2d;
+}
+.welcome-registration .welcome-heading h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+}
+.welcome-account-switch {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 0;
+  padding-top: 15px;
+  border-top: 1px solid #c8bba0;
+  width: 100%;
+}

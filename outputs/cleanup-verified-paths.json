@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-10T10:36:53.0530155+09:00",
+  "retained_revision": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+  "status": "tracked-source-removed; untracked-removal-blocked-by-automatic-review",
+  "paths": [
+    {
+      "relative": "backend/app",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\app",
+      "directory": true,
+      "exists_after": true
+    },
+    {
+      "relative": "backend/tests",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\tests",
+      "directory": true,
+      "exists_after": true
+    },
+    {
+      "relative": "backend/requirements.txt",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\requirements.txt",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "backend/requirements-dev.txt",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\requirements-dev.txt",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "backend/pytest.ini",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\pytest.ini",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "backend/README.md",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\README.md",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "frontend",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\frontend",
+      "directory": true,
+      "exists_after": true
+    },
+    {
+      "relative": "deploy",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\deploy",
+      "directory": true,
+      "exists_after": false
+    },
+    {
+      "relative": "Dockerfile",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\Dockerfile",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": ".dockerignore",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\.dockerignore",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "qa",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\qa",
+      "directory": true,
+      "exists_after": false
+    },
+    {
+      "relative": "scripts/verify_container.py",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\scripts\\verify_container.py",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "scripts/prepare_art.cjs",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\scripts\\prepare_art.cjs",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "scripts/package_release.py",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\scripts\\package_release.py",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "project/bootstrap_tickets.py",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\project\\bootstrap_tickets.py",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "project/finalize_tickets.py",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\project\\finalize_tickets.py",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "presentation/build.mjs",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\presentation\\build.mjs",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "presentation/render.ps1",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\presentation\\render.ps1",
+      "directory": false,
+      "exists_after": false
+    },
+    {
+      "relative": "old/v1.1",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\old\\v1.1",
+      "directory": true,
+      "exists_after": true
+    },
+    {
+      "relative": "outputs/tang-you-chi-source.zip",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-source.zip",
+      "directory": false,
+      "exists_after": true
+    },
+    {
+      "relative": "outputs/tang-you-chi-history.bundle",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-history.bundle",
+      "directory": false,
+      "exists_after": true
+    },
+    {
+      "relative": "outputs/release-manifest.json",
+      "absolute": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\release-manifest.json",
+      "directory": false,
+      "exists_after": true
+    }
+  ],
+  "automatic_review": {
+    "bulk_removal": "rejected",
+    "explicit_untracked_files": "rejected",
+    "reason": "blocked by policy; no detailed reason supplied"
+  },
+  "removed_tracked_files": 80
+}

@@ -522,7 +522,7 @@ export default function KoPage({
               value={purpose}
               onChange={(e) => setPurpose(e.target.value)}
               maxLength={120}
-              placeholder="例：軽井沢でカフェと森を歩く"
+              placeholder="例：N西市でカフェと森を歩く"
               disabled={!!busy}
             />
           </label>

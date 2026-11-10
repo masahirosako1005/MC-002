@@ -1,0 +1,73 @@
+{
+  "measured_at_utc": "2026-11-10T01:26:53.1276068+00:00",
+  "change": "Release unusable reserved benefits when participation, circle, or provider sharing is revoked",
+  "schema_from": [
+    8,
+    9
+  ],
+  "schema_to": 10,
+  "tests": {
+    "failed": 0,
+    "evidence": "outputs/daytrip-release-holds-tests.xml",
+    "passed": 26,
+    "seconds": 41.01,
+    "scope": "25 daytrip tests plus journal preservation/reopen regression"
+  },
+  "ruff": {
+    "findings": 0,
+    "evidence": "outputs/daytrip-ruff.json",
+    "version": "0.17.4",
+    "config": "community/quality/ruff.toml"
+  },
+  "bandit": {
+    "findings": 0,
+    "errors": 0,
+    "evidence": "outputs/daytrip-bandit.json",
+    "version": "1.9.4"
+  },
+  "guarantees": [
+    "Only affected reserved rows become cancelled; their capacity is returned",
+    "Redeemed rows, other eligible participants holds, and point ledgers remain unchanged",
+    "Existing schema9 unusable holds are repaired within the migration transaction",
+    "Schema8 data preservation, schema9 rollback, schema10 restart and repeated migration tested"
+  ],
+  "limitations": "Full suite was not rerun after this targeted fix. Earlier full-suite evidence remains in daytrip-backend-verification.json. No C1 score change.",
+  "source_sha256": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\schema.py",
+      "Hash": "256F01B3A9B5AD3F0869EA0D686B10BB42AAC555FEBE425533B722E426A65F8F"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\database.py",
+      "Hash": "A095670FFFDB4C8167A05DCA36325546D7B08A52F5D7EB4CF881F61234D2F8ED"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\marketplace\\schema.py",
+      "Hash": "84F06B44EAF373C529D747FAF8B4C6C2588BBBDD131C051DC99B40136969370D"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\journal\\schema.py",
+      "Hash": "5B0B1F3F82550858D9A0C3F856223421CF95EF1AE0A1A64369E1E435C58FBA88"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\circles\\schema.py",
+      "Hash": "01E48D4DACA7222B4F2E6E88F2F361D7FFE8B11D444F6748C78C7DB80C16CCCD"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\circles\\discovery_schema.py",
+      "Hash": "68584AAA95A1C2521305C2ED26F7DDC34BB93389EB60BDF473D13F1A4B1757AC"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\reflections\\schema.py",
+      "Hash": "35C0A8CA2C1ADD4AFDFEE0503CF3437F616D74173035A4616BB8CF2E1AEE7589"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\occasions\\schema.py",
+      "Hash": "FD8B6AEE57BC317F2992B941516792AFA1D2685A95F132A1E590F5E67D28BA15"
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\personalization\\schema.py",
+      "Hash": "4AC9D6C6EAA19613F4CC2F0F1C100C8CF8FAD1AF9EF26A58B216EF0389C44946"
+    }
+  ]
+}

@@ -14,4 +14,4 @@ if ($Build) {
 }
 & docker compose -p kou-community --project-directory $communityRoot -f $composePath up -d --wait
 if ($LASTEXITCODE -ne 0) { throw 'Community startup failed.' }
-Write-Output 'Community: http://127.0.0.1:8081 (the existing app on 8080 is unchanged).'
+Write-Output 'Kou: http://127.0.0.1:8081 | Visitor / Provider: http://127.0.0.1:8081/stage'

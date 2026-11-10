@@ -1,0 +1,115 @@
+{
+  "rule_version": "D1",
+  "route_id": "shinjuku-machida-rail",
+  "assumptions": [
+    "別日に実施し全行程を確認",
+    "取消なし",
+    "先達本人承諾と他参加者確認あり",
+    "金銭特典資格には事業者の利用確認が別途必要",
+    "実際の参加者・再訪率・売上の測定ではない"
+  ],
+  "regular_points": 106,
+  "leader_points": 156,
+  "scenarios": [
+    {
+      "completed": 1,
+      "role": "一般参加",
+      "points": 106,
+      "rank": 1
+    },
+    {
+      "completed": 1,
+      "role": "毎回先達",
+      "points": 156,
+      "rank": 1
+    },
+    {
+      "completed": 1,
+      "role": "3人で先達を交代",
+      "points": 156,
+      "rank": 1
+    },
+    {
+      "completed": 2,
+      "role": "一般参加",
+      "points": 212,
+      "rank": 1
+    },
+    {
+      "completed": 2,
+      "role": "毎回先達",
+      "points": 312,
+      "rank": 2
+    },
+    {
+      "completed": 2,
+      "role": "3人で先達を交代",
+      "points": 262,
+      "rank": 1
+    },
+    {
+      "completed": 3,
+      "role": "一般参加",
+      "points": 318,
+      "rank": 2
+    },
+    {
+      "completed": 3,
+      "role": "毎回先達",
+      "points": 468,
+      "rank": 2
+    },
+    {
+      "completed": 3,
+      "role": "3人で先達を交代",
+      "points": 368,
+      "rank": 2
+    },
+    {
+      "completed": 5,
+      "role": "一般参加",
+      "points": 530,
+      "rank": 2
+    },
+    {
+      "completed": 5,
+      "role": "毎回先達",
+      "points": 780,
+      "rank": 2
+    },
+    {
+      "completed": 5,
+      "role": "3人で先達を交代",
+      "points": 630,
+      "rank": 2
+    },
+    {
+      "completed": 10,
+      "role": "一般参加",
+      "points": 1060,
+      "rank": 3
+    },
+    {
+      "completed": 10,
+      "role": "毎回先達",
+      "points": 1560,
+      "rank": 4
+    },
+    {
+      "completed": 10,
+      "role": "3人で先達を交代",
+      "points": 1260,
+      "rank": 3
+    }
+  ],
+  "cost_scenario": {
+    "price_yen": 6000,
+    "percent": 5,
+    "per_user_cap_yen": 500,
+    "max_uses": 20,
+    "discount_yen": 300,
+    "total_yen": 5700,
+    "cost_if_all_used_yen": 6000,
+    "absolute_budget_cap_yen": 10000
+  }
+}

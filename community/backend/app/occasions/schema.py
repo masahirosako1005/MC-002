@@ -16,7 +16,7 @@ DDL=(
 def migrate(database):
     with database.transaction(True) as conn:
         version=conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (7,8):
+        if version in (7,8,9,10,11):
             return
         if version!=6:
             raise RuntimeError('Unsupported occasions migration source')

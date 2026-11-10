@@ -42,18 +42,82 @@ class JoinInput(Input):
 class PostInput(Input):
     community_id: Id
     body: Annotated[str, StringConstraints(max_length=2000)] = ""
-    media_ids: Annotated[list[Id], Field(min_length=1, max_length=5)]
+    media_ids: Annotated[list[Id], Field(max_length=5)] = []
     tags: TagList = []
     place_label: Annotated[str, StringConstraints(max_length=100)] = ""
     taken_on: Date | None = None
+    client_request_id: Id | None = None
 
 
 class PostPatch(Input):
     body: Annotated[str, StringConstraints(max_length=2000)] | None = None
+    media_ids: Annotated[list[Id], Field(max_length=5)] | None = None
     tags: TagList | None = None
     status: Literal["draft", "published"] | None = None
     place_label: Annotated[str, StringConstraints(max_length=100)] | None = None
     taken_on: Date | None = None
+
+
+class PostAuthor(BaseModel):
+    id: str
+    username: str
+    name: str
+    initials: str
+    color: str
+
+
+class PhotoTag(BaseModel):
+    id: str
+    label: str
+    score: float | None = Field(default=None, exclude_if=lambda value: value is None)
+
+
+class PhotoAnalysis(BaseModel):
+    status: Literal["guided", "manual"]
+    tags: list[PhotoTag]
+    message: str
+    model_version: str | None
+    method: str
+    inference_enabled: Literal[False]
+
+
+class PostMedia(BaseModel):
+    id: str
+    url: str
+    width: int
+    height: int
+    analysis: PhotoAnalysis
+
+
+class LocationCandidate(BaseModel):
+    latitude: float
+    longitude: float
+
+
+class UploadedMedia(PostMedia):
+    location_candidate: LocationCandidate | None
+
+
+class PostOutput(BaseModel):
+    id: str
+    community_id: str
+    author: PostAuthor
+    body: str
+    tags: list[str]
+    media: list[PostMedia]
+    status: Literal["draft", "published"]
+    created_at: str
+    place_label: str
+    taken_on: str | None
+    can_edit: bool
+
+
+class PostFeed(BaseModel):
+    items: list[PostOutput]
+
+
+class Removed(BaseModel):
+    ok: Literal[True]
 
 
 class GrantInput(Input):

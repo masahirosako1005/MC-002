@@ -22,7 +22,6 @@ import {
   Modal,
   Tags,
 } from "./ui";
-import Composer from "./Composer";
 import Login from "./Login";
 import Preferences from "./Preferences";
 import KoPage, { tripCover } from "./KoPage";
@@ -35,6 +34,9 @@ import type { CircleDetail } from "./circle-types";
 import { emptyDiscoveryFilters, useResumeState } from "./useResumeState";
 import type { DiscoveryFilters, ResumeContent, ResumeState } from "./useResumeState";
 const Journal = lazy(() => import("./Journal"));
+const Daytrip = lazy(() => import("./Daytrip"));
+const Composer = lazy(() => import("./Composer"));
+const ResidenceProfile = lazy(() => import("./ResidenceProfile"));
 const Circles = lazy(() => import("./Circles"));
 const VisitDialog = lazy(() =>
   import("./Journal").then((module) => ({ default: module.VisitDialog })),
@@ -44,6 +46,7 @@ const TravelProfile = lazy(() =>
 );
 
 type Page =
+  | "daytrip"
   | "feed"
   | "ko"
   | "ko-legacy"
@@ -246,13 +249,14 @@ export default function App() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [page, setPage] = useState<Page>(
-    window.location.pathname === "/stage/visitor" ? "market" : "feed",
+    window.location.pathname === "/stage/provider" ? "provider" : "daytrip",
   );
   const [communityId, setCommunityId] = useState("");
   const [feed, setFeed] = useState<Post[]>([]);
   const [feedBusy, setFeedBusy] = useState(false);
   const [feedError, setFeedError] = useState("");
   const [composer, setComposer] = useState<Post | true | null>(null);
+  const [postAfterCommunity, setPostAfterCommunity] = useState(false);
   const [communityDialog, setCommunityDialog] = useState<
     "new" | "current" | null
   >(null);
@@ -260,6 +264,7 @@ export default function App() {
   const [deletePost, setDeletePost] = useState<Post | null>(null);
   const [recordPost, setRecordPost] = useState<Post | null>(null);
   const [profileUser, setProfileUser] = useState<User | null>(null);
+  const [residenceOpen, setResidenceOpen] = useState(false);
   const [circleTarget, setCircleTarget] = useState("");
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
@@ -279,16 +284,18 @@ export default function App() {
     setData(null);
     setFeed([]);
     setComposer(null);
+    setPostAfterCommunity(false);
     setCommunityDialog(null);
     setDeletePost(null);
     setRecordPost(null);
     setProfileUser(null);
+    setResidenceOpen(false);
     setCircleTarget("");
     setSwitching(false);
     setCsrf("");
     setMessage(text);
     setCommunityId("");
-    setPage(window.location.pathname === "/stage/visitor" ? "market" : "feed");
+    setPage(window.location.pathname === "/stage/provider" ? "provider" : "daytrip");
   }
   async function refresh() {
     const epoch = generation.current;
@@ -377,7 +384,7 @@ export default function App() {
   useEffect(() => {
     if (!data || !resume.restore || appliedResume === resume.restore) return;
     const saved = resume.restore.state;
-    setPage(saved.page === "circles" ? "ko" : saved.page);
+    setPage(saved.version === 0 ? (data.capabilities.providers.length ? "provider" : "daytrip") : saved.page === "circles" ? "ko" : saved.page);
     setCommunityId(saved.community_id || (saved.version === 0 ? data.communities[0]?.id || "" : ""));
     setCircleTarget(saved.circle_id || "");
     setDiscoveryFilters(saved.filters);
@@ -388,7 +395,7 @@ export default function App() {
     resume.applied(resume.restore.state);
     let persistedPage: ResumeContent["page"];
     if (page === "ko") persistedPage = "circles";
-    else if (page === "feed" || page === "market" || page === "journal" || page === "provider") persistedPage = page;
+    else if (page === "feed" || page === "market" || page === "journal" || page === "provider" || page === "daytrip") persistedPage = page;
     else return;
     resume.queue({ page: persistedPage, community_id: communityId || null,
       circle_id: communityId ? circleTarget || null : null, filters: discoveryFilters });
@@ -451,10 +458,11 @@ export default function App() {
   const community = data?.communities.find((c) => c.id === communityId) || null;
   const nav = data?.capabilities.providers.length
     ? [
-        { id: "provider" as Page, label: "事業者の仕事場", icon: "home" },
+        { id: "provider" as Page, label: "事業者管理", icon: "home" },
         { id: "market" as Page, label: "旅のプラン", icon: "compass" },
       ]
     : [
+        { id: "daytrip" as Page, label: "日帰りの講", icon: "compass" },
         { id: "feed" as Page, label: "みんなの記録", icon: "home" },
         { id: "market" as Page, label: "旅を見つける", icon: "compass" },
         { id: "ko" as Page, label: "講を見つける", icon: "compass" },
@@ -511,15 +519,15 @@ export default function App() {
         本文へ移動
       </a>
       <div
-        className={`app-shell ${page === "market" || page === "provider" ? "market-wide" : ""}`}
+        className={`app-shell ${page === "market" || page === "provider" ? "market-wide" : ""} ${data.capabilities.providers.length ? "provider-shell" : ""}`}
       >
         <aside className="sidebar">
           <button
             className="brand brand-button"
             onClick={(event) =>
-              navigate("feed", event.detail ? "pointer" : "keyboard")
+              navigate(data.capabilities.providers.length ? "provider" : "daytrip", event.detail ? "pointer" : "keyboard")
             }
-            aria-label="講 みんなの記録へ"
+            aria-label="講 ホームへ"
           >
             <span className="brand-mark">講</span>
           </button>
@@ -575,11 +583,10 @@ export default function App() {
           </div>
           <button
             className="button primary sidebar-post"
-            disabled={!community}
             onClick={() => setComposer(true)}
           >
             <Icon name="plus" />
-            旅の写真を投稿
+            写真・文章を投稿
           </button>
           <button
             className="text-button"
@@ -602,14 +609,22 @@ export default function App() {
         <div className="mobile-top">
           <button
             className="brand-mark"
-            aria-label="みんなの記録へ"
+            aria-label="講 ホームへ"
             onClick={(event) =>
-              navigate("feed", event.detail ? "pointer" : "keyboard")
+              navigate(data.capabilities.providers.length ? "provider" : "daytrip", event.detail ? "pointer" : "keyboard")
             }
           >
             講
           </button>
-          {data.communities.length > 0 ? (
+          {data.capabilities.providers.length > 0 ? (
+            <>
+              <span className="provider-masthead-name">{data.capabilities.providers.map((provider) => provider.name).join("・")}<small>事業者管理</small></span>
+              <nav className="provider-masthead-nav" aria-label="事業者の画面">
+                <button className="text-button" aria-current={page === "provider" ? "page" : undefined} onClick={() => navigate("provider")}>管理画面</button>
+                <button className="text-button" aria-current={page === "market" ? "page" : undefined} onClick={() => navigate("market")}>旅のプラン</button>
+              </nav>
+            </>
+          ) : data.communities.length > 0 ? (
             <>
               <label className="sr-only" htmlFor="mobile-community">
                 コミュニティ
@@ -655,7 +670,7 @@ export default function App() {
         <main
           id="main"
           ref={motion.target}
-          className="main-column"
+          className={`main-column ${data.capabilities.providers.length ? "provider-main" : "notebook-page"}`}
           tabIndex={-1}
           data-motion-state="idle"
         >
@@ -675,7 +690,13 @@ export default function App() {
               </button>
             </div>
           )}
-          {page === "feed" ? (
+          {page === "daytrip" ? (
+            <Suspense fallback={<output className="page-load-status">日帰りの講をひらいています…</output>}>
+              <Daytrip key={user.id} user={user} initialCircleId={circleTarget}
+                onOpenCircle={(id) => void openCircle(id)} onFindCircles={() => navigate("ko")}
+                onExplore={() => navigate("market")} />
+            </Suspense>
+          ) : page === "feed" ? (
             <>
               <header className="feed-header">
                 <div>
@@ -710,11 +731,10 @@ export default function App() {
               </div>
               <button
                 className="quick-post"
-                disabled={!community}
                 onClick={() => setComposer(true)}
               >
                 <Avatar user={user} />
-                <span>どんな旅をしてきましたか？</span>
+                <span>写真・文章を投稿する</span>
                 <Icon name="photo" />
               </button>
               <ErrorBox message={feedError} />
@@ -732,14 +752,12 @@ export default function App() {
                 </p>
               ) : feed.length === 0 ? (
                 <Empty title="投稿はありません">
-                  <p>風景、ごはん、街歩き。旅のひとこまから始められます。</p>
+                  <p>写真や文章を、参加しているコミュニティに共有できます。</p>
                   <button
                     className="button primary"
-                    onClick={() =>
-                      community ? setComposer(true) : setCommunityDialog("new")
-                    }
+                    onClick={() => setComposer(true)}
                   >
-                    {community ? "写真を投稿する" : "コミュニティをつくる"}
+                    写真・文章を投稿する
                   </button>
                 </Empty>
               ) : (
@@ -772,7 +790,7 @@ export default function App() {
                         </button>
                       )}
                     </div>
-                    <div className={`post-images count-${post.media.length}`}>
+                    {post.media.length > 0 && <div className={`post-images count-${post.media.length}`}>
                       {post.media.map((m, i) => (
                         <LocalPhoto
                           key={m.id}
@@ -781,7 +799,7 @@ export default function App() {
                           priority={index === 0 && i === 0}
                         />
                       ))}
-                    </div>
+                    </div>}
                     <div className="post-body">
                       <Tags ids={post.tags} tags={bootstrap.tags} />
                       <p>{post.body}</p>
@@ -807,7 +825,7 @@ export default function App() {
                           </button>
                         )}
                       </div>
-                      {post.can_edit && (
+                      {post.can_edit && post.media.length > 0 && (
                         <button
                           className="text-button journal-record-link"
                           onClick={() => setRecordPost(post)}
@@ -847,6 +865,7 @@ export default function App() {
             />
           ) : page === "provider" ? (
             <ProviderWorkspace
+              key={user.id}
               providers={data.capabilities.providers}
               tags={bootstrap.tags}
               user={user}
@@ -963,7 +982,7 @@ export default function App() {
           >
             <Icon name={n.icon} />
             <span>
-              {n.id === "feed"
+              {n.id === "daytrip" ? "日帰り" : n.id === "feed"
                 ? "記録"
                 : n.id === "market"
                   ? "探す"
@@ -976,7 +995,7 @@ export default function App() {
           </button>
         ))}
         {!data.capabilities.providers.length ? (
-          <button disabled={!community} onClick={() => setComposer(true)}>
+          <button onClick={() => setComposer(true)}>
             <Icon name="plus" />
             <span>投稿</span>
           </button>
@@ -987,14 +1006,24 @@ export default function App() {
           </button>
         )}
       </nav>
-      {composer && community && (
+      {composer && (
+        <Suspense fallback={<output className="page-load-status">投稿をひらいています…</output>}>
         <Composer
-          community={community}
+          key={`${user.id}-${composer === true ? "new" : composer.id}`}
+          communities={data.communities}
+          initialCommunityId={communityId}
           tags={bootstrap.tags}
           post={composer === true ? undefined : composer}
           onClose={() => setComposer(null)}
-          onSaved={changed}
+          onJoinCommunity={() => { setComposer(null); setPostAfterCommunity(true); setCommunityDialog("new"); }}
+          onSaved={(saved) => {
+            chooseCommunity(saved.community_id);
+            navigate("feed");
+            setMessage(saved.status === "published" ? "コミュニティに投稿を公開しました。" : "下書きを保存しました（自分のみ）。");
+            setLoadKey((value) => value + 1);
+          }}
         />
+        </Suspense>
       )}{" "}
       {recordPost && (
         <Suspense
@@ -1032,13 +1061,17 @@ export default function App() {
           />
         </Suspense>
       )}
+      {residenceOpen && <Suspense fallback={<output className="page-load-status">地域の設定をひらいています…</output>}><ResidenceProfile key={user.id} onClose={() => setResidenceOpen(false)} onSaved={() => { setResidenceOpen(false); setMessage("居住地域と共有設定を保存しました。"); }} /></Suspense>}
       {communityDialog && (
         <CommunityDialog
           community={communityDialog === "current" ? community : null}
-          onClose={() => setCommunityDialog(null)}
+          onClose={() => { setCommunityDialog(null); setPostAfterCommunity(false); }}
           onChange={async (c) => {
             await changed();
-            if (c) chooseCommunity(c.id);
+            if (c) {
+              chooseCommunity(c.id);
+              if (postAfterCommunity) { setPostAfterCommunity(false); setComposer(true); }
+            }
           }}
         />
       )}
@@ -1061,6 +1094,16 @@ export default function App() {
               旅のプロフィール
             </button>
           )}
+          {!data.capabilities.providers.length && <button
+            className="button secondary full"
+            onClick={() => {
+              setSwitching(false);
+              setResidenceOpen(true);
+            }}
+          >
+            <Icon name="home" />
+            居住地域と共有設定
+          </button>}
           <button
             className="button secondary full"
             onClick={() => {

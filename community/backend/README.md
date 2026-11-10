@@ -37,6 +37,6 @@ FastAPI / SQLite。起動入口は `app.main:app`、契約は [API-CONTRACT.md](
 
 三役の追加は `app/marketplace/`、契約は `../MARKETPLACE-CONTRACT.md`。schema 1→2 は追加表・架空事業者を一回のトランザクションで作成し、既存投稿・セッションを保持する。移行前の DB+media は環境担当が別途保全する。新たな条件照合はローカルの規則処理で、会話理解モデルや予約機能ではない。stage 専用認証は30分の独立トークン、Cookieを変更せずメモリだけで利用する。
 
-PJ 直下で `.venv/Scripts/python.exe -m pytest community/backend/tests -q --basetemp community/backend/.backend-test-tmp`。
+PJ 直下で `.venv/Scripts/python.exe -m pytest test/backend -q --basetemp test/fixtures/runtime/api`。
 
 2026-11-09：16 passed / 1 skipped（14.79 秒）。skip はこの Windows 環境の実モデル読込み失敗のみ。モデル位置は `community/models` を存在確認し、Linux では読込み失敗を skip しない。起動・認証、越権、画像検証/削除、3 人の明示承諾と重複応答、DB 失敗時の原子性、退出・許可取消、永続性、期限切れ分析の有限回復を検証した。Docker 結合とブラウザー試験は別担当が実施するため、この結果に含めない。

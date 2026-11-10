@@ -12,7 +12,19 @@ function stageEvent(path: string, method: string, ok: boolean, result?: unknown)
   if (!stageFrame) return;
   path = path.split("?")[0];
   const accepted = !!result && typeof result === "object" && "status" in result && result.status === "accepted";
-  const type =
+  const published = !!result && typeof result === "object" && "status" in result && result.status === "published";
+  const daytripType = method === "POST" ? (
+    /^\/circles\/[^/]+\/outings$/.test(path) ? "outing-created"
+      : /^\/daytrip\/outings\/[^/]+\/accept$/.test(path) ? "outing-accepted"
+        : /^\/daytrip\/outings\/[^/]+\/claim$/.test(path) ? "outing-claimed"
+          : /^\/daytrip\/outings\/[^/]+\/confirm$/.test(path) ? "outing-confirmed"
+            : /^\/daytrip\/outings\/[^/]+\/provider-confirm$/.test(path) ? "outing-provider-confirmed"
+              : /^\/daytrip\/outings\/.+\/cancel$/.test(path) ? "outing-cancelled"
+                : path === "/daytrip/benefits" ? "benefit-published"
+                  : /^\/daytrip\/benefits\/[^/]+\/reserve$/.test(path) ? "benefit-reserved"
+                    : /^\/daytrip\/redemptions\/[^/]+\/redeem$/.test(path) ? "benefit-redeemed" : null
+  ) : null;
+  const type = (/^\/posts\/[^/]+$/.test(path) && method === "PATCH" && published ? "post-published" : null) || daytripType || (
     /^\/circles\/[^/]+\/provider-invitations$/.test(path) && method === "POST"
       ? "circle-invite"
       : /^\/circle-provider-invitations\/[^/]+\/respond$/.test(path) && method === "POST" && accepted
@@ -44,7 +56,7 @@ function stageEvent(path: string, method: string, ok: boolean, result?: unknown)
                         path.endsWith("/messages") &&
                         method === "POST"
                       ? "conversation"
-                      : null;
+                      : null);
   if (type)
     window.parent.postMessage(
       { source: "ko-stage", type, status: ok ? "success" : "failure" },
@@ -68,6 +80,7 @@ export async function api<T>(
   path: string,
   method = "GET",
   data?: unknown,
+  options?: { signal?: AbortSignal },
 ): Promise<T> {
   const requestGeneration = authGeneration;
   const notifyStage = (ok: boolean, result?: unknown) => {
@@ -93,7 +106,7 @@ export async function api<T>(
           : multipart
             ? data
             : JSON.stringify(data),
-      signal: AbortSignal.timeout(45000),
+      signal: options?.signal ? AbortSignal.any([options.signal, AbortSignal.timeout(45000)]) : AbortSignal.timeout(45000),
     });
   } catch {
     notifyStage(false);

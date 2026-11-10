@@ -13,7 +13,7 @@ export const emptyDiscoveryFilters: DiscoveryFilters = {
   query: "", category: "", duration: "all", schedule: "all", area: "",
 };
 export type ResumeContent = {
-  page: "feed" | "market" | "circles" | "journal" | "provider";
+  page: "feed" | "market" | "circles" | "journal" | "provider" | "daytrip";
   community_id: string | null;
   circle_id: string | null;
   filters: DiscoveryFilters;

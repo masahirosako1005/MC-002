@@ -10,7 +10,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const output=path.join(root,'community/artifacts/intro-video');
 const python=path.join(root,'.venv/Scripts/python.exe');
 process.env.PLAYWRIGHT_BROWSERS_PATH=path.join(root,'.tools/playwright-browsers');
-const require=createRequire(path.join(root,'qa/package.json'));
+const require=createRequire(path.join(root,'test/browser/package.json'));
 const {chromium,expect}=require('@playwright/test');
 const mode=process.argv[2];
 if(mode!=='--record') {
@@ -42,7 +42,7 @@ try {
   page=await context.newPage();video=page.video();
   page.on('pageerror',error=>report.errors.push(error.name));
   await page.goto('http://127.0.0.1:8081/stage');
-  const leftSelector='iframe[title="旅行者の操作画面"]',rightSelector='iframe[title="事業者の操作画面"]';
+  const leftSelector='iframe[title="利用者のスマートフォン画面"]',rightSelector='iframe[title="事業者のパソコン管理画面"]';
   const left=page.frameLocator(leftSelector),right=page.frameLocator(rightSelector);
   for(const [frame,user] of [[left,'aoi'],[right,'forest']]) {
     await frame.getByLabel('アカウント名',{exact:true}).fill(user);

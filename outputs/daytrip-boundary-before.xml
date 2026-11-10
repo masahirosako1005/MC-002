@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="3.336" timestamp="2026-11-10T10:32:32.861394+09:00" hostname="Jisui-share002"><testcase classname="community.backend.tests.test_daytrip" name="test_stale_provider_plan_consent_cannot_silently_use_new_price" time="1.103"><failure message="assert 200 == 409&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code">trip = {'harness': Harness(app=&lt;fastapi.applications.FastAPI object at 0x000001F016485E50&gt;, settings=Settings(db_path=Windows...40&gt;, 'ren': &lt;conftest.Client object at 0x000001F0164D65D0&gt;, 'mio': &lt;conftest.Client object at 0x000001F0164D6FD0&gt;, ...}
+
+    def test_stale_provider_plan_consent_cannot_silently_use_new_price(trip):
+        from app.marketplace.schemas import ProviderPlanInput
+        plan = checked(trip['forest'].get('/provider-plans/forest-day'))
+        updated = {key:value for key,value in plan.items() if key in ProviderPlanInput.model_fields}
+        updated['price_yen'] = plan['price_yen'] + 900
+        checked(trip['forest'].write('PATCH','/provider-plans/forest-day',updated))
+        data = dict(title='古い料金で表示された開催',route_id=trip['route'],starts_at='2027-01-02T09:00:00+09:00',ends_at='2027-01-02T18:00:00+09:00',participant_ids=['u-aoi','u-ren','u-mio'],leader_id='u-aoi',plan_id='forest-day',client_request_id='stale-price')
+        response = trip['aoi'].write('POST','/circles/' + trip['circle'] + '/outings',data)
+&gt;       assert response.status_code == 409
+E       assert 200 == 409
+E        +  where 200 = &lt;Response [200 OK]&gt;.status_code
+
+community\backend\tests\test_daytrip.py:483: AssertionError</failure></testcase><testcase classname="community.backend.tests.test_daytrip" name="test_provider_conflict_reload_uses_current_shared_access" time="1.667"><failure message="AssertionError: {&quot;detail&quot;:&quot;記録が見つかりません。&quot;}&#10;assert 404 == 200&#10; +  where 404 = &lt;Response [404 Not Found]&gt;.status_code">trip = {'harness': Harness(app=&lt;fastapi.applications.FastAPI object at 0x000001F0167EEC10&gt;, settings=Settings(db_path=Windows...30&gt;, 'ren': &lt;conftest.Client object at 0x000001F016594380&gt;, 'mio': &lt;conftest.Client object at 0x000001F016594C00&gt;, ...}
+
+    def test_provider_conflict_reload_uses_current_shared_access(trip):
+        outing = finish(trip,accept_all(trip,create(trip)),verify=False)
+        first = action(trip,trip['forest'],outing,'provider-confirm',participant_ids=['u-aoi'])
+        old = trip['forest'].write('POST','/daytrip/outings/' + outing['id'] + '/provider-confirm',dict(version=outing['version'],participant_ids=['u-ren']))
+        assert old.status_code == 409
+&gt;       current = checked(trip['forest'].get('/daytrip/outings/' + outing['id']))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+community\backend\tests\test_daytrip.py:492: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = &lt;Response [404 Not Found]&gt;
+
+    def checked(response):
+&gt;       assert response.status_code == 200, response.text
+E       AssertionError: {"detail":"記録が見つかりません。"}
+E       assert 404 == 200
+E        +  where 404 = &lt;Response [404 Not Found]&gt;.status_code
+
+community\backend\tests\test_daytrip.py:35: AssertionError</failure></testcase></testsuite></testsuites>

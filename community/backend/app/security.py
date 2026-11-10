@@ -106,7 +106,7 @@ class SecurityMiddleware:
             expected = "multipart/form-data" if upload else "application/json"
             if headers.get("content-type", "").split(";", 1)[0].lower().strip() != expected:
                 return await reject(415, "送信形式を確認してください。")
-            kind = "login" if scope["path"] in ("/api/login", "/api/stage/login") else "upload" if upload else "write"
+            kind = "login" if scope["path"] in ("/api/login", "/api/stage/login", "/api/register") else "upload" if upload else "write"
             if not self.rate_allowed((scope.get("client") or ("local",))[0], kind):
                 return await reject(429, "操作が続いています。少し待って試してください。")
             limit = self.settings.max_image_bytes + 65536 if upload else 65536

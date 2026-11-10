@@ -1,0 +1,65 @@
+{
+  "recorded_on": "2026-11-10",
+  "scope": "Test source relocation and execution entry point; no application source or live database changes by this task.",
+  "layout": {
+    "backend": "test/backend",
+    "browser": "test/browser",
+    "tooling": "test/tooling",
+    "integration": "test/integration",
+    "fixtures": "test/fixtures",
+    "evidence": "artifacts"
+  },
+  "moved_existing_source_and_config_files": 43,
+  "moved_synthetic_fixture": "test/fixtures/journal-gps.jpg",
+  "copied_bundled_fixture": "test/fixtures/coffee.png",
+  "dependency_directory": "Active community/qa/node_modules moved to test/browser/node_modules; no cache deletion or dependency reinstall.",
+  "isolated_helper_checks_extracted": "Two synthetic checks moved from analysis runtime scripts into test/tooling/test_analysis_helpers.py; real-input validation retained.",
+  "collection": {
+    "evidence": "artifacts/test-runs/20261110T014852Z-93800811/result.json",
+    "collected_at_that_point": 213,
+    "scope": "Collection and syntax only; live checks not executed."
+  },
+  "final_syntax": {
+    "evidence": "artifacts/test-runs/20261110T015252Z-220d1770/result.json",
+    "passed": true,
+    "scope": "19 browser/capture MJS, board CJS, 3 integration Python parses, Playwright/axe dependency resolution."
+  },
+  "python_regression": {
+    "evidence": "artifacts/test-runs/20261110T015053Z-40caf216/result.json",
+    "junit": "artifacts/test-runs/20261110T015053Z-40caf216/pytest.xml",
+    "passed": 215,
+    "subtests_passed": 12,
+    "junit_cases_including_subtests": 227,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pytest_seconds": 208.42,
+    "runner_seconds": 210.475,
+    "executions": 1
+  },
+  "remaining_independent_test_definitions_outside_test": [],
+  "excluded_from_execution": [
+    "live browser UI regression",
+    "Docker snapshot/restore integration",
+    "running database audit",
+    "application restart"
+  ],
+  "retained_operational_code": [
+    "community/scripts/full_snapshot.py",
+    "community/scripts/snapshot_worker.py",
+    "community/scripts/create_intro_video.mjs",
+    "quality and analysis/report tools"
+  ],
+  "protected_untouched": [
+    "old denied ZIP/cache remnants",
+    "application database/media/backups",
+    "Git history",
+    "root README/DESIGN/TASKS/ticket ledger"
+  ],
+  "followup": "The backend owner may factor the new DELETE handler after this completed full run and perform its own focused recheck. The full-run result does not claim to cover changes made afterward.",
+  "additional_snapshot_helpers_moved": [
+    "test/integration/verify_journal_storage.py",
+    "test/integration/verify_journal_snapshot_rows.py",
+    "test/integration/daytrip_snapshot_compare.py"
+  ]
+}

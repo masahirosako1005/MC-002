@@ -48,7 +48,7 @@ JSONとJSONLという2ファイルをOSが同時に原子的更新するわけ�
 ## テスト
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s scripts -p test_tickets.py -v
+.\.venv\Scripts\python.exe -m pytest test/tooling/test_tickets.py -q
 ```
 
 受入条件が揃わない完了の拒否、追記履歴の維持、イベント保存後の障害回復、同時コメントの欠落防止、HTML埋め込みの安全性、PJ外パス拒否、履歴破損時の停止、TASKS取込の重複防止を検証する。一時データは `project/.test-work/` 内に作り、試験後に片付ける。

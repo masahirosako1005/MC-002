@@ -5,6 +5,8 @@ import Stage from "./Stage";
 import { stageFrame } from "./api";
 import "./styles.css";
 import "./browse.css";
+import "./wa-theme.css";
+import "./wa-controls.css";
 if (stageFrame) document.documentElement.classList.add("stage-frame");
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

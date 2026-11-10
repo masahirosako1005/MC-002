@@ -1,4 +1,3 @@
-import hashlib
 import io
 import json
 import math
@@ -10,7 +9,7 @@ from datetime import UTC, datetime, timedelta
 from fastapi import HTTPException
 from PIL import Image, ImageOps, UnidentifiedImageError
 
-from .database import TAGS, now
+from .database import now
 
 
 def sanitize_image(raw, settings):
@@ -98,70 +97,6 @@ def cleanup_deleted_media(database, settings):
                 pass  # A later bounded pass retries; no file details are logged.
         conn.execute("INSERT INTO settings(key,value) VALUES('deleted-media-cleanup-cursor-v1',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (rows[-1]['id'],))
         return removed
-
-
-class LocalClassifier:
-    """ImageNet visual classifier; user filenames/captions are never inputs."""
-    KEYWORDS = {
-        "coast": ("seashore", "sandbar", "coral reef", "promontory", "cliff", "lakeside"),
-        "mountain": ("mountain", "volcano", "alp", "valley"),
-        "nature": ("forest", "daisy", "rapeseed", "tree", "mushroom"),
-        "food": ("pizza", "food", "plate", "dish", "salad", "sandwich", "hotdog", "hot pot", "burrito", "carbonara", "soup", "ice cream", "bread", "bagel", "pretzel", "cheeseburger", "guacamole", "bakery", "dining table", "restaurant"),
-        "cafe": ("coffee", "espresso", "teapot", "cup", "mug"),
-        "fashion": ("shirt", "dress", "jean", "shoe", "sandal", "sneaker", "sunglass", "handbag", "backpack", "cardigan", "sweatshirt", "poncho"),
-        "games": ("board game", "chess", "puzzle", "crossword"),
-        "stay": ("bed", "quilt", "couch", "sofa", "pillow"),
-        "walk": ("street", "palace", "castle", "bookshop", "fountain", "bridge", "pier"),
-    }
-
-    def __init__(self, folder):
-        self.session = None
-        self.version = None
-        self.labels = []
-        try:
-            manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-            model = folder / "mobilenetv2-12.onnx"
-            for name in ("mobilenetv2-12.onnx", "synset.txt"):
-                if hashlib.sha256((folder / name).read_bytes()).hexdigest() != manifest["files"][name]["sha256"]:
-                    raise ValueError("Model integrity failure")
-            import onnxruntime as ort
-            ort.disable_telemetry_events()
-            options = ort.SessionOptions()
-            options.intra_op_num_threads = 1
-            options.inter_op_num_threads = 1
-            self.session = ort.InferenceSession(str(model), sess_options=options, providers=["CPUExecutionProvider"])
-            self.labels = (folder / "synset.txt").read_text(encoding="utf-8").splitlines()
-            if len(self.labels) != 1000:
-                raise ValueError("Unexpected label count")
-            self.version = "mobilenetv2-12:" + manifest["revision"][:12]
-        except Exception:
-            self.session = None
-
-    def classify(self, path):
-        if self.session is None:
-            raise RuntimeError("model_unavailable")
-        import numpy as np
-        import onnxruntime as ort
-        with Image.open(path) as image:
-            image = image.convert("RGB")
-            scale = 256 / min(image.size)
-            resized = image.resize((round(image.width * scale), round(image.height * scale)), Image.Resampling.BILINEAR)
-            left, top = (resized.width - 224) // 2, (resized.height - 224) // 2
-            array = np.asarray(resized.crop((left, top, left + 224, top + 224)), dtype=np.float32) / 255.0
-        array = ((array - np.array([.485, .456, .406], dtype=np.float32)) / np.array([.229, .224, .225], dtype=np.float32)).transpose(2, 0, 1)[None]
-        options = ort.RunOptions()
-        timer = threading.Timer(10, lambda: setattr(options, "terminate", True))
-        timer.start()
-        try:
-            logits = self.session.run(None, {self.session.get_inputs()[0].name: array}, options)[0].reshape(-1)
-        finally:
-            timer.cancel()
-        probabilities = np.exp(logits - logits.max())
-        probabilities /= probabilities.sum()
-        scores = {}
-        for tag, words in self.KEYWORDS.items():
-            scores[tag] = sum(float(probabilities[index]) for index, label in enumerate(self.labels) if any(re.search(r"\b" + re.escape(word) + r"\b", label.lower()) for word in words))
-        return [{"id": tag, "label": TAGS[tag], "score": round(score, 4)} for tag, score in sorted(scores.items(), key=lambda item: item[1], reverse=True) if score >= .12][:3]
 
 
 class AnalysisWorker:

@@ -32,7 +32,7 @@ def migrate(database):
     """One atomic, additive migration; existing user data is preserved."""
     with database.transaction(True) as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-        if version in (2, 3, 4, 5, 6, 7, 8):
+        if version in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
             return
         if version != 1:
             raise RuntimeError('Unsupported marketplace migration source')
@@ -44,14 +44,14 @@ def migrate(database):
             password = os.getenv('KO_PASSWORD_' + username.upper(), username + '-local-2026')
             conn.execute('INSERT INTO users VALUES(?,?,?,?,?,?,?,1)', (uid, username, name, initials, color, salt, password_hash(password, salt)))
             conn.execute('INSERT INTO preferences(user_id,tags,learn_from_posts) VALUES(?,?,0)', (uid, '[]'))
-            conn.execute('INSERT INTO providers VALUES(?,?,?,?,1)', (pid, name, '仲間の人数に合わせた旅の相談窓口。', '軽井沢周辺' if username == 'forest' else '海辺のまち'))
+            conn.execute('INSERT INTO providers VALUES(?,?,?,?,1)', (pid, name, '仲間の人数に合わせた旅の相談窓口。', 'N西市'))
             conn.execute('INSERT INTO provider_staff VALUES(?,?,1)', (pid, uid))
         for pid, provider, title, lo, hi, nights, price, tags, places in (
-            ('forest-six', 'forest-house', '6人で森とカフェをめぐる2泊3日', 4, 8, 2, 28000, ['mountain','cafe','nature'], ['木立の散策路','森の喫茶室','高原の展望広場']),
-            ('shore-school', 'shore-school', '30人からの海辺の学び・2泊3日', 30, 60, 2, 24000, ['coast','nature','food'], ['海辺の学習広場','港の食文化体験室','浜の観察路']),
+            ('forest-six', 'forest-house', '6人で森とカフェをめぐる2泊3日', 4, 8, 2, 28000, ['mountain','cafe','nature'], ['木立の散策路','森の喫茶室','北山の展望広場']),
+            ('shore-school', 'shore-school', '30人からの川辺の学び・2泊3日', 30, 60, 2, 24000, ['coast','nature','food'], ['川辺の学習広場','川沿いの食文化体験室','川辺の観察路']),
             ('forest-day', 'forest-house', '森を歩く日帰りの相談プラン', 1, 12, 0, 6000, ['mountain','walk','cafe'], ['森の喫茶室']),
         ):
-            body = dict(title=title, summary='仲間と相談して行程を調整できます。', area='軽井沢周辺' if provider == 'forest-house' else '海辺のまち', min_people=lo, max_people=hi, nights=nights, price_yen=price, price_basis='per_person', price_scope='plan_only', price_note='宿泊・体験の概算。出発地からの交通費は含みません。営業・空席は未確認。', tags=tags,
+            body = dict(title=title, summary='仲間と相談して行程を調整できます。', area='N西市', min_people=lo, max_people=hi, nights=nights, price_yen=price, price_basis='per_person', price_scope='plan_only', price_note='宿泊・体験の概算。出発地からの交通費は含みません。営業・空席は未確認。', tags=tags,
                         itinerary=[dict(day=i+1, period='afternoon', place=place, description='この場所での体験を相談します。', travel_minutes=None) for i, place in enumerate(places)])
             conn.execute('INSERT INTO provider_plans VALUES(?,?,?,\'published\',1,?)', (pid, provider, json.dumps(body,ensure_ascii=False), now()))
         conn.execute('PRAGMA user_version=2')

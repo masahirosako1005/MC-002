@@ -65,7 +65,7 @@ class Personalization:
     def default(self, conn, uid):
         return dict(
             version=0,
-            page="provider" if self.is_provider(conn, uid) else "market",
+            page="provider" if self.is_provider(conn, uid) else "daytrip",
             community_id=None,
             circle_id=None,
             filters=Filters().model_dump(),

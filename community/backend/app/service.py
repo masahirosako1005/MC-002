@@ -153,6 +153,19 @@ class Service:
             require(conn.execute("SELECT 1 FROM media WHERE id=? AND user_id=? AND deleted=0", (mid, uid)).fetchone())
             return self.analysis_out(conn, mid)
 
+    def delete_unused_media(self, uid, mid):
+        with self.db.transaction(True) as conn:
+            row = require(conn.execute("SELECT * FROM media WHERE id=? AND user_id=?", (mid, uid)).fetchone())
+            if not row["deleted"]:
+                if conn.execute("SELECT 1 FROM post_media WHERE media_id=?", (mid,)).fetchone():
+                    raise HTTPException(409, "投稿で使っている写真です。投稿を編集してから削除してください。")
+                if conn.execute("SELECT 1 FROM journal_visits WHERE media_id=?", (mid,)).fetchone():
+                    raise HTTPException(409, "旅の記録で使っている写真です。旅の記録を編集してから削除してください。")
+                conn.execute("UPDATE media SET deleted=1 WHERE id=?", (mid,))
+                conn.execute("UPDATE jobs SET status='failed',tags='[]',message='写真は削除されました。' WHERE media_id=?", (mid,))
+        cleanup_deleted_media(self.db, self.settings)
+        return {"ok": True}
+
     def post_out(self, conn, row, uid):
         media = [self.media_out(conn, image) for image in conn.execute("SELECT m.* FROM media m JOIN post_media pm ON pm.media_id=m.id WHERE pm.post_id=? AND m.deleted=0 ORDER BY pm.position", (row["id"],))]
         author = conn.execute("SELECT * FROM users WHERE id=?", (row["user_id"],)).fetchone()
@@ -169,18 +182,49 @@ class Service:
             member(conn, uid, cid)
             return {"items": [self.post_out(conn, row, uid) for row in conn.execute("SELECT * FROM posts WHERE community_id=? AND (status='published' OR (status='draft' AND user_id=?)) ORDER BY created_at DESC,id LIMIT 100", (cid, uid))]}
 
-    def create_post(self, uid, data):
-        if len(data["media_ids"]) != len(set(data["media_ids"])):
+    @staticmethod
+    def validate_post_media(conn, uid, media_ids, pid=None):
+        if len(media_ids) != len(set(media_ids)):
             raise HTTPException(422, "同じ写真を重ねて選べません。")
+        for mid in media_ids:
+            require(conn.execute("SELECT 1 FROM media WHERE id=? AND user_id=? AND deleted=0", (mid, uid)).fetchone())
+            linked = conn.execute("SELECT post_id FROM post_media WHERE media_id=?", (mid,)).fetchone()
+            if linked and linked["post_id"] != pid:
+                raise HTTPException(409, "この写真はすでに投稿に追加されています。")
+
+    @staticmethod
+    def validate_post_content(body, media_ids):
+        if not body.strip() and not media_ids:
+            raise HTTPException(422, "写真か文章を追加してください。")
+
+    @staticmethod
+    def previous_post(conn, uid, data):
+        key = data.get("client_request_id")
+        if not key:
+            return None
+        previous = conn.execute("SELECT result_id FROM operation_keys WHERE actor_id=? AND operation='post:create' AND request_key=?", (uid, key)).fetchone()
+        if previous is None:
+            return None
+        row = require(conn.execute("SELECT * FROM posts WHERE id=? AND user_id=?", (previous["result_id"], uid)).fetchone())
+        if row["community_id"] != data["community_id"] or row["status"] == "deleted":
+            raise HTTPException(409, "共有先が変わったか投稿が削除されました。新しい投稿を開いてください。")
+        # This key identifies a draft, not a publication. Replays never change
+        # its content or sharing: the owner explicitly saves edits with PATCH.
+        return row
+
+    def create_post(self, uid, data):
         with self.db.transaction(True) as conn:
             member(conn, uid, data["community_id"])
-            for mid in data["media_ids"]:
-                require(conn.execute("SELECT 1 FROM media WHERE id=? AND user_id=? AND deleted=0", (mid, uid)).fetchone())
-                if conn.execute("SELECT 1 FROM post_media WHERE media_id=?", (mid,)).fetchone():
-                    raise HTTPException(409, "この写真はすでに投稿に追加されています。")
+            previous = self.previous_post(conn, uid, data)
+            if previous is not None:
+                return self.post_out(conn, previous, uid)
+            self.validate_post_content(data["body"], data["media_ids"])
+            self.validate_post_media(conn, uid, data["media_ids"])
             pid = identifier()
             conn.execute("INSERT INTO posts VALUES(?,?,?,?,?,'draft',?,?,?)", (pid, uid, data["community_id"], data["body"], json.dumps(data["tags"]), data["place_label"], data["taken_on"], now()))
             conn.executemany("INSERT INTO post_media VALUES(?,?,?)", [(pid, mid, position) for position, mid in enumerate(data["media_ids"])])
+            if data.get("client_request_id"):
+                conn.execute("INSERT INTO operation_keys VALUES(?,'post:create',?,?,?)", (uid, data["client_request_id"], digest(data["community_id"]), pid))
             return self.post_out(conn, conn.execute("SELECT * FROM posts WHERE id=?", (pid,)).fetchone(), uid)
 
     def patch_post(self, uid, pid, data):
@@ -195,6 +239,14 @@ class Service:
                 values["tags"] = json.dumps(data["tags"])
             if any(values[key] is None for key in ("body", "status", "place_label")):
                 raise HTTPException(422, "入力を確認してください。")
+            media_ids = data.get("media_ids", [item[0] for item in conn.execute("SELECT media_id FROM post_media WHERE post_id=? ORDER BY position", (pid,))])
+            if media_ids is None:
+                raise HTTPException(422, "写真の選択を確認してください。")
+            self.validate_post_content(values["body"], media_ids)
+            self.validate_post_media(conn, uid, media_ids, pid)
+            if "media_ids" in data:
+                conn.execute("DELETE FROM post_media WHERE post_id=?", (pid,))
+                conn.executemany("INSERT INTO post_media VALUES(?,?,?)", [(pid, mid, position) for position, mid in enumerate(media_ids)])
             conn.execute("UPDATE posts SET body=?,tags=?,status=?,place_label=?,taken_on=? WHERE id=?", (values["body"], values["tags"], values["status"], values["place_label"], values["taken_on"], pid))
             invalidate(conn, uid)
             return self.post_out(conn, conn.execute("SELECT * FROM posts WHERE id=?", (pid,)).fetchone(), uid)

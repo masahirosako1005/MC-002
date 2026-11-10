@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 632,
-  "last_event_hash": "c04b0b423ef3299e51a96d0b85e09a5e701e6a9dba271434ac6b9c85bd5c1e6f",
-  "updated_at": "2026-11-10T10:11:35+09:00",
+  "revision": 716,
+  "last_event_hash": "41b865d942b28b7287e0931b3d59358c2cc854f75e3e8b97757032092b52ad62",
+  "updated_at": "2026-11-10T11:32:55+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -2860,18 +2860,25 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 4,
-      "revisions": [],
+      "revision": 5,
+      "revisions": [
+        {
+          "at": "2026-11-10T10:12:21+09:00",
+          "hash": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+          "path": "project/revisions/81522a3760ae48c27ed743e535dd7b054edf1c21.txt",
+          "summary": "docs: plan daytrip targeting, sendatsu rewards and Japanese visual direction"
+        }
+      ],
       "status": "done",
       "title": "今回の調査とタスク精査",
       "type": "task",
-      "updated_at": "2026-11-10T10:11:35+09:00"
+      "updated_at": "2026-11-10T10:12:21+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
-          "text": "初期発地と交通手段を決め、根拠付き片道距離/時間/確認日を同梱。50/100km・120分境界、未知の経路、同日帰着を判定できる"
+          "checked": true,
+          "text": "最新ユーザー指定の片道経路距離20〜40kmを採用。20/40km境界・未知経路を判定し、発地/交通手段/距離/駅間参考時間/原典/確認日を同梱。時間の固定上限は設定せず同日帰着を別確認する。"
         }
       ],
       "comments": [],
@@ -2884,17 +2891,28 @@
         "docs/DAYTRIP-RANK-REDESIGN-PLAN.md",
         "DESIGN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-10T10:17:44+09:00",
+          "path": "docs/DAYTRIP-ROUTES.md",
+          "text": "最新音声指示で片道20〜40kmへ変更。旧50〜100km/120分は履歴。新宿から町田30.8km/31分・新百合ヶ丘21.5km/23分の原典を照合。"
+        },
+        {
+          "at": "2026-11-10T10:41:05+09:00",
+          "path": "docs/DAYTRIP-ROUTES.md",
+          "text": "小田急営業キロと町田/川崎の公式アクセス資料を照合。新宿→町田30.8km/31分、新百合ヶ丘21.5km/約23分。境界は日帰り試験で確認。"
+        }
+      ],
       "id": "CP53",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 7,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "発地・経路・ターゲティングゾーンの確定",
       "type": "task",
-      "updated_at": "2026-11-10T10:11:35+09:00"
+      "updated_at": "2026-11-10T10:41:05+09:00"
     },
     {
       "acceptance": [
@@ -3194,6 +3212,507 @@
       "title": "設計・操作手順・紹介動画の更新",
       "type": "task",
       "updated_at": "2026-11-10T10:11:35+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "ログインを一枚の巻紙としてID/PW/表示切替/エラー/送信まで統一し、入力・自動補完・キーボードを保持。主要画面のボタン/タブ/入力/ナビも統一し実画面で検証。"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:31:57+09:00",
+      "dependencies": [
+        "CP59"
+      ],
+      "description": "巻物だけの見出しと汎用の入力欄の不一致を解消。画像生成で設計見本を作り、実際のReact部品へ落とし込む。",
+      "documents": [
+        "docs/WA-ART-DIRECTION.md"
+      ],
+      "evidence": [],
+      "id": "CP64",
+      "origin": "この時点で新規起票",
+      "owner": "wa_frontend",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "生成見本に基づく画面全体と入力部品の和の統一",
+      "type": "task",
+      "updated_at": "2026-11-10T10:31:59+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "削除対象を参照関係で説明し絶対パスを確認。現行起動/ビルド/必要な試験に旧版依存がなく、データを保全。README/設計/チケットとGit削除履歴を対応付ける。"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T11:32:55+09:00",
+          "text": "追加指定の .test-work/.backend-test-tmp は旧試験一時領域で不要。絶対パス・リンク検査後の削除要求も自動承認レビューで blocked by policy。迂回せず未削除として継続。"
+        }
+      ],
+      "created_at": "2026-11-10T10:31:57+09:00",
+      "dependencies": [],
+      "description": "最新の利用者指示により旧版保管方針を変更。参照監査を行い、現在使用しないソースと旧配布ソースを削除。Git履歴・現行データ・必要なテスト/運用を保持。",
+      "documents": [
+        "docs/CLEANUP-AUDIT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:55+09:00",
+          "text": "削除できた旧追跡ソースと未追跡の残存物・拒否を区別。",
+          "path": "docs/CLEANUP-AUDIT.md"
+        }
+      ],
+      "id": "CP65",
+      "origin": "この時点で新規起票",
+      "owner": "root",
+      "priority": "P1",
+      "revision": 4,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "旧版と未使用ソースの撤去・現行構成への整理",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:55+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "移動後の試験収集と回帰試験が動く"
+        },
+        {
+          "checked": true,
+          "text": "旧パスを使う現行実行導線を更新する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:47:45+09:00",
+      "dependencies": [],
+      "description": "API・画面・保全・ツール試験をtest配下へ集約し参照と起動手順を更新",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:52+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP66",
+      "origin": "この時点で新規起票",
+      "owner": "並列実装・主担当統合",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "テストをtestフォルダへ集約し現行階層を整理",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:52+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "導入元・固定版・適用範囲・対象外を記録する"
+        },
+        {
+          "checked": true,
+          "text": "測定失敗と既存指摘を合格として隠さない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:47:45+09:00",
+      "dependencies": [],
+      "description": "一次提供元のスキルを固定版導入し、改修前後の測定と新規指摘検知を残す",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP67",
+      "origin": "この時点で新規起票",
+      "owner": "並列実装・主担当統合",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "公式React・FastAPIスキルと継続品質評価",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "投稿から共有先確認と保存・再読込まで操作できる"
+        },
+        {
+          "checked": true,
+          "text": "権限・空投稿・失敗時の再試行を検証する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:47:46+09:00",
+      "dependencies": [],
+      "description": "共有先未選択でも投稿を開き、文章か写真を共有先確認後に公開・下書き保存・削除できる",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP68",
+      "origin": "この時点で新規起票",
+      "owner": "並列実装・主担当統合",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "写真と文章の投稿を使える導線にする",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "ホーム・投稿・講会話・手帳・事業者画面を目視確認する"
+        },
+        {
+          "checked": true,
+          "text": "狭幅・入力・フォーカスを維持し操作を実装する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:47:47+09:00",
+      "dependencies": [],
+      "description": "利用者参考画像の和紙・索引・罫線・情報階層を全主要画面と小さな操作部品に適用",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP69",
+      "origin": "この時点で新規起票",
+      "owner": "並列実装・主担当統合",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "ログイン後も帳面・墨・朱印の世界観で統一",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "10階級・累積と365日点・降格見込を表示"
+        },
+        {
+          "checked": true,
+          "text": "旧特典互換・確保価格維持・日付/取消を検証"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:59:59+09:00",
+      "dependencies": [],
+      "description": "旅階級と上位の維持・降格",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP70",
+      "origin": "この時点で新規起票",
+      "owner": "並列担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "旅階級と上位の維持・降格",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "自社権限・期間・重複除去・欠測/母数を検証"
+        },
+        {
+          "checked": true,
+          "text": "内部会話/他社/少人数の属性を露出しない"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:59:59+09:00",
+      "dependencies": [],
+      "description": "事業者の利用者推移と属性集計",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP71",
+      "origin": "この時点で新規起票",
+      "owner": "並列担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "事業者の利用者推移と属性集計",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "1440px StageとPC/狭幅で業務操作可能"
+        },
+        {
+          "checked": true,
+          "text": "大きい役割名・独立認証・利用者の和の統一を維持"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:59:59+09:00",
+      "dependencies": [],
+      "description": "利用者スマホと事業者PC画面",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:53+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP72",
+      "origin": "この時点で新規起票",
+      "owner": "並列担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "利用者スマホと事業者PC画面",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:53+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "既存入力不変・二度実行して増殖なし・参照整合"
+        },
+        {
+          "checked": true,
+          "text": "架空の来歴/件数を記録し推移・投稿を実画面確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T10:59:59+09:00",
+      "dependencies": [],
+      "description": "初期データの増量",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:54+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP73",
+      "origin": "この時点で新規起票",
+      "owner": "並列担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "初期データの増量",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:54+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "現在カタログと事業者がN西市、過去の会話/写真/開催保存を変更しない"
+        },
+        {
+          "checked": true,
+          "text": "変換と追加は二度実行して重複せず、バックアップと差分を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:14:18+09:00",
+      "dependencies": [],
+      "description": "最新のN西市と居住地域の要件を実装する",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:54+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP74",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "N西市への目的地統一",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:54+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "本人が登録/変更/同意撤回でき、未掲載地域も登録を妨げない"
+        },
+        {
+          "checked": true,
+          "text": "CSRF/権限/入力/競合/認証分離を試験"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:14:18+09:00",
+      "dependencies": [],
+      "description": "最新のN西市と居住地域の要件を実装する",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:54+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP75",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "登録と居住地域の管理",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:54+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "来訪/再訪の定義、期間、欠測、少数秘匿を検証"
+        },
+        {
+          "checked": true,
+          "text": "全国/関西の地図をローカル表示、PC/狭幅で確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:14:18+09:00",
+      "dependencies": [],
+      "description": "最新のN西市と居住地域の要件を実装する",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:54+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP76",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "事業者の来訪元地図",
+      "type": "task",
+      "updated_at": "2026-11-10T11:32:54+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "右PCが横長で1440幅の左右配置を確認"
+        },
+        {
+          "checked": true,
+          "text": "中央線と結びが両画面に合い、送受信成功だけ一度動く"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T11:25:42+09:00",
+      "dependencies": [],
+      "description": "利用者のスクリーンショットで、右画面が縦長で結びが小さすぎる点を確認。",
+      "documents": [
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T11:32:55+09:00",
+          "path": "docs/NISHI-ACCEPTANCE.md",
+          "text": "N西市統合: 283試験＋12 subtests成功。画面・保持・各専門検証と未測定範囲は確認記録を参照。品質既存指摘は未解消として明記。"
+        }
+      ],
+      "id": "CP77",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "done",
+      "title": "事業者PCの横長比率と中央の連携表示",
+      "type": "bug",
+      "updated_at": "2026-11-10T11:32:55+09:00"
     },
     {
       "acceptance": [

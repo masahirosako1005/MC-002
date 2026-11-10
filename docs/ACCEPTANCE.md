@@ -13,7 +13,7 @@
 | [収集の対象操作試験](../artifacts/browser-tests-collection-focused.json) | 主担当4成功、失敗0、skip 0、flaky 0、8.52秒。2026-11-09 04:28:18 UTC開始。未獲得条件・目標再読込保持、訪問後の獲得・日時・幅/拡大、保存失敗と明示再試行、選択部品のキーボード操作を含む |
 | [画面の通信記録](../artifacts/browser-network.json) | 主要3画面の試験で外部HTTP要求0件・JavaScriptエラー0件。ローカルHTTPを許可し、外部要求は遮断する条件 |
 | [コンテナー確認](../artifacts/container-verification.json)、[確認スクリプト](../scripts/verify_container.py) | schema 3の再確認でpassed=true。UID10001、capability 0、NoNewPrivs、read-only実効設定と書込拒否、内部ネットワーク、外部TCP接続失敗、loopback公開、DB整合を確認。再起動前後のjournalとcollection一致、バックアップ整合・8表件数一致・collection_preferences全行一致を確認 |
-| [sample-tests.txt](../artifacts/sample-tests.txt)、[CSV試験](../scripts/test_samples.py) | 合成データで5件成功。非保持列の訂正、再取込、不正行、個人識別情報非保存、キー喪失、PJ外出力拒否など |
+| [sample-tests.txt](../artifacts/sample-tests.txt)、[CSV試験](../test/tooling/test_samples.py) | 合成データで5件成功。非保持列の訂正、再取込、不正行、個人識別情報非保存、キー喪失、PJ外出力拒否など |
 | [初回集計](../artifacts/sample-quality.json)、[再取込集計](../artifacts/sample-quality-repeat.json) | 元CSV5件の前後hash同一、再取込追加0件、保存件数一致、参照未一致0。個票は表示・再掲しない |
 | [Python監査](../artifacts/python-audit.json)、[フロント監査](../artifacts/frontend-audit.json) | 対象とした依存に対して報告された既知脆弱性0件。Python本体・OS・全開発ツール・未知脆弱性を包括する結果ではない |
 | [独立レビュー](SECURITY-REVIEW.md) | 年度表示、500ヘッダー、セッション初期化、訂正版CSVの修正を個別照合。残る条件・自然キーの限界を記録 |

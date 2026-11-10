@@ -25,7 +25,7 @@
 const payload=JSON.parse(document.getElementById("board-data").textContent);
 const tickets=payload.state.tickets;
 const states={todo:"未着手",in_progress:"作業中",review:"検証中",done:"完了"};
-const actionNames={created:"起票",status:"状態変更",comment:"コメント",evidence:"証拠追加",check:"受入条件確認",document:"文書追加",revision:"commit関連付け"};
+const actionNames={created:"起票",status:"状態変更",comment:"コメント",evidence:"証拠追加",check:"受入条件確認",acceptance:"受入条件改訂",document:"文書追加",revision:"commit関連付け"};
 const dialog=document.getElementById("detail");
 function node(tag,text,cls){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(cls)element.className=cls;return element;}
 function localLink(path,label){const link=node("a",label||path);link.href="../"+path.split("/").map(encodeURIComponent).join("/");return link;}

@@ -967,7 +967,7 @@ export default function Marketplace({
               onChange={(e) => setTitle(e.target.value)}
               maxLength={120}
               disabled={!!busy}
-              placeholder="例：同期6人、軽井沢の週末"
+              placeholder="例：同期6人、N西市の週末"
             />
           </label>
           <label className="field">

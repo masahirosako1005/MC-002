@@ -23,7 +23,7 @@ class Filters(Input):
 
 class ResumeInput(Input):
     version: Annotated[int, Field(strict=True, ge=0, le=9007199254740991)]
-    page: Literal["feed", "market", "circles", "journal", "provider"]
+    page: Literal["feed", "market", "circles", "journal", "provider", "daytrip"]
     community_id: Id | None
     circle_id: Id | None
     filters: Filters

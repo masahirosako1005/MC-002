@@ -60,7 +60,7 @@
 - `community/artifacts/schema2-persistence.json`
 - `community/artifacts/{journal,discovery,reflections,occasions}` の移行/再起動/画面記録
 - `community/artifacts/motion/results.json`
-- `community/backend/tests/{test_api,test_stage,test_personalization}.py`
+- `test/backend/{test_api,test_stage,test_personalization}.py`
 - `docs/COMMUNITY-PERSONALIZATION-REVIEW.md`
 
 監査後に追加検証が成功した場合、主担当は結果・対象revisionを照合して評価正本へ差分を記録する。証拠のない残りは未達として残す。
