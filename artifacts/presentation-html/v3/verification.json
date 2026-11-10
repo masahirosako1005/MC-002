@@ -1,0 +1,50 @@
+{
+  "ticket": "PR03",
+  "version": "four-and-a-half-minute-v3-simple-opening",
+  "date": "2026-11-10",
+  "scope": "Simplified opening and explicit revisit rationale; other six slides and video unchanged",
+  "slides": 9,
+  "planned_seconds": 260,
+  "limit_seconds": 270,
+  "intro_seconds": 25,
+  "sequence": [
+    "Instagramで探す・LINEで相談・楽天トラベルで宿を予約",
+    "再訪を気軽にするには、準備をひと続きに",
+    "講で仲間探しから事業者への相談までをつなぐ"
+  ],
+  "passed": [
+    "3 services only; five-stage detail, obstacle text and numbering removed",
+    "All nine notes match speaker script",
+    "All time intervals continuous with total 260 seconds",
+    "Independent read-only narrative review: no required correction",
+    "1440x900 and 1280x720 opening fits without scrolling",
+    "Updated essence and proposal inspected at 1440x900"
+  ],
+  "measurements": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720
+    }
+  ],
+  "evidence": [
+    "essential-1440.png",
+    "opening-1280.png",
+    "opening-1440.png",
+    "proposal-1440.png"
+  ],
+  "not_verified": [
+    "Human timed rehearsal",
+    "Actual revisit effect",
+    "Printed slides",
+    "Full application retest"
+  ],
+  "boundary": "Service use is a scenario; no LINE/Instagram integration or booking/payment service is claimed. Current local MOC and sharing permissions remain documented."
+}

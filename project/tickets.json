@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1004,
-  "last_event_hash": "01f18bdda958b5adca782005a600ae23e3455471b5b5a5cbca7bad3eba0f7652",
-  "updated_at": "2026-11-10T15:22:49+09:00",
+  "revision": 1013,
+  "last_event_hash": "e6610fa9c2cd786cda41a21d6d8012b3031c55ba6a89694a0acd93bcba2fcc53",
+  "updated_at": "2026-11-10T15:26:06+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5381,16 +5381,66 @@
       "revision": 13,
       "revisions": [
         {
+          "at": "2026-11-10T15:22:49+09:00",
           "hash": "30215c49697212b05b5b47433ded301129f703ef",
-          "summary": "feat: frame presentation around problem cause and kou proposal",
           "path": "project/revisions/30215c49697212b05b5b47433ded301129f703ef.txt",
-          "at": "2026-11-10T15:22:49+09:00"
+          "summary": "feat: frame presentation around problem cause and kou proposal"
         }
       ],
       "status": "done",
       "title": "準備の分断から始める発表導入へ改訂",
       "type": "task",
       "updated_at": "2026-11-10T15:22:49+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "5工程と細かな説明を外し、3サービスと短い結論だけで問題提起する"
+        },
+        {
+          "checked": true,
+          "text": "HTMLと原稿・最新文書を一致させ、全9枚260秒を維持する"
+        },
+        {
+          "checked": true,
+          "text": "2つのPC幅で文字の収まりを確認し、Gitへ記録する"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T15:25:07+09:00",
+          "text": "追加指定：媒体の散乱→再訪を気軽にするため準備のシームレスさが重要→講で実現、の接続を第2・3枚と原稿に明記。"
+        }
+      ],
+      "created_at": "2026-11-10T15:23:27+09:00",
+      "dependencies": [],
+      "description": "入口をInstagramで探す・LINEで相談・楽天トラベルで予約の3つに絞り、旅行準備のサービスがバラバラという課題を示す。9枚260秒は維持。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T15:26:04+09:00",
+          "path": "artifacts/presentation-html/v3/verification.json",
+          "text": "冒頭3サービス、再訪とシームレスな準備の関連、講の提案を確認。2つのPC幅で表示。原稿全9件と260秒一致。"
+        },
+        {
+          "at": "2026-11-10T15:26:05+09:00",
+          "path": "artifacts/presentation-html/v3/manifest.json",
+          "text": "最新版の資料・原稿・動画のハッシュを記録。"
+        }
+      ],
+      "id": "PR03",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [],
+      "status": "done",
+      "title": "問題提起を3サービスで簡潔にする",
+      "type": "task",
+      "updated_at": "2026-11-10T15:26:06+09:00"
     },
     {
       "acceptance": [

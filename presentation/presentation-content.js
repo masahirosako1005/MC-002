@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v2-friction",
+  "version": "four-and-a-half-minute-v3-simple-opening",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -16,39 +16,25 @@ window.KOU_DECK = {
       "id": "friction",
       "type": "friction",
       "section": "01 問題提起",
-      "title": "旅の準備で、アプリを何度も行き来する",
-      "subtitle": "「また行きたい」から、予定が決まるまで。",
+      "title": "旅行の準備、使うサービスがバラバラ。",
       "stages": [
         {
-          "service": "LINE",
-          "action": "グループを作る",
-          "obstacle": "誰が同じ趣味？"
-        },
-        {
           "service": "Instagram",
-          "action": "友人の好みを探す",
-          "obstacle": "写真から探し直す"
+          "action": "行き先を探す"
         },
         {
           "service": "LINE",
-          "action": "仲間を招待する",
-          "obstacle": "一人ずつ声をかける"
+          "action": "みんなで相談する"
         },
         {
-          "service": "Instagram",
-          "action": "行き先を探す",
-          "obstacle": "候補をまた共有する"
-        },
-        {
-          "service": "予約サイト",
-          "action": "予約・連絡する",
-          "obstacle": "条件を伝え直す"
+          "service": "楽天トラベル",
+          "action": "宿を予約する"
         }
       ],
-      "takeaway": "「また行こう」が、旅の準備で止まっていませんか。",
-      "footnote": "日常の旅行計画を想定した場面例です。アプリ間の移動が再訪に及ぼす影響は未測定です。",
+      "takeaway": "行きたいのに、準備が面倒。",
+      "footnote": "旅行準備の一例",
       "duration": 25,
-      "notes": "LINEでグループを作ろうにも、誰が同じ趣味か分からない。Instagramで友達の好みを探し、LINEに戻って誘う。次はまたInstagramで行き先探し。候補を共有して日程を合わせ、最後は別のサイトで予約。「また行こう」までの準備、こんなに行ったり来たりしていませんか。",
+      "notes": "例えば、Instagramで行き先を探して、LINEでみんなに相談。宿の予約は楽天トラベルへ。行き先を変えたら、またLINEで相談です。行きたいだけなのに、使うサービスはバラバラ。何度も行き来する準備が、旅行へのハードルになっています。",
       "sources": [
         "../DESIGN.md"
       ],
@@ -59,8 +45,8 @@ window.KOU_DECK = {
       "id": "essence",
       "type": "essence",
       "section": "02 本質課題",
-      "title": "好みの発見が、仲間との合意や相談につながらない",
-      "subtitle": "一人が見つけた情報を、次の人・次の場所へ運び直している。",
+      "title": "再訪を気軽にするには、準備をひと続きに。",
+      "subtitle": "次の旅でも、探し直す・伝え直す手間を減らす。",
       "gaps": [
         {
           "title": "関心 → 仲間",
@@ -78,10 +64,10 @@ window.KOU_DECK = {
           "response": "共有を確認して直接相談へ"
         }
       ],
-      "takeaway": "関心・仲間・行き先・相談を、一続きにする必要がある。",
+      "takeaway": "探す・仲間と決める・事業者に相談する。この流れを途切れさせない。",
       "footnote": "前のページの場面例から整理した設計上の課題です。負担の大きさや再訪への因果は未測定です。",
       "duration": 15,
-      "notes": "本質は、情報の引き継ぎです。個人の「好き」を仲間との合意につなぎ、決めた条件を事業者へ伝え直す。その負担が、一人の幹事に集中しています。",
+      "notes": "また気軽に行けるようにするには、旅の準備がひと続きにつながることが大切です。毎回探し直す、同じ条件を伝え直す。その手間を減らすことを、再訪への入口にします。",
       "sources": [
         "../DESIGN.md"
       ],
@@ -93,7 +79,7 @@ window.KOU_DECK = {
       "type": "cover",
       "section": "03 講の提案",
       "title": "講",
-      "subtitle": "旅の準備の分断を、講でぶっ壊す。",
+      "subtitle": "仲間探しから事業者への相談まで、一つの「講」で。",
       "definition": "共通の目的で集まり、少しずつ力を持ち寄る仲間。",
       "prompts": [
         "写真・関心から仲間候補へ",
@@ -102,7 +88,7 @@ window.KOU_DECK = {
       ],
       "image": "../frontend/public/art/wa/travel-woodcut-v1-960.webp",
       "duration": 20,
-      "notes": "この分断を、私たちは「講」という考え方でぶっ壊しにきました。講は、共通の目的で集まり、少しずつ力を持ち寄る仲間。写真から関心を共有し、仲間と行き先を選び、事業者と直接相談する。その一連の準備を、一つの場につなげます。",
+      "notes": "この分断を、私たちは「講」でぶっ壊しにきました。写真から仲間候補を見つけ、行き先を決め、選んだ事業者に直接相談する。準備をひと続きにして、次の旅行を始める負担を減らす提案です。講は、目的のために力を持ち寄る仲間です。",
       "sources": [
         "../DESIGN.md"
       ],
