@@ -1,0 +1,19 @@
+{
+  "measured_at": "2026-11-10T04:36:00.319223+00:00",
+  "checks": {
+    "locked_sources_match": true,
+    "all_345_asvs_ids_present_once": true,
+    "no_unearned_pass_claims": true,
+    "skill_reads_local_rules": true,
+    "upstream_original_kept": true,
+    "rule_license_kept": true,
+    "asvs_license_kept": true,
+    "no_executable_skill_files": true,
+    "local_lock_path_valid": true
+  },
+  "passed": true,
+  "asvs_requirements": 345,
+  "app_evaluation": "not-run",
+  "limits": "Installation validation only. No ASVS compliance level or competition score is awarded.",
+  "independent_review": "No major findings; official versioned ASVS ID normalized, original CSV ID preserved separately."
+}

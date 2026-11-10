@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-11-10T04:35:05.121023+00:00",
+  "ticket": "EV01",
+  "scope": "evaluation support only; no runtime dependencies; installation is not evaluation completion",
+  "sources": [
+    {
+      "name": "Vercel web-design-guidelines",
+      "repo": "vercel-labs/agent-skills",
+      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/web-design-guidelines",
+      "adaptation": "fixed local rules and project applicability instead of moving network fetch; original preserved"
+    },
+    {
+      "name": "Vercel Web Interface Guidelines",
+      "repo": "vercel-labs/web-interface-guidelines",
+      "commit": "434b7f91364665f2f733b310ec54809bf8f37937",
+      "path": "command.md",
+      "license": "MIT; included"
+    },
+    {
+      "name": "OWASP ASVS",
+      "repo": "OWASP/ASVS",
+      "ref": "v5.0.0",
+      "path": "5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.csv",
+      "license": "CC BY-SA 4.0; included",
+      "requirements": 345
+    }
+  ],
+  "files_sha256": {
+    ".agents/skills/web-design-guidelines/SKILL.md": "67443e5387ffd4f29e40337b24525bc95a39bca610fc8450717f0732556e4e10",
+    ".agents/skills/web-design-guidelines/references/LICENSE.txt": "6cd1609c9c12233507cdd2ce0d32e9a721e3c27494951be06b90090deeeb7af2",
+    ".agents/skills/web-design-guidelines/references/upstream-SKILL.md.txt": "17e48da905f83a19c174079b50760a98c069527ba50079239b3c187236627c29",
+    ".agents/skills/web-design-guidelines/references/web-interface-guidelines.md": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+    "docs/evaluation-frameworks/ASVS-5.0.0-en.csv": "98c8fe911b9edb403af8ee05d3ce8201ecac2659e313b053890a62847cdcf680",
+    "docs/evaluation-frameworks/ASVS-LICENSE.md": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+  }
+}
