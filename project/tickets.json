@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 840,
-  "last_event_hash": "d0dab2408c51ff0da0a34a04827954fbc00d1e2161847ce2e101bb779160aedf",
-  "updated_at": "2026-11-10T12:43:45+09:00",
+  "revision": 843,
+  "last_event_hash": "4587fded3ddb6c58f3b5f2f73cbf4f18235de4e01d4458768e461693e108b6ac",
+  "updated_at": "2026-11-10T12:46:14+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3268,8 +3268,8 @@
         },
         {
           "at": "2026-11-10T12:43:45+09:00",
-          "text": "内容一致の中間MP4削除が自動承認レビューのblocked by policyで実行前に拒否された。削除・別経路での再試行は行わず保持。",
-          "path": "artifacts/video-revisit/cleanup-blocked.json"
+          "path": "artifacts/video-revisit/cleanup-blocked.json",
+          "text": "内容一致の中間MP4削除が自動承認レビューのblocked by policyで実行前に拒否された。削除・別経路での再試行は行わず保持。"
         }
       ],
       "id": "CP65",
@@ -4339,18 +4339,30 @@
           "at": "2026-11-10T12:43:45+09:00",
           "path": "docs/REVISIT-VIDEO-REVIEW.md",
           "text": "独立レビュー8項目は7PASS、実視聴者による細かなUIの連続視認は未検証。主担当によるv6差分確認を追補。"
+        },
+        {
+          "at": "2026-11-10T12:46:14+09:00",
+          "text": "制作ソースに既存版の上書き防止を追加。既存v5の拒否と6動画・10画像の不変を確認。",
+          "path": "artifacts/video-revisit/renderer-check/output-guard.json"
         }
       ],
       "id": "CP87",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P2",
-      "revision": 10,
-      "revisions": [],
+      "revision": 12,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:46:14+09:00",
+          "hash": "656b813e179eb0035a7abba9d121729aca0d1c9b",
+          "path": "project/revisions/656b813e179eb0035a7abba9d121729aca0d1c9b.txt",
+          "summary": "feat: publish six reviewed revisions of the 60-second revisit film"
+        }
+      ],
       "status": "review",
       "title": "三つの再訪施策を伝える約1分動画",
       "type": "task",
-      "updated_at": "2026-11-10T12:43:45+09:00"
+      "updated_at": "2026-11-10T12:46:14+09:00"
     },
     {
       "acceptance": [
@@ -4386,12 +4398,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-10T12:46:14+09:00",
+          "hash": "656b813e179eb0035a7abba9d121729aca0d1c9b",
+          "path": "project/revisions/656b813e179eb0035a7abba9d121729aca0d1c9b.txt",
+          "summary": "feat: publish six reviewed revisions of the 60-second revisit film"
+        }
+      ],
       "status": "done",
       "title": "階級取得前に新客と誤表示しない",
       "type": "bug",
-      "updated_at": "2026-11-10T12:43:44+09:00"
+      "updated_at": "2026-11-10T12:46:14+09:00"
     },
     {
       "acceptance": [
