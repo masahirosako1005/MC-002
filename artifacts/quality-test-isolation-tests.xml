@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="5" failures="0" skipped="0" tests="13" time="0.416" timestamp="2026-11-10T13:42:53.113167+09:00" hostname="Jisui-share002"><testcase classname="test.tooling.test_quality_check" name="test_new_issue_is_not_cancelled_by_an_unrelated_resolution" time="0.001" /><testcase classname="test.tooling.test_quality_check" name="test_existing_debt_is_not_called_clean" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_missing_or_failed_tool_never_passes" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_bandit_scan_errors_are_not_zero_findings_success" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_paths_normalize_platform_prefix_but_preserve_file_identity" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_duplicate_new_finding_is_detected" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_same_count_in_edited_file_requires_review_instead_of_false_pass" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_stylelint_parse_or_config_errors_are_not_clean" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_real_report_path_rejects_stylelint_parse_failure" time="0.002"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'&quot;">self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/quality-isolation-check-5cb5f517721e468ea1461fcac5dad552/pytest')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</error></testcase><testcase classname="test.tooling.test_quality_check" name="test_reports_only_never_overwrites_prior_report" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'&quot;">self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/quality-isolation-check-5cb5f517721e468ea1461fcac5dad552/pytest')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</error></testcase><testcase classname="test.tooling.test_quality_check" name="test_root_relocation_preserves_findings_and_hash_review[same-source-no-new-findings-existing-debt-0]" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'&quot;">self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/quality-isolation-check-5cb5f517721e468ea1461fcac5dad552/pytest')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</error></testcase><testcase classname="test.tooling.test_quality_check" name="test_root_relocation_preserves_findings_and_hash_review[edited-source-review-required-1]" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'&quot;">self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/quality-isolation-check-5cb5f517721e468ea1461fcac5dad552/pytest')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</error></testcase><testcase classname="test.tooling.test_quality_check" name="test_full_quality_runs_isolate_pytest_temp_and_cache" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'&quot;">self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/quality-isolation-check-5cb5f517721e468ea1461fcac5dad552/pytest')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\quality-isolation-check-5cb5f517721e468ea1461fcac5dad552\\pytest'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</error></testcase></testsuite></testsuites>

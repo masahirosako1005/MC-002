@@ -1,0 +1,29 @@
+{
+  "suite": "unit",
+  "mode": "collection",
+  "results": [
+    {
+      "name": "pytest-collect",
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-c",
+        "C:\\AI-Sprint\\workspace\\MC-002\\pytest.ini",
+        "test/backend",
+        "test/tooling",
+        "-q",
+        "--basetemp=C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\20261110T043456Z-8e251141\\pytest",
+        "--collect-only"
+      ],
+      "exit_code": 0,
+      "seconds": 2.254,
+      "passed": true,
+      "stdout": "artifacts/test-runs/20261110T043456Z-8e251141/pytest-collect-stdout.txt",
+      "stderr": "artifacts/test-runs/20261110T043456Z-8e251141/pytest-collect-stderr.txt"
+    }
+  ],
+  "not_executed": [],
+  "passed": true,
+  "scope": "Collection/syntax is not proof of browser or live database behavior. No build, dependency installation, or app startup is performed."
+}

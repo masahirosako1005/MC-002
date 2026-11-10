@@ -1,0 +1,1303 @@
+{
+  "source_scene_json": "artifacts/video-revisit/v13/scenes.json",
+  "source_scene_json_sha256": "23d3066ddf679c8bc1797a26e0669d167a7f94c67e55fbe14911f271f6f6a763",
+  "character_sha256": "8254d72d512c13da1ce75cd4b3e8b6521601af1f8227f408f7bdffdbdc3694ad",
+  "character_path": "assets/revisit-guide/guide-female-v1.png",
+  "capture_regions": [
+    {
+      "source": "artifacts/video-revisit/v13/operations/pc-login-0194.png",
+      "box": [
+        280,
+        105,
+        1360,
+        850
+      ],
+      "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "pc-login",
+        "sequence": [
+          {
+            "at": 0,
+            "group": "pc-login",
+            "source_seconds": 0
+          },
+          {
+            "at": 3,
+            "group": "pc-login-open",
+            "source_seconds": 0
+          },
+          {
+            "at": 6,
+            "group": "pc-login-dashboard",
+            "source_seconds": 0
+          }
+        ],
+        "editing_note": "Actual login screen, masked sample credentials and successful login, then actual dashboard. Reading holds only; no simulated login event."
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/phone-photo-0123.png",
+      "box": [
+        1272,
+        105,
+        406,
+        850
+      ],
+      "sha256": "dd5bcd06bda6ff54559a7985676e24c179d8adaf8da7b4466f62bbe1b4d4b687",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "phone-photo",
+        "sequence": [
+          {
+            "at": 0,
+            "group": "phone-photo",
+            "source_seconds": 0
+          },
+          {
+            "at": 3,
+            "group": "phone-photo-publish",
+            "source_seconds": 0
+          },
+          {
+            "at": 6,
+            "group": "phone-photo-profile",
+            "source_seconds": 0
+          }
+        ],
+        "editing_note": "Actual photo/tag choice, confirmed publish, then own preference selection and permission. A cut separates each recorded action; copying interests is never implied to be automatic."
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/phone-match-0000.png",
+      "box": [
+        1272,
+        105,
+        406,
+        850
+      ],
+      "sha256": "768b03b50d7ef24eef8526e83dfb5f0a41b5600f796cee1df7c52c09e634ca67",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "phone-match",
+        "sequence": [
+          {
+            "at": 0,
+            "group": "phone-match",
+            "source_seconds": 0
+          },
+          {
+            "at": 3,
+            "group": "phone-match-selected",
+            "source_seconds": 0
+          }
+        ],
+        "editing_note": "Search results then separately recorded actual selection. A visible cut separates these real states; no selection or application output is synthesized."
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/phone-select-pottery-0165.png",
+      "box": [
+        1272,
+        105,
+        406,
+        850
+      ],
+      "sha256": "ddf632d82550f01650b108b384b12c1984901b8407e3b3d768c7c25807df5389",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "phone-select-pottery"
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/phone-chat-pottery-0182.png",
+      "box": [
+        1272,
+        105,
+        406,
+        850
+      ],
+      "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "phone-chat-pottery"
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/phone-reflection-0071.png",
+      "box": [
+        1272,
+        105,
+        406,
+        850
+      ],
+      "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "phone-reflection"
+      }
+    },
+    {
+      "source": "artifacts/video-revisit/v13/operations/pc-program-0079.png",
+      "box": [
+        516,
+        255,
+        1227,
+        690
+      ],
+      "sha256": "5c6503c85200a9432ca3bd241daac77cbcf9abc6ef892b8ac047b72e6df851c8",
+      "capture_spec": {
+        "directory": "artifacts/video-revisit/v13/operations",
+        "group": "pc-program",
+        "sequence": [
+          {
+            "at": 0,
+            "group": "pc-program",
+            "source_seconds": 0
+          },
+          {
+            "at": 3,
+            "group": "phone-program-received",
+            "source_seconds": 0
+          },
+          {
+            "at": 7,
+            "group": "phone-program-course",
+            "source_seconds": 0
+          }
+        ],
+        "editing_note": "Actual provider send, then recipient view of the same saved message, then the existing course progress. Each segment plays at original recorded speed; gaps between views are omitted."
+      }
+    }
+  ],
+  "font": "Meiryo / Meiryo Bold; brush only for seals and chapter numerals",
+  "audio_speed_policy": "Original native Sayaka Rate 2; no post-generation acceleration",
+  "operations": [
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "pc-login",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "pc-login",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "pc-login-open",
+          "source_seconds": 0
+        },
+        {
+          "at": 6,
+          "group": "pc-login-dashboard",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual login screen, masked sample credentials and successful login, then actual dashboard. Reading holds only; no simulated login event."
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-photo",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "phone-photo",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-photo-publish",
+          "source_seconds": 0
+        },
+        {
+          "at": 6,
+          "group": "phone-photo-profile",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual photo/tag choice, confirmed publish, then own preference selection and permission. A cut separates each recorded action; copying interests is never implied to be automatic."
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-match",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "phone-match",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-match-selected",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Search results then separately recorded actual selection. A visible cut separates these real states; no selection or application output is synthesized."
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-select-pottery"
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-chat-pottery"
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-reflection"
+    },
+    {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "pc-program",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "pc-program",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-program-received",
+          "source_seconds": 0
+        },
+        {
+          "at": 7,
+          "group": "phone-program-course",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual provider send, then recipient view of the same saved message, then the existing course progress. Each segment plays at original recorded speed; gaps between views are omitted."
+    }
+  ],
+  "recording_manifests": [
+    {
+      "path": "artifacts/video-revisit/v13/operations/recording.json",
+      "sha256": "c9f7a6a0e3eef53cab9fdb173267db0b7a0d1ceb65fda652acffec28e302e24a",
+      "frames": [
+        {
+          "file": "phone-match-0000.png",
+          "sha256": "768b03b50d7ef24eef8526e83dfb5f0a41b5600f796cee1df7c52c09e634ca67"
+        },
+        {
+          "file": "phone-match-0001.png",
+          "sha256": "768b03b50d7ef24eef8526e83dfb5f0a41b5600f796cee1df7c52c09e634ca67"
+        },
+        {
+          "file": "phone-match-0002.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0003.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0004.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0005.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0006.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0007.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0008.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0009.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0010.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0011.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0012.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0013.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0014.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0015.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0016.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0017.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0018.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-0019.png",
+          "sha256": "5615cf357f742c4a22fb4229abc6b480e1ce5a221b13aa2d8757f42792a42f11"
+        },
+        {
+          "file": "phone-match-selected-0020.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0021.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0022.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0023.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0024.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0025.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0026.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0027.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0028.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-match-selected-0029.png",
+          "sha256": "ef1c5ae919d1ee4c5b489fd8eeb81a136ba896989d8b8af7e288be587b24cc3b"
+        },
+        {
+          "file": "phone-select-0030.png",
+          "sha256": "c9e292b6b64a6acbc78d12e73b41e0dd08b17bf633285b3dafc4765c2925e6a3"
+        },
+        {
+          "file": "phone-select-0031.png",
+          "sha256": "c9e292b6b64a6acbc78d12e73b41e0dd08b17bf633285b3dafc4765c2925e6a3"
+        },
+        {
+          "file": "phone-select-0032.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0033.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0034.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0035.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0036.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0037.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0038.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0039.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0040.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0041.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0042.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0043.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0044.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0045.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0046.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0047.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0048.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-select-0049.png",
+          "sha256": "fb398ebf4c42efdc23de69e96a8a5b37fd12dd3f93cd62ae37459ace8045677e"
+        },
+        {
+          "file": "phone-chat-0050.png",
+          "sha256": "11dbb9d2e2f03086b3a35344075be8969a4239e98a297c3232415362be33ff58"
+        },
+        {
+          "file": "phone-chat-0051.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0052.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0053.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0054.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0055.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0056.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0057.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0058.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0059.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0060.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0061.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0062.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0063.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0064.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0065.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0066.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0067.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0068.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0069.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-chat-0070.png",
+          "sha256": "312a05ea799917094a3132d451df94003d9379321426c1d1d440c4a6b0d1793b"
+        },
+        {
+          "file": "phone-reflection-0071.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0072.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0073.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0074.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0075.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0076.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0077.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "phone-reflection-0078.png",
+          "sha256": "aff7bda2bfecf9a4c6092a2c17da926ba4f8f429f5ee8914e0f7daed81c2ac15"
+        },
+        {
+          "file": "pc-program-0079.png",
+          "sha256": "5c6503c85200a9432ca3bd241daac77cbcf9abc6ef892b8ac047b72e6df851c8"
+        },
+        {
+          "file": "pc-program-0080.png",
+          "sha256": "c526e0120f80403cf34f00aaa96ab0bfdcc2b25ab8db0386606ceec7eb6d73ba"
+        },
+        {
+          "file": "pc-program-0081.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0082.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0083.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0084.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0085.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0086.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0087.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0088.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0089.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0090.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0091.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0092.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0093.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0094.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0095.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0096.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0097.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0098.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0099.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "pc-program-0100.png",
+          "sha256": "2d20e60d92f233ba5af055686892805f5b3388f82677bcc56e58bf9ec3d93cf2"
+        },
+        {
+          "file": "phone-program-received-0101.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0102.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0103.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0104.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0105.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0106.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0107.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0108.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0109.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0110.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0111.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-received-0112.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-program-course-0113.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0114.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0115.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0116.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0117.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0118.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0119.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0120.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0121.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-program-course-0122.png",
+          "sha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8"
+        },
+        {
+          "file": "phone-photo-0123.png",
+          "sha256": "dd5bcd06bda6ff54559a7985676e24c179d8adaf8da7b4466f62bbe1b4d4b687"
+        },
+        {
+          "file": "phone-photo-0124.png",
+          "sha256": "dd5bcd06bda6ff54559a7985676e24c179d8adaf8da7b4466f62bbe1b4d4b687"
+        },
+        {
+          "file": "phone-photo-0125.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0126.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0127.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0128.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0129.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0130.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0131.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0132.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0133.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0134.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0135.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0136.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0137.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-0138.png",
+          "sha256": "7b0091521e9e523030426cc183c021bbd0c5fabc2f7c28feb3fb7217c6c0b084"
+        },
+        {
+          "file": "phone-photo-publish-0139.png",
+          "sha256": "9a1691ffea658bb28c82616eb5bec3b6a3d798263da0446b33bc12f9c5eab39a"
+        },
+        {
+          "file": "phone-photo-publish-0140.png",
+          "sha256": "9a1691ffea658bb28c82616eb5bec3b6a3d798263da0446b33bc12f9c5eab39a"
+        },
+        {
+          "file": "phone-photo-publish-0141.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0142.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0143.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0144.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0145.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0146.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0147.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0148.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0149.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0150.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0151.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0152.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0153.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-publish-0154.png",
+          "sha256": "bfb4d22cdbfef6102d09e7f95ac667c04a5bf9df972058c8b8bfdd787b02a6c7"
+        },
+        {
+          "file": "phone-photo-profile-0155.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0156.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0157.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0158.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0159.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0160.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0161.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0162.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0163.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-photo-profile-0164.png",
+          "sha256": "586fcf317138f3a3d89bb7715f1ba6b10ae8cfa4bb4cf130641d041847cac05a"
+        },
+        {
+          "file": "phone-select-pottery-0165.png",
+          "sha256": "ddf632d82550f01650b108b384b12c1984901b8407e3b3d768c7c25807df5389"
+        },
+        {
+          "file": "phone-select-pottery-0166.png",
+          "sha256": "6e21c52155fe18f238eb0ddf11056e5d979e4d160012280c61c132e0eadb23ef"
+        },
+        {
+          "file": "phone-select-pottery-0167.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0168.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0169.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0170.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0171.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0172.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0173.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0174.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0175.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0176.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0177.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0178.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0179.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0180.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-select-pottery-0181.png",
+          "sha256": "1a8ea9217f5cd78dc5e1324b74dfbae36c4d2921e8c667db5d2cf58e4dd0e400"
+        },
+        {
+          "file": "phone-chat-pottery-0182.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0183.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0184.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0185.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0186.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0187.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0188.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0189.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0190.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0191.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0192.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "phone-chat-pottery-0193.png",
+          "sha256": "f3f04f081fe37672190e3d57499c5049cd66f06ecaffbe5b83e5b358a21cfd33"
+        },
+        {
+          "file": "pc-login-0194.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0195.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0196.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0197.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0198.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0199.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0200.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-0201.png",
+          "sha256": "5be15f6bbdf52bcd04c35d93fcf5b2e7904a524f868e0eb2309c94958dd1477e"
+        },
+        {
+          "file": "pc-login-open-0202.png",
+          "sha256": "1ce9251346900272f9ffe9d5c960742b40f0dbd080cb418ece32d80149ba50f2"
+        },
+        {
+          "file": "pc-login-open-0203.png",
+          "sha256": "292efb2449243fd56817efb0acd56a50d16804fff926163b7d48a8abe09b62d0"
+        },
+        {
+          "file": "pc-login-open-0204.png",
+          "sha256": "b93fdbafae7238d538f6244ce47b4b46389f13ba73f48693137b17589f69e93d"
+        },
+        {
+          "file": "pc-login-open-0205.png",
+          "sha256": "591ad923b6e0847c6224275940ca4183f0a2df405c8005f751b87ebc102920da"
+        },
+        {
+          "file": "pc-login-open-0206.png",
+          "sha256": "268be96b5cbc4e06ad3837fc1a8590415e73825a697b035e3d4b8940f5970697"
+        },
+        {
+          "file": "pc-login-open-0207.png",
+          "sha256": "268be96b5cbc4e06ad3837fc1a8590415e73825a697b035e3d4b8940f5970697"
+        },
+        {
+          "file": "pc-login-open-0208.png",
+          "sha256": "5d9f8fc6925230798d15c438f7afb0f19a6f4bbe8e9fd5fbef6471064ff79cab"
+        },
+        {
+          "file": "pc-login-open-0209.png",
+          "sha256": "d8cce64557a656355c316466f69aecb8dbf5d9cbcf394c3e98416859d62e34b6"
+        },
+        {
+          "file": "pc-login-open-0210.png",
+          "sha256": "19babb34c774a8643934a0083fe3cde590b7909ad06c6a0cee8656e412dcc964"
+        },
+        {
+          "file": "pc-login-open-0211.png",
+          "sha256": "0dd4d212f0568cc00041878bd9fa4057b3fdac1af84098feada586cf94c145af"
+        },
+        {
+          "file": "pc-login-open-0212.png",
+          "sha256": "0dd4d212f0568cc00041878bd9fa4057b3fdac1af84098feada586cf94c145af"
+        },
+        {
+          "file": "pc-login-open-0213.png",
+          "sha256": "0dd4d212f0568cc00041878bd9fa4057b3fdac1af84098feada586cf94c145af"
+        },
+        {
+          "file": "pc-login-open-0214.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0215.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0216.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0217.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0218.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0219.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0220.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0221.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0222.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0223.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0224.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0225.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0226.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0227.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-open-0228.png",
+          "sha256": "8fa68d6b754b858f8640c9d4a2c015e0fe7f8b8eaf64dfa2ffa969ed5e0d2479"
+        },
+        {
+          "file": "pc-login-dashboard-0229.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0230.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0231.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0232.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0233.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0234.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0235.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        },
+        {
+          "file": "pc-login-dashboard-0236.png",
+          "sha256": "2a55fe425d16bfc76d58fabff313f30c525d7aacfbb8ba32af64bd89e34df6fa"
+        }
+      ]
+    }
+  ],
+  "script_sha256": "bf6f19ed33b9cddeadc3164f7346e09882c8c347c300281c01678ab72eb44921",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "login",
+      "seconds": 11.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-00.png",
+      "source_sha256": "c260667944ba93457f1a92599b9768d632ec2ffa8acedee5da931a8288b8232b",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 1,
+      "kind": "photo",
+      "seconds": 9.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-01.png",
+      "source_sha256": "cbaaf7a00b4624a214a0da200f91e5840014d5ebb37ac8db4a55f0e57963da28",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 2,
+      "kind": "match",
+      "seconds": 10.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-02.png",
+      "source_sha256": "a769ad8278e16ef3b789983b65f9e32d9be0393e2afb6a902a24274a180a9b57",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 3,
+      "kind": "select",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-03.png",
+      "source_sha256": "cefdf09515616c7bb55ab79c654fd51caae31183713c531879f52ad93ce50043",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 4,
+      "kind": "chat",
+      "seconds": 10.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-04.png",
+      "source_sha256": "53d3fb885d63986ad6893f2b1e7896e6d03c12534ecef14cb0a4581ba1b5a666",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 5,
+      "kind": "reflection",
+      "seconds": 7.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-05.png",
+      "source_sha256": "7f4b0a16d33712587005f6112d33cef066f736ee844e6a31389cc82a3fd884da",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 6,
+      "kind": "program",
+      "seconds": 13.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-06.png",
+      "source_sha256": "47f286c7639e25ef7f4e485dbfea6058097a2318a3f9ac4b1d13eeeced29e21e",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 7,
+      "kind": "closing",
+      "seconds": 5.0,
+      "source": "artifacts/video-revisit/v13/layers/scene-07.png",
+      "source_sha256": "8fec96ea9cad3d922e6f877a11f4312037e7c26a7acafac9d77c023402364c5e",
+      "alternate": null,
+      "alternate_sha256": null
+    }
+  ]
+}

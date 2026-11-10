@@ -1,0 +1,3 @@
+リビジョン: b651de08409fa506653e15b8dc9e50d02233ca1f
+件名: Simplify problem opening and show continuous preparation path
+確認日時: 2026-11-10T15:51:49+09:00

@@ -1,0 +1,14 @@
+{
+  "tempo_processing": "None",
+  "voice": "Microsoft Sayaka",
+  "script_sha256": "663df805e52ed88cc46303d75821c9836caf2cc01091b4a8aab8aa55c39610e8",
+  "rate": 2,
+  "executable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe",
+  "pitch": "medium",
+  "sentence_pause_ms": 80,
+  "version": "7.6.9",
+  "text": "利用者は、こうを感じる和の画面。事業者は、数字が読みやすい管理画面。ログインして、使ってみましょう。",
+  "human_listening": "Not performed",
+  "emphasis": "Only the word login, volume 85 to 95",
+  "volume": 90
+}

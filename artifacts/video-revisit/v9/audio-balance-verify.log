@@ -1,0 +1,14 @@
+[aist#0:0/pcm_s16le @ 000002415d397180] Guessed Channel Layout: stereo
+Input #0, wav, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v9\pcm\narration-60s.wav':
+  Duration: 00:01:00.00, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, s16le, to 'pipe:1':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+[out#0/s16le @ 000002415d31e680] video:0KiB audio:11250KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+size=   11250KiB time=00:01:00.00 bitrate=1536.0kbits/s speed= 458x    

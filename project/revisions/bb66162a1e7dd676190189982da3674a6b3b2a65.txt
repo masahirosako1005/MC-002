@@ -1,0 +1,3 @@
+リビジョン: bb66162a1e7dd676190189982da3674a6b3b2a65
+件名: feat: simplify opening and connect seamless planning to revisits
+確認日時: 2026-11-10T15:26:15+09:00

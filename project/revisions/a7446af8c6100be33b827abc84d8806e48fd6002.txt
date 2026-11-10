@@ -1,0 +1,3 @@
+リビジョン: a7446af8c6100be33b827abc84d8806e48fd6002
+件名: feat: publish v13 usage tour with warm female narration
+確認日時: 2026-11-10T14:46:14+09:00

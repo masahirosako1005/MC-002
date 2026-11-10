@@ -1,0 +1,3 @@
+リビジョン: 30215c49697212b05b5b47433ded301129f703ef
+件名: feat: frame presentation around problem cause and kou proposal
+確認日時: 2026-11-10T15:22:49+09:00

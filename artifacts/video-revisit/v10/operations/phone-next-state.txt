@@ -1,0 +1,22 @@
+Browser tab: 9, Title: "講 — 日帰りの旅と仲間", URL: "http://127.0.0.1:8081/stage/visitor".
+0 AXWebArea 講 — 日帰りの旅と仲間, URL: 127.0.0.1:8081/stage/visitor
+	1 container 第2回の開催を選ぶ
+		2 container
+			3 heading 第2回の開催を選ぶ, Value: 2
+				4 text 第2回の開催を選ぶ
+			5 button 閉じる
+		6 container
+			7 text N西くらしの陶房  ·  N西市
+		8 heading 絵付けと仕上げをする, Value: 3
+			9 text 絵付けと仕上げをする
+		10 text 前回の器に絵付けをし、仕上がりを相談する。
+		11 container
+			12 text 対象プラン： 絵付けと仕上げをする
+		13 heading 対象プランの開催がありません, Value: 4
+			14 text 対象プランの開催がありません
+		15 text 講でこのプランを相談し、事業者の招待承諾を受けて開催を作ります。本人の参加承諾後に、ここで選べます。
+		16 button この回の開催をつくる
+		17 button 講でプランを相談する
+		18 text 紐付けを外しても、開催・参加記録・ポイントは削除されません。
+
+The focused UI element is 5 button 閉じる

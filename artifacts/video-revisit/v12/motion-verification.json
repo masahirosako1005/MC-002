@@ -1,0 +1,311 @@
+{
+  "source_scene_json": "artifacts/video-revisit/v12/scenes.json",
+  "source_scene_json_sha256": "f91f52be558a87790b64bb06957d742d36f977adf33b0ec868d2bd54c1aa3ac6",
+  "character_sha256": "8254d72d512c13da1ce75cd4b3e8b6521601af1f8227f408f7bdffdbdc3694ad",
+  "character_path": "assets/revisit-guide/guide-female-v1.png",
+  "operations_manifest": "artifacts/video-revisit/v10/operations/recording.json",
+  "fortune_operations_manifest": "operations/recording.json",
+  "operations_used": [
+    "pc-city",
+    "pc-revisit",
+    "phone-open",
+    "phone-scroll",
+    "phone-omikuji"
+  ],
+  "capture_regions": [
+    {
+      "source": "artifacts/video-revisit/screens/visitor-home.jpg",
+      "box": [
+        613,
+        505,
+        239,
+        424
+      ],
+      "sha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-overview.jpg",
+      "box": [
+        1102,
+        535,
+        566,
+        390
+      ],
+      "sha256": "b98e0101c730d4a1ea50bfa4e672f8b6576cfdeefdb221e1b0b9e10b0b052b15"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/visitor-home.jpg",
+      "box": [
+        1326,
+        205,
+        418,
+        740
+      ],
+      "sha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/visitor-chat.jpg",
+      "box": [
+        1326,
+        205,
+        418,
+        740
+      ],
+      "sha256": "c04f999e0bee4b4c81ac4a7acaaf7d66b98d923f39524543be3b4cf093ba73c7"
+    },
+    {
+      "source": "artifacts/video-revisit/v10/operations/pc-city-078.jpg",
+      "box": [
+        472,
+        205,
+        1316,
+        740
+      ],
+      "sha256": "93191c06db998fb5f4ed262b7ffa28fe9483f4a5945cff8613afe264296d6ca7"
+    },
+    {
+      "source": "artifacts/video-revisit/v10/operations/pc-city-078.jpg",
+      "box": [
+        472,
+        205,
+        1316,
+        740
+      ],
+      "sha256": "93191c06db998fb5f4ed262b7ffa28fe9483f4a5945cff8613afe264296d6ca7"
+    },
+    {
+      "source": "artifacts/video-revisit/v10/operations/phone-open-000.jpg",
+      "box": [
+        1358,
+        205,
+        354,
+        740
+      ],
+      "sha256": "acd1390be09c9e39c41147b4c5aa916f9ec6cdefcbf54a925eeb5ef50cadf0f1"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/06-rank-phone.jpg",
+      "box": [
+        1317,
+        205,
+        435,
+        740
+      ],
+      "sha256": "69dcb4aa0c4ed884add443af273f7c061a2f3fa998594527be21fffc7b75e21b"
+    },
+    {
+      "source": "artifacts/video-revisit/screens/provider-budget.jpg",
+      "box": [
+        806,
+        728,
+        667,
+        175
+      ],
+      "sha256": "e3e3840c72b7561c4f64967bcb436b4af2477e531f1748d17808fc9f9a4acb2b"
+    },
+    {
+      "source": "artifacts/video-revisit/v12/operations/ar-000.jpg",
+      "box": [
+        1358,
+        205,
+        354,
+        740
+      ],
+      "sha256": "e6d6a62cde382efb2d354ebd1c00f474fa5e59b4602e5236072754277a009275"
+    }
+  ],
+  "character_motion": "Entrance 0.42s; two 0.45s emphasis beats; no lip-sync claim",
+  "font": "Meiryo / Meiryo Bold for explanations; brush only for seals and decorative numerals",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "intro",
+      "seconds": 6.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-00.png",
+      "source_sha256": "54d009e84b26b1c4d96c6baa52d66d28bfb6d908b4555fcd6107bfe7c3857bb9",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 1,
+      "kind": "overview",
+      "seconds": 6.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-01.png",
+      "source_sha256": "6c0ea12c48d1e2362dc7c0f7917c35405f32188d95f732b365395caf7e9ccbf1",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 2,
+      "kind": "visitor",
+      "seconds": 7.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-02.png",
+      "source_sha256": "0e66b34a0ce7ef7c6764432cd2b67d427a7b5be59c193f10ba2638579b034275",
+      "alternate": "artifacts/video-revisit/v12/layers/scene-02-alt.png",
+      "alternate_sha256": "2e1f0a4450e9824eb8f950ce7e863fdd0970eb66dd63931cb2858a5ed1ee7aff"
+    },
+    {
+      "index": 3,
+      "kind": "provider",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-03.png",
+      "source_sha256": "e0d6723c7431a2cbc90c3fdb5693bdf97263a6f9e4ff2b5a56febe968f400beb",
+      "alternate": "artifacts/video-revisit/v12/layers/scene-03-alt.png",
+      "alternate_sha256": "e0d6723c7431a2cbc90c3fdb5693bdf97263a6f9e4ff2b5a56febe968f400beb"
+    },
+    {
+      "index": 4,
+      "kind": "program",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-04.png",
+      "source_sha256": "0c55ef11edf5ece7efcee1a10c9a044cd8f9a9256da91dfbffad054b36a867d6",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 5,
+      "kind": "rank",
+      "seconds": 8.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-05.png",
+      "source_sha256": "ca90097474f5c3cb1d017719ab2de9a21b18a286d2b499958326fca0d347bca7",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 6,
+      "kind": "zone",
+      "seconds": 9.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-06.png",
+      "source_sha256": "8bf749f99bf7bc5527c794e9edbae91383a311062dc3f2c2b9f028f2330450ce",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 7,
+      "kind": "fortune",
+      "seconds": 13.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-07.png",
+      "source_sha256": "d69013b1b05e551239f8621b8c67fed3a3a9ea150faad37a421c221ff81eb05a",
+      "alternate": null,
+      "alternate_sha256": null
+    },
+    {
+      "index": 8,
+      "kind": "closing",
+      "seconds": 5.0,
+      "source": "artifacts/video-revisit/v12/layers/scene-08.png",
+      "source_sha256": "009514956e9643d558561baf98be41f9aa2babe4a530ec45695c8d18b9c925d2",
+      "alternate": null,
+      "alternate_sha256": null
+    }
+  ],
+  "voice_plan": [
+    {
+      "scene": 0,
+      "original_seconds": 4.0118125,
+      "tempo": 1.0,
+      "fitted_seconds": 4.0118125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.7681875,
+      "original_sha256": "e0300fdaa74796ec54e8696748697ee37589809cd6f778b5614939f0b2ddbd91",
+      "trimmed": false
+    },
+    {
+      "scene": 1,
+      "original_seconds": 3.637125,
+      "tempo": 1.0,
+      "fitted_seconds": 3.637125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.142875,
+      "original_sha256": "768802aa5eff7374f02e6b216bb78a764246c64125ffd35bfd1b0dd42ad2951d",
+      "trimmed": false
+    },
+    {
+      "scene": 2,
+      "original_seconds": 4.266,
+      "tempo": 1.0,
+      "fitted_seconds": 4.266,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.514,
+      "original_sha256": "bf46ee1a0d38bac8e637cf7c02f23f24997802a2c236790e34f3baf1bca80e0e",
+      "trimmed": false
+    },
+    {
+      "scene": 3,
+      "original_seconds": 5.5765625,
+      "tempo": 1.0,
+      "fitted_seconds": 5.5765625,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.2034375,
+      "original_sha256": "1db6308fa7c913d2fac9d2232cf6484d9c03b943b8f36fd78e67fe3cdeaf3a44",
+      "trimmed": false
+    },
+    {
+      "scene": 4,
+      "original_seconds": 6.223125,
+      "tempo": 1.0,
+      "fitted_seconds": 6.223125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.556875,
+      "original_sha256": "c6a03da57e8db6251213e9d8901f45e9bae8f7ee418a74f95607d223ddb73da1",
+      "trimmed": false
+    },
+    {
+      "scene": 5,
+      "original_seconds": 5.6118125,
+      "tempo": 1.0,
+      "fitted_seconds": 5.6118125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.1681875,
+      "original_sha256": "2d1c53d8f53d3a411deafe871626461864fffaa9e70b2803123d1704f39df454",
+      "trimmed": false
+    },
+    {
+      "scene": 6,
+      "original_seconds": 7.450875,
+      "tempo": 1.0,
+      "fitted_seconds": 7.450875,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.329125,
+      "original_sha256": "7cfc3650496407922cfe5dbbe050dbc580dd22b0ff2193fe0356b7e4f9193e1a",
+      "trimmed": false
+    },
+    {
+      "scene": 7,
+      "original_seconds": 9.0433125,
+      "tempo": 1.0,
+      "fitted_seconds": 9.0433125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 3.7366875,
+      "original_sha256": "2bf25d7f2f779ae905cea22917e3b6d19fcbe02f18ac86a5c893cd2855464f34",
+      "trimmed": false
+    },
+    {
+      "scene": 8,
+      "original_seconds": 2.8698125,
+      "tempo": 1.0,
+      "fitted_seconds": 2.8698125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.9101875,
+      "original_sha256": "dedd859693da8f66d9a703dd7d1eade97867e620abd6bd2e945749f31acac10a",
+      "trimmed": false
+    }
+  ],
+  "pcm_loudness": {
+    "integrated_lufs": -24.8,
+    "true_peak_dbfs": -6.9,
+    "loudness_range_lu": 8.0
+  },
+  "frames": 2100,
+  "duration_seconds": 70.0,
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "decode": "passed",
+  "decoded_duration_seconds": 70.0,
+  "sha256": "b251f21f214d99918fbb0bbf03179e4c4fd0478340de4da7135d8031298d2ab6",
+  "bytes": 3910697,
+  "output": "artifacts/video-revisit/v12/guide-raw.mp4"
+}

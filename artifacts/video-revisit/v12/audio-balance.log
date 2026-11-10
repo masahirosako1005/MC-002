@@ -1,0 +1,14 @@
+[aist#0:0/pcm_s16le @ 000001c7a81fed00] Guessed Channel Layout: stereo
+Input #0, wav, from 'artifacts\video-revisit\v12\pcm\narration-70s.wav':
+  Duration: 00:01:10.00, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, wav, to 'artifacts\video-revisit\v12\pcm\narration-balanced.wav':
+  Metadata:
+    ISFT            : Lavf61.7.100
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+[out#0/wav @ 000001c7a81feec0] video:0KiB audio:13125KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000580%
+size=   13125KiB time=00:01:10.00 bitrate=1536.0kbits/s speed= 676x    

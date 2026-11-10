@@ -1,0 +1,3 @@
+リビジョン: c80c2a93a686ec009d8bae0748c9664bcf00098f
+件名: feat: add monthly onsite omikuji with rank odds and budgeted rewards
+確認日時: 2026-11-10T14:06:36+09:00

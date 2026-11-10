@@ -1,0 +1,3 @@
+リビジョン: 1074699c47f0e3970eb9c9c380ee77b65ec8a2c4
+件名: Redesign presentation and assign speaker handoffs
+確認日時: 2026-11-10T15:35:26+09:00

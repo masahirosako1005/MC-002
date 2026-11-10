@@ -1,0 +1,113 @@
+{
+  "take": "eight-scene-tour-reuse",
+  "source_take": "reading-final-06",
+  "no_new_synthesis": true,
+  "voice": {
+    "name": "Microsoft Sayaka",
+    "culture": "ja-JP",
+    "gender": "Female"
+  },
+  "rate": 2,
+  "duration_seconds": 68,
+  "frames": 2040,
+  "speech_seconds": 50.690875,
+  "scenes": [
+    {
+      "scene": 0,
+      "source_scene": 0,
+      "original_sha256": "c6bbe144e50b7bde79e88d8848c05afb62e08d71f3fd77c2fdbde76087f79303",
+      "output_sha256": "c6bbe144e50b7bde79e88d8848c05afb62e08d71f3fd77c2fdbde76087f79303",
+      "speech_seconds": 5.1036875,
+      "scene_seconds": 6,
+      "trailing_seconds": 0.6763124999999999,
+      "clipped_samples": 0,
+      "spoken_text": "旅の前の、人探しや日程調整。大変ですよね。"
+    },
+    {
+      "scene": 1,
+      "source_scene": 1,
+      "original_sha256": "f185a2a887511991fecfa668e9d8c44eec59b54e9dfc305699beb143b5c39c01",
+      "output_sha256": "f185a2a887511991fecfa668e9d8c44eec59b54e9dfc305699beb143b5c39c01",
+      "speech_seconds": 6.3615625,
+      "scene_seconds": 9,
+      "trailing_seconds": 2.4184374999999996,
+      "clipped_samples": 0,
+      "spoken_text": "写真を投稿すると、タグ候補が。確認するだけで、次の仲間探しに。"
+    },
+    {
+      "scene": 2,
+      "source_scene": 2,
+      "original_sha256": "ed64cf4ef9e33eeb7e94add336e4498a9b8af18e6e64615ba0e563b06a96594e",
+      "output_sha256": "ed64cf4ef9e33eeb7e94add336e4498a9b8af18e6e64615ba0e563b06a96594e",
+      "speech_seconds": 8.522375,
+      "scene_seconds": 10,
+      "trailing_seconds": 1.257624999999999,
+      "clipped_samples": 0,
+      "spoken_text": "こうは、目的を持つ仲間。同じコミュニティの趣味から、候補を提案。自分で選んで誘えます。"
+    },
+    {
+      "scene": 3,
+      "source_scene": 3,
+      "original_sha256": "81c86dae869540a6fa487a80f6df1dcb76dbed00f3da3ca4570bcf2ac332d590",
+      "output_sha256": "81c86dae869540a6fa487a80f6df1dcb76dbed00f3da3ca4570bcf2ac332d590",
+      "speech_seconds": 7.0860625,
+      "scene_seconds": 8,
+      "trailing_seconds": 0.6939375000000005,
+      "clipped_samples": 0,
+      "spoken_text": "行きたい場所を選んだら、その事業者を講へ招待。承諾されたら、直接やりとり。"
+    },
+    {
+      "scene": 4,
+      "source_scene": 4,
+      "original_sha256": "96d602bd7450114304a123b6ba0628a89289623203b3b6ab31af8677cbb82f61",
+      "output_sha256": "96d602bd7450114304a123b6ba0628a89289623203b3b6ab31af8677cbb82f61",
+      "speech_seconds": 5.715,
+      "scene_seconds": 10,
+      "trailing_seconds": 4.0649999999999995,
+      "clipped_samples": 0,
+      "spoken_text": "人数も日程も、行程や見積も。一つの講で相談できます。"
+    },
+    {
+      "scene": 5,
+      "source_scene": 5,
+      "original_sha256": "5a7dba79d9ff6c633af6284528a2854977e28c614847857d6180b00a7610a468",
+      "output_sha256": "5a7dba79d9ff6c633af6284528a2854977e28c614847857d6180b00a7610a468",
+      "speech_seconds": 5.850875,
+      "scene_seconds": 7,
+      "trailing_seconds": 0.929125,
+      "clipped_samples": 0,
+      "spoken_text": "よかった、気になった。同意した専用の振り返りを、選ぶ参考に。"
+    },
+    {
+      "scene": 6,
+      "source_scene": 6,
+      "original_sha256": "9a246825fd4ab50b9155f69d784a7f1dabfa57d0c119c370e68e108a2819e723",
+      "output_sha256": "9a246825fd4ab50b9155f69d784a7f1dabfa57d0c119c370e68e108a2819e723",
+      "speech_seconds": 7.8759375,
+      "scene_seconds": 13,
+      "trailing_seconds": 4.904062499999999,
+      "clipped_samples": 0,
+      "spoken_text": "事業者が、何度か通って完成する体験を提案。続ける楽しみを、次の来訪のきっかけに。"
+    },
+    {
+      "scene": 7,
+      "source_scene": 10,
+      "original_sha256": "6a3469d60e3b817dd071fed1a0ad4d77d96d9f857a8dd485d7d27c0d03d090d8",
+      "output_sha256": "6a3469d60e3b817dd071fed1a0ad4d77d96d9f857a8dd485d7d27c0d03d090d8",
+      "speech_seconds": 4.175375,
+      "scene_seconds": 5,
+      "trailing_seconds": 0.6046250000000004,
+      "clipped_samples": 0,
+      "spoken_text": "仲間探しから、次の来訪まで。こう。"
+    }
+  ],
+  "processing": "No acceleration, trimming or pitch modification; original speech reused with reading holds",
+  "listening_review": "Not performed",
+  "engine_checks": {
+    "repeated_plain_pcm_identical": true,
+    "pause_duration_delta_seconds": 0.12331249999999994,
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "emphasis_pcm_changed": true
+  },
+  "visual_boundary": "Dedicated reflection condition form only; saving and aggregation were not demonstrated. Photo candidates are local registered-sample defaults and require confirmation/permission."
+}

@@ -1,0 +1,1214 @@
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "2.10",
+  "elapsed_seconds"    : 8.53546810150146,
+  "n_files"            : 240,
+  "n_lines"            : 48031,
+  "files_per_second"   : 28.1179657806678,
+  "lines_per_second"   : 5627.2250600469,
+  "report_file"        : "artifacts/code-size-20261110/cloc.json"},
+"community/frontend/src/Daytrip.tsx" :{
+  "blank": 9,
+  "comment": 3,
+  "code": 2249,
+  "language": "TypeScript"},
+"community/frontend/src/Circles.tsx" :{
+  "blank": 9,
+  "comment": 0,
+  "code": 2111,
+  "language": "TypeScript"},
+"community/frontend/src/styles.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 1944,
+  "language": "CSS"},
+"community/frontend/src/marketplace.css" :{
+  "blank": 2,
+  "comment": 1,
+  "code": 1256,
+  "language": "CSS"},
+"community/frontend/src/Marketplace.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 1149,
+  "language": "TypeScript"},
+"community/frontend/src/App.tsx" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 1137,
+  "language": "TypeScript"},
+"community/frontend/src/Occasions.tsx" :{
+  "blank": 8,
+  "comment": 0,
+  "code": 1060,
+  "language": "TypeScript"},
+"community/frontend/src/daytrip.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 967,
+  "language": "CSS"},
+"community/frontend/src/ReflectionWorkspace.tsx" :{
+  "blank": 6,
+  "comment": 0,
+  "code": 933,
+  "language": "TypeScript"},
+"community/frontend/src/ProviderWorkspace.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 863,
+  "language": "TypeScript"},
+"community/frontend/src/provider-dashboard.css" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 739,
+  "language": "CSS"},
+"community/frontend/src/PlanDiscovery.tsx" :{
+  "blank": 4,
+  "comment": 0,
+  "code": 718,
+  "language": "TypeScript"},
+"community/frontend/src/browse.css" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 645,
+  "language": "CSS"},
+"community/frontend/src/JourneyPrograms.tsx" :{
+  "blank": 5,
+  "comment": 0,
+  "code": 621,
+  "language": "TypeScript"},
+"community/frontend/src/KoPage.tsx" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 602,
+  "language": "TypeScript"},
+"community/frontend/src/Composer.tsx" :{
+  "blank": 1,
+  "comment": 4,
+  "code": 583,
+  "language": "TypeScript"},
+"community/frontend/src/circles.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 564,
+  "language": "CSS"},
+"community/frontend/src/ProviderDashboard.tsx" :{
+  "blank": 5,
+  "comment": 0,
+  "code": 525,
+  "language": "TypeScript"},
+"community/frontend/src/wa-theme.css" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 480,
+  "language": "CSS"},
+"community/backend/app/daytrip/service.py" :{
+  "blank": 48,
+  "comment": 11,
+  "code": 469,
+  "language": "Python"},
+"test/backend/test_daytrip.py" :{
+  "blank": 70,
+  "comment": 4,
+  "code": 462,
+  "language": "Python"},
+"community/frontend/src/marketplace-ui.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 441,
+  "language": "TypeScript"},
+"community/frontend/src/ProviderOriginMap.tsx" :{
+  "blank": 2,
+  "comment": 1,
+  "code": 417,
+  "language": "TypeScript"},
+"community/frontend/src/JournalMap.tsx" :{
+  "blank": 9,
+  "comment": 2,
+  "code": 399,
+  "language": "TypeScript"},
+"scripts/analyze_community_samples.py" :{
+  "blank": 33,
+  "comment": 7,
+  "code": 397,
+  "language": "Python"},
+"community/scripts/animate_revisit_video.py" :{
+  "blank": 65,
+  "comment": 14,
+  "code": 392,
+  "language": "Python"},
+"community/backend/app/service.py" :{
+  "blank": 44,
+  "comment": 11,
+  "code": 372,
+  "language": "Python"},
+"scripts/tickets.py" :{
+  "blank": 34,
+  "comment": 1,
+  "code": 372,
+  "language": "Python"},
+"community/frontend/src/ui.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 329,
+  "language": "TypeScript"},
+"test/backend/test_personalization.py" :{
+  "blank": 29,
+  "comment": 6,
+  "code": 314,
+  "language": "Python"},
+"community/backend/app/operational_seed.py" :{
+  "blank": 28,
+  "comment": 3,
+  "code": 305,
+  "language": "Python"},
+"community/backend/app/marketplace/service.py" :{
+  "blank": 34,
+  "comment": 0,
+  "code": 304,
+  "language": "Python"},
+"community/scripts/render_revisit_video.py" :{
+  "blank": 58,
+  "comment": 8,
+  "code": 301,
+  "language": "Python"},
+"test/backend/test_circles.py" :{
+  "blank": 42,
+  "comment": 1,
+  "code": 299,
+  "language": "Python"},
+"community/frontend/src/Registration.tsx" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 285,
+  "language": "TypeScript"},
+"community/frontend/src/stage.css" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 283,
+  "language": "CSS"},
+"community/backend/app/main.py" :{
+  "blank": 52,
+  "comment": 1,
+  "code": 267,
+  "language": "Python"},
+"community/frontend/src/journey-programs.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 265,
+  "language": "CSS"},
+"community/frontend/src/DaytripBenefits.tsx" :{
+  "blank": 5,
+  "comment": 0,
+  "code": 248,
+  "language": "TypeScript"},
+"test/backend/test_daytrip_ranks.py" :{
+  "blank": 45,
+  "comment": 5,
+  "code": 246,
+  "language": "Python"},
+"test/backend/test_occasions.py" :{
+  "blank": 38,
+  "comment": 0,
+  "code": 246,
+  "language": "Python"},
+"test/backend/test_api.py" :{
+  "blank": 37,
+  "comment": 0,
+  "code": 243,
+  "language": "Python"},
+"community/frontend/src/composer.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 242,
+  "language": "CSS"},
+"community/frontend/src/login.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 241,
+  "language": "CSS"},
+"test/backend/test_journal.py" :{
+  "blank": 44,
+  "comment": 1,
+  "code": 239,
+  "language": "Python"},
+"test/backend/test_posts.py" :{
+  "blank": 43,
+  "comment": 3,
+  "code": 237,
+  "language": "Python"},
+"community/frontend/src/Journal.tsx" :{
+  "blank": 6,
+  "comment": 0,
+  "code": 231,
+  "language": "TypeScript"},
+"test/backend/test_reflections.py" :{
+  "blank": 32,
+  "comment": 3,
+  "code": 226,
+  "language": "Python"},
+"community/backend/app/enrichment.py" :{
+  "blank": 28,
+  "comment": 15,
+  "code": 225,
+  "language": "Python"},
+"scripts/analyze_community_rationale.py" :{
+  "blank": 28,
+  "comment": 20,
+  "code": 224,
+  "language": "Python"},
+"test/backend/test_discovery.py" :{
+  "blank": 39,
+  "comment": 1,
+  "code": 223,
+  "language": "Python"},
+"test/backend/test_provider_analytics.py" :{
+  "blank": 37,
+  "comment": 7,
+  "code": 223,
+  "language": "Python"},
+"community/frontend/src/BenefitZonePolicy.tsx" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 220,
+  "language": "TypeScript"},
+"test/backend/test_city_analytics.py" :{
+  "blank": 41,
+  "comment": 6,
+  "code": 219,
+  "language": "Python"},
+"test/browser/verify-browser.mjs" :{
+  "blank": 4,
+  "comment": 1,
+  "code": 219,
+  "language": "JavaScript"},
+"community/frontend/src/Stage.tsx" :{
+  "blank": 6,
+  "comment": 5,
+  "code": 213,
+  "language": "TypeScript"},
+"community/frontend/src/journal-map.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 211,
+  "language": "CSS"},
+"community/frontend/src/Login.tsx" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 210,
+  "language": "TypeScript"},
+"community/scripts/render_revisit_guide.py" :{
+  "blank": 44,
+  "comment": 6,
+  "code": 209,
+  "language": "Python"},
+"community/scripts/narrate_revisit_guide.ps1" :{
+  "blank": 7,
+  "comment": 4,
+  "code": 207,
+  "language": "PowerShell"},
+"community/scripts/narrate_revisit_male.ps1" :{
+  "blank": 7,
+  "comment": 4,
+  "code": 207,
+  "language": "PowerShell"},
+"test/backend/test_marketplace.py" :{
+  "blank": 30,
+  "comment": 1,
+  "code": 204,
+  "language": "Python"},
+"community/frontend/src/Preferences.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 203,
+  "language": "TypeScript"},
+"scripts/analyze_survey_content.py" :{
+  "blank": 10,
+  "comment": 3,
+  "code": 203,
+  "language": "Python"},
+"community/backend/app/circles/service.py" :{
+  "blank": 21,
+  "comment": 5,
+  "code": 197,
+  "language": "Python"},
+"community/frontend/src/provider-origin.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 197,
+  "language": "CSS"},
+"test/backend/test_residence.py" :{
+  "blank": 39,
+  "comment": 3,
+  "code": 195,
+  "language": "Python"},
+"community/backend/app/occasions/service.py" :{
+  "blank": 23,
+  "comment": 1,
+  "code": 194,
+  "language": "Python"},
+"community/backend/app/reflections/service.py" :{
+  "blank": 23,
+  "comment": 0,
+  "code": 187,
+  "language": "Python"},
+"community/frontend/src/daytrip-types.ts" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 187,
+  "language": "TypeScript"},
+"test/browser/verify-discovery.mjs" :{
+  "blank": 2,
+  "comment": 2,
+  "code": 187,
+  "language": "JavaScript"},
+"community/backend/app/programs/service.py" :{
+  "blank": 23,
+  "comment": 3,
+  "code": 186,
+  "language": "Python"},
+"community/frontend/src/reflections.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 185,
+  "language": "CSS"},
+"community/frontend/src/ProviderTrend.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 184,
+  "language": "TypeScript"},
+"test/browser/verify-stage-security.mjs" :{
+  "blank": 10,
+  "comment": 5,
+  "code": 184,
+  "language": "JavaScript"},
+"test/integration/verify-deletion-restore.py" :{
+  "blank": 20,
+  "comment": 9,
+  "code": 182,
+  "language": "Python"},
+"community/backend/app/journal/service.py" :{
+  "blank": 26,
+  "comment": 8,
+  "code": 175,
+  "language": "Python"},
+"test/backend/test_programs.py" :{
+  "blank": 24,
+  "comment": 1,
+  "code": 172,
+  "language": "Python"},
+"community/backend/app/analytics/service.py" :{
+  "blank": 35,
+  "comment": 19,
+  "code": 171,
+  "language": "Python"},
+"community/frontend/src/ResidenceProfile.tsx" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 168,
+  "language": "TypeScript"},
+"community/frontend/src/Choice.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 165,
+  "language": "TypeScript"},
+"community/frontend/src/api.ts" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 165,
+  "language": "TypeScript"},
+"community/frontend/src/occasions.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 162,
+  "language": "CSS"},
+"community/frontend/src/discovery.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 155,
+  "language": "CSS"},
+"test/backend/test_zone_benefits.py" :{
+  "blank": 25,
+  "comment": 1,
+  "code": 155,
+  "language": "Python"},
+"test/tooling/test_tickets.py" :{
+  "blank": 19,
+  "comment": 0,
+  "code": 155,
+  "language": "Python"},
+"scripts/quality_check.py" :{
+  "blank": 24,
+  "comment": 4,
+  "code": 149,
+  "language": "Python"},
+"community/frontend/src/wa-controls.css" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 148,
+  "language": "CSS"},
+"test/backend/test_image_guidance.py" :{
+  "blank": 17,
+  "comment": 1,
+  "code": 142,
+  "language": "Python"},
+"community/backend/app/personalization/service.py" :{
+  "blank": 14,
+  "comment": 3,
+  "code": 141,
+  "language": "Python"},
+"scripts/analyze_samples.py" :{
+  "blank": 17,
+  "comment": 16,
+  "code": 138,
+  "language": "Python"},
+"community/backend/app/circles/providers.py" :{
+  "blank": 13,
+  "comment": 2,
+  "code": 137,
+  "language": "Python"},
+"community/scripts/finish_revisit_audio.py" :{
+  "blank": 24,
+  "comment": 6,
+  "code": 137,
+  "language": "Python"},
+"community/backend/app/circles/assistant.py" :{
+  "blank": 8,
+  "comment": 5,
+  "code": 136,
+  "language": "Python"},
+"community/frontend/src/ResidenceFields.tsx" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 136,
+  "language": "TypeScript"},
+"community/backend/app/images.py" :{
+  "blank": 18,
+  "comment": 9,
+  "code": 129,
+  "language": "Python"},
+"community/frontend/src/provider-analytics-types.ts" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 128,
+  "language": "TypeScript"},
+"test/browser/verify-marketplace.mjs" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 127,
+  "language": "JavaScript"},
+"community/frontend/src/circle-types.ts" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 126,
+  "language": "TypeScript"},
+"community/frontend/src/useResumeState.ts" :{
+  "blank": 6,
+  "comment": 2,
+  "code": 125,
+  "language": "TypeScript"},
+"community/frontend/src/marketplace-types.ts" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 124,
+  "language": "TypeScript"},
+"community/scripts/full_snapshot.py" :{
+  "blank": 21,
+  "comment": 4,
+  "code": 124,
+  "language": "Python"},
+"community/frontend/src/types.ts" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 122,
+  "language": "TypeScript"},
+"test/backend/test_operational_seed.py" :{
+  "blank": 14,
+  "comment": 2,
+  "code": 122,
+  "language": "Python"},
+"community/scripts/create_intro_video.mjs" :{
+  "blank": 1,
+  "comment": 34,
+  "code": 121,
+  "language": "JavaScript"},
+"test/browser/verify-reflections.mjs" :{
+  "blank": 2,
+  "comment": 2,
+  "code": 121,
+  "language": "JavaScript"},
+"community/backend/app/circles/discovery.py" :{
+  "blank": 9,
+  "comment": 1,
+  "code": 119,
+  "language": "Python"},
+"community/frontend/src/WaArt.tsx" :{
+  "blank": 5,
+  "comment": 2,
+  "code": 117,
+  "language": "TypeScript"},
+"community/frontend/src/journal.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 116,
+  "language": "CSS"},
+"community/backend/app/security.py" :{
+  "blank": 17,
+  "comment": 3,
+  "code": 115,
+  "language": "Python"},
+"scripts/analyze_audience_trends.py" :{
+  "blank": 6,
+  "comment": 2,
+  "code": 114,
+  "language": "Python"},
+"community/frontend/src/useCommunityFeed.ts" :{
+  "blank": 4,
+  "comment": 0,
+  "code": 113,
+  "language": "TypeScript"},
+"community/backend/app/schemas.py" :{
+  "blank": 48,
+  "comment": 0,
+  "code": 111,
+  "language": "Python"},
+"community/scripts/snapshot_worker.py" :{
+  "blank": 14,
+  "comment": 6,
+  "code": 108,
+  "language": "Python"},
+"test/run.py" :{
+  "blank": 9,
+  "comment": 1,
+  "code": 107,
+  "language": "Python"},
+"community/backend/app/analytics/city_service.py" :{
+  "blank": 16,
+  "comment": 1,
+  "code": 104,
+  "language": "Python"},
+"community/backend/app/marketplace/schemas.py" :{
+  "blank": 25,
+  "comment": 0,
+  "code": 103,
+  "language": "Python"},
+"community/backend/app/circles/router.py" :{
+  "blank": 29,
+  "comment": 0,
+  "code": 100,
+  "language": "Python"},
+"community/backend/app/analytics/schemas.py" :{
+  "blank": 30,
+  "comment": 0,
+  "code": 96,
+  "language": "Python"},
+"test/browser/verify-journal.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 96,
+  "language": "JavaScript"},
+"community/frontend/src/useNavigationMotion.ts" :{
+  "blank": 6,
+  "comment": 1,
+  "code": 91,
+  "language": "TypeScript"},
+"community/backend/app/daytrip/router.py" :{
+  "blank": 26,
+  "comment": 0,
+  "code": 87,
+  "language": "Python"},
+"community/backend/app/marketplace/router.py" :{
+  "blank": 27,
+  "comment": 0,
+  "code": 87,
+  "language": "Python"},
+"test/integration/verify_city_experience.py" :{
+  "blank": 15,
+  "comment": 4,
+  "code": 87,
+  "language": "Python"},
+"community/backend/app/database.py" :{
+  "blank": 16,
+  "comment": 16,
+  "code": 85,
+  "language": "Python"},
+"community/frontend/src/reflection-types.ts" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 84,
+  "language": "TypeScript"},
+"community/backend/app/programs/seed.py" :{
+  "blank": 15,
+  "comment": 3,
+  "code": 83,
+  "language": "Python"},
+"community/backend/app/daytrip/schemas.py" :{
+  "blank": 33,
+  "comment": 0,
+  "code": 82,
+  "language": "Python"},
+"community/frontend/src/residence.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 82,
+  "language": "CSS"},
+"community/frontend/src/benefit-zone.css" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 80,
+  "language": "CSS"},
+"community/backend/app/analytics/city_schemas.py" :{
+  "blank": 25,
+  "comment": 0,
+  "code": 79,
+  "language": "Python"},
+"test/backend/test_security_limits.py" :{
+  "blank": 12,
+  "comment": 5,
+  "code": 79,
+  "language": "Python"},
+"community/frontend/src/ExperienceReference.tsx" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 78,
+  "language": "TypeScript"},
+"scripts/render_survey_summary.py" :{
+  "blank": 3,
+  "comment": 2,
+  "code": 77,
+  "language": "Python"},
+"test/integration/audit-personalization.py" :{
+  "blank": 9,
+  "comment": 5,
+  "code": 77,
+  "language": "Python"},
+"test/tooling/test_quality_check.py" :{
+  "blank": 23,
+  "comment": 1,
+  "code": 77,
+  "language": "Python"},
+"scripts/review_audience_trends.py" :{
+  "blank": 3,
+  "comment": 1,
+  "code": 74,
+  "language": "Python"},
+"community/backend/app/personalization/schema.py" :{
+  "blank": 5,
+  "comment": 2,
+  "code": 73,
+  "language": "Python"},
+"test/browser/verify-motion.mjs" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 71,
+  "language": "JavaScript"},
+"test/integration/daytrip_snapshot_compare.py" :{
+  "blank": 9,
+  "comment": 1,
+  "code": 70,
+  "language": "Python"},
+"test/backend/test_stage.py" :{
+  "blank": 12,
+  "comment": 1,
+  "code": 67,
+  "language": "Python"},
+"community/backend/app/daytrip/zone_benefits.py" :{
+  "blank": 19,
+  "comment": 5,
+  "code": 66,
+  "language": "Python"},
+"community/backend/app/circles/schemas.py" :{
+  "blank": 33,
+  "comment": 0,
+  "code": 65,
+  "language": "Python"},
+"community/scripts/encode_intro_video.py" :{
+  "blank": 8,
+  "comment": 3,
+  "code": 65,
+  "language": "Python"},
+"test/browser/verify-occasions.mjs" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 65,
+  "language": "JavaScript"},
+"test/tooling/test_samples.py" :{
+  "blank": 11,
+  "comment": 1,
+  "code": 65,
+  "language": "Python"},
+"community/backend/app/daytrip/ranks.py" :{
+  "blank": 17,
+  "comment": 4,
+  "code": 64,
+  "language": "Python"},
+"community/backend/app/reflections/aggregate.py" :{
+  "blank": 9,
+  "comment": 5,
+  "code": 64,
+  "language": "Python"},
+"community/backend/app/residence/schemas.py" :{
+  "blank": 20,
+  "comment": 0,
+  "code": 64,
+  "language": "Python"},
+"test/integration/verify_journal_storage.py" :{
+  "blank": 14,
+  "comment": 27,
+  "code": 64,
+  "language": "Python"},
+"community/backend/app/journal/router.py" :{
+  "blank": 19,
+  "comment": 0,
+  "code": 62,
+  "language": "Python"},
+"community/backend/app/programs/schemas.py" :{
+  "blank": 24,
+  "comment": 0,
+  "code": 61,
+  "language": "Python"},
+"test/integration/test_snapshot.py" :{
+  "blank": 8,
+  "comment": 2,
+  "code": 59,
+  "language": "Python"},
+"test/browser/verify-circles.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 58,
+  "language": "JavaScript"},
+"community/backend/app/city_setup.py" :{
+  "blank": 12,
+  "comment": 1,
+  "code": 57,
+  "language": "Python"},
+"test/browser/verify-navigation-performance.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 57,
+  "language": "JavaScript"},
+"test/browser/verify-stage-motion.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 57,
+  "language": "JavaScript"},
+"community/backend/app/analytics/origins.py" :{
+  "blank": 12,
+  "comment": 9,
+  "code": 56,
+  "language": "Python"},
+"community/backend/app/reflections/router.py" :{
+  "blank": 17,
+  "comment": 0,
+  "code": 56,
+  "language": "Python"},
+"community/backend/app/journal/schemas.py" :{
+  "blank": 20,
+  "comment": 0,
+  "code": 55,
+  "language": "Python"},
+"community/frontend/src/occasion-types.ts" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 55,
+  "language": "TypeScript"},
+"test/backend/test_enrichment.py" :{
+  "blank": 7,
+  "comment": 1,
+  "code": 55,
+  "language": "Python"},
+"community/scripts/measure_backend_quality.py" :{
+  "blank": 9,
+  "comment": 1,
+  "code": 54,
+  "language": "Python"},
+"test/tooling/check_board.cjs" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 54,
+  "language": "JavaScript"},
+"community/backend/app/occasions/dates.py" :{
+  "blank": 11,
+  "comment": 6,
+  "code": 53,
+  "language": "Python"},
+"community/backend/app/marketplace/schema.py" :{
+  "blank": 5,
+  "comment": 1,
+  "code": 51,
+  "language": "Python"},
+"test/backend/conftest.py" :{
+  "blank": 13,
+  "comment": 0,
+  "code": 51,
+  "language": "Python"},
+"community/backend/app/daytrip/schema.py" :{
+  "blank": 8,
+  "comment": 13,
+  "code": 50,
+  "language": "Python"},
+"community/backend/app/occasions/schemas.py" :{
+  "blank": 22,
+  "comment": 0,
+  "code": 50,
+  "language": "Python"},
+"community/frontend/src/journey-program-types.ts" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 50,
+  "language": "TypeScript"},
+"community/backend/app/residence/catalog.py" :{
+  "blank": 5,
+  "comment": 2,
+  "code": 48,
+  "language": "Python"},
+"community/backend/app/analytics/city_privacy.py" :{
+  "blank": 14,
+  "comment": 0,
+  "code": 47,
+  "language": "Python"},
+"community/backend/app/reflections/extraction.py" :{
+  "blank": 5,
+  "comment": 2,
+  "code": 46,
+  "language": "Python"},
+"test/backend/test_snapshot_metadata.py" :{
+  "blank": 7,
+  "comment": 1,
+  "code": 46,
+  "language": "Python"},
+"test/integration/verify_enrichment.py" :{
+  "blank": 7,
+  "comment": 1,
+  "code": 46,
+  "language": "Python"},
+"community/scripts/balance_revisit_guide_audio.py" :{
+  "blank": 7,
+  "comment": 1,
+  "code": 45,
+  "language": "Python"},
+"community/backend/app/residence/service.py" :{
+  "blank": 10,
+  "comment": 4,
+  "code": 43,
+  "language": "Python"},
+"test/browser/verify-login.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 43,
+  "language": "JavaScript"},
+"community/backend/app/reflections/schemas.py" :{
+  "blank": 23,
+  "comment": 0,
+  "code": 41,
+  "language": "Python"},
+"community/frontend/src/ProviderBreakdown.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 41,
+  "language": "TypeScript"},
+"scripts/setup-local.ps1" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 40,
+  "language": "PowerShell"},
+"community/backend/app/analytics/city_scope.py" :{
+  "blank": 13,
+  "comment": 22,
+  "code": 39,
+  "language": "Python"},
+"community/backend/app/zone_benefit_seed.py" :{
+  "blank": 8,
+  "comment": 3,
+  "code": 39,
+  "language": "Python"},
+"test/backend/test_occasion_dates.py" :{
+  "blank": 14,
+  "comment": 0,
+  "code": 39,
+  "language": "Python"},
+"test/integration/verify_journal_snapshot_rows.py" :{
+  "blank": 4,
+  "comment": 31,
+  "code": 39,
+  "language": "Python"},
+"community/backend/app/occasions/router.py" :{
+  "blank": 14,
+  "comment": 0,
+  "code": 38,
+  "language": "Python"},
+"community/scripts/daytrip_policy_report.py" :{
+  "blank": 6,
+  "comment": 2,
+  "code": 36,
+  "language": "Python"},
+"community/backend/app/marketplace/schedules.py" :{
+  "blank": 7,
+  "comment": 0,
+  "code": 35,
+  "language": "Python"},
+"scripts/enable-wsl.ps1" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 35,
+  "language": "PowerShell"},
+"community/backend/app/circles/schema.py" :{
+  "blank": 3,
+  "comment": 0,
+  "code": 34,
+  "language": "Python"},
+"community/backend/app/daytrip/catalog.py" :{
+  "blank": 4,
+  "comment": 9,
+  "code": 34,
+  "language": "Python"},
+"test/browser/verify-guidance.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 34,
+  "language": "JavaScript"},
+"test/browser/verify-personalization.mjs" :{
+  "blank": 2,
+  "comment": 27,
+  "code": 34,
+  "language": "JavaScript"},
+"test/browser/capture-stage.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 32,
+  "language": "JavaScript"},
+"test/browser/verify-conversation-layout.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 32,
+  "language": "JavaScript"},
+"test/browser/verify-journal-restart.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 32,
+  "language": "JavaScript"},
+"community/frontend/src/DaytripCover.tsx" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 31,
+  "language": "TypeScript"},
+"test/backend/test_feed_paging.py" :{
+  "blank": 0,
+  "comment": 3,
+  "code": 31,
+  "language": "Python"},
+"community/backend/app/journal/catalog.py" :{
+  "blank": 3,
+  "comment": 1,
+  "code": 30,
+  "language": "Python"},
+"test/browser/capture-refresh.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 30,
+  "language": "JavaScript"},
+"community/backend/app/image_guidance.py" :{
+  "blank": 9,
+  "comment": 9,
+  "code": 29,
+  "language": "Python"},
+"community/backend/app/analytics/router.py" :{
+  "blank": 7,
+  "comment": 0,
+  "code": 28,
+  "language": "Python"},
+"community/backend/app/config.py" :{
+  "blank": 5,
+  "comment": 0,
+  "code": 25,
+  "language": "Python"},
+"community/backend/app/programs/router.py" :{
+  "blank": 10,
+  "comment": 0,
+  "code": 25,
+  "language": "Python"},
+"community/backend/app/residence/router.py" :{
+  "blank": 9,
+  "comment": 0,
+  "code": 25,
+  "language": "Python"},
+"test/backend/test_city_setup.py" :{
+  "blank": 3,
+  "comment": 0,
+  "code": 25,
+  "language": "Python"},
+"community/backend/app/journal/schema.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 24,
+  "language": "Python"},
+"test/browser/capture-current.mjs" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 24,
+  "language": "JavaScript"},
+"community/backend/app/occasions/schema.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 23,
+  "language": "Python"},
+"community/backend/app/reflections/schema.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 23,
+  "language": "Python"},
+"community/backend/app/personalization/schemas.py" :{
+  "blank": 7,
+  "comment": 0,
+  "code": 22,
+  "language": "Python"},
+"test/tooling/test_test_layout.py" :{
+  "blank": 8,
+  "comment": 1,
+  "code": 22,
+  "language": "Python"},
+"test/backend/test_city_registry.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 21,
+  "language": "Python"},
+"community/frontend/src/main.tsx" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 20,
+  "language": "TypeScript"},
+"test/conftest.py" :{
+  "blank": 6,
+  "comment": 3,
+  "code": 20,
+  "language": "Python"},
+"community/backend/app/occasions/access.py" :{
+  "blank": 4,
+  "comment": 6,
+  "code": 19,
+  "language": "Python"},
+"community/backend/app/programs/catalog.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 18,
+  "language": "Python"},
+"community/frontend/src/validation.ts" :{
+  "blank": 2,
+  "comment": 1,
+  "code": 18,
+  "language": "TypeScript"},
+"community/scripts/narrate_revisit_video.ps1" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 18,
+  "language": "PowerShell"},
+"community/scripts/start.ps1" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 17,
+  "language": "PowerShell"},
+"community/backend/app/programs/schema.py" :{
+  "blank": 2,
+  "comment": 11,
+  "code": 15,
+  "language": "Python"},
+"community/backend/app/circles/discovery_schema.py" :{
+  "blank": 2,
+  "comment": 0,
+  "code": 14,
+  "language": "Python"},
+"community/backend/app/personalization/router.py" :{
+  "blank": 6,
+  "comment": 0,
+  "code": 14,
+  "language": "Python"},
+"community/frontend/index.html" :{
+  "blank": 0,
+  "comment": 0,
+  "code": 14,
+  "language": "HTML"},
+"community/frontend/src/journal-types.ts" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 14,
+  "language": "TypeScript"},
+"test/tooling/test_analysis_helpers.py" :{
+  "blank": 4,
+  "comment": 1,
+  "code": 14,
+  "language": "Python"},
+"community/backend/app/circles/guards.py" :{
+  "blank": 6,
+  "comment": 0,
+  "code": 12,
+  "language": "Python"},
+"community/scripts/open-edge-isolated.cmd" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 11,
+  "language": "DOS Batch"},
+"community/backend/app/city_registry.py" :{
+  "blank": 3,
+  "comment": 3,
+  "code": 10,
+  "language": "Python"},
+"community/backend/app/residence/schema.py" :{
+  "blank": 2,
+  "comment": 7,
+  "code": 10,
+  "language": "Python"},
+"community/backend/app/analytics/__init__.py" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/circles/__init__.py" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/daytrip/__init__.py" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/journal/__init__.py" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/marketplace/__init__.py" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/occasions/__init__.py" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/programs/__init__.py" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/reflections/__init__.py" :{
+  "blank": 1,
+  "comment": 0,
+  "code": 0,
+  "language": "Python"},
+"community/backend/app/residence/__init__.py" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "Python"},
+"community/frontend/src/vite-env.d.ts" :{
+  "blank": 0,
+  "comment": 1,
+  "code": 0,
+  "language": "TypeScript"},
+"SUM": {
+  "blank": 2651,
+  "comment": 615,
+  "code": 44765,
+  "nFiles": 240} }

@@ -1,0 +1,194 @@
+[
+  {
+    "kind": "intro",
+    "chapter": "旅行の前の困りごと",
+    "title": "旅行の前から、\n困っていませんか？",
+    "voice": "一緒に行く人探しに、行き先の調整。旅行の前から、疲れていませんか？",
+    "focus": "旅行の前",
+    "layout": "title",
+    "minimum_duration": 4,
+    "headline": "仲間探しから、事業者との相談まで。",
+    "body": "同じコミュニティの関心をきっかけに、\n仲間を選び、自分たちで行き先を決める。",
+    "subtitle": "候補の提案 → 本人が選ぶ → 事業者を招待 → 直接相談",
+    "duration": 7.466666666666667
+  },
+  {
+    "kind": "match",
+    "chapter": "1 仲間を選ぶ",
+    "title": "同じコミュニティから、旅仲間を",
+    "voice": "こうは、目的を持つ仲間。共通の趣味から、同じコミュニティの候補を提案。自分で選んで誘えます。",
+    "focus": "共通の趣味",
+    "layout": "phone",
+    "minimum_duration": 6,
+    "headline": "誰と行く？関心から候補を見る。",
+    "body": "1 関心を選び、候補を探す。\n2 共通タグを見て、2人を選ぶ。\n3 招待し、本人の承諾を待つ。",
+    "note": "候補表示は参加の確定ではありません。\n誘われた本人が、参加を承諾します。",
+    "subtitle": "本人が許可した関心だけを使用／候補提示と参加承諾は別",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-match",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "phone-match",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-match-selected",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Search results then separately recorded actual selection. A visible cut separates these real states; no selection or application output is synthesized."
+    },
+    "duration": 9.866666666666667
+  },
+  {
+    "kind": "select",
+    "chapter": "2 行き先を選ぶ",
+    "title": "行きたい事業者を、自分たちで選ぶ",
+    "voice": "行きたい場所を選んだら、その事業者を講へ招待。承諾されたら、直接やりとり。",
+    "focus": "選んだら",
+    "layout": "phone",
+    "minimum_duration": 6,
+    "headline": "行きたい場所は、自分たちで。",
+    "body": "1 写真・人数・日程・料金を比較。\n2 詳細を開き、行き先を決める。\n3 共有内容を選び、事業者を招待。",
+    "note": "共有内容を確定してから招待します。\n仲間内だけの会話は分けて保存。",
+    "subtitle": "事業者の承諾後に共有相談を開始／相談だけで予約は確定しません",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-select"
+    },
+    "duration": 7.9
+  },
+  {
+    "kind": "chat",
+    "chapter": "3 直接相談する",
+    "title": "人数・日程・見積を、一つの講で",
+    "voice": "人数も日程も、行程や見積も。相談をひとつにまとめて、旅行前の手間を減らします。",
+    "focus": "ひとつに",
+    "layout": "phone",
+    "minimum_duration": 6,
+    "headline": "話し合いを、同じ場所に。",
+    "body": "1 共有会話を開く。\n2 集合・雨天対応を相談。\n3 行程と見積の内容を確認。",
+    "note": "事業者との共有会話だけを表示。\n予約の成立は、別に確認が必要です。",
+    "subtitle": "共有した会話・行程・見積を同じ講で確認",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-chat"
+    },
+    "duration": 8.3
+  },
+  {
+    "kind": "reflection",
+    "chapter": "4 旅を振り返る",
+    "title": "同意した振り返りを、選ぶ参考に",
+    "voice": "よかった、気になった。同意した専用の振り返りから、参考評価へ。事業者選びに生かします。",
+    "focus": "振り返り",
+    "layout": "phone",
+    "minimum_duration": 6,
+    "headline": "「よかった」「気になった」を残す。",
+    "body": "1 専用の振り返りに入力。\n2 利用申告・共有への同意。\n3 規則で整理し、参考情報へ。",
+    "note": "参加者全員の利用申告と同意が必要。\nAI推論・仲間内会話の自動取得はしません。",
+    "subtitle": "同意した専用振り返りを規則で整理／事業者選びの参考情報",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-reflection"
+    },
+    "duration": 9.133333333333333
+  },
+  {
+    "kind": "program",
+    "chapter": "5 次の訪問を提案する",
+    "title": "事業者から、次も通いたくなる提案",
+    "voice": "事業者が、何度か通って完成する体験を提案。続ける楽しみを、次の来訪のきっかけに。",
+    "focus": "何度か通って",
+    "layout": "wide",
+    "minimum_duration": 11.5,
+    "headline": "事業者から\n次の体験を。",
+    "body": "共有会話で\n既存コースを提案。",
+    "note": "既存コースを、実際の共有会話で提案。\n再訪を促す設計であり、効果は未測定です。",
+    "subtitle": "事業者が既存コースを共有会話で提案／再訪の効果は未測定",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "pc-program"
+    },
+    "duration": 8.7
+  },
+  {
+    "kind": "rank",
+    "chapter": "6 開催への協力",
+    "title": "開催を担う先達に、追加ポイント",
+    "voice": "先達は、参加確認で追加点。階級に応じた特典も。",
+    "focus": "追加点",
+    "layout": "phone",
+    "minimum_duration": 4,
+    "headline": "先達は、参加確認で＋50点。",
+    "body": "事前の任命と本人の承諾。\n全行程の参加確認後に加点。",
+    "note": "金銭特典には事業者の利用確認が必要。\n開催の役割と、旅の階級は別です。",
+    "subtitle": "企画しただけでは付与しません／同じ人は1日1開催まで",
+    "capture": {
+      "image": "artifacts/video-revisit/screens/06-rank-phone.jpg"
+    },
+    "duration": 6.266666666666667
+  },
+  {
+    "kind": "zone",
+    "chapter": "7 日帰り圏への特典",
+    "title": "日帰りしやすい地域に、追加割引",
+    "voice": "片道二十から四十キロを、日帰り圏と想定。予算内で割引を手厚くします。",
+    "focus": "日帰り圏",
+    "layout": "phone",
+    "minimum_duration": 5,
+    "headline": "片道20〜40kmを日帰り圏と想定。",
+    "body": "本人が登録した地域の参考距離。\n事業者が追加率と予算を設定。",
+    "note": "実測の交通距離ではありません。\n対象外・未登録は、基本率を適用。",
+    "subtitle": "本人の登録地域・提供元の条件・1回上限・予算上限で判定",
+    "capture": {
+      "image": "artifacts/video-revisit/screens/07-zone-phone.jpg"
+    },
+    "duration": 7.733333333333333
+  },
+  {
+    "kind": "fortune",
+    "chapter": "8 現地でのお楽しみ",
+    "title": "現地の目印から、お地蔵さんの特典へ",
+    "voice": "現地の目印を読むと、お地蔵さんが現れます。月に一度の抽選も。",
+    "focus": "お地蔵さん",
+    "layout": "phone",
+    "minimum_duration": 6,
+    "headline": "現地の目印を読んで、抽選へ。",
+    "body": "月に1回、無料。\n確認済み階級で当たりやすさが変わる。",
+    "note": "実操作はQR画像の読み取りで確認。\nライブカメラ撮影・実機は未確認です。",
+    "subtitle": "はずれあり／当選券は対象事業者で30日間／換金・他割引併用不可",
+    "capture": {
+      "directory": "artifacts/video-revisit/v12/operations",
+      "group": "phone-omikuji",
+      "playback_segments": [
+        {
+          "at": 0,
+          "source_seconds": 0.45
+        },
+        {
+          "at": 3.3,
+          "source_seconds": 8.7
+        }
+      ],
+      "editing_note": "Only a pause between successful QR import/Jizo and the actual draw click is omitted. Each retained segment plays at 1x; the genuine recorded result is held."
+    },
+    "duration": 6.766666666666667
+  },
+  {
+    "kind": "closing",
+    "chapter": "仲間探しから、次の来訪まで",
+    "title": "仲間探しから、\n次の来訪まで。講",
+    "voice": "仲間探しから、次の来訪まで。こう。",
+    "focus": "次の来訪",
+    "layout": "title",
+    "minimum_duration": 4,
+    "headline": "選ぶ・相談する・次の目的をつくる。",
+    "body": "本人が選び、承諾して進む。\n旅行前の調整と、次の訪問を支える仕組み。",
+    "subtitle": "現在は規則と定型案内で動作／旅行前の負担軽減・再訪の効果は未測定",
+    "duration": 7.6
+  }
+]

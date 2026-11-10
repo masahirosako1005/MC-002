@@ -1,49 +1,28 @@
 {
   "schema_version": 1,
-  "checked_at_utc": "2026-11-10T05:04:10.455287+00:00",
+  "checked_at_utc": "2026-11-10T05:06:11.528970+00:00",
   "workspace": "C:/AI-Sprint/workspace/MC-002",
   "scope": "outputs and presentation audit, current entrypoint updates, and explicitly authorized non-destructive history-file moves; no archive or secret contents read",
   "current_layout": "root backend/frontend; community absent",
   "latest_video": {
-    "version": "v11",
-    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
-    "path": "outputs/kou-revisit-intro-v11.mp4",
-    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+    "version": "v12",
+    "status": "produced_technical_verification_recorded_changed_scene_browser_check_pending",
+    "path": "outputs/kou-revisit-intro-v12.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v12-ja.vtt",
+    "preview": "outputs/video-preview/index.html",
     "duration_seconds": 70.0,
     "frames": 2100,
-    "bytes": 3919747,
-    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
-    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
-    "preview": "outputs/video-preview/index.html",
-    "verification": "artifacts/video-revisit/v11/final/verification.json",
-    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+    "bytes": 3917309,
+    "sha256": "dd8a107578c816419b2ccb37e1eadd8b2721ea9ede6c4bd3a8b11effa10a56c3",
+    "subtitles_sha256": "cb4c328080a9f45498ef62c2915fff377341edfe7d892bcd4573ee2e84dfcc9d",
+    "verification": "artifacts/video-revisit/v12/final/verification.json",
+    "delivery_checks": "artifacts/video-revisit/v12/final/delivery-checks.json",
+    "camera_ar_included": true,
+    "capture_method": "Real QR-image/photo import followed by Jizo overlay and saved 100-yen result; not live camera footage.",
     "human_listening_review": "not_assessed",
     "user_final_approval": "unconfirmed",
-    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
-    "hash_matches_final_verification": true,
-    "prior_videos_preserved_record": 15,
-    "independent_decode_performed": false,
-    "browser_playback": {
-      "path": "artifacts/video-revisit/v11/browser-playback.json",
-      "method": "Played via visible start button without seeking; not a human listening assessment",
-      "time": 70,
-      "duration": 70,
-      "ended": true,
-      "error": null,
-      "observer": "root agent; metadata independently read by output auditor"
-    }
-  },
-  "preview": {
-    "kou-revisit-intro-v10.mp4": {
-      "exists": true,
-      "matches_canonical_sha256": true
-    },
-    "narration-ja.vtt": {
-      "exists": true,
-      "matches_canonical_sha256": false,
-      "matches_text_after_line_ending_and_final_whitespace_normalization": true,
-      "note": "Byte hash differs; cue text/timing equal after newline and final whitespace normalization. No caption replacement performed."
-    }
+    "browser_full_playback": "not_repeated_for_v12; v11 playback is not reused",
+    "hash_matches_final_verification": true
   },
   "new_presentation": {
     "version": "20261110-omikuji",
@@ -126,7 +105,15 @@
         "complexity": 0,
         "bandit": 0
       },
-      "not_added_to_baseline_total": true
+      "not_added_to_baseline_total": true,
+      "release_run": {
+        "path": "artifacts/omikuji/release-tests.xml",
+        "passed": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 30.647
+      }
     },
     "test_summary": {
       "passed": 363,
@@ -1382,16 +1369,23 @@
       ]
     },
     "source_package": {
-      "status": "pending",
-      "expected_path": "outputs/kou-current-source.zip",
-      "expected_manifest": "not_yet_confirmed_by_parent",
-      "published_paths": []
+      "status": "completed",
+      "archive": "outputs/kou-current-source.zip",
+      "manifest": "outputs/kou-current-source-manifest.json"
     }
   },
   "game_verification": {
     "path": "artifacts/omikuji/verification.json",
     "status": "12_distinct_targeted_cases_passed_not_added_to_baseline",
-    "live_trial": "Parent reported code issue, legitimate 100-yen outcome, budget 3000/100/2900, then provider confirmed a 500-yen purchase without other discount; this auditor did not perform the live UI trial."
+    "live_trial": "Parent reported code issue, legitimate 100-yen outcome, budget 3000/100/2900, then provider confirmed a 500-yen purchase without other discount; this auditor did not perform the live UI trial.",
+    "latest_run": {
+      "path": "artifacts/omikuji/release-tests.xml",
+      "tests": "12",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "30.647"
+    }
   },
   "counting_correction": {
     "finding": "JUnit tests attribute 395 includes 32 subtests; there are 363 testcase elements.",
@@ -1424,7 +1418,7 @@
     "user_final_approval": "unconfirmed"
   },
   "preview_current": {
-    "version": "v11",
+    "version": "v12",
     "index": "outputs/video-preview/index.html",
     "mp4_matches_canonical": true,
     "vtt_matches_canonical": true,
@@ -1439,11 +1433,372 @@
       52,
       65
     ],
-    "old_v10_copy_preserved": true
+    "old_v10_v11_copies_preserved": true
   },
   "resolved_reference_changes": {
     "checked_at_utc": "2026-11-10T05:04:10.455287+00:00",
     "status": "Parent updated history paths; final old-only renderer two output paths updated by this auditor on explicit request; syntax checked without running renderer.",
     "historical_evidence_text": "Not rewritten by this auditor."
-  }
+  },
+  "source_package": {
+    "status": "verified",
+    "archive_path": "outputs/kou-current-source.zip",
+    "manifest_path": "outputs/kou-current-source-manifest.json",
+    "published_paths": [
+      "outputs/kou-current-source.zip",
+      "outputs/kou-current-source-manifest.json"
+    ],
+    "source_commit": "b05211ccfd688886c0ae1e6d0528347a84d779a1",
+    "bytes": 50523357,
+    "sha256": "f8b0ee6712ab2007f00fd0899fb4c8e240cf41250dc252059f27a59c2e01cb40",
+    "archive_files": 446,
+    "manifest_archive_hash_matches": true,
+    "manifest_file_set_matches": true,
+    "manifest_file_sizes_match": true,
+    "required_entrypoints_present": [
+      "backend/app/omikuji/service.py",
+      "frontend/src/Omikuji.tsx",
+      "frontend/src/omikuji-qr.ts",
+      "frontend/src/ProviderOmikuji.tsx",
+      "compose.yaml",
+      "Dockerfile"
+    ],
+    "excluded_category_entry_count": 0,
+    "unsafe_path_count": 0,
+    "symlink_count": 0,
+    "duplicate_entry_count": 0,
+    "camera_ar_included": true,
+    "exact_source_name_exceptions": [
+      "backend/app/password_policy.py",
+      "frontend/src/PasswordChange.tsx"
+    ],
+    "inspection": "ZIP names/sizes and whole-archive SHA256; policy/component source names only exempted from password-name heuristic. No full content secret audit.",
+    "dependencies_bundled": false,
+    "checked_at_utc": "2026-11-10T05:15:16.100589+00:00"
+  },
+  "final_entrypoint_check": {
+    "checked_at_utc": "2026-11-10T05:15:16.100589+00:00",
+    "README_links": 45,
+    "missing_links": [],
+    "all_exist": true,
+    "current_video": "v12",
+    "source_commit": "b05211ccfd688886c0ae1e6d0528347a84d779a1",
+    "pending_deliverables": [],
+    "note": "v12 browser reached 33.718307/70; chapter seek and changed scene not verified; full decode separately passed."
+  },
+  "inventory_final": [
+    {
+      "path": "outputs/cleanup-verified-paths.json",
+      "kind": "file",
+      "bytes": 4615
+    },
+    {
+      "path": "outputs/community-data-correlations.png",
+      "kind": "file",
+      "bytes": 355660
+    },
+    {
+      "path": "outputs/daytrip-backend-regression.xml",
+      "kind": "file",
+      "bytes": 26958
+    },
+    {
+      "path": "outputs/daytrip-backend-tests.xml",
+      "kind": "file",
+      "bytes": 2759
+    },
+    {
+      "path": "outputs/daytrip-backend-verification.json",
+      "kind": "file",
+      "bytes": 2570
+    },
+    {
+      "path": "outputs/daytrip-bandit-schema9.json",
+      "kind": "file",
+      "bytes": 2581
+    },
+    {
+      "path": "outputs/daytrip-bandit.json",
+      "kind": "file",
+      "bytes": 2581
+    },
+    {
+      "path": "outputs/daytrip-boundary-after.xml",
+      "kind": "file",
+      "bytes": 4010
+    },
+    {
+      "path": "outputs/daytrip-boundary-before.xml",
+      "kind": "file",
+      "bytes": 3534
+    },
+    {
+      "path": "outputs/daytrip-full-bandit-direct.json",
+      "kind": "file",
+      "bytes": 39806
+    },
+    {
+      "path": "outputs/daytrip-journal-recheck.xml",
+      "kind": "file",
+      "bytes": 385
+    },
+    {
+      "path": "outputs/daytrip-release-holds-tests.xml",
+      "kind": "file",
+      "bytes": 3863
+    },
+    {
+      "path": "outputs/daytrip-release-holds-verification.json",
+      "kind": "file",
+      "bytes": 3073
+    },
+    {
+      "path": "outputs/daytrip-ruff-before.json",
+      "kind": "file",
+      "bytes": 1999
+    },
+    {
+      "path": "outputs/daytrip-ruff-schema9.json",
+      "kind": "file",
+      "bytes": 2
+    },
+    {
+      "path": "outputs/daytrip-ruff.json",
+      "kind": "file",
+      "bytes": 2
+    },
+    {
+      "path": "outputs/history",
+      "kind": "directory",
+      "bytes": null
+    },
+    {
+      "path": "outputs/kou-current-20261110.pdf",
+      "kind": "file",
+      "bytes": 1113327
+    },
+    {
+      "path": "outputs/kou-current-20261110.pptx",
+      "kind": "file",
+      "bytes": 4088391
+    },
+    {
+      "path": "outputs/kou-current-source-manifest.json",
+      "kind": "file",
+      "bytes": 112963
+    },
+    {
+      "path": "outputs/kou-current-source.zip",
+      "kind": "file",
+      "bytes": 48094443
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10-ja.vtt",
+      "kind": "file",
+      "bytes": 879
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10.mp4",
+      "kind": "file",
+      "bytes": 2806172
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v11-ja.vtt",
+      "kind": "file",
+      "bytes": 1069
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v11.mp4",
+      "kind": "file",
+      "bytes": 3919747
+    },
+    {
+      "path": "outputs/latest.json",
+      "kind": "file",
+      "bytes": 7502
+    },
+    {
+      "path": "outputs/model-source-cleanup-tests.xml",
+      "kind": "file",
+      "bytes": 5591
+    },
+    {
+      "path": "outputs/posts-api-tests.xml",
+      "kind": "file",
+      "bytes": 7253
+    },
+    {
+      "path": "outputs/posts-final-tests.xml",
+      "kind": "file",
+      "bytes": 2332
+    },
+    {
+      "path": "outputs/posts-handler-tests.xml",
+      "kind": "file",
+      "bytes": 512
+    },
+    {
+      "path": "outputs/project-board.html",
+      "kind": "file",
+      "bytes": 363742
+    },
+    {
+      "path": "outputs/rank-r2-bandit.json",
+      "kind": "file",
+      "bytes": 2938
+    },
+    {
+      "path": "outputs/rank-r2-final-tests.xml",
+      "kind": "file",
+      "bytes": 8082
+    },
+    {
+      "path": "outputs/rank-r2-tests.xml",
+      "kind": "file",
+      "bytes": 7037
+    },
+    {
+      "path": "outputs/README.md",
+      "kind": "file",
+      "bytes": 7702
+    },
+    {
+      "path": "outputs/sample-data-trends.png",
+      "kind": "file",
+      "bytes": 201461
+    },
+    {
+      "path": "outputs/snapshot-metadata-tests.xml",
+      "kind": "file",
+      "bytes": 858
+    },
+    {
+      "path": "outputs/survey-content-trends.png",
+      "kind": "file",
+      "bytes": 223428
+    },
+    {
+      "path": "outputs/video-preview",
+      "kind": "directory",
+      "bytes": null
+    }
+  ],
+  "preview_before_v11": {
+    "kou-revisit-intro-v10.mp4": {
+      "exists": true,
+      "matches_canonical_sha256": true
+    },
+    "narration-ja.vtt": {
+      "exists": true,
+      "matches_canonical_sha256": false,
+      "matches_text_after_line_ending_and_final_whitespace_normalization": true,
+      "note": "Byte hash differs; cue text/timing equal after newline and final whitespace normalization. No caption replacement performed."
+    }
+  },
+  "preview": {
+    "version": "v12",
+    "index": "outputs/video-preview/index.html",
+    "mp4_matches_canonical": true,
+    "vtt_matches_canonical": true,
+    "chapter_starts_seconds": [
+      0,
+      6,
+      12,
+      19,
+      27,
+      35,
+      43,
+      52,
+      65
+    ],
+    "old_v10_v11_copies_preserved": true
+  },
+  "camera_ar_correction": {
+    "status": "frontend_v12_and_source_package_complete",
+    "provider_qr_evidence": "artifacts/omikuji/qr-compatibility.json",
+    "video": "outputs/kou-revisit-intro-v12.mp4",
+    "capture_method": "Real QR-image/photo import followed by Jizo overlay and saved 100-yen result; not live camera footage.",
+    "source_commit": "b05211ccfd688886c0ae1e6d0528347a84d779a1"
+  },
+  "previous_video_v11": {
+    "version": "v11",
+    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
+    "path": "outputs/kou-revisit-intro-v11.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+    "duration_seconds": 70.0,
+    "frames": 2100,
+    "bytes": 3919747,
+    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
+    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
+    "preview": "outputs/video-preview/index.html",
+    "verification": "artifacts/video-revisit/v11/final/verification.json",
+    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+    "human_listening_review": "not_assessed",
+    "user_final_approval": "unconfirmed",
+    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
+    "hash_matches_final_verification": true,
+    "prior_videos_preserved_record": 15,
+    "independent_decode_performed": false,
+    "browser_playback": {
+      "path": "artifacts/video-revisit/v11/browser-playback.json",
+      "method": "Played via visible start button without seeking; not a human listening assessment",
+      "time": 70,
+      "duration": 70,
+      "ended": true,
+      "error": null,
+      "observer": "root agent; metadata independently read by output auditor"
+    }
+  },
+  "previous_source_package": {
+    "checked_at_utc": "2026-11-10T05:06:11.528970+00:00",
+    "status": "verified",
+    "archive_path": "outputs/kou-current-source.zip",
+    "manifest_path": "outputs/kou-current-source-manifest.json",
+    "source_commit": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
+    "bytes": 48094443,
+    "sha256": "5feae5dd819cb70fd5a2a2c485564dde84eee1d3a2cb2058707a1ca137edfe78",
+    "manifest_archive_hash_matches": true,
+    "archive_files": 422,
+    "archive_directory_entries": 39,
+    "manifest_file_set_matches": true,
+    "manifest_file_sizes_match": true,
+    "required_entrypoints_present": [
+      "backend/app/main.py",
+      "backend/app/omikuji/router.py",
+      "backend/app/omikuji/service.py",
+      "backend/app/omikuji/schema.py",
+      "frontend/src/Omikuji.tsx",
+      "compose.yaml",
+      "Dockerfile",
+      ".dockerignore",
+      "README.md",
+      "DESIGN.md",
+      "TASKS.md",
+      "scripts/setup-local.ps1",
+      "test/backend/test_omikuji.py"
+    ],
+    "unsafe_path_count": 0,
+    "symlink_count": 0,
+    "excluded_category_entry_count": 0,
+    "duplicate_entry_count": 0,
+    "inspection": "ZIP names/metadata and whole-archive SHA256 only; no extraction or secret-content read. Individual file hashes inside ZIP were not recomputed.",
+    "uncommitted_changes": "Package is committed blobs of source_commit only; separately active uncommitted EV02 work is not included.",
+    "dependencies_bundled": false,
+    "limits": [
+      "Installed dependencies, ignored model weights, runtime databases and backups are not bundled.",
+      "Secret checks are conservative heuristics, not a complete security audit.",
+      "ZIP bytes are reproducible for the same commit and Git implementation; generated_at changes.",
+      "Each output file is atomically replaced. A process/OS crash between the two replacements can leave a mismatched pair; verify archive.sha256 before use."
+    ]
+  },
+  "v12_browser_partial_check": {
+    "path": "artifacts/video-revisit/v12/browser-playback-partial.json",
+    "currentTime": 33.718307,
+    "duration": 70,
+    "ended": false,
+    "error": null,
+    "source": "http://127.0.0.1:8092/kou-revisit-intro-v12.mp4",
+    "scope": "Partial playback only; chapter seeking reset to start in this preview and was not verified. Full file decoding verified separately."
+  },
+  "updated_at_utc": "2026-11-10T05:16:48.616299+00:00"
 }

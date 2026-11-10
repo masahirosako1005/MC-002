@@ -1,0 +1,3 @@
+リビジョン: 57d5c2115d33b102f9d61faf2cb16c06de472de2
+件名: design: illustrate opening slides with travel planning story (PR07)
+確認日時: 2026-11-10T16:04:12+09:00

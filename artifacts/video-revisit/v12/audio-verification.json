@@ -1,0 +1,52 @@
+{
+  "listening_review": "Not performed",
+  "speed_processing": "none; no atempo, trimming, or time compression",
+  "vtt_path": "outputs/kou-revisit-intro-v12-ja.vtt",
+  "total_voice_seconds": 48.6904375,
+  "clipped_total": 0.0,
+  "scene7_seconds": 9.0433125,
+  "status": "fits_without_acceleration",
+  "vtt_sha256": "cb4c328080a9f45498ef62c2915fff377341edfe7d892bcd4573ee2e84dfcc9d",
+  "total_seconds": 70.0,
+  "rate": 2,
+  "unchanged_scene_audio": [
+    {
+      "same": true,
+      "scene": 0
+    },
+    {
+      "same": true,
+      "scene": 1
+    },
+    {
+      "same": true,
+      "scene": 2
+    },
+    {
+      "same": true,
+      "scene": 3
+    },
+    {
+      "same": true,
+      "scene": 4
+    },
+    {
+      "same": true,
+      "scene": 5
+    },
+    {
+      "same": true,
+      "scene": 6
+    },
+    {
+      "same": true,
+      "scene": 8
+    }
+  ],
+  "voice": {
+    "gender": "Female",
+    "culture": "ja-JP",
+    "name": "Microsoft Sayaka"
+  },
+  "source": "audio/final-rate-2/measurements.json"
+}

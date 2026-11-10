@@ -1,0 +1,72 @@
+[
+  {
+    "source_before": "guide-raw.mp4",
+    "saved": "artifacts/video-revisit/v13/before-neural/guide-raw.mp4",
+    "sha256": "d9c91b43d384817d5e861704141c9cadcd368c5d71f9427a95d4deb513ec12a7"
+  },
+  {
+    "source_before": "motion-verification.json",
+    "saved": "artifacts/video-revisit/v13/before-neural/motion-verification.json",
+    "sha256": "0b9e90db511b60b76f67d7184ff44c64aadd6326c5287daa4a3ad4824d2db0a7"
+  },
+  {
+    "source_before": "layout-verification.json",
+    "saved": "artifacts/video-revisit/v13/before-neural/layout-verification.json",
+    "sha256": "24fe841e6bf9aa2bd98b8e32abb79082b4ac8b46d8de8844b4894186b04d296b"
+  },
+  {
+    "source_before": "scenes.json",
+    "saved": "artifacts/video-revisit/v13/before-neural/scenes.json",
+    "sha256": "23d3066ddf679c8bc1797a26e0669d167a7f94c67e55fbe14911f271f6f6a763"
+  },
+  {
+    "source_before": "audio-verification.json",
+    "saved": "artifacts/video-revisit/v13/before-neural/audio-verification.json",
+    "sha256": "444cb52bd0102cfc31a4b72437d3f4da4cb56a61cf550b46354fd2ef1989232b"
+  },
+  {
+    "source_before": "visual-script-update.json",
+    "saved": "artifacts/video-revisit/v13/before-neural/visual-script-update.json",
+    "sha256": "7e000f6a46c3dc056828bf6054134412f5ee38f3b98d9b6823d1e9d5918a17b3"
+  },
+  {
+    "source_before": "layers/scene-00.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-00.png",
+    "sha256": "c260667944ba93457f1a92599b9768d632ec2ffa8acedee5da931a8288b8232b"
+  },
+  {
+    "source_before": "layers/scene-01.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-01.png",
+    "sha256": "cbaaf7a00b4624a214a0da200f91e5840014d5ebb37ac8db4a55f0e57963da28"
+  },
+  {
+    "source_before": "layers/scene-02.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-02.png",
+    "sha256": "a769ad8278e16ef3b789983b65f9e32d9be0393e2afb6a902a24274a180a9b57"
+  },
+  {
+    "source_before": "layers/scene-03.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-03.png",
+    "sha256": "cefdf09515616c7bb55ab79c654fd51caae31183713c531879f52ad93ce50043"
+  },
+  {
+    "source_before": "layers/scene-04.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-04.png",
+    "sha256": "53d3fb885d63986ad6893f2b1e7896e6d03c12534ecef14cb0a4581ba1b5a666"
+  },
+  {
+    "source_before": "layers/scene-05.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-05.png",
+    "sha256": "7f4b0a16d33712587005f6112d33cef066f736ee844e6a31389cc82a3fd884da"
+  },
+  {
+    "source_before": "layers/scene-06.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-06.png",
+    "sha256": "47f286c7639e25ef7f4e485dbfea6058097a2318a3f9ac4b1d13eeeced29e21e"
+  },
+  {
+    "source_before": "layers/scene-07.png",
+    "saved": "artifacts/video-revisit/v13/before-neural/layers/scene-07.png",
+    "sha256": "8fec96ea9cad3d922e6f877a11f4312037e7c26a7acafac9d77c023402364c5e"
+  }
+]

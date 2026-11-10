@@ -1,0 +1,141 @@
+{
+  "take": "login-and-eight-scene-tour",
+  "source_take": "reading-final-06",
+  "no_new_synthesis": false,
+  "voice": {
+    "name": "Microsoft Sayaka",
+    "culture": "ja-JP",
+    "gender": "Female"
+  },
+  "rate": 2,
+  "duration_seconds": 73,
+  "frames": 2190,
+  "speech_seconds": 54.7888125,
+  "scenes": [
+    {
+      "scene": 0,
+      "speech_seconds": 9.201625,
+      "scene_seconds": 11,
+      "trailing_seconds": 1.5783749999999994,
+      "clipped_samples": 0,
+      "peak_dbfs": -6.488366522222002,
+      "sha256": "05b1114269283ad69675994467e9ceded3e7240bb21e1ff5407ab02a8b794db7",
+      "original_other_voice_preserved": null,
+      "source_take": "login-intro-07",
+      "spoken_text": "利用者は、こうを感じる和の画面。事業者は、数字が読みやすい管理画面。ログインして、使ってみましょう。"
+    },
+    {
+      "scene": 1,
+      "speech_seconds": 6.3615625,
+      "scene_seconds": 9,
+      "trailing_seconds": 2.4184374999999996,
+      "clipped_samples": 0,
+      "peak_dbfs": -4.766445274597104,
+      "sha256": "f185a2a887511991fecfa668e9d8c44eec59b54e9dfc305699beb143b5c39c01",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "写真を投稿すると、タグ候補が。確認するだけで、次の仲間探しに。"
+    },
+    {
+      "scene": 2,
+      "speech_seconds": 8.522375,
+      "scene_seconds": 10,
+      "trailing_seconds": 1.257624999999999,
+      "clipped_samples": 0,
+      "peak_dbfs": -6.3138951541248645,
+      "sha256": "ed64cf4ef9e33eeb7e94add336e4498a9b8af18e6e64615ba0e563b06a96594e",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "こうは、目的を持つ仲間。同じコミュニティの趣味から、候補を提案。自分で選んで誘えます。"
+    },
+    {
+      "scene": 3,
+      "speech_seconds": 7.0860625,
+      "scene_seconds": 8,
+      "trailing_seconds": 0.6939375000000005,
+      "clipped_samples": 0,
+      "peak_dbfs": -4.600553215429423,
+      "sha256": "81c86dae869540a6fa487a80f6df1dcb76dbed00f3da3ca4570bcf2ac332d590",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "行きたい場所を選んだら、その事業者を講へ招待。承諾されたら、直接やりとり。"
+    },
+    {
+      "scene": 4,
+      "speech_seconds": 5.715,
+      "scene_seconds": 10,
+      "trailing_seconds": 4.0649999999999995,
+      "clipped_samples": 0,
+      "peak_dbfs": -6.337506336248736,
+      "sha256": "96d602bd7450114304a123b6ba0628a89289623203b3b6ab31af8677cbb82f61",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "人数も日程も、行程や見積も。一つの講で相談できます。"
+    },
+    {
+      "scene": 5,
+      "speech_seconds": 5.850875,
+      "scene_seconds": 7,
+      "trailing_seconds": 0.929125,
+      "clipped_samples": 0,
+      "peak_dbfs": -4.954772164660511,
+      "sha256": "5a7dba79d9ff6c633af6284528a2854977e28c614847857d6180b00a7610a468",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "よかった、気になった。同意した専用の振り返りを、選ぶ参考に。"
+    },
+    {
+      "scene": 6,
+      "speech_seconds": 7.8759375,
+      "scene_seconds": 13,
+      "trailing_seconds": 4.904062499999999,
+      "clipped_samples": 0,
+      "peak_dbfs": -4.84387903015935,
+      "sha256": "9a246825fd4ab50b9155f69d784a7f1dabfa57d0c119c370e68e108a2819e723",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "事業者が、何度か通って完成する体験を提案。続ける楽しみを、次の来訪のきっかけに。"
+    },
+    {
+      "scene": 7,
+      "speech_seconds": 4.175375,
+      "scene_seconds": 5,
+      "trailing_seconds": 0.6046250000000004,
+      "clipped_samples": 0,
+      "peak_dbfs": -4.1372836134127,
+      "sha256": "6a3469d60e3b817dd071fed1a0ad4d77d96d9f857a8dd485d7d27c0d03d090d8",
+      "original_other_voice_preserved": true,
+      "source_take": "reading-final-06",
+      "spoken_text": "仲間探しから、次の来訪まで。こう。"
+    }
+  ],
+  "processing": "No acceleration, trimming or pitch modification; original speech reused with reading holds",
+  "listening_review": "Not performed",
+  "engine_checks": {
+    "repeated_plain_pcm_identical": true,
+    "pause_duration_delta_seconds": 0.12331249999999994,
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "emphasis_pcm_changed": true
+  },
+  "visual_boundary": "Dedicated reflection condition form only; saving and aggregation were not demonstrated. Photo candidates are local registered-sample defaults and require confirmation/permission.",
+  "newly_synthesized_scenes": [
+    0
+  ],
+  "vtt_sha256": "6e6718fa6720a8222eb279db871da80f72e99585e27ea7cd595d95a7bee48cf5",
+  "vtt_final_single_lf": true,
+  "final_script_sha256": "6f3c18d6202d0723bf47619e9d5dbd025fd2b6d8a247e5b8bb356ec7b8ef8959",
+  "intro_settings": {
+    "tempo_processing": "None",
+    "voice": "Microsoft Sayaka",
+    "script_sha256": "663df805e52ed88cc46303d75821c9836caf2cc01091b4a8aab8aa55c39610e8",
+    "rate": 2,
+    "executable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe",
+    "pitch": "medium",
+    "sentence_pause_ms": 80,
+    "version": "7.6.9",
+    "text": "利用者は、こうを感じる和の画面。事業者は、数字が読みやすい管理画面。ログインして、使ってみましょう。",
+    "human_listening": "Not performed",
+    "emphasis": "Only the word login, volume 85 to 95",
+    "volume": 90
+  }
+}

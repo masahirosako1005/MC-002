@@ -1,0 +1,14 @@
+[mp3 @ 0000018a9300f840] Estimating duration from bitrate, this may be inaccurate
+Input #0, mp3, from 'artifacts\video-revisit\v13\neural-nanami-01\voice-00.mp3':
+  Duration: 00:00:11.23, start: 0.000000, bitrate: 48 kb/s
+  Stream #0:0: Audio: mp3 (mp3float), 24000 Hz, mono, fltp, 48 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (mp3 (mp3float) -> pcm_s16le (native))
+Output #0, wav, to 'artifacts\video-revisit\v13\neural-pcm\voice-00.wav':
+  Metadata:
+    ISFT            : Lavf61.7.100
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+[out#0/wav @ 0000018a9300fcc0] video:0KiB audio:1053KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.007234%
+size=    1053KiB time=00:00:11.23 bitrate= 768.1kbits/s speed= 872x    

@@ -1,0 +1,3 @@
+リビジョン: 951353eca6a47e6e2bd31ddd2591a60a428beff5
+件名: docs: align current guidance with evaluated revisions and release scope
+確認日時: 2026-11-10T14:30:12+09:00

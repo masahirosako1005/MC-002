@@ -1,0 +1,3 @@
+Browser tab: 9, Title: "講 — 日帰りの旅と仲間", URL: "http://127.0.0.1:8081/stage/visitor".
+There has been no change in the accessibility tree.
+The focused UI element is 19 checkbox 通う旅, Value: 1

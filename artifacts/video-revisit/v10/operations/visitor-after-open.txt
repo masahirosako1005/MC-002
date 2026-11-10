@@ -1,0 +1,9 @@
+Browser tab: 5, Title: "講 — 日帰りの旅と仲間", URL: "http://127.0.0.1:8081/stage".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 69-200
+~							50 heading 通う旅, Value: 1
+~								51 text 通う旅
+~								56 checkbox 日帰り, Value: 0
+~								57 checkbox 通う旅, Value: 1
++							487 text 通う旅をひらいています…
+The focused UI element is 57 checkbox 通う旅, Value: 1

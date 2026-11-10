@@ -1,0 +1,207 @@
+Browser tab: 10, Title: "講 — 日帰りの旅と仲間", URL: "http://127.0.0.1:8081/stage/provider".
+0 AXWebArea 講 — 日帰りの旅と仲間, URL: 127.0.0.1:8081/stage/provider
+	1 container root
+		2 link Description: 本文へ移動, Value: 127.0.0.1:8081/stage/provider#main
+		3 button 講 ホームへ
+		4 text 森の旅案内・門前市場の案内所・N西くらしの陶房
+		5 container 事業者の画面
+			6 button 管理画面
+			7 button 旅のプラン
+		8 button 森の旅案内 アカウントを切り替える
+			9 container 森の旅案内
+				10 text 森
+		11 container
+			12 container 事業者の業務
+				13 text 事業者管理
+				14 button 実績・地域
+				15 button 相談
+				16 button 講の招待
+				17 button プラン
+				18 button 日帰り・特典
+			19 heading 自社とN西市全体の実績, Value: 1
+				20 text 自社とN西市全体の実績
+			21 container 集計の範囲
+				22 checkbox 自社, Value: 0
+				23 checkbox N西市全体, Value: 1
+			24 container 集計期間
+				25 checkbox Description: 過去30日, Value: 0
+				26 checkbox Description: 過去90日, Value: 1
+				27 checkbox Description: 過去365日, Value: 0
+			28 button 集計を更新する
+			29 pop up button (collapsed) Description: 管理する事業者, Secondary Actions: Expand
+				30 text 森の旅案内
+			31 text 市全体の集計 2026-08-13  —  2026-11-10 13:18 更新  · 本日は途中集計
+			32 container 対象期間に市内の確認済み利用がある実人数。事業者をまたぐ重複を除きます。
+				33 heading 来訪者数, Value: 2
+					34 text 来訪者数
+				35 text 42
+				36 text 人
+				37 container
+					38 text 前期  0人 +42人
+			39 container 当期の利用より前の別の日本時間の日にも市内の確認済み利用がある実人数。
+				40 heading 再訪者数, Value: 2
+					41 text 再訪者数
+				42 text 42
+				43 text 人
+				44 container
+					45 text 前期  0人 +42人
+			46 container 利用者と日本時間の利用日の組合せ数。同日他店の利用を重ねて数えません。
+				47 heading 延べ来訪日数, Value: 2
+					48 text 延べ来訪日数
+				49 text 990
+				50 text 人日
+				51 container
+					52 text 前期  0人日 +990人日
+			53 container 利用者と開催の組合せ数。同日でも別開催は別に数えます。
+				54 heading 延べ参加回数, Value: 2
+					55 text 延べ参加回数
+				56 text 990
+				57 text 人回
+				58 container
+					59 text 前期  0人回 +990人回
+			60 container 期間ごとの推移
+				61 container
+					62 heading 期間ごとの推移, Value: 2
+						63 text 期間ごとの推移
+					64 text 人  / 30日間
+				65 container 推移の指標
+					66 checkbox 来訪, Value: 1
+					67 checkbox 再訪, Value: 0
+					68 checkbox 来訪日, Value: 0
+					69 checkbox 参加, Value: 0
+				70 image Description: 来訪者数の推移。数値表で詳細を確認できます。, Help: 来訪者数の推移
+				71 button (collapsed) 期間別の数値と定義, Secondary Actions: Expand
+					72 text 期間別
+					73 text の数値と定義
+			74 container
+				75 heading 居住地域, Value: 2
+					76 text 居住地域
+				77 text 市区町村の代表点
+			78 container 地域図の指標
+				79 checkbox Description: 来訪者, Value: 1
+				80 checkbox Description: 再訪者, Value: 0
+			81 container 地域図の範囲
+				82 checkbox Description: N西市周辺, Value: 1
+				83 checkbox 関西, Value: 0
+				84 checkbox 全国, Value: 0
+			85 container
+				86 image Description: N西市周辺の来訪者の居住地域図。地域別人数は下の表で確認できます。, Help: N西市周辺の来訪者の居住地域
+					87 image 京都府 京都市：来訪者 6人
+					88 image 大阪府 大阪市：来訪者 6人
+					89 image 大阪府 堺市：来訪者 6人
+					90 image 大阪府 吹田市：来訪者 6人
+					91 image 兵庫県 神戸市：来訪者 6人
+					92 image 奈良県 奈良市：来訪者 6人
+					93 container
+						94 text 京都市 6 人
+					95 container
+						96 text 大阪市 6 人
+					97 container
+						98 text 堺市 6 人
+					99 container
+						100 text 吹田市 6 人
+					101 container
+						102 text 神戸市 6 人
+					103 container
+						104 text 奈良市 6 人
+				105 text N西市 円の大きさ： 来訪者 数 目的地
+			106 container
+				107 text 未登録 6人 · 未共有 0人 · 少人数の地域は非表示
+			108 button (collapsed) 地域別の数値と集計条件, Secondary Actions: Expand
+				109 text 地域別の数値と集計条件
+			110 container
+				111 heading 公開事業者の比較, Value: 2
+					112 text 公開事業者の比較
+				113 text 6事業者 ・ 33公開プラン が対象 市内の集計
+			114 text 市全体の人数は事業者をまたいで重複を除きます。各社の人数は合算できません。
+			115 table
+				116 row
+					117 cell
+						118 text 事業者
+					119 cell
+						120 text 公開プラン
+					121 cell
+						122 text 利用者
+					123 cell
+						124 text 参加
+					125 cell
+						126 text 開催
+				127 row
+					128 cell
+						129 text 森の旅案内
+						130 text 自社
+						131 text N西市
+					132 cell
+						133 text 14件
+					134 cell
+						135 text 42人
+					136 cell
+						137 text 312人回
+					138 cell
+						139 text 58回
+				140 row
+					141 cell
+						142 text 門前市場の案内所
+						143 text N西市
+					144 cell
+						145 text 2件
+					146 cell
+						147 text 42人
+					148 cell
+						149 text 126人回
+					150 cell
+						151 text 21回
+				152 row
+					153 cell
+						154 text N西くらしの陶房
+						155 text N西市
+					156 cell
+						157 text 5件
+					158 cell
+						159 text 42人
+					160 cell
+						161 text 132人回
+					162 cell
+						163 text 22回
+				164 row
+					165 cell
+						166 text 川辺と庭園の案内所
+						167 text N西市
+					168 cell
+						169 text 5件
+					170 cell
+						171 text 42人
+					172 cell
+						173 text 126人回
+					174 cell
+						175 text 21回
+				176 row
+					177 cell
+						178 text 北山の茶店
+						179 text N西市
+					180 cell
+						181 text 2件
+					182 cell
+						183 text 42人
+					184 cell
+						185 text 126人回
+					186 cell
+						187 text 21回
+				188 row
+					189 cell
+						190 text 海辺の学び舎
+						191 text N西市
+					192 cell
+						193 text 5件
+					194 cell
+						195 text 42人
+					196 cell
+						197 text 168人回
+					198 cell
+						199 text 28回
+			200 button (collapsed) 公開プランの分野を見る, Secondary Actions: Expand
+				201 text 公開プランの分野を見る
+			202 button (collapsed) 集計の対象・定義・非表示の条件, Secondary Actions: Expand
+				203 text 集計の対象・定義・非表示の条件
+
+The focused UI element is 23 checkbox N西市全体, Value: 1

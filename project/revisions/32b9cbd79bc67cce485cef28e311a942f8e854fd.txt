@@ -1,0 +1,3 @@
+リビジョン: 32b9cbd79bc67cce485cef28e311a942f8e854fd
+件名: feat: publish 70 second onsite-game tour and current presentation
+確認日時: 2026-11-10T14:06:37+09:00

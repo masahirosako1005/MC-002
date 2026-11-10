@@ -1,0 +1,3 @@
+リビジョン: 3541af6cf4e2271643c7698aa7093f4fa570028e
+件名: feat: add four-minute presentation with video and speaker notes
+確認日時: 2026-11-10T15:10:39+09:00

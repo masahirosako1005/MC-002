@@ -1,0 +1,207 @@
+[
+  {
+    "kind": "login",
+    "chapter": "ログインして、使ってみる",
+    "title": "利用者と事業者、それぞれの画面から",
+    "voice": "利用者は、こうを感じる和の画面。事業者は、数字が読みやすい管理画面。ログインして、使ってみましょう。",
+    "focus": "ログイン",
+    "layout": "stage",
+    "minimum_duration": 11,
+    "headline": "",
+    "body": "",
+    "subtitle": "利用者は講の和の画面／事業者は数字を読みやすく／ログイン後に操作を紹介",
+    "duration": 11,
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "pc-login",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "pc-login",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "pc-login-open",
+          "source_seconds": 0
+        },
+        {
+          "at": 6,
+          "group": "pc-login-dashboard",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual login screen, masked sample credentials and successful login, then actual dashboard. Reading holds only; no simulated login event."
+    }
+  },
+  {
+    "kind": "photo",
+    "chapter": "1 写真から関心へ",
+    "title": "写真のタグを、次の仲間探しに",
+    "voice": "写真を投稿すると、タグ候補が。確認するだけで、次の仲間探しに。",
+    "focus": "タグ候補",
+    "layout": "phone",
+    "minimum_duration": 9,
+    "duration": 9,
+    "headline": "写真のタグを確認し、関心に使う。",
+    "body": "1 写真を選んで投稿。\n2 タグ候補を確認・修正。\n3 関心の持越しを、本人が許可。",
+    "note": "本人が候補を確認し、持越しを許可。\n現在は登録サンプルの既定候補です。",
+    "subtitle": "タグの確定と関心への持越しは本人が選択／共有範囲も本人が確認",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-photo",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "phone-photo",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-photo-publish",
+          "source_seconds": 0
+        },
+        {
+          "at": 6,
+          "group": "phone-photo-profile",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual photo/tag choice, confirmed publish, then own preference selection and permission. A cut separates each recorded action; copying interests is never implied to be automatic."
+    }
+  },
+  {
+    "kind": "match",
+    "chapter": "2 仲間を選ぶ",
+    "title": "同じコミュニティから、旅仲間を",
+    "voice": "こうは、目的を持つ仲間。同じコミュニティの趣味から、候補を提案。自分で選んで誘えます。",
+    "focus": "趣味",
+    "layout": "phone",
+    "minimum_duration": 10,
+    "headline": "共通の関心を見て、仲間を選ぶ。",
+    "body": "1 関心を選び、候補を探す。\n2 共通タグを見て、2人を選ぶ。\n3 招待し、本人の承諾を待つ。",
+    "note": "候補の提示と、参加の承諾は別です。",
+    "subtitle": "本人が許可した関心だけを使用／候補提示と参加承諾は別",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-match",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "phone-match",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-match-selected",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Search results then separately recorded actual selection. A visible cut separates these real states; no selection or application output is synthesized."
+    },
+    "duration": 10
+  },
+  {
+    "kind": "select",
+    "chapter": "3 行き先を選ぶ",
+    "title": "行きたい事業者を、自分たちで選ぶ",
+    "voice": "行きたい場所を選んだら、その事業者を講へ招待。承諾されたら、直接やりとり。",
+    "focus": "選んだら",
+    "layout": "phone",
+    "minimum_duration": 8,
+    "headline": "詳細を見て、自分たちで選ぶ。",
+    "body": "1 写真・人数・日程・料金を比較。\n2 詳細を開き、行き先を決める。\n3 共有内容を選び、事業者を招待。",
+    "note": "共有内容を選んで招待。\n事業者の承諾後に相談できます。",
+    "subtitle": "事業者の承諾後に共有相談を開始／相談だけで予約は確定しません",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-select-pottery"
+    },
+    "duration": 8
+  },
+  {
+    "kind": "chat",
+    "chapter": "4 直接相談する",
+    "title": "人数・日程・見積を、一つの講で",
+    "voice": "人数も日程も、行程や見積も。一つの講で相談できます。",
+    "focus": "一つの講",
+    "layout": "phone",
+    "minimum_duration": 10,
+    "headline": "集まる時間や、行程を相談する。",
+    "body": "1 共有会話を開く。\n2 集合・雨天対応を相談。\n3 行程と見積の内容を確認。",
+    "note": "相談だけで予約は確定しません。",
+    "subtitle": "共有した会話・行程・見積を同じ講で確認",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-chat-pottery"
+    },
+    "duration": 10
+  },
+  {
+    "kind": "reflection",
+    "chapter": "5 旅を振り返る",
+    "title": "同意した振り返りを、選ぶ参考に",
+    "voice": "よかった、気になった。同意した専用の振り返りを、選ぶ参考に。",
+    "focus": "振り返り",
+    "layout": "phone",
+    "minimum_duration": 7,
+    "headline": "振り返りを共有する条件を確認。",
+    "body": "1 旅行後の専用欄を開く。\n2 利用と集計の同意を確認。\n3 同意した内容を参考に。",
+    "note": "収録は条件確認まで。\n保存・集計の完了は実演していません。",
+    "subtitle": "共有は参加者ごとの利用申告と同意が必要／事業者選びの参考情報",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "phone-reflection"
+    },
+    "duration": 7
+  },
+  {
+    "kind": "program",
+    "chapter": "6 次の訪問を提案する",
+    "title": "事業者から、次も通いたくなる提案",
+    "voice": "事業者が、何度か通って完成する体験を提案。続ける楽しみを、次の来訪のきっかけに。",
+    "focus": "何度か通って",
+    "layout": "wide",
+    "minimum_duration": 13,
+    "headline": "事業者から\n次の体験を。",
+    "body": "送る → 届く\nコースを見る。",
+    "note": "既存コースを、実際の共有会話で提案。\n再訪を促す設計であり、効果は未測定です。",
+    "subtitle": "事業者の提案 → 利用者が受信 → 通う旅のコースを確認",
+    "capture": {
+      "directory": "artifacts/video-revisit/v13/operations",
+      "group": "pc-program",
+      "sequence": [
+        {
+          "at": 0,
+          "group": "pc-program",
+          "source_seconds": 0
+        },
+        {
+          "at": 3,
+          "group": "phone-program-received",
+          "source_seconds": 0
+        },
+        {
+          "at": 7,
+          "group": "phone-program-course",
+          "source_seconds": 0
+        }
+      ],
+      "editing_note": "Actual provider send, then recipient view of the same saved message, then the existing course progress. Each segment plays at original recorded speed; gaps between views are omitted."
+    },
+    "duration": 13
+  },
+  {
+    "kind": "closing",
+    "chapter": "仲間探しから、次の来訪まで",
+    "title": "仲間探しから、\n次の来訪まで。講",
+    "voice": "仲間探しから、次の来訪まで。こう。",
+    "focus": "次の来訪",
+    "layout": "title",
+    "minimum_duration": 5,
+    "headline": "選ぶ・相談する・次の目的をつくる。",
+    "body": "写真から関心へ。仲間を選び、旅先に相談。\n事業者の提案を、次に訪れる目的へ。",
+    "subtitle": "旅行前の負担軽減・再訪の効果は未測定／先達の特典・日帰り圏の割引も継続",
+    "duration": 5
+  }
+]

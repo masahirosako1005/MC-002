@@ -1,0 +1,62 @@
+[
+  {
+    "file": "high.wav",
+    "sample_rate": 22050,
+    "seconds": 3.125759637188209,
+    "pcm_sha256": "9ea969362871f9bf1eb525a0ca1e50c5fbf7095a00662eade3cd7d134a14c968"
+  },
+  {
+    "file": "low.wav",
+    "sample_rate": 22050,
+    "seconds": 3.117777777777778,
+    "pcm_sha256": "2f69a7488ffe2159dd1b889d66551c59e129adf100218b21394af32759c9f663"
+  },
+  {
+    "file": "minus1st.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "neutral48.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "plain.wav",
+    "sample_rate": 22050,
+    "seconds": 3.117777777777778,
+    "pcm_sha256": "50dfd5af222e5d4b1b2bc4229c8486ffca28caa5be6f0b0bdc248f5c79bb1671"
+  },
+  {
+    "file": "plus10.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "plus1st.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "plus6.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "plus8.wav",
+    "sample_rate": 48000,
+    "seconds": 3.1185,
+    "pcm_sha256": "dea1abec223da2b6139f48578b6a5eaf0033f864a7bcaa9b58d84628afb3acae"
+  },
+  {
+    "file": "strong.wav",
+    "sample_rate": 22050,
+    "seconds": 4.87578231292517,
+    "pcm_sha256": "93da21ac6490bed4ce406307ddce9ded5675bf1c68a8dab49ebe6a5e38f34ce2"
+  }
+]

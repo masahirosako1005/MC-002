@@ -1,0 +1,43 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v9\guide-raw.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 434 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 326 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 99 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+[aist#1:0/pcm_s16le @ 0000024cc8529640] Guessed Channel Layout: stereo
+Input #1, wav, from 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v9\pcm\narration-balanced.wav':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Duration: 00:01:00.00, bitrate: 1536 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #1:0 -> #0:1 (pcm_s16le (native) -> aac (native))
+Output #0, mp4, to 'C:\AI-Sprint\workspace\MC-002\artifacts\video-revisit\v9\final\finished-audio.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, q=2-31, 326 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 160 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 aac
+frame=  485 fps=0.0 q=-1.0 size=     768KiB time=00:00:16.00 bitrate= 393.2kbits/s speed=31.5x    frame=  971 fps=948 q=-1.0 size=    1536KiB time=00:00:32.17 bitrate= 391.1kbits/s speed=31.4x    frame= 1424 fps=923 q=-1.0 size=    2304KiB time=00:00:47.29 bitrate= 399.1kbits/s speed=30.7x    [mp4 @ 0000024cc8536780] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000024cc8538740] video:2392KiB audio:723KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 2.105556%
+frame= 1800 fps=910 q=-1.0 Lsize=    3180KiB time=00:00:59.93 bitrate= 434.7kbits/s speed=30.3x    
+[aac @ 0000024cc85bdc80] Qavg: 29981.537

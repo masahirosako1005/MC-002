@@ -1,0 +1,7 @@
+{
+  "operation": "verify",
+  "checked_at": "2026-11-10T04:35:04.168018+00:00",
+  "passed": false,
+  "snapshot": "C:\\AI-Sprint\\workspace\\MC-002\\backups\\20261110T043142Z-a4a8348d9ea5",
+  "error_type": "CalledProcessError"
+}
