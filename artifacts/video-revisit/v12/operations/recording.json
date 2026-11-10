@@ -1,0 +1,279 @@
+{
+  "viewport": {
+    "width": 430,
+    "height": 900
+  },
+  "frames": [
+    {
+      "group": "phone-omikuji",
+      "file": "ar-000.jpg",
+      "started": 1794287501448,
+      "finished": 1794287501544
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-001.jpg",
+      "started": 1794287501843,
+      "finished": 1794287501988
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-002.jpg",
+      "started": 1794287501988,
+      "finished": 1794287502034
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-003.jpg",
+      "started": 1794287502034,
+      "finished": 1794287502099
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-004.jpg",
+      "started": 1794287502099,
+      "finished": 1794287502134
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-005.jpg",
+      "started": 1794287502134,
+      "finished": 1794287502196
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-006.jpg",
+      "started": 1794287502197,
+      "finished": 1794287502268
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-007.jpg",
+      "started": 1794287502268,
+      "finished": 1794287502314
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-008.jpg",
+      "started": 1794287502314,
+      "finished": 1794287502364
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-009.jpg",
+      "started": 1794287502364,
+      "finished": 1794287502423
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-010.jpg",
+      "started": 1794287502423,
+      "finished": 1794287502491
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-011.jpg",
+      "started": 1794287502491,
+      "finished": 1794287502571
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-012.jpg",
+      "started": 1794287502571,
+      "finished": 1794287502628
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-013.jpg",
+      "started": 1794287502628,
+      "finished": 1794287502684
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-014.jpg",
+      "started": 1794287502684,
+      "finished": 1794287502745
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-015.jpg",
+      "started": 1794287502745,
+      "finished": 1794287502797
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-016.jpg",
+      "started": 1794287502797,
+      "finished": 1794287502853
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-017.jpg",
+      "started": 1794287502853,
+      "finished": 1794287502898
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-018.jpg",
+      "started": 1794287502898,
+      "finished": 1794287502969
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-019.jpg",
+      "started": 1794287502969,
+      "finished": 1794287503043
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-020.jpg",
+      "started": 1794287503043,
+      "finished": 1794287503097
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-021.jpg",
+      "started": 1794287510104,
+      "finished": 1794287510144
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-022.jpg",
+      "started": 1794287510437,
+      "finished": 1794287510478
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-023.jpg",
+      "started": 1794287510478,
+      "finished": 1794287510523
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-024.jpg",
+      "started": 1794287510523,
+      "finished": 1794287510553
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-025.jpg",
+      "started": 1794287510553,
+      "finished": 1794287510596
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-026.jpg",
+      "started": 1794287510596,
+      "finished": 1794287510625
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-027.jpg",
+      "started": 1794287510625,
+      "finished": 1794287510662
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-028.jpg",
+      "started": 1794287510662,
+      "finished": 1794287510683
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-029.jpg",
+      "started": 1794287510683,
+      "finished": 1794287510724
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-030.jpg",
+      "started": 1794287510724,
+      "finished": 1794287510766
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-031.jpg",
+      "started": 1794287510766,
+      "finished": 1794287510809
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-032.jpg",
+      "started": 1794287510809,
+      "finished": 1794287510860
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-033.jpg",
+      "started": 1794287510860,
+      "finished": 1794287510893
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-034.jpg",
+      "started": 1794287510893,
+      "finished": 1794287510927
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-035.jpg",
+      "started": 1794287510927,
+      "finished": 1794287510961
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-036.jpg",
+      "started": 1794287510961,
+      "finished": 1794287511010
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-037.jpg",
+      "started": 1794287511010,
+      "finished": 1794287511047
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-038.jpg",
+      "started": 1794287511047,
+      "finished": 1794287511097
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-039.jpg",
+      "started": 1794287511097,
+      "finished": 1794287511146
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-040.jpg",
+      "started": 1794287511146,
+      "finished": 1794287511193
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "ar-041.jpg",
+      "started": 1794287511193,
+      "finished": 1794287511247
+    }
+  ],
+  "actions": [
+    {
+      "group": "phone-omikuji",
+      "action": "click",
+      "at": 1794287510164,
+      "rect": {
+        "height": 50,
+        "width": 394,
+        "x": 18,
+        "y": 544.84375
+      }
+    }
+  ],
+  "checks": [
+    {
+      "text": "- link \"本文へ移動\":\n  - /url: \"#main\"\n- button \"講 ホームへ\": 講\n- generic: コミュニティ\n- button \"コミュニティ\":\n  - generic: コミュニティを選ぶ\n- generic: 講の作成や写真の投稿には、コミュニティの選択が必要です。\n- button \"コミュニティをつくる・招待から参加\":\n- button \"高橋 蓮 アカウントを切り替える\":\n  - generic \"高橋 蓮\": 蓮\n- main:\n  - button \"旅の手帳へ\":\n    - text: 旅の手帳へ\n  - paragraph: 月に一度・無料\n  - heading \"月替わりのおみくじ\" [level=1]\n  - paragraph: 参加店の現地の印をカメラで読み取ると、お地蔵さんが現れます。\n  - status: 今月の結果を保存しました。\n  - generic: 特典対象の階級\n  - strong: 大先達\n  - generic: 2026年11月\n  - article:\n    - text: 講\n    - paragraph: 2026年11月の御籤\n    - heading \"当たり\" [level=2]\n    - paragraph:\n      - strong: 100円\n      - generic: 割引券\n    - paragraph: 森の旅案内\n    - generic: 未使用\n    - paragraph: 有効期限 2026年12月10日 14:11\n    - paragraph: この画面をお店で提示してください。利用の確定はお店が行います。\n    - code: 券番号 db762a4a28474b19928538bbc4a8b7a6\n  - generic \"当選確率・利用条件\"\n  - heading \"獲得した券・これまでの結果\" [level=2]\n  - paragraph: これまでの結果は上に表示しています。\n- navigation \"モバイルメニュー\":\n  - button \"日帰りの講\":\n    - generic: 日帰り\n  - button \"みんなの記録\":\n    - generic: 記録\n  - button \"旅を探す\":\n    - generic: 探す\n  - button \"講を見つける\":\n    - generic: 講\n  - button \"旅の地図\":\n    - generic: 地図\n  - button \"投稿\":\n    - generic: 投稿"
+    }
+  ],
+  "method": "Actual local QR image import, not live camera footage; first screenshot crop rejected, corrected full screenshot used."
+}

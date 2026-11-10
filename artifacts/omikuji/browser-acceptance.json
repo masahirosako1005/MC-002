@@ -41,12 +41,22 @@
     {
       "name": "two-eye view renders and switches back",
       "passed": true
+    },
+    {
+      "name": "result and redeemed state remain after Docker recreate",
+      "passed": true
+    },
+    {
+      "name": "no orientation event falls back to pointer and buttons",
+      "passed": true
     }
   ],
   "evidence": [
     "visitor-result.jpg",
     "provider-after-use.jpg",
-    "visitor-redeemed.jpg"
+    "visitor-redeemed.jpg",
+    "binocular-final.jpg",
+    "onsite-game.jpg"
   ],
   "limitations": [
     "No real phone sensor or headset test",

@@ -1,0 +1,107 @@
+{
+  "viewport": {
+    "width": 430,
+    "height": 900
+  },
+  "frames": [
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-000.jpg",
+      "started": 1794287477595,
+      "finished": 1794287477672
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-001.jpg",
+      "started": 1794287477991,
+      "finished": 1794287478059
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-002.jpg",
+      "started": 1794287478059,
+      "finished": 1794287478095
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-003.jpg",
+      "started": 1794287478095,
+      "finished": 1794287478128
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-004.jpg",
+      "started": 1794287478128,
+      "finished": 1794287478161
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-005.jpg",
+      "started": 1794287478161,
+      "finished": 1794287478195
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-006.jpg",
+      "started": 1794287478195,
+      "finished": 1794287478228
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-007.jpg",
+      "started": 1794287478228,
+      "finished": 1794287478262
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-008.jpg",
+      "started": 1794287478262,
+      "finished": 1794287478295
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-009.jpg",
+      "started": 1794287478295,
+      "finished": 1794287478328
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-010.jpg",
+      "started": 1794287478328,
+      "finished": 1794287478361
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-011.jpg",
+      "started": 1794287478361,
+      "finished": 1794287478393
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-012.jpg",
+      "started": 1794287478393,
+      "finished": 1794287478415
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-013.jpg",
+      "started": 1794287478415,
+      "finished": 1794287478456
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-014.jpg",
+      "started": 1794287478456,
+      "finished": 1794287478487
+    },
+    {
+      "group": "phone-omikuji",
+      "file": "phone-omikuji-015.jpg",
+      "started": 1794287478487,
+      "finished": 1794287478529
+    }
+  ],
+  "actions": [],
+  "checks": [],
+  "method": "Actual UI screenshots. Local QR image import, not live camera footage."
+}

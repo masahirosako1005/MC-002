@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-11-10T05:06:35.753340+00:00",
+  "feature_commit": "c80c2a9",
+  "delivery_commit": "32b9cbd",
+  "deployed_image": "sha256:1980650d408b468b6b1889414aab689a218afd0cf4c834cd7a03f270fab157fb",
+  "docker": "app and gateway healthy after rebuild/recreate",
+  "source_sha256": {
+    "backend/app/omikuji/router.py": "a61be49fbb8a17dd9db9e41f30ad0bc3e77a4d8af15d1186f887cba7f428937d",
+    "backend/app/omikuji/schema.py": "8456f89072aadbc584f61185c9a088113d6ca30c3052eea20c3ea5c5fd97fde4",
+    "backend/app/omikuji/service.py": "cfdedf257b70beacaa9052bc8f71d71a30a764be7d884aafb04d159079309f68",
+    "frontend/src/Omikuji.tsx": "fb483ec2e4d778e2f1ee2b657602933786b453cbe154db6a51fef28ccdb98d25",
+    "frontend/src/omikuji.css": "c80ed15e5a45f8e183ec9f96a699b9f9ae4a67d6ff21cc34fb8ca8ba477cd5ce",
+    "frontend/src/ProviderOmikuji.tsx": "d9c003cbbe92dfc30ec5f448ec634ba00cebb8070525c6a8dd1c70de35b19112",
+    "frontend/src/provider-omikuji.css": "7184a5b11ecf97b002be06c47ab6acded10d8c25ce8ef5b1f87aed51dcf67e21"
+  },
+  "targeted_tests": {
+    "path": "artifacts/omikuji/release-tests.xml",
+    "passed": 12,
+    "failed": 0,
+    "seconds": 30.647
+  },
+  "limits": [
+    "Deployed working tree also includes separately owned uncommitted EV02 changes; not identical to the source archive commit.",
+    "Orientation sensors/headset hardware untested; browser fallback verified."
+  ],
+  "review": {
+    "backend_new_module": "Ruff/C901/Bandit findings 0; scope excludes pre-existing code",
+    "frontend_new_ui": "TypeScript no errors; targeted Oxlint/Stylelint no findings",
+    "UX_before": "No monthly chance-based onsite interaction",
+    "UX_after": "Paper-styled garden, pointer/keyboard controls, opt-in orientation, optional two-eye view, clear probabilities and monthly result",
+    "global_debt": "See docs/QUALITY-CURRENT.md; this feature does not clear existing findings"
+  }
+}

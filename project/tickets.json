@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 940,
-  "last_event_hash": "d092b07b2dab364e60d2eaa31b8b55953da1b9ed13cea5c05cbf88640fb0f962",
-  "updated_at": "2026-11-10T14:04:39+09:00",
+  "revision": 958,
+  "last_event_hash": "cc60c5a14bf8a0986f88d50e6ec54491de8d18f6a2fbbda22cd69d576b960c27",
+  "updated_at": "2026-11-10T14:13:03+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -4814,20 +4814,38 @@
         },
         {
           "at": "2026-11-10T14:04:39+09:00",
-          "text": "70秒の紹介動画を先頭から終端まで再生、エラーなし。",
-          "path": "artifacts/video-revisit/v11/browser-playback.json"
+          "path": "artifacts/video-revisit/v11/browser-playback.json",
+          "text": "70秒の紹介動画を先頭から終端まで再生、エラーなし。"
+        },
+        {
+          "at": "2026-11-10T14:06:38+09:00",
+          "path": "artifacts/omikuji/release-verification.json",
+          "text": "対象12ケースを単一実行で再確認。Docker再作成後も券と利用履歴を保持。"
         }
       ],
       "id": "CP95",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 10,
-      "revisions": [],
+      "revision": 13,
+      "revisions": [
+        {
+          "at": "2026-11-10T14:06:36+09:00",
+          "hash": "c80c2a93a686ec009d8bae0748c9664bcf00098f",
+          "path": "project/revisions/c80c2a93a686ec009d8bae0748c9664bcf00098f.txt",
+          "summary": "feat: add monthly onsite omikuji with rank odds and budgeted rewards"
+        },
+        {
+          "at": "2026-11-10T14:06:37+09:00",
+          "hash": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
+          "path": "project/revisions/32b9cbd79bc67cce485cef28e311a942f8e854fd.txt",
+          "summary": "feat: publish 70 second onsite-game tour and current presentation"
+        }
+      ],
       "status": "done",
       "title": "階級別の月替わりゲームと獲得クーポン",
       "type": "task",
-      "updated_at": "2026-11-10T14:04:39+09:00"
+      "updated_at": "2026-11-10T14:06:38+09:00"
     },
     {
       "acceptance": [
@@ -4915,12 +4933,60 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-10T14:06:37+09:00",
+          "hash": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
+          "path": "project/revisions/32b9cbd79bc67cce485cef28e311a942f8e854fd.txt",
+          "summary": "feat: publish 70 second onsite-game tour and current presentation"
+        }
+      ],
       "status": "done",
       "title": "現行版の発表資料と成果物入口を更新",
       "type": "task",
-      "updated_at": "2026-11-10T14:04:39+09:00"
+      "updated_at": "2026-11-10T14:06:37+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "現地コードQRの表示と端末内読み取り"
+        },
+        {
+          "checked": true,
+          "text": "お地蔵表示と明示スキャンから既存月次抽選へ接続"
+        },
+        {
+          "checked": false,
+          "text": "動画と設計書にカメラ実機/画像読取の検証境界を明記"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T14:08:52+09:00",
+      "dependencies": [],
+      "description": "14:07の追加指定。箱選択VRではなくカメラを使う現地認識と特典受取へ変更。",
+      "documents": [
+        "docs/OMIKUJI.md",
+        "DESIGN.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T14:13:02+09:00",
+          "path": "artifacts/video-revisit/v12/operations/recording.json",
+          "text": "有効な現地QRの画像読取からお地蔵表示、100円券保存まで。ライブカメラ実機は未検証。"
+        }
+      ],
+      "id": "CP98",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 6,
+      "revisions": [],
+      "status": "review",
+      "title": "現地の目印からお地蔵さんを読み取るAR体験",
+      "type": "task",
+      "updated_at": "2026-11-10T14:13:03+09:00"
     },
     {
       "acceptance": [
@@ -4977,15 +5043,15 @@
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "変更前後の同条件測定と8項目評価の証拠を保存"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "優先不具合を修正し必要な試験/実画面/完全性を検証"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "独立レビューと残課題を文書に記載しGitへ対応付ける"
         }
       ],
@@ -5001,18 +5067,40 @@
           "at": "2026-11-10T13:43:57+09:00",
           "path": "artifacts/quality/ev02-before/coordination.json",
           "text": "構成移動担当の全試験と衝突を避けEV02全pytestを停止。静的計測は保持しreports-only集計、動作試験成功とは扱わない。"
+        },
+        {
+          "at": "2026-11-10T14:10:46+09:00",
+          "path": "artifacts/quality/ev02-full/after-manifest.json",
+          "text": "評価版21eb465: 全体433件+細分32件成功、行94.64%/分岐84.07%、実行前後backend/test hash変化0。"
+        },
+        {
+          "at": "2026-11-10T14:10:46+09:00",
+          "path": "artifacts/browser/ev02-ui-after-005/results.json",
+          "text": "最終統合UI005: 9シナリオ成功、axe5状態0、外部/実行エラー0。配信版照合と版境界はEV02-REPORTへ。"
+        },
+        {
+          "at": "2026-11-10T14:10:46+09:00",
+          "path": "artifacts/storage/evaluation-restart.json",
+          "text": "隔離復元11項目成功、専用Docker再起動9項目成功。保存済み本人状態/他者分離/元fixture値復元。"
         }
       ],
       "id": "EV02",
       "origin": "この時点で新規起票",
       "owner": "evaluation-integration",
       "priority": "P1",
-      "revision": 3,
-      "revisions": [],
-      "status": "in_progress",
+      "revision": 11,
+      "revisions": [
+        {
+          "at": "2026-11-10T14:10:47+09:00",
+          "hash": "21eb4657adf57f666959d384c3bacee4b4b9bdf4",
+          "path": "project/revisions/21eb4657adf57f666959d384c3bacee4b4b9bdf4.txt",
+          "summary": "fix: strengthen account security and accessible editing flows"
+        }
+      ],
+      "status": "done",
       "title": "大会8項目の評価・改善・再検証",
       "type": "task",
-      "updated_at": "2026-11-10T13:43:57+09:00"
+      "updated_at": "2026-11-10T14:10:49+09:00"
     },
     {
       "acceptance": [

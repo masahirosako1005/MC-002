@@ -1,0 +1,32 @@
+{
+  "output_sha256": "dd8a107578c816419b2ccb37e1eadd8b2721ea9ede6c4bd3a8b11effa10a56c3",
+  "samples_seconds": [
+    3,
+    9,
+    16,
+    23,
+    31,
+    39,
+    47,
+    53,
+    56,
+    63,
+    67
+  ],
+  "actual_operations": "QR photo import -> Jizo overlay -> explicit draw -> genuine 100-yen result",
+  "source_group": "phone-omikuji",
+  "source_files": "ar-000.jpg through ar-041.jpg only",
+  "source_frames": 42,
+  "source_span_ms": 9799,
+  "operation_speed": 1,
+  "camera_footage": "Not captured; video explicitly labels photo import and unverified live-camera recording",
+  "human_audio_listening": "Not performed",
+  "vtt_sha256": "cb4c328080a9f45498ef62c2915fff377341edfe7d892bcd4573ee2e84dfcc9d",
+  "visual_review": {
+    "operation_intro_note": "The first recorded frame briefly retains the previous failed QR-read message, then correct QR import, Jizo, and actual result follow.",
+    "all_nine_scenes_contact_sheet_viewed": true,
+    "jizo_and_actual_result_full_frames_viewed": true,
+    "missing_glyph_or_explanatory_clipping_observed": false,
+    "filename": "decoded-contact-sheet.jpg"
+  }
+}

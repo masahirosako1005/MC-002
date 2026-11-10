@@ -24,6 +24,7 @@ INK, RED, MUTED = art.INK, art.RED, art.MUTED
 CAPTURES = []
 OPERATIONS = None
 FORTUNE_OPERATIONS = None
+CAMERA_FLOW = False
 
 
 def capture(canvas, name, box):
@@ -162,6 +163,16 @@ def fortune(image, draw, alternate):
     capture_path(image, FORTUNE_OPERATIONS.first('phone-omikuji'), (1285, 205, 500, 740))
 
 
+def camera_fortune(image, draw, alternate):
+    del alternate
+    question(draw, '現地の目印から、お地蔵さんへ。')
+    words(draw, '目印を読み取り、抽選へ。', 450, 440, 44, 780, bold=True)
+    words(draw, 'カメラは本人が許可して起動。\n読み取り後、お地蔵さんが現れる。', 455, 563, 32, 780)
+    words(draw, '実操作：現地コード画像を読み取り\nライブカメラ映像の撮影確認は未実施。', 455, 726, 29, 780, MUTED)
+    words(draw, '無料・月1回・はずれあり。', 455, 867, 28, 780, RED)
+    capture_path(image, FORTUNE_OPERATIONS.first('phone-omikuji'), (1285, 205, 500, 740))
+
+
 def closing_with_fortune(image, draw, alternate):
     del alternate
     words(draw, '次に来る理由をつくる。', 615, 163, 65, 1200, bold=True)
@@ -201,6 +212,8 @@ def guide_on_frame(frame, index, local):
 
 def fortune_playback_time(local):
     # Add reading holds; recorded action intervals retain their original speed.
+    if CAMERA_FLOW:
+        return local + .35
     if local < 2.0:
         return .35
     if local < 2.8:
@@ -240,24 +253,25 @@ def compose(data):
 
 
 def configure_revision(revision):
-    global WORK, SCRIPT, GUIDE, OPERATIONS, FORTUNE_OPERATIONS, BUILDERS, GUIDE_BOXES
+    global WORK, SCRIPT, GUIDE, OPERATIONS, FORTUNE_OPERATIONS, BUILDERS, GUIDE_BOXES, CAMERA_FLOW
     WORK = art.WORK / f'v{revision}'
     if revision >= 10:
         SCRIPT = ROOT / 'scripts/revisit-video-female-scenes.json'
         GUIDE = ROOT / 'assets/revisit-guide/guide-female-v1.png'
         OPERATIONS = OperationClips(art.WORK / 'v10/operations')
         GUIDE_BOXES[3] = (95, 585, 235, 352)
-    if revision == 11:
-        SCRIPT = ROOT / 'scripts/revisit-video-female-v11-scenes.json'
+    if revision >= 11:
+        SCRIPT = ROOT / f'scripts/revisit-video-female-v{revision}-scenes.json'
         FORTUNE_OPERATIONS = OperationClips(WORK / 'operations')
-        BUILDERS = [*BUILDERS[:-1], fortune, closing_with_fortune]
+        CAMERA_FLOW = revision >= 12
+        BUILDERS = [*BUILDERS[:-1], camera_fortune if CAMERA_FLOW else fortune, closing_with_fortune]
         GUIDE_BOXES = [*GUIDE_BOXES[:-1], (75, 470, 330, 495), GUIDE_BOXES[-1]]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--encode', action='store_true')
-    parser.add_argument('--revision', type=int, choices=(9, 10, 11), default=10)
+    parser.add_argument('--revision', type=int, choices=(9, 10, 11, 12), default=10)
     args = parser.parse_args()
     configure_revision(args.revision)
     target = WORK / 'guide-raw.mp4'
