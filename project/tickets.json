@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1057,
-  "last_event_hash": "aacb95e7513dcf861f93bc10c623f9cdc9b59451d1eba227a35f7d3d1e704d0c",
-  "updated_at": "2026-11-10T16:10:29+09:00",
+  "revision": 1058,
+  "last_event_hash": "4922c8b0ed317b1b50cee83e5b88eb4b32c9c98455464a5b048f3b3f263c8d7b",
+  "updated_at": "2026-11-10T16:10:36+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5686,12 +5686,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "hash": "da842717e2f9ef993d77cdcd09ea94fd7998b7e4",
+          "summary": "presentation: explain day-trip revisit focus in opening (PR08)",
+          "path": "project/revisions/da842717e2f9ef993d77cdcd09ea94fd7998b7e4.txt",
+          "at": "2026-11-10T16:10:36+09:00"
+        }
+      ],
       "status": "done",
       "title": "日帰り圏の再訪に着目した理由を導入へ追加",
       "type": "task",
-      "updated_at": "2026-11-10T16:10:29+09:00"
+      "updated_at": "2026-11-10T16:10:36+09:00"
     },
     {
       "acceptance": [

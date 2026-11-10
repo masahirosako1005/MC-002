@@ -464,7 +464,8 @@
     ],
     "design": "Original editorial illustrations contrast fragmented travel planning with a shared plan connecting friends and a local provider. Readable HTML labels; slides 3-9 retained.",
     "matching_explanation_slide": 3,
-    "references": "artifacts/presentation-html/v7/references.md"
+    "references": "artifacts/presentation-html/v7/references.md",
+    "source_revision": "da84271"
   },
   "previous_html_presentation": {
     "version": "four-and-a-half-minute-v7-illustrated-opening",
