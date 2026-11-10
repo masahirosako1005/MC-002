@@ -1,0 +1,3 @@
+リビジョン: b55bfb0686b3ede1df697ee1d804f9d62be789a9
+件名: feat: add pinned UI review skill and ASVS evaluation framework
+確認日時: 2026-11-10T13:43:56+09:00

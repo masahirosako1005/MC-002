@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "voice": "Microsoft Sayaka",
+  "native_rate": 2,
+  "post_tempo_processing": false,
+  "total_seconds": 70.0,
+  "total_frames": 2100,
+  "total_speech_seconds": 50.353,
+  "scenes": [
+    {
+      "scene": 0,
+      "seconds": 4.0118125,
+      "slot": 6.0,
+      "clipped": 0,
+      "peak_dbfs": -7.130898275443483
+    },
+    {
+      "scene": 1,
+      "seconds": 3.637125,
+      "slot": 6.0,
+      "clipped": 0,
+      "peak_dbfs": -5.492025529487145
+    },
+    {
+      "scene": 2,
+      "seconds": 4.266,
+      "slot": 7.0,
+      "clipped": 0,
+      "peak_dbfs": -7.173776733061873
+    },
+    {
+      "scene": 3,
+      "seconds": 5.5765625,
+      "slot": 8.0,
+      "clipped": 0,
+      "peak_dbfs": -3.885732763980779
+    },
+    {
+      "scene": 4,
+      "seconds": 6.223125,
+      "slot": 8.0,
+      "clipped": 0,
+      "peak_dbfs": -7.766902731898206
+    },
+    {
+      "scene": 5,
+      "seconds": 5.6118125,
+      "slot": 8.0,
+      "clipped": 0,
+      "peak_dbfs": -6.334207897106035
+    },
+    {
+      "scene": 6,
+      "seconds": 7.450875,
+      "slot": 9.0,
+      "clipped": 0,
+      "peak_dbfs": -4.713379159255058
+    },
+    {
+      "scene": 7,
+      "seconds": 10.705875,
+      "slot": 13.0,
+      "clipped": 0,
+      "peak_dbfs": -5.4775710574110095
+    },
+    {
+      "scene": 8,
+      "seconds": 2.8698125,
+      "slot": 5.0,
+      "clipped": 0,
+      "peak_dbfs": -8.320220388124223
+    }
+  ],
+  "listening_review": "not performed",
+  "source_scene_sha256": "6f8375cf3751f59fd910721006cf9f658e8ed6e2ed5a9b691a69b78954f89004",
+  "vtt_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89"
+}

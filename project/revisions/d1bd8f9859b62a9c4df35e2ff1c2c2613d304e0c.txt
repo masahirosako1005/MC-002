@@ -1,0 +1,3 @@
+リビジョン: d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c
+件名: refactor: move current app to project root and publish reviewed film
+確認日時: 2026-11-10T13:47:41+09:00

@@ -106,11 +106,11 @@ def highlights_for(data, seconds):
     return highlights
 
 
-def load_scenes(scene_file, directory, style='classic', expected_seconds=60):
+def load_scenes(scene_file, directory, style='classic', expected_seconds=60, expected_count=8):
     expected = expected_frame_count(expected_seconds) if expected_seconds is not None else None
     data = json.loads(scene_file.read_text(encoding='utf-8'))
-    if not isinstance(data, list) or len(data) != 8:
-        raise ValueError('Exactly eight scene descriptions are required')
+    if expected_count not in (8, 9) or not isinstance(data, list) or len(data) != expected_count:
+        raise ValueError(f'Exactly {expected_count} scene descriptions are required')
     scenes, elapsed = [], 0
     for index, item in enumerate(data):
         seconds = checked_number(item['duration'], 1, 60, 'scene duration')
@@ -333,7 +333,7 @@ def encode(scenes, narration, destination, log, style='classic', copy_audio=Fals
                     rendered = (frame_renderer(scenes, scene.index, frame, style) if frame_renderer
                                 else render_frame(scenes, scene.index, frame, style))
                     process.stdin.write(rendered.tobytes())
-                print(f'Animated scene {scene.index + 1}/8', flush=True)
+                print(f'Animated scene {scene.index + 1}/{len(scenes)}', flush=True)
             process.stdin.close()
             code = process.wait()
         except BaseException:
@@ -428,7 +428,7 @@ def arguments():
     parser.add_argument('--style', choices=('classic', 'wa'), default='classic')
     parser.add_argument('--duration', type=float, default=60,
                         help='Expected total duration in seconds (15-120; default: 60)')
-    parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/kou-revisit-intro-v2.mp4')
+    parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/history/videos/kou-revisit-intro-v2.mp4')
     parser.add_argument('--preview-only', action='store_true')
     parser.add_argument('--overwrite', action='store_true')
     return parser.parse_args()

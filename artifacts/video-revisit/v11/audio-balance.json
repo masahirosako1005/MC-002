@@ -1,0 +1,24 @@
+{
+  "source": "artifacts/video-revisit/v11/pcm/narration-70s.wav",
+  "source_sha256": "36ecf23f33c24cff29b8bb53b265b4e06610ad02b3d1992a77af830b96716efb",
+  "output": "artifacts/video-revisit/v11/pcm/narration-balanced.wav",
+  "output_sha256": "2cfd373728df8bbddbca0bddf4fc0a8af9b8f023c3fac219384fca086cdc600c",
+  "filter": "acompressor=threshold=0.125:ratio=2:attack=8:release=120:makeup=1:knee=2.828",
+  "speed": 1.0,
+  "trimmed": false,
+  "seconds": 70.0,
+  "pitch_changed": false,
+  "bgm_added": false,
+  "reproduced_pcm_equal": true,
+  "before": {
+    "integrated_lufs": -24.8,
+    "true_peak_dbfs": -6.9,
+    "loudness_range_lu": 7.9
+  },
+  "after": {
+    "integrated_lufs": -25.5,
+    "true_peak_dbfs": -9.3,
+    "loudness_range_lu": 7.7
+  },
+  "next_step": "Scalar gain and AAC encoding; final measurements in final/verification.json"
+}

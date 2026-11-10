@@ -1,0 +1,195 @@
+{
+  "schema": "presentation-visual-qa.v2",
+  "checked_utc": "2026-11-10T05:03:27.3071450Z",
+  "render_engine": "Installed Microsoft PowerPoint COM; read-only source",
+  "deck": {
+    "bytes": 4088391,
+    "sha256": "4e700ecf488771fb66e438833e6211e5f52ab9c0412823098b6b1b69edbdbb68",
+    "path": "outputs/kou-current-20261110.pptx"
+  },
+  "pdf": {
+    "bytes": 1113327,
+    "sha256": "10af33542167ce5dad53e98ae62770816050f65d71553dcc64667150c130df34",
+    "path": "outputs/kou-current-20261110.pdf"
+  },
+  "pages": [
+    {
+      "slide": 1,
+      "sha256": "160276f15593aaa1466aa5c98b4db2475edf8ff20258ea6988fcf74acbf29f32",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-01.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 2,
+      "sha256": "08c9094f6806207be494ccc7de67d082d1f9a3a9cac72108597739447eec766c",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-02.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 3,
+      "sha256": "6cf62945933c15fc6b217177f4ab9503203499e6c21c7cc04d844c78ec5d9c5c",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-03.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 4,
+      "sha256": "35ddfde721e3930a76becb73dfb69cf071447e093fadd97d640882db889d1c3c",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-04.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 5,
+      "sha256": "bb52dd60051a749e7e8584e704a15d53ddff37bcaf554753367018d18ad25064",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-05.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 6,
+      "sha256": "5b0b45d6fb6863c3d0ace2ffe0895a082994475d239041896ba89f3ddfa0c43c",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-06.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 7,
+      "sha256": "2676e6b1a2e4fcf5a0382c286c27ce4da257877588e0c256bfb11d7590b14f53",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-07.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 8,
+      "sha256": "a7d7d9439e3e8dd05ea381c5706ef65f2962564414bf9a2c98d6f223c011b417",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-08.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 9,
+      "sha256": "a3184a3660876c80b9bc68089a55d68b94e8f3a7b9df505fbec3e49d51ec6d37",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-09.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    },
+    {
+      "slide": 10,
+      "sha256": "21b7d38919e7d8d3cbb1e75feb83e949509085ce0a7abd07216d5362df44fe9d",
+      "path": "artifacts/presentation-current/rendered-omikuji/slide-10.png",
+      "individually_viewed": true,
+      "visible_clipping_or_overlap": false
+    }
+  ],
+  "embedded_media": [
+    {
+      "name": "ppt/media/image.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image2.png",
+      "bytes": 2894152
+    },
+    {
+      "name": "ppt/media/image3.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image4.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image5.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image.jpeg",
+      "bytes": 110522
+    },
+    {
+      "name": "ppt/media/image2.jpeg",
+      "bytes": 85927
+    },
+    {
+      "name": "ppt/media/image6.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image3.jpeg",
+      "bytes": 68434
+    },
+    {
+      "name": "ppt/media/image7.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image4.jpeg",
+      "bytes": 46859
+    },
+    {
+      "name": "ppt/media/image8.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image5.jpeg",
+      "bytes": 106904
+    },
+    {
+      "name": "ppt/media/image9.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image6.jpeg",
+      "bytes": 87391
+    },
+    {
+      "name": "ppt/media/image10.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image11.png",
+      "bytes": 64539
+    },
+    {
+      "name": "ppt/media/image7.jpeg",
+      "bytes": 41306
+    },
+    {
+      "name": "ppt/media/image8.jpeg",
+      "bytes": 80414
+    }
+  ],
+  "all_media_nonempty": true,
+  "slide_count": 10,
+  "native_editable_tables": [
+    3,
+    9
+  ],
+  "text_family": "Meiryo",
+  "visual_result": "All ten full-slide PNGs were individually viewed. No missing image, missing glyph, clipped explanatory text, or overlapping text found.",
+  "monthly_fortune": {
+    "implemented": true,
+    "browser_flow": "Parent observed onsite code issue, genuine 100-yen result, fictional 500-yen purchase confirmation/redemption and user re-open showing used",
+    "limitations": [
+      "Onsite code is distributed face-to-face; not GPS proof",
+      "Direction sensors and headset hardware are not tested",
+      "Real revisit effectiveness has not been measured",
+      "Initial N-nishi data and purchase confirmation are fictional"
+    ],
+    "left_screenshot": "Before redemption",
+    "target_unique_tests": 12,
+    "right_screenshot": "After redemption"
+  },
+  "integration_measurement": {
+    "tests": 363,
+    "name": "root-layout-final",
+    "junit": 395,
+    "subtests": 32,
+    "scope": "Measured before monthly fortune addition; includes then-uncommitted working tree",
+    "new_feature_tests_not_added_to_prior_integration_total": true
+  },
+  "source_notes": "Local design, contracts and evidence paths are preserved in slide notes and content-manifest.json. No certification or perfect score claimed."
+}

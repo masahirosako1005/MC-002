@@ -221,6 +221,20 @@ class TicketTests(unittest.TestCase):
         with patch.object(Path, 'resolve', escaped_destination), self.assertRaises(TicketError):
             self.store.display_document_path('community/backend/kept.txt')
 
+    def test_old_output_links_resolve_without_redirecting_current_video(self):
+        destinations = {
+            'outputs/kou-revisit-intro-v9.mp4': 'outputs/history/videos/kou-revisit-intro-v9.mp4',
+            'outputs/tang-you-chi-presentation-final.pdf': 'outputs/history/presentation/tang-you-chi-presentation-final.pdf',
+            'outputs/tang-you-chi-source.zip': 'outputs/history/legacy-release/tang-you-chi-source.zip',
+        }
+        for before, after in destinations.items():
+            path = self.root / after
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'historical artifact')
+            self.assertEqual(self.store.display_document_path(before), after)
+        for unchanged in ('outputs/kou-revisit-intro-v10.mp4', 'outputs/kou-revisit-intro-v8.mp4'):
+            self.assertEqual(self.store.display_document_path(unchanged), unchanged)
+
     def test_task_import_is_idempotent_and_preserves_acceptance(self):
         (self.root / "TASKS.md").write_text("| T01 | 最優先・主担当 | 資産確認 | なし | 所在を記録 |\n| T02 | 高・設計 | 体験設計 | T01 | 2戦略を説明 |\n", encoding="utf-8")
         self.assertEqual(len(self.store.import_tasks()), 2)

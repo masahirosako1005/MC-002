@@ -1,0 +1,34 @@
+{
+  "updated_markdown": [
+    {
+      "file": "docs/ACCEPTANCE.md",
+      "links": [
+        {
+          "from": "../outputs/tang-you-chi-presentation-final.pptx",
+          "to": "../outputs/history/presentation/tang-you-chi-presentation-final.pptx"
+        },
+        {
+          "from": "../outputs/tang-you-chi-presentation-final.pdf",
+          "to": "../outputs/history/presentation/tang-you-chi-presentation-final.pdf"
+        }
+      ]
+    },
+    {
+      "file": "docs/REVISIT-VIDEO-WA-REVIEW.md",
+      "links": [
+        {
+          "from": "../outputs/kou-revisit-intro-v9.mp4",
+          "to": "../outputs/history/videos/kou-revisit-intro-v9.mp4"
+        }
+      ]
+    }
+  ],
+  "updated_script_references": [
+    "animate_revisit_video.py",
+    "encode_intro_video.py",
+    "finish_revisit_audio.py",
+    "narrate_revisit_guide.ps1",
+    "narrate_revisit_male.ps1"
+  ],
+  "historical_measurement_json_unchanged": true
+}

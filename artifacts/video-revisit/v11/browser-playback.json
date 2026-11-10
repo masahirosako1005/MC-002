@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-10T05:02:44.446Z",
+  "duration": 70,
+  "ended": true,
+  "error": null,
+  "paused": true,
+  "source": "http://127.0.0.1:8092/kou-revisit-intro-v11.mp4",
+  "time": 70,
+  "method": "Played via visible start button without seeking; not a human listening assessment"
+}

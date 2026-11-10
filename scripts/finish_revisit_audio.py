@@ -100,10 +100,10 @@ def validate_loudness(measured):
 
 def arguments():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', type=project_path, default=ROOT / 'outputs/kou-revisit-intro-v5.mp4')
+    parser.add_argument('--source', type=project_path, default=ROOT / 'outputs/history/videos/kou-revisit-intro-v5.mp4')
     parser.add_argument('--pcm', type=project_path, default=WORK / 'v5/motion-audio/narration-60s.wav')
     parser.add_argument('--directory', type=project_path, default=WORK / 'v6')
-    parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/kou-revisit-intro-v6.mp4')
+    parser.add_argument('--output', type=project_path, default=ROOT / 'outputs/history/videos/kou-revisit-intro-v6.mp4')
     parser.add_argument('--source-verification', type=project_path, default=WORK / 'v5/motion-verification.json')
     parser.add_argument('--narration-json', type=project_path,
                         help='Optional changed narration description; visual source description is preserved separately')
@@ -119,7 +119,7 @@ def main():
     candidate = args.directory / 'finished-audio.mp4'
     if candidate.exists() or args.output.exists():
         raise FileExistsError('Refusing to replace an existing candidate or output')
-    prior_paths = sorted((ROOT / 'outputs').glob('kou-revisit-intro-v*.mp4'))
+    prior_paths = sorted((ROOT / 'outputs').rglob('kou-revisit-intro-v*.mp4'))
     prior = {path.relative_to(ROOT).as_posix(): digest(path) for path in prior_paths}
     previous = json.loads(args.source_verification.read_text(encoding='utf-8'))
     if digest(args.source) != previous['sha256']:

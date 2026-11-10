@@ -1,0 +1,75 @@
+{
+  "created": "2026-11-10",
+  "assets": [
+    {
+      "name": "washi-paper.png",
+      "original": "frontend/public/art/wa/washi-paper-v1.webp",
+      "sourceSha256": "8ad7d7e1e1bf9c54374f11f29d73e8cfa99628c801dbb95deea651620dec908d",
+      "outputSha256": "60d3ec50b984cb9a5a99263fe042c69cda2eefab1d195ba6f80e4c8c7a9d0c31",
+      "transformation": "Format conversion only; no content change"
+    },
+    {
+      "name": "travel-woodcut.png",
+      "original": "frontend/public/art/wa/travel-woodcut-v1.png",
+      "sourceSha256": "d76c75a6b5d814cbe6f0eef1d6caca2abf56c8a06e86c881a06ce75e234e177f",
+      "outputSha256": "d76c75a6b5d814cbe6f0eef1d6caca2abf56c8a06e86c881a06ce75e234e177f",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "visitor-home.jpg",
+      "original": "artifacts/video-revisit/screens/visitor-home.jpg",
+      "sourceSha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860",
+      "outputSha256": "6ce069d586ede5733dc09991c7d5b2c86edc19a3a1f01f9f6d2c3f5d7ab07860",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "visitor-chat.jpg",
+      "original": "artifacts/video-revisit/screens/visitor-chat.jpg",
+      "sourceSha256": "c04f999e0bee4b4c81ac4a7acaaf7d66b98d923f39524543be3b4cf093ba73c7",
+      "outputSha256": "c04f999e0bee4b4c81ac4a7acaaf7d66b98d923f39524543be3b4cf093ba73c7",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "city-dashboard.jpg",
+      "original": "artifacts/video-revisit/v10/operations/pc-city-112.jpg",
+      "sourceSha256": "b6057cead258bd86ed27f279e4da433fb473bd372a5484c6421c8a93de916ef2",
+      "outputSha256": "b6057cead258bd86ed27f279e4da433fb473bd372a5484c6421c8a93de916ef2",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "program-progress.jpg",
+      "original": "artifacts/video-revisit/v10/operations/phone-open-015.jpg",
+      "sourceSha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8",
+      "outputSha256": "dd598bff60df5a49a1069d26e9c3dc1a10fb5179d7d7488d5d3362f626800ff8",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "rank-phone.jpg",
+      "original": "artifacts/video-revisit/screens/06-rank-phone.jpg",
+      "sourceSha256": "69dcb4aa0c4ed884add443af273f7c061a2f3fa998594527be21fffc7b75e21b",
+      "outputSha256": "69dcb4aa0c4ed884add443af273f7c061a2f3fa998594527be21fffc7b75e21b",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "zone-coupon.jpg",
+      "original": "artifacts/video-revisit/screens/07-zone-phone.jpg",
+      "sourceSha256": "815f9e00527cdca28dd1b66dc9e251b0cd032dbb028098307106c9df46043270",
+      "outputSha256": "815f9e00527cdca28dd1b66dc9e251b0cd032dbb028098307106c9df46043270",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "fortune-result.jpg",
+      "original": "artifacts/omikuji/visitor-result.jpg",
+      "sourceSha256": "eb41b0c6e6ea3c2951baf77e7cf82ab83191cbea03736cf26357544539bbb1a8",
+      "outputSha256": "eb41b0c6e6ea3c2951baf77e7cf82ab83191cbea03736cf26357544539bbb1a8",
+      "transformation": "Exact copy"
+    },
+    {
+      "name": "fortune-redeemed.jpg",
+      "original": "artifacts/omikuji/provider-after-use.jpg",
+      "sourceSha256": "0352b4e9ea41eb87a5298ee3205b1fe1d9b74fc7fc289a0da2ab590b91855cd3",
+      "outputSha256": "0352b4e9ea41eb87a5298ee3205b1fe1d9b74fc7fc289a0da2ab590b91855cd3",
+      "transformation": "Exact copy"
+    }
+  ]
+}

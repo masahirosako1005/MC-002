@@ -1,0 +1,62 @@
+{
+  "source_video": "artifacts/video-revisit/v11/guide-raw.mp4",
+  "source_video_sha256": "92eb329acf36019c2335289b8b2a65cdcbcc725c3769fa2c33090389b16a2ef9",
+  "source_pcm": "artifacts/video-revisit/v11/pcm/narration-balanced.wav",
+  "source_pcm_sha256": "2cfd373728df8bbddbca0bddf4fc0a8af9b8f023c3fac219384fca086cdc600c",
+  "scenes_json": "artifacts/video-revisit/v11/scenes.json",
+  "scenes_json_sha256": "759dfdb8c881c110a70631091b344dbc2acbfd7ce6b7cfa6a163062d06436dc7",
+  "stills_referenced_not_duplicated": [
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-00.png",
+      "sha256": "54d009e84b26b1c4d96c6baa52d66d28bfb6d908b4555fcd6107bfe7c3857bb9"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-01.png",
+      "sha256": "6c0ea12c48d1e2362dc7c0f7917c35405f32188d95f732b365395caf7e9ccbf1"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-02.png",
+      "sha256": "0e66b34a0ce7ef7c6764432cd2b67d427a7b5be59c193f10ba2638579b034275"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-02-alt.png",
+      "sha256": "2e1f0a4450e9824eb8f950ce7e863fdd0970eb66dd63931cb2858a5ed1ee7aff"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-03.png",
+      "sha256": "e0d6723c7431a2cbc90c3fdb5693bdf97263a6f9e4ff2b5a56febe968f400beb"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-03-alt.png",
+      "sha256": "e0d6723c7431a2cbc90c3fdb5693bdf97263a6f9e4ff2b5a56febe968f400beb"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-04.png",
+      "sha256": "0c55ef11edf5ece7efcee1a10c9a044cd8f9a9256da91dfbffad054b36a867d6"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-05.png",
+      "sha256": "ca90097474f5c3cb1d017719ab2de9a21b18a286d2b499958326fca0d347bca7"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-06.png",
+      "sha256": "8bf749f99bf7bc5527c794e9edbae91383a311062dc3f2c2b9f028f2330450ce"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-07.png",
+      "sha256": "56dfb0dbfdb5235fa098d78572e42c0e10c14f0bfe38ac201c045e94e30f4421"
+    },
+    {
+      "path": "artifacts/video-revisit/v11/layers/scene-08.png",
+      "sha256": "009514956e9643d558561baf98be41f9aa2babe4a530ec45695c8d18b9c925d2"
+    }
+  ],
+  "source_pcm_format": {
+    "frames": 3360000,
+    "sample_rate": 48000,
+    "channels": 2,
+    "seconds": 70.0
+  },
+  "narration_json": "scripts/revisit-video-female-v11-scenes.json",
+  "narration_json_sha256": "6f8375cf3751f59fd910721006cf9f658e8ed6e2ed5a9b691a69b78954f89004"
+}

@@ -1,30 +1,30 @@
-> 履歴資料：本文の制作状況・手順は当時のものです。現行仕様は [設計書](../DESIGN.md)、最新動画は [第10版の記録](../docs/REVISIT-VIDEO.md) を参照してください。旧生成器は撤去済みのため、存在しない再生成手順を実行しないでください。
+# 講 — 現行発表資料
 
-# プレゼン資料の生成と確認
+2026-11-10。講・架空都市N西市・再訪3施策を10枚に整理した発表資料です。旧版「湯遊地」の13枚資料とは別です。
 
-完成版は `outputs/` のPowerPointファイル。本文・見出し・構成図は編集可能な図形と文字で作成し、アプリの実画面3点は画像として挿入する。収集棚と収集体験の調査を加えた全13枚。外部サービスへのアップロードは行わない。
+- [PowerPoint](../outputs/kou-current-20261110.pptx)
+- [PDF](../outputs/kou-current-20261110.pdf)
+- [全10枚の描画](../artifacts/presentation-current/rendered-omikuji/)
+- [構造・文字領域・フォント検証](../artifacts/presentation-current/validation.json)
+- [全ページ目視確認](../artifacts/presentation-current/VISUAL-QA.json)
+
+講の意味、データの限界、3役、利用者・事業者の実画面、通う旅、先達加点、20〜40km地域への追加割引、検証と未測定事項を説明します。保存済み実操作・実画面を使用し、架空初期データを実再訪の成果として扱いません。本文はメイリオ、表と文字は編集可能。AIはMOCで実推論なしです。
+
+測定基準は root-layout-final。363試験＋32 subtests成功、Ruff0、Oxlint115、Stylelint126、複雑度14、Bandit Medium19／High0。満点や認証に読み替えません。未コミット差分を含む作業ツリーでの測定であり、単独コミットの評価ではありません。
+
+第10枚は現地の月替わりくじを追加済みです。追加対象12試験と、現地コード発行→100円当選の保存→500円購入確認での消込→本人再表示で利用済み、を確認しました。対面配布コードはGPS証明ではありません。方向センサー・ゴーグルの実機、再訪効果は未検証です。統合363試験＋32 subtestsは追加前の測定と分けています。
 
 ## 再生成
 
-`build.mjs` はローカルの `@oai/artifact-tool` で作成し、`artifacts/release-metrics.json` から試験数・独自評価・状態を読み込む。`presentation/node_modules` はCodex付属ランタイムへのリンク。再生成にはこのランタイムが必要だが、生成済みPPTXの閲覧・編集には不要。
+scripts/build_current_presentation.mjs がCodex同梱Artifact ToolでPPTXを作成し、構造・文字領域・フォント・再読込を検証。scripts/build_current_presentation.ps1 が既設PowerPointで読み取り専用に開き、全10PNGとPDFを出力します。外部へアップロードしません。
 
 ```powershell
-& 'C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt/dependencies/node/bin/node.exe' presentation/build.mjs tang-you-chi-presentation-v2.pptx
-powershell -NoProfile -ExecutionPolicy Bypass -File presentation/render.ps1 -Deck outputs/tang-you-chi-presentation-v2.pptx
+node scripts/build_current_presentation.mjs
+& scripts/build_current_presentation.ps1
 ```
 
-ファイナライザーは既存ファイルを上書きしないため、再生成時は新しい出力名を指定する。
+環境が変わる場合は KOU_BUNDLED_RUNTIME と KOU_PRESENTATIONS_SKILL を設定してください。最終PPTX/PDFを上書きしないため、改訂時は出力名を新しくしてください。素材出典とhashは [provenance.json](assets/current/provenance.json)、文書・証拠hashは [content-manifest.json](../artifacts/presentation-current/content-manifest.json) に保存しています。
 
-今回の更新では新規名で作成・検証後、水門の操作画面を改善した `tang-you-chi-presentation-refresh-reviewed.pptx` を採用し、`artifacts/presentation/refresh/` へ全13枚を描画した。同じ内容を正本 `outputs/tang-you-chi-presentation-final.pptx` と同名PDFへ反映している。中間PPTXは `artifacts/presentation/candidates-13/`、初期11枚版のファイル・検証記録は `artifacts/presentation/version-11-verified/` に保持する。現在版の照合値と検証範囲は `artifacts/presentation/VISUAL-QA.md` を参照する。
+## 履歴
 
-## 描画と検証
-
-- Artifact ToolでPPTXを出力し、付属ファイナライザーでパッケージ、寸法、文字領域、フォント指定、同ツールでの再読込を確認する。
-- このWindows環境ではArtifact ToolのPNG出力が最初のスライドで終了コード1となり、診断文を返さなかった。PPTX出力と検証は成功するため、PNG描画は既設のMicrosoft PowerPoint 16.0で行う。
-- `render.ps1` はPPTXを読み取り専用・ウィンドウ非表示で開き、各スライドを1280×720のPNGとPDFへ出力する。PPTXそのものを書き換えない。
-- `powerpoint-text-layout.json` に各文字領域とPowerPoint実描画の境界を記録する。PNG全枚の視覚確認と併用し、自動検査だけを見た目の保証としない。
-- 原稿や評価数値を変えたら、新規出力に対して構造検証と全枚描画をやり直す。
-
-公式API根拠：[PowerPoint Slide.Export](https://learn.microsoft.com/en-us/office/vba/api/powerpoint.slide.export)、[Presentations.Open](https://learn.microsoft.com/en-us/office/vba/api/powerpoint.presentations.open)。
-
-評価の点数はプロジェクト独自の進捗評価。大会公式点・認証・実際の再訪効果とは区別する。基準の版、採用項目と未検証範囲は `docs/BENCHMARKS.md`、試験結果は `docs/EVALUATION.md` を正本とする。
+月くじ追加前の10枚版は artifacts/presentation-current/before-omikuji.* に保持。旧版は [outputs/history/presentation](../outputs/history/presentation/) に保持。現行機能や評価として引用しません。最初の画像埋込欠落案は artifacts/presentation-current/rejected-missing-media.* として分離し、採用版は画像バイトの存在とPowerPoint全ページ描画を確認しました。

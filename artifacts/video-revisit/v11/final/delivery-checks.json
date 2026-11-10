@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "decoded_frames": 2100,
+  "duration_seconds": 70,
+  "prior_videos_unchanged": 15,
+  "sample_frames": [
+    0,
+    45,
+    225,
+    405,
+    711,
+    966,
+    1095,
+    1335,
+    1590,
+    1665,
+    1800,
+    1920,
+    1995
+  ],
+  "sample_files": [
+    "decoded-01.png",
+    "decoded-02.png",
+    "decoded-03.png",
+    "decoded-04.png",
+    "decoded-05.png",
+    "decoded-06.png",
+    "decoded-07.png",
+    "decoded-08.png",
+    "decoded-09.png",
+    "decoded-10.png",
+    "decoded-11.png",
+    "decoded-12.png",
+    "decoded-13.png"
+  ],
+  "recorded_fortune_frames": 45,
+  "raw_recording_ms": 2915,
+  "action_speed": 1,
+  "human_voice_naturalness": "not assessed",
+  "virtual_reality_limit": "Pointer controls recorded. Motion sensors and headset hardware not tested. On-site code is not GPS proof."
+}

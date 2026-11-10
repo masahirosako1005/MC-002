@@ -1,0 +1,18 @@
+{
+  "source": "operations/recording.json",
+  "group": "phone-omikuji",
+  "recorded_span_ms": 2879,
+  "scene_seconds": 13,
+  "reading_holds": [
+    {
+      "source_seconds": 0,
+      "hold_seconds": 2
+    },
+    {
+      "source_seconds": 0.8,
+      "hold_seconds": 1.6
+    }
+  ],
+  "action_speed": 1,
+  "ending": "Last real recorded result held for remaining scene time; no outcome replacement"
+}

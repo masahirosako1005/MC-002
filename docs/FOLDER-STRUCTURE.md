@@ -41,7 +41,7 @@ MC-002/
   models/                  保持対象のモデル資産（通常起動で推論しない）
   project/                 チケット台帳・イベント履歴
   old/v1.1/                旧ソースZIPが残存
-  presentation/            旧説明と外部依存junctionが残存
+  presentation/            現行PPTX/PDFの説明・制作素材（外部依存junctionは保持）
   .git/・.agents/・.venv/・.tools/
 ```
 

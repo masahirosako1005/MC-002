@@ -22,6 +22,7 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 
 - [現在の設計仕様](DESIGN.md) / [作業と未解決事項](TASKS.md)
 - [文書一覧](docs/README.md) / [フォルダの用途と整理結果](docs/FOLDER-STRUCTURE.md)
+- [成果物の最新版一覧](outputs/README.md) / [直近の品質評価](docs/QUALITY-CURRENT.md)
 - [最新紹介動画・女性音声と実操作](outputs/kou-revisit-intro-v10.mp4)（46.5秒）
 
 ## プロジェクトの配置
@@ -32,6 +33,8 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 | `frontend` | 現行React画面と同梱素材 |
 | `test` | API・画面・保全・開発ツールの試験、合成素材 |
 | `scripts` | 起動、保全、品質測定、動画、台帳、CSV分析、環境準備 |
+| `outputs` | 最新の動画・発表資料・配布物。旧版はhistoryへ分離 |
+| `presentation` | 現行発表資料の素材と再生成手順 |
 | `project` | チケット台帳と履歴 |
 | `docs` | 設計の根拠、調査、評価、変更記録 |
 | `.agents/skills` | 固定した公式React・FastAPIの開発指針 |
@@ -43,7 +46,7 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 
 ## 設計・評価
 
-[設計書](DESIGN.md) / [タスク](TASKS.md) / [チケットボード](outputs/project-board.html) / [日帰りとランクの計画](docs/DAYTRIP-RANK-REDESIGN-PLAN.md) / [和の画面設計](docs/WA-ART-DIRECTION.md) / [今回の検証](docs/DAYTRIP-ACCEPTANCE.md)
+[設計書](DESIGN.md) / [タスク](TASKS.md) / [チケットボード](outputs/project-board.html) / [日帰りとランクの計画](docs/DAYTRIP-RANK-REDESIGN-PLAN.md) / [和の画面設計](docs/WA-ART-DIRECTION.md) / [直近の品質評価](docs/QUALITY-CURRENT.md)
 
 過去の試験件数や点数を、新しい変更の成功証拠として流用しません。通常のEdgeプロファイルでの応答停止は、アプリの分離した検証環境での成功とは別の未解決事項です。
 

@@ -11,7 +11,7 @@ from PIL import Image,ImageDraw,ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'artifacts/community/intro-video'
-TARGET=ROOT/'outputs/community-intro.mp4'
+TARGET=ROOT/'outputs/history/videos/community-intro.mp4'
 FFMPEG=imageio_ffmpeg.get_ffmpeg_exe()
 
 
@@ -66,7 +66,7 @@ def main():
         x=(index%2)*720;y=(index//2)*486
         sheet.paste(image,(x,y));draw.text((x+18,y+456),f'{seconds:.1f} 秒',font=font,fill='#39271f')
     sheet.save(OUT/'contact-sheet.jpg',quality=93)
-    Image.open(OUT/'frame-02.png').save(ROOT/'outputs/community-intro-poster.png')
+    Image.open(OUT/'frame-02.png').save(ROOT/'outputs/history/videos/community-intro-poster.png')
     report=dict(output=str(TARGET.relative_to(ROOT)).replace('\\','/'),duration_seconds=duration,decoded_frames=frames,width=1440,height=900,fps=30,codec='H.264',pixel_format='yuv420p',audio=False,fade_in_seconds=.15,fade_out_seconds=.3,trim_start_seconds=start,source=str(source.relative_to(ROOT)).replace('\\','/'),sha256=hashlib.sha256(TARGET.read_bytes()).hexdigest(),bytes=TARGET.stat().st_size,ffmpeg=imageio_ffmpeg.get_ffmpeg_version(),visual_review='pending',proof='Full output decoded with FFmpeg; 600 frames and header dimensions/duration checked. Raw footage is not sped up or synthesized.')
     (OUT/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({key:report[key] for key in ('output','duration_seconds','decoded_frames','width','height','bytes')}))

@@ -9,7 +9,7 @@ $taskRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskScenePath = Join-Path $PSScriptRoot 'revisit-video-guide-scenes.json'
 $taskAudio = Join-Path $taskRoot 'artifacts\video-revisit\v9\audio'
 $taskTake = Join-Path $taskAudio $Take
-$taskVtt = Join-Path $taskRoot 'outputs\kou-revisit-intro-v9-ja.vtt'
+$taskVtt = Join-Path $taskRoot 'outputs\history\videos\kou-revisit-intro-v9-ja.vtt'
 if (Test-Path -LiteralPath $taskTake) {
     throw 'This take already exists. Select a new take number; earlier audio is retained.'
 }

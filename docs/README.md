@@ -10,7 +10,7 @@
 | 起動・停止・保存・復元 | [ローカル運用](OPERATIONS.md) |
 | フォルダ構成と削除状況 | [構成](FOLDER-STRUCTURE.md)、[整理監査](CLEANUP-AUDIT.md) |
 | テストの入口 | [test/README](../test/README.md) |
-| 公式指針と定量評価 | [スキル方針](SKILL-QUALITY-POLICY.md)、[評価結果](EVALUATION-COMMUNITY.md) |
+| 公式指針と定量評価 | [スキル方針](SKILL-QUALITY-POLICY.md)、[直近の実測](QUALITY-CURRENT.md)、[評価履歴](EVALUATION-COMMUNITY.md) |
 | 通う旅 | [工程・進捗契約](JOURNEY-PROGRAMS-CONTRACT.md) |
 | 階級・降格・特典 | [R2](DAYTRIP-RANK-V2.md)、[距離割引・予算](DAYTRIP-ZONE-BENEFITS.md) |
 | 事業者・市全体集計 | [定義](CITY-ANALYTICS-CONTRACT.md)、[受入結果](CITY-DASHBOARD-ACCEPTANCE.md) |
@@ -19,9 +19,10 @@
 | 500人のCSVと企画根拠 | [分析](COMMUNITY-SAMPLE-ANALYSIS.md)、[意味づけと限界](COMMUNITY-RATIONALE.md) |
 | 架空の運用データ | [データ来歴](OPERATIONAL-DATA-PACK.md) |
 | 見た目・素材・書体 | [和の方針](WA-ART-DIRECTION.md)、[書体来歴](FONT-PROVENANCE.md) |
+| 最新成果物と発表資料 | [成果物一覧](../outputs/README.md)、[資料の生成・確認](../presentation/README.md) |
 | 最新紹介動画 | [第10版の仕様と検証](REVISIT-VIDEO.md)、[レビュー](REVISIT-VIDEO-WA-REVIEW.md) |
 | 過去の変更 | [CHANGELOG](CHANGELOG.md)、[整理前設計](history/DESIGN-before-20261110-cleanup.md)、[整理前タスク](history/TASKS-before-20261110-cleanup.md) |
 
 旧版の `EVALUATION.md` / `API.md` / `ACCEPTANCE.md`、旧PPTX/PDF、過去の20秒動画は当時の対象に限る記録です。新版の点数・API・完成状態へ流用しません。日付・対象版のある受入資料も、後続の変更すべての検証済みを意味しません。
 
-月替わりのおみくじは追加要望として受領しましたが、利用者の最新指示により不要物整理を先行し、実装は保留しています。
+月替わりのおみくじは最新の追加指示で着手。[現地おみくじの仕様](OMIKUJI.md)に確率・現地確認・予算と検証状態を記録します。

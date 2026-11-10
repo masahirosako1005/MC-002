@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-11-10T05:04:10.455287+00:00",
+  "as_of": "2026-11-10",
+  "application_layout": "backend/ and frontend/ at project root",
+  "design": "DESIGN.md",
+  "tasks": "TASKS.md",
+  "video": {
+    "version": "v11",
+    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
+    "path": "outputs/kou-revisit-intro-v11.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+    "duration_seconds": 70.0,
+    "frames": 2100,
+    "bytes": 3919747,
+    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
+    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
+    "preview": "outputs/video-preview/index.html",
+    "verification": "artifacts/video-revisit/v11/final/verification.json",
+    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+    "human_listening_review": "not_assessed",
+    "user_final_approval": "unconfirmed",
+    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
+    "browser_playback": "artifacts/video-revisit/v11/browser-playback.json"
+  },
+  "presentation": {
+    "version": "20261110-omikuji",
+    "status": "produced_review_recorded",
+    "published_paths": [
+      "outputs/kou-current-20261110.pptx",
+      "outputs/kou-current-20261110.pdf"
+    ],
+    "files": [
+      {
+        "kind": "deck",
+        "path": "outputs/kou-current-20261110.pptx",
+        "bytes": 4088391,
+        "sha256": "4e700ecf488771fb66e438833e6211e5f52ab9c0412823098b6b1b69edbdbb68"
+      },
+      {
+        "kind": "pdf",
+        "path": "outputs/kou-current-20261110.pdf",
+        "bytes": 1113327,
+        "sha256": "10af33542167ce5dad53e98ae62770816050f65d71553dcc64667150c130df34"
+      }
+    ],
+    "slides": 10,
+    "includes_omikuji": true,
+    "validation": "artifacts/presentation-current/validation.json",
+    "visual_review": "artifacts/presentation-current/VISUAL-QA.json",
+    "rendered": "artifacts/presentation-current/rendered-omikuji",
+    "legacy_material_is_current": false,
+    "limits": "PowerPoint/render inspection was performed by the deck author; output auditor independently verified file hashes and records. No human audience evaluation or real revisit-effect validation."
+  },
+  "quality": {
+    "phase": "root-layout-final",
+    "measured_at": "2026-11-10T04:44:00.257383+00:00",
+    "status": "review-required",
+    "tests_status": "passed",
+    "junit": {
+      "tests": "395",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "342.657"
+    },
+    "counts_after": {
+      "bandit": 19,
+      "complexity": 14,
+      "oxlint": 115,
+      "ruff": 0,
+      "stylelint": 126
+    },
+    "bandit_severity": {
+      "HIGH": 0,
+      "MEDIUM": 19,
+      "LOW": 0
+    },
+    "new_findings": 0,
+    "evidence": "artifacts/quality/root-layout-final/summary.json",
+    "limits": "Static findings are not an app score, certification, security guarantee, or usability test. Existing debt remains visible. No upload or automatic baseline reset.",
+    "scope": "Root-layout baseline measured before omikuji addition; not a combined post-game full regression.",
+    "test_groups": {
+      "backend_testcase_elements": 303,
+      "tooling_testcase_elements": 60,
+      "note": "32 subtests are additional outcomes, not 32 tooling test cases."
+    },
+    "omikuji_addition": {
+      "distinct_cases": 12,
+      "runs": [
+        {
+          "path": "artifacts/omikuji/pytest.xml",
+          "passed": 10
+        },
+        {
+          "path": "artifacts/omikuji/final-tests.xml",
+          "passed": 3,
+          "overlap_with_first_run": 1
+        }
+      ],
+      "evidence": "artifacts/omikuji/verification.json",
+      "module_static_findings": {
+        "ruff": 0,
+        "complexity": 0,
+        "bandit": 0
+      },
+      "not_added_to_baseline_total": true
+    },
+    "test_summary": {
+      "passed": 363,
+      "subtests_passed": 32,
+      "junit_reported_tests": 395,
+      "testcase_elements": 363,
+      "evidence": "artifacts/quality/root-layout-final/tests.log"
+    }
+  },
+  "unresolved": [
+    "Current source ZIP/manifest pending.",
+    "Human listening/naturalness, final user approval and actual revisit effects remain unconfirmed.",
+    "Static findings remain; root-layout baseline summary is review-required."
+  ],
+  "audit": "artifacts/output-freshness-audit.json",
+  "history": {
+    "directory": "outputs/history",
+    "move_map": "artifacts/output-history-move-map.json",
+    "moved_files": 23,
+    "hashes_preserved": true,
+    "deleted_files": 0
+  },
+  "source_package": {
+    "status": "pending",
+    "expected_path": "outputs/kou-current-source.zip",
+    "expected_manifest": "not_yet_confirmed_by_parent",
+    "published_paths": []
+  },
+  "previous_video": {
+    "version": "v10",
+    "status": "previous_pre_omikuji_revision_preserved",
+    "path": "outputs/kou-revisit-intro-v10.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v10-ja.vtt",
+    "duration_seconds": 46.5,
+    "sha256": "19917f308d75fe2e2c2d41aafa90ca4813968e0909783595a28f081552759ba4",
+    "preview": "outputs/video-preview/index.html",
+    "review": "docs/REVISIT-VIDEO-WA-REVIEW.md"
+  }
+}

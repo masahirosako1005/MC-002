@@ -75,6 +75,14 @@ class TicketStore:
                  "community/compose.yaml": "compose.yaml", "community/Dockerfile": "Dockerfile",
                  "community/.dockerignore": ".dockerignore"}
         candidate = fixed.get(original, original)
+        if original.startswith("outputs/"):
+            name = original.removeprefix("outputs/")
+            if re.fullmatch(r"kou-revisit-intro-(?:v[1-9](?:-ja)?\.(?:mp4|vtt)|ja\.vtt)", name) or name in {"community-intro.mp4", "community-intro-poster.png"}:
+                candidate = "outputs/history/videos/" + name
+            elif name in {"tang-you-chi-presentation-final.pptx", "tang-you-chi-presentation-final.pdf"}:
+                candidate = "outputs/history/presentation/" + name
+            elif name in {"tang-you-chi-source.zip", "tang-you-chi-history.bundle", "release-manifest.json"}:
+                candidate = "outputs/history/legacy-release/" + name
         if original.startswith("community/artifacts/"):
             candidate = "artifacts/community/" + original.removeprefix("community/artifacts/")
         elif original.startswith("community/") and original not in fixed:

@@ -23,6 +23,7 @@ GUIDE = ROOT / 'assets/revisit-guide/guide-pointing-v1.png'
 INK, RED, MUTED = art.INK, art.RED, art.MUTED
 CAPTURES = []
 OPERATIONS = None
+FORTUNE_OPERATIONS = None
 
 
 def capture(canvas, name, box):
@@ -62,7 +63,8 @@ def intro(image, draw, alternate):
     words(draw, '一度来て、\nおしまい？', 650, 330, 100, 1150, bold=True)
     art.brush_rule(draw, (655, 613), (1730, 613), RED, 4)
     words(draw, 'もったいない！', 650, 668, 70, 1100, RED, True)
-    words(draw, '次に来る理由を、3つの仕組みで。', 655, 815, 35, 1120)
+    label = '3つの仕組みと、現地の月替わりくじ。' if FORTUNE_OPERATIONS else '次に来る理由を、3つの仕組みで。'
+    words(draw, label, 655, 815, 35, 1120)
 
 
 def overview(image, draw, alternate):
@@ -150,6 +152,30 @@ def closing(image, draw, alternate):
         words(draw, detail, 748, y + 79, 32, 1060, MUTED)
 
 
+def fortune(image, draw, alternate):
+    del alternate
+    question(draw, '次の月も、現地でひとくじ。')
+    words(draw, '現地のコードで、月に一度。', 450, 440, 44, 780, bold=True)
+    words(draw, 'くじを選び、抽選。\n確認済み階級で当たりやすさが変わる。', 455, 563, 32, 780)
+    words(draw, '画面を動かす操作で選択。\n当選券は対象の事業者で30日間。', 455, 726, 31, 780, MUTED)
+    words(draw, '無料・はずれあり。支払や点の消費なし。', 455, 867, 28, 780, RED)
+    capture_path(image, FORTUNE_OPERATIONS.first('phone-omikuji'), (1285, 205, 500, 740))
+
+
+def closing_with_fortune(image, draw, alternate):
+    del alternate
+    words(draw, '次に来る理由をつくる。', 615, 163, 65, 1200, bold=True)
+    specs = [('一', '通う目的', '複数回で進める体験'),
+             ('二', '先達の特典', '次の企画を後押し'),
+             ('三', '日帰り圏への割引', '条件と予算の範囲内で'),
+             ('四', '現地の月替わりくじ', '確認済み階級に応じた抽選')]
+    for index, (number, label, detail) in enumerate(specs):
+        y = 315 + index * 151
+        art.seal(draw, (635, y, 702, y + 67), number, 40)
+        words(draw, label, 745, y - 4, 43, 1060, bold=True)
+        words(draw, detail, 748, y + 67, 29, 1060, MUTED)
+
+
 BUILDERS = [intro, overview, visitor, provider, program, rank, zone, closing]
 GUIDE_BOXES = [(78, 176, 510, 760), (80, 470, 310, 465), (75, 470, 330, 495),
                (105, 581, 245, 367), (75, 470, 330, 495), (75, 470, 330, 495),
@@ -173,17 +199,31 @@ def guide_on_frame(frame, index, local):
     return frame
 
 
+def fortune_playback_time(local):
+    # Add reading holds; recorded action intervals retain their original speed.
+    if local < 2.0:
+        return .35
+    if local < 2.8:
+        return .35 + local - 2.0
+    if local < 4.4:
+        return 1.15
+    return 1.15 + local - 4.4
+
+
 def render_frame(scenes, index, frame, style):
     image = motion.render_frame(scenes, index, frame, style)
     if OPERATIONS:
         OPERATIONS.paint_scene(image, index, frame / motion.FPS)
+    if FORTUNE_OPERATIONS and scenes[index].kind == 'fortune':
+        FORTUNE_OPERATIONS.paint(image, 'phone-omikuji', fortune_playback_time(frame / motion.FPS),
+                                 (1285, 205, 500, 740))
     return guide_on_frame(image, index, frame / motion.FPS)
 
 
 def compose(data):
     layers = WORK / 'layers'
     layers.mkdir(exist_ok=True)
-    sheet = Image.new('RGB', (1920, 2160), '#f7f3e8')
+    sheet = Image.new('RGB', (1920, 540 * math.ceil(len(data) / 2)), '#f7f3e8')
     for index, scene in enumerate(data):
         for alternate in ([False, True] if scene['kind'] in ('visitor', 'provider') else [False]):
             image, draw = starting_frame(scene, index)
@@ -199,30 +239,40 @@ def compose(data):
     return layers
 
 
-def main():
-    global WORK, SCRIPT, GUIDE, OPERATIONS
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--encode', action='store_true')
-    parser.add_argument('--revision', type=int, choices=(9, 10), default=9)
-    args = parser.parse_args()
-    WORK = art.WORK / f'v{args.revision}'
-    if args.revision == 10:
+def configure_revision(revision):
+    global WORK, SCRIPT, GUIDE, OPERATIONS, FORTUNE_OPERATIONS, BUILDERS, GUIDE_BOXES
+    WORK = art.WORK / f'v{revision}'
+    if revision >= 10:
         SCRIPT = ROOT / 'scripts/revisit-video-female-scenes.json'
         GUIDE = ROOT / 'assets/revisit-guide/guide-female-v1.png'
-        OPERATIONS = OperationClips(WORK / 'operations')
+        OPERATIONS = OperationClips(art.WORK / 'v10/operations')
         GUIDE_BOXES[3] = (95, 585, 235, 352)
+    if revision == 11:
+        SCRIPT = ROOT / 'scripts/revisit-video-female-v11-scenes.json'
+        FORTUNE_OPERATIONS = OperationClips(WORK / 'operations')
+        BUILDERS = [*BUILDERS[:-1], fortune, closing_with_fortune]
+        GUIDE_BOXES = [*GUIDE_BOXES[:-1], (75, 470, 330, 495), GUIDE_BOXES[-1]]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--encode', action='store_true')
+    parser.add_argument('--revision', type=int, choices=(9, 10, 11), default=10)
+    args = parser.parse_args()
+    configure_revision(args.revision)
     target = WORK / 'guide-raw.mp4'
     if target.exists():
         raise FileExistsError('Preserve previous encoding; select a new revision')
     data = json.loads(SCRIPT.read_text(encoding='utf-8'))
     for scene in data:
         scene['motion'] = {'highlights': []}
-        if args.revision == 10 and scene['kind'] == 'visitor':
+        scene['scene_total'] = len(data)
+        if args.revision >= 10 and scene['kind'] == 'visitor':
             scene['motion']['alt_at'] = round(scene['duration'] * 15) / 30
     source_json = WORK / 'scenes.json'
     source_json.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     layers = compose(data)
-    scenes = motion.load_scenes(source_json, layers, 'wa', expected_seconds=None)
+    scenes = motion.load_scenes(source_json, layers, 'wa', expected_seconds=None, expected_count=len(data))
     if OPERATIONS:
         for index, local in ((3, 1.0), (3, 4.7), (4, 1.0), (4, 5.2)):
             render_frame(scenes, index, round(local * 30), 'wa').save(
@@ -231,8 +281,10 @@ def main():
         'source_scene_json_sha256': hashlib.sha256(source_json.read_bytes()).hexdigest(),
         'character_sha256': hashlib.sha256(GUIDE.read_bytes()).hexdigest(),
         'character_path': GUIDE.relative_to(ROOT).as_posix(),
-        'operations_manifest': 'operations/recording.json' if OPERATIONS else None,
-        'operations_used': ['pc-city', 'pc-revisit', 'phone-open', 'phone-scroll'] if OPERATIONS else [],
+        'operations_manifest': 'artifacts/video-revisit/v10/operations/recording.json' if OPERATIONS else None,
+        'fortune_operations_manifest': 'operations/recording.json' if FORTUNE_OPERATIONS else None,
+        'operations_used': (['pc-city', 'pc-revisit', 'phone-open', 'phone-scroll'] if OPERATIONS else [])
+                           + (['phone-omikuji'] if FORTUNE_OPERATIONS else []),
         'capture_regions': CAPTURES, 'character_motion': 'Entrance 0.42s; two 0.45s emphasis beats; no lip-sync claim',
         'font': 'Meiryo / Meiryo Bold for explanations; brush only for seals and decorative numerals',
         'scenes': [{'index': s.index, 'kind': s.kind, 'seconds': s.seconds,

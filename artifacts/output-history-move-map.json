@@ -1,0 +1,216 @@
+{
+  "checked_at_utc": "2026-11-10T04:48:12.5619114Z",
+  "method": "Windows native Move-Item, checked absolute paths, no overwrite, files only",
+  "planned_count": 23,
+  "moved_count": 23,
+  "deleted_count": 0,
+  "moves": [
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v1.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v1.mp4",
+      "bytes": 4049272,
+      "sha256": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v2.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v2.mp4",
+      "bytes": 5210115,
+      "sha256": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v3.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v3.mp4",
+      "bytes": 5363440,
+      "sha256": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v4.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v4.mp4",
+      "bytes": 5381110,
+      "sha256": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v5.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v5.mp4",
+      "bytes": 5255663,
+      "sha256": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v6.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v6.mp4",
+      "bytes": 5259774,
+      "sha256": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v7.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v7.mp4",
+      "bytes": 4044912,
+      "sha256": "59a2b9ebf441ab47f345e52c8c4863b6a4a84140c34415a62c81d99a31c909a4",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v9.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v9.mp4",
+      "bytes": 3256816,
+      "sha256": "d745eae40259e5d2b4116c79409e7cf5e941274af0900c84cfbb9601de7e1a5a",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-ja.vtt",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-ja.vtt",
+      "bytes": 1131,
+      "sha256": "3ff01b9063f09aed38a07088159a26ce7f6de138136d052484ed623613d4cbf2",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v8-ja.vtt",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v8-ja.vtt",
+      "bytes": 870,
+      "sha256": "8d424ce42cbebe585c4da2e75e85948a4f900cc061316ab449d2d12b1fcc2d9a",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\kou-revisit-intro-v9-ja.vtt",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\kou-revisit-intro-v9-ja.vtt",
+      "bytes": 858,
+      "sha256": "f8bddf4f17dafcccc28aa3fbb4132574568272766a41a451b882c8b1377c829b",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\community-intro.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\community-intro.mp4",
+      "bytes": 1088505,
+      "sha256": "50b695983f21c306909525d2c11e34121a368cb724571ca5e2eccea8eddd71b7",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\community-intro-poster.png",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\videos\\community-intro-poster.png",
+      "bytes": 577276,
+      "sha256": "a6517ab78d4e9d244be21c146aa397a3f0f14c7e0fe563e4bcb1b602a4ee863a",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-presentation-final.pptx",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\presentation\\tang-you-chi-presentation-final.pptx",
+      "bytes": 224364,
+      "sha256": "6746626daaaedb1d35b645953643683b6b74aa0646770b6aef64026b6199a542",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-presentation-final.pdf",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\presentation\\tang-you-chi-presentation-final.pdf",
+      "bytes": 549461,
+      "sha256": "0e93214077c8aadc7ebc7ceec514565281576b3573c8beec0684ca06a7a40bdd",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-source.zip",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\legacy-release\\tang-you-chi-source.zip",
+      "bytes": 85610168,
+      "sha256": "b91701814c3455419dfc8cf853b82e9b70f957c1e021baf41511367d1d626e73",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\tang-you-chi-history.bundle",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\legacy-release\\tang-you-chi-history.bundle",
+      "bytes": 42382903,
+      "sha256": "8655fcd6cc7168b3bc57d63b32bf55f0c56756f7cf1b2050165c5e1cfcae08fd",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\release-manifest.json",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\legacy-release\\release-manifest.json",
+      "bytes": 43260,
+      "sha256": "b2c7fcdf137a8b015071a43382787d6199d72cf292e7203089358f80081ded3c",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\video-preview\\kou-revisit-intro-v4.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\preview\\kou-revisit-intro-v4.mp4",
+      "bytes": 5381110,
+      "sha256": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\video-preview\\kou-revisit-intro-v5.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\preview\\kou-revisit-intro-v5.mp4",
+      "bytes": 5255663,
+      "sha256": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\video-preview\\kou-revisit-intro-v6.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\preview\\kou-revisit-intro-v6.mp4",
+      "bytes": 5259774,
+      "sha256": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\video-preview\\kou-revisit-intro-v7.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\preview\\kou-revisit-intro-v7.mp4",
+      "bytes": 4044912,
+      "sha256": "59a2b9ebf441ab47f345e52c8c4863b6a4a84140c34415a62c81d99a31c909a4",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    },
+    {
+      "source": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\video-preview\\kou-revisit-intro-v9.mp4",
+      "destination": "C:\\AI-Sprint\\workspace\\MC-002\\outputs\\history\\preview\\kou-revisit-intro-v9.mp4",
+      "bytes": 3256816,
+      "sha256": "d745eae40259e5d2b4116c79409e7cf5e941274af0900c84cfbb9601de7e1a5a",
+      "source_absent": true,
+      "destination_exists": true,
+      "hash_preserved": true
+    }
+  ]
+}

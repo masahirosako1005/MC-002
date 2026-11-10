@@ -1,0 +1,1449 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-11-10T05:04:10.455287+00:00",
+  "workspace": "C:/AI-Sprint/workspace/MC-002",
+  "scope": "outputs and presentation audit, current entrypoint updates, and explicitly authorized non-destructive history-file moves; no archive or secret contents read",
+  "current_layout": "root backend/frontend; community absent",
+  "latest_video": {
+    "version": "v11",
+    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
+    "path": "outputs/kou-revisit-intro-v11.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+    "duration_seconds": 70.0,
+    "frames": 2100,
+    "bytes": 3919747,
+    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
+    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
+    "preview": "outputs/video-preview/index.html",
+    "verification": "artifacts/video-revisit/v11/final/verification.json",
+    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+    "human_listening_review": "not_assessed",
+    "user_final_approval": "unconfirmed",
+    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
+    "hash_matches_final_verification": true,
+    "prior_videos_preserved_record": 15,
+    "independent_decode_performed": false,
+    "browser_playback": {
+      "path": "artifacts/video-revisit/v11/browser-playback.json",
+      "method": "Played via visible start button without seeking; not a human listening assessment",
+      "time": 70,
+      "duration": 70,
+      "ended": true,
+      "error": null,
+      "observer": "root agent; metadata independently read by output auditor"
+    }
+  },
+  "preview": {
+    "kou-revisit-intro-v10.mp4": {
+      "exists": true,
+      "matches_canonical_sha256": true
+    },
+    "narration-ja.vtt": {
+      "exists": true,
+      "matches_canonical_sha256": false,
+      "matches_text_after_line_ending_and_final_whitespace_normalization": true,
+      "note": "Byte hash differs; cue text/timing equal after newline and final whitespace normalization. No caption replacement performed."
+    }
+  },
+  "new_presentation": {
+    "version": "20261110-omikuji",
+    "status": "produced_review_recorded",
+    "published_paths": [
+      "outputs/kou-current-20261110.pptx",
+      "outputs/kou-current-20261110.pdf"
+    ],
+    "files": [
+      {
+        "kind": "deck",
+        "path": "outputs/kou-current-20261110.pptx",
+        "bytes": 4088391,
+        "sha256": "4e700ecf488771fb66e438833e6211e5f52ab9c0412823098b6b1b69edbdbb68"
+      },
+      {
+        "kind": "pdf",
+        "path": "outputs/kou-current-20261110.pdf",
+        "bytes": 1113327,
+        "sha256": "10af33542167ce5dad53e98ae62770816050f65d71553dcc64667150c130df34"
+      }
+    ],
+    "slides": 10,
+    "includes_omikuji": true,
+    "validation": "artifacts/presentation-current/validation.json",
+    "visual_review": "artifacts/presentation-current/VISUAL-QA.json",
+    "rendered": "artifacts/presentation-current/rendered-omikuji",
+    "legacy_material_is_current": false,
+    "limits": "PowerPoint/render inspection was performed by the deck author; output auditor independently verified file hashes and records. No human audience evaluation or real revisit-effect validation."
+  },
+  "quality": {
+    "phase": "root-layout-final",
+    "measured_at": "2026-11-10T04:44:00.257383+00:00",
+    "status": "review-required",
+    "tests_status": "passed",
+    "junit": {
+      "tests": "395",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "342.657"
+    },
+    "counts_after": {
+      "bandit": 19,
+      "complexity": 14,
+      "oxlint": 115,
+      "ruff": 0,
+      "stylelint": 126
+    },
+    "bandit_severity": {
+      "HIGH": 0,
+      "MEDIUM": 19,
+      "LOW": 0
+    },
+    "new_findings": 0,
+    "evidence": "artifacts/quality/root-layout-final/summary.json",
+    "limits": "Static findings are not an app score, certification, security guarantee, or usability test. Existing debt remains visible. No upload or automatic baseline reset.",
+    "scope": "Root-layout baseline measured before omikuji addition; not a combined post-game full regression.",
+    "test_groups": {
+      "backend_testcase_elements": 303,
+      "tooling_testcase_elements": 60,
+      "note": "32 subtests are additional outcomes, not 32 tooling test cases."
+    },
+    "omikuji_addition": {
+      "distinct_cases": 12,
+      "runs": [
+        {
+          "path": "artifacts/omikuji/pytest.xml",
+          "passed": 10
+        },
+        {
+          "path": "artifacts/omikuji/final-tests.xml",
+          "passed": 3,
+          "overlap_with_first_run": 1
+        }
+      ],
+      "evidence": "artifacts/omikuji/verification.json",
+      "module_static_findings": {
+        "ruff": 0,
+        "complexity": 0,
+        "bandit": 0
+      },
+      "not_added_to_baseline_total": true
+    },
+    "test_summary": {
+      "passed": 363,
+      "subtests_passed": 32,
+      "junit_reported_tests": 395,
+      "testcase_elements": 363,
+      "evidence": "artifacts/quality/root-layout-final/tests.log"
+    }
+  },
+  "references": {
+    "cleanup-verified-paths.json": [
+      {
+        "file": "docs/CLEANUP-AUDIT.md",
+        "line": 52,
+        "historical_record": false
+      }
+    ],
+    "community-data-correlations.png": [
+      {
+        "file": "scripts/analyze_community_samples.py",
+        "line": 24,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/analyze_community_samples.py",
+        "line": 339,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/analyze_community_samples.py",
+        "line": 389,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/analyze_community_samples.py",
+        "line": 394,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/analyze_community_samples.py",
+        "line": 395,
+        "historical_record": false
+      },
+      {
+        "file": "docs/COMMUNITY-SAMPLE-ANALYSIS.md",
+        "line": 107,
+        "historical_record": false
+      },
+      {
+        "file": "docs/COMMUNITY-SAMPLE-ANALYSIS.md",
+        "line": 123,
+        "historical_record": false
+      },
+      {
+        "file": "docs/COMMUNITY-SAMPLE-ANALYSIS.md",
+        "line": 125,
+        "historical_record": false
+      },
+      {
+        "file": "docs/history/DESIGN-before-20261110-cleanup.md",
+        "line": 531,
+        "historical_record": true
+      },
+      {
+        "file": "docs/history/TASKS-before-20261110-cleanup.md",
+        "line": 265,
+        "historical_record": true
+      }
+    ],
+    "community-intro-poster.png": [
+      {
+        "file": "scripts/encode_intro_video.py",
+        "line": 69,
+        "historical_record": false
+      },
+      {
+        "file": "docs/COMMUNITY-VIDEO.md",
+        "line": 28,
+        "historical_record": false
+      }
+    ],
+    "community-intro.mp4": [
+      {
+        "file": "scripts/encode_intro_video.py",
+        "line": 14,
+        "historical_record": false
+      },
+      {
+        "file": "docs/COMMUNITY-VIDEO.md",
+        "line": 28,
+        "historical_record": false
+      },
+      {
+        "file": "docs/HANDOFF-COMMUNITY.md",
+        "line": 17,
+        "historical_record": false
+      }
+    ],
+    "daytrip-backend-tests.xml": [
+      {
+        "file": "docs/DAYTRIP-REVIEW.md",
+        "line": 86,
+        "historical_record": false
+      }
+    ],
+    "daytrip-backend-verification.json": [
+      {
+        "file": "docs/DAYTRIP-REVIEW.md",
+        "line": 88,
+        "historical_record": false
+      }
+    ],
+    "daytrip-boundary-after.xml": [
+      {
+        "file": "docs/DAYTRIP-ACCEPTANCE.md",
+        "line": 7,
+        "historical_record": false
+      },
+      {
+        "file": "docs/OPERATIONS.md",
+        "line": 88,
+        "historical_record": false
+      }
+    ],
+    "daytrip-boundary-before.xml": [
+      {
+        "file": "docs/DAYTRIP-ACCEPTANCE.md",
+        "line": 7,
+        "historical_record": false
+      }
+    ],
+    "daytrip-release-holds-tests.xml": [
+      {
+        "file": "docs/DAYTRIP-REVIEW.md",
+        "line": 90,
+        "historical_record": false
+      },
+      {
+        "file": "docs/OPERATIONS.md",
+        "line": 89,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v10-ja.vtt": [
+      {
+        "file": "scripts/narrate_revisit_female.ps1",
+        "line": 15,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO-WA-REVIEW.md",
+        "line": 9,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO.md",
+        "line": 9,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v10.mp4": [
+      {
+        "file": "DESIGN.md",
+        "line": 100,
+        "historical_record": false
+      },
+      {
+        "file": "TASKS.md",
+        "line": 29,
+        "historical_record": false
+      },
+      {
+        "file": "README.md",
+        "line": 25,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO-WA-REVIEW.md",
+        "line": 3,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO-WA-REVIEW.md",
+        "line": 55,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO.md",
+        "line": 7,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v2.mp4": [
+      {
+        "file": "scripts/animate_revisit_video.py",
+        "line": 431,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v5.mp4": [
+      {
+        "file": "scripts/finish_revisit_audio.py",
+        "line": 103,
+        "historical_record": false
+      },
+      {
+        "file": "docs/REVISIT-VIDEO-REVIEW.md",
+        "line": 5,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v6.mp4": [
+      {
+        "file": "scripts/finish_revisit_audio.py",
+        "line": 106,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v8-ja.vtt": [
+      {
+        "file": "scripts/narrate_revisit_male.ps1",
+        "line": 12,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v9-ja.vtt": [
+      {
+        "file": "scripts/narrate_revisit_guide.ps1",
+        "line": 12,
+        "historical_record": false
+      }
+    ],
+    "kou-revisit-intro-v9.mp4": [
+      {
+        "file": "docs/REVISIT-VIDEO-WA-REVIEW.md",
+        "line": 223,
+        "historical_record": false
+      }
+    ],
+    "model-source-cleanup-tests.xml": [
+      {
+        "file": "docs/DAYTRIP-ACCEPTANCE.md",
+        "line": 8,
+        "historical_record": false
+      },
+      {
+        "file": "docs/OPERATIONS.md",
+        "line": 90,
+        "historical_record": false
+      }
+    ],
+    "project-board.html": [
+      {
+        "file": "TASKS.md",
+        "line": 3,
+        "historical_record": false
+      },
+      {
+        "file": "README.md",
+        "line": 46,
+        "historical_record": false
+      },
+      {
+        "file": "docs/ACCEPTANCE.md",
+        "line": 78,
+        "historical_record": false
+      },
+      {
+        "file": "test/tooling/test_tickets.py",
+        "line": 203,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/tickets.py",
+        "line": 305,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/tickets.py",
+        "line": 412,
+        "historical_record": false
+      },
+      {
+        "file": "docs/HANDOFF-COMMUNITY.md",
+        "line": 114,
+        "historical_record": false
+      },
+      {
+        "file": "docs/history/TASKS-before-20261110-cleanup.md",
+        "line": 34,
+        "historical_record": true
+      },
+      {
+        "file": "docs/README.md",
+        "line": 8,
+        "historical_record": false
+      }
+    ],
+    "rank-r2-bandit.json": [
+      {
+        "file": "docs/DAYTRIP-RANK-V2.md",
+        "line": 80,
+        "historical_record": false
+      }
+    ],
+    "rank-r2-final-tests.xml": [
+      {
+        "file": "docs/DAYTRIP-RANK-V2.md",
+        "line": 71,
+        "historical_record": false
+      },
+      {
+        "file": "docs/NISHI-ACCEPTANCE.md",
+        "line": 21,
+        "historical_record": false
+      }
+    ],
+    "README.md": [
+      {
+        "file": "README.md",
+        "line": 25,
+        "historical_record": false
+      },
+      {
+        "file": "README.md",
+        "line": 46,
+        "historical_record": false
+      },
+      {
+        "file": "presentation/README.md",
+        "line": 5,
+        "historical_record": false
+      },
+      {
+        "file": "presentation/README.md",
+        "line": 12,
+        "historical_record": false
+      },
+      {
+        "file": "presentation/README.md",
+        "line": 13,
+        "historical_record": false
+      },
+      {
+        "file": "presentation/README.md",
+        "line": 18,
+        "historical_record": false
+      },
+      {
+        "file": "docs/README.md",
+        "line": 8,
+        "historical_record": false
+      }
+    ],
+    "release-manifest.json": [
+      {
+        "file": "docs/CLEANUP-AUDIT.md",
+        "line": 86,
+        "historical_record": false
+      }
+    ],
+    "sample-data-trends.png": [
+      {
+        "file": "scripts/analyze_audience_trends.py",
+        "line": 118,
+        "historical_record": false
+      },
+      {
+        "file": "docs/SAMPLE-DATA-TRENDS.md",
+        "line": 21,
+        "historical_record": false
+      }
+    ],
+    "snapshot-metadata-tests.xml": [
+      {
+        "file": "docs/DAYTRIP-ACCEPTANCE.md",
+        "line": 9,
+        "historical_record": false
+      },
+      {
+        "file": "docs/OPERATIONS.md",
+        "line": 91,
+        "historical_record": false
+      }
+    ],
+    "survey-content-trends.png": [
+      {
+        "file": "scripts/render_survey_summary.py",
+        "line": 37,
+        "historical_record": false
+      },
+      {
+        "file": "scripts/render_survey_summary.py",
+        "line": 43,
+        "historical_record": false
+      },
+      {
+        "file": "docs/SAMPLE-DATA-TRENDS.md",
+        "line": 89,
+        "historical_record": false
+      }
+    ],
+    "tang-you-chi-history.bundle": [
+      {
+        "file": "docs/CLEANUP-AUDIT.md",
+        "line": 85,
+        "historical_record": false
+      }
+    ],
+    "tang-you-chi-presentation-final.pdf": [
+      {
+        "file": "docs/ACCEPTANCE.md",
+        "line": 22,
+        "historical_record": false
+      }
+    ],
+    "tang-you-chi-presentation-final.pptx": [
+      {
+        "file": "presentation/README.md",
+        "line": 18,
+        "historical_record": false
+      },
+      {
+        "file": "docs/ACCEPTANCE.md",
+        "line": 22,
+        "historical_record": false
+      }
+    ],
+    "tang-you-chi-source.zip": [
+      {
+        "file": "docs/CLEANUP-AUDIT.md",
+        "line": 83,
+        "historical_record": false
+      }
+    ]
+  },
+  "proposed_history_moves": [
+    {
+      "source": "outputs/kou-revisit-intro-v1.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v1.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v2.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v2.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v3.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v3.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v4.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v4.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v5.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v5.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v6.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v6.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v7.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v7.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v9.mp4",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v9.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-ja.vtt",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-ja.vtt",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v8-ja.vtt",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v8-ja.vtt",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/kou-revisit-intro-v9-ja.vtt",
+      "proposed_destination": "outputs/history/videos/kou-revisit-intro-v9-ja.vtt",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/community-intro.mp4",
+      "proposed_destination": "outputs/history/videos/community-intro.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/community-intro-poster.png",
+      "proposed_destination": "outputs/history/videos/community-intro-poster.png",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/tang-you-chi-presentation-final.pptx",
+      "proposed_destination": "outputs/history/presentation/tang-you-chi-presentation-final.pptx",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/tang-you-chi-presentation-final.pdf",
+      "proposed_destination": "outputs/history/presentation/tang-you-chi-presentation-final.pdf",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/tang-you-chi-source.zip",
+      "proposed_destination": "outputs/history/legacy-release/tang-you-chi-source.zip",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/tang-you-chi-history.bundle",
+      "proposed_destination": "outputs/history/legacy-release/tang-you-chi-history.bundle",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/release-manifest.json",
+      "proposed_destination": "outputs/history/legacy-release/release-manifest.json",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Parent authorization and coordinated current reference updates; historical evidence content remains unchanged.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/video-preview/kou-revisit-intro-v4.mp4",
+      "proposed_destination": "outputs/history/preview/kou-revisit-intro-v4.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Current preview index references only v10; preserve older copies without altering recorded hashes.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/video-preview/kou-revisit-intro-v5.mp4",
+      "proposed_destination": "outputs/history/preview/kou-revisit-intro-v5.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Current preview index references only v10; preserve older copies without altering recorded hashes.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/video-preview/kou-revisit-intro-v6.mp4",
+      "proposed_destination": "outputs/history/preview/kou-revisit-intro-v6.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Current preview index references only v10; preserve older copies without altering recorded hashes.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/video-preview/kou-revisit-intro-v7.mp4",
+      "proposed_destination": "outputs/history/preview/kou-revisit-intro-v7.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Current preview index references only v10; preserve older copies without altering recorded hashes.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    },
+    {
+      "source": "outputs/video-preview/kou-revisit-intro-v9.mp4",
+      "proposed_destination": "outputs/history/preview/kou-revisit-intro-v9.mp4",
+      "source_exists": true,
+      "destination_exists": false,
+      "status": "moved_hash_preserved",
+      "precondition": "Current preview index references only v10; preserve older copies without altering recorded hashes.",
+      "source_exists_now": false,
+      "destination_exists_now": true
+    }
+  ],
+  "move_status": "23 authorized files moved using Windows native Move-Item; all hashes preserved; deleted 0. Historical source paths in immutable evidence were not rewritten.",
+  "protected_existing_evidence": {
+    "historical_xml_json_count": 23,
+    "policy": "Preserve current paths until citations and consumers are coordinated. Dates/schema-specific acceptance evidence are not current whole-app results."
+  },
+  "presentation_directory": {
+    "items": [
+      {
+        "name": "node_modules",
+        "junction": true,
+        "symlink": false
+      },
+      {
+        "name": "README.md",
+        "junction": false,
+        "symlink": false
+      }
+    ],
+    "README_owner": "other_agent",
+    "external_dependency_junction_traversed": false,
+    "legacy_13_slide_material": "not_current_application"
+  },
+  "reference_change_requirements": [
+    "finish_revisit_audio.py defaults to old v5 input/v6 output and enumerates outputs video revisions; coordinate before moving histories.",
+    "animate_revisit_video.py default v2 and render_revisit_video.py dynamic version output are reproduction tooling, not current-user entrypoints.",
+    "encode_intro_video.py and old narration scripts retain old output paths; explicitly route historical regeneration rather than recreating old current-root files.",
+    "Current preview index refers to v10 MP4 and narration-ja.vtt only. Old preview MP4 copies can be separated after parent notification.",
+    "Legacy deck links in historical acceptance records remain provenance; add relocation links/metadata without rewriting prior success as current-app approval.",
+    "Do not execute cleanup-verified-paths.json as a removal list; root backend/frontend now contain current source."
+  ],
+  "limitations": [
+    "No DB/backups/secrets, CSV contents, archive or model-weight contents read.",
+    "No presentation content/render verification or app test rerun in this audit.",
+    "Freshness uses explicit revision and evidence, not filename final or modification timestamp alone.",
+    "Static findings and successful tests do not certify security, usability, or real visitor/revisit outcomes."
+  ],
+  "reference_scan": {
+    "method": "rg fixed strings, filtered text files only",
+    "exit_code": 0,
+    "matching_output_names": 30
+  },
+  "inventory_before_history_move": [
+    {
+      "path": "outputs/cleanup-verified-paths.json",
+      "kind": "file",
+      "bytes": 4615,
+      "modified_at_utc": "2026-11-10T01:37:35.427021+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/community-data-correlations.png",
+      "kind": "file",
+      "bytes": 355660,
+      "modified_at_utc": "2026-11-09T04:58:04.808681+00:00",
+      "classification": "supporting_analysis_not_app_effect_evidence"
+    },
+    {
+      "path": "outputs/community-intro-poster.png",
+      "kind": "file",
+      "bytes": 577276,
+      "modified_at_utc": "2026-11-09T07:37:13.932578+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/community-intro.mp4",
+      "kind": "file",
+      "bytes": 1088505,
+      "modified_at_utc": "2026-11-09T07:37:11.054795+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/daytrip-backend-regression.xml",
+      "kind": "file",
+      "bytes": 26958,
+      "modified_at_utc": "2026-11-10T01:22:47.016584+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-backend-tests.xml",
+      "kind": "file",
+      "bytes": 2759,
+      "modified_at_utc": "2026-11-10T01:20:08.020250+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-backend-verification.json",
+      "kind": "file",
+      "bytes": 2570,
+      "modified_at_utc": "2026-11-10T01:26:53.435440+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-bandit-schema9.json",
+      "kind": "file",
+      "bytes": 2581,
+      "modified_at_utc": "2026-11-10T01:23:15.416644+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-bandit.json",
+      "kind": "file",
+      "bytes": 2581,
+      "modified_at_utc": "2026-11-10T01:26:22.341728+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-boundary-after.xml",
+      "kind": "file",
+      "bytes": 4010,
+      "modified_at_utc": "2026-11-10T01:34:02.563393+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-boundary-before.xml",
+      "kind": "file",
+      "bytes": 3534,
+      "modified_at_utc": "2026-11-10T01:32:36.197677+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-full-bandit-direct.json",
+      "kind": "file",
+      "bytes": 39806,
+      "modified_at_utc": "2026-11-10T01:36:07.428914+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-journal-recheck.xml",
+      "kind": "file",
+      "bytes": 385,
+      "modified_at_utc": "2026-11-10T01:23:01.354227+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-release-holds-tests.xml",
+      "kind": "file",
+      "bytes": 3863,
+      "modified_at_utc": "2026-11-10T01:26:21.066024+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-release-holds-verification.json",
+      "kind": "file",
+      "bytes": 3073,
+      "modified_at_utc": "2026-11-10T01:26:53.410439+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-ruff-before.json",
+      "kind": "file",
+      "bytes": 1999,
+      "modified_at_utc": "2026-11-10T01:21:20.814074+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-ruff-schema9.json",
+      "kind": "file",
+      "bytes": 2,
+      "modified_at_utc": "2026-11-10T01:22:59.390606+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/daytrip-ruff.json",
+      "kind": "file",
+      "bytes": 2,
+      "modified_at_utc": "2026-11-10T01:26:21.536168+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-ja.vtt",
+      "kind": "file",
+      "bytes": 1131,
+      "modified_at_utc": "2026-11-10T03:29:36.523995+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v1.mp4",
+      "kind": "file",
+      "bytes": 4049272,
+      "modified_at_utc": "2026-11-10T03:18:06.820627+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10-ja.vtt",
+      "kind": "file",
+      "bytes": 879,
+      "modified_at_utc": "2026-11-10T04:13:33.476930+00:00",
+      "classification": "current_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10.mp4",
+      "kind": "file",
+      "bytes": 2806172,
+      "modified_at_utc": "2026-11-10T04:22:18.492821+00:00",
+      "classification": "current_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v2.mp4",
+      "kind": "file",
+      "bytes": 5210115,
+      "modified_at_utc": "2026-11-10T03:23:34.868753+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v3.mp4",
+      "kind": "file",
+      "bytes": 5363440,
+      "modified_at_utc": "2026-11-10T03:27:39.844880+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v4.mp4",
+      "kind": "file",
+      "bytes": 5381110,
+      "modified_at_utc": "2026-11-10T03:29:40.883372+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v5.mp4",
+      "kind": "file",
+      "bytes": 5255663,
+      "modified_at_utc": "2026-11-10T03:32:07.721400+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v6.mp4",
+      "kind": "file",
+      "bytes": 5259774,
+      "modified_at_utc": "2026-11-10T03:37:24.731505+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v7.mp4",
+      "kind": "file",
+      "bytes": 4044912,
+      "modified_at_utc": "2026-11-10T03:55:09.716393+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v8-ja.vtt",
+      "kind": "file",
+      "bytes": 870,
+      "modified_at_utc": "2026-11-10T04:12:24.847836+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v9-ja.vtt",
+      "kind": "file",
+      "bytes": 858,
+      "modified_at_utc": "2026-11-10T04:12:24.849399+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v9.mp4",
+      "kind": "file",
+      "bytes": 3256816,
+      "modified_at_utc": "2026-11-10T04:07:53.978707+00:00",
+      "classification": "historical_video"
+    },
+    {
+      "path": "outputs/model-source-cleanup-tests.xml",
+      "kind": "file",
+      "bytes": 5591,
+      "modified_at_utc": "2026-11-10T01:34:50.817294+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/posts-api-tests.xml",
+      "kind": "file",
+      "bytes": 7253,
+      "modified_at_utc": "2026-11-10T01:49:22.948916+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/posts-final-tests.xml",
+      "kind": "file",
+      "bytes": 2332,
+      "modified_at_utc": "2026-11-10T01:50:10.298860+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/posts-handler-tests.xml",
+      "kind": "file",
+      "bytes": 512,
+      "modified_at_utc": "2026-11-10T01:54:48.830183+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/project-board.html",
+      "kind": "file",
+      "bytes": 356023,
+      "modified_at_utc": "2026-11-10T04:46:32.367029+00:00",
+      "classification": "current_generated_status"
+    },
+    {
+      "path": "outputs/rank-r2-bandit.json",
+      "kind": "file",
+      "bytes": 2938,
+      "modified_at_utc": "2026-11-10T02:11:55.080571+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/rank-r2-final-tests.xml",
+      "kind": "file",
+      "bytes": 8082,
+      "modified_at_utc": "2026-11-10T02:12:18.434649+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/rank-r2-tests.xml",
+      "kind": "file",
+      "bytes": 7037,
+      "modified_at_utc": "2026-11-10T02:06:43.904364+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/README.md",
+      "kind": "file",
+      "bytes": 1691,
+      "modified_at_utc": "2026-11-10T04:30:25.310860+00:00",
+      "classification": "current_entrypoint"
+    },
+    {
+      "path": "outputs/release-manifest.json",
+      "kind": "file",
+      "bytes": 43260,
+      "modified_at_utc": "2026-11-09T04:39:38.221601+00:00",
+      "classification": "legacy_source_distribution_not_current_source"
+    },
+    {
+      "path": "outputs/sample-data-trends.png",
+      "kind": "file",
+      "bytes": 201461,
+      "modified_at_utc": "2026-11-09T05:39:52.661591+00:00",
+      "classification": "supporting_analysis_not_app_effect_evidence"
+    },
+    {
+      "path": "outputs/snapshot-metadata-tests.xml",
+      "kind": "file",
+      "bytes": 858,
+      "modified_at_utc": "2026-11-10T01:36:43.455180+00:00",
+      "classification": "historical_validation_evidence"
+    },
+    {
+      "path": "outputs/survey-content-trends.png",
+      "kind": "file",
+      "bytes": 223428,
+      "modified_at_utc": "2026-11-09T05:42:51.554304+00:00",
+      "classification": "supporting_analysis_not_app_effect_evidence"
+    },
+    {
+      "path": "outputs/tang-you-chi-history.bundle",
+      "kind": "file",
+      "bytes": 42382903,
+      "modified_at_utc": "2026-11-09T04:39:38.076690+00:00",
+      "classification": "legacy_source_distribution_not_current_source"
+    },
+    {
+      "path": "outputs/tang-you-chi-presentation-final.pdf",
+      "kind": "file",
+      "bytes": 549461,
+      "modified_at_utc": "2026-11-09T04:35:57.435457+00:00",
+      "classification": "legacy_presentation_not_current_app"
+    },
+    {
+      "path": "outputs/tang-you-chi-presentation-final.pptx",
+      "kind": "file",
+      "bytes": 224364,
+      "modified_at_utc": "2026-11-09T04:35:45.057980+00:00",
+      "classification": "legacy_presentation_not_current_app"
+    },
+    {
+      "path": "outputs/tang-you-chi-source.zip",
+      "kind": "file",
+      "bytes": 85610168,
+      "modified_at_utc": "2026-11-09T04:39:41.324567+00:00",
+      "classification": "legacy_source_distribution_not_current_source"
+    },
+    {
+      "path": "outputs/video-preview",
+      "kind": "directory",
+      "bytes": null,
+      "modified_at_utc": "2026-11-10T04:22:36.696753+00:00",
+      "classification": "current_preview_with_legacy_media_copies"
+    }
+  ],
+  "category_counts_before_history_move": {
+    "historical_validation_evidence": 23,
+    "supporting_analysis_not_app_effect_evidence": 3,
+    "historical_video": 13,
+    "current_video": 2,
+    "current_generated_status": 1,
+    "current_entrypoint": 1,
+    "legacy_source_distribution_not_current_source": 3,
+    "legacy_presentation_not_current_app": 2,
+    "current_preview_with_legacy_media_copies": 1
+  },
+  "inventory_after_history_move": [
+    {
+      "path": "outputs/cleanup-verified-paths.json",
+      "kind": "file",
+      "bytes": 4615
+    },
+    {
+      "path": "outputs/community-data-correlations.png",
+      "kind": "file",
+      "bytes": 355660
+    },
+    {
+      "path": "outputs/daytrip-backend-regression.xml",
+      "kind": "file",
+      "bytes": 26958
+    },
+    {
+      "path": "outputs/daytrip-backend-tests.xml",
+      "kind": "file",
+      "bytes": 2759
+    },
+    {
+      "path": "outputs/daytrip-backend-verification.json",
+      "kind": "file",
+      "bytes": 2570
+    },
+    {
+      "path": "outputs/daytrip-bandit-schema9.json",
+      "kind": "file",
+      "bytes": 2581
+    },
+    {
+      "path": "outputs/daytrip-bandit.json",
+      "kind": "file",
+      "bytes": 2581
+    },
+    {
+      "path": "outputs/daytrip-boundary-after.xml",
+      "kind": "file",
+      "bytes": 4010
+    },
+    {
+      "path": "outputs/daytrip-boundary-before.xml",
+      "kind": "file",
+      "bytes": 3534
+    },
+    {
+      "path": "outputs/daytrip-full-bandit-direct.json",
+      "kind": "file",
+      "bytes": 39806
+    },
+    {
+      "path": "outputs/daytrip-journal-recheck.xml",
+      "kind": "file",
+      "bytes": 385
+    },
+    {
+      "path": "outputs/daytrip-release-holds-tests.xml",
+      "kind": "file",
+      "bytes": 3863
+    },
+    {
+      "path": "outputs/daytrip-release-holds-verification.json",
+      "kind": "file",
+      "bytes": 3073
+    },
+    {
+      "path": "outputs/daytrip-ruff-before.json",
+      "kind": "file",
+      "bytes": 1999
+    },
+    {
+      "path": "outputs/daytrip-ruff-schema9.json",
+      "kind": "file",
+      "bytes": 2
+    },
+    {
+      "path": "outputs/daytrip-ruff.json",
+      "kind": "file",
+      "bytes": 2
+    },
+    {
+      "path": "outputs/history",
+      "kind": "directory",
+      "bytes": null
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10-ja.vtt",
+      "kind": "file",
+      "bytes": 879
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v10.mp4",
+      "kind": "file",
+      "bytes": 2806172
+    },
+    {
+      "path": "outputs/latest.json",
+      "kind": "file",
+      "bytes": 2186
+    },
+    {
+      "path": "outputs/model-source-cleanup-tests.xml",
+      "kind": "file",
+      "bytes": 5591
+    },
+    {
+      "path": "outputs/posts-api-tests.xml",
+      "kind": "file",
+      "bytes": 7253
+    },
+    {
+      "path": "outputs/posts-final-tests.xml",
+      "kind": "file",
+      "bytes": 2332
+    },
+    {
+      "path": "outputs/posts-handler-tests.xml",
+      "kind": "file",
+      "bytes": 512
+    },
+    {
+      "path": "outputs/project-board.html",
+      "kind": "file",
+      "bytes": 357934
+    },
+    {
+      "path": "outputs/rank-r2-bandit.json",
+      "kind": "file",
+      "bytes": 2938
+    },
+    {
+      "path": "outputs/rank-r2-final-tests.xml",
+      "kind": "file",
+      "bytes": 8082
+    },
+    {
+      "path": "outputs/rank-r2-tests.xml",
+      "kind": "file",
+      "bytes": 7037
+    },
+    {
+      "path": "outputs/README.md",
+      "kind": "file",
+      "bytes": 5248
+    },
+    {
+      "path": "outputs/sample-data-trends.png",
+      "kind": "file",
+      "bytes": 201461
+    },
+    {
+      "path": "outputs/snapshot-metadata-tests.xml",
+      "kind": "file",
+      "bytes": 858
+    },
+    {
+      "path": "outputs/survey-content-trends.png",
+      "kind": "file",
+      "bytes": 223428
+    },
+    {
+      "path": "outputs/video-preview",
+      "kind": "directory",
+      "bytes": null
+    }
+  ],
+  "history_move": {
+    "map": "artifacts/output-history-move-map.json",
+    "moved": 23,
+    "deleted": 0,
+    "all_destination_hashes_rechecked": true,
+    "all_sources_absent": true,
+    "authorization": "Parent explicitly authorized these 23 non-destructive history moves after initial read-only audit."
+  },
+  "current_unresolved_reference_changes": [],
+  "pending_current_revision": {
+    "checked_at_utc": "2026-11-10T04:59:12.661127+00:00",
+    "video": {
+      "status": "completed",
+      "verification": "artifacts/video-revisit/v11/final/verification.json"
+    },
+    "presentation": {
+      "status": "completed",
+      "published_paths": [
+        "outputs/kou-current-20261110.pptx",
+        "outputs/kou-current-20261110.pdf"
+      ]
+    },
+    "source_package": {
+      "status": "pending",
+      "expected_path": "outputs/kou-current-source.zip",
+      "expected_manifest": "not_yet_confirmed_by_parent",
+      "published_paths": []
+    }
+  },
+  "game_verification": {
+    "path": "artifacts/omikuji/verification.json",
+    "status": "12_distinct_targeted_cases_passed_not_added_to_baseline",
+    "live_trial": "Parent reported code issue, legitimate 100-yen outcome, budget 3000/100/2900, then provider confirmed a 500-yen purchase without other discount; this auditor did not perform the live UI trial."
+  },
+  "counting_correction": {
+    "finding": "JUnit tests attribute 395 includes 32 subtests; there are 363 testcase elements.",
+    "source": "artifacts/quality/root-layout-final/tests.log final line",
+    "display": "363 tests + 32 subtests; omikuji targeted 12 cases shown separately."
+  },
+  "previous_video_v10": {
+    "version": "v10",
+    "files": [
+      {
+        "path": "outputs/kou-revisit-intro-v10.mp4",
+        "exists": true,
+        "bytes": 2806172,
+        "sha256": "19917f308d75fe2e2c2d41aafa90ca4813968e0909783595a28f081552759ba4"
+      },
+      {
+        "path": "outputs/kou-revisit-intro-v10-ja.vtt",
+        "exists": true,
+        "bytes": 879,
+        "sha256": "ef41c1286054cd4203d1402f3ae94ec956ae19bd50d8dfbdb928e6c3918e46dc"
+      }
+    ],
+    "hash_matches_final_verification": true,
+    "duration_seconds": 46.5,
+    "frames": 1395,
+    "technical_decode_record": "passed",
+    "evidence": "artifacts/video-revisit/v10/final/verification.json",
+    "independent_media_decode_performed": false,
+    "human_listening_review": "not_performed",
+    "user_final_approval": "unconfirmed"
+  },
+  "preview_current": {
+    "version": "v11",
+    "index": "outputs/video-preview/index.html",
+    "mp4_matches_canonical": true,
+    "vtt_matches_canonical": true,
+    "chapter_starts_seconds": [
+      0,
+      6,
+      12,
+      19,
+      27,
+      35,
+      43,
+      52,
+      65
+    ],
+    "old_v10_copy_preserved": true
+  },
+  "resolved_reference_changes": {
+    "checked_at_utc": "2026-11-10T05:04:10.455287+00:00",
+    "status": "Parent updated history paths; final old-only renderer two output paths updated by this auditor on explicit request; syntax checked without running renderer.",
+    "historical_evidence_text": "Not rewritten by this auditor."
+  }
+}

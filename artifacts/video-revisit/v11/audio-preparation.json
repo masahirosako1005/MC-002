@@ -1,0 +1,95 @@
+{
+  "audio": "artifacts/video-revisit/v11/pcm/narration-70s.wav",
+  "voice_plan": [
+    {
+      "scene": 0,
+      "original_seconds": 4.0118125,
+      "tempo": 1.0,
+      "fitted_seconds": 4.0118125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.7681875,
+      "original_sha256": "e0300fdaa74796ec54e8696748697ee37589809cd6f778b5614939f0b2ddbd91",
+      "trimmed": false
+    },
+    {
+      "scene": 1,
+      "original_seconds": 3.637125,
+      "tempo": 1.0,
+      "fitted_seconds": 3.637125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.142875,
+      "original_sha256": "768802aa5eff7374f02e6b216bb78a764246c64125ffd35bfd1b0dd42ad2951d",
+      "trimmed": false
+    },
+    {
+      "scene": 2,
+      "original_seconds": 4.266,
+      "tempo": 1.0,
+      "fitted_seconds": 4.266,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.514,
+      "original_sha256": "bf46ee1a0d38bac8e637cf7c02f23f24997802a2c236790e34f3baf1bca80e0e",
+      "trimmed": false
+    },
+    {
+      "scene": 3,
+      "original_seconds": 5.5765625,
+      "tempo": 1.0,
+      "fitted_seconds": 5.5765625,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.2034375,
+      "original_sha256": "1db6308fa7c913d2fac9d2232cf6484d9c03b943b8f36fd78e67fe3cdeaf3a44",
+      "trimmed": false
+    },
+    {
+      "scene": 4,
+      "original_seconds": 6.223125,
+      "tempo": 1.0,
+      "fitted_seconds": 6.223125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.556875,
+      "original_sha256": "c6a03da57e8db6251213e9d8901f45e9bae8f7ee418a74f95607d223ddb73da1",
+      "trimmed": false
+    },
+    {
+      "scene": 5,
+      "original_seconds": 5.6118125,
+      "tempo": 1.0,
+      "fitted_seconds": 5.6118125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.1681875,
+      "original_sha256": "2d1c53d8f53d3a411deafe871626461864fffaa9e70b2803123d1704f39df454",
+      "trimmed": false
+    },
+    {
+      "scene": 6,
+      "original_seconds": 7.450875,
+      "tempo": 1.0,
+      "fitted_seconds": 7.450875,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.329125,
+      "original_sha256": "7cfc3650496407922cfe5dbbe050dbc580dd22b0ff2193fe0356b7e4f9193e1a",
+      "trimmed": false
+    },
+    {
+      "scene": 7,
+      "original_seconds": 10.705875,
+      "tempo": 1.0,
+      "fitted_seconds": 10.705875,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 2.074125,
+      "original_sha256": "acdd526ed1ed93c17ad3ad9579cf0f014c64bb435a389f6b91f5784ff308796d",
+      "trimmed": false
+    },
+    {
+      "scene": 8,
+      "original_seconds": 2.8698125,
+      "tempo": 1.0,
+      "fitted_seconds": 2.8698125,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 1.9101875,
+      "original_sha256": "dedd859693da8f66d9a703dd7d1eade97867e620abd6bd2e945749f31acac10a",
+      "trimmed": false
+    }
+  ]
+}

@@ -134,7 +134,9 @@ def wa_base(image, scene, index):
     d = ImageDraw.Draw(image)
     seal(d, (76, 26, 126, 80), '講', 33)
     d.text((150, 32), scene['chapter'], font=font(30, 'bold'), fill=RED)
-    d.text((1770, 34), '一二三四五六七八'[index] + ' / 八', font=font(27, 'brush'), fill=MUTED)
+    numerals = '一二三四五六七八九'
+    d.text((1770, 34), numerals[index] + ' / ' + numerals[scene.get('scene_total', 8) - 1],
+           font=font(27, 'brush'), fill=MUTED)
     if scene['kind'] not in ('intro', 'closing'):
         d.text((80, 112), scene['title'], font=font(58, 'bold'), fill=INK)
     d.rectangle((48, 965, 1872, 1046), fill='#eee5d2')
@@ -304,7 +306,7 @@ def narration_length(path):
 
 def new_revision_directory(revision, stills_only):
     out = WORK / f'v{revision}'
-    video = ROOT / 'outputs' / f'kou-revisit-intro-v{revision}.mp4'
+    video = ROOT / 'outputs/history/videos' / f'kou-revisit-intro-v{revision}.mp4'
     if out.exists() or (not stills_only and video.exists()):
         raise FileExistsError('Revision already exists; choose a new revision number')
     out.mkdir(parents=True, exist_ok=False)
@@ -351,7 +353,7 @@ def main():
         return
     concat = out / 'segments.txt'
     concat.write_text(''.join(f"file 'segment-{i:02}.mp4'\n" for i in range(len(scenes))), encoding='utf-8')
-    target = ROOT / 'outputs' / f'kou-revisit-intro-v{args.revision}.mp4'
+    target = ROOT / 'outputs/history/videos' / f'kou-revisit-intro-v{args.revision}.mp4'
     run(['-y', '-f', 'concat', '-safe', '1', '-i', str(concat), '-c', 'copy', '-movflags', '+faststart', str(target)])
     decode = run(['-i', str(target), '-progress', 'pipe:1', '-f', 'null', '-'], out / 'decode.log')
     frames = int(re.findall(rb'^frame=(\d+)', decode.stdout, re.MULTILINE)[-1])

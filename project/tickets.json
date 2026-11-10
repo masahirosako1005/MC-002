@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 915,
-  "last_event_hash": "1a9ee45ea7ccf3ac7f094db391d05d91a2eb3821df6a0019b6f2d67e83f7236b",
-  "updated_at": "2026-11-10T13:46:32+09:00",
+  "revision": 940,
+  "last_event_hash": "d092b07b2dab364e60d2eaa31b8b55953da1b9ed13cea5c05cbf88640fb0f962",
+  "updated_at": "2026-11-10T14:04:39+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -4658,12 +4658,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:47:40+09:00",
+          "hash": "d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c",
+          "path": "project/revisions/d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c.txt",
+          "summary": "refactor: move current app to project root and publish reviewed film"
+        }
+      ],
       "status": "review",
       "title": "女性の声と自然な会話速度へ紹介動画を改訂",
       "type": "task",
-      "updated_at": "2026-11-10T13:36:07+09:00"
+      "updated_at": "2026-11-10T13:47:40+09:00"
     },
     {
       "acceptance": [
@@ -4704,12 +4711,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:47:40+09:00",
+          "hash": "d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c",
+          "path": "project/revisions/d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c.txt",
+          "summary": "refactor: move current app to project root and publish reviewed film"
+        }
+      ],
       "status": "done",
       "title": "紹介動画へ実操作を収録",
       "type": "task",
-      "updated_at": "2026-11-10T13:36:08+09:00"
+      "updated_at": "2026-11-10T13:47:40+09:00"
     },
     {
       "acceptance": [
@@ -4745,25 +4759,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 3,
-      "revisions": [],
+      "revision": 4,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:47:41+09:00",
+          "hash": "d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c",
+          "path": "project/revisions/d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c.txt",
+          "summary": "refactor: move current app to project root and publish reviewed film"
+        }
+      ],
       "status": "in_progress",
       "title": "フォルダ整理と現行ドキュメントの再構成",
       "type": "task",
-      "updated_at": "2026-11-10T13:36:08+09:00"
+      "updated_at": "2026-11-10T13:47:41+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "月次制限・階級・確率・予算・公開条件を確定"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "抽選結果と本人クーポン・事業者の利用確認を実装"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "同時操作・再送・月境界・権限・画面を検証"
         }
       ],
@@ -4780,17 +4801,33 @@
         "DESIGN.md",
         "docs/FOLDER-STRUCTURE.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-10T14:04:37+09:00",
+          "path": "artifacts/omikuji/release-tests.xml",
+          "text": "対象12ケース成功。Dockerの発行/当選/利用確認/月次履歴を確認。実機センサーと装着感は未検証。"
+        },
+        {
+          "at": "2026-11-10T14:04:39+09:00",
+          "path": "artifacts/omikuji/browser-acceptance.json",
+          "text": "実画面と購入額確認による利用履歴。実売上の測定ではない。"
+        },
+        {
+          "at": "2026-11-10T14:04:39+09:00",
+          "text": "70秒の紹介動画を先頭から終端まで再生、エラーなし。",
+          "path": "artifacts/video-revisit/v11/browser-playback.json"
+        }
+      ],
       "id": "CP95",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 10,
       "revisions": [],
-      "status": "todo",
+      "status": "done",
       "title": "階級別の月替わりゲームと獲得クーポン",
       "type": "task",
-      "updated_at": "2026-11-10T13:36:07+09:00"
+      "updated_at": "2026-11-10T14:04:39+09:00"
     },
     {
       "acceptance": [
@@ -4807,7 +4844,7 @@
           "text": "テスト・品質・運用の参照と文書を更新"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "検証結果と移動・未削除の記録をGitに保存"
         }
       ],
@@ -4830,25 +4867,32 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
-      "status": "review",
+      "revision": 10,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:47:41+09:00",
+          "hash": "d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c",
+          "path": "project/revisions/d1bd8f9859b62a9c4df35e2ff1c2c2613d304e0c.txt",
+          "summary": "refactor: move current app to project root and publish reviewed film"
+        }
+      ],
+      "status": "done",
       "title": "現行ソースをルート直下へ移す",
       "type": "task",
-      "updated_at": "2026-11-10T13:46:32+09:00"
+      "updated_at": "2026-11-10T13:47:42+09:00"
     },
     {
       "acceptance": [
         {
-          "checked": false,
+          "checked": true,
           "text": "現行仕様・検証済み範囲に一致する編集用PPTXと閲覧用PDFを作成する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "全ページの表示と数値・リンクを確認する"
         },
         {
-          "checked": false,
+          "checked": true,
           "text": "動画・設計書・評価記録への最新版入口と履歴の区別を整える"
         }
       ],
@@ -4860,17 +4904,23 @@
         "DESIGN.md",
         "outputs/README.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "at": "2026-11-10T14:04:39+09:00",
+          "path": "artifacts/presentation-current/VISUAL-QA.json",
+          "text": "現行10枚を全ページ確認。70秒動画を全編再生。旧資料と最新版の入口を区別。"
+        }
+      ],
       "id": "CP97",
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 2,
+      "revision": 7,
       "revisions": [],
-      "status": "in_progress",
+      "status": "done",
       "title": "現行版の発表資料と成果物入口を更新",
       "type": "task",
-      "updated_at": "2026-11-10T13:46:13+09:00"
+      "updated_at": "2026-11-10T14:04:39+09:00"
     },
     {
       "acceptance": [
@@ -6091,6 +6141,49 @@
       "title": "提供CSVの年代・性別とアンケート内容を分析",
       "type": "task",
       "updated_at": "2026-11-09T14:43:48+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "4数値と母数を正本へ照合し論理の独立確認を行う"
+        },
+        {
+          "checked": true,
+          "text": "スライド原稿・配置・口頭説明・脚注・出典をMarkdownに収録する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:56:38+09:00",
+      "dependencies": [],
+      "description": "添付集計図を根拠に観測事実と設計提案を分け、PowerPoint1枚の原稿・配置・説明原稿を作成する。PPTXの作成依頼ではない。",
+      "documents": [
+        "docs/SLIDE-COMMUNITY-TO-KO.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:57:01+09:00",
+          "path": "docs/SLIDE-COMMUNITY-TO-KO.md",
+          "text": "Markdownの数値・母数・解釈境界を確認。PPTXの作成・視認性・初見理解は後続。"
+        }
+      ],
+      "id": "T91",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 6,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:57:13+09:00",
+          "hash": "0f55d27dbc6d4a7c4765adaacf8c932698951a47",
+          "path": "project/revisions/0f55d27dbc6d4a7c4765adaacf8c932698951a47.txt",
+          "summary": "docs: explain survey evidence to community and ko in one slide"
+        }
+      ],
+      "status": "done",
+      "title": "CSVからコミュニティと講を説明する1枚資料のMarkdown",
+      "type": "task",
+      "updated_at": "2026-11-10T13:57:13+09:00"
     }
   ]
 }

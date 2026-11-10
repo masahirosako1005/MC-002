@@ -1,0 +1,20 @@
+{
+  "status": "reviewed",
+  "slides": 10,
+  "review": "All ten PowerPoint-rendered 1600x900 PNG pages displayed individually with view_image. Titles, body, images and disclosure text checked; no missing media, clipping or unintended overlap observed.",
+  "editable_tables": [
+    3,
+    9
+  ],
+  "font": "Meiryo",
+  "embedded_media_nonempty": 17,
+  "files": {
+    "outputs/kou-current-20261110.pptx": "862816befa7623efd390ed4ea8f4acc4a3280990839470b5f40b307a65397339",
+    "outputs/kou-current-20261110.pdf": "b8297aac993cf8650c2332db79e6f7481e05591444b18f7fe74f70b0e9a51bdf"
+  },
+  "limits": [
+    "Feature state captured before monthly fortune implementation; slide 10 must be updated after verification.",
+    "No claim of measured revisit effects or human usability certification."
+  ],
+  "rejected_draft": "First path-image export produced empty media; retained as rejected-missing-media.*. Final uses embedded blobs and passed media payload check."
+}
