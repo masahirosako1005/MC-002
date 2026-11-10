@@ -1,0 +1,378 @@
+{
+  "RecordedAtUtc": "2026-11-10T04:28:27.2210500Z",
+  "Status": "blocked_before_execution",
+  "Inventory": "artifacts/folder-cleanup-test-inventory.json",
+  "AuditedTargetCount": 50,
+  "AuditedFiles": 1542.0,
+  "AuditedBytes": 566089799.0,
+  "RemovedTargetCount": 0,
+  "RemainingTargetCount": 50,
+  "RemainingTargets": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.pytest_cache",
+      "Kind": "tool-cache",
+      "Files": 5,
+      "Bytes": 24526
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.ruff_cache",
+      "Kind": "tool-cache",
+      "Files": 21,
+      "Bytes": 19386
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 55,
+      "Bytes": 7123011
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.pytest_cache",
+      "Kind": "tool-cache",
+      "Files": 5,
+      "Bytes": 4809
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\app\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 10,
+      "Bytes": 106779
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\tests\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 4,
+      "Bytes": 238753
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-migration-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "Bytes": 466944
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 55,
+      "Bytes": 20916621
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "Bytes": 5611520
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp39-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 76,
+      "Bytes": 35076493
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp40-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 88,
+      "Bytes": 45779341
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-date-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "Bytes": 212992
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "Bytes": 6397952
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 66,
+      "Bytes": 27425165
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 9,
+      "Bytes": 4386816
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-guidance-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 46,
+      "Bytes": 13857928
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 24,
+      "Bytes": 6179208
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 75,
+      "Bytes": 18504032
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 23,
+      "Bytes": 5732744
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "Bytes": 7077888
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "Bytes": 7077888
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 9,
+      "Bytes": 4853760
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 6,
+      "Bytes": 3235840
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 36,
+      "Bytes": 3629016
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-all-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 47,
+      "Bytes": 9539544
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-final-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 51,
+      "Bytes": 10899416
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-race-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "Bytes": 339968
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-role-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "Bytes": 339968
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-stage-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 14,
+      "Bytes": 4771840
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 8,
+      "Bytes": 2666496
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 14,
+      "Bytes": 199365
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\analytics\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 9,
+      "Bytes": 58753
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\circles\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 10,
+      "Bytes": 95137
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 8,
+      "Bytes": 99437
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\journal\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "Bytes": 39192
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\marketplace\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "Bytes": 64603
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\occasions\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "Bytes": 45083
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\personalization\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 4,
+      "Bytes": 15589
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "Bytes": 41388
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\reflections\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "Bytes": 52682
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\residence\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "Bytes": 17005
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\tests\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 16,
+      "Bytes": 1012641
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\project\\.test-work",
+      "Kind": "obsolete-test-temporary",
+      "Files": 0,
+      "Bytes": 0
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\scripts\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 13,
+      "Bytes": 277015
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 2,
+      "Bytes": 4006
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\backend\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 28,
+      "Bytes": 1627993
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\legacy-root\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 36,
+      "Bytes": 4468785
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\legacy-root\\.test-work",
+      "Kind": "obsolete-test-temporary",
+      "Files": 571,
+      "Bytes": 305366569
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\integration\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 1,
+      "Bytes": 5880
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\tooling\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "Bytes": 102032
+    }
+  ],
+  "Approval": {
+    "Result": "blocked by policy",
+    "Detail": "Automatic review rejected the requested cleanup before process creation. No detailed reason was provided.",
+    "AlternateDeletionAttempted": false,
+    "AlternateMoveAttempted": false
+  },
+  "Checks": {
+    "AbsolutePathsInsideWorkspace": true,
+    "ReparsePoints": 0,
+    "TestOrQualityProcessMatches": 0,
+    "DockerMountCheck": "Not executed: it was in the command rejected before process creation.",
+    "RemainingExistenceRechecked": true
+  },
+  "Exclusions": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\scripts\\__pycache__",
+      "Reason": "video Python processes are active; shared script cache retained"
+    }
+  ],
+  "Regeneration": {
+    "PytestTempAndCache": "test/fixtures/runtime",
+    "StandardConfig": "pytest.ini",
+    "Bytecode": "Standard test and quality child processes use PYTHONDONTWRITEBYTECODE=1",
+    "Ruff": "Backend quality and complexity calls use --no-cache",
+    "ChangedFiles": [
+      "test/run.py",
+      "scripts/quality_check.py",
+      "community/scripts/measure_backend_quality.py"
+    ]
+  },
+  "Validation": {
+    "TargetedTests": 15,
+    "Passed": 15,
+    "Seconds": 0.08,
+    "Evidence": "artifacts/folder-cleanup-test-tests.xml",
+    "FullSuiteRun": false,
+    "ChangedRunnerStaticChecks": [
+      {
+        "path": "test/run.py",
+        "syntax": "passed",
+        "ruff_at_head": 2,
+        "ruff_current": 2,
+        "new_ruff_findings": 0
+      },
+      {
+        "path": "scripts/quality_check.py",
+        "syntax": "passed",
+        "ruff_at_head": 2,
+        "ruff_current": 2,
+        "new_ruff_findings": 0
+      },
+      {
+        "path": "community/scripts/measure_backend_quality.py",
+        "syntax": "passed",
+        "ruff_at_head": 1,
+        "ruff_current": 1,
+        "new_ruff_findings": 0
+      }
+    ]
+  },
+  "EarlierRelocation": {
+    "Evidence": "artifacts/test-relocation-result.json",
+    "OriginalRootTemporaryPathsAbsent": true,
+    "RelocatedDataStillPresent": true
+  },
+  "Protected": "Dependencies, operational databases, backups, model assets, volumes, video material, retained evidence, and source files were not deleted."
+}

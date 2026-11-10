@@ -1,0 +1,923 @@
+{
+  "frames": [
+    {
+      "group": "phone-open",
+      "file": "phone-open-000.jpg",
+      "started": 1794284250146,
+      "finished": 1794284250198
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-001.jpg",
+      "started": 1794284250198,
+      "finished": 1794284250253
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-002.jpg",
+      "started": 1794284250253,
+      "finished": 1794284250304
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-003.jpg",
+      "started": 1794284250304,
+      "finished": 1794284250357
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-004.jpg",
+      "started": 1794284250649,
+      "finished": 1794284250710
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-005.jpg",
+      "started": 1794284250710,
+      "finished": 1794284250758
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-006.jpg",
+      "started": 1794284250758,
+      "finished": 1794284250811
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-007.jpg",
+      "started": 1794284250811,
+      "finished": 1794284250855
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-008.jpg",
+      "started": 1794284250855,
+      "finished": 1794284250893
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-009.jpg",
+      "started": 1794284250893,
+      "finished": 1794284250945
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-010.jpg",
+      "started": 1794284250945,
+      "finished": 1794284250997
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-011.jpg",
+      "started": 1794284250997,
+      "finished": 1794284251046
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-012.jpg",
+      "started": 1794284251046,
+      "finished": 1794284251092
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-013.jpg",
+      "started": 1794284251092,
+      "finished": 1794284251142
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-014.jpg",
+      "started": 1794284251142,
+      "finished": 1794284251188
+    },
+    {
+      "group": "phone-open",
+      "file": "phone-open-015.jpg",
+      "started": 1794284251188,
+      "finished": 1794284251222
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-016.jpg",
+      "started": 1794284260881,
+      "finished": 1794284260969
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-017.jpg",
+      "started": 1794284260969,
+      "finished": 1794284261007
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-018.jpg",
+      "started": 1794284261007,
+      "finished": 1794284261061
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-019.jpg",
+      "started": 1794284261061,
+      "finished": 1794284261125
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-020.jpg",
+      "started": 1794284261125,
+      "finished": 1794284261175
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-021.jpg",
+      "started": 1794284261175,
+      "finished": 1794284261221
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-022.jpg",
+      "started": 1794284261221,
+      "finished": 1794284261246
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-023.jpg",
+      "started": 1794284261246,
+      "finished": 1794284261280
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-024.jpg",
+      "started": 1794284261280,
+      "finished": 1794284261326
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-025.jpg",
+      "started": 1794284261326,
+      "finished": 1794284261381
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-026.jpg",
+      "started": 1794284261381,
+      "finished": 1794284261436
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-027.jpg",
+      "started": 1794284261436,
+      "finished": 1794284261525
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-028.jpg",
+      "started": 1794284261525,
+      "finished": 1794284261577
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-029.jpg",
+      "started": 1794284261577,
+      "finished": 1794284261628
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-030.jpg",
+      "started": 1794284261628,
+      "finished": 1794284261693
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-031.jpg",
+      "started": 1794284261693,
+      "finished": 1794284261743
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-032.jpg",
+      "started": 1794284261743,
+      "finished": 1794284261797
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-033.jpg",
+      "started": 1794284261797,
+      "finished": 1794284261841
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-034.jpg",
+      "started": 1794284261841,
+      "finished": 1794284261876
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-035.jpg",
+      "started": 1794284261876,
+      "finished": 1794284261935
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-036.jpg",
+      "started": 1794284261935,
+      "finished": 1794284261964
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-037.jpg",
+      "started": 1794284261964,
+      "finished": 1794284262009
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-038.jpg",
+      "started": 1794284262009,
+      "finished": 1794284262059
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-039.jpg",
+      "started": 1794284262059,
+      "finished": 1794284262106
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-040.jpg",
+      "started": 1794284262106,
+      "finished": 1794284262158
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-041.jpg",
+      "started": 1794284262158,
+      "finished": 1794284262209
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-042.jpg",
+      "started": 1794284262209,
+      "finished": 1794284262257
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-043.jpg",
+      "started": 1794284262257,
+      "finished": 1794284262292
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-044.jpg",
+      "started": 1794284262292,
+      "finished": 1794284262329
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-045.jpg",
+      "started": 1794284262329,
+      "finished": 1794284262377
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-046.jpg",
+      "started": 1794284262377,
+      "finished": 1794284262424
+    },
+    {
+      "group": "phone-scroll",
+      "file": "phone-scroll-047.jpg",
+      "started": 1794284262424,
+      "finished": 1794284262457
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-048.jpg",
+      "started": 1794284269506,
+      "finished": 1794284269549
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-049.jpg",
+      "started": 1794284269549,
+      "finished": 1794284269598
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-050.jpg",
+      "started": 1794284269598,
+      "finished": 1794284269645
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-051.jpg",
+      "started": 1794284269645,
+      "finished": 1794284269693
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-052.jpg",
+      "started": 1794284269693,
+      "finished": 1794284269746
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-053.jpg",
+      "started": 1794284269746,
+      "finished": 1794284269802
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-054.jpg",
+      "started": 1794284269802,
+      "finished": 1794284269862
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-055.jpg",
+      "started": 1794284269862,
+      "finished": 1794284269912
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-056.jpg",
+      "started": 1794284269912,
+      "finished": 1794284269964
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-057.jpg",
+      "started": 1794284269964,
+      "finished": 1794284270011
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-058.jpg",
+      "started": 1794284270011,
+      "finished": 1794284270060
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-059.jpg",
+      "started": 1794284270060,
+      "finished": 1794284270115
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-060.jpg",
+      "started": 1794284270115,
+      "finished": 1794284270164
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-061.jpg",
+      "started": 1794284270164,
+      "finished": 1794284270213
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-062.jpg",
+      "started": 1794284270213,
+      "finished": 1794284270262
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-063.jpg",
+      "started": 1794284270262,
+      "finished": 1794284270321
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-064.jpg",
+      "started": 1794284270321,
+      "finished": 1794284270363
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-065.jpg",
+      "started": 1794284270363,
+      "finished": 1794284270427
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-066.jpg",
+      "started": 1794284270427,
+      "finished": 1794284270485
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-067.jpg",
+      "started": 1794284270485,
+      "finished": 1794284270526
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-068.jpg",
+      "started": 1794284270526,
+      "finished": 1794284270581
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-069.jpg",
+      "started": 1794284270581,
+      "finished": 1794284270625
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-070.jpg",
+      "started": 1794284270625,
+      "finished": 1794284270676
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-071.jpg",
+      "started": 1794284270676,
+      "finished": 1794284270728
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-072.jpg",
+      "started": 1794284270728,
+      "finished": 1794284270778
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-073.jpg",
+      "started": 1794284270778,
+      "finished": 1794284270828
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-074.jpg",
+      "started": 1794284270828,
+      "finished": 1794284270882
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-075.jpg",
+      "started": 1794284270882,
+      "finished": 1794284270933
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-076.jpg",
+      "started": 1794284270933,
+      "finished": 1794284270981
+    },
+    {
+      "group": "phone-next",
+      "file": "phone-next-077.jpg",
+      "started": 1794284270981,
+      "finished": 1794284271029
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-078.jpg",
+      "started": 1794284308472,
+      "finished": 1794284308542
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-079.jpg",
+      "started": 1794284308542,
+      "finished": 1794284308606
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-080.jpg",
+      "started": 1794284308606,
+      "finished": 1794284308678
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-081.jpg",
+      "started": 1794284308678,
+      "finished": 1794284308738
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-082.jpg",
+      "started": 1794284308738,
+      "finished": 1794284308810
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-083.jpg",
+      "started": 1794284308810,
+      "finished": 1794284308867
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-084.jpg",
+      "started": 1794284308867,
+      "finished": 1794284308930
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-085.jpg",
+      "started": 1794284308930,
+      "finished": 1794284308985
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-086.jpg",
+      "started": 1794284308985,
+      "finished": 1794284309025
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-087.jpg",
+      "started": 1794284309025,
+      "finished": 1794284309069
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-088.jpg",
+      "started": 1794284309069,
+      "finished": 1794284309136
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-089.jpg",
+      "started": 1794284309136,
+      "finished": 1794284309187
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-090.jpg",
+      "started": 1794284309187,
+      "finished": 1794284309241
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-091.jpg",
+      "started": 1794284309241,
+      "finished": 1794284309309
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-092.jpg",
+      "started": 1794284309309,
+      "finished": 1794284309359
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-093.jpg",
+      "started": 1794284309359,
+      "finished": 1794284309415
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-094.jpg",
+      "started": 1794284309415,
+      "finished": 1794284309470
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-095.jpg",
+      "started": 1794284309470,
+      "finished": 1794284309529
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-096.jpg",
+      "started": 1794284309529,
+      "finished": 1794284309580
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-097.jpg",
+      "started": 1794284309580,
+      "finished": 1794284309626
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-098.jpg",
+      "started": 1794284309626,
+      "finished": 1794284309677
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-099.jpg",
+      "started": 1794284309677,
+      "finished": 1794284309727
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-100.jpg",
+      "started": 1794284309727,
+      "finished": 1794284309778
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-101.jpg",
+      "started": 1794284309778,
+      "finished": 1794284309827
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-102.jpg",
+      "started": 1794284309827,
+      "finished": 1794284309875
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-103.jpg",
+      "started": 1794284309875,
+      "finished": 1794284309926
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-104.jpg",
+      "started": 1794284309926,
+      "finished": 1794284309986
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-105.jpg",
+      "started": 1794284309986,
+      "finished": 1794284310028
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-106.jpg",
+      "started": 1794284310028,
+      "finished": 1794284310075
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-107.jpg",
+      "started": 1794284310075,
+      "finished": 1794284310128
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-108.jpg",
+      "started": 1794284310128,
+      "finished": 1794284310180
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-109.jpg",
+      "started": 1794284310180,
+      "finished": 1794284310235
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-110.jpg",
+      "started": 1794284310235,
+      "finished": 1794284310284
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-111.jpg",
+      "started": 1794284310284,
+      "finished": 1794284310337
+    },
+    {
+      "group": "pc-city",
+      "file": "pc-city-112.jpg",
+      "started": 1794284310337,
+      "finished": 1794284310381
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-113.jpg",
+      "started": 1794284318052,
+      "finished": 1794284318096
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-114.jpg",
+      "started": 1794284318096,
+      "finished": 1794284318145
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-115.jpg",
+      "started": 1794284318145,
+      "finished": 1794284318199
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-116.jpg",
+      "started": 1794284318199,
+      "finished": 1794284318246
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-117.jpg",
+      "started": 1794284318246,
+      "finished": 1794284318296
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-118.jpg",
+      "started": 1794284318296,
+      "finished": 1794284318350
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-119.jpg",
+      "started": 1794284318350,
+      "finished": 1794284318396
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-120.jpg",
+      "started": 1794284318396,
+      "finished": 1794284318450
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-121.jpg",
+      "started": 1794284318450,
+      "finished": 1794284318498
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-122.jpg",
+      "started": 1794284318498,
+      "finished": 1794284318546
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-123.jpg",
+      "started": 1794284318546,
+      "finished": 1794284318601
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-124.jpg",
+      "started": 1794284318601,
+      "finished": 1794284318645
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-125.jpg",
+      "started": 1794284318645,
+      "finished": 1794284318697
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-126.jpg",
+      "started": 1794284318697,
+      "finished": 1794284318746
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-127.jpg",
+      "started": 1794284318746,
+      "finished": 1794284318801
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-128.jpg",
+      "started": 1794284318801,
+      "finished": 1794284318853
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-129.jpg",
+      "started": 1794284318853,
+      "finished": 1794284318898
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-130.jpg",
+      "started": 1794284318898,
+      "finished": 1794284318953
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-131.jpg",
+      "started": 1794284318953,
+      "finished": 1794284318997
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-132.jpg",
+      "started": 1794284318997,
+      "finished": 1794284319053
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-133.jpg",
+      "started": 1794284319053,
+      "finished": 1794284319095
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-134.jpg",
+      "started": 1794284319095,
+      "finished": 1794284319145
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-135.jpg",
+      "started": 1794284319145,
+      "finished": 1794284319193
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-136.jpg",
+      "started": 1794284319193,
+      "finished": 1794284319235
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-137.jpg",
+      "started": 1794284319235,
+      "finished": 1794284319276
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-138.jpg",
+      "started": 1794284319276,
+      "finished": 1794284319328
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-139.jpg",
+      "started": 1794284319328,
+      "finished": 1794284319379
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-140.jpg",
+      "started": 1794284319379,
+      "finished": 1794284319435
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-141.jpg",
+      "started": 1794284319435,
+      "finished": 1794284319478
+    },
+    {
+      "group": "pc-revisit",
+      "file": "pc-revisit-142.jpg",
+      "started": 1794284319478,
+      "finished": 1794284319527
+    }
+  ],
+  "actions": [
+    {
+      "group": "phone-open",
+      "action": "click",
+      "target": "通う旅",
+      "rect": {
+        "height": 46,
+        "width": 78.80208587646484,
+        "x": 96.79167175292967,
+        "y": 186.1354217529297
+      },
+      "at": 1794284250357
+    },
+    {
+      "group": "phone-scroll",
+      "action": "scroll",
+      "target": "通う旅の工程",
+      "point": [
+        300,
+        680
+      ],
+      "at": 1794284260881
+    },
+    {
+      "group": "phone-next",
+      "action": "click",
+      "target": "絵付けと仕上げをする・開催を選ぶ",
+      "rect": {
+        "height": 44,
+        "width": 60,
+        "x": 73.66667175292969,
+        "y": 286.9270935058594
+      },
+      "at": 1794284269693
+    },
+    {
+      "group": "pc-city",
+      "action": "click",
+      "target": "N西市全体",
+      "rect": {
+        "height": 36,
+        "width": 93.76042175292967,
+        "x": 216.6666717529297,
+        "y": 78.03125
+      },
+      "at": 1794284308810
+    },
+    {
+      "group": "pc-revisit",
+      "action": "click",
+      "target": "再訪",
+      "rect": {
+        "height": 36,
+        "width": 45.33333587646485,
+        "x": 222,
+        "y": 338.97918701171875
+      },
+      "at": 1794284318246
+    }
+  ],
+  "method": "CUA screenshots sampled during real clicks and scroll; no invented UI state; timing gaps may be shortened in edit"
+}

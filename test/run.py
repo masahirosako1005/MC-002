@@ -3,6 +3,7 @@ import argparse
 import ast
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -58,7 +59,8 @@ def main(argv=None):
         started = time.monotonic()
         result = {"name": label, "command": command}
         try:
-            process = subprocess.run(command, cwd=ROOT, input=input_text, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=args.timeout, check=False)
+            process = subprocess.run(command, cwd=ROOT, input=input_text, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=args.timeout, check=False,
+                                     env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
             result["exit_code"] = process.returncode
             stdout, stderr = process.stdout, process.stderr
         except (OSError, subprocess.TimeoutExpired) as error:
@@ -100,7 +102,7 @@ def main(argv=None):
             report["not_executed"].append(path.relative_to(ROOT).as_posix())
             continue
         if path.name == "audit-personalization.py":
-            execute(path.stem, ["docker", "compose", "-p", "kou-community", "-f", str(ROOT / "community/compose.yaml"), "exec", "-T", "app", "python", "-"], path.read_text(encoding="utf-8-sig"))
+            execute(path.stem, ["docker", "compose", "-p", "kou-community", "-f", str(ROOT / "compose.yaml"), "exec", "-T", "app", "python", "-"], path.read_text(encoding="utf-8-sig"))
         else:
             execute(path.stem, [node if path.suffix in (".mjs", ".cjs") else sys.executable, str(path)])
     if args.collect_only and live:

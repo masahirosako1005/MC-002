@@ -159,6 +159,68 @@ class TicketTests(unittest.TestCase):
         self.assertEqual(self.store.snapshot.read_bytes(), snapshot)
         self.assertEqual(self.store.ledger.read_bytes(), corrupted)
 
+    def test_display_resolves_existing_relocated_documents(self):
+        mappings = {
+            'community/README.md': 'docs/OPERATIONS.md',
+            'community/API-CONTRACT.md': 'docs/contracts/API-CONTRACT.md',
+            'community/artifacts/check.json': 'artifacts/community/check.json',
+            'community/compose.yaml': 'compose.yaml',
+            **{f'community/{name}/kept.txt': f'{name}/kept.txt' for name in
+               ('backend', 'frontend', 'assets', 'models', 'backups', 'deploy', 'quality', 'scripts')},
+        }
+        for original, current in mappings.items():
+            destination = self.root / current
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text('synthetic fixture', encoding='utf-8')
+            with self.subTest(original=original):
+                self.assertEqual(self.store.display_document_path(original), current)
+
+    def test_display_keeps_unavailable_or_unmapped_history_paths(self):
+        for value in ('community/ABSENT.md', 'community/unmapped/kept.json', 'docs/current.md'):
+            with self.subTest(value=value):
+                self.assertEqual(self.store.display_document_path(value), value)
+
+    def test_render_relocation_does_not_change_state_ledger_or_hashes(self):
+        old_path = 'community/artifacts/kept.json'
+        source = self.root / old_path
+        source.parent.mkdir(parents=True)
+        source.write_text('{}', encoding='utf-8')
+        self.store.create('BUG-001', '保存済み証拠', '移動後のリンクを表示する。', ['履歴を変更しない'], documents=['community/API-CONTRACT.md'])
+        self.store.update('BUG-001', 'evidence', text='保持した証拠', path=old_path)
+        destination = self.root / 'artifacts/community/kept.json'
+        destination.parent.mkdir(parents=True)
+        source.rename(destination)
+        contract = self.root / 'docs/contracts/API-CONTRACT.md'
+        contract.parent.mkdir(parents=True)
+        contract.write_text('fixture contract', encoding='utf-8')
+        state, events = self.store.read()
+        original_state, original_events = json.dumps(state, sort_keys=True), json.dumps(events, sort_keys=True)
+        saved = self.store.snapshot.read_bytes(), self.store.ledger.read_bytes()
+        self.store.render_locked(state, events)
+        self.assertEqual(saved, (self.store.snapshot.read_bytes(), self.store.ledger.read_bytes()))
+        self.assertEqual(original_state, json.dumps(state, sort_keys=True))
+        self.assertEqual(original_events, json.dumps(events, sort_keys=True))
+        html = (self.root / 'outputs/project-board.html').read_text(encoding='utf-8')
+        shown = json.loads(re.search(r'<script type="application/json" id="board-data">(.*?)</script>', html, re.DOTALL).group(1))['state']
+        self.assertEqual(shown['tickets'][0]['documents'], ['docs/contracts/API-CONTRACT.md'])
+        self.assertEqual(shown['tickets'][0]['evidence'][0]['path'], 'artifacts/community/kept.json')
+        self.assertEqual(shown['last_event_hash'], state['last_event_hash'])
+
+    def test_display_rejects_external_and_traversal_paths(self):
+        for value in ('../outside.md', 'https://example.com', 'C:/secret.txt',
+                      'community/../outside.md', 'community/artifacts/../../outside.json'):
+            with self.subTest(value=value), self.assertRaises(TicketError):
+                self.store.display_document_path(value)
+        original_resolve = Path.resolve
+
+        def escaped_destination(path, *args, **kwargs):
+            if path == self.root / 'backend/kept.txt':
+                return PROJECT_ROOT.parent / 'outside.txt'
+            return original_resolve(path, *args, **kwargs)
+
+        with patch.object(Path, 'resolve', escaped_destination), self.assertRaises(TicketError):
+            self.store.display_document_path('community/backend/kept.txt')
+
     def test_task_import_is_idempotent_and_preserves_acceptance(self):
         (self.root / "TASKS.md").write_text("| T01 | 最優先・主担当 | 資産確認 | なし | 所在を記録 |\n| T02 | 高・設計 | 体験設計 | T01 | 2戦略を説明 |\n", encoding="utf-8")
         self.assertEqual(len(self.store.import_tasks()), 2)

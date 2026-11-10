@@ -1,0 +1,10 @@
+{
+  "created": "2026-11-10",
+  "tool": "built-in image_gen",
+  "asset": "guide-female-v1.png",
+  "based_on": "guide-pointing-v1.png",
+  "transparent_background_requested": true,
+  "purpose": "Original female narrator illustration matching the requested female voice",
+  "prompt_summary": "Same woodcut/sumi/watercolor travel guide style and welcoming gesture; original Japanese woman in her thirties with tied-back dark hair, indigo haori and straw hat, warm adult expression, full body isolated with transparent background, no text, scenery, logos or ground shadow.",
+  "sha256": "8254d72d512c13da1ce75cd4b3e8b6521601af1f8227f408f7bdffdbdc3694ad"
+}

@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-11-10T04:40:48.949818+00:00",
+  "community_exists": false,
+  "active_frontend": true,
+  "active_backend": true,
+  "leftovers": {
+    "old": true,
+    ".pytest_cache": true,
+    ".ruff_cache": true,
+    "artifacts/retired/legacy-frontend": true,
+    "test/fixtures/runtime/legacy-root": true
+  },
+  "removal_attribution": "Deletion requests from this agent were rejected before execution. Subsequent community absence is observed; actor/method not established."
+}

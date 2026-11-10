@@ -68,6 +68,25 @@ class TicketStore:
         self.safe_path(value)
         return value
 
+    def display_document_path(self, value):
+        """Resolve a relocated link for display without changing ledger data."""
+        original = self.document_path(value)
+        fixed = {"community/README.md": "docs/OPERATIONS.md",
+                 "community/compose.yaml": "compose.yaml", "community/Dockerfile": "Dockerfile",
+                 "community/.dockerignore": ".dockerignore"}
+        candidate = fixed.get(original, original)
+        if original.startswith("community/artifacts/"):
+            candidate = "artifacts/community/" + original.removeprefix("community/artifacts/")
+        elif original.startswith("community/") and original not in fixed:
+            relative = original.removeprefix("community/")
+            if relative.split("/", 1)[0] in {"backend", "frontend", "assets", "models", "backups", "deploy", "quality", "scripts"}:
+                candidate = relative
+            elif "/" not in relative and relative.lower().endswith(".md"):
+                candidate = "docs/contracts/" + relative
+        # Never invent a destination for an unavailable historical document.
+        candidate = self.document_path(candidate)
+        return candidate if candidate != original and self.safe_path(candidate).is_file() else original
+
     @contextmanager
     def locked(self):
         lock_path = self.safe_path("project/.tickets.lock")
@@ -275,7 +294,13 @@ class TicketStore:
         template = PROJECT_ROOT / "project" / "board-template.html"
         if not template.is_file():
             raise TicketError("ボードのテンプレートが見つかりません。JSON更新は保存されています。")
-        data = {"state": state, "events": [{key: event[key] for key in ("sequence", "at", "action", "note")} | {"ticket_id": event["ticket"]["id"], "revision": event["ticket"]["revision"]} for event in events]}
+        display_state = json.loads(json.dumps(state))
+        for ticket in display_state["tickets"]:
+            ticket["documents"] = [self.display_document_path(path) for path in ticket["documents"]]
+            for record in ticket["evidence"]:
+                if record["path"]:
+                    record["path"] = self.display_document_path(record["path"])
+        data = {"state": display_state, "events": [{key: event[key] for key in ("sequence", "at", "action", "note")} | {"ticket_id": event["ticket"]["id"], "revision": event["ticket"]["revision"]} for event in events]}
         rendered = template.read_text(encoding="utf-8").replace("__BOARD_UPDATED__", html.escape(state["updated_at"] or "まだ起票されていません", quote=True)).replace("__BOARD_DATA__", script_json(data))
         self.atomic_write(self.safe_path("outputs/project-board.html"), rendered)
 

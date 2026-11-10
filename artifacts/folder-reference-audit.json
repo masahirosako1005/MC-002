@@ -1,0 +1,963 @@
+{
+  "schema_version": 2,
+  "checked_at_utc": "2026-11-10T04:36:19.049101+00:00",
+  "workspace": "C:/AI-Sprint/workspace/MC-002",
+  "role": "Read-only layout/reference audit; only this JSON and docs/FOLDER-STRUCTURE.md written",
+  "deleted_by_auditor": 0,
+  "moved_by_auditor": 0,
+  "layout_status": "current source moved to root; community absent at final check; retired files preserved; no auditor deletion or move",
+  "move_evidence": {
+    "path": "artifacts/root-layout-move-result.json",
+    "reported_moves": 76,
+    "missing_destinations": [],
+    "source_paths_reused_for_current_files": [
+      "backend",
+      "frontend",
+      "compose.yaml"
+    ],
+    "source_absent_meaning": "Each source absent flag describes its move time. Root backend/frontend/compose paths now hold current source, not the former contents."
+  },
+  "tracked_preservation_check": {
+    "source": "Git index community/ before staging migration",
+    "files": 807,
+    "missing": [],
+    "check": "Destination existence only, not full byte-for-byte integrity; current scripts and configuration are intentionally being revised."
+  },
+  "backend_immediate_entries": [
+    "app",
+    "README.md",
+    "requirements-dev.txt",
+    "requirements.txt"
+  ],
+  "retired_preserved": [
+    {
+      "path": "test/fixtures/runtime/legacy-root/backend-root",
+      "exists": true
+    },
+    {
+      "path": "test/fixtures/runtime/legacy-root/community-backend",
+      "exists": true
+    },
+    {
+      "path": "test/fixtures/runtime/legacy-root/community-qa",
+      "exists": true
+    },
+    {
+      "path": "test/fixtures/runtime/legacy-root/community-script-bytecode",
+      "exists": true
+    },
+    {
+      "path": "artifacts/retired/legacy-frontend",
+      "exists": true
+    },
+    {
+      "path": "old/v1.1/source-with-history.zip",
+      "exists": true
+    },
+    {
+      "path": "presentation/node_modules",
+      "exists": true
+    }
+  ],
+  "artifact_collisions_preserved": [
+    {
+      "relative_path": "container-verification.json",
+      "preserved_paths": [
+        "artifacts/community/container-verification.json",
+        "artifacts/container-verification.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "bd855a7e35e7e45da3b78efaaf26c970418d1d2f7c72f9fd38b60ea71851d0fe",
+        "3504252fa7ca95529389a268d6bb136c38482eba1cf91e07bb917a76a78f8a02"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/revisit-release/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/revisit-release/summary.json",
+        "artifacts/quality/revisit-release/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "7f7bd4717786d9c5dd904d0e6047311a8cd3319287f6d9d357d6245d6f425ae4",
+        "a9d5f3202d8ac4f0adb08cb97821c3d710993d76e3a1780e673ec160059598ac"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/nnishi-stage-final/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/nnishi-stage-final/summary.json",
+        "artifacts/quality/nnishi-stage-final/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "e9d8f88c87152720a14d34dd08385c2712ef1c89e8a28382b7f56b38fff29771",
+        "e7b0c1b722dacb94b9ac3793c279b221e5d07a5e10e7139d3a0f6d05a56ef551"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/revisit-integrated/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/revisit-integrated/summary.json",
+        "artifacts/quality/revisit-integrated/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "c3997face4e5ce58bcb3b169f7a90b04f12a36f34e5766bdfc7d657d2b540c59",
+        "2e6c0593a09287d7fa488ae6791426865044234f08027519964205f458ce0daf"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/nnishi-revision/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/nnishi-revision/summary.json",
+        "artifacts/quality/nnishi-revision/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "c6576d88d2d008f2ef5b9800f574e7420d2923e3dcda0bacfe672739567c0dff",
+        "f1a2b3ef3524b4f88e620f088a54cb01181835533b1de00d768e9022010ee591"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/posts-wa-002/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/posts-wa-002/summary.json",
+        "artifacts/quality/posts-wa-002/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "31f352e52780dbfb9bd57e02a9869406dbe459dd044612a660c391af10d61e88",
+        "6f21a5f3bb53584b12beadad202bb5c92501b32d177ba1dcb7e3634f98fe87af"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/posts-wa-001/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/posts-wa-001/summary.json",
+        "artifacts/quality/posts-wa-001/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "c4b19743c2348fe917c6d2af2a9dc0721aa0aa3222cd0248c95a175ab88fc522",
+        "7890e7d990e6e378d8012233e54953ba54337c2c6c057209abc5d516f01f91c2"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/revisit-final/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/revisit-final/summary.json",
+        "artifacts/quality/revisit-final/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "3e1d298f3dcbc73e7d8f0e312a8c33b2d5f0e6d61faef62e3dc29292fc26d573",
+        "09a32cd267b35bd2d7d4906b32a9006a1a27332418a45bc2c0997950c3dd77ac"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/nnishi-delivery/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/nnishi-delivery/summary.json",
+        "artifacts/quality/nnishi-delivery/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "90a38928c4275920be5e925a00ae8d7bd7bc92890538772667a96265479cefdb",
+        "e9681bfcb6e74ff54b767eb927fca202bf4f3465cd99813c3f245bfe9a5854d4"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/nnishi-001/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/nnishi-001/summary.json",
+        "artifacts/quality/nnishi-001/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "f853fe302ff7c484a80be647081da233fd5c2c05d3a741d31047b721f85da0db",
+        "0de29c4551f3f34a19fa90470fad925739398436d8796a1aeb5f34b05c24efc0"
+      ],
+      "same_content": false
+    },
+    {
+      "relative_path": "quality/nnishi-final/summary.json",
+      "preserved_paths": [
+        "artifacts/community/quality/nnishi-final/summary.json",
+        "artifacts/quality/nnishi-final/summary.json"
+      ],
+      "both_exist": true,
+      "sha256": [
+        "dce83a630b12d2c04c4c852f3df3df65f0129a4cc47411bd6339ec52a49d3a2b",
+        "c141636865717c07fef1ac2fa4c0d91a19662c9b466b6eaa4756364371c1d177"
+      ],
+      "same_content": false
+    }
+  ],
+  "references": [
+    {
+      "file": "compose.yaml",
+      "lines": [
+        4
+      ],
+      "searched_text": "build: .",
+      "meaning": "root_build_context",
+      "found": true
+    },
+    {
+      "file": "compose.yaml",
+      "lines": [
+        12
+      ],
+      "searched_text": "community-data:/app/data",
+      "meaning": "same_named_volume_configuration",
+      "found": true
+    },
+    {
+      "file": "compose.yaml",
+      "lines": [
+        14
+      ],
+      "searched_text": "source: ./assets",
+      "meaning": "root_asset_bind_configuration",
+      "found": true
+    },
+    {
+      "file": "compose.yaml",
+      "lines": [
+        36
+      ],
+      "searched_text": "./deploy/nginx.conf",
+      "meaning": "root_gateway_bind_configuration",
+      "found": true
+    },
+    {
+      "file": "Dockerfile",
+      "lines": [
+        21
+      ],
+      "searched_text": "COPY backend/app",
+      "meaning": "current_backend_source",
+      "found": true
+    },
+    {
+      "file": "Dockerfile",
+      "lines": [
+        3,
+        5
+      ],
+      "searched_text": "COPY frontend/",
+      "meaning": "current_frontend_source",
+      "found": true
+    },
+    {
+      "file": ".dockerignore",
+      "lines": [
+        6
+      ],
+      "searched_text": "!backend/app/**",
+      "meaning": "allowlisted_build_context",
+      "found": true
+    },
+    {
+      "file": "pytest.ini",
+      "lines": [
+        3
+      ],
+      "searched_text": "pythonpath = backend scripts",
+      "meaning": "current_import_roots",
+      "found": true
+    },
+    {
+      "file": "pytest.ini",
+      "lines": [
+        2
+      ],
+      "searched_text": "testpaths = test/backend test/tooling",
+      "meaning": "test_source_roots",
+      "found": true
+    },
+    {
+      "file": "scripts/setup-local.ps1",
+      "lines": [
+        20
+      ],
+      "searched_text": "backend/requirements-dev.txt",
+      "meaning": "current_backend_dependencies",
+      "found": true
+    },
+    {
+      "file": "scripts/setup-local.ps1",
+      "lines": [
+        24
+      ],
+      "searched_text": "Push-Location frontend",
+      "meaning": "current_frontend_dependencies",
+      "found": true
+    },
+    {
+      "file": "scripts/setup-local.ps1",
+      "lines": [
+        32
+      ],
+      "searched_text": "Push-Location test/browser",
+      "meaning": "current_browser_dependencies",
+      "found": true
+    },
+    {
+      "file": "scripts/quality_check.py",
+      "lines": [
+        16
+      ],
+      "searched_text": "artifacts/community/frontend-quality",
+      "meaning": "preserved_frontend_baseline_namespace",
+      "found": true
+    },
+    {
+      "file": "scripts/quality_check.py",
+      "lines": [
+        17
+      ],
+      "searched_text": "artifacts/community/quality",
+      "meaning": "preserved_backend_baseline_namespace",
+      "found": true
+    },
+    {
+      "file": "scripts/full_snapshot.py",
+      "lines": [
+        17
+      ],
+      "searched_text": "BACKUPS = ROOT / \"backups\"",
+      "meaning": "protected_backup_root",
+      "found": true
+    },
+    {
+      "file": "scripts/full_snapshot.py",
+      "lines": [
+        19
+      ],
+      "searched_text": "ACTIVE_VOLUME = \"kou-community_community-data\"",
+      "meaning": "protected_active_volume",
+      "found": true
+    },
+    {
+      "file": "scripts/full_snapshot.py",
+      "lines": [
+        77
+      ],
+      "searched_text": "directory = ROOT / \"artifacts/community\"",
+      "meaning": "snapshot_event_namespace",
+      "found": true
+    },
+    {
+      "file": "scripts/analyze_samples.py",
+      "lines": [
+        157
+      ],
+      "searched_text": "data/analytics-v2.db",
+      "meaning": "separate_analysis_database",
+      "found": true
+    },
+    {
+      "file": "test/run.py",
+      "lines": [
+        105
+      ],
+      "searched_text": "str(ROOT / \"compose.yaml\")",
+      "meaning": "current_integration_entrypoint",
+      "found": true
+    },
+    {
+      "file": "test/backend/conftest.py",
+      "lines": [
+        8
+      ],
+      "searched_text": "parents[2] / \"backend\"",
+      "meaning": "current_test_import_root",
+      "found": true
+    },
+    {
+      "file": "scripts/create_intro_video.mjs",
+      "lines": [
+        13
+      ],
+      "searched_text": "test/browser/package.json",
+      "meaning": "browser_dependency_location",
+      "found": true
+    },
+    {
+      "file": "frontend/scripts/measure-quality.mjs",
+      "lines": [
+        10
+      ],
+      "searched_text": "../artifacts/community/frontend-quality",
+      "meaning": "aligned_frontend_evidence_output",
+      "found": true
+    },
+    {
+      "file": "frontend/scripts/measure-quality.mjs",
+      "lines": [
+        39
+      ],
+      "searched_text": "relative(resolve(root, \"..\"), resolve(root, \"src\"))",
+      "meaning": "current_scope_relative_to_project",
+      "found": true
+    },
+    {
+      "file": "frontend/scripts/make_login_cover.py",
+      "lines": [
+        21
+      ],
+      "searched_text": "\"source\": \"assets/woodland.png\"",
+      "meaning": "new_generation_manifest_path",
+      "found": true
+    },
+    {
+      "file": "test/tooling/test_quality_check.py",
+      "lines": [
+        41,
+        42
+      ],
+      "searched_text": "== 'backend/app/posts.py'",
+      "meaning": "old_and_new_path_normalization_acceptance",
+      "found": true
+    }
+  ],
+  "source_sha256": {
+    "compose.yaml": "4f3ac6d6cfb4551f5fbb8c2bfe84d345ac0acb2097982ec544fbcf92b5907a67",
+    "Dockerfile": "19438239be66a4c1ac8cf4e1628a48423fa877fabe04fac78c67944a87ea47e0",
+    ".dockerignore": "437793dd159b491ace151b9d0319734462e54c5d8c543bd376e1a8b3a4bc9a57",
+    "pytest.ini": "48fd2798bfe56a13bd30c23c392c570e056c6f1cf24df7119813dc55e2632685",
+    "scripts/setup-local.ps1": "60f655a889f28ee70691b4a9fdc4b3f464c28a46bbd1b4f4e05509ee7c35fed0",
+    "scripts/quality_check.py": "ef89f6eb67e03d8b16e40ec6746799e9a7a38346806530932f5e80637e22b295",
+    "scripts/full_snapshot.py": "16f0eeb32faa0b335976c395c045f43f69a8c57c7e40157773d7432ddbeaf42b",
+    "scripts/analyze_samples.py": "cc321a8e7ccb22578ba0bdb45f3e055d196926e1e76c0f502ca101b6ee7dd87a",
+    "test/run.py": "01e7a42c4e72138c0cfdd1bade4980e6ad21278385281123f34b5c629494c775",
+    "test/backend/conftest.py": "ebbb4b0702a51d67a1b0cef7e50b3c56328a7c30faf4400bae4e20918e437898",
+    "scripts/create_intro_video.mjs": "658eca7bf010f35e005cb43199d15c806736e5c299741731978c732d45f0b6db",
+    "frontend/scripts/measure-quality.mjs": "edd732e253491a23acc4428db805e30608286b42fd4a3afd9a44a0c2a4c29a9a",
+    "frontend/scripts/make_login_cover.py": "1c21c12fb8453f34a87ac943f0e7a3eadfa25f8841081e4520728942e3622ae0",
+    "test/tooling/test_quality_check.py": "b2b233feabae9ff5ddbc2914c8a4b14d56b542bed7fad5b3ae519cde5a3de754"
+  },
+  "docker_mount_observation": {
+    "method": "docker inspect --format {{json .Mounts}} only; no environment or DB contents read",
+    "observed_at_utc": "2026-11-10T04:36:19.046826+00:00",
+    "containers": [
+      {
+        "container": "kou-community-app-1",
+        "mounts": [
+          {
+            "Type": "volume",
+            "Name": "kou-community_community-data",
+            "Source": "/var/lib/docker/volumes/kou-community_community-data/_data",
+            "Destination": "/app/data",
+            "Driver": "local",
+            "Mode": "rw",
+            "RW": true,
+            "Propagation": ""
+          },
+          {
+            "Type": "bind",
+            "Source": "C:\\AI-Sprint\\workspace\\MC-002\\assets",
+            "Destination": "/app/seed-assets",
+            "Mode": "",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      {
+        "container": "kou-community-gateway-1",
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "C:\\AI-Sprint\\workspace\\MC-002\\deploy\\nginx.conf",
+            "Destination": "/etc/nginx/nginx.conf",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      }
+    ],
+    "root_bind_checks": [
+      {
+        "container": "kou-community-app-1",
+        "destination": "/app/seed-assets",
+        "source_matches": true,
+        "readonly": true
+      },
+      {
+        "container": "kou-community-gateway-1",
+        "destination": "/etc/nginx/nginx.conf",
+        "source_matches": true,
+        "readonly": true
+      }
+    ],
+    "same_named_data_volume": true,
+    "note": "Independent post-recreation read confirms current root assets/deploy bind sources are read-only and the pre-existing named data volume remains attached. DB/media contents were not compared."
+  },
+  "protected": [
+    ".git",
+    "data",
+    "backups",
+    "models",
+    "assets",
+    "backend/app",
+    "frontend/src",
+    "frontend/public",
+    "project",
+    "test",
+    "artifacts",
+    "outputs",
+    ".venv",
+    ".tools",
+    ".agents"
+  ],
+  "safety_warning": "DO NOT RE-RUN old cleanup manifests: root backend/frontend paths now contain current application source. Preserved legacy files must never be located by reusing those historical paths.",
+  "parent_reported_execution": {
+    "earlier_deletion": "root frontend/old and wa 50 cleanup targets blocked before execution; zero deleted",
+    "current_migration": "76 non-deleting moves completed; current application and retired folders are separated",
+    "empty_community_removal": "non-recursive empty-directory removal blocked before execution; zero deleted",
+    "presentation_junction": "untouched; external target not traversed"
+  },
+  "open_items_at_checkpoint": [
+    "Application behavior, build/test results and backup/content integrity belong to the parent and implementing agents; this audit only verifies layout and references.",
+    "Retired archive/cache remain. community is absent at final check; removal actor and method unverified, so no successful agent deletion is claimed.",
+    "Historical records deliberately retain original source paths; do not mass-rewrite provenance or domain values named community."
+  ],
+  "limitations": [
+    "No Docker mutation, build, application or test execution by this auditor.",
+    "Docker Mounts metadata read only; secrets/environment, DB/media, source CSV, model weights, ZIP contents and external junction targets not read.",
+    "Existence checks are not complete DB/media integrity or behavior verification.",
+    "Historical deletion rejection is parent-reported; relocation is independently checked by destination existence."
+  ],
+  "historical_audits": [
+    {
+      "status": "superseded_layout_before_root_migration",
+      "audit": {
+        "schema_version": 1,
+        "checked_at_utc": "2026-11-10T04:29:11.158436+00:00",
+        "workspace": "C:/AI-Sprint/workspace/MC-002",
+        "role": "Read-only reference audit; only this JSON and docs/FOLDER-STRUCTURE.md written",
+        "deleted_by_auditor": 0,
+        "moved_by_auditor": 0,
+        "candidate_state": [
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/backend",
+            "role": "legacy_cache_only",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/frontend",
+            "role": "retired_dist_and_dependencies",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/old",
+            "role": "retired_source_archive",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/community/qa",
+            "role": "relocated_qa_cache",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/community/backend/tests",
+            "role": "relocated_test_cache",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/presentation/README.md",
+            "role": "historical_document_with_removed_commands",
+            "exists": true,
+            "tracked_file_count": 1,
+            "is_junction": false,
+            "is_symlink": false
+          },
+          {
+            "path": "C:/AI-Sprint/workspace/MC-002/presentation/node_modules",
+            "role": "external_junction_do_not_traverse",
+            "exists": true,
+            "tracked_file_count": 0,
+            "is_junction": true,
+            "is_symlink": false,
+            "link_target": "//?/C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt/dependencies/node/node_modules",
+            "target_traversed": false
+          }
+        ],
+        "legacy_archive": {
+          "path": "C:/AI-Sprint/workspace/MC-002/old/v1.1/source-with-history.zip",
+          "exists": true,
+          "bytes": 85610168,
+          "contents_inspected": false
+        },
+        "references": [
+          {
+            "file": "compose.yaml",
+            "lines": [
+              4
+            ],
+            "searched_text": "community/compose.yaml",
+            "meaning": "current_compose_entry",
+            "found": true
+          },
+          {
+            "file": "community/compose.yaml",
+            "lines": [
+              4
+            ],
+            "searched_text": "build: .",
+            "meaning": "community_build_context",
+            "found": true
+          },
+          {
+            "file": "community/compose.yaml",
+            "lines": [
+              12
+            ],
+            "searched_text": "community-data:/app/data",
+            "meaning": "active_named_volume",
+            "found": true
+          },
+          {
+            "file": "community/compose.yaml",
+            "lines": [
+              14
+            ],
+            "searched_text": "source: ./assets",
+            "meaning": "active_local_assets",
+            "found": true
+          },
+          {
+            "file": "community/compose.yaml",
+            "lines": [
+              36
+            ],
+            "searched_text": "./deploy/nginx.conf",
+            "meaning": "active_gateway_configuration",
+            "found": true
+          },
+          {
+            "file": "community/Dockerfile",
+            "lines": [
+              21
+            ],
+            "searched_text": "COPY backend/app",
+            "meaning": "active_backend_source",
+            "found": true
+          },
+          {
+            "file": "community/Dockerfile",
+            "lines": [
+              3,
+              5
+            ],
+            "searched_text": "COPY frontend/",
+            "meaning": "active_frontend_source",
+            "found": true
+          },
+          {
+            "file": "pytest.ini",
+            "lines": [
+              2
+            ],
+            "searched_text": "testpaths =",
+            "meaning": "current_tests",
+            "found": true
+          },
+          {
+            "file": "pytest.ini",
+            "lines": [
+              3
+            ],
+            "searched_text": "pythonpath =",
+            "meaning": "current_import_roots",
+            "found": true
+          },
+          {
+            "file": "scripts/setup-local.ps1",
+            "lines": [
+              20
+            ],
+            "searched_text": "community/backend/requirements-dev.txt",
+            "meaning": "current_development_dependencies",
+            "found": true
+          },
+          {
+            "file": "scripts/setup-local.ps1",
+            "lines": [
+              24
+            ],
+            "searched_text": "Push-Location community/frontend",
+            "meaning": "current_frontend_dependencies",
+            "found": true
+          },
+          {
+            "file": "scripts/setup-local.ps1",
+            "lines": [
+              32
+            ],
+            "searched_text": "Push-Location test/browser",
+            "meaning": "current_browser_dependencies",
+            "found": true
+          },
+          {
+            "file": "scripts/analyze_samples.py",
+            "lines": [
+              157
+            ],
+            "searched_text": "data/analytics-v2.db",
+            "meaning": "protected_analysis_database",
+            "found": true
+          },
+          {
+            "file": "scripts/quality_check.py",
+            "lines": [
+              16
+            ],
+            "searched_text": "community/artifacts/frontend-quality",
+            "meaning": "live_quality_evidence_reference",
+            "found": true
+          },
+          {
+            "file": "scripts/quality_check.py",
+            "lines": [
+              17
+            ],
+            "searched_text": "community/artifacts/quality",
+            "meaning": "live_quality_evidence_reference",
+            "found": true
+          },
+          {
+            "file": "community/scripts/full_snapshot.py",
+            "lines": [
+              16
+            ],
+            "searched_text": "BACKUPS =",
+            "meaning": "protected_backup_root",
+            "found": true
+          },
+          {
+            "file": "community/scripts/full_snapshot.py",
+            "lines": [
+              18
+            ],
+            "searched_text": "ACTIVE_VOLUME =",
+            "meaning": "protected_active_volume",
+            "found": true
+          },
+          {
+            "file": "community/scripts/full_snapshot.py",
+            "lines": [
+              76
+            ],
+            "searched_text": "directory = ROOT / \"artifacts\"",
+            "meaning": "snapshot_evidence_root",
+            "found": true
+          },
+          {
+            "file": "community/scripts/full_snapshot.py",
+            "lines": [
+              103
+            ],
+            "searched_text": "model_manifest =",
+            "meaning": "optional_model_metadata",
+            "found": true
+          },
+          {
+            "file": "community/scripts/create_intro_video.mjs",
+            "lines": [
+              13
+            ],
+            "searched_text": "test/browser/package.json",
+            "meaning": "current_video_browser_dependencies",
+            "found": true
+          }
+        ],
+        "source_sha256": {
+          "compose.yaml": "589518ff8c17959b2f6188028d57ff55f5871676526c802006d07378769ee5c2",
+          "community/compose.yaml": "4f3ac6d6cfb4551f5fbb8c2bfe84d345ac0acb2097982ec544fbcf92b5907a67",
+          "community/Dockerfile": "19438239be66a4c1ac8cf4e1628a48423fa877fabe04fac78c67944a87ea47e0",
+          "pytest.ini": "38efef9d1eb9ad1cd1b55bdce0a00b8b03257013cfd7e04f159df2463ecb2fb5",
+          "scripts/setup-local.ps1": "8f3fe200341e2e79e3bb37ad5e55686cc9591141a3e95d0a1175520f09330bbc",
+          "scripts/analyze_samples.py": "cc321a8e7ccb22578ba0bdb45f3e055d196926e1e76c0f502ca101b6ee7dd87a",
+          "scripts/quality_check.py": "a9595948ede19397f27932dd164aba4b381c9982e8912aeee20602d3f65fbeeb",
+          "community/scripts/full_snapshot.py": "686c7afbde890d0fa6b0163b61049e31c4d79b6840b5e39f63d2ec9182d5a0fe",
+          "community/scripts/create_intro_video.mjs": "c63735f63d5dd7550d35048281dc42b1778dbd358c9e337548be958067c5fdb7"
+        },
+        "git_history_presence": [
+          {
+            "commit": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+            "path": "backend/app/main.py",
+            "git_object_exists": true
+          },
+          {
+            "commit": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+            "path": "frontend/package.json",
+            "git_object_exists": true
+          },
+          {
+            "commit": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+            "path": "presentation/build.mjs",
+            "git_object_exists": true
+          },
+          {
+            "commit": "81522a3760ae48c27ed743e535dd7b054edf1c21",
+            "path": "presentation/render.ps1",
+            "git_object_exists": true
+          }
+        ],
+        "history_limit": "Object existence confirms selected former sources are recoverable; archive entries were not compared with Git.",
+        "protected": [
+          ".git",
+          "data (analysis DB and confidential key contents not read)",
+          "community/backups",
+          "kou-community_community-data Docker volume and its DB/media",
+          "community/backend/app",
+          "community/frontend/src",
+          "community/frontend/public",
+          "community/assets",
+          "community/models (retained assets, no normal runtime inference)",
+          "community/artifacts (still referenced by quality and snapshot tooling)",
+          "artifacts and outputs evidence/deliverables",
+          ".venv",
+          ".tools",
+          ".agents",
+          "project ticket history"
+        ],
+        "parent_reported_execution": {
+          "root_frontend_old": "Native PowerShell deletion request blocked by automatic approval review before execution; deleted 0.",
+          "wa_test_cleanup": "50 targets blocked before execution; deleted 0.",
+          "presentation_junction": "No deletion requested; leave link present and do not traverse external target.",
+          "retry": "No alternative deletion attempt authorized after rejection."
+        },
+        "limitations": [
+          "No application, Docker, build or test execution.",
+          "No DB, media, source CSV, secret contents, model weights or ZIP contents read.",
+          "No dependency-cache or external-junction-target recursive scan.",
+          "Text-reference absence is not evidence that user-owned data is disposable."
+        ],
+        "current_entrypoints": [
+          "compose.yaml -> community/compose.yaml",
+          "scripts/setup-local.ps1",
+          "test/run.py",
+          "pytest.ini"
+        ],
+        "recommendation": "Use current entrypoints only; legacy root backend/frontend/old are residual candidates, not current source roots. Record removal only after observed absence."
+      }
+    }
+  ],
+  "docker_mount_history": [
+    {
+      "method": "docker inspect --format {{json .Mounts}} only; no environment or DB contents read",
+      "observed_at_utc": "2026-11-10T04:34:59.238540+00:00",
+      "containers": [
+        {
+          "container": "kou-community-app-1",
+          "returncode": 0,
+          "mounts": [
+            {
+              "Type": "volume",
+              "Name": "kou-community_community-data",
+              "Source": "/var/lib/docker/volumes/kou-community_community-data/_data",
+              "Destination": "/app/data",
+              "Driver": "local",
+              "Mode": "rw",
+              "RW": true,
+              "Propagation": ""
+            },
+            {
+              "Type": "bind",
+              "Source": "C:\\AI-Sprint\\workspace\\MC-002\\assets",
+              "Destination": "/app/seed-assets",
+              "Mode": "",
+              "RW": false,
+              "Propagation": "rprivate"
+            }
+          ]
+        },
+        {
+          "container": "kou-community-gateway-1",
+          "returncode": 0,
+          "mounts": [
+            {
+              "Type": "bind",
+              "Source": "C:\\AI-Sprint\\workspace\\MC-002\\deploy\\nginx.conf",
+              "Destination": "/etc/nginx/nginx.conf",
+              "Mode": "ro",
+              "RW": false,
+              "Propagation": "rprivate"
+            }
+          ]
+        }
+      ],
+      "note": "At this checkpoint existing containers still refer to community/assets and community/deploy. New root Compose config has assets/deploy. Parent must recreate containers and re-check mounts; active named volume observed unchanged."
+    }
+  ],
+  "resolved_reference_findings": [
+    {
+      "finding": "frontend measurement output and scope used the old directory depth",
+      "resolution": "Implementing agent adjusted output to artifacts/community/frontend-quality and scope to project/frontend/src; independently read after change."
+    },
+    {
+      "finding": "Root test quality normalization expected old community prefix",
+      "resolution": "wa updated both legacy and current input expectations to backend/app and added regression cases; read only by this auditor."
+    }
+  ],
+  "community_presence_history": [
+    {
+      "observation": "after_moves_before_final_check",
+      "details": {
+        "directories": [
+          "community",
+          "community/scripts"
+        ],
+        "files": 0,
+        "scripts_empty": true,
+        "removal": "Parent reports empty-directory non-recursive removal request blocked before execution; deleted 0; no retry."
+      }
+    }
+  ],
+  "final_presence": {
+    "checked_at_utc": "2026-11-10T04:46:11.765759+00:00",
+    "paths": {
+      "community": false,
+      "community/scripts": false,
+      ".pytest_cache": true,
+      ".ruff_cache": true,
+      "artifacts/retired/legacy-frontend": true,
+      "old": true,
+      "test/fixtures/runtime/legacy-root": true
+    },
+    "removal_actor": "unknown",
+    "removal_method": "unknown",
+    "note": "Parent and auditor reported removal attempts blocked before execution. Subsequent independent read observes community absent; do not infer a successful agent deletion."
+  }
+}

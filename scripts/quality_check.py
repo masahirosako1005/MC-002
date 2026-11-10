@@ -11,10 +11,11 @@ import re
 import shutil
 import subprocess
 import sys
+from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parents[1]
-FRONT = ROOT / "community/artifacts/frontend-quality"
-BACK = ROOT / "community/artifacts/quality"
+FRONT = ROOT / "artifacts/community/frontend-quality"
+BACK = ROOT / "artifacts/community/quality"
 BASE_FRONT = "daytrip-wa-verified"
 BASE_BACK = "daytrip-final"
 
@@ -25,7 +26,9 @@ def read_json(path: Path):
 
 def normalized_path(value: str) -> str:
     value = value.replace("\\", "/")
-    for marker in ("community/backend/app/", "src/"):
+    # The preserved baseline still uses community/backend/app; both layouts
+    # identify the same current file without rewriting historical evidence.
+    for marker in ("backend/app/", "src/"):
         if marker in value:
             return marker + value.split(marker, 1)[1]
     return value
@@ -104,7 +107,7 @@ def gate_status(delta: dict, errors: list[str]) -> str:
 def run(command: list[str], log: Path, *, timeout: int = 900) -> int:
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,
                             encoding="utf-8", errors="replace", timeout=timeout,
-                            env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
+                            env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8", "PYTHONDONTWRITEBYTECODE": "1"})
     log.write_text(result.stdout + result.stderr, encoding="utf-8")
     return result.returncode
 
@@ -125,14 +128,21 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     errors: list[str] = []
     test_status = "not-run"
+    test_runtime = None
     try:
         if not args.reports_only:
             # Serial execution bounds peak memory on the 16 GB presentation PC.
             node = shutil.which("node") or "C:/Program Files/nodejs/node.exe"
-            run([node, "community/frontend/scripts/measure-quality.mjs", args.phase], output / "frontend.log")
-            run([sys.executable, "community/scripts/measure_backend_quality.py", args.phase], output / "backend.log")
+            run([node, "frontend/scripts/measure-quality.mjs", args.phase], output / "frontend.log")
+            run([sys.executable, "scripts/measure_backend_quality.py", args.phase], output / "backend.log")
             if not args.skip_tests:
+                runtime_root = ROOT / "test/fixtures/runtime"
+                if runtime_root.resolve() != runtime_root:
+                    raise ValueError("Test runtime must not be redirected outside its project path")
+                test_runtime = runtime_root / f"quality-{args.phase}-{uuid4().hex}"
+                test_runtime.mkdir(parents=True, exist_ok=False)
                 exit_code = run([sys.executable, "-m", "pytest", "-c", str(ROOT / "pytest.ini"), "test/backend", "test/tooling", "-q",
+                                 f"--basetemp={test_runtime / 'pytest'}", "-o", f"cache_dir={test_runtime / 'cache'}",
                                  f"--junitxml={output / 'tests.xml'}"], output / "tests.log")
                 test_status = "passed" if exit_code == 0 else "failed"
                 if exit_code:
@@ -149,8 +159,10 @@ def main() -> int:
             errors.append("Backend rule configuration differs from the fixed baseline")
         before, after = findings(BASE_FRONT, BASE_BACK), findings(args.phase, args.phase)
         delta = compare(before, after)
-        old_hashes = {**{f"src/{k}": v for k, v in old_front["files"].items()}, **old_back["files"]}
-        new_hashes = {**{f"src/{k}": v for k, v in front["files"].items()}, **back["files"]}
+        old_hashes = {**{f"src/{k}": v for k, v in old_front["files"].items()},
+                      **{normalized_path(k): v for k, v in old_back["files"].items()}}
+        new_hashes = {**{f"src/{k}": v for k, v in front["files"].items()},
+                      **{normalized_path(k): v for k, v in back["files"].items()}}
         delta["review_required_files"] = changed_files_with_retained_findings(before, after, old_hashes, new_hashes)
     except (OSError, KeyError, ValueError, subprocess.SubprocessError) as exc:
         errors.append(f"Measurement unavailable: {type(exc).__name__}: {exc}")
@@ -159,6 +171,7 @@ def main() -> int:
     report = {"measured_at": datetime.now(timezone.utc).isoformat(), "phase": args.phase,
               "baseline": {"frontend": BASE_FRONT, "backend": BASE_BACK},
               "status": status, "tests": test_status, "errors": errors, **delta,
+              "test_runtime": test_runtime.relative_to(ROOT).as_posix() if test_runtime else None,
               "limits": "Static findings are not an app score, certification, security guarantee, or usability test. Existing debt remains visible. No upload or automatic baseline reset."}
     (output / "summary.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [f"# 品質測定 {args.phase}", "", f"判定: `{status}` / 動作試験: `{test_status}`", "",

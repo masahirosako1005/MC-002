@@ -52,7 +52,7 @@ def test_content_pack_rolls_back_on_collision(harness):
 
 def test_content_photos_are_local_sanitized_and_not_duplicated(harness):
     from PIL import Image
-    settings = replace(harness.settings, seed_asset_dir=Path(__file__).resolve().parents[2] / 'community' / 'assets')
+    settings = replace(harness.settings, seed_asset_dir=Path(__file__).resolve().parents[2] / 'assets')
     report = enrich(harness.app.state.database, settings)
     assert report['photos'] == 24
     assert enrich(harness.app.state.database, settings)['already_applied']

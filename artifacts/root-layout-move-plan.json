@@ -1,0 +1,306 @@
+[
+  {
+    "Source": "backend",
+    "Destination": "test/fixtures/runtime/legacy-root/backend-root"
+  },
+  {
+    "Source": "frontend",
+    "Destination": "artifacts/retired/legacy-frontend"
+  },
+  {
+    "Source": "community/backend/.backend-circles-migration-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-circles-migration-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-circles-regression-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-circles-regression-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-circles-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-circles-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-cp39-regression-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-cp39-regression-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-cp40-regression-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-cp40-regression-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-date-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-date-test-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-discovery-final-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-discovery-final-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-discovery-regression-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-discovery-regression-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-discovery-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-discovery-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-guidance-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-guidance-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-journal-final-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-journal-final-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-journal-regression-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-journal-regression-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-journal-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-journal-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-occasions-final-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-occasions-final-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-occasions-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-occasions-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-reflections-final-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-reflections-final-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-reflections-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-reflections-tmp"
+  },
+  {
+    "Source": "community/backend/.backend-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.backend-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-all-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-all-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-final-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-final-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-race-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-race-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-role-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-role-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-stage-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-stage-test-tmp"
+  },
+  {
+    "Source": "community/backend/.marketplace-test-tmp",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/.marketplace-test-tmp"
+  },
+  {
+    "Source": "community/backend/tests",
+    "Destination": "test/fixtures/runtime/legacy-root/community-backend/tests"
+  },
+  {
+    "Source": "community/qa",
+    "Destination": "test/fixtures/runtime/legacy-root/community-qa"
+  },
+  {
+    "Source": "community/scripts/__pycache__",
+    "Destination": "test/fixtures/runtime/legacy-root/community-script-bytecode"
+  },
+  {
+    "Source": "community/backend",
+    "Destination": "backend"
+  },
+  {
+    "Source": "community/frontend",
+    "Destination": "frontend"
+  },
+  {
+    "Source": "community/assets",
+    "Destination": "assets"
+  },
+  {
+    "Source": "community/backups",
+    "Destination": "backups"
+  },
+  {
+    "Source": "community/deploy",
+    "Destination": "deploy"
+  },
+  {
+    "Source": "community/models",
+    "Destination": "models"
+  },
+  {
+    "Source": "community/quality",
+    "Destination": "quality"
+  },
+  {
+    "Source": "community/artifacts",
+    "Destination": "artifacts/community"
+  },
+  {
+    "Source": "community/scripts/animate_revisit_video.py",
+    "Destination": "scripts/animate_revisit_video.py"
+  },
+  {
+    "Source": "community/scripts/balance_revisit_guide_audio.py",
+    "Destination": "scripts/balance_revisit_guide_audio.py"
+  },
+  {
+    "Source": "community/scripts/create_intro_video.mjs",
+    "Destination": "scripts/create_intro_video.mjs"
+  },
+  {
+    "Source": "community/scripts/daytrip_policy_report.py",
+    "Destination": "scripts/daytrip_policy_report.py"
+  },
+  {
+    "Source": "community/scripts/encode_intro_video.py",
+    "Destination": "scripts/encode_intro_video.py"
+  },
+  {
+    "Source": "community/scripts/finish_revisit_audio.py",
+    "Destination": "scripts/finish_revisit_audio.py"
+  },
+  {
+    "Source": "community/scripts/full_snapshot.py",
+    "Destination": "scripts/full_snapshot.py"
+  },
+  {
+    "Source": "community/scripts/measure_backend_quality.py",
+    "Destination": "scripts/measure_backend_quality.py"
+  },
+  {
+    "Source": "community/scripts/narrate_revisit_female.ps1",
+    "Destination": "scripts/narrate_revisit_female.ps1"
+  },
+  {
+    "Source": "community/scripts/narrate_revisit_guide.ps1",
+    "Destination": "scripts/narrate_revisit_guide.ps1"
+  },
+  {
+    "Source": "community/scripts/narrate_revisit_male.ps1",
+    "Destination": "scripts/narrate_revisit_male.ps1"
+  },
+  {
+    "Source": "community/scripts/narrate_revisit_video.ps1",
+    "Destination": "scripts/narrate_revisit_video.ps1"
+  },
+  {
+    "Source": "community/scripts/open-edge-isolated.cmd",
+    "Destination": "scripts/open-edge-isolated.cmd"
+  },
+  {
+    "Source": "community/scripts/render_revisit_guide.py",
+    "Destination": "scripts/render_revisit_guide.py"
+  },
+  {
+    "Source": "community/scripts/render_revisit_video.py",
+    "Destination": "scripts/render_revisit_video.py"
+  },
+  {
+    "Source": "community/scripts/revisit_operation_clips.py",
+    "Destination": "scripts/revisit_operation_clips.py"
+  },
+  {
+    "Source": "community/scripts/revisit-video-female-scenes.json",
+    "Destination": "scripts/revisit-video-female-scenes.json"
+  },
+  {
+    "Source": "community/scripts/revisit-video-guide-scenes.json",
+    "Destination": "scripts/revisit-video-guide-scenes.json"
+  },
+  {
+    "Source": "community/scripts/revisit-video-male-scenes.json",
+    "Destination": "scripts/revisit-video-male-scenes.json"
+  },
+  {
+    "Source": "community/scripts/revisit-video-scenes.json",
+    "Destination": "scripts/revisit-video-scenes.json"
+  },
+  {
+    "Source": "community/scripts/snapshot_worker.py",
+    "Destination": "scripts/snapshot_worker.py"
+  },
+  {
+    "Source": "community/scripts/start.ps1",
+    "Destination": "scripts/start.ps1"
+  },
+  {
+    "Source": "compose.yaml",
+    "Destination": "docs/history/compose-entry-before-root.yaml"
+  },
+  {
+    "Source": "community/compose.yaml",
+    "Destination": "compose.yaml"
+  },
+  {
+    "Source": "community/Dockerfile",
+    "Destination": "Dockerfile"
+  },
+  {
+    "Source": "community/.dockerignore",
+    "Destination": ".dockerignore"
+  },
+  {
+    "Source": "community/README.md",
+    "Destination": "docs/OPERATIONS.md"
+  },
+  {
+    "Source": "community/AI-MOC-CONTRACT.md",
+    "Destination": "docs/contracts/AI-MOC-CONTRACT.md"
+  },
+  {
+    "Source": "community/API-CONTRACT.md",
+    "Destination": "docs/contracts/API-CONTRACT.md"
+  },
+  {
+    "Source": "community/CIRCLES-CONTRACT.md",
+    "Destination": "docs/contracts/CIRCLES-CONTRACT.md"
+  },
+  {
+    "Source": "community/DAYTRIP-CONTRACT.md",
+    "Destination": "docs/contracts/DAYTRIP-CONTRACT.md"
+  },
+  {
+    "Source": "community/DISCOVERY-CONTRACT.md",
+    "Destination": "docs/contracts/DISCOVERY-CONTRACT.md"
+  },
+  {
+    "Source": "community/IMAGE-PROCESSING-CONTRACT.md",
+    "Destination": "docs/contracts/IMAGE-PROCESSING-CONTRACT.md"
+  },
+  {
+    "Source": "community/JOURNAL-CONTRACT.md",
+    "Destination": "docs/contracts/JOURNAL-CONTRACT.md"
+  },
+  {
+    "Source": "community/MARKETPLACE-CONTRACT.md",
+    "Destination": "docs/contracts/MARKETPLACE-CONTRACT.md"
+  },
+  {
+    "Source": "community/OCCASIONS-CONTRACT.md",
+    "Destination": "docs/contracts/OCCASIONS-CONTRACT.md"
+  },
+  {
+    "Source": "community/PERSONALIZATION-CONTRACT.md",
+    "Destination": "docs/contracts/PERSONALIZATION-CONTRACT.md"
+  },
+  {
+    "Source": "community/REFLECTIONS-CONTRACT.md",
+    "Destination": "docs/contracts/REFLECTIONS-CONTRACT.md"
+  },
+  {
+    "Source": "community/UI-MARKETPLACE.md",
+    "Destination": "docs/contracts/UI-MARKETPLACE.md"
+  }
+]

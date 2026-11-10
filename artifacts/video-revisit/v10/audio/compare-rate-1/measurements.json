@@ -1,0 +1,300 @@
+{
+  "take": "compare-rate-1",
+  "voice": {
+    "name": "Microsoft Sayaka",
+    "gender": "Female",
+    "culture": "ja-JP"
+  },
+  "runtime": {
+    "is_64_bit": true,
+    "version": "7.6.9",
+    "executable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe"
+  },
+  "rate": 1,
+  "volume": 90,
+  "pitch_requested": [
+    "medium"
+  ],
+  "emphasis_requested": "short focus word volume 85 to 95; no strong emphasis or pitch lift",
+  "explicit_sentence_pause_ms": 80,
+  "speed_processing": "none; no atempo, trimming, or time compression",
+  "text_characters": 200.0,
+  "script_sha256": "d12ccf666ffa9609b4051df83e37a88e6175bbdf33b27780dc0eed26898e0b93",
+  "scenes_sha256": "4cf569bcac19399b1c479b0baa92f203a3dcecdf2bf72863b9cc52d46e74252d",
+  "sources": [
+    "https://learn.microsoft.com/en-us/dotnet/api/system.speech.synthesis.speechsynthesizer.speakssml",
+    "https://learn.microsoft.com/en-us/dotnet/api/system.speech.synthesis.ttsengine.prosody"
+  ],
+  "scenes": [
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-00.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\"><prosody volume=\"95\">一度</prosody>来て、おしまい？</prosody><break time=\"80ms\"/><prosody pitch=\"medium\" volume=\"85\">もったいないですよね。</prosody></speak>",
+      "spoken_text": "一度来て、おしまい？もったいないですよね。",
+      "sha256": "06ea4f3f4574c78d95e89495beec3a2019d56e48e1cfa38849b462f7959529bf",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 14418,
+        "ClippedSamples": 0,
+        "Frames": 215040,
+        "Seconds": 4.48,
+        "PeakDbfs": -7.130898275443483,
+        "RmsDbfs": -27.062557332008478,
+        "PcmSha256": "13b73cdf36102066a7994197e28fff2caa5963ec81e8a87972590078b00288f0"
+      },
+      "scene": 0,
+      "slot_seconds": 5.3,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5999999999999996,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-01.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">こうは、目的と<prosody volume=\"95\">役割</prosody>を持ち寄る仲間です。</prosody></speak>",
+      "spoken_text": "こうは、目的と役割を持ち寄る仲間です。",
+      "sha256": "7fb2b0f61225a9559f5552896bf817be7dfa3a773bbec6042a0b9e21addfa9b2",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 17630,
+        "ClippedSamples": 0,
+        "Frames": 195120,
+        "Seconds": 4.065,
+        "PeakDbfs": -5.383952453207918,
+        "RmsDbfs": -24.733161078980885,
+        "PcmSha256": "9d746378b85c05554c7a7e1f7f91252c5f5a784ca15a831a254c336d4b8efe28"
+      },
+      "scene": 1,
+      "slot_seconds": 4.866666666666666,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5816666666666661,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-02.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">行き先を<prosody volume=\"95\">共有</prosody>し、事業者の承諾後に相談します。</prosody></speak>",
+      "spoken_text": "行き先を共有し、事業者の承諾後に相談します。",
+      "sha256": "33d1d0176cfa7fabfc916b03f8c9379573ee0047c6fffa82680daebe43a5c229",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 14761,
+        "ClippedSamples": 0,
+        "Frames": 228780,
+        "Seconds": 4.76625,
+        "PeakDbfs": -6.926683094480062,
+        "RmsDbfs": -24.794569262076344,
+        "PcmSha256": "c0142b2d9e17c1ebc085a62238fa928584f899142772b9ee6ff442e490ff3069"
+      },
+      "scene": 2,
+      "slot_seconds": 5.566666666666666,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5804166666666664,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-03.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">事業者は相談とプランを管理。</prosody><break time=\"80ms\"/><prosody pitch=\"medium\" volume=\"85\">市全体の<prosody volume=\"95\">再訪</prosody>も確認できます。</prosody></speak>",
+      "spoken_text": "事業者は相談とプランを管理。市全体の再訪も確認できます。",
+      "sha256": "4eed772ef815d686eacc86c62c3ee43e872e8ae566f26ce3d51f39c7ed246034",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 20111,
+        "ClippedSamples": 0,
+        "Frames": 298950,
+        "Seconds": 6.228125,
+        "PeakDbfs": -4.240325379070272,
+        "RmsDbfs": -24.617609712764565,
+        "PcmSha256": "692a768f698ae21e11951d83489ff7d82dc1d1c1ceeb71749ddaa15f04924ac4"
+      },
+      "scene": 3,
+      "slot_seconds": 7.033333333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5852083333333331,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-04.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">成形、絵付け、受け取り。</prosody><break time=\"80ms\"/><prosody pitch=\"medium\" volume=\"85\">次に来る<prosody volume=\"95\">目的</prosody>を、工程でつくります。</prosody></speak>",
+      "spoken_text": "成形、絵付け、受け取り。次に来る目的を、工程でつくります。",
+      "sha256": "4fdf35f1a86e85bfffa40c853012d3364886340ec5babe99cb0832ad28e7b765",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 13400,
+        "ClippedSamples": 0,
+        "Frames": 333756,
+        "Seconds": 6.95325,
+        "PeakDbfs": -7.766902731898206,
+        "RmsDbfs": -27.40077574046809,
+        "PcmSha256": "90256c8f0aaa9d007e84f79817e2e93523eb964d4a69a9c2aaea5ecdca243f5b"
+      },
+      "scene": 4,
+      "slot_seconds": 7.766666666666667,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5934166666666671,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-05.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">せんだつには、参加確認後に<prosody volume=\"95\">五十点</prosody>。</prosody><break time=\"80ms\"/><prosody pitch=\"medium\" volume=\"85\">階級に応じた特典も。</prosody></speak>",
+      "spoken_text": "せんだつには、参加確認後に五十点。階級に応じた特典も。",
+      "sha256": "ab5ebe92bc7e3f3ed36e443b176ffdd29037ecf0ed87171b8601b21a22fa0804",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 15803,
+        "ClippedSamples": 0,
+        "Frames": 300948,
+        "Seconds": 6.26975,
+        "PeakDbfs": -6.334207897106035,
+        "RmsDbfs": -24.9795916924297,
+        "PcmSha256": "51a8db7fbd5d85249fc784c3a3ad1ae140b5f59dc7ebc8500eda26874c0dd4e3"
+      },
+      "scene": 5,
+      "slot_seconds": 7.1,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.6102499999999997,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-06.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">片道二十から四十キロを、日帰り圏と想定。</prosody><break time=\"80ms\"/><prosody pitch=\"medium\" volume=\"85\">限りある<prosody volume=\"95\">予算</prosody>内で割引を手厚くします。</prosody></speak>",
+      "spoken_text": "片道二十から四十キロを、日帰り圏と想定。限りある予算内で割引を手厚くします。",
+      "sha256": "4b451b97c03b0781ce35841fda67ecc10f41b386c188cf06ceb71513e2b2f82f",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 19045,
+        "ClippedSamples": 0,
+        "Frames": 399690,
+        "Seconds": 8.326875,
+        "PeakDbfs": -4.713379159255058,
+        "RmsDbfs": -24.9014392819267,
+        "PcmSha256": "6720872e0ff9478c183b7abf7d92b37f5a66855ab699587794476abd0e1375d2"
+      },
+      "scene": 6,
+      "slot_seconds": 9.133333333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.5864583333333329,
+      "fits_without_acceleration": true
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/voice-07.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">次の訪問を後押しする<prosody volume=\"95\">仕組み</prosody>です。</prosody></speak>",
+      "spoken_text": "次の訪問を後押しする仕組みです。",
+      "sha256": "dab20544d7298917e957fe3c3a26db1b3083a522e85941ead1197cba152c5c01",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 12573,
+        "ClippedSamples": 0,
+        "Frames": 153924,
+        "Seconds": 3.20675,
+        "PeakDbfs": -8.320220388124223,
+        "RmsDbfs": -25.451297819042544,
+        "PcmSha256": "32ae0ea60dc218d93d1ee142f8115fcbae60e549111a36fd816260926efba283"
+      },
+      "scene": 7,
+      "slot_seconds": 4.033333333333333,
+      "lead_seconds": 0.22,
+      "trailing_seconds": 0.606583333333333,
+      "fits_without_acceleration": true
+    }
+  ],
+  "probes": [
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/probe-neutral.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">次の訪問を後押しします。</prosody></speak>",
+      "spoken_text": "次の訪問を後押しします。",
+      "sha256": "222ee5405d70e49924a106677bb34dbe7eda27b6acc70629ec1480fd31b4435c",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 12447,
+        "ClippedSamples": 0,
+        "Frames": 132540,
+        "Seconds": 2.76125,
+        "PeakDbfs": -8.40770490822165,
+        "RmsDbfs": -25.456720834648774,
+        "PcmSha256": "4f3255b536db802ac6094a6ae447aa05fa4ebf82a48096e12a9a67c219d4f1c2"
+      }
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/probe-repeat.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">次の訪問を後押しします。</prosody></speak>",
+      "spoken_text": "次の訪問を後押しします。",
+      "sha256": "222ee5405d70e49924a106677bb34dbe7eda27b6acc70629ec1480fd31b4435c",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 12447,
+        "ClippedSamples": 0,
+        "Frames": 132540,
+        "Seconds": 2.76125,
+        "PeakDbfs": -8.40770490822165,
+        "RmsDbfs": -25.456720834648774,
+        "PcmSha256": "4f3255b536db802ac6094a6ae447aa05fa4ebf82a48096e12a9a67c219d4f1c2"
+      }
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/probe-emphasis.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">次の訪問を<prosody volume=\"95\">後押し</prosody>します。</prosody></speak>",
+      "spoken_text": "次の訪問を後押しします。",
+      "sha256": "8128e55cb87bb0135f72e4bf183556408b9159af15e26bfe09ee5408ff01b83f",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 16128,
+        "ClippedSamples": 0,
+        "Frames": 132540,
+        "Seconds": 2.76125,
+        "PeakDbfs": -6.157388403885733,
+        "RmsDbfs": -24.556323373113006,
+        "PcmSha256": "fc8da0fdfec0b9cfbba9dd047bd85307b41dd658bf21245627fbc270a84cd3c1"
+      }
+    },
+    {
+      "file": "artifacts/video-revisit/v10/audio/compare-rate-1/probe-pause.wav",
+      "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"ja-JP\"><prosody pitch=\"medium\" volume=\"85\">次の訪問を<break time=\"80ms\"/>後押しします。</prosody></speak>",
+      "spoken_text": "次の訪問を後押しします。",
+      "sha256": "5c9cbb72b04fdc494c3a5040b533dec1a77018f09a1ccda65633b39072b10458",
+      "measurements": {
+        "SampleRate": 48000,
+        "Channels": 1,
+        "Bits": 16,
+        "PeakSample": 15324,
+        "ClippedSamples": 0,
+        "Frames": 139224,
+        "Seconds": 2.9005,
+        "PeakDbfs": -6.601555832973556,
+        "RmsDbfs": -25.518963076310225,
+        "PcmSha256": "141a8c8576f9ec32f8ffb432725fd9d4b7ace587ab0f467c925e7e1015673fec"
+      }
+    }
+  ],
+  "engine_checks": {
+    "repeated_plain_pcm_identical": true,
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "pause_duration_delta_seconds": 0.1392500000000001,
+    "emphasis_pcm_changed": true
+  },
+  "listening_review": "not performed",
+  "status": "fits_without_acceleration",
+  "total_seconds": 50.8,
+  "total_voice_seconds": 44.296,
+  "scene_padding_policy": "voice + 0.8 seconds, rounded up to 30 fps; minimum 4 seconds, maximum 10 seconds",
+  "published": false
+}

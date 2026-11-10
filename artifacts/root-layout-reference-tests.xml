@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="44" time="0.905" timestamp="2026-11-10T13:34:20.740198+09:00" hostname="Jisui-share002"><testcase classname="test.tooling.test_quality_check" name="test_new_issue_is_not_cancelled_by_an_unrelated_resolution" time="0.001" /><testcase classname="test.tooling.test_quality_check" name="test_existing_debt_is_not_called_clean" time="0.001" /><testcase classname="test.tooling.test_quality_check" name="test_missing_or_failed_tool_never_passes" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_bandit_scan_errors_are_not_zero_findings_success" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_paths_normalize_platform_prefix_but_preserve_file_identity" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_duplicate_new_finding_is_detected" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_same_count_in_edited_file_requires_review_instead_of_false_pass" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_stylelint_parse_or_config_errors_are_not_clean" time="0.000" /><testcase classname="test.tooling.test_quality_check" name="test_real_report_path_rejects_stylelint_parse_failure" time="0.027" /><testcase classname="test.tooling.test_quality_check" name="test_reports_only_never_overwrites_prior_report" time="0.023" /><testcase classname="test.tooling.test_quality_check" name="test_root_relocation_preserves_findings_and_hash_review[same-source-no-new-findings-existing-debt-0]" time="0.021" /><testcase classname="test.tooling.test_quality_check" name="test_root_relocation_preserves_findings_and_hash_review[edited-source-review-required-1]" time="0.029" /><testcase classname="test.tooling.test_test_layout" name="test_rejects_retired_roots_without_creating_them[.backend-test-tmp]" time="0.002" /><testcase classname="test.tooling.test_test_layout" name="test_rejects_retired_roots_without_creating_them[.test-work/run]" time="0.002" /><testcase classname="test.tooling.test_test_layout" name="test_rejects_retired_roots_without_creating_them[.pytest_cache]" time="0.002" /><testcase classname="test.tooling.test_test_layout" name="test_rejects_runtime_root_and_parent_traversal" time="0.001" /><testcase classname="test.tooling.test_test_layout" name="test_tmp_path_is_in_the_controlled_runtime" time="0.003" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_accepts_full_range[15]" time="0.086" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_accepts_full_range[60]" time="0.005" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_accepts_full_range[90]" time="0.004" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_accepts_full_range[120]" time="0.005" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_legacy_default_requires_sixty_seconds" time="0.005" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_rejects_outside_range[14.966666666666667]" time="0.005" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_variable_duration_rejects_outside_range[120.03333333333333]" time="0.004" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_expected_duration_rejects_invalid_values[True]" time="0.001" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_expected_duration_rejects_invalid_values[nan]" time="0.001" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_expected_duration_rejects_invalid_values[inf]" time="0.001" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_expected_duration_rejects_invalid_values[60.01]" time="0.001" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_progress_reaches_exactly_one_for_variable_duration" time="0.006" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_encode_uses_scene_total_without_real_encoder" time="0.016" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_audio_total_and_legacy_filename[15]" time="0.025" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_audio_total_and_legacy_filename[60]" time="0.037" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_unadjusted_pcm_preserves_trailing_samples" time="0.063" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_verification_uses_expected_duration[60]" time="0.005" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_verification_uses_expected_duration[90]" time="0.003" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_verification_rejects_wrong_audio_duration" time="0.002" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_pcm_checks_variable_duration_and_keeps_legacy_default" time="0.014" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_finish_cli_duration_default_and_override[None]" time="0.002" /><testcase classname="test.tooling.test_revisit_video_duration" name="test_finish_cli_duration_default_and_override[90]" time="0.002" /><testcase classname="test.backend.test_snapshot_metadata" name="test_backup_model_metadata_is_optional_without_inference[None]" time="0.008"><failure message="FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_backup_model_metadata_is_0\\artifacts\\community'">snapshot_script = (&lt;module 'tested_full_snapshot' from 'C:\\AI-Sprint\\workspace\\MC-002\\scripts\\full_snapshot.py'&gt;, [('backup', Windo...est_backup_model_metadata_is_0/backups/20261110T043421Z-a06590c33833'), 'fixture-image', {'db_name': 'community.db'})])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A907CC48A0&gt;
+manifest = None
+
+    @pytest.mark.parametrize('manifest', [None, {'revision':'retained-legacy-model'}])
+    def test_backup_model_metadata_is_optional_without_inference(snapshot_script, monkeypatch, manifest):
+        module,calls = snapshot_script
+        if manifest is not None:
+            model_folder = module.ROOT / 'models'
+            model_folder.mkdir()
+            (model_folder / 'manifest.json').write_text(json.dumps(manifest),encoding='utf-8')
+        monkeypatch.setattr(sys,'argv',['full_snapshot.py','backup','--allow-stop'])
+&gt;       module.main()
+
+test\backend\test_snapshot_metadata.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\full_snapshot.py:142: in main
+    save_event(report)
+scripts\full_snapshot.py:77: in save_event
+    directory.mkdir(exist_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/root-layout-reference/test_backup_model_metadata_is_0/artifacts/community')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_backup_model_metadata_is_0\\artifacts\\community'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="test.backend.test_snapshot_metadata" name="test_backup_model_metadata_is_optional_without_inference[manifest1]" time="0.013"><failure message="FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_backup_model_metadata_is_1\\artifacts\\community'">snapshot_script = (&lt;module 'tested_full_snapshot' from 'C:\\AI-Sprint\\workspace\\MC-002\\scripts\\full_snapshot.py'&gt;, [('backup', Windo...est_backup_model_metadata_is_1/backups/20261110T043421Z-c9c6a55f2303'), 'fixture-image', {'db_name': 'community.db'})])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A907DBBBD0&gt;
+manifest = {'revision': 'retained-legacy-model'}
+
+    @pytest.mark.parametrize('manifest', [None, {'revision':'retained-legacy-model'}])
+    def test_backup_model_metadata_is_optional_without_inference(snapshot_script, monkeypatch, manifest):
+        module,calls = snapshot_script
+        if manifest is not None:
+            model_folder = module.ROOT / 'models'
+            model_folder.mkdir()
+            (model_folder / 'manifest.json').write_text(json.dumps(manifest),encoding='utf-8')
+        monkeypatch.setattr(sys,'argv',['full_snapshot.py','backup','--allow-stop'])
+&gt;       module.main()
+
+test\backend\test_snapshot_metadata.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\full_snapshot.py:142: in main
+    save_event(report)
+scripts\full_snapshot.py:77: in save_event
+    directory.mkdir(exist_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/root-layout-reference/test_backup_model_metadata_is_1/artifacts/community')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_backup_model_metadata_is_1\\artifacts\\community'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="test.backend.test_snapshot_metadata" name="test_verify_accepts_old_and_model_free_metadata[None]" time="0.007"><failure message="FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_verify_accepts_old_and_mo0\\artifacts\\community'">snapshot_script = (&lt;module 'tested_full_snapshot' from 'C:\\AI-Sprint\\workspace\\MC-002\\scripts\\full_snapshot.py'&gt;, [('verify', Windo...st/fixtures/runtime/root-layout-reference/test_verify_accepts_old_and_mo0/backups/kept-snapshot'), 'prior-image', {})])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A907DEB5B0&gt;
+manifest = None
+
+    @pytest.mark.parametrize('manifest', [None, {'revision':'retained-legacy-model'}])
+    def test_verify_accepts_old_and_model_free_metadata(snapshot_script, monkeypatch, manifest):
+        module,calls = snapshot_script
+        snapshot = module.BACKUPS / 'kept-snapshot'
+        snapshot.mkdir(parents=True)
+        metadata = {'image':'prior-image','model_manifest':manifest}
+        (snapshot / 'runtime.json').write_text(json.dumps(metadata),encoding='utf-8')
+        monkeypatch.setattr(sys,'argv',['full_snapshot.py','verify','--snapshot',str(snapshot)])
+&gt;       module.main()
+
+test\backend\test_snapshot_metadata.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\full_snapshot.py:142: in main
+    save_event(report)
+scripts\full_snapshot.py:77: in save_event
+    directory.mkdir(exist_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/root-layout-reference/test_verify_accepts_old_and_mo0/artifacts/community')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_verify_accepts_old_and_mo0\\artifacts\\community'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="test.backend.test_snapshot_metadata" name="test_verify_accepts_old_and_model_free_metadata[manifest1]" time="0.009"><failure message="FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_verify_accepts_old_and_mo1\\artifacts\\community'">snapshot_script = (&lt;module 'tested_full_snapshot' from 'C:\\AI-Sprint\\workspace\\MC-002\\scripts\\full_snapshot.py'&gt;, [('verify', Windo...st/fixtures/runtime/root-layout-reference/test_verify_accepts_old_and_mo1/backups/kept-snapshot'), 'prior-image', {})])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A907DEBB60&gt;
+manifest = {'revision': 'retained-legacy-model'}
+
+    @pytest.mark.parametrize('manifest', [None, {'revision':'retained-legacy-model'}])
+    def test_verify_accepts_old_and_model_free_metadata(snapshot_script, monkeypatch, manifest):
+        module,calls = snapshot_script
+        snapshot = module.BACKUPS / 'kept-snapshot'
+        snapshot.mkdir(parents=True)
+        metadata = {'image':'prior-image','model_manifest':manifest}
+        (snapshot / 'runtime.json').write_text(json.dumps(metadata),encoding='utf-8')
+        monkeypatch.setattr(sys,'argv',['full_snapshot.py','verify','--snapshot',str(snapshot)])
+&gt;       module.main()
+
+test\backend\test_snapshot_metadata.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\full_snapshot.py:142: in main
+    save_event(report)
+scripts\full_snapshot.py:77: in save_event
+    directory.mkdir(exist_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/root-layout-reference/test_verify_accepts_old_and_mo1/artifacts/community')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 指定されたパスが見つかりません。: 'C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\root-layout-reference\\test_verify_accepts_old_and_mo1\\artifacts\\community'
+
+C:\Users\Jisui_share002\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="test.backend.test_image_guidance" name="test_guidance_only_matches_exact_known_assets_and_does_not_score" time="0.028" /></testsuite></testsuites>

@@ -9,28 +9,35 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 プロジェクトのフォルダで次を実行します。
 
 ```powershell
-.\community\scripts\start.ps1 -Build
+.\scripts\start.ps1 -Build
 ```
 
 - [旅行者スマホ・事業者PCの画面](http://127.0.0.1:8081/stage)：左が旅行者のスマホ、右が事業者のPCダッシュボード。
 - [アプリ](http://127.0.0.1:8081/) / [操作手順](docs/COMMUNITY-TRY.md)
-- [現行の構成・保存・検証](community/README.md)
+- [現行の構成・保存・検証](docs/OPERATIONS.md)
 
 初回の依存取得とイメージ構築にはネットワークを使います。通常利用は外部API・外部DB・外部素材配信に依存しません。AI風の案内はローカルの規則と定型応答で、モデル推論やChatGPT APIは使いません。
+
+## 最初に見る資料
+
+- [現在の設計仕様](DESIGN.md) / [作業と未解決事項](TASKS.md)
+- [文書一覧](docs/README.md) / [フォルダの用途と整理結果](docs/FOLDER-STRUCTURE.md)
+- [最新紹介動画・女性音声と実操作](outputs/kou-revisit-intro-v10.mp4)（46.5秒）
 
 ## プロジェクトの配置
 
 | 場所 | 用途 |
 |---|---|
-| `community/backend` | 現行Python API・保存処理 |
-| `community/frontend` | 現行React画面と同梱素材 |
+| `backend` | 現行Python API・保存処理 |
+| `frontend` | 現行React画面と同梱素材 |
 | `test` | API・画面・保全・開発ツールの試験、合成素材 |
-| `community/scripts` | 起動、データ保全、品質測定、紹介動画 |
-| `scripts` | チケット、参照CSVの分析、開発環境の準備 |
+| `scripts` | 起動、保全、品質測定、動画、台帳、CSV分析、環境準備 |
 | `project` | チケット台帳と履歴 |
 | `docs` | 設計の根拠、調査、評価、変更記録 |
 | `.agents/skills` | 固定した公式React・FastAPIの開発指針 |
 | `artifacts` | 新しい試験・品質評価の結果（既存証拠は元の場所を保持） |
+
+**現行コードはルート直下の `frontend/` と `backend/` です。旧残骸は `artifacts/retired/legacy-frontend` と `test/fixtures/runtime/legacy-root` へ分離済み。現在の `frontend`・`backend` は削除しないでください。**
 
 ソースと成果物はこのプロジェクト内に置きます。`C:/AI-Sprint/sample-data`は参照専用です。DB・写真・秘密情報はGitに含めません。旧版ソースの整理方針と結果は[撤去監査](docs/CLEANUP-AUDIT.md)へ記録し、過去の変更はGit履歴から追跡します。
 

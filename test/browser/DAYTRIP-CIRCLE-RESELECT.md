@@ -1,6 +1,6 @@
 # 開催作成の講再選択・回帰確認
 
-2026-11-10。対象：`community/frontend/src/Daytrip.tsx` の `CreateOuting`。
+2026-11-10。対象：`frontend/src/Daytrip.tsx` の `CreateOuting`。
 
 ## 原因と修正
 

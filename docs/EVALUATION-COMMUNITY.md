@@ -98,9 +98,9 @@ CP39の最初の移行比較は追加されたユーザー/検証行で全体一
 
 ## 基盤の証拠と部分確認
 
-- [API試験](../community/artifacts/backend-verification.json)：16成功、Windowsネイティブ推論1件はskip。Linux推論は[別の実測](../community/artifacts/model-verification.json)で4枚を実行。これをタグ精度達成とは扱わない。
-- [画面9段階](../community/artifacts/browser/results.json)：写真投稿、好み、3人の実承諾、協力と計画保存、390px/PC、文字200%、Tab、外部要求0。主要5画面のaxe違反0。全キーボード導線・320px・動きを減らす設定などの追加確認が必要で、CQ16は未加点。
-- [基盤Docker21確認](../community/artifacts/container-verification-20261109T053329143182Z.json)：保存維持、権限制限、appからの外向きTCP拒否、DBコピー整合。gateway全体の外向き通信遮断や全パケット観測とは異なるためCQ01は部分確認のまま。
+- [API試験](../artifacts/community/backend-verification.json)：16成功、Windowsネイティブ推論1件はskip。Linux推論は[別の実測](../artifacts/community/model-verification.json)で4枚を実行。これをタグ精度達成とは扱わない。
+- [画面9段階](../artifacts/community/browser/results.json)：写真投稿、好み、3人の実承諾、協力と計画保存、390px/PC、文字200%、Tab、外部要求0。主要5画面のaxe違反0。全キーボード導線・320px・動きを減らす設定などの追加確認が必要で、CQ16は未加点。
+- [基盤Docker21確認](../artifacts/community/container-verification-20261109T053329143182Z.json)：保存維持、権限制限、appからの外向きTCP拒否、DBコピー整合。gateway全体の外向き通信遮断や全パケット観測とは異なるためCQ01は部分確認のまま。
 - APIは二重応答とロールバックを確認したが、同時応答の独立試験などC1の全条件がまだ揃っていない項目は加点しない。DB+画像の完全復元は三役追加の検証で成功した（下記）。
 - 事業者連携、条件確認、選択後の共有と相談、二台スマホの認証分離は追加受入CP17/CP24で記録する。基準を緩めて30点を100点に換算しない。
 
@@ -110,18 +110,18 @@ CP39の最初の移行比較は追加されたユーザー/検証行で全体一
 
 | 検証 | 結果 | 証拠・範囲 |
 |---|---|---|
-| API | 通常30成功＋同時計画作成/退出1成功 | [記録](../community/artifacts/marketplace-backend-verification.json)。別実行を31件一括試験とはしない |
-| 三役の画面 | 9/9段階成功 | [実測](../community/artifacts/marketplace-browser/results.json)。左右ログイン、写真、会話、確認条件、6人/35人、選択gate、相談返信、下書き/公開、表示・操作、外部要求0 |
-| 左右の安全性 | 8/8段階成功 | [実測](../community/artifacts/stage-security-browser.json)。通常Cookie併存、認証写真、誤Bearer拒否、鍵の非保存、偽通知拒否、埋込制限、片側logout、外部要求0 |
-| 移行 | 既存5表の全行ハッシュ一致 | [schema2移行](../community/artifacts/schema2-migration-container.json)。旧アプリは継続稼働 |
-| 再起動・復元 | 14表の行ハッシュ一致、DB＋写真9ファイル/29表の隔離復元成功 | [保存記録](../community/artifacts/schema2-persistence.json)。復元先のAPI/画面起動訓練までは未実施 |
+| API | 通常30成功＋同時計画作成/退出1成功 | [記録](../artifacts/community/marketplace-backend-verification.json)。別実行を31件一括試験とはしない |
+| 三役の画面 | 9/9段階成功 | [実測](../artifacts/community/marketplace-browser/results.json)。左右ログイン、写真、会話、確認条件、6人/35人、選択gate、相談返信、下書き/公開、表示・操作、外部要求0 |
+| 左右の安全性 | 8/8段階成功 | [実測](../artifacts/community/stage-security-browser.json)。通常Cookie併存、認証写真、誤Bearer拒否、鍵の非保存、偽通知拒否、埋込制限、片側logout、外部要求0 |
+| 移行 | 既存5表の全行ハッシュ一致 | [schema2移行](../artifacts/community/schema2-migration-container.json)。旧アプリは継続稼働 |
+| 再起動・復元 | 14表の行ハッシュ一致、DB＋写真9ファイル/29表の隔離復元成功 | [保存記録](../artifacts/community/schema2-persistence.json)。復元先のAPI/画面起動訓練までは未実施 |
 | 読みやすさ | 左右を含む画面のaxe違反0、390/320px横はみ出し0、200%文字拡大横はみ出し0 | Choiceの矢印/End/Escape/フォーカス復帰、reduced-motionも確認。全操作のキーボード通し/実機/実利用者試験は未実施 |
 
 ### 不合格と回復
 
-1. [初回](../community/artifacts/marketplace-browser-history/01-choice-label/results.json)：4段階成功後、Choiceの入力名に選択肢文言が混ざる箇所で停止。項目名と選択値のアクセシブルな読み上げを分離して修正。
-2. [二回目](../community/artifacts/marketplace-browser-history/02-consultation-selector/results.json)：古い相談行を試験が選択。更新完了と対象相談を識別する試験に修正。UIも共有人数・日程・相談文で複数案件を見分ける変更を追加。
-3. [三回目](../community/artifacts/marketplace-browser-history/03-publish-wait/results.json)：公開保存の完了前に一覧を検査した試験側の待機不足。公開結果と画面閉鎖を待って確認。
+1. [初回](../artifacts/community/marketplace-browser-history/01-choice-label/results.json)：4段階成功後、Choiceの入力名に選択肢文言が混ざる箇所で停止。項目名と選択値のアクセシブルな読み上げを分離して修正。
+2. [二回目](../artifacts/community/marketplace-browser-history/02-consultation-selector/results.json)：古い相談行を試験が選択。更新完了と対象相談を識別する試験に修正。UIも共有人数・日程・相談文で複数案件を見分ける変更を追加。
+3. [三回目](../artifacts/community/marketplace-browser-history/03-publish-wait/results.json)：公開保存の完了前に一覧を検査した試験側の待機不足。公開結果と画面閉鎖を待って確認。
 4. 最終の9段階成功を上記へ記録。失敗した試験を削除して、当初から成功したようには記録しない。
 
 外部サービス無しの操作確認は観測した導線の範囲。全ネットワーク通信や全コードの脆弱性不存在を証明するものではない。写真のタグ精度、再訪効果、実利用者の満足度、第三者の再現操作、新版スライドは未測定または後続のまま。
@@ -131,9 +131,9 @@ CP39の最初の移行比較は追加されたユーザー/検証行で全体一
 画面 `index-C1RUB-yC.js` / `index-DVmOtgqB.css` をDockerへ反映。1440×900で2台全体が収まり、中央説明・履歴・外側ボタンを削除した。実成功時だけ見出しを更新し、session/閲覧/失敗/不正通知は無視する。通知側も条件整理・候補作成・相談選択をPOSTに限定した。
 
 - 三役画面9/9、安全性8/8を更新版で再実行して成功。axe違反0、外部要求0。証拠は上表の最新JSON。変更前は `marketplace-browser-history/04-before-stage-simplification` に保管。
-- [最終表示確認](../community/artifacts/marketplace-browser/final-smoke.json) で再ログイン後の写真、相談一覧、保存済み返信、標準selectゼロを確認。
+- [最終表示確認](../artifacts/community/marketplace-browser/final-smoke.json) で再ログイン後の写真、相談一覧、保存済み返信、標準selectゼロを確認。
 - C1は30/100のまま。旧CQ17の再生等は最新要件で廃止したが、過去基準を書換えて満点にしない。新要件はCP26の追加受入で管理。
-- 利用者の通常Edgeでは応答停止が発生。分離した検証環境での成功を、その問題の解決とはしない。[未解決のCP27調査](../community/artifacts/edge-hang-investigation.md) を別に記録。
+- 利用者の通常Edgeでは応答停止が発生。分離した検証環境での成功を、その問題の解決とはしない。[未解決のCP27調査](../artifacts/community/edge-hang-investigation.md) を別に記録。
 
 ## CP28：実連携の動きとログイン初期表示の軽量化
 
@@ -143,8 +143,8 @@ CP39の最初の移行比較は追加されたユーザー/検証行で全体一
 |---|---|
 | 実APIの画面操作 | 9/9成功。選択の左→右、事業者返信の右→左、旅行者の連続返信の左→右を実保存後に確認 |
 | 左右の安全性 | 8/8成功。不正通知・閲覧・ログイン・失敗は見出しと連携回数を進めない |
-| 動きの境界 | [5/5成功](../community/artifacts/stage-motion.json)。待機、CSS中断の後始末、連続成功、reduced-motion、狭幅。これは通知を直接送る部品試験で、実保存試験と区別 |
-| 不要な画像 | [二台ログインの写真要求を2→0](../community/artifacts/stage-lightening.json)。非表示画像2枚をDOMから除外。対象写真は1ファイル355,761bytes。総転送量やプロセス全体のメモリ減少率は未計測 |
+| 動きの境界 | [5/5成功](../artifacts/community/stage-motion.json)。待機、CSS中断の後始末、連続成功、reduced-motion、狭幅。これは通知を直接送る部品試験で、実保存試験と区別 |
+| 不要な画像 | [二台ログインの写真要求を2→0](../artifacts/community/stage-lightening.json)。非表示画像2枚をDOMから除外。対象写真は1ファイル355,761bytes。総転送量やプロセス全体のメモリ減少率は未計測 |
 | 外観・保存 | 1440×900の画像を目視、再ログイン後の相談と返信を確認。中央は線と結びだけで説明・履歴・外側ボタンなし |
 
 C1は30/100据置。通常Edgeの応答停止（CP27）は未解決。動作が軽くなったという主観評価、実利用者の理解度、実機描画の改善は別途確認する。
@@ -153,15 +153,15 @@ C1は30/100据置。通常Edgeの応答停止（CP27）は未解決。動作が�
 
 2026年11月9日。C1は30/100据置。既存の写真・講にschema3の旅/訪問/候補/実績公開を追加。
 
-- APIの追加16試験成功。別の既存回帰は46成功/1skip（Windows ONNXのアクセス違反診断により実モデル試験は成功扱いしない）。[独立レビューと修正](../community/artifacts/journal/review.md)。
-- [画面の6段階](../community/artifacts/journal/browser.json)：EXIF事前許可→写真投稿→位置/共有確認→地図→4県バッジ→他者プロフィール→編集削除、キーボード/320/390px/文字200%/外部要求0。合成画像/訪問を使用し試験作成分だけ後始末。物理的訪問の証明ではない。
-- 移行前DB/写真9ファイルをバックアップ。全件hash比較は相談メッセージ8→9と送信キー20→21の増加により不一致だったため[不一致記録](../community/artifacts/journal/migration.json)を保持。[旧行の保全比較](../community/artifacts/journal/migration-preservation.json)では既存26業務表の全行と既存8画像の保持を確認。後から追加された利用/試験記録と同一性を混同しない。
-- [Docker再起動](../community/artifacts/journal/restart.json)で非揮発表と画像hash一致。[API再取得](../community/artifacts/journal/restart-api.json)でも確認済み4訪問と獲得バッジが一致。sessions/stage_sessions/jobsは揮発対象として表hashから除外。
+- APIの追加16試験成功。別の既存回帰は46成功/1skip（Windows ONNXのアクセス違反診断により実モデル試験は成功扱いしない）。[独立レビューと修正](../artifacts/community/journal/review.md)。
+- [画面の6段階](../artifacts/community/journal/browser.json)：EXIF事前許可→写真投稿→位置/共有確認→地図→4県バッジ→他者プロフィール→編集削除、キーボード/320/390px/文字200%/外部要求0。合成画像/訪問を使用し試験作成分だけ後始末。物理的訪問の証明ではない。
+- 移行前DB/写真9ファイルをバックアップ。全件hash比較は相談メッセージ8→9と送信キー20→21の増加により不一致だったため[不一致記録](../artifacts/community/journal/migration.json)を保持。[旧行の保全比較](../artifacts/community/journal/migration-preservation.json)では既存26業務表の全行と既存8画像の保持を確認。後から追加された利用/試験記録と同一性を混同しない。
+- [Docker再起動](../artifacts/community/journal/restart.json)で非揮発表と画像hash一致。[API再取得](../artifacts/community/journal/restart-api.json)でも確認済み4訪問と獲得バッジが一致。sessions/stage_sessions/jobsは揮発対象として表hashから除外。
 - 地図は同梱の日本概略図と都道府県代表点。道路/境界/住所検索は対象外。本人には入力座標、他者には県単位のみ。実績共有と訪問写真共有は別設定。
 
 ## CP36：幅と相談スクロール（追加受入）
 
-[実測](../community/artifacts/conversation-layout/results.json)の3段階成功。1440×900と1366×768で外枠430px/内容410px、端末下端が画面内。相談は見出しと入力を固定し履歴のみscroll、太いバー非表示。320/390px・200%文字・長文、Home/End/ホイール、両方向の実返信、モーダル閉鎖後の背景スクロール復元を確認。通常Edge修復の根拠にはしない。
+[実測](../artifacts/community/conversation-layout/results.json)の3段階成功。1440×900と1366×768で外枠430px/内容410px、端末下端が画面内。相談は見出しと入力を固定し履歴のみscroll、太いバー非表示。320/390px・200%文字・長文、Home/End/ホイール、両方向の実返信、モーダル閉鎖後の背景スクロール復元を確認。通常Edge修復の根拠にはしない。
 
 ## CP32〜35・37・38：講の承諾と候補共有（追加受入）
 
@@ -169,11 +169,11 @@ C1は30/100据置。通常Edgeの応答停止（CP27）は未解決。動作が�
 
 | 検証 | 結果と証拠 |
 |---|---|
-| API/独立レビュー | [講の45件と移行補足1件](../community/artifacts/circles/api-tests.json)、[関連57件と最終追加13件](../community/artifacts/discovery/api-tests.json)。別実行を加算して一括成功とはしない。権限、未承諾/他社拒否、曖昧条件、古い版、取消、公開停止、日程、本人許可、重複、100件超を確認 |
-| 講の画面 | [6段階成功](../community/artifacts/circles/browser.json)。二方式作成、本人参加/見送り、複数対話、明示条件確定、事業者実承諾、共有返信、見積両者確認と改訂。axe0/外部要求0/320・390・200% |
-| ログイン入口 | [4段階成功](../community/artifacts/login/results.json)。空欄、列挙なし、Enter、失敗/表示切替、片側logout、狭幅/拡大/keyboard。初回footer色3.95:1の違反は修正してaxe0 |
-| おすすめと候補共有 | [5段階成功](../community/artifacts/discovery/browser.json)。事業者日時の実登録編集、講選択/条件照合、候補保存、再読、明示招待pending。axe0/外部要求0。長い数字の講名による320px文字200%のはみ出しを折返しで修正 |
-| 移行/保存 | [schema3→4](../community/artifacts/circles/migration.json)旧30表/8画像同一、[schema4→5](../community/artifacts/discovery/migration.json)旧36表/8画像同一。[再起動](../community/artifacts/discovery/restart.json)で非揮発表/画像一致、[4訪問とバッジ](../community/artifacts/discovery/restart-api.json)も保持 |
+| API/独立レビュー | [講の45件と移行補足1件](../artifacts/community/circles/api-tests.json)、[関連57件と最終追加13件](../artifacts/community/discovery/api-tests.json)。別実行を加算して一括成功とはしない。権限、未承諾/他社拒否、曖昧条件、古い版、取消、公開停止、日程、本人許可、重複、100件超を確認 |
+| 講の画面 | [6段階成功](../artifacts/community/circles/browser.json)。二方式作成、本人参加/見送り、複数対話、明示条件確定、事業者実承諾、共有返信、見積両者確認と改訂。axe0/外部要求0/320・390・200% |
+| ログイン入口 | [4段階成功](../artifacts/community/login/results.json)。空欄、列挙なし、Enter、失敗/表示切替、片側logout、狭幅/拡大/keyboard。初回footer色3.95:1の違反は修正してaxe0 |
+| おすすめと候補共有 | [5段階成功](../artifacts/community/discovery/browser.json)。事業者日時の実登録編集、講選択/条件照合、候補保存、再読、明示招待pending。axe0/外部要求0。長い数字の講名による320px文字200%のはみ出しを折返しで修正 |
+| 移行/保存 | [schema3→4](../artifacts/community/circles/migration.json)旧30表/8画像同一、[schema4→5](../artifacts/community/discovery/migration.json)旧36表/8画像同一。[再起動](../artifacts/community/discovery/restart.json)で非揮発表/画像一致、[4訪問とバッジ](../artifacts/community/discovery/restart-api.json)も保持 |
 | 既存機能の回帰 | schema5配信で地図6段階と左右認証8段階成功。通常Edgeの障害は別で未解決 |
 
 不合格と回復はlogin/contrast-failure.json、circles/browser-日時.json、discoveryの各履歴へ保持。講画面の初回は保存応答を待たず即GETする試験の待機不足で、応答後の状態を待つよう修正した。期待・候補保存・相談・見積確認を物理的利用や予約成立として報告しない。

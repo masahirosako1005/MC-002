@@ -1,0 +1,139 @@
+{
+  "adopted_take": "final-rate-2",
+  "voice": {
+    "name": "Microsoft Sayaka",
+    "culture": "ja-JP",
+    "gender": "Female"
+  },
+  "rate": 2,
+  "characters": 200,
+  "rate_comparison": [
+    {
+      "rate": 1,
+      "voice_seconds": 44.296,
+      "video_seconds": 50.8,
+      "max_sample_peak_dbfs": -4.240325379070272,
+      "clipped_samples": 0
+    },
+    {
+      "rate": 2,
+      "voice_seconds": 39.647125,
+      "video_seconds": 46.5,
+      "max_sample_peak_dbfs": -3.885732763980779,
+      "clipped_samples": 0
+    }
+  ],
+  "selection_reason": "User requested a regular conversational pace after finding male Rate 0 slow. Rate 2 is 10.5% shorter than Rate 1 with the same words; no post-synthesis speed change. Listening remains unverified.",
+  "duration_policy": "voice + 0.8 seconds, rounded up to 30 fps; minimum 4 seconds, maximum 10 seconds",
+  "total_seconds": 46.5,
+  "frames": 1395,
+  "total_voice_seconds": 39.647125,
+  "wav_verified": [
+    {
+      "scene": 0,
+      "voice_seconds": 4.0118125,
+      "slot_seconds": 4.833333333333333,
+      "total_padding_seconds": 0.8215208333333335,
+      "sha256": "e0300fdaa74796ec54e8696748697ee37589809cd6f778b5614939f0b2ddbd91"
+    },
+    {
+      "scene": 1,
+      "voice_seconds": 3.637125,
+      "slot_seconds": 4.466666666666667,
+      "total_padding_seconds": 0.8295416666666666,
+      "sha256": "768802aa5eff7374f02e6b216bb78a764246c64125ffd35bfd1b0dd42ad2951d"
+    },
+    {
+      "scene": 2,
+      "voice_seconds": 4.266,
+      "slot_seconds": 5.066666666666666,
+      "total_padding_seconds": 0.8006666666666664,
+      "sha256": "bf46ee1a0d38bac8e637cf7c02f23f24997802a2c236790e34f3baf1bca80e0e"
+    },
+    {
+      "scene": 3,
+      "voice_seconds": 5.5765625,
+      "slot_seconds": 6.4,
+      "total_padding_seconds": 0.8234375000000007,
+      "sha256": "1db6308fa7c913d2fac9d2232cf6484d9c03b943b8f36fd78e67fe3cdeaf3a44"
+    },
+    {
+      "scene": 4,
+      "voice_seconds": 6.223125,
+      "slot_seconds": 7.033333333333333,
+      "total_padding_seconds": 0.8102083333333336,
+      "sha256": "c6a03da57e8db6251213e9d8901f45e9bae8f7ee418a74f95607d223ddb73da1"
+    },
+    {
+      "scene": 5,
+      "voice_seconds": 5.6118125,
+      "slot_seconds": 6.433333333333334,
+      "total_padding_seconds": 0.8215208333333335,
+      "sha256": "2d1c53d8f53d3a411deafe871626461864fffaa9e70b2803123d1704f39df454"
+    },
+    {
+      "scene": 6,
+      "voice_seconds": 7.450875,
+      "slot_seconds": 8.266666666666667,
+      "total_padding_seconds": 0.8157916666666676,
+      "sha256": "7cfc3650496407922cfe5dbbe050dbc580dd22b0ff2193fe0356b7e4f9193e1a"
+    },
+    {
+      "scene": 7,
+      "voice_seconds": 2.8698125,
+      "slot_seconds": 4.0,
+      "total_padding_seconds": 1.1301875,
+      "sha256": "dedd859693da8f66d9a703dd7d1eade97867e620abd6bd2e945749f31acac10a"
+    }
+  ],
+  "scene_metadata_preserved_except_voice_duration": true,
+  "vtt_matches_voice": true,
+  "vtt_final_newlines": 1,
+  "vtt_sha256": "ef41c1286054cd4203d1402f3ae94ec956ae19bd50d8dfbdb928e6c3918e46dc",
+  "protected_unchanged": {
+    "outputs/kou-revisit-intro-v1.mp4": true,
+    "outputs/kou-revisit-intro-v2.mp4": true,
+    "outputs/kou-revisit-intro-v3.mp4": true,
+    "outputs/kou-revisit-intro-v4.mp4": true,
+    "outputs/kou-revisit-intro-v5.mp4": true,
+    "outputs/kou-revisit-intro-v6.mp4": true,
+    "outputs/kou-revisit-intro-v7.mp4": true,
+    "outputs/kou-revisit-intro-v9.mp4": true,
+    "artifacts/video-revisit/v8/audio/voice-00.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-01.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-02.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-03.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-04.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-05.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-06.wav": true,
+    "artifacts/video-revisit/v8/audio/voice-07.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-00.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-01.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-02.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-03.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-04.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-05.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-06.wav": true,
+    "artifacts/video-revisit/v9/audio/voice-07.wav": true,
+    "community/scripts/revisit-video-guide-scenes.json": true,
+    "community/scripts/narrate_revisit_guide.ps1": true,
+    "community/scripts/revisit-video-male-scenes.json": true,
+    "community/scripts/narrate_revisit_male.ps1": true
+  },
+  "min_trailing_seconds": 0.5806666666666667,
+  "clipped_samples": 0,
+  "max_sample_peak_dbfs": -3.885732763980779,
+  "final_encoded_true_peak": "Parent mux/normalization check required; sample peak is not true peak",
+  "engine_checks": {
+    "repeated_plain_pcm_identical": true,
+    "meaning": "PCM differences show engine output changed; perceptual clarity and naturalness still require listening.",
+    "pause_duration_delta_seconds": 0.12331249999999994,
+    "emphasis_pcm_changed": true
+  },
+  "script_sha256": "80e4e1667368c904207239533db14f5b8c403ac9700be6d3724cb4230c356ee9",
+  "scenes_sha256": "138c3c78fafe4e249652ab75cf3ebe12338f8eb89425b126a39bdfb3ca41052c",
+  "powershell_parse_errors": 0,
+  "post_synthesis_tempo_processing": false,
+  "external_api_used": false,
+  "listening_review": "not performed"
+}

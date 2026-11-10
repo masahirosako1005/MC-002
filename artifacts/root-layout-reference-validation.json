@@ -1,0 +1,120 @@
+{
+  "scope": "Owned reference updates and board display resolver only; static checks are not full application regression.",
+  "files": [
+    {
+      "path": "scripts/quality_check.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 2,
+      "ruff_current": 2,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "scripts/tickets.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 2,
+      "ruff_current": 2,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/run.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 2,
+      "ruff_current": 2,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/backend/conftest.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 1,
+      "ruff_current": 1,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/backend/test_enrichment.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 0,
+      "ruff_current": 0,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/backend/test_image_guidance.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 0,
+      "ruff_current": 0,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/backend/test_snapshot_metadata.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 0,
+      "ruff_current": 0,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/tooling/test_quality_check.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 1,
+      "ruff_current": 1,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/tooling/test_tickets.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 1,
+      "ruff_current": 1,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/tooling/test_revisit_video_duration.py",
+      "syntax": "passed",
+      "baseline": "new-untracked-file",
+      "ruff_at_head": 0,
+      "ruff_current": 0,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/integration/test_snapshot.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 1,
+      "ruff_current": 1,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/integration/verify-deletion-restore.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 0,
+      "ruff_current": 0,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/integration/verify_journal_storage.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 2,
+      "ruff_current": 2,
+      "new_ruff_findings": 0
+    },
+    {
+      "path": "test/integration/verify_journal_snapshot_rows.py",
+      "syntax": "passed",
+      "baseline": "HEAD",
+      "ruff_at_head": 3,
+      "ruff_current": 3,
+      "new_ruff_findings": 0
+    }
+  ],
+  "new_ruff_findings": 0,
+  "quality_identity_note": "Both preserved community/backend/app keys and current backend/app keys normalize to backend/app for findings and hashes. Historical reports are unchanged.",
+  "board_note": "Only a deep copy used in render_locked is remapped; missing targets keep their old display path. Ledger, event hashes and source records remain unchanged."
+}

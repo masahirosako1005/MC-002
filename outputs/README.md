@@ -1,16 +1,18 @@
-# 発表資料
+# 成果物
 
-**以下のPowerPoint/PDFは旧版 v1.1 の資料です。コミュニティと「講」を中心にした新版スライドは未制作です。** 新しい[設計書](../DESIGN.md)ではシステムと発表資料に講の思想を反映します。[相関図](community-data-correlations.png)は別用途の開発分析資料であり、講の世界観には合わせません。[分析条件と数値](../docs/COMMUNITY-SAMPLE-ANALYSIS.md)も参照できます。
+更新：2026-11-10。最新の紹介動画は **第10版** です。
 
-- [編集用PowerPoint](tang-you-chi-presentation-final.pptx)：13枚。原稿・見出し・図形を編集できます。
-- [閲覧用PDF](tang-you-chi-presentation-final.pdf)：同じ13枚をPowerPointで書き出した固定表示版です。
+- [紹介動画 v10](kou-revisit-intro-v10.mp4)：46.5秒。女性の案内役と音声、利用者/事業者の実操作、再訪の三つの仕組み。
+- [日本語字幕](kou-revisit-intro-v10-ja.vtt) / [制作・検証記録](../docs/REVISIT-VIDEO.md)。ユーザーの最終評価は未確認。
+- [チケットボード](project-board.html)：作業・受入条件・証拠・Git履歴。
+- [CSV相関図](community-data-correlations.png) / [分析条件](../docs/COMMUNITY-SAMPLE-ANALYSIS.md)：開発用の統計資料。
 
-構成は、課題、再訪の2戦略、水門の謎解き、会議の合間の観光、四季と人生の節目、収集棚、参考サービスの収集機構、技術構成、データ完全性、評価と根拠、AI駆動開発の工程、次の来訪理由です。補足と出典はPowerPointの発表者ノートにも記載しています。
+動画のv1〜v9と字幕は比較・改訂履歴です。v8は音声比較用で単独MP4はありません。`video-preview/` はローカル閲覧用で、最新はv10を参照します。
 
-11枚目の100/100は**PJ独自の固定20項目に対する検証完了状況**です。大会公式の採点、規格への全面適合、面白さ、実際の再訪率を意味しません。最終API試験51件成功（10.57秒）、画面試験20件成功（2.8分）を反映しています。画面試験には手帳作成・復旧操作上限に伴う122秒の冷却待ち、別ブラウザー・別タブの手帳引継ぎとセッション回復、収集目標の保持、キーボードだけでの主要操作を含みます。評価の正本は [EVALUATION.md](../docs/EVALUATION.md)、基準の採用範囲は [BENCHMARKS.md](../docs/BENCHMARKS.md)、項目別の確認結果と未検証範囲は [STANDARDS-RESULTS.md](../docs/STANDARDS-RESULTS.md) です。
+## 旧版の資料
 
-大会調査は50候補を照合し、期間内の資料を確認した49候補を主対象28件・関連競技21件に分けています。受賞作品確認40件、募集・開催等まで9件、保留1件です。AI駆動開発の独立した50大会を確認する目標は未達です。[調査の範囲と採否](../docs/CONTEST-VERIFICATION.md) と12枚目の発表者ノートに限界も記載しています。
+[PowerPoint](tang-you-chi-presentation-final.pptx) と [PDF](tang-you-chi-presentation-final.pdf) は旧スタンプラリー版の13枚です。現行の講・N西市・通う旅へ更新したスライドではありません。旧資料の点数を現在の完成度として使わないでください。現在の設計は [DESIGN](../DESIGN.md)、品質評価は [EVALUATION-COMMUNITY](../docs/EVALUATION-COMMUNITY.md) を参照します。
 
-製品・都市の正式名称、参照CSS、既存APIは未提供または未確認です。モデル都市での操作・保存を確認した段階で、実際の観光客の再訪や地域経済への効果は未測定です。
+旧ソースZIP/history.bundleは不要な重複配布物として整理対象ですが、削除拒否により残存しています。現行ソースの配布物として使わないでください。[整理監査](../docs/CLEANUP-AUDIT.md)
 
-Microsoft PowerPoint 16.0で開いて全13枚を描画し、文字切れ・重なり・画像欠落を確認しました。108文字枠の超過は0です。[検証記録](../artifacts/presentation/VISUAL-QA.md) と [再生成手順](../presentation/README.md) を参照できます。
+既存XML/JSONは過去の検証証拠です。新たな試験結果は `artifacts/`、試験ソースと一時データは `test/` に保存します。

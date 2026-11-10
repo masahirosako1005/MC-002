@@ -1,0 +1,601 @@
+{
+  "RecordedAtUtc": "2026-11-10T04:26:52.9500637Z",
+  "Targets": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.pytest_cache",
+      "Kind": "tool-cache",
+      "Files": 5,
+      "ChildDirectories": 2,
+      "Bytes": 24526,
+      "ReparsePoints": 0,
+      "Extensions": {
+        "": 2,
+        ".md": 1,
+        ".gitignore": 1,
+        ".tag": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\.ruff_cache",
+      "Kind": "tool-cache",
+      "Files": 21,
+      "ChildDirectories": 1,
+      "Bytes": 19386,
+      "ReparsePoints": 0,
+      "Extensions": {
+        "": 19,
+        ".gitignore": 1,
+        ".tag": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 55,
+      "ChildDirectories": 51,
+      "Bytes": 7123011,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".txt": 1,
+        ".html": 1,
+        ".bin": 1,
+        ".sqlite3": 51,
+        ".webp": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\.pytest_cache",
+      "Kind": "tool-cache",
+      "Files": 5,
+      "ChildDirectories": 2,
+      "Bytes": 4809,
+      "ReparsePoints": 0,
+      "Extensions": {
+        "": 2,
+        ".md": 1,
+        ".gitignore": 1,
+        ".tag": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\app\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 10,
+      "ChildDirectories": 0,
+      "Bytes": 106779,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 10
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\backend\\tests\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 4,
+      "ChildDirectories": 0,
+      "Bytes": 238753,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-migration-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "ChildDirectories": 1,
+      "Bytes": 466944,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 55,
+      "ChildDirectories": 86,
+      "Bytes": 20916621,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 46,
+        ".webp": 1,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-circles-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "ChildDirectories": 23,
+      "Bytes": 5611520,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 12
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp39-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 76,
+      "ChildDirectories": 126,
+      "Bytes": 35076493,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 67,
+        ".webp": 1,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-cp40-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 88,
+      "ChildDirectories": 149,
+      "Bytes": 45779341,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 79,
+        ".webp": 1,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-date-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "ChildDirectories": 2,
+      "Bytes": 212992,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "ChildDirectories": 23,
+      "Bytes": 6397952,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 12
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 66,
+      "ChildDirectories": 107,
+      "Bytes": 27425165,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 57,
+        ".webp": 1,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-discovery-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 9,
+      "ChildDirectories": 17,
+      "Bytes": 4386816,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 9
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-guidance-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 46,
+      "ChildDirectories": 45,
+      "Bytes": 13857928,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 23,
+        ".jpg": 19,
+        ".png": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 24,
+      "ChildDirectories": 30,
+      "Bytes": 6179208,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 16,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-regression-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 75,
+      "ChildDirectories": 93,
+      "Bytes": 18504032,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 48,
+        ".jpg": 23,
+        ".png": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-journal-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 23,
+      "ChildDirectories": 29,
+      "Bytes": 5732744,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 15,
+        ".jpg": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "ChildDirectories": 23,
+      "Bytes": 7077888,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 12
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-occasions-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 12,
+      "ChildDirectories": 23,
+      "Bytes": 7077888,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 12
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-final-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 9,
+      "ChildDirectories": 17,
+      "Bytes": 4853760,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 9
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-reflections-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 6,
+      "ChildDirectories": 11,
+      "Bytes": 3235840,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 6
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 36,
+      "ChildDirectories": 36,
+      "Bytes": 3629016,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 17,
+        ".jpg": 15,
+        ".png": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-all-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 47,
+      "ChildDirectories": 54,
+      "Bytes": 9539544,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 28,
+        ".jpg": 15,
+        ".png": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-final-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 51,
+      "ChildDirectories": 61,
+      "Bytes": 10899416,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 32,
+        ".jpg": 15,
+        ".png": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-race-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "ChildDirectories": 2,
+      "Bytes": 339968,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-role-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 1,
+      "ChildDirectories": 2,
+      "Bytes": 339968,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-stage-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 14,
+      "ChildDirectories": 24,
+      "Bytes": 4771840,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 14
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\.marketplace-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 8,
+      "ChildDirectories": 13,
+      "Bytes": 2666496,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".db": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 14,
+      "ChildDirectories": 0,
+      "Bytes": 199365,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 14
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\analytics\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 9,
+      "ChildDirectories": 0,
+      "Bytes": 58753,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 9
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\circles\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 10,
+      "ChildDirectories": 0,
+      "Bytes": 95137,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 10
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\daytrip\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 8,
+      "ChildDirectories": 0,
+      "Bytes": 99437,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 8
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\journal\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "ChildDirectories": 0,
+      "Bytes": 39192,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 6
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\marketplace\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "ChildDirectories": 0,
+      "Bytes": 64603,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 6
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\occasions\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "ChildDirectories": 0,
+      "Bytes": 45083,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 7
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\personalization\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 4,
+      "ChildDirectories": 0,
+      "Bytes": 15589,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 4
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\programs\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "ChildDirectories": 0,
+      "Bytes": 41388,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 7
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\reflections\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 7,
+      "ChildDirectories": 0,
+      "Bytes": 52682,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 7
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app\\residence\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "ChildDirectories": 0,
+      "Bytes": 17005,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 6
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\tests\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 16,
+      "ChildDirectories": 0,
+      "Bytes": 1012641,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 16
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\project\\.test-work",
+      "Kind": "obsolete-test-temporary",
+      "Files": 0,
+      "ChildDirectories": 0,
+      "Bytes": 0,
+      "ReparsePoints": 0,
+      "Extensions": {}
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\scripts\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 13,
+      "ChildDirectories": 0,
+      "Bytes": 277015,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 13
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 2,
+      "ChildDirectories": 0,
+      "Bytes": 4006,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 2
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\backend\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 28,
+      "ChildDirectories": 0,
+      "Bytes": 1627993,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 28
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\legacy-root\\.backend-test-tmp",
+      "Kind": "obsolete-test-temporary",
+      "Files": 36,
+      "ChildDirectories": 34,
+      "Bytes": 4468785,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".txt": 1,
+        ".html": 1,
+        ".sqlite3": 34
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\fixtures\\runtime\\legacy-root\\.test-work",
+      "Kind": "obsolete-test-temporary",
+      "Files": 571,
+      "ChildDirectories": 900,
+      "Bytes": 305366569,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".png": 12,
+        ".webp": 2,
+        ".db": 445,
+        ".json": 9,
+        ".jpg": 103
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\integration\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 1,
+      "ChildDirectories": 0,
+      "Bytes": 5880,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 1
+      }
+    },
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\test\\tooling\\__pycache__",
+      "Kind": "python-bytecode",
+      "Files": 6,
+      "ChildDirectories": 0,
+      "Bytes": 102032,
+      "ReparsePoints": 0,
+      "Extensions": {
+        ".pyc": 6
+      }
+    }
+  ],
+  "Exclusions": [
+    {
+      "Path": "C:\\AI-Sprint\\workspace\\MC-002\\community\\scripts\\__pycache__",
+      "Reason": "video Python processes are active; shared script cache retained"
+    }
+  ],
+  "ActiveTestOrQualityProcesses": [],
+  "TargetCount": 50,
+  "TotalFiles": 1542.0,
+  "TotalBytes": 566089799.0
+}

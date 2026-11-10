@@ -1,0 +1,4 @@
+# The root entry point delegates to the current application only.
+name: kou-community
+include:
+  - path: community/compose.yaml

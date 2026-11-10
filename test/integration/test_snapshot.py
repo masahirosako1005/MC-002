@@ -7,7 +7,7 @@ import uuid
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-ROOT = PROJECT_ROOT / "community"
+ROOT = PROJECT_ROOT
 FIXTURES = PROJECT_ROOT / "test" / "fixtures" / "runtime"
 EVIDENCE = PROJECT_ROOT / "artifacts" / "storage"
 

@@ -1,0 +1,32 @@
+{
+  "protected": {
+    "outputs/kou-revisit-intro-v1.mp4": "cf3c9a64bc0514991426af93fa8854ff8730274fabf484b815f8290289be1956",
+    "outputs/kou-revisit-intro-v2.mp4": "7cdce9e11e0f603917c7fb3bec39d4736e0af20aa37779d1573624af3665b6cd",
+    "outputs/kou-revisit-intro-v3.mp4": "7d24303b3561fe96a394435dd35ecfc4de93be9dbc025c8a8db21e9b8cd606a9",
+    "outputs/kou-revisit-intro-v4.mp4": "9c01976b1bce48419dbf7973261b76ec3d4711c203992d8936b6bd63cb28481b",
+    "outputs/kou-revisit-intro-v5.mp4": "95a559cdabcd4736793a506d498914d3c4cb3053d8d1339c9eb415f054a684bf",
+    "outputs/kou-revisit-intro-v6.mp4": "55c979002164233111a07fa5777abc8fd4e6168018cfa8d6b6dc9b58b100ff30",
+    "outputs/kou-revisit-intro-v7.mp4": "59a2b9ebf441ab47f345e52c8c4863b6a4a84140c34415a62c81d99a31c909a4",
+    "outputs/kou-revisit-intro-v9.mp4": "d745eae40259e5d2b4116c79409e7cf5e941274af0900c84cfbb9601de7e1a5a",
+    "artifacts/video-revisit/v8/audio/voice-00.wav": "cb30affeab130b37fe78bb6f29b56b2118e5d88fa0bc1b248e260bd6d7278648",
+    "artifacts/video-revisit/v8/audio/voice-01.wav": "b020ab1f0afe271b38066fec6b129c2edd787fbc40c5379b05366293547d3add",
+    "artifacts/video-revisit/v8/audio/voice-02.wav": "d5028cbfc65d4ca4622541bf10ce8de7f75845cfbb0613163ca15826aca84051",
+    "artifacts/video-revisit/v8/audio/voice-03.wav": "3723c6f03069db88f065ec3daa4edd2ebcb5fb5b7447381c5cee7098ac3fffcc",
+    "artifacts/video-revisit/v8/audio/voice-04.wav": "f284a00ae7d338bc4f5e5b9bbab1212bc7f9ad76fa9a38c8e5acd5c81b29f51d",
+    "artifacts/video-revisit/v8/audio/voice-05.wav": "4e3c717477430f9bf29dca90e4eb40e4cf94ff1dc17f16baa51219d3b2b2b664",
+    "artifacts/video-revisit/v8/audio/voice-06.wav": "4c8d179b886a8a998d04bb7f289de23c2e263b5db5a3e8e93d22aa2f906f7697",
+    "artifacts/video-revisit/v8/audio/voice-07.wav": "dbd8771a7aaeb35bc37ae424a68049f66a9adc4003b6cb8e9bf8eb12597371b8",
+    "artifacts/video-revisit/v9/audio/voice-00.wav": "65580f2b2eb62deeaaf17de6bddbf3b61308a4e9caf8d10da3c0c8cb8af54dba",
+    "artifacts/video-revisit/v9/audio/voice-01.wav": "eb88727fa68d52a1eb5afb8372b285fa5893a22afa8eaee6930516f1e5cd4b63",
+    "artifacts/video-revisit/v9/audio/voice-02.wav": "5f5707f78e145109af5da7df7ea1a1eb1125c4b58cffe93ab1a3caf9adf2403d",
+    "artifacts/video-revisit/v9/audio/voice-03.wav": "427b6dc58a8694711ce5dfd6000bcc705e9168a55b31f4cf3f5a18ca56bc5449",
+    "artifacts/video-revisit/v9/audio/voice-04.wav": "a91272900a6be73163ab14ab7775df6adab62e55f753d48dda7b2ec946bf5367",
+    "artifacts/video-revisit/v9/audio/voice-05.wav": "5db67a06b6e68cebb5350f442c155515e3a313490b2eeb64c7429cdedc90ae86",
+    "artifacts/video-revisit/v9/audio/voice-06.wav": "b116b6b00721a6db2ee4554e9190df3a70e7a0dba695660e43c54cf30637ae68",
+    "artifacts/video-revisit/v9/audio/voice-07.wav": "aaa472a0acffb4e6cc888d41ed29708e035f4325ed3961212c7cb4b39116ddbb",
+    "community/scripts/revisit-video-guide-scenes.json": "3f852c63fd20516323dbb314776b7394d7506e87544794f1b48b545cee2143c6",
+    "community/scripts/narrate_revisit_guide.ps1": "b62ecfdf4f2278f44dab951e7230027199e3e00978d309ddfc70dac5df4de46b",
+    "community/scripts/revisit-video-male-scenes.json": "11a375483adc146d6acd1c4ff333df8949df015bf3153724320adb8672e10b32",
+    "community/scripts/narrate_revisit_male.ps1": "5ac1f758b9650ec422223f9d45a56b1020d1f06262c93dba3f54934a41a440ad"
+  }
+}

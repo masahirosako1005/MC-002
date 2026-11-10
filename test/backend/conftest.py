@@ -5,7 +5,7 @@ import sys
 import httpx
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "community" / "backend"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "backend"))
 from app.config import Settings
 from app.main import create_app
 

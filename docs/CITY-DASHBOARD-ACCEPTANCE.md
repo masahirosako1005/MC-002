@@ -53,19 +53,19 @@
 | 複雑度C901 | 14 | 14 | 同じ指摘が残存、新規0 |
 | Bandit | 19 | 19 | 行番号以外は同じ指摘、新規0。検出0や全面安全性を主張しない |
 
-証拠は [フロントエンドmanifest](../community/artifacts/frontend-quality/revisit-integrated-manifest.json)、[バックエンドsummary](../community/artifacts/quality/revisit-integrated/summary.json)、[診断差分](../artifacts/quality/revisit-integrated/finding-delta.json)。計測後の `has_link` 修正を含む4ファイルの厳格lint・全体型検査・main.pyのRuffは [補足再検査](../artifacts/quality/revisit-integrated/post-fix-checks.json) にハッシュ付きで分離した。計測後に変わったファイルを、元の全体計測で検証済みとは扱わない。
+証拠は [フロントエンドmanifest](../artifacts/community/frontend-quality/revisit-integrated-manifest.json)、[バックエンドsummary](../artifacts/community/quality/revisit-integrated/summary.json)、[診断差分](../artifacts/quality/revisit-integrated/finding-delta.json)。計測後の `has_link` 修正を含む4ファイルの厳格lint・全体型検査・main.pyのRuffは [補足再検査](../artifacts/quality/revisit-integrated/post-fix-checks.json) にハッシュ付きで分離した。計測後に変わったファイルを、元の全体計測で検証済みとは扱わない。
 
 追加修正では、初めて割引予算を設定するときも既存の確保・利用総額を表示して下限に用いる。通う旅は開催詳細が閲覧できなくなっても本人の紐付けを解除できる。降格予定日は年を表示し、翌年の予定を過去日と誤読させない。階級と特典資格の点・維持条件が同一のときは説明の重複を短縮し、事業者確認済みの点だけが特典対象になる区別を保持した。
 
 ### 最終再計測 revisit-final
 
-全体を再計測し、Ruff 0・型エラー0・Oxlint 115・Stylelint 126・C901 14・Bandit 19、新規指摘0。判定は既存指摘が残る `review-required`。前の計測で検出したI001は解消した。最終manifestの全ソースハッシュと現行ファイルの一致も確認した。証拠は [最終summary](../artifacts/quality/revisit-final/summary.json)、[フロントエンドmanifest](../community/artifacts/frontend-quality/revisit-final-manifest.json)、[バックエンドsummary](../community/artifacts/quality/revisit-final/summary.json)。
+全体を再計測し、Ruff 0・型エラー0・Oxlint 115・Stylelint 126・C901 14・Bandit 19、新規指摘0。判定は既存指摘が残る `review-required`。前の計測で検出したI001は解消した。最終manifestの全ソースハッシュと現行ファイルの一致も確認した。証拠は [最終summary](../artifacts/quality/revisit-final/summary.json)、[フロントエンドmanifest](../artifacts/community/frontend-quality/revisit-final-manifest.json)、[バックエンドsummary](../artifacts/community/quality/revisit-final/summary.json)。
 
 最終集約ツールの比較基準は `daytrip-wa-verified` / `daytrip-final` で、Oxlint124→115（9件減）。本節前半の直前基準 `nnishi-revision` からは119→115（4件減）であり、基準の異なる差分を同一の改善件数として扱わない。最終staticレポートの `tests: not-run` はその再計測で動作試験を再実行していない意味で、上記の統合回帰とは別である。
 
 ### 最終配信再計測 revisit-release
 
-`revisit-final` 後の `Daytrip.tsx` と `provider-dashboard.css` の遅い修正を含め、再計測した。Ruff 0・型エラー0・Oxlint115・Stylelint126・C90114・Bandit19、実行エラー0、新規指摘0。全体判定は既存指摘による `review-required` のまま。[release summary](../artifacts/quality/revisit-release/summary.json)、[frontend manifest](../community/artifacts/frontend-quality/revisit-release-manifest.json)、[backend summary](../community/artifacts/quality/revisit-release/summary.json) の全測定対象ハッシュと、この記録時点の現行ファイルが一致することを確認した。前の計測へ修正後の成功を遡及させていない。
+`revisit-final` 後の `Daytrip.tsx` と `provider-dashboard.css` の遅い修正を含め、再計測した。Ruff 0・型エラー0・Oxlint115・Stylelint126・C90114・Bandit19、実行エラー0、新規指摘0。全体判定は既存指摘による `review-required` のまま。[release summary](../artifacts/quality/revisit-release/summary.json)、[frontend manifest](../artifacts/community/frontend-quality/revisit-release-manifest.json)、[backend summary](../artifacts/community/quality/revisit-release/summary.json) の全測定対象ハッシュと、この記録時点の現行ファイルが一致することを確認した。前の計測へ修正後の成功を遡及させていない。
 
 ## 主担当の実画面受入
 

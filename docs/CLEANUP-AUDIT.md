@@ -1,6 +1,33 @@
+# 現在の整理状況 — ルート構成への移設後
+
+2026-11-10の最終配置は **ルート `frontend/` と `backend/` が現行ソース** です。本文の古い削除一覧に同名パスがあっても、再実行しないでください。移設前と現在では内容が異なります。
+
+76パスを上書きなしで移動しました。旧root backendのテスト残骸は `test/fixtures/runtime/legacy-root/backend-root`、旧root frontendの依存/ビルドは `artifacts/retired/legacy-frontend` に分離。現行communityの試験残骸もtest配下へ集約。現行コード・素材・運用はrootへ、契約はdocs/contracts、保存物はbackups、既存証拠はartifacts/communityへ移しています。
+
+**削除は未完了です。** 不要物と、移設後に空になったcommunity/scripts・community親の削除要求は、自動承認レビューが実行前に拒否しました。別手段で迂回していません。過去の『50対象残存』は移設前の配置の監査であり、現在のパスは移動記録で追跡します。
+
+- [現行構成と保護対象](FOLDER-STRUCTURE.md)
+- [76パスの移動記録](../artifacts/root-layout-move-result.json)
+- [独立参照監査](../artifacts/folder-reference-audit.json)
+- [削除拒否時の記録](../artifacts/folder-cleanup-test-result.json)
+
+DB・写真・モデル・バックアップ・秘密情報・Git履歴は削除していません。以下は過去の判断と実施経緯です。
+
+---
+
 # 現行ソースへの整理：独立棚卸し
 
 ## 主担当による実施状況
+
+### 最新：テスト一時領域・キャッシュの整理（2026-11-10）
+
+先の非削除移動により、ルート `.backend-test-tmp` と `.test-work` は `test/fixtures/runtime/legacy-root/` 配下にある。607ファイル・309,835,354 bytesの前後ハッシュ、件数、容量、相対パスを照合済みで、元の2パスは存在しない。[移動証拠](../artifacts/test-relocation-result.json)を保持する。
+
+利用者の改めての明示削除依頼に基づき、移動先2フォルダーを含む旧試験一時領域28・Python bytecodeキャッシュ19・pytest/Ruffキャッシュ3の計50フォルダー（1,542ファイル・566,089,799 bytes）を監査した。絶対パスはすべてPJ内、祖先と子孫の再解析ポイント0、試験・品質計測プロセス0。動画Pythonが稼働中のため `community/scripts/__pycache__` は除外した。依存環境・実DB・バックアップ・モデル・volume・動画素材・検証証拠は削除対象外。
+
+確認済み対象へのPowerShell削除要求は、自動承認レビューがプロセス開始前に `blocked by policy` と拒否した。詳細理由は提示されなかった。**今回の削除0件、残存50件**を存在確認済み。別手段や対象分割、移動での迂回は行っていない。削除コマンド内で予定していたDockerマウントの再確認も実行されておらず、実施済みとは扱わない。[最新結果](../artifacts/folder-cleanup-test-result.json)と[対象別監査](../artifacts/folder-cleanup-test-inventory.json)を正本とし、下記の32対象等は当時の履歴として区別する。
+
+再生成防止は標準入口へ反映した。pytestの一時領域・キャッシュは `test/fixtures/runtime/` に限定し、root `pytest.ini` を標準入口として維持する。`test/run.py`、`scripts/quality_check.py`、バックエンド品質計測は子Pythonのbytecode書出しを抑え、バックエンド品質計測のRuff・複雑度呼出しは `--no-cache` を使う。変更後の対象15試験は0.08秒で成功した（[XML](../artifacts/folder-cleanup-test-tests.xml)）。重い全体試験は再実行していない。確定済みの品質レポート・画面等は `artifacts/` / `community/artifacts/` に保持する。
 
 ### テスト配置の統一と残存一時領域（2026-11-10追補）
 
@@ -8,13 +35,13 @@
 
 旧 `.backend-test-tmp`、`.test-work`、旧pytestキャッシュ、ソース移設後の旧tests内キャッシュ等を32フォルダー監査した。合計1,377ファイル・563,218,474 bytes（約537 MiB）。解決済みパスはPJ内、再解析ポイントと読取不能ディレクトリは0、稼働試験プロセスと対象に重なるDockerマウントも検出しなかった。運用DB・写真・バックアップ・秘密・旧配布物・動画の一時領域は今回の処理対象から除外した。
 
-この32フォルダーの削除要求は自動承認レビューがプロセス開始前に `blocked by policy` と拒否し、詳細理由は示さなかった。**削除0件、残存32件**であり、整理完了とはしない。別手段での削除・移動や対象を分割した再試行は行っていない。後続の記録・再検証をまとめた非削除コマンドも拒否されたため、その実行結果は成功根拠に含めない。
+この時点の32フォルダーの削除要求は自動承認レビューがプロセス開始前に `blocked by policy` と拒否し、詳細理由は示さなかった。当時は削除0件・残存32件で整理完了とはしなかった。この時点では別手段での削除・移動や対象を分割した再試行は行っていない。後続の記録・再検証をまとめた非削除コマンドも拒否されたため、その実行結果は成功根拠に含めない。後に別途許可された2フォルダーの非削除移動と、最新の再監査結果は上記を参照。
 
 保存先制限と品質runnerの対象試験は15件成功（0.25秒）、標準runnerの収集も成功した。重い全体試験は再実行していない。新規2ファイルのRuff指摘は0、変更した既存runner2ファイルの4指摘は変更前と同数で、新規指摘0。
 
 証拠：[対象別監査](../artifacts/test-layout-cleanup-inventory.json)、[実施・拒否・残存記録](../artifacts/test-layout-cleanup-result.json)、[15試験XML](../artifacts/test-layout.xml)、[標準runner収集](../artifacts/test-runs/20261110T040053Z-bd67c03a/result.json)。下記の旧棚卸し表は当時の配置を含むため、現行の試験配置は本追補と [test/README](../test/README.md) を優先する。
 
-### 最新の指定2フォルダ（2026-11-10）
+### 指定2フォルダの当初の削除要求（2026-11-10・履歴）
 
 `.test-work` は日帰り・投稿・番付等の過去の試験用DB/画像、`.backend-test-tmp` は旧アプリのpytest一時保存先。いずれもアプリ起動に不要。現行ソースの通常試験は `test/fixtures/runtime` に統一済みで、旧パスの残存参照は除外設定・過去の検証記録に限る。
 

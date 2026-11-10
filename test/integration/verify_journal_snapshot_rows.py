@@ -10,7 +10,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT = Path(__file__).resolve().parents[2] / "community"
+ROOT = Path(__file__).resolve().parents[2]
 PROBE = r'''
 from collections import Counter
 import hashlib,json,sqlite3,sys
@@ -66,7 +66,7 @@ if process.returncode:
 report = json.loads(process.stdout)
 report['checked_at']=datetime.now(timezone.utc).isoformat()
 report['scope']='Pre-migration backup subset preservation; additional user/QA rows allowed. Not equality of all current rows.'
-output = ROOT / 'artifacts' / args.artifact_dir / 'migration-preservation.json'
+output = ROOT / 'artifacts' / 'community' / args.artifact_dir / 'migration-preservation.json'
 output.parent.mkdir(parents=True,exist_ok=True)
 output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'passed':report['passed'],'existing_tables':len(report['tables']),'old_media_unchanged':report['old_media_unchanged']}))

@@ -22,7 +22,7 @@ try{
  await step('hidden login images are not created or fetched',async()=>{
   for(const f of p.frames())assert.equal(await f.locator('.login-photo img').count(),0);
   assert.equal(coverRequests.length,0);
-  const file=path.join(root,'artifacts/browser/stage-lightening.json'),report=JSON.parse(await fs.readFile(path.join(root,'community/artifacts/stage-lightening.json'),'utf8'));
+  const file=path.join(root,'artifacts/browser/stage-lightening.json'),report=JSON.parse(await fs.readFile(path.join(root,'artifacts/community/stage-lightening.json'),'utf8'));
   report.after={checkedAt:new Date().toISOString(),cover_requests:coverRequests,hidden_login_images:0};
   report.before.single_resource_bytes=355761;report.limit='Request count reduction, not a measured total network or process memory reduction.';
   await fs.writeFile(file,JSON.stringify(report,null,2));

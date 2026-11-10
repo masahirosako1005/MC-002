@@ -1,6 +1,6 @@
 # 現行テスト
 
-実行する試験のソースはこの `test/` にまとめる。アプリの実装は `community/`、運用補助は `community/scripts/`、実行結果は `artifacts/`、合成テストデータは `test/fixtures/` に置く。実DB・写真・バックアップをfixtureへ移さない。
+実行する試験のソースはこの `test/` にまとめる。アプリの実装はPJ直下の `frontend/` と `backend/`、運用補助は `scripts/`、実行結果は `artifacts/`、合成テストデータは `test/fixtures/` に置く。実DB・写真・バックアップをfixtureへ移さない。
 
 | 場所 | 対象 | 稼働アプリへの操作 |
 |---|---|---|
@@ -43,9 +43,9 @@ PJ直下で実行する。事前に `scripts/setup-local.ps1` で依存を準備
 ## 個別実行
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/backend -q
-.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/tooling -q
-.\.venv\Scripts\python.exe -m pytest -c pytest.ini test/backend/test_daytrip.py -q
+.\.venv\Scripts\python.exe -B -m pytest -c pytest.ini test/backend -q
+.\.venv\Scripts\python.exe -B -m pytest -c pytest.ini test/tooling -q
+.\.venv\Scripts\python.exe -B -m pytest -c pytest.ini test/backend/test_daytrip.py -q
 node test/browser/verify-login.mjs
 node test/tooling/check_board.cjs
 
@@ -57,7 +57,9 @@ root `pytest.ini` がPythonの参照先と通常対象を指定する。通常�
 
 `pytest.ini` は旧版や依存まで探索を広げないため、PJ直下の標準入口として保持する。`test/run.py` と `scripts/quality_check.py` もこの設定を明示して実行する。`test/conftest.py` は一時領域・pytestキャッシュを `test/fixtures/runtime/` の子ディレクトリに限定し、旧 `.backend-test-tmp` / `.test-work` 等への指定を実行前に拒否する。独自の `--basetemp` もこの範囲内に置く。
 
-ブラウザー依存の正本は `test/browser/package.json` とlockファイル。導入だけなら `npm.cmd ci --prefix test/browser`。紹介動画もこの依存を使う。`community/scripts/create_intro_video.mjs` は動画の運用生成器なのでtestへ移さない。
+標準の試験・品質runnerは子プロセスへ `PYTHONDONTWRITEBYTECODE=1` を渡し、ソース内の `__pycache__` を再生成しない。直接pytestを起動する上記手順も `-B` を付ける。バックエンド品質計測のRuff・複雑度検査は `--no-cache` を使い、ルート `.ruff_cache` を再生成しない。
+
+ブラウザー依存の正本は `test/browser/package.json` とlockファイル。導入だけなら `npm.cmd ci --prefix test/browser`。紹介動画もこの依存を使う。`scripts/create_intro_video.mjs` は動画の運用生成器なのでtestへ移さない。
 
 ## 保存先と結果の扱い
 
@@ -66,8 +68,12 @@ root `pytest.ini` がPythonの参照先と通常対象を指定する。通常�
 - 合成保存/復元の結果：`artifacts/storage/`。
 - 一時DB/画像/台帳：`test/fixtures/runtime/`。一括入口は実行ごとに別フォルダを使う。
 - 直接pytestの一時領域：`test/fixtures/runtime/pytest-current`。pytestが再作成する専用領域であり、保存したい資料を入れない。
-- 過去の `community/artifacts/`、旧試験ログ、拒否済みの旧cache/ZIPは今回移動・削除していない。再起動の運用helperは自身の履歴を引き続き `community/artifacts/restart/` に出す。
+- 旧 `community/artifacts/` は内容を保持して `artifacts/community/` へ移動済み。再起動の運用helperは履歴を `artifacts/community/restart/` に出す。旧キャッシュの残存状況は下記監査記録で区別する。
 
 `result.json` はコマンドごとの終了コード・時間・ログ先と実行/収集の区別を残す。失敗・起動不可・時間超過があれば成功にしない。新しい投稿UIなどでシナリオのラベルや操作が変わった場合は該当試験も更新し、古い画面試験の結果を現在版の成功として流用しない。
 
-2026-11-10の統一確認では、保存先制限と品質runnerの対象15試験が成功し、標準runnerの収集も成功した。一時データは `test/` 配下へ統一するが、確定済みのXML/JSON・画面などの検証証拠は `artifacts/` と既存の `community/artifacts/` に保持する。旧一時領域32フォルダーの削除は自動承認レビューが実行前に `blocked by policy` と拒否したため、削除0件・残存32件。拒否を迂回する再試行は行っていない。[検証・残存記録](../artifacts/test-layout-cleanup-result.json)、[対象15試験](../artifacts/test-layout.xml)を参照。
+2026-11-10の統一確認では、保存先制限と品質runnerの15試験・標準runnerの収集が成功した。その後、明示されたルートの `.backend-test-tmp` と `.test-work` は `test/fixtures/runtime/legacy-root/` の同名フォルダーへ移動し、607ファイルの前後ハッシュ・件数・容量が一致した。元の2パスは残っていない。この移動は削除ではない。[移動記録](../artifacts/test-relocation-result.json)を参照。
+
+この後の削除依頼で、一時領域28・bytecodeキャッシュ19・ツールキャッシュ3の計50フォルダーを再監査したが、自動承認レビューが実行前に `blocked by policy` と拒否した。詳細理由は示されず、この時点の削除0件・残存50件（1,542ファイル、566,089,799 bytes）。別方式・分割・移動での迂回は行っていない。当時稼働中の動画処理と共用していた `community/scripts/__pycache__` は対象から除外した。再生成防止変更後の対象15試験は成功（0.08秒）。[削除要求時の結果](../artifacts/folder-cleanup-test-result.json)、[当時の対象一覧](../artifacts/folder-cleanup-test-inventory.json)、[15試験XML](../artifacts/folder-cleanup-test-tests.xml)を参照。
+
+現行ソースをPJ直下へ統合する後続指示で、親担当が物理移動を実施した（[移動記録](../artifacts/root-layout-move-result.json)）。旧ルートbackendの残骸は `test/fixtures/runtime/legacy-root/backend-root/`、旧community内の試験一時領域も `test/fixtures/runtime/legacy-root/` 配下に分離している。過去の削除・移動記録内のパスは当時の証拠として書き換えない。品質比較は旧 `community/backend/app/` と新 `backend/app/` を同じ識別子に正規化し、配置変更だけを新規指摘や解消と数えない。

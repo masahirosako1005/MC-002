@@ -1,0 +1,130 @@
+{
+  "status": "pass",
+  "scope": "Moved application scripts: static parse, import without main execution, root/path checks; no Docker, recording, speech or encoding execution",
+  "python": [
+    {
+      "file": "scripts/animate_revisit_video.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "478cbbef9ff6e6986782fe5308097a82e5e678b7175b7ef8fcde2ee247092d31"
+    },
+    {
+      "file": "scripts/render_revisit_video.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "a9eafa8ab39b7cf3179d6ef6a7e6c587ca0e297ec4c8982ff9019e313bfc51b2"
+    },
+    {
+      "file": "scripts/render_revisit_guide.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "a957ad92807813a55018a21c2e644e8c643840b266e238aa138d07947b9932fe"
+    },
+    {
+      "file": "scripts/encode_intro_video.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "93f092849717abc880e2ae9269e46e2aac0c0077872b1d82609e2b3df9597442"
+    },
+    {
+      "file": "scripts/measure_backend_quality.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "93d470bc13b644b68008b81acd36deae3afd9e89d1c35d8e7dc12b6f91343f47"
+    },
+    {
+      "file": "scripts/daytrip_policy_report.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "0e8f9eb33583f2809c49b99ba16ec0c1c76697fed45ce3157b83db70b98aa812"
+    },
+    {
+      "file": "scripts/full_snapshot.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "f64b9ce1f72414d4c3ab0026aa109e621e6d0c077dc88e1e55a61e3539da43ac"
+    },
+    {
+      "file": "scripts/snapshot_worker.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "05c6df0c3cadcc1a348404d615bd0f691ca9860b572ad3f70a48a679ad102701"
+    },
+    {
+      "file": "scripts/finish_revisit_audio.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "20b963357089edba088b03a399d81e7c6926268f6b9a50fe630dfdaf1790bd7a"
+    },
+    {
+      "file": "scripts/balance_revisit_guide_audio.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "3a2eb6b23026429f57a37c26d428c6e4c6ccbafa33318d9e9d950e12b7305999"
+    },
+    {
+      "file": "scripts/revisit_operation_clips.py",
+      "syntax": "pass",
+      "import": "pass",
+      "root": "C:\\AI-Sprint\\workspace\\MC-002",
+      "sha256": "bbd70cc02a692249abae30a016135f873210be4233a0d2b6b896bf516b0cd001"
+    }
+  ],
+  "scene_json": [
+    {
+      "path": "scripts/revisit-video-female-scenes.json",
+      "scenes": 8,
+      "sha256": "138c3c78fafe4e249652ab75cf3ebe12338f8eb89425b126a39bdfb3ca41052c"
+    },
+    {
+      "path": "scripts/revisit-video-guide-scenes.json",
+      "scenes": 8,
+      "sha256": "3f852c63fd20516323dbb314776b7394d7506e87544794f1b48b545cee2143c6"
+    },
+    {
+      "path": "scripts/revisit-video-male-scenes.json",
+      "scenes": 8,
+      "sha256": "11a375483adc146d6acd1c4ff333df8949df015bf3153724320adb8672e10b32"
+    },
+    {
+      "path": "scripts/revisit-video-scenes.json",
+      "scenes": 8,
+      "sha256": "b5c68a66885e60c41823184b9df9e943b0dc61ffa8a0fce32a0ff0d9653b39d0"
+    }
+  ],
+  "checked_paths": [
+    "compose.yaml",
+    "scripts/snapshot_worker.py",
+    "backups",
+    "backend/app",
+    "quality/ruff.toml",
+    "scripts/revisit-video-guide-scenes.json",
+    "assets/revisit-guide/guide-pointing-v1.png",
+    "artifacts/video-revisit/YujiMai-Regular.ttf",
+    "frontend/public/art/wa/washi-paper-v1.webp",
+    "frontend/public/art/wa/travel-woodcut-v1.png",
+    "assets/pottery.png",
+    "assets/revisit-guide/guide-female-v1.png"
+  ],
+  "powershell_parsed": [
+    "start.ps1",
+    "narrate_revisit_video.ps1",
+    "narrate_revisit_male.ps1",
+    "narrate_revisit_guide.ps1",
+    "narrate_revisit_female.ps1"
+  ],
+  "javascript_syntax": "node --check scripts/create_intro_video.mjs: exit 0",
+  "v10_sha256_unchanged": "19917f308d75fe2e2c2d41aafa90ca4813968e0909783595a28f081552759ba4",
+  "historical_artifacts": "Preserved without rewriting historical source path strings; relocated community/artifacts is artifacts/community",
+  "volume_unchanged": "kou-community_community-data"
+}

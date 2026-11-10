@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "baseline_checks": "artifacts/root-layout-script-check.json",
+  "changes_after_baseline": [
+    "Full snapshot event parent directory creation",
+    "Explicit local helper image override for verify/restore, recorded without changing saved metadata; no silent fallback",
+    "Limited subprocess error details",
+    "Frontend measurement output/scope and future login image manifest paths"
+  ],
+  "source_sha256": {
+    "scripts/animate_revisit_video.py": "478cbbef9ff6e6986782fe5308097a82e5e678b7175b7ef8fcde2ee247092d31",
+    "scripts/render_revisit_video.py": "a9eafa8ab39b7cf3179d6ef6a7e6c587ca0e297ec4c8982ff9019e313bfc51b2",
+    "scripts/render_revisit_guide.py": "a957ad92807813a55018a21c2e644e8c643840b266e238aa138d07947b9932fe",
+    "scripts/encode_intro_video.py": "93f092849717abc880e2ae9269e46e2aac0c0077872b1d82609e2b3df9597442",
+    "scripts/daytrip_policy_report.py": "0e8f9eb33583f2809c49b99ba16ec0c1c76697fed45ce3157b83db70b98aa812",
+    "scripts/measure_backend_quality.py": "93d470bc13b644b68008b81acd36deae3afd9e89d1c35d8e7dc12b6f91343f47",
+    "scripts/full_snapshot.py": "e8e07e7dbeddcb32ce1dfabb7c6e2ff5b15ec79cce09658f1d4de42f7bd9c828",
+    "scripts/create_intro_video.mjs": "658eca7bf010f35e005cb43199d15c806736e5c299741731978c732d45f0b6db",
+    "scripts/open-edge-isolated.cmd": "caf081b8f2a2b9eaa7c7806dda3c9d28ddb238b5ac2cd51ed3ae81bed0f01e52",
+    "scripts/narrate_revisit_video.ps1": "6b5a2375b59154c58fbd54a95ae07c0252814c16d6b5c9428315e0999b10b57c",
+    "scripts/narrate_revisit_male.ps1": "6c40701ad1a71e800f8a90e739d430a568ce2c055a6e9237459f182b53dca1c3",
+    "scripts/narrate_revisit_guide.ps1": "5b098b9db6a3c61ad345193749bc29c42a59b2826fc6bd9e46032d9828ab047c",
+    "scripts/narrate_revisit_female.ps1": "c646b4652ef5d2597ea5be3270ac32b63477a9e966d8d35c1ea79ed67b0d4c8b",
+    "frontend/scripts/measure-quality.mjs": "edd732e253491a23acc4428db805e30608286b42fd4a3afd9a44a0c2a4c29a9a",
+    "frontend/scripts/make_login_cover.py": "1c21c12fb8453f34a87ac943f0e7a3eadfa25f8841081e4520728942e3622ae0"
+  },
+  "syntax": {
+    "python": "pass",
+    "javascript_files": 2,
+    "powershell_files": 5
+  },
+  "root_ruff_video_scripts": {
+    "files": [
+      "scripts/animate_revisit_video.py",
+      "scripts/render_revisit_video.py",
+      "scripts/render_revisit_guide.py"
+    ],
+    "findings": 0
+  },
+  "full_snapshot_complexity": {
+    "baseline_main": 13,
+    "final_main": 13,
+    "threshold": 10,
+    "existing_finding_retained": true
+  },
+  "snapshot_verify": {
+    "evidence": "artifacts/community/full-snapshot-20261110T043609145964Z.json",
+    "passed": true,
+    "file_count": 97,
+    "saved_image": "sha256:ea2d61e14993307532679ae244a79b7c42681f82039a5bb5770c0340a762aa3d",
+    "helper_image": "sha256:adaee66ee84e353395499bf3429ccb88851d7d7b6a9ae4523068d034a8aa0aa4",
+    "scope": "Read-only saved snapshot, no active DB mount/write, no metadata rewrite"
+  },
+  "independent_review": "daytrip_evidence confirmed moved paths and frontend generator/quality references",
+  "targeted_tests": "Owned by wa_frontend; results reported separately",
+  "not_executed": [
+    "Video encoding",
+    "Speech generation",
+    "Photo generation",
+    "Browser start",
+    "App writes",
+    "Backup restore"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 868,
-  "last_event_hash": "09dc0fc6d43cb3ac78d55487881759802e57960ae5fa89c4f68911200ad0c956",
-  "updated_at": "2026-11-10T13:10:35+09:00",
+  "revision": 915,
+  "last_event_hash": "1a9ee45ea7ccf3ac7f094db391d05d91a2eb3821df6a0019b6f2d67e83f7236b",
+  "updated_at": "2026-11-10T13:46:32+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3256,6 +3256,10 @@
         {
           "at": "2026-11-10T13:09:39+09:00",
           "text": "2026-11-10再確認。32旧一時領域1377files/563218474bytesの削除は自動承認レビューが実行前拒否。削除0、再試行なし。生成先のtest制限と15試験は完了。"
+        },
+        {
+          "at": "2026-11-10T13:36:08+09:00",
+          "text": "最新削除要求も自動承認レビューが拒否。root構成へ移動したため古いcleanup対象一覧を再実行してはならない。現在root frontend/backendは現行コード。"
         }
       ],
       "created_at": "2026-11-10T10:31:57+09:00",
@@ -3285,19 +3289,25 @@
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 8,
+      "revision": 10,
       "revisions": [
         {
           "at": "2026-11-10T11:34:04+09:00",
           "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
           "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
           "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        },
+        {
+          "at": "2026-11-10T13:13:01+09:00",
+          "hash": "ad8d129b27d5663fb5cfe27656061a596013e684",
+          "path": "project/revisions/ad8d129b27d5663fb5cfe27656061a596013e684.txt",
+          "summary": "Add character-led revisit film and confine test temporary paths"
         }
       ],
       "status": "in_progress",
       "title": "旧版と未使用ソースの撤去・現行構成への整理",
       "type": "task",
-      "updated_at": "2026-11-10T13:09:39+09:00"
+      "updated_at": "2026-11-10T13:36:08+09:00"
     },
     {
       "acceptance": [
@@ -4477,12 +4487,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 7,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:13:01+09:00",
+          "hash": "ad8d129b27d5663fb5cfe27656061a596013e684",
+          "path": "project/revisions/ad8d129b27d5663fb5cfe27656061a596013e684.txt",
+          "summary": "Add character-led revisit film and confine test temporary paths"
+        }
+      ],
       "status": "review",
       "title": "紹介動画の和の雰囲気と演出を統一",
       "type": "task",
-      "updated_at": "2026-11-10T13:10:34+09:00"
+      "updated_at": "2026-11-10T13:13:01+09:00"
     },
     {
       "acceptance": [
@@ -4503,6 +4520,10 @@
         {
           "at": "2026-11-10T13:10:34+09:00",
           "text": "並列レビューと画面修正を統合した第9版を提示。ユーザーの面白さ・声の聴取評価と最終OKは未確認。"
+        },
+        {
+          "at": "2026-11-10T13:13:02+09:00",
+          "text": "最新指定は女性声と通常会話速度。男声の第9版は履歴として保持し、CP92へ切り替える。"
         }
       ],
       "created_at": "2026-11-10T12:57:22+09:00",
@@ -4528,12 +4549,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 8,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:13:01+09:00",
+          "hash": "ad8d129b27d5663fb5cfe27656061a596013e684",
+          "path": "project/revisions/ad8d129b27d5663fb5cfe27656061a596013e684.txt",
+          "summary": "Add character-led revisit film and confine test temporary paths"
+        }
+      ],
       "status": "review",
       "title": "紹介動画を男性音声と明確な抑揚へ変更",
       "type": "task",
-      "updated_at": "2026-11-10T13:10:35+09:00"
+      "updated_at": "2026-11-10T13:13:02+09:00"
     },
     {
       "acceptance": [
@@ -4578,12 +4606,363 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:13:01+09:00",
+          "hash": "ad8d129b27d5663fb5cfe27656061a596013e684",
+          "path": "project/revisions/ad8d129b27d5663fb5cfe27656061a596013e684.txt",
+          "summary": "Add character-led revisit film and confine test temporary paths"
+        }
+      ],
       "status": "review",
       "title": "案内役が語る60秒の紹介動画",
       "type": "task",
-      "updated_at": "2026-11-10T13:10:35+09:00"
+      "updated_at": "2026-11-10T13:13:01+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "女性音声と案内役を統一し、速度比較から選ぶ"
+        },
+        {
+          "checked": true,
+          "text": "発話と画面の尺を合わせ、字幕・音量・再生を検証する"
+        },
+        {
+          "checked": false,
+          "text": "利用者が改訂版の速さと声を評価する"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:13:01+09:00",
+      "dependencies": [],
+      "description": "第9版が遅いとの利用者評価。60秒固定を撤回し女性声と場面尺を実測から調整する。",
+      "documents": [
+        "docs/REVISIT-VIDEO.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:36:07+09:00",
+          "path": "artifacts/video-revisit/v10/final/verification.json",
+          "text": "女性声・46.5秒・1395frame・音量と全デコード確認。"
+        },
+        {
+          "at": "2026-11-10T13:36:07+09:00",
+          "path": "artifacts/video-revisit/v10/browser-playback.json",
+          "text": "46.5秒の全編再生 ended true/error null。人の聞き心地評価は未確認。"
+        }
+      ],
+      "id": "CP92",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "review",
+      "title": "女性の声と自然な会話速度へ紹介動画を改訂",
+      "type": "task",
+      "updated_at": "2026-11-10T13:36:07+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "実際の操作フレームと時刻を保存"
+        },
+        {
+          "checked": true,
+          "text": "女性声版へ操作を組み込み、字幕と条件を読める状態にする"
+        },
+        {
+          "checked": true,
+          "text": "最終MP4のデコードとブラウザー全編再生を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:26:33+09:00",
+      "dependencies": [],
+      "description": "利用者の通う旅選択・進捗スクロールと事業者の自社/市/再訪切替を実画面から収録。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:36:08+09:00",
+          "path": "artifacts/video-revisit/v10/operations/recording-audit.json",
+          "text": "4群113枚の実操作を採用。元記録は5群143枚。"
+        },
+        {
+          "at": "2026-11-10T13:36:08+09:00",
+          "path": "artifacts/video-revisit/v10/browser-playback.json",
+          "text": "実操作入りMP4の全編再生を確認。"
+        }
+      ],
+      "id": "CP93",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "紹介動画へ実操作を収録",
+      "type": "task",
+      "updated_at": "2026-11-10T13:36:08+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "対象と保護するデータを確認し不要物の処置結果を記録"
+        },
+        {
+          "checked": false,
+          "text": "README・DESIGN・TASKS・運用資料を現行仕様に更新"
+        },
+        {
+          "checked": false,
+          "text": "起動構成、テスト検出、文書リンクと差分を確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:26:33+09:00",
+      "dependencies": [],
+      "description": "使用先を調べ不要生成物を削除し、現行仕様・過去の経緯・成果物・テストの入口を整理する。",
+      "documents": [
+        "DESIGN.md",
+        "TASKS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:36:08+09:00",
+          "path": "artifacts/folder-cleanup-test-result.json",
+          "text": "削除要求は実行前拒否、50対象削除0。構成移動はCP96で別管理。"
+        }
+      ],
+      "id": "CP94",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 3,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "フォルダ整理と現行ドキュメントの再構成",
+      "type": "task",
+      "updated_at": "2026-11-10T13:36:08+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "月次制限・階級・確率・予算・公開条件を確定"
+        },
+        {
+          "checked": false,
+          "text": "抽選結果と本人クーポン・事業者の利用確認を実装"
+        },
+        {
+          "checked": false,
+          "text": "同時操作・再送・月境界・権限・画面を検証"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T13:36:07+09:00",
+          "text": "利用者の最新指定により不要物整理とroot構成変更を先行。担当全員が読み取りのみで実装未着手を確認。"
+        }
+      ],
+      "created_at": "2026-11-10T13:36:07+09:00",
+      "dependencies": [],
+      "description": "月1回程度の無料おみくじ案。利用者指定で構成整理を先行し、未実装で保留。",
+      "documents": [
+        "DESIGN.md",
+        "docs/FOLDER-STRUCTURE.md"
+      ],
+      "evidence": [],
+      "id": "CP95",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "todo",
+      "title": "階級別の月替わりゲームと獲得クーポン",
+      "type": "task",
+      "updated_at": "2026-11-10T13:36:07+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "移設前のDB・写真を保全し上書きなしで移動"
+        },
+        {
+          "checked": true,
+          "text": "root Composeで再構築し同じvolume・新bindを確認"
+        },
+        {
+          "checked": true,
+          "text": "テスト・品質・運用の参照と文書を更新"
+        },
+        {
+          "checked": false,
+          "text": "検証結果と移動・未削除の記録をGitに保存"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:36:07+09:00",
+      "dependencies": [],
+      "description": "frontend/backendをルートへ。運用・テスト・Docker・文書の参照を更新し保存volumeを維持する。",
+      "documents": [
+        "DESIGN.md",
+        "docs/FOLDER-STRUCTURE.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:46:31+09:00",
+          "path": "artifacts/quality/root-layout-final/summary.json",
+          "text": "移設後395試験成功、新規静的指摘0。実行時別チャット変更の混在を明記。"
+        }
+      ],
+      "id": "CP96",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 7,
+      "revisions": [],
+      "status": "review",
+      "title": "現行ソースをルート直下へ移す",
+      "type": "task",
+      "updated_at": "2026-11-10T13:46:32+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "現行仕様・検証済み範囲に一致する編集用PPTXと閲覧用PDFを作成する"
+        },
+        {
+          "checked": false,
+          "text": "全ページの表示と数値・リンクを確認する"
+        },
+        {
+          "checked": false,
+          "text": "動画・設計書・評価記録への最新版入口と履歴の区別を整える"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:46:13+09:00",
+      "dependencies": [],
+      "description": "現行の講・N西市・再訪3施策に合わせpresentationとoutputsを更新し旧版と分離する。",
+      "documents": [
+        "DESIGN.md",
+        "outputs/README.md"
+      ],
+      "evidence": [],
+      "id": "CP97",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 2,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "現行版の発表資料と成果物入口を更新",
+      "type": "task",
+      "updated_at": "2026-11-10T13:46:13+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "UIスキルと参照規則を固定保存し由来・差分・SHAを記録"
+        },
+        {
+          "checked": true,
+          "text": "ASVS公式CSVの全要求を未評価の台帳へ対応付ける"
+        },
+        {
+          "checked": true,
+          "text": "8項目への対応と人による評価の不足、導入検証証拠を保存"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T13:36:44+09:00",
+          "text": "独立レビュー: 重大問題なし。ASVS版付きIDを公式形式へ正規化し、元CSV IDはsource_req_idへ保持して345件を再照合。"
+        }
+      ],
+      "created_at": "2026-11-10T13:34:34+09:00",
+      "dependencies": [],
+      "description": "既存の4指針と技術評価ツールを確認し、固定版Vercel UIレビューとOWASP ASVS 5.0.0要求台帳を追加。導入とアプリの評価結果は分ける。",
+      "documents": [
+        "docs/evaluation-frameworks/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:36:22+09:00",
+          "path": "docs/evaluation-frameworks/installation-verification.json",
+          "text": "導入検証9項目成功、345のASVS要求を全件未評価で保持。アプリ再評価は未実施。"
+        }
+      ],
+      "id": "EV01",
+      "origin": "この時点で新規起票",
+      "owner": "evaluation-setup",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T13:43:56+09:00",
+          "hash": "b55bfb0686b3ede1df697ee1d804f9d62be789a9",
+          "path": "project/revisions/b55bfb0686b3ede1df697ee1d804f9d62be789a9.txt",
+          "summary": "feat: add pinned UI review skill and ASVS evaluation framework"
+        }
+      ],
+      "status": "done",
+      "title": "大会8項目の外部評価基準を補完",
+      "type": "task",
+      "updated_at": "2026-11-10T13:43:56+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "変更前後の同条件測定と8項目評価の証拠を保存"
+        },
+        {
+          "checked": false,
+          "text": "優先不具合を修正し必要な試験/実画面/完全性を検証"
+        },
+        {
+          "checked": false,
+          "text": "独立レビューと残課題を文書に記載しGitへ対応付ける"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T13:37:47+09:00",
+      "dependencies": [],
+      "description": "追加したUI/ASVS基準を含め8項目を評価。実害・品質課題を修正し証拠と限界を文書化。人による価値/再訪効果は未測定と区別。",
+      "documents": [
+        "docs/evaluation-frameworks/EV02-REPORT.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T13:43:57+09:00",
+          "path": "artifacts/quality/ev02-before/coordination.json",
+          "text": "構成移動担当の全試験と衝突を避けEV02全pytestを停止。静的計測は保持しreports-only集計、動作試験成功とは扱わない。"
+        }
+      ],
+      "id": "EV02",
+      "origin": "この時点で新規起票",
+      "owner": "evaluation-integration",
+      "priority": "P1",
+      "revision": 3,
+      "revisions": [],
+      "status": "in_progress",
+      "title": "大会8項目の評価・改善・再検証",
+      "type": "task",
+      "updated_at": "2026-11-10T13:43:57+09:00"
     },
     {
       "acceptance": [

@@ -17,11 +17,11 @@ try {
         & $PythonExecutable -m venv .venv
         if ($LASTEXITCODE -ne 0) { throw 'Python virtual environment creation failed.' }
     }
-    & ./.venv/Scripts/python.exe -m pip install -r community/backend/requirements-dev.txt
+    & ./.venv/Scripts/python.exe -m pip install -r backend/requirements-dev.txt
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency installation failed.' }
     & ./.venv/Scripts/python.exe -m pip check
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency validation failed.' }
-    Push-Location community/frontend
+    Push-Location frontend
     try {
         & npm.cmd ci
         if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed.' }

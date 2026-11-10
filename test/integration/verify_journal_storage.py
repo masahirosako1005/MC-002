@@ -10,8 +10,8 @@ from pathlib import Path
 import subprocess
 import urllib.request
 
-ROOT = Path(__file__).resolve().parents[2] / "community"
-OUT = ROOT / "artifacts" / "journal"
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "artifacts" / "community" / "journal"
 PROBE = r'''
 import hashlib,json,os,sqlite3
 from pathlib import Path
@@ -52,7 +52,7 @@ def probe():
 
 
 def save(name, result):
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
     (OUT / name).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -63,7 +63,7 @@ def main():
     parser.add_argument("--expected-version", type=int, choices=(3, 4, 5, 6, 7, 8), default=3)
     parser.add_argument("--artifact-dir", choices=("journal", "circles", "discovery", "reflections", "occasions", "personalization"), default="journal")
     args = parser.parse_args()
-    OUT = ROOT / "artifacts" / args.artifact_dir
+    OUT = ROOT / "artifacts" / "community" / args.artifact_dir
     baseline = f"schema{args.expected_version - 1}-before.json"
     if args.mode == "capture":
         before = probe()

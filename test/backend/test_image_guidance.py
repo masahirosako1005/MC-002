@@ -24,7 +24,7 @@ def ok(response):
 
 
 def test_guidance_only_matches_exact_known_assets_and_does_not_score():
-    root=Path(__file__).resolve().parents[2] / "community"
+    root=Path(__file__).resolve().parents[2]
     for name,expected in [('woodland',{'mountain','nature','cafe'}),('coffee',{'cafe','food'}),('coast',{'coast','walk'}),('table',{'food','games','stay'})]:
         result=photo_guidance((root/'assets'/f'{name}.png').read_bytes())
         assert result['status']=='guided' and result['method']=='predefined-photo-tags-v1'

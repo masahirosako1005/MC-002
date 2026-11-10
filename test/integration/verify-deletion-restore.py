@@ -17,7 +17,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-ROOT = PROJECT_ROOT / "community"
+ROOT = PROJECT_ROOT
 FIXTURES = PROJECT_ROOT / "test" / "fixtures" / "runtime"
 EVIDENCE = PROJECT_ROOT / "artifacts" / "storage"
 sys.path.insert(0, str(ROOT / "backend"))
