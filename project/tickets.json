@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1003,
-  "last_event_hash": "c566f94fcfd47e3383df3f28a6c19856264fa9d6dbe3470704b72df4ce256c2a",
-  "updated_at": "2026-11-10T15:22:35+09:00",
+  "revision": 1004,
+  "last_event_hash": "01f18bdda958b5adca782005a600ae23e3455471b5b5a5cbca7bad3eba0f7652",
+  "updated_at": "2026-11-10T15:22:49+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5378,12 +5378,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 12,
-      "revisions": [],
+      "revision": 13,
+      "revisions": [
+        {
+          "hash": "30215c49697212b05b5b47433ded301129f703ef",
+          "summary": "feat: frame presentation around problem cause and kou proposal",
+          "path": "project/revisions/30215c49697212b05b5b47433ded301129f703ef.txt",
+          "at": "2026-11-10T15:22:49+09:00"
+        }
+      ],
       "status": "done",
       "title": "準備の分断から始める発表導入へ改訂",
       "type": "task",
-      "updated_at": "2026-11-10T15:22:35+09:00"
+      "updated_at": "2026-11-10T15:22:49+09:00"
     },
     {
       "acceptance": [
