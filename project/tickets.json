@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 716,
-  "last_event_hash": "41b865d942b28b7287e0931b3d59358c2cc854f75e3e8b97757032092b52ad62",
-  "updated_at": "2026-11-10T11:32:55+09:00",
+  "revision": 729,
+  "last_event_hash": "8123e2ab1fa80c6bc126a4246c0d5034cd30587ac4dd8bfae157d47cd650d00f",
+  "updated_at": "2026-11-10T11:34:08+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -3263,20 +3263,27 @@
       "evidence": [
         {
           "at": "2026-11-10T11:32:55+09:00",
-          "text": "削除できた旧追跡ソースと未追跡の残存物・拒否を区別。",
-          "path": "docs/CLEANUP-AUDIT.md"
+          "path": "docs/CLEANUP-AUDIT.md",
+          "text": "削除できた旧追跡ソースと未追跡の残存物・拒否を区別。"
         }
       ],
       "id": "CP65",
       "origin": "この時点で新規起票",
       "owner": "root",
       "priority": "P1",
-      "revision": 4,
-      "revisions": [],
+      "revision": 5,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:04+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "in_progress",
       "title": "旧版と未使用ソースの撤去・現行構成への整理",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:55+09:00"
+      "updated_at": "2026-11-10T11:34:04+09:00"
     },
     {
       "acceptance": [
@@ -3307,12 +3314,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列実装・主担当統合",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:05+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "テストをtestフォルダへ集約し現行階層を整理",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:52+09:00"
+      "updated_at": "2026-11-10T11:34:05+09:00"
     },
     {
       "acceptance": [
@@ -3343,12 +3357,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列実装・主担当統合",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:05+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "公式React・FastAPIスキルと継続品質評価",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:05+09:00"
     },
     {
       "acceptance": [
@@ -3379,12 +3400,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列実装・主担当統合",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:05+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "写真と文章の投稿を使える導線にする",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:05+09:00"
     },
     {
       "acceptance": [
@@ -3415,12 +3443,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列実装・主担当統合",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:05+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "ログイン後も帳面・墨・朱印の世界観で統一",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:05+09:00"
     },
     {
       "acceptance": [
@@ -3452,12 +3487,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:06+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "旅階級と上位の維持・降格",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:06+09:00"
     },
     {
       "acceptance": [
@@ -3489,12 +3531,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:06+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "事業者の利用者推移と属性集計",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:06+09:00"
     },
     {
       "acceptance": [
@@ -3526,12 +3575,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:06+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "利用者スマホと事業者PC画面",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:53+09:00"
+      "updated_at": "2026-11-10T11:34:06+09:00"
     },
     {
       "acceptance": [
@@ -3563,12 +3619,19 @@
       "origin": "この時点で新規起票",
       "owner": "並列担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:07+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "初期データの増量",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:54+09:00"
+      "updated_at": "2026-11-10T11:34:07+09:00"
     },
     {
       "acceptance": [
@@ -3599,12 +3662,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:07+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "N西市への目的地統一",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:54+09:00"
+      "updated_at": "2026-11-10T11:34:07+09:00"
     },
     {
       "acceptance": [
@@ -3635,12 +3705,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:07+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "登録と居住地域の管理",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:54+09:00"
+      "updated_at": "2026-11-10T11:34:07+09:00"
     },
     {
       "acceptance": [
@@ -3671,12 +3748,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "at": "2026-11-10T11:34:07+09:00",
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage"
+        }
+      ],
       "status": "done",
       "title": "事業者の来訪元地図",
       "type": "task",
-      "updated_at": "2026-11-10T11:32:54+09:00"
+      "updated_at": "2026-11-10T11:34:07+09:00"
     },
     {
       "acceptance": [
@@ -3707,12 +3791,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 6,
-      "revisions": [],
+      "revision": 7,
+      "revisions": [
+        {
+          "hash": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+          "summary": "feat: integrate Nnishi day trips, rank policy, residence analytics and responsive stage",
+          "path": "project/revisions/e15d56b93e083f24b4301bf83084bfa09aa9b435.txt",
+          "at": "2026-11-10T11:34:08+09:00"
+        }
+      ],
       "status": "done",
       "title": "事業者PCの横長比率と中央の連携表示",
       "type": "bug",
-      "updated_at": "2026-11-10T11:32:55+09:00"
+      "updated_at": "2026-11-10T11:34:08+09:00"
     },
     {
       "acceptance": [

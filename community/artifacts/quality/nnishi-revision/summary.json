@@ -1,0 +1,162 @@
+{
+  "checked_at": "2026-11-10T02:33:52.606017+00:00",
+  "phase": "nnishi-revision",
+  "commit": "e15d56b93e083f24b4301bf83084bfa09aa9b435",
+  "dirty": true,
+  "scope": "Every .py under community/backend/app. Tests, QA scripts and dependency caches are not production runtime source. The retired old/v1.1 source tree is no longer part of the workspace.",
+  "comparison_note": "The daytrip phases include six added production modules and removal of the unused LocalClassifier code from images.py. Source hashes and scope must be compared; fewer findings caused by retired code are not scored as product-quality gains.",
+  "files": {
+    "community/backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "community/backend/app/analytics/__init__.py": "821e2688b0f04ff16760fc34f58a79385bda39d2c45307e0ab18faa4927cf7d6",
+    "community/backend/app/analytics/origins.py": "90da2af8586e6281764fa807c27f41ae78724124790cff8f737b086aecfdbc4e",
+    "community/backend/app/analytics/router.py": "6861cf18928753678aec8a1dc0768cd85de7d933e2459908f8cd0e770bf7470a",
+    "community/backend/app/analytics/schemas.py": "0ee8bd141d6213d007feca28b8dd82e29d07e3c6fc8b023eee74041c799119ee",
+    "community/backend/app/analytics/service.py": "d970edfe5f4caef3de6343bb9b5c1f2ec4f6c84d7782faf231e54b4cad81b89c",
+    "community/backend/app/circles/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "community/backend/app/circles/assistant.py": "c724cc82c252104140164bc76ec6f1f66ca5cad9b3aa782c1caa29925de3650d",
+    "community/backend/app/circles/discovery.py": "e74c8749b6cbefc4f3c057575a8315a2d555a53a5ce974bd83779fd73a15c035",
+    "community/backend/app/circles/discovery_schema.py": "f2bcf863faf51b1ecb33e919ce090713c43f885bd04e4f5b17e9a76563058370",
+    "community/backend/app/circles/guards.py": "cc76caa161e8f45b23954a839eea7f2325d3c7292da3ebddc6c4b139938e531f",
+    "community/backend/app/circles/providers.py": "c9b12fa679afa52a634d1ff1198da5554cdd55aed0fafb639ddf1b1c929c16ee",
+    "community/backend/app/circles/router.py": "5d7a3666c185010305a224e1bd184a03fce2b4cb250b9fb3bb930e07f4061226",
+    "community/backend/app/circles/schema.py": "bb87966d3cf736f5c8f4e8896ce6bfe28e52075890ba61859f16c70343124126",
+    "community/backend/app/circles/schemas.py": "9167f0c289693c28085e7079ac5bbb8b3cafe8dbe63155321cb22b88ce984d4e",
+    "community/backend/app/circles/service.py": "8483f04678b76b2c5e6df7a3da9f9787fb4dcf0576f51f41ba023d507e036ca5",
+    "community/backend/app/city_setup.py": "10cf802549d8743558a6fa0dd55d6ae37ec24af8ba01d217fc1b816cac0ce45e",
+    "community/backend/app/config.py": "eba00f86a5787637044d871e2fedaab37d7b18e3e461e54f0b883bd2dacff1ea",
+    "community/backend/app/database.py": "5324e5950de8513a4723586c0ceff6093047559146d79cac158c2afd1fb2916d",
+    "community/backend/app/daytrip/__init__.py": "90d67c9c2dec0225515baf51cbd8e1db9c494449d7c452a407150bf0082c32d2",
+    "community/backend/app/daytrip/catalog.py": "bdec21783026ab946833035dd4739e579bfc6363ff730c417daf323fc5a7f085",
+    "community/backend/app/daytrip/ranks.py": "188ae3c40dbc9dba42b96e25e9f913764dbb16a353e48849d2345f3d7b62165b",
+    "community/backend/app/daytrip/router.py": "11ecb86196fe4a9e89551c87820c7e507651494ce8cf143646a6f2075d368493",
+    "community/backend/app/daytrip/schema.py": "b15e2c62b50d9eebd9a4fd68e0daf919002ee2c1c9a4733ed9af34589995f9c5",
+    "community/backend/app/daytrip/schemas.py": "035051081baef8d7c727712b00174afcb59efb2801f827e0d0a27bb89590ce99",
+    "community/backend/app/daytrip/service.py": "10b24fad6c121a3daaf54cb169d1957ba275c5b11af82e63209f44741363d662",
+    "community/backend/app/enrichment.py": "e6cb9395fd7f4a331fbca4b0a97ce012fa6ddb596e3b45fe89f69602b24f1ebe",
+    "community/backend/app/image_guidance.py": "b7a155c08635fb029b6f9ff87cdc5f18ab2935a5f062fd13594f05323fd4d45c",
+    "community/backend/app/images.py": "af8a3d68bc7358fbe8fc60b7cd12d75f40bb680769220e8d051d223382e2112a",
+    "community/backend/app/journal/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "community/backend/app/journal/catalog.py": "ef708f7ecfef607e945461eb960970b064dbca35c25034150e77848005649e01",
+    "community/backend/app/journal/router.py": "cd13bcad987e5514fcbe2a7507894399ce93ea1aaaa5966c24996a6e76bde281",
+    "community/backend/app/journal/schema.py": "44fc268c248255359192b9252ce34bd1efaeb5f8a2227d400cc8ed5c5372a00a",
+    "community/backend/app/journal/schemas.py": "638f002e11b0ba041e9017e002ba3bf8e09379fe85a60196f1b5c88eff7b933e",
+    "community/backend/app/journal/service.py": "7ca9ad80782db88cadf5e000203a790ea5841d3945ffb796af2ab7a0fc3fd321",
+    "community/backend/app/main.py": "d6b0ec08e5c5c10e027c90d86be0751fbf6128099115d70d10a46050bd454884",
+    "community/backend/app/marketplace/__init__.py": "fc7f7922cfcea000a9f1fee5101a89db5136bee96602c5437572ecda42884077",
+    "community/backend/app/marketplace/router.py": "0021820f83cf976087dee51e00896f7f9954ddfdce18103be28aa1fdec59ff49",
+    "community/backend/app/marketplace/schedules.py": "e04cee196f20b3413849bb541f412e0e6cfdc6452f9d000c1ee55d298121b36a",
+    "community/backend/app/marketplace/schema.py": "8dcb723bae9a2f3e6b5ba9cf3847c6041bf4ab8df7e5a51da63d5449ec3a7d96",
+    "community/backend/app/marketplace/schemas.py": "b0fa42879f8362d998cd348a0f37cd8432cc56372ef049c57c2367aae81ffe80",
+    "community/backend/app/marketplace/service.py": "aa2879e8ba6f3a73290adc81f1c33e5cd0f844477bf489ee622d81b6d0bb9246",
+    "community/backend/app/occasions/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "community/backend/app/occasions/access.py": "70a3b4b951fd9d3b554faca50d286a561304aac1e2f5b6b7cf3d32d3dc1d6fe6",
+    "community/backend/app/occasions/dates.py": "920ca25840de2092b1390ad47d9045bd4700fd9222e334d0291ed2e273cb8211",
+    "community/backend/app/occasions/router.py": "5cf9ab5805ca9fe1edf1a3c08fc43f3fdc608f0fbd9b6b7557f63d4ecf59499b",
+    "community/backend/app/occasions/schema.py": "dff24802b09e7306b00101b23d6bc87430a554415e470ad7f12be7bde84b4d5c",
+    "community/backend/app/occasions/schemas.py": "b38a3f253737134cd05bb893f02d8928a9a659882ca9d7b916cfb6b9a761cd9b",
+    "community/backend/app/occasions/service.py": "3263967bafe51eb033dad650fbc0141136ff44b73fe9a9c746559c663c3cd6e1",
+    "community/backend/app/personalization/router.py": "486dbe78e1b56e49a3e93e852067daa6b35b52d16a9d3796a49f834f5800075b",
+    "community/backend/app/personalization/schema.py": "0285efd18fb436aea226f3155f3b633395355cf1c426eadf2d28ba9f62f6a7ff",
+    "community/backend/app/personalization/schemas.py": "ae9ec9fd277a93f8900766af4ddef67803ab6b4336e2365f85429f6eacdaaa16",
+    "community/backend/app/personalization/service.py": "0add75ce95e263272d4b585f8fb35d943fd9d92b71a81becbd2e6e69d8e65269",
+    "community/backend/app/reflections/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "community/backend/app/reflections/aggregate.py": "d20ea89fa39e00d467eb06d1f5ca6f950642ced3f8d631cdef48a6d544d8b618",
+    "community/backend/app/reflections/extraction.py": "e07d0682454e6832a63c073d0765be515c6dcf460c31765e79c3531f77576ccb",
+    "community/backend/app/reflections/router.py": "71168c424131e4001f3a7fedc9bcdb84670d493c8b8f7dc1c3ab335cc926a5f5",
+    "community/backend/app/reflections/schema.py": "00955c357e1f5ac2b775ac8a32eb9aba8107407dbde6008aba3737d0f55afee1",
+    "community/backend/app/reflections/schemas.py": "c612c9fa93a9d149a19dbbeb6965522c377cd5dea837939cfeb0cf9eec9ec835",
+    "community/backend/app/reflections/service.py": "a1a750cbd09fdaeeb0c2b1ec919f4a6dd23a155970918ac4d09c30c855f70f0b",
+    "community/backend/app/residence/__init__.py": "b498de811f057801db851c1a483dc8333599fb87458bc5dfba9a060921082044",
+    "community/backend/app/residence/catalog.py": "e799d71f5821a75a4ea261b302089693e995dce8161e4562b494efb1f70a3635",
+    "community/backend/app/residence/router.py": "262a1bfe8d25aaba963af559a3e30803372e4ef4f9671aa72ae363b6bcb5da9a",
+    "community/backend/app/residence/schema.py": "51d1349dbd9e212e90d6adcf157ebb7b236db8753dfb5c7dcf43d501ccdf050d",
+    "community/backend/app/residence/schemas.py": "25bc5ffa1bf980662267afca9b59f77fb40e303381e90b0f095b040483d35678",
+    "community/backend/app/residence/service.py": "c20ece343bee5eb4397893b0e0236f790e0715c4dc1617ad04fe3c1ac764a469",
+    "community/backend/app/schemas.py": "39a19f9b361f39aaa9bfab7b5767b723373a107788ddc472844e4dfd3b65618b",
+    "community/backend/app/security.py": "ff9ae7398eda028acb3da309cf2f75e19c003eedb7a7f27d68dd49949ad548a4",
+    "community/backend/app/service.py": "36e8dccbe9b050a0b6bde407835ab785479fdb2ac896e2a18d580a1e579f9bde"
+  },
+  "source_count": 69,
+  "config_sha256": "2ea63cb0110c60a4a500a7ae9788607c397509e91c6f109c7bd6308d30e847af",
+  "runs": {
+    "ruff": {
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.tools\\quality-venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "community/quality/ruff.toml",
+        "--output-format",
+        "json",
+        "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app"
+      ],
+      "exit_code": 0,
+      "seconds": 0.235
+    },
+    "complexity": {
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.tools\\quality-venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "--isolated",
+        "--select",
+        "C90",
+        "--output-format",
+        "json",
+        "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app"
+      ],
+      "exit_code": 1,
+      "seconds": 0.24
+    },
+    "bandit": {
+      "command": [
+        "C:\\AI-Sprint\\workspace\\MC-002\\.tools\\quality-venv\\Scripts\\python.exe",
+        "-m",
+        "bandit",
+        "-r",
+        "C:\\AI-Sprint\\workspace\\MC-002\\community\\backend\\app",
+        "-f",
+        "json",
+        "--ignore-nosec",
+        "-o",
+        "C:\\AI-Sprint\\workspace\\MC-002\\community\\artifacts\\quality\\nnishi-revision\\bandit.json"
+      ],
+      "exit_code": 1,
+      "seconds": 1.416
+    }
+  },
+  "ruff": {
+    "total": 0,
+    "by_rule": {}
+  },
+  "complexity": {
+    "total": 14,
+    "by_rule": {
+      "C901": 14
+    }
+  },
+  "bandit": {
+    "total": 19,
+    "errors": [],
+    "metrics": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 12,
+      "CONFIDENCE.MEDIUM": 7,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 19,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 5549,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "severity": {
+      "LOW": 0,
+      "MEDIUM": 19,
+      "HIGH": 0
+    }
+  }
+}
