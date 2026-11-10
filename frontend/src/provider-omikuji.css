@@ -23,3 +23,5 @@
 .omikuji-reward-row p, .omikuji-reward-row small { font-size: 13px; color: #4c6156; }
 .provider-omikuji :focus-visible { outline: 3px solid #9e4a32; outline-offset: 3px; }
 @media (max-width: 460px) { .omikuji-shop { padding: 16px; } .omikuji-budget dd { font-size: 18px; } }
+
+.omikuji-qr-marker { display: block; width: 264px; max-width: 100%; height: auto; margin-inline: auto; background: #fff; }

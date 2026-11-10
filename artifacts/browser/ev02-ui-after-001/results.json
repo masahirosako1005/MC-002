@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-10T04:59:31.814Z",
+  "base": "http://127.0.0.1:8082",
+  "phase": "ev02-ui-after-001",
+  "checks": [
+    {
+      "name": "stage-independent-login-and-desktop-layout",
+      "status": "fail"
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "stage-1440x900",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            [
+              "iframe[src$=\"provider\"]",
+              ".provider-workspace-nav > p"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-x-axis > span:nth-child(1)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-x-axis > span:nth-child(2)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-detail-tabs > button:nth-child(2)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-detail-tabs > button:nth-child(3)"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "cleanup": [
+    "isolated test plan archived",
+    "isolated traveler resume restored",
+    "isolated provider resume restored"
+  ],
+  "passed": false,
+  "limits": [
+    "Synthetic aoi/forest fixtures and one newly registered password-test account only",
+    "Root font-size 200% is text scaling, not a browser-zoom certification",
+    "Japanese typeahead uses an injected Unicode keydown; real IME interaction is not covered",
+    "Browser checks are not measured user satisfaction or actual revisit effects"
+  ],
+  "failure": {
+    "name": "AssertionError",
+    "message": "axe violations in stage-1440x900: color-contrast\n\n1 !== 0\n"
+  }
+}

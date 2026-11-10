@@ -1,0 +1,757 @@
+{
+  "measured_at": "2026-11-10T04:58:24.079924+00:00",
+  "phase": "ev02-after",
+  "baseline": {
+    "frontend": "daytrip-wa-verified",
+    "backend": "daytrip-final"
+  },
+  "status": "regression",
+  "tests": "not-run",
+  "errors": [],
+  "counts": {
+    "bandit": {
+      "before": 19,
+      "after": 20
+    },
+    "complexity": {
+      "before": 14,
+      "after": 14
+    },
+    "oxlint": {
+      "before": 124,
+      "after": 82
+    },
+    "ruff": {
+      "before": 0,
+      "after": 0
+    },
+    "stylelint": {
+      "before": 126,
+      "after": 115
+    }
+  },
+  "new": [
+    {
+      "tool": "bandit",
+      "file": "backend/app/security.py",
+      "rule": "B105",
+      "message": "Possible hardcoded password: '5'",
+      "count": 1
+    },
+    {
+      "tool": "complexity",
+      "file": "backend/app/main.py",
+      "rule": "C901",
+      "message": "`create_app` is too complex (52 > 10)",
+      "count": 1
+    },
+    {
+      "tool": "complexity",
+      "file": "backend/app/security.py",
+      "rule": "C901",
+      "message": "`__call__` is too complex (20 > 10)",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderOmikuji.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".choice-trigger > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 481 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".consultation-context > p\" to come before selector \".message.mine p\", at line 352 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-card > img\" to come before selector \".market-plan-card.featured > img\", at line 730 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy h3\" to come before selector \".market-plan-card.featured h3\", at line 737 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 1058 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 156 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 734 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".message-author\" to come before selector \".message.mine .message-author\", at line 327 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".mismatch-details > div\" to come before selector \".message.mine > div\", at line 324 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".mismatch-details p\" to come before selector \".message.mine p\", at line 352 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-detail-action > .button\" to come before selector \".provider-workspace .section-title .button\", at line 994 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-detail-cover img\" to come before selector \".market-plan-card.featured > img\", at line 150 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-price > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 481 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-price\" to come before selector \".market-plan-card.featured .plan-price\", at line 162 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-schedule > .icon\" to come before selector \".travel-search-pill > .icon:first-child\", at line 884 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".privacy-summary p\" to come before selector \".message.mine p\", at line 352 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".stop-editor-head > div\" to come before selector \".message.mine > div\", at line 324 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".travel-search-pill > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 481 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch button\", first used at line 99 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch button.selected\", first used at line 108 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch\", first used at line 93 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-discovery-heading\", first used at line 82 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-card\", first used at line 118 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-card.featured .market-plan-copy\", first used at line 156 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-copy h3\", first used at line 131 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-tabs\", first used at line 61 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".party-toolbar > .button\", first used at line 27 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-price > span\", first used at line 173 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-price strong\", first used at line 169 (no-duplicate-selectors)",
+      "count": 1
+    }
+  ],
+  "resolved": [
+    {
+      "tool": "complexity",
+      "file": "backend/app/main.py",
+      "rule": "C901",
+      "message": "`create_app` is too complex (51 > 10)",
+      "count": 1
+    },
+    {
+      "tool": "complexity",
+      "file": "backend/app/security.py",
+      "rule": "C901",
+      "message": "`__call__` is too complex (19 > 10)",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/App.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 3
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/App.tsx",
+      "rule": "react(exhaustive-effect-dependencies)",
+      "message": "Found extra effect dependencies",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/App.tsx",
+      "rule": "react(set-state-in-effect)",
+      "message": "Calling setState synchronously within an effect can trigger cascading renders",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Circles.tsx",
+      "rule": "jsx-a11y(label-has-associated-control)",
+      "message": "A form label must be associated with a control.",
+      "count": 2
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Circles.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 6
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Composer.tsx",
+      "rule": "eslint(no-await-in-loop)",
+      "message": "Unexpected `await` inside a loop.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ExperienceReference.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ExperienceReference.tsx",
+      "rule": "react(set-state-in-effect)",
+      "message": "Calling setState synchronously within an effect can trigger cascading renders",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Journal.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `img` over `role` attribute `img`.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Journal.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 3
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/KoPage.tsx",
+      "rule": "jsx-a11y(no-autofocus)",
+      "message": "The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Marketplace.tsx",
+      "rule": "jsx-a11y(label-has-associated-control)",
+      "message": "A form label must be associated with a control.",
+      "count": 2
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Marketplace.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Occasions.tsx",
+      "rule": "jsx-a11y(label-has-associated-control)",
+      "message": "A form label must be associated with a control.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Occasions.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 3
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/PlanDiscovery.tsx",
+      "rule": "jsx-a11y(label-has-associated-control)",
+      "message": "A form label must be associated with a control.",
+      "count": 2
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/PlanDiscovery.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 2
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/Preferences.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 2
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "jsx-a11y(label-has-associated-control)",
+      "message": "A form label must be associated with a control.",
+      "count": 3
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react(exhaustive-effect-dependencies)",
+      "message": "Found missing/extra effect dependencies",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react(set-state-in-effect)",
+      "message": "Calling setState synchronously within an effect can trigger cascading renders",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ProviderWorkspace.tsx",
+      "rule": "react-hooks(exhaustive-deps)",
+      "message": "React Hook useEffect has a missing dependency: 'load'",
+      "count": 1
+    },
+    {
+      "tool": "oxlint",
+      "file": "src/ReflectionWorkspace.tsx",
+      "rule": "jsx-a11y(prefer-tag-over-role)",
+      "message": "Prefer `output` over `role` attribute `status`.",
+      "count": 2
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".choice-trigger > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 508 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".consultation-context > p\" to come before selector \".message.mine p\", at line 379 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-card > img\" to come before selector \".market-plan-card.featured > img\", at line 757 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy h3\" to come before selector \".market-plan-card.featured h3\", at line 180 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy h3\" to come before selector \".market-plan-card.featured h3\", at line 764 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 1085 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 174 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".market-plan-copy\" to come before selector \".market-plan-card.featured .market-plan-copy\", at line 761 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".message-author\" to come before selector \".message.mine .message-author\", at line 354 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".mismatch-details > div\" to come before selector \".message.mine > div\", at line 351 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".mismatch-details p\" to come before selector \".message.mine p\", at line 379 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-detail-action > .button\" to come before selector \".provider-workspace .section-title .button\", at line 1021 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-detail-cover img\" to come before selector \".market-plan-card.featured > img\", at line 168 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-price > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 508 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-price\" to come before selector \".market-plan-card.featured .plan-price\", at line 183 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".plan-schedule > .icon\" to come before selector \".travel-search-pill > .icon:first-child\", at line 911 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".privacy-summary p\" to come before selector \".message.mine p\", at line 379 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".stop-editor-head > div\" to come before selector \".message.mine > div\", at line 351 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".travel-search-pill > span\" to come before selector \".consultation-row > span:nth-child(2)\", at line 508 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch button\", first used at line 114 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch button.selected\", first used at line 123 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".catalog-switch\", first used at line 108 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-discovery-heading h2\", first used at line 100 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-discovery-heading\", first used at line 93 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-card\", first used at line 133 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-card.featured .market-plan-copy\", first used at line 174 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-card.featured h3\", first used at line 180 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-copy h3\", first used at line 149 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-plan-copy\", first used at line 146 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-tabs > .text-button\", first used at line 89 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".market-tabs\", first used at line 68 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".party-toolbar > .button\", first used at line 31 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".party-toolbar > .field\", first used at line 27 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".party-toolbar > .icon-button\", first used at line 35 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-detail-action > .button\", first used at line 321 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-detail-action\", first used at line 318 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-price > span\", first used at line 194 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/marketplace.css",
+      "rule": "no-duplicate-selectors",
+      "message": "Duplicate selector \".plan-price strong\", first used at line 190 (no-duplicate-selectors)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/styles.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".save-bar p\" to come before selector \".feed-header p:not(.eyebrow)\", at line 1627 (no-descending-specificity)",
+      "count": 1
+    },
+    {
+      "tool": "stylelint",
+      "file": "src/styles.css",
+      "rule": "no-descending-specificity",
+      "message": "Expected selector \".save-bar p\" to come before selector \".feed-header p:not(.eyebrow)\", at line 421 (no-descending-specificity)",
+      "count": 1
+    }
+  ],
+  "remaining": 231,
+  "new_count": 33,
+  "review_required_files": [
+    "backend/app/daytrip/router.py",
+    "backend/app/daytrip/service.py",
+    "backend/app/main.py",
+    "backend/app/personalization/schema.py",
+    "backend/app/security.py",
+    "backend/app/service.py",
+    "src/App.tsx",
+    "src/Choice.tsx",
+    "src/Circles.tsx",
+    "src/Journal.tsx",
+    "src/KoPage.tsx",
+    "src/Marketplace.tsx",
+    "src/Occasions.tsx",
+    "src/PlanDiscovery.tsx",
+    "src/Preferences.tsx",
+    "src/ProviderWorkspace.tsx",
+    "src/ReflectionWorkspace.tsx",
+    "src/Stage.tsx",
+    "src/api.ts",
+    "src/marketplace.css",
+    "src/styles.css"
+  ],
+  "test_runtime": null,
+  "limits": "Static findings are not an app score, certification, security guarantee, or usability test. Existing debt remains visible. No upload or automatic baseline reset."
+}

@@ -1,0 +1,1 @@
+{"phase": "ev02-after", "status": "regression", "tests": "not-run", "counts": {"bandit": {"before": 19, "after": 20}, "complexity": {"before": 14, "after": 14}, "oxlint": {"before": 124, "after": 82}, "ruff": {"before": 0, "after": 0}, "stylelint": {"before": 126, "after": 115}}, "errors": []}

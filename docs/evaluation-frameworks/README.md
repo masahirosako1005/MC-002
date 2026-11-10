@@ -37,4 +37,4 @@
 
 確認時には別作業でcommunity配下からroot frontend/backendへ構成移動中だった。既存 `scripts/quality_check.py` には旧パス参照が残っていたため、この導入作業では現在の一括検査が実行可能・合格とは断定しない。構成変更担当の更新と分け、実アプリ、DB、Dockerは変更していない。過去の最新参照 `artifacts/quality/revisit-release/REPORT.md` はreview-required、当該実行の動作試験はnot-runだった。過去結果を今回の評価結果へ流用しない。
 
-導入検証は `installation-verification.json` に記録する。新スキルの自動検出は次のターンから利用可能。今回は導入内容と適用範囲の確認までで、8項目の全再評価は未実施。
+導入検証は `installation-verification.json` に記録する。以上はEV01導入時点の記録。続くEV02で8項目の評価・優先修正・再検証を実施した。[評価版21eb465の最終結果](EV02-REPORT.md)と各レビューを参照。後続の追加開発や実利用者の効果まで合格に含めない。

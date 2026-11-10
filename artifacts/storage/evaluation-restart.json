@@ -1,0 +1,23 @@
+{
+  "executed_at": "2026-11-10T05:08:12.033711+00:00",
+  "passed": true,
+  "checks": {
+    "evaluation_port_project_volume_guard": true,
+    "synthetic_state_saved": true,
+    "both_containers_restarted": true,
+    "same_cookie_token_restores_owner_state": true,
+    "new_login_restores_owner_state": true,
+    "other_account_unchanged_and_marker_private": true,
+    "same_token_remains_valid_after_separate_login": true,
+    "original_field_values_restored": true,
+    "restore_used_normal_version_advance": true
+  },
+  "scope": "Dedicated evaluation app/gateway restart; production untouched",
+  "limits": [
+    "Not an OS restart or power-loss test",
+    "Synthetic evaluation data only",
+    "Original field values restored through API; version advances normally"
+  ],
+  "saved_state_sha256": "474cd4625d62aab326e2b22a3d642add5e6d4a5b811c9468d01da41c37828a33",
+  "restored_field_values_sha256": "7954ee9d4d978d26c2e69186e38cb5a9c09df73e61831a3ee7ce1b5ed3cabd72"
+}

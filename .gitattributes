@@ -1,0 +1,11 @@
+# Preserve the exact bytes of EV02 tool evidence and its recorded SHA-256 values.
+artifacts/quality/ev02-*/** -text
+artifacts/community/frontend-quality/ev02-* -text
+artifacts/community/quality/ev02-*/** -text
+artifacts/browser/ev02-ui-after-*/** -text
+artifacts/browser/ev02-frontend-stylelint.json -text
+artifacts/ev02-* -text
+artifacts/storage/deletion-restore.json -text
+artifacts/storage/deletion-restore-5a0cdb363eda4c21aec765b8eb89bb2d.json -text
+artifacts/storage/evaluation-restart.json -text
+artifacts/storage/evaluation-restart-20261110T050829Z-119c45c8.json -text

@@ -1,0 +1,128 @@
+ Image kou-community-app:ev02 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 522B 0.3s done
+#1 DONE 0.3s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.28kB 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 1.3s
+
+#4 [internal] load metadata for docker.io/library/node:24-bookworm-slim
+#4 DONE 1.3s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 337B 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [runtime 1/6] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#7 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.1s done
+#7 DONE 0.1s
+
+#8 [frontend 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
+#8 resolve docker.io/library/node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9 0.1s done
+#8 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 33.74kB 0.1s done
+#6 DONE 0.1s
+
+#9 [frontend 2/6] WORKDIR /build
+#9 CACHED
+
+#10 [frontend 3/6] COPY frontend/package*.json ./
+#10 CACHED
+
+#11 [frontend 4/6] RUN npm ci
+#11 CACHED
+
+#12 [frontend 5/6] COPY frontend/ ./
+#12 DONE 0.2s
+
+#13 [frontend 6/6] RUN npm run build
+#13 0.747 
+#13 0.747 > ko-community@1.0.0 build
+#13 0.747 > tsc --noEmit && vite build
+#13 0.747 
+#13 2.823 vite v8.3.6 building client environment for production...
+#13 2.868 transforming...
+#13 3.205 ✓ 79 modules transformed.
+#13 3.366 rendering chunks...
+#13 3.489 computing gzip size...
+#13 3.508 dist/index.html                                 0.96 kB │ gzip:  0.54 kB
+#13 3.508 dist/assets/BenefitZonePolicy-HJT9mJbL.css      1.17 kB │ gzip:  0.49 kB
+#13 3.508 dist/assets/ProviderOmikuji-NUMK73fN.css        2.05 kB │ gzip:  0.79 kB
+#13 3.508 dist/assets/PlanDiscovery-DxuRpw2m.css          2.29 kB │ gzip:  0.79 kB
+#13 3.508 dist/assets/Occasions-BdiAwcNc.css              2.45 kB │ gzip:  0.79 kB
+#13 3.508 dist/assets/ExperienceReference-DagELtFR.css    2.76 kB │ gzip:  0.84 kB
+#13 3.508 dist/assets/ProviderOriginMap-l4P2gZfY.css      3.01 kB │ gzip:  1.07 kB
+#13 3.508 dist/assets/Composer-DLWvG616.css               3.59 kB │ gzip:  1.25 kB
+#13 3.508 dist/assets/JourneyPrograms-CULPKtkr.css        4.08 kB │ gzip:  1.21 kB
+#13 3.508 dist/assets/Omikuji--04PeeKT.css                7.69 kB │ gzip:  2.39 kB
+#13 3.508 dist/assets/Circles-CDc9fjeD.css                8.31 kB │ gzip:  2.00 kB
+#13 3.508 dist/assets/Journal-GEQm169Y.css               11.84 kB │ gzip:  3.00 kB
+#13 3.508 dist/assets/Daytrip-Dkc2vcc4.css               14.34 kB │ gzip:  3.57 kB
+#13 3.508 dist/assets/index-CSYFuXQx.css                 88.88 kB │ gzip: 19.24 kB
+#13 3.508 dist/assets/preload-helper-7y9sWmk5.js          1.61 kB │ gzip:  0.82 kB
+#13 3.508 dist/assets/ResidenceFields-F_L159G7.js         1.97 kB │ gzip:  0.99 kB
+#13 3.508 dist/assets/ExperienceReference-53xtX7E8.js     2.02 kB │ gzip:  1.08 kB
+#13 3.508 dist/assets/ResidenceProfile-BWLOQXN3.js        2.84 kB │ gzip:  1.40 kB
+#13 3.508 dist/assets/api-XhG9fttl.js                     3.50 kB │ gzip:  1.58 kB
+#13 3.508 dist/assets/PasswordChange-_PkTrGj6.js          4.31 kB │ gzip:  1.64 kB
+#13 3.508 dist/assets/BenefitZonePolicy-DaRS8b1y.js       4.39 kB │ gzip:  2.01 kB
+#13 3.508 dist/assets/Registration-DssfjWrA.js            5.34 kB │ gzip:  2.11 kB
+#13 3.508 dist/assets/ProviderOmikuji-OAbHsb_t.js         5.49 kB │ gzip:  2.21 kB
+#13 3.508 dist/assets/ui-C0TSEgkO.js                      5.74 kB │ gzip:  2.45 kB
+#13 3.508 dist/assets/ProviderOriginMap-Cwy20ciU.js       8.04 kB │ gzip:  3.10 kB
+#13 3.508 dist/assets/jsx-runtime-DHXBON9B.js             8.43 kB │ gzip:  3.19 kB
+#13 3.508 dist/assets/Composer-BuiPpq9J.js               11.31 kB │ gzip:  4.02 kB
+#13 3.508 dist/assets/JourneyPrograms-DM7UIrUe.js        11.85 kB │ gzip:  4.07 kB
+#13 3.508 dist/assets/PlanDiscovery-B-bw_sH1.js          13.56 kB │ gzip:  4.75 kB
+#13 3.508 dist/assets/Omikuji-CJ_Gnboy.js                14.47 kB │ gzip:  5.53 kB
+#13 3.508 dist/assets/ProviderDashboard-CIZItOfC.js      17.04 kB │ gzip:  5.12 kB
+#13 3.508 dist/assets/ReflectionWorkspace-CE13vPdT.js    19.77 kB │ gzip:  5.92 kB
+#13 3.508 dist/assets/Occasions-5q0a4y8E.js              20.53 kB │ gzip:  6.01 kB
+#13 3.508 dist/assets/japan-DUsJQJNl.js                  25.15 kB │ gzip:  9.44 kB
+#13 3.508 dist/assets/Journal-DsNE8MU-.js                30.30 kB │ gzip:  9.07 kB
+#13 3.508 dist/assets/Circles--UAoLklu.js                40.11 kB │ gzip: 11.09 kB
+#13 3.508 dist/assets/Daytrip-CHliKzme.js                52.52 kB │ gzip: 14.81 kB
+#13 3.508 dist/assets/index-C01rnhRP.js                 322.06 kB │ gzip: 95.29 kB
+#13 3.508 
+#13 3.514 ✓ built in 686ms
+#13 DONE 3.6s
+
+#14 [runtime 2/6] WORKDIR /app
+#14 CACHED
+
+#15 [runtime 3/6] COPY backend/requirements.txt ./requirements.txt
+#15 CACHED
+
+#16 [runtime 4/6] RUN python -m pip install --no-cache-dir --only-binary=:all: pip==26.2     && python -m pip install --no-cache-dir -r requirements.txt     && python -c "import fastapi, PIL"     && groupadd --gid 10001 traveler     && useradd --uid 10001 --gid traveler --no-create-home traveler     && mkdir -p /app/data/media /app/seed-assets     && chown -R traveler:traveler /app/data
+#16 CACHED
+
+#17 [runtime 5/6] COPY backend/app ./app
+#17 CACHED
+
+#18 [runtime 6/6] COPY --from=frontend /build/dist ./static
+#18 CACHED
+
+#19 exporting to image
+#19 exporting layers 0.0s done
+#19 exporting manifest sha256:ba0bc8fe6aef8bd8c9e1dcb526eb0ae03fbd4a530cdc6a4d17ea2816ddf511fd 0.1s done
+#19 exporting config sha256:772a8141f38d836f8d57872aa5827fae0697d700733c19f99185ffde091244c7 0.1s done
+#19 exporting attestation manifest sha256:6275796c7d638c7aab76213772c5184fe2b5e1374b53227b12f9e21e4c4731e9 0.1s done
+#19 exporting manifest list sha256:1cd096320127120bc404ee0801cc3861c2404009ea65df8db03e9544ff7ea178
+#19 exporting manifest list sha256:1cd096320127120bc404ee0801cc3861c2404009ea65df8db03e9544ff7ea178 0.1s done
+#19 naming to docker.io/library/kou-community-app:ev02 0.1s done
+#19 unpacking to docker.io/library/kou-community-app:ev02
+#19 unpacking to docker.io/library/kou-community-app:ev02 0.0s done
+#19 DONE 0.6s
+
+#20 resolving provenance for metadata file
+#20 DONE 0.1s
+ Image kou-community-app:ev02 Built 

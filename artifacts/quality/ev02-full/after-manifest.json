@@ -1,0 +1,28 @@
+{
+  "completed_at": "2026-11-10T05:07:35.393209+00:00",
+  "head": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
+  "changed_during_run": [
+    "frontend/src/provider-dashboard.css",
+    "frontend/src/provider-omikuji.css",
+    "frontend/src/ProviderOmikuji.tsx"
+  ],
+  "tested_backend_changes": [],
+  "coverage_totals": {
+    "covered_lines": 5761,
+    "num_statements": 6087,
+    "percent_covered": 92.45602605863192,
+    "percent_covered_display": "92",
+    "missing_lines": 326,
+    "excluded_lines": 0,
+    "percent_statements_covered": 94.64432396911451,
+    "percent_statements_covered_display": "95",
+    "num_branches": 1588,
+    "num_partial_branches": 237,
+    "covered_branches": 1335,
+    "missing_branches": 253,
+    "percent_branches_covered": 84.06801007556675,
+    "percent_branches_covered_display": "84"
+  },
+  "tests_xml_sha256": "23d02137c01e4e53524c2264a9d96418e253ef4ba5888dd180fef0aa1615ce9f",
+  "tests_log_sha256": "167e52e14bcb26817a80967bd898605293df347a072b617fc7cca222a75a6260"
+}

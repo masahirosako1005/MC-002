@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-11-10T05:13:01.795531+00:00",
+  "asset": "frontend/public/assets/jizo-ar.png",
+  "method": "built-in image_gen, transparent background, original generated illustration",
+  "prompt": "Original friendly Japanese roadside Jizo stone guardian; full body seated warm-grey textured stone, delicate woodcut ink contours, vermilion bib, smiling face, tiny closed scroll, no text or scenery, transparent background.",
+  "use": "local camera or scanned QR image overlay",
+  "reference_identity": "No real person or third-party character requested"
+}

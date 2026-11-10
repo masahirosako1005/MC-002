@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-11-10T05:10:24.283484+00:00",
+  "status": "passed",
+  "method": "Production QR matrix rendered to RGBA test pixels and decoded by the same local jsQR dependency used by the visitor scanner. No live server code used.",
+  "payload_format": "KOU-OMIKUJI:<six ASCII digits>",
+  "roundtrip_fixtures": 3,
+  "invalid_inputs_rejected": 4,
+  "quiet_zone_modules": 4,
+  "deps": {
+    "qrcode-generator": "2.0.4",
+    "jsqr": "1.4.0"
+  },
+  "typecheck_exit_code": 0,
+  "target_TS_lint_exit_code": 0,
+  "target_CSS_lint_exit_code": 0,
+  "source_sha256": {
+    "frontend/src/ProviderOmikuji.tsx": "6bba345347feb1d53e1cf58aaa77ee7c0b20f5a94b6144f677e52c41eb815562",
+    "frontend/src/omikuji-qr.ts": "530583f61bdbb50538a3e43d7d3bf57ab0395ae6c2b0c17a324a7d6e33e2e059",
+    "frontend/src/provider-omikuji.css": "761b2f1bfd26d94dc5377d98c6195e426274dead79c633be0cc4f734b8ed3da2",
+    "test/browser/verify-omikuji-qr.mjs": "1659fc59b8ac97da4681a5407adfd823ad67748833fced944df9319aa8f619ed"
+  },
+  "first_lint_attempt": {
+    "findings": [
+      "default import alias matched named export",
+      "SVG role=img semantic preference"
+    ],
+    "resolved": "Renamed import alias and used an img with generated SVG data URI and accessible alt text. Recheck zero."
+  },
+  "limits": [
+    "No actual camera or live physical onsite marker tested by this agent.",
+    "QR image/photo fallback and live server flow are parent test scope.",
+    "Backend authorization, expiry, budget, one-time consumption unchanged."
+  ]
+}

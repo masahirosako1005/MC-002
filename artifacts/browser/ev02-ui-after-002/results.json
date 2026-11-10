@@ -1,0 +1,178 @@
+{
+  "checkedAt": "2026-11-10T05:00:04.435Z",
+  "base": "http://127.0.0.1:8082",
+  "phase": "ev02-ui-after-002",
+  "checks": [
+    {
+      "name": "stage-independent-login-and-desktop-layout",
+      "status": "fail"
+    },
+    {
+      "name": "choice-keyboard-label-and-focus",
+      "status": "pass"
+    },
+    {
+      "name": "provider-unsaved-change-confirmation",
+      "status": "pass"
+    },
+    {
+      "name": "old-provider-reference-does-not-reappear",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-390px",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-320px",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-text-200-percent",
+      "status": "pass"
+    },
+    {
+      "name": "reduced-motion-and-runtime-boundaries",
+      "status": "pass"
+    },
+    {
+      "name": "password-change-validation-and-session-revocation",
+      "status": "fail"
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "stage-1440x900",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "targets": [
+            [
+              "iframe[src$=\"provider\"]",
+              ".provider-workspace-nav > p"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-x-axis > span:nth-child(1)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-x-axis > span:nth-child(2)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-detail-tabs > button:nth-child(2)"
+            ],
+            [
+              "iframe[src$=\"provider\"]",
+              ".dashboard-detail-tabs > button:nth-child(3)"
+            ]
+          ],
+          "checks": [
+            [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6e7667",
+                  "bgColor": "#f2f4ef",
+                  "contrastRatio": 4.26,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                }
+              }
+            ],
+            [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#75806b",
+                  "bgColor": "#fffefb",
+                  "contrastRatio": 4.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                }
+              }
+            ],
+            [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#75806b",
+                  "bgColor": "#fffefb",
+                  "contrastRatio": 4.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                }
+              }
+            ],
+            [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7861",
+                  "bgColor": "#f2f4ef",
+                  "contrastRatio": 4.22,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                }
+              }
+            ],
+            [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7861",
+                  "bgColor": "#f2f4ef",
+                  "contrastRatio": 4.22,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "traveler-390px",
+      "violations": []
+    },
+    {
+      "name": "traveler-320px",
+      "violations": []
+    },
+    {
+      "name": "traveler-320px-root-font-200-percent",
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "cleanup": [
+    "isolated test plan archived",
+    "isolated traveler resume restored",
+    "isolated provider resume restored"
+  ],
+  "passed": false,
+  "limits": [
+    "Synthetic aoi/forest fixtures and one newly registered password-test account only",
+    "Root font-size 200% is text scaling, not a browser-zoom certification",
+    "Japanese typeahead uses an injected Unicode keydown; real IME interaction is not covered",
+    "Browser checks are not measured user satisfaction or actual revisit effects"
+  ],
+  "failure": {
+    "name": "TimeoutError",
+    "message": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('アカウント名', { exact: true })\u001b[22m\n"
+  }
+}

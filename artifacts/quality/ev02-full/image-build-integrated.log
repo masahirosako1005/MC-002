@@ -1,0 +1,74 @@
+ Image kou-community-app:ev02 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 522B 0.2s done
+#1 DONE 0.2s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.28kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 1.4s
+
+#4 [internal] load metadata for docker.io/library/node:24-bookworm-slim
+#4 DONE 1.4s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 337B done
+#5 DONE 0.0s
+
+#6 [frontend 1/6] FROM docker.io/library/node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
+#6 resolve docker.io/library/node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9 0.0s done
+#6 DONE 0.0s
+
+#7 [runtime 1/6] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#7 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 10.66kB 0.0s done
+#8 DONE 0.0s
+
+#9 [runtime 4/6] RUN python -m pip install --no-cache-dir --only-binary=:all: pip==26.2     && python -m pip install --no-cache-dir -r requirements.txt     && python -c "import fastapi, PIL"     && groupadd --gid 10001 traveler     && useradd --uid 10001 --gid traveler --no-create-home traveler     && mkdir -p /app/data/media /app/seed-assets     && chown -R traveler:traveler /app/data
+#9 CACHED
+
+#10 [runtime 5/6] COPY backend/app ./app
+#10 CACHED
+
+#11 [frontend 2/6] WORKDIR /build
+#11 CACHED
+
+#12 [frontend 4/6] RUN npm ci
+#12 CACHED
+
+#13 [frontend 3/6] COPY frontend/package*.json ./
+#13 CACHED
+
+#14 [frontend 6/6] RUN npm run build
+#14 CACHED
+
+#15 [runtime 2/6] WORKDIR /app
+#15 CACHED
+
+#16 [frontend 5/6] COPY frontend/ ./
+#16 CACHED
+
+#17 [runtime 3/6] COPY backend/requirements.txt ./requirements.txt
+#17 CACHED
+
+#18 [runtime 6/6] COPY --from=frontend /build/dist ./static
+#18 CACHED
+
+#19 exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:aa2fb191497671050507c68026dfb92bde0f52e84244dad7d08677e8f87dfa4c 0.0s done
+#19 exporting config sha256:0a4b5b8a935e158c2d03ef35e15b8c9a722113745c73a7ca23091d1f6420cafb 0.0s done
+#19 exporting attestation manifest sha256:4f45a0f1483e4571236ee03d526daeb91593f59df449ceeebd075a8703a40a5c 0.0s done
+#19 exporting manifest list sha256:f10a192807f9c30b9b69fad674052f5dc6bebe26739df86c8ef767c84d186050 0.0s done
+#19 naming to docker.io/library/kou-community-app:ev02 done
+#19 unpacking to docker.io/library/kou-community-app:ev02 done
+#19 DONE 0.1s
+
+#20 resolving provenance for metadata file
+#20 DONE 0.0s
+ Image kou-community-app:ev02 Built 

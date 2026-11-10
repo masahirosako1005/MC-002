@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-11-10T05:06:33.633Z",
+  "base": "http://127.0.0.1:8082",
+  "phase": "ev02-ui-after-005",
+  "checks": [
+    {
+      "name": "stage-independent-login-and-desktop-layout",
+      "status": "pass"
+    },
+    {
+      "name": "choice-keyboard-label-and-focus",
+      "status": "pass"
+    },
+    {
+      "name": "provider-unsaved-change-confirmation",
+      "status": "pass"
+    },
+    {
+      "name": "old-provider-reference-does-not-reappear",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-390px",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-320px",
+      "status": "pass"
+    },
+    {
+      "name": "traveler-text-200-percent",
+      "status": "pass"
+    },
+    {
+      "name": "reduced-motion-and-runtime-boundaries",
+      "status": "pass"
+    },
+    {
+      "name": "password-change-validation-and-session-revocation",
+      "status": "pass"
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "stage-1440x900",
+      "violations": []
+    },
+    {
+      "name": "traveler-390px",
+      "violations": []
+    },
+    {
+      "name": "traveler-320px",
+      "violations": []
+    },
+    {
+      "name": "traveler-320px-root-font-200-percent",
+      "violations": []
+    },
+    {
+      "name": "password-change-390px",
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "cleanup": [
+    "new password-test account kept only in isolated disposable database",
+    "isolated test plan archived",
+    "isolated traveler resume restored",
+    "isolated provider resume restored"
+  ],
+  "passed": true,
+  "limits": [
+    "Synthetic aoi/forest fixtures and one newly registered password-test account only",
+    "Root font-size 200% is text scaling, not a browser-zoom certification",
+    "Japanese typeahead uses an injected Unicode keydown; real IME interaction is not covered",
+    "Browser checks are not measured user satisfaction or actual revisit effects"
+  ]
+}

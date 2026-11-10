@@ -1,0 +1,3 @@
+リビジョン: 21eb4657adf57f666959d384c3bacee4b4b9bdf4
+件名: fix: strengthen account security and accessible editing flows
+確認日時: 2026-11-10T14:10:47+09:00

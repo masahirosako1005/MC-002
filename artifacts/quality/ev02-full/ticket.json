@@ -1,0 +1,62 @@
+{
+  "acceptance": [
+    {
+      "checked": true,
+      "text": "変更前後の同条件測定と8項目評価の証拠を保存"
+    },
+    {
+      "checked": true,
+      "text": "優先不具合を修正し必要な試験/実画面/完全性を検証"
+    },
+    {
+      "checked": true,
+      "text": "独立レビューと残課題を文書に記載しGitへ対応付ける"
+    }
+  ],
+  "comments": [],
+  "created_at": "2026-11-10T13:37:47+09:00",
+  "dependencies": [],
+  "description": "追加したUI/ASVS基準を含め8項目を評価。実害・品質課題を修正し証拠と限界を文書化。人による価値/再訪効果は未測定と区別。",
+  "documents": [
+    "docs/evaluation-frameworks/EV02-REPORT.md"
+  ],
+  "evidence": [
+    {
+      "at": "2026-11-10T13:43:57+09:00",
+      "path": "artifacts/quality/ev02-before/coordination.json",
+      "text": "構成移動担当の全試験と衝突を避けEV02全pytestを停止。静的計測は保持しreports-only集計、動作試験成功とは扱わない。"
+    },
+    {
+      "at": "2026-11-10T14:10:46+09:00",
+      "path": "artifacts/quality/ev02-full/after-manifest.json",
+      "text": "評価版21eb465: 全体433件+細分32件成功、行94.64%/分岐84.07%、実行前後backend/test hash変化0。"
+    },
+    {
+      "at": "2026-11-10T14:10:46+09:00",
+      "path": "artifacts/browser/ev02-ui-after-005/results.json",
+      "text": "最終統合UI005: 9シナリオ成功、axe5状態0、外部/実行エラー0。配信版照合と版境界はEV02-REPORTへ。"
+    },
+    {
+      "at": "2026-11-10T14:10:46+09:00",
+      "path": "artifacts/storage/evaluation-restart.json",
+      "text": "隔離復元11項目成功、専用Docker再起動9項目成功。保存済み本人状態/他者分離/元fixture値復元。"
+    }
+  ],
+  "id": "EV02",
+  "origin": "この時点で新規起票",
+  "owner": "evaluation-integration",
+  "priority": "P1",
+  "revision": 11,
+  "revisions": [
+    {
+      "at": "2026-11-10T14:10:47+09:00",
+      "hash": "21eb4657adf57f666959d384c3bacee4b4b9bdf4",
+      "path": "project/revisions/21eb4657adf57f666959d384c3bacee4b4b9bdf4.txt",
+      "summary": "fix: strengthen account security and accessible editing flows"
+    }
+  ],
+  "status": "done",
+  "title": "大会8項目の評価・改善・再検証",
+  "type": "task",
+  "updated_at": "2026-11-10T14:10:49+09:00"
+}

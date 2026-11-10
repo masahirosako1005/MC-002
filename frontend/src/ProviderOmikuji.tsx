@@ -1,7 +1,8 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { api } from "./api";
 import { ErrorBox } from "./ui";
 import { errorMessage } from "./validation";
+import { createOmikujiQr } from "./omikuji-qr";
 import "./provider-omikuji.css";
 
 type Shop = { id: string; name: string; enabled: boolean; monthly_budget_yen: number; issued_yen: number; remaining_yen: number; version: number };
@@ -10,6 +11,11 @@ type Overview = { month: string; providers: Shop[]; rewards: Reward[] };
 type Code = { code: string; expires_at: string; provider_name: string };
 const yen = (n: number) => `${n.toLocaleString("ja-JP")}円`;
 const date = (s: string) => new Date(s).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+
+function OnsiteMarker({ code }: { code: string }) {
+  const marker = useMemo(() => createOmikujiQr(code), [code]);
+  return <img className="omikuji-qr-marker" src={marker.imageUrl} width={264} height={264} alt="お地蔵さんの目印・現地確認コードを読み取るQR" />;
+}
 
 function ShopPanel({ shop, refresh }: { shop: Shop; refresh: () => Promise<void> }) {
   const [enabled, setEnabled] = useState(shop.enabled);
@@ -43,8 +49,8 @@ function ShopPanel({ shop, refresh }: { shop: Shop; refresh: () => Promise<void>
       <div className="omikuji-budget-input"><input id={`${id}-budget`} type="number" min={enabled ? 300 : 0} max={10000} step={1} value={budget} onChange={(e) => setBudget(e.target.value)} required disabled={busy} /><button className="button primary" disabled={busy}>設定を保存</button></div>
     </form>
     <p>上限10,000円。券面額を発行時に確保します。残り300円未満では受付を止めます。</p>
-    <button className="button" type="button" disabled={busy || !shop.enabled || shop.remaining_yen < 300} onClick={() => void run("code")}>来訪者に渡すコードを発行</button>
-    {code && <output className="omikuji-code"><span>{code.provider_name} · 現地確認コード</span><strong>{code.code}</strong><span>{date(code.expires_at)}まで・一人一回</span><span>来訪した本人にだけお渡しください。画面を離れると再表示できません。</span></output>}
+    <button className="button" type="button" disabled={busy || !shop.enabled || shop.remaining_yen < 300} onClick={() => void run("code")}>来訪者に見せるQRを発行</button>
+    {code && <output className="omikuji-code"><span>{code.provider_name} · お地蔵さんの目印</span><OnsiteMarker code={code.code} /><span>来訪者のカメラでQRを読み取ってください。</span><strong>{code.code}</strong><span>{date(code.expires_at)}まで・一人一回</span><span>来訪した本人にだけお渡しください。画面を離れると再表示できません。</span></output>}
     <output>{notice}</output><ErrorBox message={error} />
   </article>;
 }

@@ -1,0 +1,19 @@
+{
+  "legacy_n16384_r8_p1": {
+    "milliseconds": [
+      68.28,
+      93.23,
+      84.15
+    ],
+    "median_ms": 84.15
+  },
+  "current_n32768_r8_p3": {
+    "milliseconds": [
+      422.53,
+      430.03,
+      538.29
+    ],
+    "median_ms": 430.03
+  },
+  "conditions": "Windows Python 3.13, synthetic inputs only, 3 iterations, other targeted tests running; not a controlled UX benchmark."
+}

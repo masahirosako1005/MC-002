@@ -1,0 +1,13 @@
+{
+  "scope": "Owned backend changes after final targeted validation; main.py also edited by separately active feature task and excluded from this hash snapshot.",
+  "sha256": {
+    "backend/app/database.py": "75bbf0e6e4800995c8f63dfd104a0ff3e18d9f0e04d1134f25f3bc4e1b0dc75e",
+    "backend/app/service.py": "b77c4bbe94b82c343eb5da6df2bebac0101037408eea5d8d36b8368997e3b4d1",
+    "backend/app/security.py": "30934b09073a8f9647f775ac9e3e2a1ec67e92077ba3163ef02c8ae6b172db51",
+    "backend/app/schemas.py": "dd1ec261e7315cdda7b841ef9861d010eed56daffc98999f75b8d307de2bc264",
+    "backend/app/residence/service.py": "eaa352b14ddca3697d84757b6eeb867e3707ace2e190df2609f564044eec6f7e",
+    "test/backend/conftest.py": "7dfb7f070856c1c9455a16b0a09069bc054170d4e21c878a13afb7874a5177c7",
+    "test/backend/test_posts.py": "813e08d2641906a7f8e5c4d40ff0986245b3f1e22b249c5c4d49efeec39c8c5b",
+    "test/backend/test_ev02_backend.py": "82da61857ae8b57a5c55679f082b980002dffb5d8146f00b11e2f01f84f0285f"
+  }
+}
