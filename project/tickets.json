@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1013,
-  "last_event_hash": "e6610fa9c2cd786cda41a21d6d8012b3031c55ba6a89694a0acd93bcba2fcc53",
-  "updated_at": "2026-11-10T15:26:06+09:00",
+  "revision": 1014,
+  "last_event_hash": "60db6c8b902f380949b05c33489306db0d2f5b21df8e2a2fd5be9682ad4f1c09",
+  "updated_at": "2026-11-10T15:26:15+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5435,12 +5435,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "hash": "bb66162a1e7dd676190189982da3674a6b3b2a65",
+          "summary": "feat: simplify opening and connect seamless planning to revisits",
+          "path": "project/revisions/bb66162a1e7dd676190189982da3674a6b3b2a65.txt",
+          "at": "2026-11-10T15:26:15+09:00"
+        }
+      ],
       "status": "done",
       "title": "問題提起を3サービスで簡潔にする",
       "type": "task",
-      "updated_at": "2026-11-10T15:26:06+09:00"
+      "updated_at": "2026-11-10T15:26:15+09:00"
     },
     {
       "acceptance": [
