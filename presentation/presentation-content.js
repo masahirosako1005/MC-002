@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v1",
+  "version": "four-and-a-half-minute-v2-friction",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -13,25 +13,102 @@ window.KOU_DECK = {
   },
   "slides": [
     {
-      "id": "intro",
-      "type": "cover",
-      "section": "課題と提案",
-      "title": "講",
-      "subtitle": "仲間探しと事業者への相談をまとめ、地域への再訪を支える",
-      "definition": "共通の目的のために集まり、少しずつ協力する仲間。",
-      "prompts": [
-        "誰を誘うか",
-        "どこへ行くか",
-        "誰がお店と相談するか"
+      "id": "friction",
+      "type": "friction",
+      "section": "01 問題提起",
+      "title": "旅の準備で、アプリを何度も行き来する",
+      "subtitle": "「また行きたい」から、予定が決まるまで。",
+      "stages": [
+        {
+          "service": "LINE",
+          "action": "グループを作る",
+          "obstacle": "誰が同じ趣味？"
+        },
+        {
+          "service": "Instagram",
+          "action": "友人の好みを探す",
+          "obstacle": "写真から探し直す"
+        },
+        {
+          "service": "LINE",
+          "action": "仲間を招待する",
+          "obstacle": "一人ずつ声をかける"
+        },
+        {
+          "service": "Instagram",
+          "action": "行き先を探す",
+          "obstacle": "候補をまた共有する"
+        },
+        {
+          "service": "予約サイト",
+          "action": "予約・連絡する",
+          "obstacle": "条件を伝え直す"
+        }
       ],
-      "image": "../frontend/public/art/wa/travel-woodcut-v1-960.webp",
-      "duration": 20,
-      "notes": "「また行こう」と話しても、次の予定が決まらない。私たちの「講」は、仲間探しと事業者への相談をまとめるサービスです。共通の目的で集まり、少しずつ協力する「講」の考え方を、旅行計画に取り入れました。",
+      "takeaway": "「また行こう」が、旅の準備で止まっていませんか。",
+      "footnote": "日常の旅行計画を想定した場面例です。アプリ間の移動が再訪に及ぼす影響は未測定です。",
+      "duration": 25,
+      "notes": "LINEでグループを作ろうにも、誰が同じ趣味か分からない。Instagramで友達の好みを探し、LINEに戻って誘う。次はまたInstagramで行き先探し。候補を共有して日程を合わせ、最後は別のサイトで予約。「また行こう」までの準備、こんなに行ったり来たりしていませんか。",
       "sources": [
         "../DESIGN.md"
       ],
       "start": 0,
-      "end": 20
+      "end": 25
+    },
+    {
+      "id": "essence",
+      "type": "essence",
+      "section": "02 本質課題",
+      "title": "好みの発見が、仲間との合意や相談につながらない",
+      "subtitle": "一人が見つけた情報を、次の人・次の場所へ運び直している。",
+      "gaps": [
+        {
+          "title": "関心 → 仲間",
+          "problem": "誰が何を好きか分からない",
+          "response": "写真・関心から仲間候補へ"
+        },
+        {
+          "title": "候補 → 合意",
+          "problem": "候補と条件が会話に散らばる",
+          "response": "講で行き先と条件を決める"
+        },
+        {
+          "title": "合意 → 事業者",
+          "problem": "決めた条件をもう一度伝える",
+          "response": "共有を確認して直接相談へ"
+        }
+      ],
+      "takeaway": "関心・仲間・行き先・相談を、一続きにする必要がある。",
+      "footnote": "前のページの場面例から整理した設計上の課題です。負担の大きさや再訪への因果は未測定です。",
+      "duration": 15,
+      "notes": "本質は、情報の引き継ぎです。個人の「好き」を仲間との合意につなぎ、決めた条件を事業者へ伝え直す。その負担が、一人の幹事に集中しています。",
+      "sources": [
+        "../DESIGN.md"
+      ],
+      "start": 25,
+      "end": 40
+    },
+    {
+      "id": "intro",
+      "type": "cover",
+      "section": "03 講の提案",
+      "title": "講",
+      "subtitle": "旅の準備の分断を、講でぶっ壊す。",
+      "definition": "共通の目的で集まり、少しずつ力を持ち寄る仲間。",
+      "prompts": [
+        "写真・関心から仲間候補へ",
+        "講で行き先と条件を決める",
+        "共有を確認して直接相談へ"
+      ],
+      "image": "../frontend/public/art/wa/travel-woodcut-v1-960.webp",
+      "duration": 20,
+      "notes": "この分断を、私たちは「講」という考え方でぶっ壊しにきました。講は、共通の目的で集まり、少しずつ力を持ち寄る仲間。写真から関心を共有し、仲間と行き先を選び、事業者と直接相談する。その一連の準備を、一つの場につなげます。",
+      "sources": [
+        "../DESIGN.md"
+      ],
+      "start": 40,
+      "end": 60,
+      "footnote": "講に投稿した写真と本人が許可した関心を利用します。LINE・Instagramとの実連携や予約決済の代行はありません。"
     },
     {
       "id": "evidence",
@@ -61,8 +138,8 @@ window.KOU_DECK = {
         "../docs/COMMUNITY-UX-RATIONALE.md",
         "../artifacts/survey-content-summary.json"
       ],
-      "start": 20,
-      "end": 40
+      "start": 60,
+      "end": 80
     },
     {
       "id": "usage",
@@ -75,8 +152,9 @@ window.KOU_DECK = {
       "sources": [
         "../docs/REVISIT-VIDEO.md"
       ],
-      "start": 40,
-      "end": 125
+      "start": 80,
+      "end": 165,
+      "footnote": "現在の案内はローカルの規則・定型処理です。汎用の写真認識AIや外部AIには接続していません。"
     },
     {
       "id": "program",
@@ -106,8 +184,8 @@ window.KOU_DECK = {
       "sources": [
         "../docs/JOURNEY-PROGRAMS-CONTRACT.md"
       ],
-      "start": 125,
-      "end": 150
+      "start": 165,
+      "end": 190
     },
     {
       "id": "leader",
@@ -137,8 +215,8 @@ window.KOU_DECK = {
       "sources": [
         "../DESIGN.md"
       ],
-      "start": 150,
-      "end": 175
+      "start": 190,
+      "end": 215
     },
     {
       "id": "zone",
@@ -164,8 +242,8 @@ window.KOU_DECK = {
         "../docs/DAYTRIP-ROUTES.md",
         "../DESIGN.md"
       ],
-      "start": 175,
-      "end": 200
+      "start": 215,
+      "end": 240
     },
     {
       "id": "business",
@@ -181,46 +259,12 @@ window.KOU_DECK = {
       "image": "assets/current/city-dashboard.jpg",
       "footnote": "数値は架空の運用データ。地域は共有許可・少人数抑制付きの集計。内輪の会話・写真は公開しません。",
       "duration": 20,
-      "notes": "事業者は、相談した講に次の体験を提案できます。自社だけでなく、N西市全体の来訪・再訪や、どの地域から来ているかも把握できます。全員の利用申告と同意がそろった専用の振り返りだけを、事業者選びの参考にします。",
+      "notes": "事業者は市全体の来訪傾向を見ながら、相談した講に次の体験を提案できます。旅の準備を一つにつなぎ、地域に通う目的を育てる。再訪まで支える「講」を提案します。ありがとうございました。",
       "sources": [
         "../docs/CITY-DASHBOARD-ACCEPTANCE.md",
         "../docs/contracts/REFLECTIONS-CONTRACT.md"
       ],
-      "start": 200,
-      "end": 220
-    },
-    {
-      "id": "quality",
-      "type": "quality",
-      "section": "実装と検証",
-      "title": "動作を確かめ、再訪効果を測る",
-      "technology": [
-        "React",
-        "Python",
-        "Docker"
-      ],
-      "metric": {
-        "number": 433,
-        "label": "品質評価対象版で成功したテスト",
-        "scope": "EV02・21eb465／細分32件は別集計"
-      },
-      "verified": [
-        "保存・権限・復元",
-        "文字拡大・キーボード操作"
-      ],
-      "next": [
-        "30日・90日後の再訪率",
-        "再訪1回あたりの割引コスト"
-      ],
-      "footnote": "案内は外部AIを呼ばないローカル処理。未解決の静的指摘・未検証項目があり、実際の再訪効果は未測定です。",
-      "closing": "仲間と予定を決めやすく、地域に通う目的が続く。",
-      "duration": 40,
-      "notes": "実装はReactとPythonを中心に、Dockerでローカル動作します。案内は現在、登録情報とルールを使っており、外部AIには接続していません。\n\n開発ではAIで実装とレビューを分担し、測定・修正・再測定を行いました。品質評価対象版では433件のテストが成功しています。\n\n実際の再訪効果はこれからです。30日・90日後の再訪率と、一回の再訪につながる割引コストを測ります。仲間と予定を決めやすく、地域に通う目的が続く。それを支える「講」を提案します。ありがとうございました。",
-      "sources": [
-        "../docs/evaluation-frameworks/EV02-REPORT.md",
-        "../DESIGN.md"
-      ],
-      "start": 220,
+      "start": 240,
       "end": 260
     }
   ],

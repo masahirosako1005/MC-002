@@ -1,0 +1,31 @@
+{
+  "ticket": "PR02",
+  "version": "four-and-a-half-minute-v2-friction",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 43542,
+      "sha256": "5b7fb38671b276313e67a67d75e746e98cf8c27b26b6a0a566f9f1676270d5b3"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 12054,
+      "sha256": "06ddf8db5d2e6fa926c2f8a8199a6ddaab37a37e1fe33b4327c450ce9701e529"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 4496,
+      "sha256": "b645b532a0011fed31868a104694342fc6af38c0e937b0513c279568bc5b9f23"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13.mp4",
+      "bytes": 4402409,
+      "sha256": "cb45b9a0ebe9e620b8d776c20d33715d56459751afb894dc1e51c40b19600411"
+    },
+    {
+      "path": "outputs/kou-revisit-intro-v13-ja.vtt",
+      "bytes": 1248,
+      "sha256": "0a686a27f86b0ae6442d0011dc8b987090a535c22756811735ff7d00032003bd"
+    }
+  ]
+}

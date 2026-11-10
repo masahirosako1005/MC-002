@@ -2,13 +2,15 @@
 
 更新：2026-11-10。仕様の正本は [DESIGN.md](DESIGN.md)、個別の受入条件と履歴は [チケットボード](outputs/project-board.html)。過去の計画を「最新」として積み重ねず、現在の優先順位を示します。[整理前の全文](docs/history/TASKS-before-20261110-cleanup.md)
 
-## 最新の発表資料（8枚・4分20秒目標）
+## 最新の発表資料（PR02・9枚・4分20秒目標）
 
 [発表HTML](presentation/kou-presentation.html)・[登壇原稿](presentation/speaker-script.txt)・[本文と時間配分](presentation/presentation-content.js)を保存済み。本文メイリオ、和の見出し、実画面と第13版動画を使う。全体260秒を目標、270秒を上限とし、登壇原稿175秒＋動画枠85秒（動画本体77.9秒と切替約7秒）、余裕10秒で構成する。**実際の通し練習と4分30秒以内の登壇成功は未確認**。ブラウザー検証の詳細は主担当の記録で管理する。
 
-プロジェクトルートで `python scripts/serve_presentation.py` → [http://127.0.0.1:8093/presentation/kou-presentation.html](http://127.0.0.1:8093/presentation/kou-presentation.html)。←／→でページ、Nで原稿、Fで全画面。「計時開始」を使い、3枚目の動画は手動再生する。[操作案内](presentation/README.md)
+実装・検証の最終章40秒を導入に移す。1枚目の問題提起「旅の準備でアプリを何度も行き来する」25秒→2枚目の本質課題「旅の準備の分断」15秒→3枚目の講の提案「旅の準備の分断を、講でぶっ壊す。」20秒→データ20秒→5枚目動画85秒→再訪3策各25秒→事業者と締め20秒。導入のLINE→Instagram→LINE→Instagram→予約は場面例として示し、頻度・因果効果の実証やSNS連携・予約代行機能と混同しない。
 
-アプリ仕様は変更しない。アンケート69／65人は回答者287人のテーマ集計で需要・効果の証明ではなく、433試験はEV02対象版に限定する。規則によるMOC、共有同意、未測定の再訪効果を維持。旧10枚PPTX/PDFは月次くじ追加時点の保存版として残し、最新HTMLへ置き換わった入口と区別する。
+プロジェクトルートで `python scripts/serve_presentation.py` → [http://127.0.0.1:8093/presentation/kou-presentation.html](http://127.0.0.1:8093/presentation/kou-presentation.html)。←／→でページ、Nで原稿、Fで全画面。「計時開始」を使い、**5枚目**の動画は手動再生する。[操作案内](presentation/README.md)。[PR02検証記録](artifacts/presentation-html/v2/verification.json)に新構成の表示・操作を確認した結果を保存済み。導入3枚と動画を2サイズで確認し、脚注追加による動画のはみ出しを修正した。
+
+アプリ仕様は変更しない。アンケート69／65人は回答者287人のテーマ集計で需要・効果の証明ではない。発表から実装・検証章を外しても、433試験等のEV02対象版の評価記録は変更せず保持する。規則によるMOC、共有同意、未測定の再訪効果を維持。旧10枚PPTX/PDFは月次くじ追加時点の保存版として残し、最新HTMLへ置き換わった入口と区別する。
 
 ## 第13版動画の主軸改訂（生成・技術検証済み、最終承認未確認）
 

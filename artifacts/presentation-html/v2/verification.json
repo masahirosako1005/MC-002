@@ -1,0 +1,87 @@
+{
+  "ticket": "PR02",
+  "date": "2026-11-10",
+  "version": "four-and-a-half-minute-v2-friction",
+  "scope": "Presentation changes only; application and video unchanged",
+  "slides": 9,
+  "planned_seconds": 260,
+  "limit_seconds": 270,
+  "spoken_slot_seconds": 175,
+  "video_slot_seconds": 85,
+  "video_duration_seconds": 77.9,
+  "opening": [
+    {
+      "topic": "01 問題提起",
+      "seconds": 25
+    },
+    {
+      "topic": "02 本質課題",
+      "seconds": 15
+    },
+    {
+      "topic": "03 講の提案",
+      "seconds": 20
+    }
+  ],
+  "static_checks": {
+    "notes_match_script": true,
+    "intervals_contiguous": true,
+    "issues_match_proposal": true,
+    "old_quality_slide_removed": true,
+    "javascript_syntax": "passed",
+    "independent_review": "No required correction; one causal-claim wording changed to a question"
+  },
+  "browser": {
+    "surface": "ChatGPT in-app browser",
+    "url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
+    "visual_checked": [
+      "Opening slides 1–3 at 1440x900 and 1280x720",
+      "Video slide 5 at both sizes after height correction",
+      "Data slide 4, program slide 6 and closing slide 9"
+    ],
+    "actions_checked": [
+      "Next, Home and End navigation",
+      "N opens updated 25-second introduction notes; close returns focus",
+      "Slide 5 video play: paused=false, duration=77.9, error=null",
+      "Leaving video pauses it"
+    ],
+    "layout_measurements": [
+      {
+        "viewport": "1440x900",
+        "document_height": 900,
+        "video_height": 510
+      },
+      {
+        "viewport": "1280x720",
+        "document_height": 720,
+        "video_height": 360
+      }
+    ],
+    "iteration": "Added video footnote initially caused overflow. Reduced video height by 50px and spacing, then verified all video content fits.",
+    "screenshots": [
+      "opening-preview.png",
+      "slide-01-1280.png",
+      "slide-01-1440.png",
+      "slide-02-1280.png",
+      "slide-02-1440.png",
+      "slide-03-1280.png",
+      "slide-03-1440.png",
+      "slide-05-video-1280.png",
+      "slide-05-video.png",
+      "slide-09-closing.png"
+    ]
+  },
+  "boundaries": [
+    "Travel preparation is a scenario, not measured causal evidence",
+    "No actual LINE/Instagram integration or reservation-payment service",
+    "Photo interests require confirmation and permission; current guidance remains local rules",
+    "Quality chapter removed from presentation only; quality evidence retained"
+  ],
+  "not_verified": [
+    "Human rehearsal under 270 seconds",
+    "Audience persuasion/readability assessment",
+    "Printing the new nine-slide layout",
+    "Full application retest"
+  ],
+  "application_score_changed": false
+}

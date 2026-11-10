@@ -116,13 +116,25 @@
     .evidence-layout .metric-value { font-size: clamp(60px, 7vw, 100px); }
     .evidence-layout .metric-label { font-size: 27px; }
     .evidence-layout .metric-note { font-size: 20px; }
-    .technology { color: var(--muted); font-size: 22px; letter-spacing: .02em; }
-    .quality-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; }
-    .quality-column { border-top: 1px solid var(--line); padding-top: 16px; }
-    .quality-column h3 { font-size: 23px; color: var(--forest); }
-    .quality-column ul { padding-left: 1.15em; margin: 12px 0 0; font-size: 21px; }
-    .quality-column li + li { margin-top: 8px; }
-    .verification-layout .closing { border-top: 1px solid var(--line); padding-top: 15px; font-size: 24px; }
+    .friction-layout { display: flex; flex-direction: column; gap: 32px; }
+    .friction-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px; list-style: none; margin: auto 0; padding: 16px 0 28px; }
+    .friction-stage { min-width: 0; position: relative; border-top: 2px solid var(--line); padding-top: 16px; }
+    .friction-number { display: block; margin-bottom: 10px; color: var(--muted); font-size: 17px; font-variant-numeric: tabular-nums; }
+    .friction-service { font-size: clamp(24px, 2.1vw, 30px); font-weight: 700; line-height: 1.4; color: var(--ink); }
+    .service-line { color: var(--forest); }
+    .service-instagram { color: var(--vermilion); }
+    .friction-action { margin-top: 18px; min-height: 3.2em; font-size: 24px; line-height: 1.6; font-weight: 600; text-wrap: balance; }
+    .friction-obstacle { margin-top: 16px; padding-left: 12px; border-left: 2px solid var(--vermilion); font-size: 20px; line-height: 1.6; color: var(--muted); }
+    .friction-arrow { position: absolute; top: 56px; right: -25px; font-size: 24px; color: var(--muted); line-height: 1; }
+    .friction-layout .takeaway { padding-top: 22px; border-top: 1px solid var(--line); font-size: clamp(24px, 2.2vw, 32px); text-wrap: balance; }
+    .essence-layout { display: flex; flex-direction: column; gap: 32px; }
+    .essence-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 42px; list-style: none; padding: 28px 0; margin: auto 0; }
+    .essence-gap { min-width: 0; }
+    .gap-heading { display: grid; grid-template-columns: auto minmax(38px, 1fr) auto; align-items: center; gap: 15px; font-size: 28px; line-height: 1.5; font-weight: 650; }
+    .gap-break { display: flex; align-items: center; justify-content: center; gap: 7px; color: var(--vermilion); font-size: 26px; font-weight: 400; }
+    .gap-break::before, .gap-break::after { content: ""; flex: 1; border-top: 2px solid var(--line); }
+    .gap-problem { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 26px; line-height: 1.65; text-wrap: balance; }
+    .essence-layout .takeaway { padding-top: 22px; border-top: 1px solid var(--line); font-size: clamp(24px, 2.2vw, 32px); text-wrap: balance; }
     .split-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
     .cover-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .cover-layout .lead { font-size: clamp(25px, 2.6vw, 36px); text-wrap: balance; }
@@ -161,10 +173,11 @@
     .evidence-layout .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 60px; }
     .evidence-layout .points > li { padding-bottom: 24px; }
     .evidence-layout .takeaway { margin-top: auto; }
+    .video { gap: 20px; }
     .video .slide-header { padding-bottom: 12px; }
     .video .slide-title { font-size: clamp(30px, 3vw, 46px); }
-    .video .slide-body { display: flex; flex-direction: column; gap: 14px; align-items: center; }
-    .video-frame { width: min(100%, 1000px, calc((100svh - 340px) * 16 / 9)); margin: auto; }
+    .video .slide-body { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .video-frame { width: min(100%, 1000px, calc((100svh - 390px) * 16 / 9)); margin: auto; }
     .video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #262722; }
     .video-caption { font-size: 16px; color: var(--muted); margin-top: 8px; }
     .video .lead { font-size: 20px; }
@@ -175,15 +188,6 @@
     .provider-layout .points h3 { font-size: 22px; }
     .provider-layout .points p { font-size: 18px; }
     .provider-layout .visual img { max-height: 500px; border: 1px solid var(--line); }
-    .verification-layout { display: flex; flex-direction: column; gap: 24px; }
-    .verification-layout .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 42px; }
-    .verification-layout .points > li { font-size: 20px; padding-top: 12px; padding-bottom: 12px; }
-    .verification-layout .points > li::before { top: 16px; }
-    .verification-layout .points h3 { font-size: 22px; }
-    .verification-layout .points p { font-size: 18px; }
-    .verification-layout .metrics { padding: 12px 0 18px; }
-    .verification-layout .metric-value { font-size: clamp(32px, 3.7vw, 54px); }
-    .verification-layout .lead { font-size: 23px; }
     .deck-footer {
       position: relative;
       height: var(--footer-height);
@@ -236,12 +240,19 @@
       .steps h3 { font-size: 23px; }
       .steps p { font-size: 18px; }
       .metrics { padding: 13px 0; }
-      .verification-layout { gap: 17px; }
       .metric-value { font-size: 48px; }
       .evidence-layout .metrics { padding: 22px 0; }
       .evidence-layout .metric-value { font-size: 70px; }
-      .quality-column ul { font-size: 19px; }
-      .video-frame { width: min(100%, 1000px, calc((100svh - 310px) * 16 / 9)); }
+      .friction-layout { gap: 24px; }
+      .friction-flow { gap: 24px; padding-bottom: 18px; }
+      .friction-action { font-size: 22px; }
+      .friction-obstacle { font-size: 19px; }
+      .friction-arrow { right: -22px; }
+      .essence-layout { gap: 24px; }
+      .essence-flow { gap: 30px; padding: 20px 0; }
+      .gap-heading { font-size: 26px; gap: 11px; }
+      .gap-problem { font-size: 24px; margin-top: 22px; }
+      .video-frame { width: min(100%, 1000px, calc((100svh - 360px) * 16 / 9)); }
     }
     @media (max-width: 900px) {
       .slide { padding: 28px 26px; }
@@ -250,7 +261,7 @@
       .cover-layout .visual img { max-height: 320px; }
       .visual img { max-height: 480px; }
       .visual.phone img { max-height: 500px; }
-      .evidence-layout .points, .verification-layout .points { grid-template-columns: 1fr; }
+      .evidence-layout .points { grid-template-columns: 1fr; }
       .slide-title { font-size: 36px; }
       .lead { font-size: 23px; }
       .deck-brand { display: none; }
@@ -259,7 +270,15 @@
       .control { padding-inline: 10px; }
       .video-frame { width: 100%; }
       .video .slide-body { justify-content: center; }
-      .quality-columns { grid-template-columns: 1fr; gap: 24px; }
+      .friction-flow { grid-template-columns: 1fr; gap: 0; padding-left: 8px; }
+      .friction-stage { padding: 20px 0 26px 24px; border-top: 0; border-left: 2px solid var(--line); }
+      .friction-number { margin-bottom: 4px; }
+      .friction-action { min-height: 0; margin-top: 10px; }
+      .friction-obstacle { margin-top: 10px; }
+      .friction-arrow { top: auto; right: auto; bottom: -9px; left: -12px; transform: rotate(90deg); background: var(--paper); z-index: 1; }
+      .essence-flow { grid-template-columns: 1fr; gap: 32px; padding: 8px 0; }
+      .gap-heading { max-width: 440px; }
+      .gap-problem { margin-top: 16px; padding-top: 12px; font-size: 23px; }
     }
     @media (max-width: 620px) {
       :root { --footer-height: 112px; }
@@ -307,7 +326,7 @@
       .lead, .cover-layout .lead { font-size: 17pt; }
       .slide-footnote, .visual figcaption { font-size: 9pt; }
       .slide-sources { font-size: 8pt; }
-      .content-stack, .evidence-layout, .verification-layout { gap: 5mm; }
+      .content-stack, .evidence-layout { gap: 5mm; }
       .split-layout { grid-template-columns: 1.25fr .75fr; gap: 12mm; }
       .cover-layout { grid-template-columns: 1fr 1fr; }
       .provider-layout { grid-template-columns: .65fr 1.35fr; gap: 9mm; }
@@ -315,11 +334,11 @@
       .cover-layout .visual img { max-height: 120mm; }
       .points > li { padding: 4mm 0 4mm 10mm; font-size: 14pt; }
       .points > li::before { top: 5mm; font-size: 10pt; }
-      .points h3, .verification-layout .points h3 { font-size: 15pt; }
-      .points p, .verification-layout .points p, .provider-layout .points p { font-size: 12pt; }
-      .evidence-layout .points, .verification-layout .points { grid-template-columns: 1fr 1fr; gap: 0 12mm; }
-      .metrics, .verification-layout .metrics { padding: 4mm 0; gap: 8mm; }
-      .metric-value, .verification-layout .metric-value { font-size: 32pt; }
+      .points h3 { font-size: 15pt; }
+      .points p, .provider-layout .points p { font-size: 12pt; }
+      .evidence-layout .points { grid-template-columns: 1fr 1fr; gap: 0 12mm; }
+      .metrics { padding: 4mm 0; gap: 8mm; }
+      .metric-value { font-size: 32pt; }
       .metric-label { font-size: 13pt; }
       .metric-note { font-size: 9pt; }
       .steps li { padding: 4mm 0; }
@@ -331,11 +350,20 @@
       .evidence-layout .metric-value { font-size: 50pt; }
       .evidence-layout .metric-label { font-size: 18pt; }
       .evidence-layout .metric-note { font-size: 13pt; }
-      .technology { font-size: 14pt; }
-      .quality-columns { grid-template-columns: 1fr 1fr; gap: 10mm; }
-      .quality-column h3 { font-size: 16pt; }
-      .quality-column ul { font-size: 14pt; }
-      .verification-layout .closing { font-size: 16pt; }
+      .friction-layout { gap: 6mm; }
+      .friction-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7mm; padding: 4mm 0 6mm; }
+      .friction-stage { border-top: 1pt solid var(--line); border-left: 0; padding: 4mm 0 0; }
+      .friction-number { font-size: 10pt; }
+      .friction-service { font-size: 18pt; }
+      .friction-action { font-size: 15pt; min-height: 3.2em; }
+      .friction-obstacle { font-size: 12pt; }
+      .friction-arrow { top: 14mm; right: -6mm; bottom: auto; left: auto; transform: none; font-size: 16pt; background: transparent; }
+      .friction-layout .takeaway { font-size: 19pt; }
+      .essence-layout { gap: 6mm; }
+      .essence-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9mm; padding: 7mm 0; }
+      .gap-heading { font-size: 18pt; gap: 4mm; }
+      .gap-problem { font-size: 16pt; margin-top: 7mm; padding-top: 5mm; }
+      .essence-layout .takeaway { font-size: 19pt; }
       .deck-footer, .notes-panel, .video-frame video, .video-caption, .load-error, .skip-link { display: none !important; }
       .video-print { display: block; font-size: 16pt; }
       .video-print img { width: 230mm; max-height: 125mm; object-fit: contain; margin-bottom: 5mm; }
@@ -349,11 +377,11 @@
     <p class="load-error">資料を読み込んでいます。</p>
   </main>
   <footer class="deck-footer" aria-label="発表の操作">
-    <progress id="progress" class="progress" max="8" value="1" aria-label="スライドの進捗"></progress>
+    <progress id="progress" class="progress" max="1" value="1" aria-label="スライドの進捗"></progress>
     <span class="deck-brand">講</span>
     <nav class="slide-nav" aria-label="スライドを移動">
       <button id="previous" class="control nav-control" type="button" aria-label="前のスライド" aria-keyshortcuts="ArrowLeft">←</button>
-      <span id="counter" class="slide-counter">1 / 8</span>
+      <span id="counter" class="slide-counter"></span>
       <button id="next" class="control nav-control" type="button" aria-label="次のスライド" aria-keyshortcuts="ArrowRight">→</button>
     </nav>
     <div class="footer-actions">
@@ -388,7 +416,7 @@
 
       const slides = content.slides.map(slide => ({
         ...slide,
-        layout: ({ business: "provider", quality: "verification" })[slide.type] || slide.type,
+        layout: slide.type === "business" ? "provider" : slide.type,
         kicker: slide.section,
         lead: slide.subtitle,
         seconds: slide.duration,
@@ -418,7 +446,7 @@
         if (!slide.lead) return;
         const lead = element("p", "lead");
         if (slide.layout === "cover") {
-          const phrases = slide.lead.split(/(仲間探しと|事業者への相談を|まとめ、)/u).filter(Boolean);
+          const phrases = slide.lead.split(/(?<=[、。！？])/u).filter(Boolean);
           phrases.forEach((phrase, index) => {
             if (index) lead.append(element("wbr"));
             lead.append(element("span", "lead-phrase", phrase));
@@ -519,20 +547,48 @@
           if (slide.takeaway) body.append(element("p", "takeaway", slide.takeaway));
           return body;
         }
-        if (layout === "verification") {
-          body.classList.add("verification-layout");
-          if (slide.technology) body.append(element("p", "technology", `${slide.technology.join(" ／ ")}　ローカル動作`));
-          if (slide.metric) appendMetrics(body, [{ value: `${slide.metric.number}件`, label: slide.metric.label, note: slide.metric.scope }]);
-          const columns = element("div", "quality-columns");
-          [["確認したこと", slide.verified], ["これから測ること", slide.next]].forEach(([label, items]) => {
-            const column = element("section", "quality-column");
-            column.append(element("h3", "", label));
-            const list = element("ul");
-            (items || []).forEach(item => list.append(element("li", "", item)));
-            column.append(list); columns.append(column);
+        if (layout === "friction") {
+          body.classList.add("friction-layout");
+          appendLead(body, slide);
+          const flow = element("ol", "friction-flow");
+          const stages = slide.stages || [];
+          stages.forEach((stage, index) => {
+            const item = element("li", "friction-stage");
+            const number = element("span", "friction-number", String(index + 1).padStart(2, "0"));
+            number.setAttribute("aria-hidden", "true");
+            const serviceClass = stage.service === "LINE" ? " service-line" : stage.service === "Instagram" ? " service-instagram" : "";
+            item.append(number, element("h3", `friction-service${serviceClass}`, stage.service));
+            item.append(element("p", "friction-action", stage.action), element("p", "friction-obstacle", stage.obstacle));
+            if (index < stages.length - 1) {
+              const arrow = element("span", "friction-arrow", "→");
+              arrow.setAttribute("aria-hidden", "true");
+              item.append(arrow);
+            }
+            flow.append(item);
           });
-          body.append(columns);
-          if (slide.closing) body.append(element("p", "closing", slide.closing));
+          body.append(flow);
+          if (slide.takeaway) body.append(element("p", "takeaway", slide.takeaway));
+          return body;
+        }
+        if (layout === "essence") {
+          body.classList.add("essence-layout");
+          appendLead(body, slide);
+          const flow = element("ol", "essence-flow");
+          (slide.gaps || []).forEach(gap => {
+            const item = element("li", "essence-gap");
+            const heading = element("h3", "gap-heading");
+            const labels = String(gap.title || "").split(/\s*→\s*/u);
+            if (labels.length === 2) {
+              const interruption = element("span", "gap-break", "/");
+              interruption.setAttribute("aria-hidden", "true");
+              heading.append(element("span", "", labels[0]), interruption, element("span", "", labels[1]));
+              heading.setAttribute("aria-label", `${labels[0]}から${labels[1]}へのつながり`);
+            } else heading.textContent = gap.title;
+            item.append(heading, element("p", "gap-problem", gap.problem));
+            flow.append(item);
+          });
+          body.append(flow);
+          if (slide.takeaway) body.append(element("p", "takeaway", slide.takeaway));
           return body;
         }
         body.classList.add(layout === "provider" ? "provider-layout" : "split-layout");

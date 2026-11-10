@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 991,
-  "last_event_hash": "d57ae7b055f92aefe63cc9533db7cd0ad2ac0aba543c2f2cc69e1734500a8188",
-  "updated_at": "2026-11-10T15:10:39+09:00",
+  "revision": 1003,
+  "last_event_hash": "c566f94fcfd47e3383df3f28a6c19856264fa9d6dbe3470704b72df4ce256c2a",
+  "updated_at": "2026-11-10T15:22:35+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5320,16 +5320,70 @@
       "revision": 10,
       "revisions": [
         {
+          "at": "2026-11-10T15:10:39+09:00",
           "hash": "3541af6cf4e2271643c7698aa7093f4fa570028e",
-          "summary": "feat: add four-minute presentation with video and speaker notes",
           "path": "project/revisions/3541af6cf4e2271643c7698aa7093f4fa570028e.txt",
-          "at": "2026-11-10T15:10:39+09:00"
+          "summary": "feat: add four-minute presentation with video and speaker notes"
         }
       ],
       "status": "done",
       "title": "4分半以内のHTML発表資料と原稿",
       "type": "task",
       "updated_at": "2026-11-10T15:10:39+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "旧実装検証章を外し、問題提起・本質課題・講の提案を冒頭3枚で区別する"
+        },
+        {
+          "checked": true,
+          "text": "HTMLと登壇原稿が9枚260秒で一致し、SNS実連携や効果実証を暗示しない"
+        },
+        {
+          "checked": true,
+          "text": "1440x900と1280x720で追加した導入の表示と動画への遷移を確認"
+        },
+        {
+          "checked": true,
+          "text": "設計・最新版入口・検証記録・Gitを更新"
+        }
+      ],
+      "comments": [
+        {
+          "at": "2026-11-10T15:20:10+09:00",
+          "text": "追加指定により問題提起25秒→本質課題15秒→講の提案20秒を3枚に分離。全9枚260秒、動画は5枚目に改訂。起票時8枚の予定から変更。"
+        }
+      ],
+      "created_at": "2026-11-10T15:18:11+09:00",
+      "dependencies": [],
+      "description": "旧8枚目の実装検証40秒を削除し、LINE・Instagram・予約先を行き来する場面例と講の提案へ再配分する。全8枚260秒、動画は4枚目。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T15:22:33+09:00",
+          "path": "artifacts/presentation-html/v2/verification.json",
+          "text": "9枚260秒、冒頭3段階、原稿一致。1440/1280で表示確認、動画脚注によるはみ出しを修正、動画と原稿操作を確認。"
+        },
+        {
+          "at": "2026-11-10T15:22:33+09:00",
+          "path": "artifacts/presentation-html/v2/manifest.json",
+          "text": "資料のハッシュと紹介動画・字幕が未変更であることを照合。"
+        }
+      ],
+      "id": "PR02",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P1",
+      "revision": 12,
+      "revisions": [],
+      "status": "done",
+      "title": "準備の分断から始める発表導入へ改訂",
+      "type": "task",
+      "updated_at": "2026-11-10T15:22:35+09:00"
     },
     {
       "acceptance": [
