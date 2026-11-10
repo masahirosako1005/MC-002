@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1022,
-  "last_event_hash": "1d3580ea25596deea8e58d168d6ce83832978bf32128e5a8b848edded8d39d05",
-  "updated_at": "2026-11-10T15:35:14+09:00",
+  "revision": 1023,
+  "last_event_hash": "84a5de4d1fc0adebb6794db372079fac13058ad90fc7656c33d6c7689ab4e166",
+  "updated_at": "2026-11-10T15:35:26+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5486,12 +5486,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "hash": "1074699c47f0e3970eb9c9c380ee77b65ec8a2c4",
+          "summary": "Redesign presentation and assign speaker handoffs",
+          "path": "project/revisions/1074699c47f0e3970eb9c9c380ee77b65ec8a2c4.txt",
+          "at": "2026-11-10T15:35:26+09:00"
+        }
+      ],
       "status": "done",
       "title": "発表担当と交代を明記し、HTMLを全面再設計",
       "type": "task",
-      "updated_at": "2026-11-10T15:35:14+09:00"
+      "updated_at": "2026-11-10T15:35:26+09:00"
     },
     {
       "acceptance": [
