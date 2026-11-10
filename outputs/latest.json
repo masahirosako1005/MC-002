@@ -375,6 +375,98 @@
   },
   "audit_scope": "Historical output metadata audit; current document and evaluation pointers are recorded under document_freshness and quality.",
   "html_presentation": {
+    "version": "four-and-a-half-minute-v8-daytrip-opening",
+    "status": "created_browser_reviewed",
+    "path": "presentation/kou-presentation.html",
+    "content": "presentation/presentation-content.js",
+    "speaker_script": "presentation/speaker-script.txt",
+    "slides": 9,
+    "planned_seconds": 260,
+    "limit_seconds": 270,
+    "speech_seconds": 175,
+    "video_slot_seconds": 85,
+    "video_seconds": 77.9,
+    "preview_url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
+    "verification": "artifacts/presentation-html/v8/verification.json",
+    "manifest": "artifacts/presentation-html/v8/manifest.json",
+    "limits": "Human timed rehearsal and actual HTML print output not tested. Saved PPTX/PDF are separate older artifacts.",
+    "video_slide": 5,
+    "opening_sequence": [
+      "問題提起",
+      "本質課題",
+      "講の提案"
+    ],
+    "opening_seconds": [
+      25,
+      15,
+      25
+    ],
+    "opening_summary": "遠方の移動負担を踏まえ日帰り圏の再訪へ着目 → 近くても分散する旅行準備 → 講で一続きに → 後半20〜40kmの施策へ",
+    "presenters": [
+      {
+        "name": "野村",
+        "segments": [
+          {
+            "slides": [
+              1,
+              2
+            ],
+            "start": 0,
+            "end": 40,
+            "role": "問題提起・本質課題"
+          },
+          {
+            "slides": [
+              9
+            ],
+            "start": 240,
+            "end": 260,
+            "role": "事業者の価値・締め"
+          }
+        ],
+        "speech_seconds": 60,
+        "video_seconds": 0
+      },
+      {
+        "name": "梅木",
+        "segments": [
+          {
+            "slides": [
+              3,
+              4,
+              5
+            ],
+            "start": 40,
+            "end": 165,
+            "role": "講の提案・根拠・動画紹介"
+          }
+        ],
+        "speech_seconds": 40,
+        "video_seconds": 85
+      },
+      {
+        "name": "樋口",
+        "segments": [
+          {
+            "slides": [
+              6,
+              7,
+              8
+            ],
+            "start": 165,
+            "end": 240,
+            "role": "動画後の再訪3施策"
+          }
+        ],
+        "speech_seconds": 75,
+        "video_seconds": 0
+      }
+    ],
+    "design": "Original editorial illustrations contrast fragmented travel planning with a shared plan connecting friends and a local provider. Readable HTML labels; slides 3-9 retained.",
+    "matching_explanation_slide": 3,
+    "references": "artifacts/presentation-html/v7/references.md"
+  },
+  "previous_html_presentation": {
     "version": "four-and-a-half-minute-v7-illustrated-opening",
     "status": "created_browser_reviewed",
     "path": "presentation/kou-presentation.html",
@@ -466,96 +558,5 @@
     "matching_explanation_slide": 3,
     "references": "artifacts/presentation-html/v7/references.md",
     "source_revision": "57d5c21"
-  },
-  "previous_html_presentation": {
-    "version": "four-and-a-half-minute-v6-opening",
-    "status": "created_browser_reviewed",
-    "path": "presentation/kou-presentation.html",
-    "content": "presentation/presentation-content.js",
-    "speaker_script": "presentation/speaker-script.txt",
-    "slides": 9,
-    "planned_seconds": 260,
-    "limit_seconds": 270,
-    "speech_seconds": 175,
-    "video_slot_seconds": 85,
-    "video_seconds": 77.9,
-    "preview_url": "http://127.0.0.1:8093/presentation/kou-presentation.html",
-    "verification": "artifacts/presentation-html/v6/verification.json",
-    "manifest": "artifacts/presentation-html/v6/manifest.json",
-    "limits": "Human timed rehearsal and actual HTML print output not tested. Saved PPTX/PDF are separate older artifacts.",
-    "video_slide": 5,
-    "opening_sequence": [
-      "問題提起",
-      "本質課題",
-      "講の提案"
-    ],
-    "opening_seconds": [
-      25,
-      15,
-      25
-    ],
-    "opening_summary": "旅行準備のサービスがバラバラ → 再訪には準備をひと続きに → 講で実現",
-    "presenters": [
-      {
-        "name": "野村",
-        "segments": [
-          {
-            "slides": [
-              1,
-              2
-            ],
-            "start": 0,
-            "end": 40,
-            "role": "問題提起・本質課題"
-          },
-          {
-            "slides": [
-              9
-            ],
-            "start": 240,
-            "end": 260,
-            "role": "事業者の価値・締め"
-          }
-        ],
-        "speech_seconds": 60,
-        "video_seconds": 0
-      },
-      {
-        "name": "梅木",
-        "segments": [
-          {
-            "slides": [
-              3,
-              4,
-              5
-            ],
-            "start": 40,
-            "end": 165,
-            "role": "講の提案・根拠・動画紹介"
-          }
-        ],
-        "speech_seconds": 40,
-        "video_seconds": 85
-      },
-      {
-        "name": "樋口",
-        "segments": [
-          {
-            "slides": [
-              6,
-              7,
-              8
-            ],
-            "start": 165,
-            "end": 240,
-            "role": "動画後の再訪3施策"
-          }
-        ],
-        "speech_seconds": 75,
-        "video_seconds": 0
-      }
-    ],
-    "design": "Dark typographic problem opening and white continuous preparation path; matching explanation and slides 3-9 retained.",
-    "matching_explanation_slide": 3
   }
 }

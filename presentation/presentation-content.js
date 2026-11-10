@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v7-illustrated-opening",
+  "version": "four-and-a-half-minute-v8-daytrip-opening",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -32,9 +32,9 @@ window.KOU_DECK = {
         }
       ],
       "takeaway": "行きたいのに、準備が面倒。",
-      "footnote": "旅行準備の一例",
+      "footnote": "旅行準備の場面例。日帰り圏への重点化は設計上の方針で、再訪効果は未測定です。",
       "duration": 25,
-      "notes": "例えば、Instagramで行き先を探して、LINEでみんなに相談。宿の予約は楽天トラベルへ。行き先を変えたら、またLINEで相談です。行きたいだけなのに、使うサービスはバラバラ。何度も行き来する準備が、旅行へのハードルになっています。",
+      "notes": "遠方から何度も訪れてもらうには、移動の時間や費用が負担になります。そこで、日帰りで気軽に来られる人の再訪に着目しました。近くても、行き先はInstagram、相談はLINE、予約は楽天トラベル。まず、この準備の行き来を減らせないかと考えました。",
       "sources": [
         "../DESIGN.md"
       ],
@@ -48,6 +48,10 @@ window.KOU_DECK = {
         "旅行の準備、",
         "使うサービスが",
         "バラバラ。"
+      ],
+      "focusLines": [
+        "日帰りで来られる人の",
+        "再訪に着目"
       ]
     },
     {
@@ -76,7 +80,7 @@ window.KOU_DECK = {
       "takeaway": "探す・仲間と決める・事業者に相談する。この流れを途切れさせない。",
       "footnote": "前のページの場面例から整理した設計上の課題です。負担の大きさや再訪への因果は未測定です。",
       "duration": 15,
-      "notes": "また気軽に行くには、探す・誘う・相談する準備が、ひと続きにつながることが大切です。探し直す、伝え直す手間をどう減らすか。ここから梅木が、「講」を説明します。",
+      "notes": "仲間探しから事業者への相談まで、準備をひと続きにします。日帰りで来られる人が、繰り返し訪れやすくする狙いです。ここから梅木が、その仕組みとなる「講」を説明します。",
       "sources": [
         "../DESIGN.md"
       ],

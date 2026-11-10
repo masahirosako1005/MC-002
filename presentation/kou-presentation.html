@@ -46,6 +46,8 @@
     .friction .slide-footnote,.essence .slide-footnote { font-size:13px; }
     .friction-illustrated { display:grid; grid-template-columns:minmax(0,.32fr) minmax(0,.68fr); gap:36px; align-items:stretch; }
     .opening-copy { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:36px; padding:10px 0 34px; }
+    .opening-focus { color:var(--forest); font-size:22px; line-height:1.6; font-weight:600; }
+    .opening-focus span { display:block; white-space:nowrap; }
     .opening-title { font-size:clamp(35px,3.3vw,48px); line-height:1.6; font-weight:700; letter-spacing:-.04em; text-wrap:balance; }
     .opening-title-line { display:block; white-space:nowrap; }
     .opening-copy .takeaway { max-width:12em; font-size:clamp(25px,2.35vw,34px); line-height:1.65; color:var(--vermilion); border-left:3px solid var(--vermilion); padding-left:20px; }
@@ -655,6 +657,11 @@
       const serviceWindows = slide => {
         const body = element("div", "slide-body friction-illustrated");
         const copy = element("div", "opening-copy");
+        if (Array.isArray(slide.focusLines)) {
+          const focus = element("p", "opening-focus");
+          slide.focusLines.forEach(line => focus.append(element("span", "", line)));
+          copy.append(focus);
+        }
         copy.append(element("div", "opening-title-slot"));
         addTakeaway(copy, slide);
         const visualGroup = element("div", "opening-visual-group");

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1050,
-  "last_event_hash": "dae0d5bb61a8147d226f672452a5c714d62492139a2a7a8b94256c83dc4ad22c",
-  "updated_at": "2026-11-10T16:04:12+09:00",
+  "revision": 1057,
+  "last_event_hash": "aacb95e7513dcf861f93bc10c623f9cdc9b59451d1eba227a35f7d3d1e704d0c",
+  "updated_at": "2026-11-10T16:10:29+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5642,16 +5642,56 @@
       "revision": 9,
       "revisions": [
         {
+          "at": "2026-11-10T16:04:12+09:00",
           "hash": "57d5c2115d33b102f9d61faf2cb16c06de472de2",
-          "summary": "design: illustrate opening slides with travel planning story (PR07)",
           "path": "project/revisions/57d5c2115d33b102f9d61faf2cb16c06de472de2.txt",
-          "at": "2026-11-10T16:04:12+09:00"
+          "summary": "design: illustrate opening slides with travel planning story (PR07)"
         }
       ],
       "status": "done",
       "title": "導入2枚を人物イラストと視覚的な物語へ刷新",
       "type": "task",
       "updated_at": "2026-11-10T16:04:12+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "冒頭原稿とHTMLに日帰り圏への着目を反映し後半20〜40kmと接続"
+        },
+        {
+          "checked": true,
+          "text": "9枚260秒・導入40秒・担当・3〜9枚の内容を維持"
+        },
+        {
+          "checked": true,
+          "text": "表示と原稿の一致を確認し設計書・履歴へ反映"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T16:08:57+09:00",
+      "dependencies": [],
+      "description": "遠方からの再訪に伴う移動負担を踏まえ、気軽に来られる人の再訪を促す狙いを冒頭で示す。絵入り9枚構成と時間・登壇順を維持。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T16:10:28+09:00",
+          "path": "artifacts/presentation-html/v8/verification.json",
+          "text": "導入の対象説明と原稿、表示、時間・担当の整合を確認。"
+        }
+      ],
+      "id": "PR08",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 7,
+      "revisions": [],
+      "status": "done",
+      "title": "日帰り圏の再訪に着目した理由を導入へ追加",
+      "type": "task",
+      "updated_at": "2026-11-10T16:10:29+09:00"
     },
     {
       "acceptance": [

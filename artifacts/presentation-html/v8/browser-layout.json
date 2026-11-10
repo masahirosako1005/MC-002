@@ -1,0 +1,17 @@
+{
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720,
+      "overflowX": false,
+      "overflowY": false
+    },
+    {
+      "height": 900,
+      "overflowX": false,
+      "overflowY": false,
+      "width": 1440
+    }
+  ],
+  "notes": "Opening and second slide updated notes confirmed; speaker handoff preserved."
+}

@@ -1,0 +1,26 @@
+{
+  "ticket": "PR08",
+  "version": "four-and-a-half-minute-v8-daytrip-opening",
+  "slides": 9,
+  "planned_seconds": 260,
+  "opening_seconds": [
+    25,
+    15
+  ],
+  "source_checks": [
+    "Slides 3-9 unchanged from PR07",
+    "All notes included verbatim in speaker-script.txt",
+    "Speakers/start/end timings unchanged",
+    "HTML inline JavaScript syntax passed"
+  ],
+  "browser_checks": [
+    "Opening inspected at 1280x720 with no overflow",
+    "Opening notes and slide 2 handoff to Umeki inspected",
+    "Opening inspected at 1440x900 with no overflow"
+  ],
+  "not_verified": [
+    "Human timed rehearsal",
+    "Revisit effect or optimal distance",
+    "Actual print output"
+  ]
+}

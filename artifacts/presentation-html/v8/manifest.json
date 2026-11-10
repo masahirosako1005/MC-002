@@ -1,0 +1,21 @@
+{
+  "version": "four-and-a-half-minute-v8-daytrip-opening",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 66658,
+      "sha256": "3e4702f9cfdf5c68eefa3004407791de2228eca0f6983b0b2254e5b46476ddcb"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 15085,
+      "sha256": "f5c0516d6efab48bf3a6c742d4050a985d5f5d4cc5c2001d3a120afd18a2099b"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 5977,
+      "sha256": "12862b2a5e099d5388fa86e060a31c66fe0a50b77bc73ca60bb4a6d56e7bc199"
+    }
+  ],
+  "unchanged_illustrations": "presentation/assets/opening/provenance.json"
+}
