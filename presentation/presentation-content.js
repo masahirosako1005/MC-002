@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v5-community-matching",
+  "version": "four-and-a-half-minute-v6-opening",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,

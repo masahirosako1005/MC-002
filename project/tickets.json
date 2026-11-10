@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1031,
-  "last_event_hash": "9cead44f6742810ac75e9f86a930b884292e3052ea01d9574b26a7428ff0b2b8",
-  "updated_at": "2026-11-10T15:49:29+09:00",
+  "revision": 1040,
+  "last_event_hash": "15a00d168e1c3edab4ed7e3ca9b515b4f87247aae0015330fbe648b2d93120c8",
+  "updated_at": "2026-11-10T15:51:41+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5537,12 +5537,63 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T15:49:37+09:00",
+          "hash": "807f716108a439098d7755e1c3b836db9b06b83a",
+          "path": "project/revisions/807f716108a439098d7755e1c3b836db9b06b83a.txt",
+          "summary": "Explain community and personal-interest matching in kou presentation"
+        }
+      ],
       "status": "done",
       "title": "講をコミュニティと個人の関心の掛け合わせとして説明",
       "type": "task",
-      "updated_at": "2026-11-10T15:49:29+09:00"
+      "updated_at": "2026-11-10T15:49:37+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "傾いた窓と曲線ループを撤去し1/2ページを再設計"
+        },
+        {
+          "checked": true,
+          "text": "3ページ目以降と担当・原稿・9枚260秒を保持"
+        },
+        {
+          "checked": true,
+          "text": "1440x900と1280x720で表示を確認"
+        },
+        {
+          "checked": true,
+          "text": "最新資料とGitに変更を記録"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T15:49:38+09:00",
+      "dependencies": [],
+      "description": "1枚目は分散した準備先、2枚目はひと続きの準備と再訪を対比で示す。3枚目以降の図・原稿と9枚260秒は保持。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T15:51:39+09:00",
+          "path": "artifacts/presentation-html/v6/verification.json",
+          "text": "1/2の1440/1280表示と3以降・原稿維持を独立レビュー。9枚260秒を保持。"
+        }
+      ],
+      "id": "PR06",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "発表冒頭2ページの構図を再設計",
+      "type": "task",
+      "updated_at": "2026-11-10T15:51:41+09:00"
     },
     {
       "acceptance": [

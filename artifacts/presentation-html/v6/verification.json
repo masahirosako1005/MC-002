@@ -1,0 +1,22 @@
+{
+  "ticket": "PR06",
+  "version": "four-and-a-half-minute-v6-opening",
+  "date": "2026-11-10",
+  "scope": "Redesign opening slides 1 and 2 only; source metadata version updated.",
+  "slides": 9,
+  "planned_seconds": 260,
+  "passed": [
+    "Opening 1 and 2 inspected at 1440x900 and 1280x720 without overflow",
+    "Slide 3 preserved and transition checked at 1280x720",
+    "Independent diff review: later renderers, helpers, notes and controls unchanged",
+    "All slide data and speaker script unchanged from 807f716",
+    "JS syntax passed; local references exist; no remote assets or runtime network API"
+  ],
+  "not_verified": [
+    "Audience design preference",
+    "Human timed rehearsal",
+    "Actual print output",
+    "New full video playback"
+  ],
+  "previous_matching_verification": "artifacts/presentation-html/v5/verification.json"
+}

@@ -40,31 +40,28 @@
     .visual.phone { position:relative; width:100%; height:100%; padding:10px 0; }
     .visual.phone img { filter:drop-shadow(0 12px 18px #15251e15); }
     .visual figcaption { font-size:13px; color:var(--muted); margin-top:8px; }
-    .friction-layout { display:flex; flex-direction:column; gap:18px; }
-    .service-islands { position:relative; flex:1; min-height:300px; isolation:isolate; }
-    .service-links { position:absolute; inset:0; width:100%; height:100%; z-index:-1; overflow:visible; }
-    .service-window { position:absolute; width:28%; padding:0 24px 24px; border:1px solid #bec8c0; background:#fff; box-shadow:0 15px 35px #1430240c; }
-    .service-window:nth-of-type(1) { left:1%; top:6%; transform:rotate(-2deg); }
-    .service-window:nth-of-type(2) { left:36%; top:36%; transform:rotate(1.5deg); }
-    .service-window:nth-of-type(3) { right:0; top:2%; transform:rotate(-1deg); }
-    .window-bar { display:flex; justify-content:space-between; align-items:center; height:36px; margin:0 -24px 19px; padding:0 15px; background:#f2f5f0; border-bottom:1px solid #e0e5df; color:#849189; font-size:12px; letter-spacing:.08em; }
-    .window-dots { display:flex; gap:5px; }
-    .window-dots i { width:5px; height:5px; border-radius:50%; background:#a9b7ae; }
-    .service-name { font-size:clamp(25px,2.55vw,38px); line-height:1.4; letter-spacing:-.04em; font-weight:700; }
-    .service-action { font-size:23px; margin-top:17px; color:var(--muted); line-height:1.6; }
-    .service-instagram { color:var(--vermilion); }
-    .service-line { color:var(--forest); }
-    .friction-layout>.takeaway { align-self:flex-start; padding-left:22px; border-left:4px solid var(--vermilion); }
-    .essence-layout { display:flex; flex-direction:column; gap:24px; }
-    .continuous-journey { position:relative; flex:1; min-height:260px; padding:70px 0 0; }
-    .journey-line { position:absolute; top:76px; left:0; width:100%; height:130px; overflow:visible; }
-    .journey-stops { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:55px; list-style:none; margin:0; padding:0 15px; }
-    .journey-stops li { padding-top:41px; }
-    .journey-stops h3 { width:fit-content; padding:0 15px 0 0; background:var(--paper); font-size:30px; line-height:1.5; font-weight:700; }
-    .journey-stops p { margin-top:15px; max-width:15em; font-size:20px; line-height:1.7; color:var(--muted); }
-    .journey-destination { display:flex; align-items:baseline; justify-content:space-between; gap:22px; padding-top:24px; border-top:1px solid var(--line); }
-    .journey-destination span { font-size:25px; }
-    .journey-destination strong { color:var(--vermilion); font-size:clamp(35px,4.5vw,62px); line-height:1.3; letter-spacing:-.04em; }
+    .deck:has(.friction:not([hidden])) { background:#172320; scrollbar-gutter:auto; scrollbar-color:#708179 #172320; }
+    .slide.friction { max-width:none; background:#172320; color:#fafbf8; }
+    .friction .eyebrow { color:#e6a69a; }
+    .friction .folio { color:#a2b1a8; }
+    .friction .slide-footnote { border-color:#3f5248; color:#bac8bf; }
+    .friction-layout { display:flex; flex-direction:column; gap:28px; }
+    .fragmented-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; gap:45px; flex:1; list-style:none; padding:12px 0 30px; margin:0; }
+    .fragmented-actions li { min-width:0; padding:24px 0; }
+    .fragmented-actions li+li { padding-left:45px; border-left:1px solid #46594f; }
+    .fragmented-action-title { font-size:clamp(60px,6.3vw,92px); line-height:1.3; font-weight:700; letter-spacing:-.07em; }
+    .fragmented-service { font-size:clamp(22px,2vw,28px); margin-top:30px; line-height:1.5; color:#bdcdc3; letter-spacing:-.015em; }
+    .friction-layout>.takeaway { padding-top:27px; border-top:1px solid #46594f; color:#fafbf8; font-size:clamp(31px,3.3vw,47px); font-weight:600; }
+    .friction-layout>.takeaway::before { content:""; display:inline-block; width:38px; height:5px; margin:0 22px .22em 0; background:#d8614e; }
+    .essence-layout { display:flex; flex-direction:column; gap:28px; }
+    .journey-track { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:45px; list-style:none; padding:0; margin:auto 0; }
+    .journey-track::before { content:""; position:absolute; left:9px; right:9px; top:17px; border-top:3px solid var(--forest); }
+    .journey-track li { position:relative; padding-top:65px; min-width:0; }
+    .journey-track li::before { content:""; position:absolute; left:0; top:9px; width:19px; height:19px; border-radius:50%; background:var(--vermilion); border:4px solid var(--paper); box-shadow:0 0 0 2px var(--vermilion); }
+    .journey-track h3 { font-size:clamp(28px,2.7vw,40px); font-weight:700; letter-spacing:-.04em; line-height:1.5; text-wrap:balance; }
+    .journey-destination { display:flex; justify-content:space-between; align-items:baseline; gap:28px; padding-top:28px; border-top:1px solid var(--line); }
+    .journey-destination span { font-size:24px; color:var(--muted); }
+    .journey-destination strong { color:var(--vermilion); font-size:clamp(39px,4.6vw,66px); font-weight:700; line-height:1.3; letter-spacing:-.04em; }
     .cover .slide-header { min-height:34px; }
     .cover .slide-title { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
     .intro-composition { position:relative; isolation:isolate; display:grid; grid-template-columns:240px 1fr; grid-template-rows:1fr auto; gap:26px 60px; align-items:center; }
@@ -202,16 +199,12 @@
       .eyebrow { margin-bottom:8px; font-size:12px; }
       .lead { font-size:22px; }
       .takeaway { font-size:29px; }
-      .service-islands { min-height:245px; }
-      .service-window { padding:0 20px 19px; }
-      .window-bar { margin:0 -20px 14px; height:30px; }
-      .service-name { font-size:28px; }
-      .service-action { font-size:21px; margin-top:12px; }
-      .continuous-journey { min-height:200px; padding-top:30px; }
-      .journey-line { top:36px; }
-      .journey-stops li { padding-top:39px; }
-      .journey-stops h3 { font-size:26px; }
-      .journey-stops p { font-size:18px; }
+      .fragmented-actions { gap:35px; padding-bottom:16px; }
+      .fragmented-actions li+li { padding-left:35px; }
+      .fragmented-action-title { font-size:66px; }
+      .fragmented-service { font-size:24px; margin-top:22px; }
+      .friction-layout>.takeaway { font-size:35px; padding-top:22px; }
+      .journey-track li { padding-top:55px; }
       .journey-destination { padding-top:15px; }
       .journey-destination strong { font-size:43px; }
       .intro-composition { grid-template-columns:190px 1fr; gap:18px 50px; }
@@ -258,16 +251,12 @@
     @media(max-width:1000px) {
       .slide { height:auto; min-height:100%; padding:28px; gap:28px; grid-template-rows:auto 1fr auto; }
       .slide-title { font-size:34px; }
-      .service-islands { min-height:340px; }
-      .service-window { width:31%; padding:0 14px 18px; }
-      .window-bar { margin:0 -14px 14px; }
-      .service-window:nth-of-type(1) { left:0; }
-      .service-window:nth-of-type(2) { left:34.5%; }
-      .service-name { font-size:25px; }
-      .service-action { font-size:19px; }
-      .journey-stops { gap:25px; padding-inline:0; }
-      .journey-stops h3 { font-size:24px; }
-      .journey-stops p { font-size:18px; }
+      .fragmented-actions { gap:24px; }
+      .fragmented-actions li+li { padding-left:24px; }
+      .fragmented-action-title { font-size:60px; }
+      .fragmented-service { font-size:22px; }
+      .journey-track { gap:24px; }
+      .journey-track h3 { font-size:28px; }
       .intro-composition { grid-template-columns:180px 1fr; gap:35px; }
       .brand-seal { width:170px; height:170px; font-size:125px; }
       .intro-copy .lead { font-size:33px; }
@@ -302,18 +291,18 @@
       .eyebrow,.folio { font-size:12px; }
       .lead { font-size:21px; }
       .takeaway { font-size:28px; }
-      .service-islands { display:grid; gap:28px; min-height:0; padding:12px; }
-      .service-links { display:none; }
-      .service-window,.service-window:nth-of-type(n) { position:relative; top:auto; right:auto; left:auto; width:100%; transform:none; }
-      .service-window+.service-window::before { content:"↕"; position:absolute; top:-31px; left:50%; color:var(--vermilion); }
-      .service-name { font-size:28px; }
-      .service-action { font-size:21px; }
-      .continuous-journey { padding:0; min-height:0; }
-      .journey-line { display:none; }
-      .journey-stops { grid-template-columns:1fr; gap:0; border-left:2px solid var(--forest); padding-left:22px; }
-      .journey-stops li { padding:20px 0; }
-      .journey-stops h3 { font-size:26px; }
-      .journey-stops p { max-width:none; }
+      .fragmented-actions { grid-template-columns:1fr; gap:0; padding:0; }
+      .fragmented-actions li { display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:23px 0; }
+      .fragmented-actions li+li { padding-left:0; border-left:0; border-top:1px solid #46594f; }
+      .fragmented-action-title { font-size:50px; }
+      .fragmented-service { font-size:20px; margin-top:0; }
+      .friction-layout>.takeaway { font-size:29px; }
+      .friction-layout>.takeaway::before { width:20px; margin-right:12px; }
+      .journey-track { grid-template-columns:1fr; gap:0; padding-left:32px; margin:20px 0; }
+      .journey-track::before { top:9px; bottom:9px; right:auto; left:9px; border-top:0; border-left:3px solid var(--forest); }
+      .journey-track li { padding:24px 0; }
+      .journey-track li::before { left:-32px; top:31px; }
+      .journey-track h3 { font-size:30px; }
       .journey-destination { align-items:flex-start; flex-direction:column; gap:14px; }
       .journey-destination strong { font-size:40px; }
       .intro-composition { grid-template-columns:1fr; gap:28px; }
@@ -376,20 +365,19 @@
       .lead { font-size:15pt; }
       .takeaway { font-size:21pt; }
       .slide-footnote { font-size:8pt; padding-top:2mm; }
-      .service-islands { min-height:0; }
-      .service-window,.service-window:nth-of-type(n) { position:absolute; width:28%; padding:0 5mm 5mm; }
-      .service-window:nth-of-type(1) { left:1%; top:6%; }
-      .service-window:nth-of-type(2) { left:36%; top:36%; }
-      .service-window:nth-of-type(3) { right:0; top:2%; }
-      .window-bar { height:8mm; margin:0 -5mm 4mm; font-size:8pt; }
-      .service-name { font-size:22pt; }
-      .service-action { font-size:15pt; margin-top:4mm; }
-      .continuous-journey { min-height:0; padding-top:9mm; }
-      .journey-line { top:10mm; }
-      .journey-stops { gap:10mm; }
-      .journey-stops li { padding-top:12mm; }
-      .journey-stops h3 { font-size:19pt; }
-      .journey-stops p { font-size:12pt; margin-top:4mm; }
+      .deck:has(.friction:not([hidden])) { background:#fafbf8; }
+      .slide.friction { background:#fafbf8; color:var(--ink); }
+      .friction .eyebrow { color:var(--vermilion); }
+      .friction .folio,.friction .slide-footnote { color:var(--muted); }
+      .friction .slide-footnote { border-color:var(--line); }
+      .fragmented-actions { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10mm; padding:3mm 0 6mm; }
+      .fragmented-actions li+li { padding-left:10mm; border-color:var(--line); }
+      .fragmented-action-title { font-size:50pt; }
+      .fragmented-service { font-size:17pt; color:var(--muted); margin-top:8mm; }
+      .friction-layout>.takeaway { color:var(--ink); border-color:var(--line); font-size:26pt; padding-top:7mm; }
+      .journey-track { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10mm; padding:0; }
+      .journey-track li { padding-top:18mm; }
+      .journey-track h3 { font-size:23pt; }
       .journey-destination { padding-top:5mm; }
       .journey-destination span { font-size:17pt; }
       .journey-destination strong { font-size:32pt; }
@@ -644,47 +632,29 @@
       const serviceWindows = slide => {
         const body = element("div", "slide-body friction-layout");
         appendLead(body, slide);
-        const islands = element("div", "service-islands");
-        const paths = diagram("service-links", "0 0 1000 360");
-        paths.append(
-          svgElement("path", { d:"M245 120 C330 105 280 260 390 260", fill:"none", stroke:"#b63d30", "stroke-width":2, "stroke-dasharray":"9 12" }),
-          svgElement("path", { d:"M610 250 C700 250 660 125 770 115", fill:"none", stroke:"#b63d30", "stroke-width":2, "stroke-dasharray":"9 12" }),
-          svgElement("path", { d:"M795 170 C800 335 360 360 320 290", fill:"none", stroke:"#9daaa2", "stroke-width":1.5, "stroke-dasharray":"7 12" }),
-          svgElement("path", { d:"M376 252 L390 260 L376 267 M756 109 L770 115 L759 126 M314 306 L320 290 L333 299", fill:"none", stroke:"#b63d30", "stroke-width":2 })
-        );
-        islands.append(paths);
-        (slide.stages || []).forEach(stage => {
-          const windowPanel = element("article", "service-window");
-          const bar = element("div", "window-bar");
-          const dots = element("span", "window-dots"); dots.setAttribute("aria-hidden", "true");
-          for (let n = 0; n < 3; n += 1) dots.append(element("i"));
-          bar.append(dots);
-          const tint = stage.service === "LINE" ? " service-line" : stage.service === "Instagram" ? " service-instagram" : "";
-          windowPanel.append(bar, element("h3", "service-name" + tint, stage.service), element("p", "service-action", stage.action));
-          islands.append(windowPanel);
+        const actions = element("ol", "fragmented-actions");
+        const verbs = ["探す", "相談", "予約"];
+        (slide.stages || []).forEach((stage, index) => {
+          const item = element("li");
+          item.append(element("h3", "fragmented-action-title", verbs[index] || stage.action), element("p", "fragmented-service", stage.service));
+          actions.append(item);
         });
-        body.append(islands);
+        body.append(actions);
         addTakeaway(body, slide);
         return body;
       };
       const continuousJourney = slide => {
         const body = element("div", "slide-body essence-layout");
         appendLead(body, slide);
-        const journey = element("div", "continuous-journey");
-        const line = diagram("journey-line", "0 0 1000 130");
-        line.append(svgElement("path", { d:"M10 50 H955", fill:"none", stroke:"#2e6254", "stroke-width":3 }));
-        [30, 350, 680].forEach(cx => line.append(svgElement("circle", { cx, cy:50, r:7, fill:"#b63d30" })));
-        line.append(svgElement("path", { d:"M940 39 L955 50 L940 61", fill:"none", stroke:"#2e6254", "stroke-width":3 }));
-        const stops = element("ol", "journey-stops");
-        (slide.gaps || []).forEach(gap => {
-          const stop = element("li");
-          stop.append(element("h3", "", gap.title), element("p", "", gap.problem));
-          stops.append(stop);
+        const route = element("ol", "journey-track");
+        ["探す", "仲間と決める", "事業者に相談"].forEach(label => {
+          const stage = element("li");
+          stage.append(element("h3", "", label));
+          route.append(stage);
         });
-        journey.append(line, stops);
         const destination = element("p", "journey-destination");
         destination.append(element("span", "", "準備をひと続きに"), element("strong", "", "気軽な再訪へ"));
-        body.append(journey, destination);
+        body.append(route, destination);
         return body;
       };
       const introduction = slide => {

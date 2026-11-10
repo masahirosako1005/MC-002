@@ -1,0 +1,20 @@
+{
+  "ticket": "PR06",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 63640,
+      "sha256": "a389e4750ac4f2dc2e2c82cfa5951c9a9e4b50e5d6b10b9e78300700292e4ec2"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 14110,
+      "sha256": "056663b89b7500776621b889a936e37d31631cc9a4cc78fdb42aff10e1bae7ce"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 5948,
+      "sha256": "db4af2233495383a51668ee4c8ab928047eb459b1901a69ce07e3bd9b9a25769"
+    }
+  ]
+}
