@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 980,
-  "last_event_hash": "6dcf1e4c2d4856bbd063eda158e5c3c646885bf1d2ffbca0f7c89a1a2735b5f2",
-  "updated_at": "2026-11-10T14:45:22+09:00",
+  "revision": 981,
+  "last_event_hash": "3c403f5efe0ee2f84200704d0549d776f710e2df608f4fbf6b37f3cee26f6aee",
+  "updated_at": "2026-11-10T14:46:14+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5035,12 +5035,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 11,
-      "revisions": [],
+      "revision": 12,
+      "revisions": [
+        {
+          "hash": "a7446af8c6100be33b827abc84d8806e48fd6002",
+          "summary": "feat: publish v13 usage tour with warm female narration",
+          "path": "project/revisions/a7446af8c6100be33b827abc84d8806e48fd6002.txt",
+          "at": "2026-11-10T14:46:14+09:00"
+        }
+      ],
       "status": "done",
       "title": "写真から仲間探しと事業者相談をつなぐ紹介動画",
       "type": "task",
-      "updated_at": "2026-11-10T14:45:22+09:00"
+      "updated_at": "2026-11-10T14:46:14+09:00"
     },
     {
       "acceptance": [
