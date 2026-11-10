@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1049,
-  "last_event_hash": "adca57e6fce8ffc5de1a7c0a3eb4f84ea5d12b09ed52bf028cdfde126e6e6151",
-  "updated_at": "2026-11-10T16:03:52+09:00",
+  "revision": 1050,
+  "last_event_hash": "dae0d5bb61a8147d226f672452a5c714d62492139a2a7a8b94256c83dc4ad22c",
+  "updated_at": "2026-11-10T16:04:12+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5639,12 +5639,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P2",
-      "revision": 8,
-      "revisions": [],
+      "revision": 9,
+      "revisions": [
+        {
+          "hash": "57d5c2115d33b102f9d61faf2cb16c06de472de2",
+          "summary": "design: illustrate opening slides with travel planning story (PR07)",
+          "path": "project/revisions/57d5c2115d33b102f9d61faf2cb16c06de472de2.txt",
+          "at": "2026-11-10T16:04:12+09:00"
+        }
+      ],
       "status": "done",
       "title": "導入2枚を人物イラストと視覚的な物語へ刷新",
       "type": "task",
-      "updated_at": "2026-11-10T16:03:52+09:00"
+      "updated_at": "2026-11-10T16:04:12+09:00"
     },
     {
       "acceptance": [
