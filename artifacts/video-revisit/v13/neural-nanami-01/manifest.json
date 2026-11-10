@@ -1,0 +1,75 @@
+{
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "pitch": "-2Hz",
+  "post_generation_speed_change": false,
+  "dependency": "edge-tts==7.3.1",
+  "scope": "Development-time public narration only. Application remains offline MOC.",
+  "source": "https://github.com/rany2/edge-tts",
+  "scenes": [
+    {
+      "index": 0,
+      "kind": "intro",
+      "text": "利用者には、講を感じる和の画面。事業者には、数字が読みやすい管理画面。では、ログインして使ってみましょう。",
+      "spoken_text": "利用者には、こうを感じる和の画面。事業者には、数字が読みやすい管理画面。では、ログインして使ってみましょう。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-00.mp3",
+      "sha256": "2d39f046a40ae62367f77ea1409a26f1f67a467d988b576ce7646e16ed054825"
+    },
+    {
+      "index": 1,
+      "kind": "photo",
+      "text": "写真から、タグの候補が出てきます。合うものを選んで、次の仲間探しに。",
+      "spoken_text": "写真から、タグの候補が出てきます。合うものを選んで、次の仲間探しに。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-01.mp3",
+      "sha256": "d328b88c32b4d16ec3fa8f5941dd53cda0abdcfeafbcdecc23737784b781386b"
+    },
+    {
+      "index": 2,
+      "kind": "match",
+      "text": "同じコミュニティから、共通の趣味を持つ仲間を提案。気になる人を選んで、誘えます。",
+      "spoken_text": "同じコミュニティから、共通の趣味を持つ仲間を提案。気になる人を選んで、誘えます。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-02.mp3",
+      "sha256": "d8caa485bf847bf1bf4949bd3650a1322cb157982d34ebf0cd017ffb11a7dbfc"
+    },
+    {
+      "index": 3,
+      "kind": "select",
+      "text": "行きたい場所は、自分たちで選びます。事業者を講に招いて、ここから直接相談。",
+      "spoken_text": "行きたい場所は、自分たちで選びます。事業者をこうに招いて、ここから直接相談。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-03.mp3",
+      "sha256": "b25bd3748efb3a438f000701c0a744bc099d925289a988d6d93aa0f434b43720"
+    },
+    {
+      "index": 4,
+      "kind": "chat",
+      "text": "人数や日程、行程に見積もり。あちこち連絡せず、同じ場所で話せるのがうれしいですね。",
+      "spoken_text": "人数や日程、行程に見積もり。あちこち連絡せず、同じ場所で話せるのがうれしいですね。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-04.mp3",
+      "sha256": "1a9272005f1f7918604c0bb994781b79b3bacc82b2af01b5084253e3caf53b45"
+    },
+    {
+      "index": 5,
+      "kind": "reflection",
+      "text": "よかったことも、気になったことも。同意した旅の振り返りを、事業者選びの参考に。",
+      "spoken_text": "よかったことも、気になったことも。同意した旅の振り返りを、事業者選びの参考に。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-05.mp3",
+      "sha256": "b2f50116dfd3998b2fe9d2ab878df1b4e14439b0adfcb05dfc33f12eee5da665"
+    },
+    {
+      "index": 6,
+      "kind": "program",
+      "text": "事業者からは、次の絵付けのお誘いが。作って、色を付けて、受け取る。何度か通う楽しみが、次に訪れる理由になります。",
+      "spoken_text": "事業者からは、次の絵付けのお誘いが。作って、色を付けて、受け取る。何度か通う楽しみが、次に訪れる理由になります。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-06.mp3",
+      "sha256": "cfefb40d886857210a489a12b9f2c6c4c41d5c70070281728d155ab4061a9c7c"
+    },
+    {
+      "index": 7,
+      "kind": "closing",
+      "text": "仲間探しと旅先との相談を、講でまとめましょう。",
+      "spoken_text": "仲間探しと旅先との相談を、こうでまとめましょう。",
+      "path": "artifacts/video-revisit/v13/neural-nanami-01/voice-07.mp3",
+      "sha256": "f7c54d0b8afafccea17ba2716d38bc682fb2752258854ca363536df501757d4f"
+    }
+  ]
+}

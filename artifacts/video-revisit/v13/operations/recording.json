@@ -1,0 +1,1623 @@
+{
+  "viewport": {
+    "width": 430,
+    "height": 900
+  },
+  "frames": [
+    {
+      "group": "phone-match",
+      "file": "phone-match-0000.png",
+      "started": 1794288234241,
+      "finished": 1794288234333
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0001.png",
+      "started": 1794288234333,
+      "finished": 1794288234399
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0002.png",
+      "started": 1794288234731,
+      "finished": 1794288234778
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0003.png",
+      "started": 1794288234778,
+      "finished": 1794288234860
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0004.png",
+      "started": 1794288234860,
+      "finished": 1794288234906
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0005.png",
+      "started": 1794288234906,
+      "finished": 1794288234983
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0006.png",
+      "started": 1794288234983,
+      "finished": 1794288235049
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0007.png",
+      "started": 1794288235049,
+      "finished": 1794288235092
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0008.png",
+      "started": 1794288235092,
+      "finished": 1794288235145
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0009.png",
+      "started": 1794288235145,
+      "finished": 1794288235214
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0010.png",
+      "started": 1794288235214,
+      "finished": 1794288235275
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0011.png",
+      "started": 1794288235275,
+      "finished": 1794288235341
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0012.png",
+      "started": 1794288235341,
+      "finished": 1794288235397
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0013.png",
+      "started": 1794288235397,
+      "finished": 1794288235447
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0014.png",
+      "started": 1794288235447,
+      "finished": 1794288235497
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0015.png",
+      "started": 1794288235497,
+      "finished": 1794288235546
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0016.png",
+      "started": 1794288235546,
+      "finished": 1794288235598
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0017.png",
+      "started": 1794288235599,
+      "finished": 1794288235646
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0018.png",
+      "started": 1794288235646,
+      "finished": 1794288235700
+    },
+    {
+      "group": "phone-match",
+      "file": "phone-match-0019.png",
+      "started": 1794288235700,
+      "finished": 1794288235770
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0020.png",
+      "started": 1794288251160,
+      "finished": 1794288251210
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0021.png",
+      "started": 1794288251210,
+      "finished": 1794288251260
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0022.png",
+      "started": 1794288251260,
+      "finished": 1794288251312
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0023.png",
+      "started": 1794288251312,
+      "finished": 1794288251364
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0024.png",
+      "started": 1794288251364,
+      "finished": 1794288251415
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0025.png",
+      "started": 1794288251415,
+      "finished": 1794288251464
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0026.png",
+      "started": 1794288251464,
+      "finished": 1794288251512
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0027.png",
+      "started": 1794288251512,
+      "finished": 1794288251560
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0028.png",
+      "started": 1794288251560,
+      "finished": 1794288251613
+    },
+    {
+      "group": "phone-match-selected",
+      "file": "phone-match-selected-0029.png",
+      "started": 1794288251613,
+      "finished": 1794288251664
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0030.png",
+      "started": 1794288272419,
+      "finished": 1794288272478
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0031.png",
+      "started": 1794288272478,
+      "finished": 1794288272531
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0032.png",
+      "started": 1794288272832,
+      "finished": 1794288272903
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0033.png",
+      "started": 1794288272903,
+      "finished": 1794288272961
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0034.png",
+      "started": 1794288272961,
+      "finished": 1794288273014
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0035.png",
+      "started": 1794288273014,
+      "finished": 1794288273072
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0036.png",
+      "started": 1794288273072,
+      "finished": 1794288273114
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0037.png",
+      "started": 1794288273114,
+      "finished": 1794288273165
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0038.png",
+      "started": 1794288273165,
+      "finished": 1794288273213
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0039.png",
+      "started": 1794288273213,
+      "finished": 1794288273265
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0040.png",
+      "started": 1794288273265,
+      "finished": 1794288273314
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0041.png",
+      "started": 1794288273314,
+      "finished": 1794288273365
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0042.png",
+      "started": 1794288273365,
+      "finished": 1794288273414
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0043.png",
+      "started": 1794288273414,
+      "finished": 1794288273469
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0044.png",
+      "started": 1794288273469,
+      "finished": 1794288273533
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0045.png",
+      "started": 1794288273533,
+      "finished": 1794288273580
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0046.png",
+      "started": 1794288273580,
+      "finished": 1794288273631
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0047.png",
+      "started": 1794288273631,
+      "finished": 1794288273680
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0048.png",
+      "started": 1794288273680,
+      "finished": 1794288273728
+    },
+    {
+      "group": "phone-select",
+      "file": "phone-select-0049.png",
+      "started": 1794288273728,
+      "finished": 1794288273780
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0050.png",
+      "started": 1794288279019,
+      "finished": 1794288279091
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0051.png",
+      "started": 1794288279386,
+      "finished": 1794288279430
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0052.png",
+      "started": 1794288279430,
+      "finished": 1794288279478
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0053.png",
+      "started": 1794288279478,
+      "finished": 1794288279528
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0054.png",
+      "started": 1794288279528,
+      "finished": 1794288279577
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0055.png",
+      "started": 1794288279577,
+      "finished": 1794288279626
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0056.png",
+      "started": 1794288279626,
+      "finished": 1794288279677
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0057.png",
+      "started": 1794288279677,
+      "finished": 1794288279732
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0058.png",
+      "started": 1794288279732,
+      "finished": 1794288279783
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0059.png",
+      "started": 1794288279783,
+      "finished": 1794288279828
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0060.png",
+      "started": 1794288279828,
+      "finished": 1794288279878
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0061.png",
+      "started": 1794288279878,
+      "finished": 1794288279930
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0062.png",
+      "started": 1794288279930,
+      "finished": 1794288279970
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0063.png",
+      "started": 1794288279970,
+      "finished": 1794288280010
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0064.png",
+      "started": 1794288280010,
+      "finished": 1794288280069
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0065.png",
+      "started": 1794288280069,
+      "finished": 1794288280119
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0066.png",
+      "started": 1794288280119,
+      "finished": 1794288280171
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0067.png",
+      "started": 1794288280171,
+      "finished": 1794288280234
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0068.png",
+      "started": 1794288280234,
+      "finished": 1794288280280
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0069.png",
+      "started": 1794288280280,
+      "finished": 1794288280339
+    },
+    {
+      "group": "phone-chat",
+      "file": "phone-chat-0070.png",
+      "started": 1794288280339,
+      "finished": 1794288280397
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0071.png",
+      "started": 1794288392748,
+      "finished": 1794288392830
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0072.png",
+      "started": 1794288392830,
+      "finished": 1794288392874
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0073.png",
+      "started": 1794288392874,
+      "finished": 1794288392925
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0074.png",
+      "started": 1794288392925,
+      "finished": 1794288392989
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0075.png",
+      "started": 1794288392989,
+      "finished": 1794288393062
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0076.png",
+      "started": 1794288393062,
+      "finished": 1794288393108
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0077.png",
+      "started": 1794288393108,
+      "finished": 1794288393156
+    },
+    {
+      "group": "phone-reflection",
+      "file": "phone-reflection-0078.png",
+      "started": 1794288393156,
+      "finished": 1794288393207
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0079.png",
+      "started": 1794288470261,
+      "finished": 1794288470328
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0080.png",
+      "started": 1794288470328,
+      "finished": 1794288470385
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0081.png",
+      "started": 1794288470727,
+      "finished": 1794288470767
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0082.png",
+      "started": 1794288470767,
+      "finished": 1794288470809
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0083.png",
+      "started": 1794288470809,
+      "finished": 1794288470857
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0084.png",
+      "started": 1794288470857,
+      "finished": 1794288470908
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0085.png",
+      "started": 1794288470908,
+      "finished": 1794288470962
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0086.png",
+      "started": 1794288470962,
+      "finished": 1794288471003
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0087.png",
+      "started": 1794288471003,
+      "finished": 1794288471039
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0088.png",
+      "started": 1794288471039,
+      "finished": 1794288471072
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0089.png",
+      "started": 1794288471072,
+      "finished": 1794288471107
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0090.png",
+      "started": 1794288471107,
+      "finished": 1794288471141
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0091.png",
+      "started": 1794288471141,
+      "finished": 1794288471180
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0092.png",
+      "started": 1794288471180,
+      "finished": 1794288471243
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0093.png",
+      "started": 1794288471243,
+      "finished": 1794288471279
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0094.png",
+      "started": 1794288471279,
+      "finished": 1794288471326
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0095.png",
+      "started": 1794288471326,
+      "finished": 1794288471357
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0096.png",
+      "started": 1794288471357,
+      "finished": 1794288471411
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0097.png",
+      "started": 1794288471411,
+      "finished": 1794288471468
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0098.png",
+      "started": 1794288471468,
+      "finished": 1794288471518
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0099.png",
+      "started": 1794288471518,
+      "finished": 1794288471574
+    },
+    {
+      "group": "pc-program",
+      "file": "pc-program-0100.png",
+      "started": 1794288471574,
+      "finished": 1794288471630
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0101.png",
+      "started": 1794288486678,
+      "finished": 1794288486748
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0102.png",
+      "started": 1794288486748,
+      "finished": 1794288486806
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0103.png",
+      "started": 1794288486806,
+      "finished": 1794288486836
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0104.png",
+      "started": 1794288486836,
+      "finished": 1794288486868
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0105.png",
+      "started": 1794288486868,
+      "finished": 1794288486903
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0106.png",
+      "started": 1794288486903,
+      "finished": 1794288486937
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0107.png",
+      "started": 1794288486937,
+      "finished": 1794288486971
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0108.png",
+      "started": 1794288486971,
+      "finished": 1794288487006
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0109.png",
+      "started": 1794288487006,
+      "finished": 1794288487039
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0110.png",
+      "started": 1794288487039,
+      "finished": 1794288487075
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0111.png",
+      "started": 1794288487075,
+      "finished": 1794288487109
+    },
+    {
+      "group": "phone-program-received",
+      "file": "phone-program-received-0112.png",
+      "started": 1794288487109,
+      "finished": 1794288487137
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0113.png",
+      "started": 1794288502548,
+      "finished": 1794288502584
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0114.png",
+      "started": 1794288502584,
+      "finished": 1794288502628
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0115.png",
+      "started": 1794288502628,
+      "finished": 1794288502673
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0116.png",
+      "started": 1794288502673,
+      "finished": 1794288502698
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0117.png",
+      "started": 1794288502698,
+      "finished": 1794288502733
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0118.png",
+      "started": 1794288502733,
+      "finished": 1794288502765
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0119.png",
+      "started": 1794288502765,
+      "finished": 1794288502801
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0120.png",
+      "started": 1794288502801,
+      "finished": 1794288502833
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0121.png",
+      "started": 1794288502833,
+      "finished": 1794288502868
+    },
+    {
+      "group": "phone-program-course",
+      "file": "phone-program-course-0122.png",
+      "started": 1794288502868,
+      "finished": 1794288502903
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0123.png",
+      "started": 1794288541449,
+      "finished": 1794288541520
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0124.png",
+      "started": 1794288541520,
+      "finished": 1794288541569
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0125.png",
+      "started": 1794288541873,
+      "finished": 1794288541938
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0126.png",
+      "started": 1794288541938,
+      "finished": 1794288541964
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0127.png",
+      "started": 1794288541964,
+      "finished": 1794288542000
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0128.png",
+      "started": 1794288542000,
+      "finished": 1794288542033
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0129.png",
+      "started": 1794288542033,
+      "finished": 1794288542062
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0130.png",
+      "started": 1794288542063,
+      "finished": 1794288542097
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0131.png",
+      "started": 1794288542097,
+      "finished": 1794288542132
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0132.png",
+      "started": 1794288542132,
+      "finished": 1794288542167
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0133.png",
+      "started": 1794288542167,
+      "finished": 1794288542218
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0134.png",
+      "started": 1794288542218,
+      "finished": 1794288542273
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0135.png",
+      "started": 1794288542273,
+      "finished": 1794288542318
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0136.png",
+      "started": 1794288542318,
+      "finished": 1794288542375
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0137.png",
+      "started": 1794288542375,
+      "finished": 1794288542413
+    },
+    {
+      "group": "phone-photo",
+      "file": "phone-photo-0138.png",
+      "started": 1794288542413,
+      "finished": 1794288542475
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0139.png",
+      "started": 1794288548007,
+      "finished": 1794288548047
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0140.png",
+      "started": 1794288548047,
+      "finished": 1794288548105
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0141.png",
+      "started": 1794288548417,
+      "finished": 1794288548487
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0142.png",
+      "started": 1794288548487,
+      "finished": 1794288548551
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0143.png",
+      "started": 1794288548551,
+      "finished": 1794288548595
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0144.png",
+      "started": 1794288548595,
+      "finished": 1794288548621
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0145.png",
+      "started": 1794288548621,
+      "finished": 1794288548651
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0146.png",
+      "started": 1794288548651,
+      "finished": 1794288548701
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0147.png",
+      "started": 1794288548701,
+      "finished": 1794288548750
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0148.png",
+      "started": 1794288548750,
+      "finished": 1794288548800
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0149.png",
+      "started": 1794288548800,
+      "finished": 1794288548832
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0150.png",
+      "started": 1794288548832,
+      "finished": 1794288548885
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0151.png",
+      "started": 1794288548885,
+      "finished": 1794288548936
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0152.png",
+      "started": 1794288548936,
+      "finished": 1794288548982
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0153.png",
+      "started": 1794288548982,
+      "finished": 1794288549032
+    },
+    {
+      "group": "phone-photo-publish",
+      "file": "phone-photo-publish-0154.png",
+      "started": 1794288549032,
+      "finished": 1794288549079
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0155.png",
+      "started": 1794288567050,
+      "finished": 1794288567117
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0156.png",
+      "started": 1794288567117,
+      "finished": 1794288567150
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0157.png",
+      "started": 1794288567150,
+      "finished": 1794288567192
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0158.png",
+      "started": 1794288567192,
+      "finished": 1794288567234
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0159.png",
+      "started": 1794288567234,
+      "finished": 1794288567264
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0160.png",
+      "started": 1794288567264,
+      "finished": 1794288567299
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0161.png",
+      "started": 1794288567299,
+      "finished": 1794288567330
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0162.png",
+      "started": 1794288567330,
+      "finished": 1794288567365
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0163.png",
+      "started": 1794288567365,
+      "finished": 1794288567397
+    },
+    {
+      "group": "phone-photo-profile",
+      "file": "phone-photo-profile-0164.png",
+      "started": 1794288567397,
+      "finished": 1794288567429
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0165.png",
+      "started": 1794288720618,
+      "finished": 1794288720678
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0166.png",
+      "started": 1794288720678,
+      "finished": 1794288720724
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0167.png",
+      "started": 1794288721062,
+      "finished": 1794288721097
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0168.png",
+      "started": 1794288721097,
+      "finished": 1794288721137
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0169.png",
+      "started": 1794288721137,
+      "finished": 1794288721192
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0170.png",
+      "started": 1794288721192,
+      "finished": 1794288721226
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0171.png",
+      "started": 1794288721226,
+      "finished": 1794288721262
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0172.png",
+      "started": 1794288721262,
+      "finished": 1794288721311
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0173.png",
+      "started": 1794288721311,
+      "finished": 1794288721376
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0174.png",
+      "started": 1794288721376,
+      "finished": 1794288721413
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0175.png",
+      "started": 1794288721413,
+      "finished": 1794288721478
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0176.png",
+      "started": 1794288721478,
+      "finished": 1794288721540
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0177.png",
+      "started": 1794288721540,
+      "finished": 1794288721585
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0178.png",
+      "started": 1794288721585,
+      "finished": 1794288721624
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0179.png",
+      "started": 1794288721624,
+      "finished": 1794288721675
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0180.png",
+      "started": 1794288721675,
+      "finished": 1794288721726
+    },
+    {
+      "group": "phone-select-pottery",
+      "file": "phone-select-pottery-0181.png",
+      "started": 1794288721726,
+      "finished": 1794288721755
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0182.png",
+      "started": 1794288727291,
+      "finished": 1794288727333
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0183.png",
+      "started": 1794288727333,
+      "finished": 1794288727360
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0184.png",
+      "started": 1794288727360,
+      "finished": 1794288727391
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0185.png",
+      "started": 1794288727391,
+      "finished": 1794288727422
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0186.png",
+      "started": 1794288727422,
+      "finished": 1794288727454
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0187.png",
+      "started": 1794288727454,
+      "finished": 1794288727507
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0188.png",
+      "started": 1794288727507,
+      "finished": 1794288727565
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0189.png",
+      "started": 1794288727565,
+      "finished": 1794288727607
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0190.png",
+      "started": 1794288727607,
+      "finished": 1794288727661
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0191.png",
+      "started": 1794288727661,
+      "finished": 1794288727689
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0192.png",
+      "started": 1794288727689,
+      "finished": 1794288727739
+    },
+    {
+      "group": "phone-chat-pottery",
+      "file": "phone-chat-pottery-0193.png",
+      "started": 1794288727739,
+      "finished": 1794288727790
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0194.png",
+      "started": 1794288742458,
+      "finished": 1794288742584
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0195.png",
+      "started": 1794288742584,
+      "finished": 1794288742636
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0196.png",
+      "started": 1794288742636,
+      "finished": 1794288742670
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0197.png",
+      "started": 1794288742670,
+      "finished": 1794288742748
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0198.png",
+      "started": 1794288742748,
+      "finished": 1794288742804
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0199.png",
+      "started": 1794288742804,
+      "finished": 1794288742860
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0200.png",
+      "started": 1794288742860,
+      "finished": 1794288742901
+    },
+    {
+      "group": "pc-login",
+      "file": "pc-login-0201.png",
+      "started": 1794288742901,
+      "finished": 1794288742938
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0202.png",
+      "started": 1794288743127,
+      "finished": 1794288743240
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0203.png",
+      "started": 1794288743240,
+      "finished": 1794288743339
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0204.png",
+      "started": 1794288743933,
+      "finished": 1794288744012
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0205.png",
+      "started": 1794288744012,
+      "finished": 1794288744082
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0206.png",
+      "started": 1794288744082,
+      "finished": 1794288744171
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0207.png",
+      "started": 1794288744171,
+      "finished": 1794288744267
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0208.png",
+      "started": 1794288744267,
+      "finished": 1794288744381
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0209.png",
+      "started": 1794288744381,
+      "finished": 1794288744509
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0210.png",
+      "started": 1794288744509,
+      "finished": 1794288744618
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0211.png",
+      "started": 1794288744618,
+      "finished": 1794288744751
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0212.png",
+      "started": 1794288744751,
+      "finished": 1794288744836
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0213.png",
+      "started": 1794288744836,
+      "finished": 1794288744939
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0214.png",
+      "started": 1794288744939,
+      "finished": 1794288745081
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0215.png",
+      "started": 1794288745081,
+      "finished": 1794288745144
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0216.png",
+      "started": 1794288745144,
+      "finished": 1794288745209
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0217.png",
+      "started": 1794288745209,
+      "finished": 1794288745273
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0218.png",
+      "started": 1794288745273,
+      "finished": 1794288745336
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0219.png",
+      "started": 1794288745336,
+      "finished": 1794288745407
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0220.png",
+      "started": 1794288745407,
+      "finished": 1794288745470
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0221.png",
+      "started": 1794288745470,
+      "finished": 1794288745541
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0222.png",
+      "started": 1794288745541,
+      "finished": 1794288745603
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0223.png",
+      "started": 1794288745603,
+      "finished": 1794288745674
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0224.png",
+      "started": 1794288745674,
+      "finished": 1794288745739
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0225.png",
+      "started": 1794288745739,
+      "finished": 1794288745832
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0226.png",
+      "started": 1794288745832,
+      "finished": 1794288745872
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0227.png",
+      "started": 1794288745872,
+      "finished": 1794288745956
+    },
+    {
+      "group": "pc-login-open",
+      "file": "pc-login-open-0228.png",
+      "started": 1794288745956,
+      "finished": 1794288746058
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0229.png",
+      "started": 1794288750744,
+      "finished": 1794288750813
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0230.png",
+      "started": 1794288750813,
+      "finished": 1794288750870
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0231.png",
+      "started": 1794288750870,
+      "finished": 1794288750935
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0232.png",
+      "started": 1794288750935,
+      "finished": 1794288750977
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0233.png",
+      "started": 1794288750977,
+      "finished": 1794288751040
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0234.png",
+      "started": 1794288751040,
+      "finished": 1794288751106
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0235.png",
+      "started": 1794288751106,
+      "finished": 1794288751191
+    },
+    {
+      "group": "pc-login-dashboard",
+      "file": "pc-login-dashboard-0236.png",
+      "started": 1794288751191,
+      "finished": 1794288751306
+    }
+  ],
+  "actions": [
+    {
+      "group": "phone-match",
+      "action": "click",
+      "at": 1794288234445,
+      "rect": {
+        "height": 48,
+        "width": 354.66668701171875,
+        "x": 37.66666793823242,
+        "y": 636.3125
+      }
+    },
+    {
+      "group": "phone-match-selected",
+      "action": "hold",
+      "at": 1794288251160,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "phone-select",
+      "action": "click",
+      "at": 1794288272552,
+      "rect": {
+        "height": 229.1354217529297,
+        "width": 394,
+        "x": 18,
+        "y": 601.34375
+      }
+    },
+    {
+      "group": "phone-chat",
+      "action": "click",
+      "at": 1794288279119,
+      "rect": {
+        "height": 48,
+        "width": 362.6666870117187,
+        "x": 33.66666793823242,
+        "y": -574.9166870117188
+      }
+    },
+    {
+      "group": "phone-reflection",
+      "action": "hold",
+      "at": 1794288392748,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "pc-program",
+      "action": "click",
+      "at": 1794288470445,
+      "rect": {
+        "height": 44,
+        "width": 66,
+        "x": 911,
+        "y": 641
+      }
+    },
+    {
+      "group": "phone-program-received",
+      "action": "hold",
+      "at": 1794288486678,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "phone-program-course",
+      "action": "hold",
+      "at": 1794288502548,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "phone-photo",
+      "action": "click",
+      "at": 1794288541570,
+      "rect": {
+        "height": 44,
+        "width": 82.3125,
+        "x": 52.66666793823242,
+        "y": 900.46875
+      }
+    },
+    {
+      "group": "phone-photo-publish",
+      "action": "click",
+      "at": 1794288548107,
+      "rect": {
+        "height": 48,
+        "width": 354.66668701171875,
+        "x": 37.66666793823242,
+        "y": 706.4791870117188
+      }
+    },
+    {
+      "group": "phone-photo-profile",
+      "action": "hold",
+      "at": 1794288567050,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "phone-select-pottery",
+      "action": "click",
+      "at": 1794288720725,
+      "rect": {
+        "height": 229.1354217529297,
+        "width": 394,
+        "x": 18,
+        "y": 601.75
+      }
+    },
+    {
+      "group": "phone-chat-pottery",
+      "action": "hold",
+      "at": 1794288727291,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "pc-login",
+      "action": "hold",
+      "at": 1794288742458,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "pc-login-open",
+      "action": "hold",
+      "at": 1794288743127,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "group": "pc-login-dashboard",
+      "action": "hold",
+      "at": 1794288750744,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "photo",
+      "result": "Local registered coffee image offered cafe/food tags; cafe selected and published by aoi. Existing profile exposes post-tag candidates and already confirmed cafe with explicit community permissions. No automatic profile copying or model inference claimed."
+    },
+    {
+      "kind": "program",
+      "result": "forest posted pottery recurring-course suggestion to accepted circle; aoi saw same message after refresh. Existing enrolled course progress 1/3 was shown."
+    },
+    {
+      "kind": "reflection",
+      "result": "Consent explanation form only; no completed reflection or scoring captured. CUA date filled DOM but submit remained disabled."
+    }
+  ],
+  "method": "Actual local application UI captures through CUA; no fabricated UI state."
+}

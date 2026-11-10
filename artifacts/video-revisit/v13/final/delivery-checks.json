@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-11-10T05:44:42.058731+00:00",
+  "status": "passed",
+  "checks": {
+    "video_hash_matches": true,
+    "preview_video_matches": true,
+    "preview_subtitles_match": true,
+    "eight_scenes": true,
+    "under_80_seconds": true,
+    "frames_match": true,
+    "browser_ended_without_error": true,
+    "neural_script_matches": true,
+    "no_audio_speed_change": true,
+    "prior_videos_preserved": true
+  },
+  "video": "outputs/kou-revisit-intro-v13.mp4",
+  "sha256": "cb45b9a0ebe9e620b8d776c20d33715d56459751afb894dc1e51c40b19600411",
+  "voice": "ja-JP-NanamiNeural",
+  "duration_seconds": 77.9,
+  "frames": 2337,
+  "subtitle_sha256": "0a686a27f86b0ae6442d0011dc8b987090a535c22756811735ff7d00032003bd",
+  "browser_playback": "artifacts/video-revisit/v13/browser-playback.json",
+  "independent_visual_review": "wa_frontend reviewed actual MP4 extracted frames: no blocking clipping/overlap or missing tag, price, consent conditions.",
+  "limits": [
+    "Human assessment of warmth, naturalness and final user acceptance remains unconfirmed.",
+    "Existing pottery plan still uses unrelated cafe image/tags.",
+    "Reflection recording shows conditions only; no save or score aggregation demonstrated.",
+    "No actual model inference, fairness or measured revisit effect claimed."
+  ],
+  "vtt_sha256": "0a686a27f86b0ae6442d0011dc8b987090a535c22756811735ff7d00032003bd",
+  "vtt_all_eight_texts_match": true,
+  "vtt_final_single_lf": true,
+  "vtt_line_endings": "LF"
+}

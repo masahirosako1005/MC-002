@@ -1,0 +1,50 @@
+{
+  "source_video": "artifacts/video-revisit/v13/guide-raw.mp4",
+  "source_video_sha256": "99194efa8a2fdf00c6d19886b20d91af846b7557b456f17a791ed470829eaf5e",
+  "source_pcm": "artifacts/video-revisit/v13/pcm/narration-77.9s.wav",
+  "source_pcm_sha256": "4c0e2687c1dc05fc585d235175a477bd4b2aa57d610f8355c1e4c8fa81de8237",
+  "scenes_json": "artifacts/video-revisit/v13/scenes.json",
+  "scenes_json_sha256": "b79a4288db057f6517321da0c5081a3c9b31924442dbc81d625dfa19e13d8e9e",
+  "stills_referenced_not_duplicated": [
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-00.png",
+      "sha256": "c260667944ba93457f1a92599b9768d632ec2ffa8acedee5da931a8288b8232b"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-01.png",
+      "sha256": "0018244f5b160b38d9ac0e8e66fdf7cf7dd17f07681399311309ceebad083fae"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-02.png",
+      "sha256": "111354750ea5e8218c284f67797bd34f00cbf1cae3c7e92b7d6e558b19ae2bf8"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-03.png",
+      "sha256": "d714e16a750bcf3763b25578566cd91b5a1db8c874b9cf4c86b67ce9769c1ef8"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-04.png",
+      "sha256": "c8872232420ffda1fa5e00622d34489b527886c781cd48388268f6fc1d3d3014"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-05.png",
+      "sha256": "d9de8480ea46396f988847b0a14f71bc3b39be4dec8c39423dc37614fbb68731"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-06.png",
+      "sha256": "d36155fdc4e92064b1e96cd5d4b11d88b18f068de8a52a7ec97d3d2ead5fc4e7"
+    },
+    {
+      "path": "artifacts/video-revisit/v13/layers/scene-07.png",
+      "sha256": "8fec96ea9cad3d922e6f877a11f4312037e7c26a7acafac9d77c023402364c5e"
+    }
+  ],
+  "source_pcm_format": {
+    "frames": 3739200,
+    "sample_rate": 48000,
+    "channels": 2,
+    "seconds": 77.9
+  },
+  "narration_json": "scripts/revisit-video-female-v13-scenes.json",
+  "narration_json_sha256": "469f45529203760a6a88fb069bfebe99a3c055035744ebca250a1b136a084cce"
+}

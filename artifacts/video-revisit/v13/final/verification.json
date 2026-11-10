@@ -1,0 +1,60 @@
+{
+  "frames": 2337,
+  "duration_seconds": 77.9,
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "decode": "passed",
+  "decoded_duration_seconds": 77.9,
+  "sha256": "cb45b9a0ebe9e620b8d776c20d33715d56459751afb894dc1e51c40b19600411",
+  "bytes": 4402409,
+  "output": "outputs/kou-revisit-intro-v13.mp4",
+  "script_sha256": "a213df3883dfe2c2785619a47130be65c2ff83e05615385b5f8ce2813aea1781",
+  "method": "Original PCM scalar gain; H.264 stream copy",
+  "source_pcm_loudness": {
+    "integrated_lufs": -16.8,
+    "true_peak_dbfs": -6.3,
+    "loudness_range_lu": 4.3
+  },
+  "final_aac_loudness": {
+    "integrated_lufs": -18.0,
+    "true_peak_dbfs": -7.5,
+    "loudness_range_lu": 4.3
+  },
+  "gain_db": -1.2,
+  "target_integrated_lufs": -18.0,
+  "maximum_true_peak_dbfs": -1.5,
+  "audio_codec": "AAC 160 kbps / 48000 Hz / stereo",
+  "trimmed": false,
+  "bgm_added": false,
+  "silence_handling": "Complete original PCM consumed; scalar multiplication preserves its silent padding",
+  "video_stream_sha256": "a92f6aef4da921f51d1277203cc55601e4e50a99822dcf51cafd103c1abb9bc7",
+  "source_video_stream_sha256": "a92f6aef4da921f51d1277203cc55601e4e50a99822dcf51cafd103c1abb9bc7",
+  "video_hash_method": "SHA256 of stream-copied H.264 Annex B packets",
+  "preserved_revisions": {
+    "outputs/history/preview/kou-revisit-intro-v4.mp4": true,
+    "outputs/history/preview/kou-revisit-intro-v5.mp4": true,
+    "outputs/history/preview/kou-revisit-intro-v6.mp4": true,
+    "outputs/history/preview/kou-revisit-intro-v7.mp4": true,
+    "outputs/history/preview/kou-revisit-intro-v9.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v1.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v2.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v3.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v4.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v5.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v6.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v7.mp4": true,
+    "outputs/history/videos/kou-revisit-intro-v9.mp4": true,
+    "outputs/kou-revisit-intro-v10.mp4": true,
+    "outputs/kou-revisit-intro-v11.mp4": true,
+    "outputs/kou-revisit-intro-v12.mp4": true,
+    "outputs/video-preview/kou-revisit-intro-v10.mp4": true,
+    "outputs/video-preview/kou-revisit-intro-v11.mp4": true,
+    "outputs/video-preview/kou-revisit-intro-v12.mp4": true
+  },
+  "input_manifest": "input-manifest.json",
+  "visual_review": "Inherited unchanged source compressed video; same 2337 frames verified",
+  "audio_listening_review": "Not performed; loudness/true peak measured and all audio/video decoded"
+}

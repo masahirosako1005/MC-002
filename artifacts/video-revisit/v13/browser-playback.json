@@ -1,0 +1,14 @@
+{
+  "currentTime": 77.9,
+  "duration": 77.9,
+  "ended": true,
+  "error": null,
+  "muted": false,
+  "paused": true,
+  "source": "http://127.0.0.1:8092/kou-revisit-intro-v13.mp4",
+  "videoHeight": 1080,
+  "videoWidth": 1920,
+  "method": "Started at zero through the page play button; uninterrupted playback, no programmatic seeking. Ended state observed.",
+  "human_listening_review": "not_assessed",
+  "checked_at": "2026-11-10T05:43:17.859Z"
+}

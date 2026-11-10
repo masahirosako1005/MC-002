@@ -9,3 +9,10 @@ artifacts/storage/deletion-restore.json -text
 artifacts/storage/deletion-restore-5a0cdb363eda4c21aec765b8eb89bb2d.json -text
 artifacts/storage/evaluation-restart.json -text
 artifacts/storage/evaluation-restart-20261110T050829Z-119c45c8.json -text
+# Preserve v13 media provenance and subtitle bytes across Windows checkouts.
+artifacts/video-revisit/v13/** -text
+outputs/kou-revisit-intro-v13-ja.vtt -text
+outputs/video-preview/narration-ja.vtt -text
+scripts/render_revisit_v13.py -text
+scripts/narrate_revisit_neural.py -text
+scripts/revisit-video-female-v13-scenes.json -text

@@ -1,0 +1,18 @@
+{
+  "source": "artifacts/video-revisit/v13/pcm/narration-79.7333s.wav",
+  "output": "artifacts/video-revisit/v13/pcm/narration-balanced.wav",
+  "filter": "acompressor=threshold=0.125:ratio=2:attack=8:release=120:makeup=1:knee=2.828",
+  "speed": 1,
+  "trimmed": false,
+  "seconds": 79.73333333333333,
+  "before": {
+    "integrated_lufs": -24.4,
+    "true_peak_dbfs": -7.6,
+    "loudness_range_lu": 4.3
+  },
+  "after": {
+    "integrated_lufs": -25.2,
+    "true_peak_dbfs": -9.1,
+    "loudness_range_lu": 4.0
+  }
+}
