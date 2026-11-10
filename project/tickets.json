@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 990,
-  "last_event_hash": "8cf527862c144c71698ee6a8d7523fb53c2810d029e3284ee015b93f7851b23c",
-  "updated_at": "2026-11-10T15:10:07+09:00",
+  "revision": 991,
+  "last_event_hash": "d57ae7b055f92aefe63cc9533db7cd0ad2ac0aba543c2f2cc69e1734500a8188",
+  "updated_at": "2026-11-10T15:10:39+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5317,12 +5317,19 @@
       "origin": "この時点で新規起票",
       "owner": "主担当",
       "priority": "P1",
-      "revision": 9,
-      "revisions": [],
+      "revision": 10,
+      "revisions": [
+        {
+          "hash": "3541af6cf4e2271643c7698aa7093f4fa570028e",
+          "summary": "feat: add four-minute presentation with video and speaker notes",
+          "path": "project/revisions/3541af6cf4e2271643c7698aa7093f4fa570028e.txt",
+          "at": "2026-11-10T15:10:39+09:00"
+        }
+      ],
       "status": "done",
       "title": "4分半以内のHTML発表資料と原稿",
       "type": "task",
-      "updated_at": "2026-11-10T15:10:07+09:00"
+      "updated_at": "2026-11-10T15:10:39+09:00"
     },
     {
       "acceptance": [
