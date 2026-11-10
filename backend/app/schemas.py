@@ -1,5 +1,5 @@
 from datetime import date as Date
-from typing import Annotated, Literal
+from typing import Annotated, Literal, get_args, get_origin
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, field_validator
 
@@ -12,6 +12,24 @@ TagList = Annotated[list[Id], Field(max_length=9)]
 
 class Input(BaseModel):
     model_config = ConfigDict(extra="forbid")
+
+    @field_validator("*", mode="before")
+    @classmethod
+    def explicit_boolean(cls, value, info):
+        # JSON can carry an unpaired UTF-16 surrogate. Reject before password
+        # hashing / SQLite UTF-8 encoding, without echoing the rejected text.
+        if isinstance(value, str):
+            try:
+                value.encode("utf-8")
+            except UnicodeEncodeError:
+                raise ValueError("Use valid Unicode text") from None
+        # Consent and attendance must use JSON booleans, not coerced "yes" or 1.
+        annotation = cls.model_fields[info.field_name].annotation
+        boolean = annotation is bool or (get_origin(annotation) is Literal
+                   and any(type(item) is bool for item in get_args(annotation)))
+        if boolean and type(value) is not bool:
+            raise ValueError("Use an explicit boolean")
+        return value
 
     @field_validator("tags", check_fields=False)
     @classmethod

@@ -1,6 +1,6 @@
 import { choiceValue, errorMessage } from "./validation";
 import Choice from "./Choice";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { api } from "./api";
 import type { Tag, User } from "./types";
 import type {
@@ -82,6 +82,20 @@ function PlanEditor({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [preview, setPreview] = useState(false);
+  const [confirmDiscard, setConfirmDiscard] = useState(false);
+  const fieldId = useId();
+  const dirty = JSON.stringify(value) !== JSON.stringify(initial);
+  useEffect(() => {
+    if (!dirty) return undefined;
+    const warn = (event: BeforeUnloadEvent) => event.preventDefault();
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [dirty]);
+  function requestClose() {
+    if (busy) return;
+    if (dirty) setConfirmDiscard(true);
+    else onClose();
+  }
   function change<K extends keyof ProviderPlan>(key: K, next: ProviderPlan[K]) {
     setValue((v) => ({ ...v, [key]: next }));
   }
@@ -101,6 +115,7 @@ function PlanEditor({
     change("itinerary", items);
   }
   async function save(status: ProviderPlan["status"]) {
+    if (busy) return;
     setBusy(true);
     setError("");
     try {
@@ -138,7 +153,7 @@ function PlanEditor({
   return (
     <Modal
       title={initial.id ? "プランを編集する" : "新しいプランをつくる"}
-      onClose={onClose}
+      onClose={requestClose}
       busy={busy}
       wide
     >
@@ -183,9 +198,10 @@ function PlanEditor({
           />
         </label>
         <h3 className="editor-section-title">開催日時</h3>
-        <label className="field">
+        <label className="field" htmlFor={`${fieldId}-schedule`}>
           日程の決め方
           <Choice
+            id={`${fieldId}-schedule`}
             value={value.schedule_type || "on_request"}
             onChange={(event) =>
               setValue((current) => ({
@@ -293,9 +309,10 @@ function PlanEditor({
               onChange={(e) => change("price_yen", Number(e.target.value))}
             />
           </label>
-          <label className="field">
+          <label className="field" htmlFor={`${fieldId}-price-basis`}>
             費用の単位
             <Choice
+              id={`${fieldId}-price-basis`}
               value={value.price_basis}
               onChange={(e) =>
                 change(
@@ -313,9 +330,10 @@ function PlanEditor({
             </Choice>
           </label>
         </div>
-        <label className="field">
+        <label className="field" htmlFor={`${fieldId}-price-scope`}>
           費用の範囲
           <Choice
+            id={`${fieldId}-price-scope`}
             value={value.price_scope}
             onChange={(e) =>
               change(
@@ -488,6 +506,19 @@ function PlanEditor({
           tags={tags}
           onClose={() => setPreview(false)}
         />
+      )}
+      {confirmDiscard && (
+        <Modal title="保存せずに閉じますか？" onClose={() => setConfirmDiscard(false)}>
+          <p>入力した変更は失われます。保存済みのプランは変更されません。</p>
+          <div className="dialog-actions">
+            <button className="button secondary" onClick={() => setConfirmDiscard(false)}>
+              編集を続ける
+            </button>
+            <button className="button danger" onClick={onClose}>
+              変更を破棄して閉じる
+            </button>
+          </div>
+        </Modal>
       )}
     </Modal>
   );

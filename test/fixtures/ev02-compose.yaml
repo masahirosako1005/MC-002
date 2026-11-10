@@ -1,0 +1,10 @@
+# Dedicated evaluation data and port; never replace the presentation volume.
+services:
+  app:
+    image: kou-community-app:ev02
+    pull_policy: never
+    environment:
+      APP_ALLOWED_ORIGINS: http://localhost:8082,http://127.0.0.1:8082,http://localhost:8001,http://127.0.0.1:8001
+  gateway:
+    ports: !override
+      - "127.0.0.1:8082:8081"

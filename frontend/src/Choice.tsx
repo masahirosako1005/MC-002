@@ -35,6 +35,7 @@ export default function Choice({
   const trigger = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLSpanElement>(null);
+  const search = useRef({ text: "", lastKeyAt: 0 });
   const options: Option[] = useMemo(() => Children.toArray(children)
     .filter(isValidElement<{ value: string | number; children: ReactNode }>)
     .map((child) => {
@@ -74,7 +75,13 @@ export default function Choice({
     if (disabled) setOpen(false);
   }, [disabled]);
   return (
-    <span ref={root} className="choice-field">
+    <span
+      ref={root}
+      className="choice-field"
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+    >
       <button
         type="button"
         id={id}
@@ -134,7 +141,27 @@ export default function Choice({
             trigger.current?.focus();
             return;
           } else if (e.key === "Tab") {
+            // Let native Tab navigation continue from the trigger, not a hidden option.
+            trigger.current?.focus();
             setOpen(false);
+            return;
+          } else if (
+            e.key.length === 1 &&
+            !e.ctrlKey && !e.metaKey && !e.altKey &&
+            !e.nativeEvent.isComposing
+          ) {
+            const now = performance.now();
+            search.current.text = now - search.current.lastKeyAt > 700
+              ? e.key : search.current.text + e.key;
+            search.current.lastKeyAt = now;
+            const match = items.find((item) =>
+              item.textContent?.trim().toLocaleLowerCase("ja-JP")
+                .startsWith(search.current.text.toLocaleLowerCase("ja-JP")),
+            );
+            if (match) {
+              e.preventDefault();
+              match.focus();
+            }
             return;
           } else return;
           e.preventDefault();

@@ -1,7 +1,10 @@
 import asyncio
+import shutil
+import sqlite3
+import sys
 from dataclasses import dataclass
 from pathlib import Path
-import sys
+
 import httpx
 import pytest
 
@@ -50,9 +53,26 @@ class Harness:
         return client
 
 
+@pytest.fixture(scope="session")
+def database_template(tmp_path_factory):
+    """Seed using the real application/KDF; snapshot the closed database."""
+    root = tmp_path_factory.mktemp("seed-template")
+    settings = Settings(db_path=root / "seed.db", media_dir=root / "media", model_dir=root / "no-model", worker_enabled=False)
+    app = create_app(settings)
+    with asyncio.Runner() as runner:
+        lifecycle = app.router.lifespan_context(app)
+        runner.run(lifecycle.__aenter__())
+        runner.run(lifecycle.__aexit__(None, None, None))
+    target = root / "template.db"
+    with sqlite3.connect(settings.db_path) as source, sqlite3.connect(target) as snapshot:
+        source.backup(snapshot)
+    return target
+
+
 @pytest.fixture
-def harness(tmp_path):
+def harness(tmp_path, database_template):
     settings = Settings(db_path=tmp_path / "community.db", media_dir=tmp_path / "media", model_dir=tmp_path / "no-model", worker_enabled=False)
+    shutil.copyfile(database_template, settings.db_path)
     app = create_app(settings)
     with asyncio.Runner() as runner:
         lifecycle = app.router.lifespan_context(app)

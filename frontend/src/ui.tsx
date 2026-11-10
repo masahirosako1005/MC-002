@@ -242,6 +242,7 @@ export function Modal({
       aria-labelledby={id}
       onCancel={(e) => {
         e.preventDefault();
+        e.stopPropagation();
         if (!busy) onClose();
       }}
     >

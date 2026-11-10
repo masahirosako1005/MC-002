@@ -580,7 +580,7 @@ function ReflectionDetail({ id, onBack }: { id: string; onBack: () => void }) {
       if (alive.current) setBusy(false);
     }
   }
-  if (loading) return <p role="status">振り返りをひらいています…</p>;
+  if (loading) return <output className="page-load-status">振り返りをひらいています…</output>;
   return (
     <section className="reflection-detail">
       <button className="text-button" onClick={onBack}>
@@ -871,7 +871,7 @@ export default function ReflectionWorkspace({
       </header>
       <ErrorBox message={error} />
       {loading ? (
-        <p role="status">振り返りを読み込んでいます…</p>
+        <output className="page-load-status">振り返りを読み込んでいます…</output>
       ) : (
         data && (
           <>

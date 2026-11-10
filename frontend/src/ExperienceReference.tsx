@@ -50,31 +50,32 @@ export default function ProviderExperience({
 }: {
   providerId: string;
 }) {
-  const [data, setData] = useState<PublicExperienceSummary | null>(null);
-  const [failed, setFailed] = useState(false);
+  const [result, setResult] = useState<{
+    providerId: string;
+    data: PublicExperienceSummary | null;
+  } | null>(null);
+  const current = result?.providerId === providerId ? result : null;
   useEffect(() => {
-    let active = true;
-    setData(null);
-    setFailed(false);
-    api<PublicExperienceSummary>(`/providers/${providerId}/experience-summary`)
-      .then((result) => {
-        if (active) setData(result);
+    const controller = new AbortController();
+    api<PublicExperienceSummary>(`/providers/${providerId}/experience-summary`, "GET", undefined, {
+      signal: controller.signal,
+    })
+      .then((data) => {
+        if (!controller.signal.aborted) setResult({ providerId, data });
         return undefined;
       })
       .catch(() => {
-        if (active) setFailed(true);
+        if (!controller.signal.aborted) setResult({ providerId, data: null });
       });
-    return () => {
-      active = false;
-    };
+    return () => controller.abort();
   }, [providerId]);
-  return data ? (
-    <ExperienceReference summary={data} />
+  return current?.data ? (
+    <ExperienceReference summary={current.data} />
   ) : (
-    <p className="reflection-note" role="status">
-      {failed
+    <output className="reflection-note page-load-status">
+      {current
         ? "参考情報を読み込めませんでした。詳細をひらき直すと再確認できます。"
         : "利用した旅からの参考情報を確認しています…"}
-    </p>
+    </output>
   );
 }

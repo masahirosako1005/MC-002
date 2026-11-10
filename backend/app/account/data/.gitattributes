@@ -1,0 +1,4 @@
+# Byte-identical vendored inputs: integrity checks must survive Windows checkout.
+common-passwords.sha256 -text
+LICENSE-SecLists.txt -text
+provenance.json -text

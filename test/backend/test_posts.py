@@ -223,15 +223,22 @@ def test_unused_photo_discard_authorization_usage_guards_and_retry(harness):
 
 def test_failed_file_write_rolls_back_and_removes_partial_upload(harness, monkeypatch):
     aoi = harness.client("aoi")
-    original = Path.write_bytes
+    from contextlib import contextmanager
+    original = Path.open
 
-    def fail_write(path, data):
-        if path.parent == harness.settings.media_dir:
-            original(path, data[:20])
-            raise OSError("private-storage-path")
-        return original(path, data)
+    @contextmanager
+    def fail_write(path, *args, **kwargs):
+        with original(path, *args, **kwargs) as stream:
+            if path.parent == harness.settings.media_dir and args == ("xb",):
+                class PartialWriter:
+                    def write(self, data):
+                        stream.write(data[:20])
+                        raise OSError("private-storage-path")
+                yield PartialWriter()
+            else:
+                yield stream
 
-    monkeypatch.setattr(Path, "write_bytes", fail_write)
+    monkeypatch.setattr(Path, "open", fail_write)
     result = upload(aoi)
     assert result.status_code == 500 and "private-storage-path" not in result.text
     with harness.app.state.database.transaction() as conn:

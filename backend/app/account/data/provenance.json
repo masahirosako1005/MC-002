@@ -1,0 +1,32 @@
+{
+  "source_project": "SecLists",
+  "source_repository": "https://github.com/danielmiessler/SecLists",
+  "commit": "a1a06ab57c3f4efc450d80738a72c11597aac81a",
+  "license": "MIT",
+  "license_url": "https://raw.githubusercontent.com/danielmiessler/SecLists/a1a06ab57c3f4efc450d80738a72c11597aac81a/LICENSE",
+  "license_sha256": "3dbdc93d5f8829de0941744841730a09c106d0732e5ae0e98ca1d77be7ded66c",
+  "transformation": "For each source decode UTF-8 and splitlines; keep original strings of 12..128 Python Unicode codepoints; casefold only for screening; union all eligible strings; UTF-8 SHA-256 each; sort hexadecimal hashes; LF and final newline. Actual user passwords are never transformed for hashing or login.",
+  "derived_file": "common-passwords.sha256",
+  "derived_entries": 46825,
+  "derived_sha256": "466d943ca1e1a67b32cff070a41a4d99bee8db86347ad422cbae1ed976b7cd7c",
+  "runtime_network": false,
+  "scope": "Known common strings from this historical dataset only; not exhaustive breached-password detection.",
+  "sources": [
+    {
+      "path": "Passwords/Common-Credentials/xato-net-10-million-passwords-1000000.txt",
+      "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/a1a06ab57c3f4efc450d80738a72c11597aac81a/Passwords/Common-Credentials/xato-net-10-million-passwords-1000000.txt",
+      "sha256": "424a3e03a17df0a2bc2b3ca749d81b04e79d59cb7aeec8876a5a3f308d0caf51",
+      "bytes": 8557632,
+      "lines": 1000000,
+      "eligible_casefold_unique": 46146
+    },
+    {
+      "path": "Passwords/Common-Credentials/100k-most-used-passwords-NCSC.txt",
+      "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/a1a06ab57c3f4efc450d80738a72c11597aac81a/Passwords/Common-Credentials/100k-most-used-passwords-NCSC.txt",
+      "sha256": "c2e5696882c603b76bb67a47ee970897e5a76fc4c3f5547abe3d0ca340c576e0",
+      "bytes": 835538,
+      "lines": 99840,
+      "eligible_casefold_unique": 1197
+    }
+  ]
+}

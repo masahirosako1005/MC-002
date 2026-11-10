@@ -2,7 +2,7 @@ import { errorMessage } from "./validation";
 import { choiceValue } from "./validation";
 import { emptyDiscoveryFilters } from "./useResumeState";
 import type { DiscoveryFilters } from "./useResumeState";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
 import { Empty, ErrorBox, Icon, Modal } from "./ui";
@@ -343,6 +343,7 @@ export default function PlanDiscovery({
   const setDuration = (value: string) => changeFilters({ duration: choiceValue(value, ["all", "day", "overnight"], duration) });
   const setSchedule = (value: string) => changeFilters({ schedule: choiceValue(value, ["all", "dated", "on_request"], schedule) });
   const setArea = (value: string) => changeFilters({ area: value });
+  const fieldId = useId();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const candidates = data?.items || [];
   const filtered = candidates.filter(
@@ -516,11 +517,11 @@ export default function PlanDiscovery({
       <ErrorBox message={error} />
       {data && (
         <div className="discovery-results">
-          <p role="status">
+          <output className="page-load-status">
             {hasFilter
               ? `${candidates.length}件から${filtered.length}件`
               : `${filtered.length}件の候補`}
-          </p>
+          </output>
           <details className="discovery-method">
             <summary>
               {circle || circleId ? "あなたの講へのおすすめ順" : "関連する順"}
@@ -553,7 +554,7 @@ export default function PlanDiscovery({
         </div>
       )}
       {loading ? (
-        <p role="status">関連する旅を探しています…</p>
+        <output className="page-load-status">関連する旅を探しています…</output>
       ) : filtered.length ? (
         <>
           <div className="market-plan-grid">
@@ -640,9 +641,9 @@ export default function PlanDiscovery({
             <p className="quiet-note">
               取得した{candidates.length}件の候補に適用します。
             </p>
-            <label className="field">
+            <label className="field" htmlFor={`${fieldId}-area`}>
               開催エリア
-              <Choice
+              <Choice id={`${fieldId}-area`}
                 value={area}
                 onChange={(event) => setArea(event.target.value)}
               >
@@ -654,9 +655,9 @@ export default function PlanDiscovery({
                 ))}
               </Choice>
             </label>
-            <label className="field">
+            <label className="field" htmlFor={`${fieldId}-duration`}>
               所要日数
-              <Choice
+              <Choice id={`${fieldId}-duration`}
                 value={duration}
                 onChange={(event) => setDuration(event.target.value)}
               >
@@ -665,9 +666,9 @@ export default function PlanDiscovery({
                 <option value="overnight">宿泊を含む</option>
               </Choice>
             </label>
-            <label className="field">
+            <label className="field" htmlFor={`${fieldId}-schedule`}>
               開催日程
-              <Choice
+              <Choice id={`${fieldId}-schedule`}
                 value={schedule}
                 onChange={(event) => setSchedule(event.target.value)}
               >

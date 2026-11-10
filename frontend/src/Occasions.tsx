@@ -1,5 +1,5 @@
 import { choiceValue, errorMessage } from "./validation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
 import { Empty, ErrorBox, Icon, Modal } from "./ui";
@@ -51,6 +51,7 @@ function OccasionEditor({
   onClose: () => void;
   onSaved: () => void;
 }) {
+  const fieldId = useId();
   const [kind, setKind] = useState<OccasionDate["kind"]>(
     initial?.kind || (hasBirthday ? "anniversary" : "birthday"),
   );
@@ -182,9 +183,9 @@ function OccasionEditor({
           </p>
         ) : (
           <>
-            <label className="field">
+            <label className="field" htmlFor={`${fieldId}-repeat`}>
               繰り返し
-              <Choice
+              <Choice id={`${fieldId}-repeat`}
                 value={annual ? "annual" : "once"}
                 disabled={busy}
                 onChange={(event) => setAnnual(event.target.value === "annual")}
@@ -617,7 +618,7 @@ function PrivatePreview({
           </p>
         )}
         <ErrorBox message={error} />
-        {loading && <p role="status">プラン候補を確認しています…</p>}
+        {loading && <output className="page-load-status">プラン候補を確認しています…</output>}
         {data && (
           <SuggestedPlans
             key={data.id}
@@ -714,7 +715,7 @@ export default function Occasions({
         </button>
       </div>
       {loading ? (
-        <p role="status">誕生日・記念日を読み込んでいます…</p>
+        <output className="page-load-status">誕生日・記念日を読み込んでいます…</output>
       ) : (
         data && (
           <>
@@ -982,7 +983,7 @@ export function CircleOccasions({
       </p>
       <ErrorBox message={error} />
       {loading ? (
-        <p role="status">共有された日付と提案を読み込んでいます…</p>
+        <output className="page-load-status">共有された日付と提案を読み込んでいます…</output>
       ) : (
         <>
           <div className="occasion-dates">

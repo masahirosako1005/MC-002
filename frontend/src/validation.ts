@@ -5,6 +5,11 @@ export function errorMessage(cause: unknown): string {
     : "操作を完了できませんでした。もう一度お試しください。";
 }
 
+/** Match Python/Pydantic's Unicode code point count without changing the secret. */
+export function passwordLength(value: string): number {
+  return Array.from(value).length;
+}
+
 export function isOneOf<T extends string>(
   value: string,
   allowed: readonly T[],

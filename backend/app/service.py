@@ -1,12 +1,13 @@
 import hashlib
 import json
+import os
 import secrets
 import threading
 from datetime import UTC, datetime, timedelta
 
 from fastapi import HTTPException
 
-from .database import TRIPS, digest, identifier, now, password_hash
+from .database import SCRYPT_PREFIX, TRIPS, digest, identifier, now, password_hash, password_matches
 from .image_guidance import photo_guidance
 from .images import cleanup_deleted_media, location_candidate, sanitize_image
 
@@ -37,18 +38,43 @@ class Service:
         self.db, self.settings, self.classifier = database, settings, classifier
         self.decode_lock = threading.BoundedSemaphore(1)
 
-    def login(self, username, password, previous_hash=None):
-        with self.db.transaction(True) as conn:
+    def login_credentials(self, username, password):
+        with self.db.transaction() as conn:
             row = conn.execute("SELECT * FROM users WHERE username=? AND login_enabled=1", (username,)).fetchone()
-            supplied = password_hash(password, row["salt"] if row else "0" * 32)
-            if row is None or not secrets.compare_digest(supplied, row["password_hash"]):
+        # No SQLite transaction or write lock is held during the expensive KDF.
+        candidate = password_hash(password, row['salt'] if row else '0' * 32)
+        if row is None or not password_matches(password, row['salt'], row['password_hash'], candidate=candidate):
+            raise HTTPException(401, "利用者名かパスワードを確認してください。")
+        return row, candidate
+
+    def login(self, username, password, previous_hash=None, *, stage=False):
+        row, candidate = self.login_credentials(username, password)
+        with self.db.transaction(True) as conn:
+            current = conn.execute('SELECT * FROM users WHERE id=? AND login_enabled=1', (row['id'],)).fetchone()
+            # A concurrent login may have made the identical legacy upgrade. Any
+            # other credential change or revocation must prevent token issuance.
+            if (current is None or current['salt'] != row['salt']
+                    or current['password_hash'] not in (row['password_hash'], candidate)):
                 raise HTTPException(401, "利用者名かパスワードを確認してください。")
-            if previous_hash:
-                conn.execute("DELETE FROM sessions WHERE token_hash=?", (previous_hash,))
-            conn.execute("DELETE FROM sessions WHERE expires_at<=?", (now(),))
-            token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
-            conn.execute("INSERT INTO sessions VALUES(?,?,?,?)", (digest(token), row["id"], csrf, (datetime.now(UTC) + timedelta(days=30)).isoformat()))
-            return {"user": user_out(row), "csrf_token": csrf}, token
+            if not current["password_hash"].startswith(SCRYPT_PREFIX):
+                # Only a successful login upgrades an old hash; existing passwords stay valid.
+                conn.execute("UPDATE users SET password_hash=? WHERE id=?",
+                             (candidate, row["id"]))
+            return self.login_session(conn, row, previous_hash, stage)
+
+    @staticmethod
+    def login_session(conn, row, previous_hash, stage):
+        delete_old = "DELETE FROM stage_sessions WHERE token_hash=?" if stage else "DELETE FROM sessions WHERE token_hash=?"
+        delete_expired = "DELETE FROM stage_sessions WHERE expires_at<=?" if stage else "DELETE FROM sessions WHERE expires_at<=?"
+        insert = "INSERT INTO stage_sessions VALUES(?,?,?,?)" if stage else "INSERT INTO sessions VALUES(?,?,?,?)"
+        if previous_hash:
+            conn.execute(delete_old, (previous_hash,))
+        conn.execute(delete_expired, (now(),))
+        token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
+        expires_at = (datetime.now(UTC) + (timedelta(minutes=30) if stage else timedelta(days=30))).isoformat()
+        conn.execute(insert, (digest(token), row["id"], csrf, expires_at))
+        result = {"user": user_out(row), "csrf_token": csrf}
+        return (result | {"expires_at": expires_at} if stage else result), token
 
     def community_out(self, conn, cid, uid):
         membership = member(conn, uid, cid)
@@ -124,11 +150,25 @@ class Service:
         mid = identifier()
         key = mid + ".jpg"
         destination = self.settings.media_dir / key
+        created = False
         try:
             with self.db.transaction(True) as conn:
                 if conn.execute("SELECT COUNT(*) FROM media WHERE user_id=? AND deleted=0", (uid,)).fetchone()[0] >= 200:
                     raise HTTPException(409, "保存枚数の上限です。不要な投稿を削除してください。")
-                destination.write_bytes(clean)
+                # Persist image bytes before committing the DB reference. Exclusive
+                # creation also prevents a collision from replacing an existing image.
+                with destination.open("xb") as saved:
+                    created = True
+                    saved.write(clean)
+                    saved.flush()
+                    os.fsync(saved.fileno())
+                if os.name == 'posix':
+                    # Linux containers also need the new directory entry durable.
+                    directory = os.open(self.settings.media_dir, os.O_RDONLY | os.O_DIRECTORY)
+                    try:
+                        os.fsync(directory)
+                    finally:
+                        os.close(directory)
                 conn.execute("INSERT INTO media(id,user_id,storage_key,width,height,sha256,created_at) VALUES(?,?,?,?,?,?,?)", (mid, uid, key, width, height, hashlib.sha256(clean).hexdigest(), now()))
                 conn.execute("INSERT INTO jobs(media_id,status,tags,message) VALUES(?,?,?,?)",
                              (mid, guidance['status'], json.dumps(guidance['tags'], ensure_ascii=False), guidance['message']))
@@ -137,7 +177,8 @@ class Service:
                 # Do not add candidates to media_out: that serializer is also used in shared feeds.
                 return {**self.media_out(conn, conn.execute("SELECT * FROM media WHERE id=?", (mid,)).fetchone()), 'location_candidate': candidate}
         except BaseException:
-            destination.unlink(missing_ok=True)
+            if created:
+                destination.unlink(missing_ok=True)
             raise
 
     def media_path(self, uid, mid):

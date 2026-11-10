@@ -1,6 +1,6 @@
 import { choiceValue, errorMessage } from "./validation";
 import Choice from "./Choice";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useState } from "react";
 import { api } from "./api";
 import type { Community, Group, Tag, User } from "./types";
 import type {
@@ -55,6 +55,7 @@ export function RequirementEditor({
   unknownFields?: string[];
   requireBudget?: boolean;
 }) {
+  const fieldId = useId();
   const [value, setValue] = useState<Requirements>(
     initial || emptyRequirements,
   );
@@ -215,9 +216,9 @@ export function RequirementEditor({
                 placeholder="例：30000"
               />
             </label>
-            <label className="field">
+            <label className="field" htmlFor={`${fieldId}-basis`}>
               予算の単位
-              <Choice
+              <Choice id={`${fieldId}-basis`}
                 value={basis}
                 onChange={(e) => setBasis(choiceValue(e.target.value, ["", "per_person", "party_total"], basis))}
                 disabled={!amount || busy}
@@ -228,9 +229,9 @@ export function RequirementEditor({
               </Choice>
             </label>
           </div>
-          <label className="field">
+          <label className="field" htmlFor={`${fieldId}-scope`}>
             どこまで含む予算？
-            <Choice
+            <Choice id={`${fieldId}-scope`}
               value={scope}
               onChange={(e) => setScope(choiceValue(e.target.value, ["", "plan_only", "whole_trip"], scope))}
               disabled={!amount || busy}
@@ -808,7 +809,7 @@ export default function Marketplace({
           )}
         </>
       ) : !party && community ? (
-        <Suspense fallback={<p role="status">関連する旅をひらいています…</p>}>
+        <Suspense fallback={<output className="page-load-status">関連する旅をひらいています…</output>}>
           {onEditInterests && <section className="home-interests" aria-label="自分の関心">
             <div><strong>自分の関心</strong><button className="text-button" onClick={onEditInterests}>変更</button></div>
             <div className="home-interest-tags">{interestTags?.length ? interestTags.map((tag) => <span className="tag" key={tag.id}>{tag.label}</span>) : <span>未設定</span>}</div>

@@ -24,16 +24,9 @@
   border-radius: 17px;
   margin-bottom: 26px;
 }
-.party-toolbar > .field {
-  margin: 0;
-  flex: 1;
-}
 .party-toolbar > .button {
   margin-bottom: 0;
   white-space: nowrap;
-}
-.party-toolbar > .icon-button {
-  margin-bottom: 2px;
 }
 .party-header {
   margin: 24px 0;
@@ -86,20 +79,12 @@
   color: var(--orange);
   border-bottom-color: var(--orange);
 }
-.market-tabs > .text-button {
-  margin-left: auto;
-  font-size: 0.8125rem;
-}
 .market-discovery-heading {
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: space-between;
   margin: 28px 0 15px;
-}
-.market-discovery-heading h2 {
-  font-size: 1.5rem;
-  margin-top: 4px;
 }
 .market-discovery-heading > .button {
   font-size: 0.8125rem;
@@ -143,9 +128,6 @@
   aspect-ratio: 1.6;
   object-fit: cover;
 }
-.market-plan-copy {
-  padding: 22px;
-}
 .market-plan-copy h3 {
   font-size: 1.16rem;
   line-height: 1.65;
@@ -176,9 +158,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-.market-plan-card.featured h3 {
-  font-size: 1.55rem;
 }
 .market-plan-card.featured .plan-price {
   margin-top: auto;
@@ -314,12 +293,6 @@
   color: var(--muted);
   display: block;
   margin-top: 8px;
-}
-.plan-detail-action {
-  padding-top: 20px;
-}
-.plan-detail-action > .button {
-  margin-top: 12px;
 }
 .conversation {
   background: #fffdf8;

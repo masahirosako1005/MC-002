@@ -2,7 +2,6 @@ import asyncio
 import logging
 import sqlite3
 from contextlib import asynccontextmanager
-from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Annotated
 
@@ -11,13 +10,14 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from .account.router import create_router as account_router
 from .analytics.router import create_router as analytics_router
 from .circles.discovery_schema import migrate as migrate_discovery
 from .circles.router import create_router as circles_router
 from .circles.schema import migrate as migrate_circles
 from .city_registry import migrate as migrate_city_registry
 from .config import Settings
-from .database import TAGS, Database, digest
+from .database import TAGS, Database
 from .daytrip.router import create_router as daytrip_router
 from .daytrip.schema import migrate as migrate_daytrip
 from .image_guidance import IMAGE_PROCESSING, ImageGuidance
@@ -159,16 +159,15 @@ def create_app(settings=None):
         return {"user": user_out(session), "csrf_token": session["csrf_token"]}
 
     @public.post('/stage/login')
-    def stage_login(body: Login):
+    def stage_login(body: Login, request: Request):
         # Password authentication is shared; stage tokens never become cookies.
-        result, token = service.login(body.username, body.password, None)
-        expires_at = (datetime.now(UTC) + timedelta(minutes=30)).isoformat()
-        with database.transaction(True) as conn:
-            row = conn.execute('SELECT * FROM sessions WHERE token_hash=?', (digest(token),)).fetchone()
-            conn.execute('INSERT INTO stage_sessions VALUES(?,?,?,?)', (row['token_hash'],row['user_id'],row['csrf_token'],expires_at))
-            conn.execute('DELETE FROM sessions WHERE token_hash=?', (row['token_hash'],))
-            conn.execute('DELETE FROM stage_sessions WHERE expires_at<=?', (datetime.now(UTC).isoformat(),))
-        return {**result,'access_token':token,'expires_at':expires_at}
+        # A stage re-login rotates only the caller's explicit bearer credential;
+        # an unrelated cookie or the other device's token remains untouched.
+        old = current_session(request) if request.headers.get('authorization') is not None else None
+        if old is not None:
+            csrf(request, old)
+        result, token = service.login(body.username, body.password, old['token_hash'] if old else None, stage=True)
+        return {**result, 'access_token': token}
 
     @private.post("/logout")
     def logout(body: Empty, request: Request, response: Response, session=Depends(authenticated)):
@@ -287,6 +286,7 @@ def create_app(settings=None):
         return service.update_group(session["user_id"], gid, body.model_dump(mode="json"))
 
     app.include_router(public)
+    app.include_router(account_router(database, settings))
     app.include_router(private)
     app.include_router(marketplace_router(database))
     app.include_router(journal_router(database))

@@ -13,6 +13,7 @@ from .database import digest
 
 COOKIE = "ko_session"
 SAFE = {"GET", "HEAD", "OPTIONS"}
+RATE_LIMITS = {"login": 20, "password": 5, "upload": 30, "write": 120}
 HEADERS = {
     "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff", "X-Frame-Options": "DENY",
     "Referrer-Policy": "no-referrer", "Permissions-Policy": "camera=(),microphone=(),geolocation=()",
@@ -69,7 +70,7 @@ class SecurityMiddleware:
             window = self.windows[(address, kind)]
             while window and window[0] < moment - 60:
                 window.popleft()
-            if len(window) >= (20 if kind == "login" else 30 if kind == "upload" else 120):
+            if len(window) >= RATE_LIMITS[kind]:
                 return False
             window.append(moment)
             return True
@@ -107,22 +108,27 @@ class SecurityMiddleware:
             if headers.get("content-type", "").split(";", 1)[0].lower().strip() != expected:
                 return await reject(415, "送信形式を確認してください。")
             kind = "login" if scope["path"] in ("/api/login", "/api/stage/login", "/api/register") else "upload" if upload else "write"
+            if scope["path"] == "/api/account/password":
+                kind = "password"
             if not self.rate_allowed((scope.get("client") or ("local",))[0], kind):
                 return await reject(429, "操作が続いています。少し待って試してください。")
             limit = self.settings.max_image_bytes + 65536 if upload else 65536
             body = bytearray()
-            while True:
-                try:
-                    incoming = await asyncio.wait_for(receive(), timeout=15)
-                except TimeoutError:
-                    return await reject(408, "送信に時間がかかりました。")
-                if incoming["type"] == "http.disconnect":
-                    return
-                body.extend(incoming.get("body", b""))
-                if len(body) > limit:
-                    return await reject(413, "画像または入力が大きすぎます。")
-                if not incoming.get("more_body", False):
-                    break
+            try:
+                # A single deadline covers the complete body; sending tiny chunks
+                # cannot reset it indefinitely and retain a request slot.
+                async with asyncio.timeout(15):
+                    while True:
+                        incoming = await receive()
+                        if incoming["type"] == "http.disconnect":
+                            return
+                        body.extend(incoming.get("body", b""))
+                        if len(body) > limit:
+                            return await reject(413, "画像または入力が大きすぎます。")
+                        if not incoming.get("more_body", False):
+                            break
+            except TimeoutError:
+                return await reject(408, "送信に時間がかかりました。")
             delivered = False
 
             async def bounded_receive():

@@ -1,4 +1,4 @@
-import { errorMessage } from "./validation";
+import { errorMessage, passwordLength } from "./validation";
 import { lazy, Suspense, useRef, useState } from "react";
 import type { SubmitEvent } from "react";
 import { api, setAccessToken, stageFrame } from "./api";
@@ -31,6 +31,11 @@ export default function Login({
   async function submit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy) return;
+    if (passwordLength(password) > 128) {
+      setError("パスワードは128文字以内で入力してください。");
+      passwordInput.current?.focus();
+      return;
+    }
     const trigger = submitTrigger.current;
     submitTrigger.current = "keyboard";
     setBusy(true);
@@ -146,7 +151,7 @@ export default function Login({
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
                     required
-                    maxLength={128}
+                    maxLength={256}
                     value={password}
                     onChange={(event) => {
                       setPassword(event.target.value);

@@ -75,7 +75,7 @@ export default function Preferences({
           ← 自分の好みへ
         </button>
         <Suspense
-          fallback={<p role="status">誕生日・記念日をひらいています…</p>}
+          fallback={<output className="page-load-status">誕生日・記念日をひらいています…</output>}
         >
           <Occasions tags={tags} onOpenCircle={onOpenCircle} />
         </Suspense>
@@ -186,9 +186,9 @@ export default function Preferences({
         })}
       </section>
       <div className="save-bar">
-        <p role="status">
+        <output className="page-load-status">
           {saved ? "好みと共有範囲を保存しました。" : "いつでも変更できます。"}
-        </p>
+        </output>
         <button
           className="button primary"
           disabled={busy}

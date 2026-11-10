@@ -1,5 +1,5 @@
 import { choiceValue, errorMessage } from "./validation";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { api } from "./api";
 import Choice from "./Choice";
 import { Avatar, Empty, ErrorBox, Icon, Modal, TagPicker, Tags } from "./ui";
@@ -247,7 +247,7 @@ function CreateCircle({
           </>
         )}
         {loading ? (
-          <p role="status">仲間を読み込んでいます…</p>
+          <output className="page-load-status">仲間を読み込んでいます…</output>
         ) : (
           <fieldset className="circle-member-picker" disabled={busy}>
             <legend>招待する人を選ぶ（{selected.length}人）</legend>
@@ -445,6 +445,7 @@ function ProposalEditor({
 }) {
   const initial = room.proposal;
   const snapshot = room.invitation.snapshot;
+  const fieldId = useId();
   const [title, setTitle] = useState(initial?.title || snapshot.plan.title);
   const [date, setDate] = useState(
     initial?.date_start || snapshot.shared_conditions.date_start || "",
@@ -667,9 +668,9 @@ function ProposalEditor({
               onChange={(e) => setPrice(Number(e.target.value))}
             />
           </label>
-          <label className="field">
+          <label className="field" htmlFor={`${fieldId}-basis`}>
             費用の単位
-            <Choice
+            <Choice id={`${fieldId}-basis`}
               value={basis}
               onChange={(e) => setBasis(choiceValue(e.target.value, ["per_person", "party_total"], basis))}
             >
@@ -677,9 +678,9 @@ function ProposalEditor({
               <option value="party_total">全員分</option>
             </Choice>
           </label>
-          <label className="field">
+          <label className="field" htmlFor={`${fieldId}-scope`}>
             費用の範囲
-            <Choice
+            <Choice id={`${fieldId}-scope`}
               value={scope}
               onChange={(e) => setScope(choiceValue(e.target.value, ["plan_only", "whole_trip"], scope))}
             >
@@ -1158,7 +1159,7 @@ function CircleWorkspace({
       if (alive.current) setBusy("");
     }
   }
-  if (loading) return <p role="status">講をひらいています…</p>;
+  if (loading) return <output className="page-load-status">講をひらいています…</output>;
   if (!circle)
     return (
       <>
@@ -1307,7 +1308,7 @@ function CircleWorkspace({
         ))}
       </nav>
       {tab === "occasions" ? (
-        <Suspense fallback={<p role="status">記念日をひらいています…</p>}>
+        <Suspense fallback={<output className="page-load-status">記念日をひらいています…</output>}>
           <CircleOccasions
             key={id}
             circleId={id}
@@ -1320,7 +1321,7 @@ function CircleWorkspace({
           />
         </Suspense>
       ) : tab === "reflections" ? (
-        <Suspense fallback={<p role="status">振り返りをひらいています…</p>}>
+        <Suspense fallback={<output className="page-load-status">振り返りをひらいています…</output>}>
           <ReflectionWorkspace
             key={id}
             circleId={id}
@@ -1851,7 +1852,7 @@ export default function Circles({
         </button>
       </div>
       {loading ? (
-        <p role="status">講と招待を読み込んでいます…</p>
+        <output className="page-load-status">講と招待を読み込んでいます…</output>
       ) : (
         <>
           {data?.invitations.map((invitation) => (
@@ -2052,7 +2053,7 @@ export function ProviderCircleInvites({ user }: { user: User }) {
       </p>
       <ErrorBox message={error} />
       {loading ? (
-        <p role="status">講への招待を読み込んでいます…</p>
+        <output className="page-load-status">講への招待を読み込んでいます…</output>
       ) : !items.length ? (
         <Empty title="まだ講への招待はありません">
           <p>公開プランを選んだ旅行者から、ここへ招待が届きます。</p>

@@ -518,7 +518,6 @@ export default function KoPage({
           <label className="field">
             どんな旅にしたい？
             <input
-              autoFocus
               value={purpose}
               onChange={(e) => setPurpose(e.target.value)}
               maxLength={120}

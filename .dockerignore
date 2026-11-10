@@ -16,3 +16,5 @@ frontend/dist
 **/password*
 **/.git
 **/.pytest_cache
+!backend/app/password_policy.py
+!frontend/src/PasswordChange.tsx

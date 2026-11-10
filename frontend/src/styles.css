@@ -1122,7 +1122,7 @@ input[type="radio"] {
   justify-content: space-between;
   margin-top: 22px;
 }
-.save-bar p {
+.save-bar :is(p, output) {
   font-size: 0.8125rem;
   color: var(--green);
 }
@@ -1798,7 +1798,7 @@ input[type="radio"] {
     align-items: stretch;
     gap: 12px;
   }
-  .save-bar p {
+  .save-bar :is(p, output) {
     order: 2;
     text-align: center;
   }

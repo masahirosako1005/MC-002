@@ -4,6 +4,7 @@ from fastapi import HTTPException
 
 from ..database import identifier, now, password_hash
 from ..marketplace.service import conflict
+from ..password_policy import validate_new_password
 from ..service import require, user_out
 from .catalog import AREA_BY_ID
 
@@ -27,13 +28,12 @@ class ResidenceService:
 
     def register(self, data):
         valid_area(data.residence_area_id)
+        validate_new_password(data.password.get_secret_value(), data.username)
         uid, salt = identifier(), secrets.token_hex(16)
+        hashed = password_hash(data.password.get_secret_value(), salt)
         with self.db.transaction(True) as conn:
             if conn.execute('SELECT 1 FROM users WHERE username=?', (data.username,)).fetchone():
                 raise HTTPException(409, 'この利用者名は使われています。別の利用者名を入力してください。')
-            # The existing serialized write transaction also bounds simultaneous
-            # scrypt allocations. No credentials are returned or logged.
-            hashed = password_hash(data.password.get_secret_value(), salt)
             conn.execute('INSERT INTO users VALUES(?,?,?,?,?,?,?,1)',
                 (uid, data.username, data.name, data.name[:1], '#805A46', salt, hashed))
             conn.execute("INSERT INTO preferences(user_id,tags,learn_from_posts) VALUES(?,'[]',0)", (uid,))

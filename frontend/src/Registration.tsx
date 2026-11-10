@@ -6,7 +6,7 @@ import type { MotionTrigger } from "./useNavigationMotion";
 import ResidenceFields from "./ResidenceFields";
 import type { ResidenceCatalog } from "./ResidenceFields";
 import { ErrorBox, Icon } from "./ui";
-import { errorMessage } from "./validation";
+import { errorMessage, passwordLength } from "./validation";
 
 export default function Registration({
   onLogin,
@@ -60,7 +60,7 @@ export default function Registration({
   const valid =
     !!name.trim() &&
     /^[a-z0-9_-]{3,40}$/.test(username) &&
-    password.length >= 12 &&
+    passwordLength(password) >= 12 && passwordLength(password) <= 128 &&
     password === confirmation &&
     (skipArea || !!catalog?.items.some((area) => area.id === areaId));
   async function submit(event: SubmitEvent<HTMLFormElement>) {
@@ -176,8 +176,7 @@ export default function Registration({
             name="new-password"
             type={visible ? "text" : "password"}
             autoComplete="new-password"
-            minLength={12}
-            maxLength={128}
+            maxLength={256}
             required
             value={password}
             disabled={busy}
@@ -195,7 +194,7 @@ export default function Registration({
             {visible ? "隠す" : "表示"}
           </button>
         </span>
-        <small id="register-password-help">12文字以上</small>
+        <small id="register-password-help">12〜128文字</small>
       </label>
       <label className="welcome-field" htmlFor="register-confirmation">
         パスワードをもう一度
@@ -205,8 +204,7 @@ export default function Registration({
             name="new-password-confirmation"
             type={visible ? "text" : "password"}
             autoComplete="new-password"
-            minLength={12}
-            maxLength={128}
+            maxLength={256}
             required
             value={confirmation}
             disabled={busy}

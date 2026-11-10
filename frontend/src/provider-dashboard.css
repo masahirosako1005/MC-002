@@ -107,7 +107,7 @@ body:has(.provider-shell) > #root > .bottom-nav {
   top: 20px;
 }
 .provider-workspace-nav > p {
-  color: #6e7667;
+  color: #59634f;
   padding: 6px 7px 14px;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
@@ -411,7 +411,7 @@ body:has(.provider-shell) > #root > .bottom-nav {
   border: 0;
   border-bottom: 2px solid transparent;
   background: none;
-  color: #6b7861;
+  color: #59634f;
   font-size: 14px;
 }
 .dashboard-detail-tabs > button[aria-pressed="true"] {
@@ -495,7 +495,7 @@ body:has(.provider-shell) > #root > .bottom-nav {
   grid-column: 2;
   display: flex;
   justify-content: space-between;
-  color: #75806b;
+  color: #59634f;
   font-size: 14px;
 }
 .dashboard-chart {

@@ -1,8 +1,10 @@
 import hashlib
 import json
 import os
+import re
 import secrets
 import sqlite3
+import threading
 from contextlib import contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
@@ -32,8 +34,35 @@ def digest(value):
     return hashlib.sha256(value.encode()).hexdigest()
 
 
+SCRYPT_PREFIX = "scrypt$32768$8$3$"
+PASSWORD_WORK = threading.BoundedSemaphore(1)
+
+
+def _scrypt(value, salt, *, legacy=False):
+    # Share this bound with registration and password changes. Release it before
+    # opening another DB transaction, so hashing cannot deadlock a DB writer.
+    with PASSWORD_WORK:
+        return hashlib.scrypt(value.encode(), salt=bytes.fromhex(salt),
+                              n=16384 if legacy else 32768, r=8, p=1 if legacy else 3,
+                              maxmem=64 * 1024 * 1024).hex()
+
+
 def password_hash(value, salt):
-    return hashlib.scrypt(value.encode(), salt=bytes.fromhex(salt), n=16384, r=8, p=1).hex()
+    # ASVS 5.0 / OWASP's 32 MiB profile keeps peak memory bounded on this PC.
+    return SCRYPT_PREFIX + _scrypt(value, salt)
+
+
+def password_matches(value, salt, encoded, *, candidate=None):
+    """Accept the fixed current format and the legacy format, never DB-supplied costs."""
+    # Even a legacy failure incurs the current KDF cost; successful migration
+    # reuses candidate rather than hashing a second time.
+    candidate = candidate if candidate is not None else password_hash(value, salt)
+    if encoded.startswith(SCRYPT_PREFIX):
+        return secrets.compare_digest(candidate, encoded)
+    if re.fullmatch(r"[a-f0-9]{128}", encoded):
+        legacy = _scrypt(value, salt, legacy=True)
+        return secrets.compare_digest(legacy, encoded)
+    return False
 
 
 SCHEMA = """

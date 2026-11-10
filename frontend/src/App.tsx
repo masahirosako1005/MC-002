@@ -38,6 +38,7 @@ const Journal = lazy(() => import("./Journal"));
 const Daytrip = lazy(() => import("./Daytrip"));
 const Composer = lazy(() => import("./Composer"));
 const ResidenceProfile = lazy(() => import("./ResidenceProfile"));
+const PasswordChange = lazy(() => import("./PasswordChange"));
 const Circles = lazy(() => import("./Circles"));
 const VisitDialog = lazy(() =>
   import("./Journal").then((module) => ({ default: module.VisitDialog })),
@@ -263,6 +264,7 @@ export default function App() {
   const [recordPost, setRecordPost] = useState<Post | null>(null);
   const [profileUser, setProfileUser] = useState<User | null>(null);
   const [residenceOpen, setResidenceOpen] = useState(false);
+  const [passwordChangeOpen, setPasswordChangeOpen] = useState(false);
   const [circleTarget, setCircleTarget] = useState("");
   const [actionBusy, setActionBusy] = useState(false);
   const [loadKey, setLoadKey] = useState(0);
@@ -288,6 +290,7 @@ export default function App() {
     setRecordPost(null);
     setProfileUser(null);
     setResidenceOpen(false);
+    setPasswordChangeOpen(false);
     setCircleTarget("");
     setSwitching(false);
     setCsrf("");
@@ -819,7 +822,7 @@ export default function App() {
               {feed.length > 0 && <div className="feed-pagination"><output aria-live="polite">{feed.length}件を表示しています</output><ErrorBox message={feedError} />{feedError && <button className="text-button" disabled={feedBusy} onClick={() => setLoadKey((value) => value + 1)}>最新の記録から読み直す</button>}{feedNextCursor ? <button className="button secondary full" disabled={feedBusy} onClick={() => void loadMoreFeed()}>{feedBusy ? "続きを読み込んでいます…" : feedError ? "続きをもう一度読み込む" : "続きを読み込む"}</button> : <p>このコミュニティの記録はここまでです。</p>}</div>}
             </>
           ) : page === "journal" ? (
-            <Suspense fallback={<p role="status">旅の地図をひらいています…</p>}>
+            <Suspense fallback={<output className="page-load-status">旅の地図をひらいています…</output>}>
               <Journal
                 key={user.id}
                 user={user}
@@ -849,7 +852,7 @@ export default function App() {
               user={user}
             />
           ) : page === "ko" ? (
-            <Suspense fallback={<p role="status">講をひらいています…</p>}>
+            <Suspense fallback={<output className="page-load-status">講をひらいています…</output>}>
               <Circles
                 key={`${user.id}-${communityId}`}
                 community={community}
@@ -1056,7 +1059,7 @@ export default function App() {
       {switching && (
         <Modal
           title="アカウントを切り替える"
-          onClose={() => setSwitching(false)}
+          onClose={() => { setPasswordChangeOpen(false); setSwitching(false); }}
           busy={actionBusy}
         >
           <p>{user.name}さんとしてログインしています。</p>
@@ -1095,6 +1098,9 @@ export default function App() {
           <p className="muted">
             一度ログアウトして、次のアカウントのパスワードでログインします。
           </p>
+          <button className="button secondary full" disabled={actionBusy} onClick={() => setPasswordChangeOpen(true)}>
+            パスワードを変更する
+          </button>
           <ErrorBox message={error} />
           <button
             className="button primary full"
@@ -1103,6 +1109,14 @@ export default function App() {
           >
             {actionBusy ? "ログアウトしています…" : "ログアウトして切り替える"}
           </button>
+          {passwordChangeOpen && (
+            <Suspense fallback={<output className="page-load-status">パスワードの変更画面をひらいています…</output>}>
+              <PasswordChange
+                onClose={() => setPasswordChangeOpen(false)}
+                onChanged={() => clearSession("パスワードを変更しました。もう一度ログインしてください。")}
+              />
+            </Suspense>
+          )}
         </Modal>
       )}
       {deletePost && (
