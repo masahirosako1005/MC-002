@@ -40,28 +40,31 @@
     .visual.phone { position:relative; width:100%; height:100%; padding:10px 0; }
     .visual.phone img { filter:drop-shadow(0 12px 18px #15251e15); }
     .visual figcaption { font-size:13px; color:var(--muted); margin-top:8px; }
-    .deck:has(.friction:not([hidden])) { background:#172320; scrollbar-gutter:auto; scrollbar-color:#708179 #172320; }
-    .slide.friction { max-width:none; background:#172320; color:#fafbf8; }
-    .friction .eyebrow { color:#e6a69a; }
-    .friction .folio { color:#a2b1a8; }
-    .friction .slide-footnote { border-color:#3f5248; color:#bac8bf; }
-    .friction-layout { display:flex; flex-direction:column; gap:28px; }
-    .fragmented-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; gap:45px; flex:1; list-style:none; padding:12px 0 30px; margin:0; }
-    .fragmented-actions li { min-width:0; padding:24px 0; }
-    .fragmented-actions li+li { padding-left:45px; border-left:1px solid #46594f; }
-    .fragmented-action-title { font-size:clamp(60px,6.3vw,92px); line-height:1.3; font-weight:700; letter-spacing:-.07em; }
-    .fragmented-service { font-size:clamp(22px,2vw,28px); margin-top:30px; line-height:1.5; color:#bdcdc3; letter-spacing:-.015em; }
-    .friction-layout>.takeaway { padding-top:27px; border-top:1px solid #46594f; color:#fafbf8; font-size:clamp(31px,3.3vw,47px); font-weight:600; }
-    .friction-layout>.takeaway::before { content:""; display:inline-block; width:38px; height:5px; margin:0 22px .22em 0; background:#d8614e; }
-    .essence-layout { display:flex; flex-direction:column; gap:28px; }
-    .journey-track { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:45px; list-style:none; padding:0; margin:auto 0; }
-    .journey-track::before { content:""; position:absolute; left:9px; right:9px; top:17px; border-top:3px solid var(--forest); }
-    .journey-track li { position:relative; padding-top:65px; min-width:0; }
-    .journey-track li::before { content:""; position:absolute; left:0; top:9px; width:19px; height:19px; border-radius:50%; background:var(--vermilion); border:4px solid var(--paper); box-shadow:0 0 0 2px var(--vermilion); }
-    .journey-track h3 { font-size:clamp(28px,2.7vw,40px); font-weight:700; letter-spacing:-.04em; line-height:1.5; text-wrap:balance; }
-    .journey-destination { display:flex; justify-content:space-between; align-items:baseline; gap:28px; padding-top:28px; border-top:1px solid var(--line); }
-    .journey-destination span { font-size:24px; color:var(--muted); }
-    .journey-destination strong { color:var(--vermilion); font-size:clamp(39px,4.6vw,66px); font-weight:700; line-height:1.3; letter-spacing:-.04em; }
+    .deck:has(.friction:not([hidden]),.essence:not([hidden])) { background:#faf6ee; scrollbar-gutter:auto; }
+    .slide.friction,.slide.essence { background:#faf6ee; }
+    .friction .slide-header { min-height:30px; }
+    .friction .slide-footnote,.essence .slide-footnote { font-size:13px; }
+    .friction-illustrated { display:grid; grid-template-columns:minmax(0,.32fr) minmax(0,.68fr); gap:36px; align-items:stretch; }
+    .opening-copy { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:36px; padding:10px 0 34px; }
+    .opening-title { font-size:clamp(35px,3.3vw,48px); line-height:1.6; font-weight:700; letter-spacing:-.04em; text-wrap:balance; }
+    .opening-title-line { display:block; white-space:nowrap; }
+    .opening-copy .takeaway { max-width:12em; font-size:clamp(25px,2.35vw,34px); line-height:1.65; color:var(--vermilion); border-left:3px solid var(--vermilion); padding-left:20px; }
+    .opening-visual-group { display:grid; grid-template-rows:minmax(0,1fr) auto; gap:18px; min-width:0; min-height:0; }
+    .opening-art { min-width:0; min-height:0; height:100%; }
+    .opening-art img { width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; }
+    .opening-services { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; list-style:none; padding:17px 0 0; margin:0; border-top:1px solid var(--line); }
+    .opening-services h3 { font-size:22px; line-height:1.5; font-weight:700; letter-spacing:-.03em; }
+    .opening-services p { margin-top:7px; font-size:22px; line-height:1.5; color:var(--muted); }
+    .essence-illustrated { display:grid; grid-template-columns:minmax(0,.71fr) minmax(0,.29fr); gap:38px; align-items:stretch; }
+    .essence .slide-title { font-size:clamp(32px,3vw,44px); }
+    .shared-plan { display:flex; flex-direction:column; justify-content:center; gap:35px; min-width:0; padding:12px 0; }
+    .shared-plan-steps { position:relative; list-style:none; padding:0; margin:0; display:grid; gap:30px; }
+    .shared-plan-steps::before { content:""; position:absolute; top:20px; bottom:20px; left:17px; border-left:2px solid var(--forest); }
+    .shared-plan-steps li { position:relative; display:grid; grid-template-columns:36px minmax(0,1fr); gap:15px; align-items:center; }
+    .shared-step-number { position:relative; display:grid; place-items:center; width:36px; height:36px; background:#faf6ee; color:var(--vermilion); font-size:19px; font-weight:600; font-variant-numeric:tabular-nums; }
+    .shared-plan-steps h3 { font-size:clamp(23px,2vw,29px); line-height:1.6; font-weight:600; text-wrap:balance; }
+    .shared-plan-result { border-top:1px solid var(--line); padding-top:25px; font-size:clamp(24px,2vw,26px); font-weight:600; color:var(--vermilion); line-height:1.65; letter-spacing:-.015em; text-wrap:balance; }
+    .shared-plan-result .result-line { display:block; white-space:nowrap; }
     .cover .slide-header { min-height:34px; }
     .cover .slide-title { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
     .intro-composition { position:relative; isolation:isolate; display:grid; grid-template-columns:240px 1fr; grid-template-rows:1fr auto; gap:26px 60px; align-items:center; }
@@ -199,14 +202,19 @@
       .eyebrow { margin-bottom:8px; font-size:12px; }
       .lead { font-size:22px; }
       .takeaway { font-size:29px; }
-      .fragmented-actions { gap:35px; padding-bottom:16px; }
-      .fragmented-actions li+li { padding-left:35px; }
-      .fragmented-action-title { font-size:66px; }
-      .fragmented-service { font-size:24px; margin-top:22px; }
-      .friction-layout>.takeaway { font-size:35px; padding-top:22px; }
-      .journey-track li { padding-top:55px; }
-      .journey-destination { padding-top:15px; }
-      .journey-destination strong { font-size:43px; }
+      .friction-illustrated { gap:28px; }
+      .opening-copy { gap:28px; padding-bottom:20px; }
+      .opening-title { font-size:36px; }
+      .opening-copy .takeaway { font-size:26px; }
+      .opening-visual-group { gap:12px; }
+      .opening-services { gap:15px; padding-top:13px; }
+      .opening-services h3,.opening-services p { font-size:22px; }
+      .essence-illustrated { gap:28px; }
+      .essence .slide-title { font-size:34px; }
+      .shared-plan { gap:25px; }
+      .shared-plan-steps { gap:24px; }
+      .shared-plan-steps h3 { font-size:24px; }
+      .shared-plan-result { font-size:25px; padding-top:20px; }
       .intro-composition { grid-template-columns:190px 1fr; gap:18px 50px; }
       .brand-seal { width:180px; height:180px; font-size:135px; }
       .brand-definition { font-size:16px; margin-top:18px; }
@@ -251,12 +259,20 @@
     @media(max-width:1000px) {
       .slide { height:auto; min-height:100%; padding:28px; gap:28px; grid-template-rows:auto 1fr auto; }
       .slide-title { font-size:34px; }
-      .fragmented-actions { gap:24px; }
-      .fragmented-actions li+li { padding-left:24px; }
-      .fragmented-action-title { font-size:60px; }
-      .fragmented-service { font-size:22px; }
-      .journey-track { gap:24px; }
-      .journey-track h3 { font-size:28px; }
+      .friction-illustrated { grid-template-columns:1fr; gap:28px; }
+      .opening-copy { gap:18px; padding:0; }
+      .opening-title { max-width:22em; font-size:34px; }
+      .opening-copy .takeaway { max-width:none; font-size:27px; }
+      .opening-art { height:440px; }
+      .opening-visual-group { min-height:0; }
+      .essence-illustrated { grid-template-columns:1fr; gap:25px; }
+      .shared-plan { padding:0; gap:25px; }
+      .shared-plan-steps { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+      .shared-plan-steps::before { content:none; }
+      .shared-plan-steps li { grid-template-columns:30px 1fr; gap:10px; }
+      .shared-step-number { width:30px; }
+      .shared-plan-steps h3 { font-size:22px; }
+      .shared-plan-result { font-size:26px; padding-top:18px; }
       .intro-composition { grid-template-columns:180px 1fr; gap:35px; }
       .brand-seal { width:170px; height:170px; font-size:125px; }
       .intro-copy .lead { font-size:33px; }
@@ -291,20 +307,17 @@
       .eyebrow,.folio { font-size:12px; }
       .lead { font-size:21px; }
       .takeaway { font-size:28px; }
-      .fragmented-actions { grid-template-columns:1fr; gap:0; padding:0; }
-      .fragmented-actions li { display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:23px 0; }
-      .fragmented-actions li+li { padding-left:0; border-left:0; border-top:1px solid #46594f; }
-      .fragmented-action-title { font-size:50px; }
-      .fragmented-service { font-size:20px; margin-top:0; }
-      .friction-layout>.takeaway { font-size:29px; }
-      .friction-layout>.takeaway::before { width:20px; margin-right:12px; }
-      .journey-track { grid-template-columns:1fr; gap:0; padding-left:32px; margin:20px 0; }
-      .journey-track::before { top:9px; bottom:9px; right:auto; left:9px; border-top:0; border-left:3px solid var(--forest); }
-      .journey-track li { padding:24px 0; }
-      .journey-track li::before { left:-32px; top:31px; }
-      .journey-track h3 { font-size:30px; }
-      .journey-destination { align-items:flex-start; flex-direction:column; gap:14px; }
-      .journey-destination strong { font-size:40px; }
+      .opening-title { font-size:31px; }
+      .opening-copy .takeaway { font-size:25px; padding-left:16px; }
+      .opening-art { height:auto; aspect-ratio:3/2; }
+      .opening-services { grid-template-columns:1fr; gap:16px; }
+      .opening-services li { display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+      .opening-services h3,.opening-services p { font-size:22px; }
+      .opening-services p { margin-top:0; text-align:right; }
+      .essence .slide-title { font-size:30px; }
+      .shared-plan-steps { grid-template-columns:1fr; gap:20px; }
+      .shared-plan-steps::before { content:""; left:14px; }
+      .shared-plan-steps h3 { font-size:24px; }
       .intro-composition { grid-template-columns:1fr; gap:28px; }
       .brand-seal { width:150px; height:150px; font-size:110px; }
       .brand-definition { max-width:none; }
@@ -365,22 +378,27 @@
       .lead { font-size:15pt; }
       .takeaway { font-size:21pt; }
       .slide-footnote { font-size:8pt; padding-top:2mm; }
-      .deck:has(.friction:not([hidden])) { background:#fafbf8; }
-      .slide.friction { background:#fafbf8; color:var(--ink); }
-      .friction .eyebrow { color:var(--vermilion); }
-      .friction .folio,.friction .slide-footnote { color:var(--muted); }
-      .friction .slide-footnote { border-color:var(--line); }
-      .fragmented-actions { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10mm; padding:3mm 0 6mm; }
-      .fragmented-actions li+li { padding-left:10mm; border-color:var(--line); }
-      .fragmented-action-title { font-size:50pt; }
-      .fragmented-service { font-size:17pt; color:var(--muted); margin-top:8mm; }
-      .friction-layout>.takeaway { color:var(--ink); border-color:var(--line); font-size:26pt; padding-top:7mm; }
-      .journey-track { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10mm; padding:0; }
-      .journey-track li { padding-top:18mm; }
-      .journey-track h3 { font-size:23pt; }
-      .journey-destination { padding-top:5mm; }
-      .journey-destination span { font-size:17pt; }
-      .journey-destination strong { font-size:32pt; }
+      .friction .slide-footnote,.essence .slide-footnote { font-size:9pt; }
+      .deck:has(.friction:not([hidden]),.essence:not([hidden])),.slide.friction,.slide.essence,.shared-step-number { background:#fafbf8; }
+      .friction-illustrated { grid-template-columns:.32fr .68fr; gap:8mm; }
+      .opening-copy { padding:0 0 6mm; gap:8mm; }
+      .opening-title { font-size:26pt; }
+      .opening-copy .takeaway { font-size:18pt; padding-left:5mm; }
+      .opening-art { height:100%; aspect-ratio:auto; }
+      .opening-visual-group { gap:4mm; }
+      .opening-services { grid-template-columns:repeat(3,minmax(0,1fr)); gap:5mm; padding-top:4mm; }
+      .opening-services li { display:block; }
+      .opening-services h3,.opening-services p { font-size:14pt; text-align:left; }
+      .opening-services p { margin-top:2mm; }
+      .essence-illustrated { grid-template-columns:.71fr .29fr; gap:8mm; }
+      .essence .slide-title { font-size:24pt; }
+      .shared-plan { gap:9mm; padding:3mm 0; }
+      .shared-plan-steps { grid-template-columns:1fr; gap:8mm; }
+      .shared-plan-steps::before { content:""; left:17px; }
+      .shared-plan-steps li { grid-template-columns:36px 1fr; gap:4mm; }
+      .shared-step-number { width:36px; font-size:12pt; }
+      .shared-plan-steps h3 { font-size:16pt; }
+      .shared-plan-result { font-size:18pt; padding-top:6mm; }
       .intro-composition { grid-template-columns:48mm 1fr; gap:5mm 14mm; }
       .brand-seal { width:45mm; height:45mm; font-size:90pt; }
       .brand-definition { font-size:12pt; margin-top:6mm; }
@@ -629,32 +647,45 @@
         return svg;
       };
       const addTakeaway = (body, slide) => { if (slide.takeaway) body.append(element("p", "takeaway", slide.takeaway)); };
+      const openingArtwork = (slide, fallback, description) => {
+        const picture = visual({ ...slide, image: slide.image || fallback, imageAlt: slide.imageAlt || description });
+        if (picture) picture.className = "opening-art";
+        return picture;
+      };
       const serviceWindows = slide => {
-        const body = element("div", "slide-body friction-layout");
-        appendLead(body, slide);
-        const actions = element("ol", "fragmented-actions");
-        const verbs = ["探す", "相談", "予約"];
-        (slide.stages || []).forEach((stage, index) => {
+        const body = element("div", "slide-body friction-illustrated");
+        const copy = element("div", "opening-copy");
+        copy.append(element("div", "opening-title-slot"));
+        addTakeaway(copy, slide);
+        const visualGroup = element("div", "opening-visual-group");
+        const artwork = openingArtwork(slide, "assets/opening/planning-friction-v1.png", "旅行準備で情報探し、仲間との相談、予約を行き来する人を描いたイラスト");
+        if (artwork) visualGroup.append(artwork);
+        const services = element("ul", "opening-services");
+        (slide.stages || []).forEach(stage => {
           const item = element("li");
-          item.append(element("h3", "fragmented-action-title", verbs[index] || stage.action), element("p", "fragmented-service", stage.service));
-          actions.append(item);
+          item.append(element("h3", "", stage.service), element("p", "", stage.action));
+          services.append(item);
         });
-        body.append(actions);
-        addTakeaway(body, slide);
+        visualGroup.append(services); body.append(copy, visualGroup);
         return body;
       };
       const continuousJourney = slide => {
-        const body = element("div", "slide-body essence-layout");
-        appendLead(body, slide);
-        const route = element("ol", "journey-track");
-        ["探す", "仲間と決める", "事業者に相談"].forEach(label => {
-          const stage = element("li");
-          stage.append(element("h3", "", label));
-          route.append(stage);
+        const body = element("div", "slide-body essence-illustrated");
+        const artwork = openingArtwork(slide, "assets/opening/shared-journey-v1.png", "仲間と地域の事業者が一つの計画でつながるイラスト");
+        if (artwork) body.append(artwork);
+        const plan = element("div", "shared-plan");
+        const steps = element("ol", "shared-plan-steps");
+        ["探す", "仲間と決める", "事業者に相談"].forEach((label, index) => {
+          const step = element("li");
+          const number = element("span", "shared-step-number", String(index + 1).padStart(2, "0"));
+          number.setAttribute("aria-hidden", "true");
+          step.append(number, element("h3", "", label)); steps.append(step);
         });
-        const destination = element("p", "journey-destination");
-        destination.append(element("span", "", "準備をひと続きに"), element("strong", "", "気軽な再訪へ"));
-        body.append(route, destination);
+        const result = element("p", "shared-plan-result");
+        if (Array.isArray(slide.visualTakeawayLines)) {
+          slide.visualTakeawayLines.forEach(line => result.append(element("span", "result-line", line)));
+        } else result.textContent = slide.visualTakeaway || "気軽な再訪へ";
+        plan.append(steps, result); body.append(plan);
         return body;
       };
       const introduction = slide => {
@@ -803,10 +834,18 @@
         const titleGroup = element("div");
         if (slide.kicker || slide.eyebrow) titleGroup.append(element("p", "eyebrow", slide.kicker || slide.eyebrow));
         const title = element(index === 0 ? "h1" : "h2", "slide-title", slide.title);
+        if (slide.layout === "friction" && Array.isArray(slide.titleLines) && slide.titleLines.length) {
+          title.replaceChildren(...slide.titleLines.map(line => element("span", "opening-title-line", line)));
+        }
         title.id = `title-${index + 1}`;
-        titleGroup.append(title);
+        if (slide.layout !== "friction") titleGroup.append(title);
         header.append(titleGroup, element("p", "folio", `${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`));
-        section.append(header, renderBody(slide));
+        const body = renderBody(slide);
+        if (slide.layout === "friction") {
+          title.classList.add("opening-title");
+          body.querySelector(".opening-title-slot").replaceWith(title);
+        }
+        section.append(header, body);
         const footnote = slide.caption || slide.footnote;
         if (footnote) {
           const footer = element("div", "slide-footnote");

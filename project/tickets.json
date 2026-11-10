@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "revision": 1041,
-  "last_event_hash": "5dd1c9292043eb156c952e63bb40491d4b81040732c5c9944f39a56c1aeff0fa",
-  "updated_at": "2026-11-10T15:51:49+09:00",
+  "revision": 1049,
+  "last_event_hash": "adca57e6fce8ffc5de1a7c0a3eb4f84ea5d12b09ed52bf028cdfde126e6e6151",
+  "updated_at": "2026-11-10T16:03:52+09:00",
   "tickets": [
     {
       "acceptance": [
@@ -5591,16 +5591,60 @@
       "revision": 9,
       "revisions": [
         {
+          "at": "2026-11-10T15:51:49+09:00",
           "hash": "b651de08409fa506653e15b8dc9e50d02233ca1f",
-          "summary": "Simplify problem opening and show continuous preparation path",
           "path": "project/revisions/b651de08409fa506653e15b8dc9e50d02233ca1f.txt",
-          "at": "2026-11-10T15:51:49+09:00"
+          "summary": "Simplify problem opening and show continuous preparation path"
         }
       ],
       "status": "done",
       "title": "発表冒頭2ページの構図を再設計",
       "type": "task",
       "updated_at": "2026-11-10T15:51:49+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "公開一次・作者資料を調査し採用した原則と出典を記録"
+        },
+        {
+          "checked": true,
+          "text": "専用イラスト2点を組み込み1・2ページを視覚主体で刷新"
+        },
+        {
+          "checked": true,
+          "text": "3〜9ページ、9枚構成、260秒計画、登壇順とスクリプトの整合を維持"
+        },
+        {
+          "checked": true,
+          "text": "1440×900と1280×720で表示確認し文書とGit履歴を更新"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T15:58:27+09:00",
+      "dependencies": [],
+      "description": "利用者の再指摘を受け、公開資料の構図を研究して1・2ページを再構築する。抽象的な3列文字を撤去し、旅行準備の分断と、仲間・事業者へつながる行動を描く。",
+      "documents": [
+        "presentation/README.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T16:03:50+09:00",
+          "path": "artifacts/presentation-html/v7/verification.json",
+          "text": "一次資料と採用理由、画像・構文・表示・配信検証、独立レビューを保存。"
+        }
+      ],
+      "id": "PR07",
+      "origin": "この時点で新規起票",
+      "owner": "主担当",
+      "priority": "P2",
+      "revision": 8,
+      "revisions": [],
+      "status": "done",
+      "title": "導入2枚を人物イラストと視覚的な物語へ刷新",
+      "type": "task",
+      "updated_at": "2026-11-10T16:03:52+09:00"
     },
     {
       "acceptance": [

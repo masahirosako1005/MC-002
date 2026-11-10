@@ -22,6 +22,8 @@ PUBLIC_FILES = {
 for name in ('program-progress.jpg', 'rank-phone.jpg', 'zone-coupon.jpg',
              'city-dashboard.jpg', 'washi-paper.png', 'travel-woodcut.png'):
     PUBLIC_FILES[f'/presentation/assets/current/{name}'] = f'presentation/assets/current/{name}'
+for name in ('planning-friction-v1.png', 'shared-journey-v1.png'):
+    PUBLIC_FILES[f'/presentation/assets/opening/{name}'] = f'presentation/assets/opening/{name}'
 for name in ('DESIGN.md', 'docs/COMMUNITY-UX-RATIONALE.md',
              'docs/JOURNEY-PROGRAMS-CONTRACT.md', 'docs/DAYTRIP-ROUTES.md',
              'docs/CITY-DASHBOARD-ACCEPTANCE.md', 'docs/contracts/REFLECTIONS-CONTRACT.md',

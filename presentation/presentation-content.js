@@ -1,6 +1,6 @@
 /* Local presentation content. No runtime network calls. */
 window.KOU_DECK = {
-  "version": "four-and-a-half-minute-v6-opening",
+  "version": "four-and-a-half-minute-v7-illustrated-opening",
   "title": "講｜4分半以内の発表",
   "duration": 260,
   "speechDuration": 175,
@@ -41,7 +41,14 @@ window.KOU_DECK = {
       "start": 0,
       "end": 25,
       "speaker": "野村",
-      "speaker_role": "01 問題提起"
+      "speaker_role": "01 問題提起",
+      "image": "assets/opening/planning-friction-v1.png",
+      "imageAlt": "旅先探し、友人との相談、宿の予約が別々にあり、絡まった赤い糸を前にスマートフォンを見て困る旅行者。",
+      "titleLines": [
+        "旅行の準備、",
+        "使うサービスが",
+        "バラバラ。"
+      ]
     },
     {
       "id": "essence",
@@ -81,7 +88,14 @@ window.KOU_DECK = {
         "to": "梅木",
         "text": "このページを話し終えたら、3枚目へ進めて梅木さんに交代。",
         "spoken": false
-      }
+      },
+      "image": "assets/opening/shared-journey-v1.png",
+      "imageAlt": "仲間が一つの地図を囲んで行き先を決め、赤い糸でつながった事業者へ相談する場面。",
+      "visualTakeaway": "探し直す、伝え直す手間を減らす。",
+      "visualTakeawayLines": [
+        "探し直す、伝え直す",
+        "手間を減らす。"
+      ]
     },
     {
       "id": "intro",

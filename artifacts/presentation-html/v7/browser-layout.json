@@ -1,0 +1,73 @@
+{
+  "checks": [
+    {
+      "height": 900,
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true,
+          "src": "assets/opening/planning-friction-v1.png"
+        }
+      ],
+      "scrollX": false,
+      "scrollY": false,
+      "slide": "slide-1",
+      "titleFont": "47.52px",
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true,
+          "src": "assets/opening/shared-journey-v1.png"
+        }
+      ],
+      "scrollX": false,
+      "scrollY": false,
+      "slide": "slide-2",
+      "titleFont": "43.2px",
+      "width": 1440
+    },
+    {
+      "height": 720,
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true,
+          "src": "assets/opening/shared-journey-v1.png"
+        }
+      ],
+      "scrollX": false,
+      "scrollY": false,
+      "slide": "slide-2",
+      "titleFont": "34px",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "images": [
+        {
+          "fit": "contain",
+          "loaded": true,
+          "src": "assets/opening/planning-friction-v1.png"
+        }
+      ],
+      "scrollX": false,
+      "scrollY": false,
+      "slide": "slide-1",
+      "titleFont": "36px",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "scrollX": false,
+      "scrollY": false,
+      "slide": "slide-3",
+      "width": 1280
+    }
+  ],
+  "notesAndHomeNavigation": "verified on slide 1",
+  "scope": "Opening two slides at 1440x900 and 1280x720; transition to unchanged slide 3."
+}

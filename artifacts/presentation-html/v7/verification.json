@@ -1,0 +1,38 @@
+{
+  "ticket": "PR07",
+  "version": "four-and-a-half-minute-v7-illustrated-opening",
+  "date": "2026-11-10",
+  "scope": "Opening slides 1 and 2: original local illustrations and typography; no app behavior changes.",
+  "slides": 9,
+  "planned_seconds": 260,
+  "passed": [
+    "Primary/creator web examples researched and sources recorded",
+    "Two original illustrations generated, bundled locally and inspected",
+    "Slides 1 and 2 inspected at actual 1440x900 and 1280x720 viewports; both images loaded and no overflow",
+    "Unwanted word breaks corrected and rechecked",
+    "Transition to unchanged slide 3, Home navigation and slide 1 notes verified",
+    "Slides 3-9 data, all notes, speaker script and timing unchanged from PR06",
+    "Independent review of later renderers/nav/video/security boundaries: no mandatory findings",
+    "HTML and content JS syntax passed; no remote asset references",
+    "Local presentation server existing 6 tests passed"
+  ],
+  "not_verified": [
+    "Audience preference or comprehension measurement",
+    "Human timed rehearsal",
+    "Actual print output",
+    "New full video playback",
+    "Revisit or preparation-time impact"
+  ],
+  "evidence": [
+    "browser-layout.json",
+    "source-checks.json",
+    "server-tests.txt",
+    "independent-review.md",
+    "references.md"
+  ],
+  "iteration_notes": [
+    "First preview split Japanese words; fixed with phrase-aware spans.",
+    "First test command collided with Python standard test module; rerun using discover.",
+    "Inline-JS syntax pipe initially used CP932; rerun as UTF-8 bytes."
+  ]
+}

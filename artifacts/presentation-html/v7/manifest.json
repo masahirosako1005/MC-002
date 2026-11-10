@@ -1,0 +1,41 @@
+{
+  "version": "four-and-a-half-minute-v7-illustrated-opening",
+  "files": [
+    {
+      "path": "presentation/kou-presentation.html",
+      "bytes": 66274,
+      "sha256": "863889a0033b37350972865e6b95affc2fda343743638640f01010ab9ee0aff2"
+    },
+    {
+      "path": "presentation/presentation-content.js",
+      "bytes": 14864,
+      "sha256": "1e1b8f2fbd396535b0fa9ba0b91609fb41fc351b67dbf1c30adc04ae83bb07af"
+    },
+    {
+      "path": "presentation/speaker-script.txt",
+      "bytes": 5948,
+      "sha256": "db4af2233495383a51668ee4c8ab928047eb459b1901a69ce07e3bd9b9a25769"
+    },
+    {
+      "path": "presentation/assets/opening/planning-friction-v1.png",
+      "bytes": 2891127,
+      "sha256": "9da57c7fe66b445b01b51b08e33f0d21c11a65a078d0dd2c002a36caeab13b06"
+    },
+    {
+      "path": "presentation/assets/opening/shared-journey-v1.png",
+      "bytes": 3237088,
+      "sha256": "6f66071c3c54bdb5142aebe26a1458b8a9ca7bfd4fbcbc50c4cd265a1f849f85"
+    },
+    {
+      "path": "presentation/assets/opening/provenance.json",
+      "bytes": 4175,
+      "sha256": "392b0455e863ec5e6cbf99c9f90bb3df976d7b32242681ebdd950e4e799e95cb"
+    },
+    {
+      "path": "scripts/serve_presentation.py",
+      "bytes": 5546,
+      "sha256": "eb6f049d880e9e6de795966f1f46c553ef5afc613c608a44cfb20af09573fc3c"
+    }
+  ],
+  "scope": "Latest HTML, unchanged script, local illustrations and public preview server."
+}

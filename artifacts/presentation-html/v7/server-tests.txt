@@ -1,0 +1,11 @@
+test_head_has_length_and_no_body (test_presentation_server.PresentationServerTests.test_head_has_length_and_no_body) ... ok
+test_invalid_range_is_rejected (test_presentation_server.PresentationServerTests.test_invalid_range_is_rejected) ... ok
+test_only_allowlisted_files_are_served (test_presentation_server.PresentationServerTests.test_only_allowlisted_files_are_served) ... ok
+test_range_boundaries (test_presentation_server.PresentationServerTests.test_range_boundaries) ... ok
+test_root_redirect_preserves_relative_asset_resolution (test_presentation_server.PresentationServerTests.test_root_redirect_preserves_relative_asset_resolution) ... ok
+test_video_range_returns_exact_bytes (test_presentation_server.PresentationServerTests.test_video_range_returns_exact_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.631s
+
+OK
