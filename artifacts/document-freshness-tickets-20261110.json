@@ -1,0 +1,119 @@
+{
+  "captured_at_utc": "2026-11-10T05:30:27.934388+00:00",
+  "documentation_commit": "951353e",
+  "scope": "Only DOC01 completion and the two open findings; shared live ledger remains authoritative.",
+  "tickets": [
+    {
+      "acceptance": [
+        {
+          "checked": true,
+          "text": "現行仕様/操作/成果物/評価入口を照合して不整合を修正"
+        },
+        {
+          "checked": true,
+          "text": "リンクと版境界を検証し監査記録を保存"
+        },
+        {
+          "checked": true,
+          "text": "変更履歴とGitへ対応付ける"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T14:22:45+09:00",
+      "dependencies": [],
+      "description": "利用者指定: 各種文書を現行コード、成果物と評価証拠へ照合。過去記録を保持し、古い最新版表記と契約を修正。",
+      "documents": [
+        "docs/DOCUMENT-FRESHNESS.md"
+      ],
+      "evidence": [
+        {
+          "at": "2026-11-10T14:29:19+09:00",
+          "path": "artifacts/document-freshness-20261110.json",
+          "text": "31文書/現行ローカル参照350件、欠落0。2担当独立読取、媒体対象版・未達を区別。"
+        },
+        {
+          "at": "2026-11-10T14:30:13+09:00",
+          "path": "artifacts/document-freshness-20261110.json",
+          "text": "最終31文書/352ローカル参照、欠落0。並行するv13計画追加を再読取して保存。"
+        }
+      ],
+      "id": "DOC01",
+      "origin": "この時点で新規起票",
+      "owner": "documentation",
+      "priority": "P2",
+      "revision": 9,
+      "revisions": [
+        {
+          "at": "2026-11-10T14:30:12+09:00",
+          "hash": "951353eca6a47e6e2bd31ddd2591a60a428beff5",
+          "path": "project/revisions/951353eca6a47e6e2bd31ddd2591a60a428beff5.txt",
+          "summary": "docs: align current guidance with evaluated revisions and release scope"
+        }
+      ],
+      "status": "done",
+      "title": "現行ドキュメントの鮮度・参照・評価版を整合",
+      "type": "task",
+      "updated_at": "2026-11-10T14:30:13+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "本人操作と同一originの必要画面だけに限定した許可方針を確定"
+        },
+        {
+          "checked": false,
+          "text": "実カメラ開始/停止/拒否/画面終了を実機で検証"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T14:26:36+09:00",
+      "dependencies": [],
+      "description": "DOC01で稼働8081のcamera=()を確認。getUserMediaの実装はあるが配信では禁止。写真QR読取と区別し、許可範囲を設計して実機確認が必要。",
+      "documents": [
+        "docs/OMIKUJI.md"
+      ],
+      "evidence": [],
+      "id": "DOC02",
+      "origin": "この時点で新規起票",
+      "owner": "runtime-security",
+      "priority": "P1",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "ライブカメラ実装と配信許可方針の不一致",
+      "type": "bug",
+      "updated_at": "2026-11-10T14:26:36+09:00"
+    },
+    {
+      "acceptance": [
+        {
+          "checked": false,
+          "text": "productionと隔離試験の実行先を明示分離"
+        },
+        {
+          "checked": false,
+          "text": "journal restart期待schemaを現行版へ明示しrunner契約試験で確認"
+        }
+      ],
+      "comments": [],
+      "created_at": "2026-11-10T14:26:36+09:00",
+      "dependencies": [],
+      "description": "browser一括は8081が既定だがEV02は専用8082のみ。integrationはjournal restartの既定schema10を渡し現行12と不一致。文書に個別手順を記載しrunner修正は未完了。",
+      "documents": [
+        "test/README.md"
+      ],
+      "evidence": [],
+      "id": "DOC03",
+      "origin": "この時点で新規起票",
+      "owner": "test-tooling",
+      "priority": "P2",
+      "revision": 1,
+      "revisions": [],
+      "status": "todo",
+      "title": "一括試験runnerと個別試験の環境指定不一致",
+      "type": "bug",
+      "updated_at": "2026-11-10T14:26:36+09:00"
+    }
+  ]
+}
