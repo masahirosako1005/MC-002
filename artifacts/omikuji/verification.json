@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-11-10T04:56:38.893195+00:00",
+  "scope": "backend/app/omikuji only; main integrates imports/lifespan/router",
+  "source_sha256": {
+    "backend/app/omikuji/router.py": "a61be49fbb8a17dd9db9e41f30ad0bc3e77a4d8af15d1186f887cba7f428937d",
+    "backend/app/omikuji/schema.py": "8456f89072aadbc584f61185c9a088113d6ca30c3052eea20c3ea5c5fd97fde4",
+    "backend/app/omikuji/service.py": "cfdedf257b70beacaa9052bc8f71d71a30a764be7d884aafb04d159079309f68"
+  },
+  "tests": [
+    {
+      "path": "artifacts/omikuji/pytest.xml",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "19.088"
+    },
+    {
+      "path": "artifacts/omikuji/final-tests.xml",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "7.997"
+    }
+  ],
+  "distinct_test_cases": 12,
+  "static_checks": {
+    "ruff": {
+      "exit_code": 0,
+      "findings": 0
+    },
+    "complexity": {
+      "exit_code": 0,
+      "findings": 0
+    },
+    "bandit": {
+      "findings": 0,
+      "errors": 0
+    }
+  },
+  "schema": {
+    "application_user_version": 12,
+    "module_marker": "omikuji-schema=1"
+  },
+  "limitations": [
+    "No full application regression or Docker execution by this agent.",
+    "Existing global static findings are not included in these zero counts.",
+    "On-site distribution code is not a GPS location proof.",
+    "Human usability, VR headset suitability and revisit effects remain untested."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-11-10T05:02:30.316778+00:00",
+  "environment": "Docker localhost:8081, IAB actual UI; 430x900 traveler /1280x720 provider",
+  "checks": [
+    {
+      "name": "provider opts in and saves 3000 JPY budget",
+      "passed": true
+    },
+    {
+      "name": "issue expiring code via provider UI",
+      "passed": true
+    },
+    {
+      "name": "select box and turn camera via buttons and keyboard",
+      "passed": true,
+      "keyboard_values": [
+        -7,
+        -14
+      ]
+    },
+    {
+      "name": "draw returns actual 100 JPY coupon and persists",
+      "passed": true
+    },
+    {
+      "name": "budget shows issued100 remaining2900",
+      "passed": true
+    },
+    {
+      "name": "redeem against confirmed 500 JPY purchase",
+      "passed": true
+    },
+    {
+      "name": "traveler reopening shows redeemed, no draw/code form",
+      "passed": true
+    },
+    {
+      "name": "430px screen has 430px scrollWidth",
+      "passed": true
+    },
+    {
+      "name": "two-eye view renders and switches back",
+      "passed": true
+    }
+  ],
+  "evidence": [
+    "visitor-result.jpg",
+    "provider-after-use.jpg",
+    "visitor-redeemed.jpg"
+  ],
+  "limitations": [
+    "No real phone sensor or headset test",
+    "Onsite code distribution does not prove GPS position",
+    "Seed personas; no real financial transaction or tourism effect measured",
+    "No independent visual-motion comfort/usability study"
+  ]
+}

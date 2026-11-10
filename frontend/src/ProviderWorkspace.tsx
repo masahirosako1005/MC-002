@@ -21,6 +21,7 @@ import { Empty, ErrorBox, Icon, Modal, TagPicker } from "./ui";
 import "./marketplace.css";
 import "./provider-dashboard.css";
 const ProviderDashboard = lazy(() => import("./ProviderDashboard"));
+const ProviderOmikuji = lazy(() => import("./ProviderOmikuji"));
 const ProviderCircleInvites = lazy(() =>
   import("./Circles").then((module) => ({
     default: module.ProviderCircleInvites,
@@ -501,7 +502,7 @@ export default function ProviderWorkspace({
   user: User;
 }) {
   const [tab, setTab] = useState<
-    "overview" | "plans" | "consultations" | "circles" | "daytrip"
+    "overview" | "plans" | "consultations" | "circles" | "daytrip" | "omikuji"
   >("overview");
   const [plans, setPlans] = useState<ProviderPlan[]>([]);
   const [planFilter, setPlanFilter] = useState<ProviderPlan["status"] | "all">(
@@ -596,6 +597,7 @@ export default function ProviderWorkspace({
               ["circles", "講の招待", "people"],
               ["plans", "プラン", "compass"],
               ["daytrip", "日帰り・特典", "calendar"],
+              ["omikuji", "現地おみくじ", "compass"],
             ] as const
           ).map(([id, label, icon]) => (
             <button
@@ -620,10 +622,11 @@ export default function ProviderWorkspace({
                     consultations: "届いた相談",
                     circles: "講からの招待",
                     daytrip: "日帰りの運営",
+                    omikuji: "現地おみくじの受付",
                   }[tab]
                 }
               </h1>
-              {tab !== "daytrip" && (
+              {tab !== "daytrip" && tab !== "omikuji" && (
                 <button
                   className="text-button"
                   disabled={busy}
@@ -649,6 +652,10 @@ export default function ProviderWorkspace({
                 providers={providers}
                 onNavigate={changeTab}
               />
+            </Suspense>
+          ) : tab === "omikuji" ? (
+            <Suspense fallback={<output className="page-load-status">受付をひらいています…</output>}>
+              <ProviderOmikuji key={user.id} />
             </Suspense>
           ) : tab === "daytrip" ? (
             <Suspense

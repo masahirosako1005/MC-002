@@ -28,6 +28,7 @@ import { ScrollHeading, SealMark, TravelCrest, WoodcutArt } from "./WaArt";
 import type { ProgramStep } from "./journey-program-types";
 const JourneyPrograms = lazy(() => import("./JourneyPrograms"));
 const BenefitZonePolicy = lazy(() => import("./BenefitZonePolicy"));
+const Omikuji = lazy(() => import("./Omikuji"));
 
 const yen = (value: number) => `${value.toLocaleString("ja-JP")}円`;
 const rankLabel = (rank: number) => RANK_NAMES[rank - 1] || RANK_NAMES[0];
@@ -1050,6 +1051,7 @@ export default function Daytrip({
   const [tab, setTab] = useState<
     "explore" | "programs" | "outings" | "journal" | "coupons"
   >("explore");
+  const [omikujiOpen, setOmikujiOpen] = useState(false);
   const [catalog, setCatalog] = useState<DaytripCatalog | null>(null);
   const [me, setMe] = useState<DaytripMe | null>(null);
   const [circles, setCircles] = useState<CircleSummary[]>([]);
@@ -1199,6 +1201,11 @@ export default function Daytrip({
     setError("");
     setRevision((value) => value + 1);
   };
+  if (omikujiOpen) return (
+    <Suspense fallback={<output className="loading-inline">おみくじを開いています…</output>}>
+      <Omikuji key={user.id} onClose={() => { setOmikujiOpen(false); openTab("journal"); }} />
+    </Suspense>
+  );
   return (
     <section className="daytrip-page" ref={pageStart}>
       <header className="daytrip-heading">
@@ -1522,6 +1529,14 @@ export default function Daytrip({
               </div>
             </div>
             <RankProgress status={me.rank_status} />
+            <button className="button primary full" onClick={() => {
+              setOmikujiOpen(true);
+              pageStart.current?.scrollIntoView({ behavior: "auto", block: "start" });
+            }}>
+              月替わりのおみくじを開く
+              <Icon name="arrow" />
+            </button>
+            <p className="quiet-note">月に一度、参加店の現地で無料で引けます。</p>
             <hr />
             <p>
               <strong>特典対象の階級：{rankLabel(me.eligible_rank)}</strong>

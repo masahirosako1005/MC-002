@@ -28,6 +28,8 @@ from .marketplace.router import create_router as marketplace_router
 from .marketplace.schema import migrate
 from .occasions.router import create_router as occasions_router
 from .occasions.schema import migrate as migrate_occasions
+from .omikuji.router import create_router as omikuji_router
+from .omikuji.schema import migrate as migrate_omikuji
 from .personalization.router import create_router as personalization_router
 from .personalization.schema import migrate as migrate_personalization
 from .programs.router import create_router as programs_router
@@ -87,6 +89,7 @@ def create_app(settings=None):
         migrate_residence(database)
         migrate_programs(database)
         migrate_city_registry(database)
+        migrate_omikuji(database)
         settings.media_dir.mkdir(parents=True, exist_ok=True)
         worker.cleanup_deleted()
         service.seed_assets()
@@ -295,6 +298,7 @@ def create_app(settings=None):
     app.include_router(analytics_router(database))
     app.include_router(residence_router(database))
     app.include_router(programs_router(database))
+    app.include_router(omikuji_router(database))
 
     @app.api_route("/api", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
     @app.api_route("/api/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])

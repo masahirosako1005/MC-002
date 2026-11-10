@@ -1,0 +1,25 @@
+.provider-omikuji { display: grid; gap: 20px; color: #243c37; }
+.omikuji-provider-intro { max-width: 66ch; line-height: 1.8; }
+.omikuji-shops { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 18px; }
+.omikuji-shop { background: #fffefa; padding: 24px; border: 1px solid #d5dacf; border-radius: 12px; min-width: 0; }
+.omikuji-shop-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.omikuji-shop h2 { font-size: 20px; margin: 0; }
+.omikuji-shop-heading > span { white-space: nowrap; color: #47685a; font-size: 13px; }
+.omikuji-budget { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 18px 0; border-bottom: 1px solid #e4e4db; }
+.omikuji-budget dt { font-size: 12px; }
+.omikuji-budget dd { font-size: 21px; font-weight: 650; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.omikuji-shop form, .omikuji-reward-row form { display: grid; gap: 10px; }
+.omikuji-toggle { display: flex; align-items: center; gap: 10px; line-height: 1.5; font-size: 14px; }
+.omikuji-toggle input { width: 20px; height: 20px; flex: 0 0 20px; accent-color: #486756; }
+.omikuji-budget-input { display: flex; flex-wrap: wrap; gap: 8px; }
+.omikuji-budget-input input, .omikuji-reward-row input[type='number'] { min-width: 100px; width: 140px; padding: 12px; border: 1px solid #aab6a9; border-radius: 6px; background: white; color: #243c37; }
+.omikuji-shop p { font-size: 13px; line-height: 1.65; color: #52645c; }
+.omikuji-code { display: grid; gap: 10px; margin-top: 16px; padding: 20px; text-align: center; border: 1px dashed #a6654e; background: #faf3e5; }
+.omikuji-code strong { font-size: 38px; letter-spacing: .15em; font-variant-numeric: tabular-nums; color: #8d3e2e; }
+.omikuji-code span { font-size: 13px; }
+.omikuji-shop > output:not(.omikuji-code) { display: block; font-size: 14px; margin-top: 12px; }
+.omikuji-reward-row { border-top: 1px solid #d4dbd1; padding: 20px 0; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+.omikuji-reward-row strong { font-size: 24px; }
+.omikuji-reward-row p, .omikuji-reward-row small { font-size: 13px; color: #4c6156; }
+.provider-omikuji :focus-visible { outline: 3px solid #9e4a32; outline-offset: 3px; }
+@media (max-width: 460px) { .omikuji-shop { padding: 16px; } .omikuji-budget dd { font-size: 18px; } }
