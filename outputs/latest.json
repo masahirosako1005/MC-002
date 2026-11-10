@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-10T05:14:09.884957+00:00",
+  "updated_at_utc": "2026-11-10T05:29:18.782824+00:00",
   "as_of": "2026-11-10",
   "application_layout": "backend/ and frontend/ at project root",
   "design": "DESIGN.md",
   "tasks": "TASKS.md",
   "video": {
     "version": "v12",
-    "status": "produced_technical_verification_recorded_changed_scene_browser_check_pending",
+    "status": "produced_technical_verification_and_partial_browser_playback_recorded",
     "path": "outputs/kou-revisit-intro-v12.mp4",
     "subtitles": "outputs/kou-revisit-intro-v12-ja.vtt",
     "preview": "outputs/video-preview/index.html",
@@ -22,7 +22,16 @@
     "capture_method": "Real QR-image/photo import followed by Jizo overlay and saved 100-yen result; not live camera footage.",
     "human_listening_review": "not_assessed",
     "user_final_approval": "unconfirmed",
-    "browser_full_playback": "not_repeated_for_v12; v11 playback is not reused"
+    "browser_full_playback": "not_repeated_for_v12; v11 playback is not reused",
+    "browser_playback": {
+      "path": "artifacts/video-revisit/v12/browser-playback-partial.json",
+      "currentTime": 33.718307,
+      "duration": 70,
+      "ended": false,
+      "error": null,
+      "source": "http://127.0.0.1:8092/kou-revisit-intro-v12.mp4",
+      "scope": "Partial playback only; chapter seeking reset to start in this preview and was not verified. Full file decoding verified separately."
+    }
   },
   "presentation": {
     "version": "20261110-omikuji",
@@ -54,6 +63,188 @@
     "limits": "PowerPoint/render inspection was performed by the deck author; output auditor independently verified file hashes and records. No human audience evaluation or real revisit-effect validation."
   },
   "quality": {
+    "phase": "ev02-final",
+    "source_commit": "21eb4657adf57f666959d384c3bacee4b4b9bdf4",
+    "status": "regression",
+    "tests_status": "passed",
+    "pytest_cases": 433,
+    "subtests": 32,
+    "counts_after": {
+      "bandit": 20,
+      "complexity": 14,
+      "oxlint": 81,
+      "ruff": 0,
+      "stylelint": 115
+    },
+    "report": "docs/evaluation-frameworks/EV02-REPORT.md",
+    "evidence": "artifacts/quality/ev02-final/summary.json",
+    "tests_evidence": "artifacts/quality/ev02-full/tests.xml",
+    "limits": [
+      "Fixed evaluated revision; subsequent camera/QR changes and dependencies are not covered.",
+      "Static findings and human evaluation gaps remain."
+    ]
+  },
+  "unresolved": [
+    "Human listening, user acceptance and actual revisit effects are unmeasured.",
+    "EV02 static gate is regression with documented remaining findings.",
+    "Camera implementation is blocked by the current camera=() response policy.",
+    "PPTX/PDF do not reflect the later camera AR or EV02 results.",
+    "Video v13 is in progress; v12 browser playback was partial."
+  ],
+  "audit": "artifacts/output-freshness-audit.json",
+  "history": {
+    "directory": "outputs/history",
+    "move_map": "artifacts/output-history-move-map.json",
+    "moved_files": 23,
+    "hashes_preserved": true,
+    "deleted_files": 0
+  },
+  "source_package": {
+    "status": "verified",
+    "archive_path": "outputs/kou-current-source.zip",
+    "manifest_path": "outputs/kou-current-source-manifest.json",
+    "published_paths": [
+      "outputs/kou-current-source.zip",
+      "outputs/kou-current-source-manifest.json"
+    ],
+    "source_commit": "b05211ccfd688886c0ae1e6d0528347a84d779a1",
+    "bytes": 50523357,
+    "sha256": "f8b0ee6712ab2007f00fd0899fb4c8e240cf41250dc252059f27a59c2e01cb40",
+    "archive_files": 446,
+    "manifest_archive_hash_matches": true,
+    "manifest_file_set_matches": true,
+    "manifest_file_sizes_match": true,
+    "required_entrypoints_present": [
+      "backend/app/omikuji/service.py",
+      "frontend/src/Omikuji.tsx",
+      "frontend/src/omikuji-qr.ts",
+      "frontend/src/ProviderOmikuji.tsx",
+      "compose.yaml",
+      "Dockerfile"
+    ],
+    "excluded_category_entry_count": 0,
+    "unsafe_path_count": 0,
+    "symlink_count": 0,
+    "duplicate_entry_count": 0,
+    "camera_ar_included": true,
+    "exact_source_name_exceptions": [
+      "backend/app/password_policy.py",
+      "frontend/src/PasswordChange.tsx"
+    ],
+    "inspection": "ZIP names/sizes and whole-archive SHA256; policy/component source names only exempted from password-name heuristic. No full content secret audit.",
+    "dependencies_bundled": false,
+    "checked_at_utc": "2026-11-10T05:15:16.100589+00:00"
+  },
+  "previous_video": {
+    "version": "v11",
+    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
+    "path": "outputs/kou-revisit-intro-v11.mp4",
+    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+    "duration_seconds": 70.0,
+    "frames": 2100,
+    "bytes": 3919747,
+    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
+    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
+    "preview": "outputs/video-preview/index.html",
+    "verification": "artifacts/video-revisit/v11/final/verification.json",
+    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+    "human_listening_review": "not_assessed",
+    "user_final_approval": "unconfirmed",
+    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
+    "browser_playback": "artifacts/video-revisit/v11/browser-playback.json",
+    "camera_ar_included": false,
+    "version_note": "Historical pre-camera-AR release; the completed v12 introduces QR-photo reading."
+  },
+  "previous_videos": [
+    {
+      "version": "v10",
+      "status": "previous_pre_omikuji_revision_preserved",
+      "path": "outputs/kou-revisit-intro-v10.mp4",
+      "subtitles": "outputs/kou-revisit-intro-v10-ja.vtt",
+      "duration_seconds": 46.5,
+      "sha256": "19917f308d75fe2e2c2d41aafa90ca4813968e0909783595a28f081552759ba4",
+      "preview": "outputs/video-preview/index.html",
+      "review": "docs/REVISIT-VIDEO-WA-REVIEW.md"
+    },
+    {
+      "version": "v11",
+      "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
+      "path": "outputs/kou-revisit-intro-v11.mp4",
+      "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
+      "duration_seconds": 70.0,
+      "frames": 2100,
+      "bytes": 3919747,
+      "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
+      "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
+      "preview": "outputs/video-preview/index.html",
+      "verification": "artifacts/video-revisit/v11/final/verification.json",
+      "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
+      "human_listening_review": "not_assessed",
+      "user_final_approval": "unconfirmed",
+      "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
+      "browser_playback": "artifacts/video-revisit/v11/browser-playback.json",
+      "camera_ar_included": false,
+      "version_note": "Historical pre-camera-AR release; the completed v12 introduces QR-photo reading."
+    }
+  ],
+  "previous_source_package": {
+    "checked_at_utc": "2026-11-10T05:06:11.528970+00:00",
+    "status": "verified",
+    "archive_path": "outputs/kou-current-source.zip",
+    "manifest_path": "outputs/kou-current-source-manifest.json",
+    "source_commit": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
+    "bytes": 48094443,
+    "sha256": "5feae5dd819cb70fd5a2a2c485564dde84eee1d3a2cb2058707a1ca137edfe78",
+    "manifest_archive_hash_matches": true,
+    "archive_files": 422,
+    "archive_directory_entries": 39,
+    "manifest_file_set_matches": true,
+    "manifest_file_sizes_match": true,
+    "required_entrypoints_present": [
+      "backend/app/main.py",
+      "backend/app/omikuji/router.py",
+      "backend/app/omikuji/service.py",
+      "backend/app/omikuji/schema.py",
+      "frontend/src/Omikuji.tsx",
+      "compose.yaml",
+      "Dockerfile",
+      ".dockerignore",
+      "README.md",
+      "DESIGN.md",
+      "TASKS.md",
+      "scripts/setup-local.ps1",
+      "test/backend/test_omikuji.py"
+    ],
+    "unsafe_path_count": 0,
+    "symlink_count": 0,
+    "excluded_category_entry_count": 0,
+    "duplicate_entry_count": 0,
+    "inspection": "ZIP names/metadata and whole-archive SHA256 only; no extraction or secret-content read. Individual file hashes inside ZIP were not recomputed.",
+    "uncommitted_changes": "Package is committed blobs of source_commit only; separately active uncommitted EV02 work is not included.",
+    "dependencies_bundled": false,
+    "limits": [
+      "Installed dependencies, ignored model weights, runtime databases and backups are not bundled.",
+      "Secret checks are conservative heuristics, not a complete security audit.",
+      "ZIP bytes are reproducible for the same commit and Git implementation; generated_at changes.",
+      "Each output file is atomically replaced. A process/OS crash between the two replacements can leave a mismatched pair; verify archive.sha256 before use."
+    ],
+    "published_paths": [
+      "outputs/kou-current-source.zip",
+      "outputs/kou-current-source-manifest.json"
+    ],
+    "camera_ar_included": false,
+    "version_note": "Committed source package produced before camera-AR correction."
+  },
+  "v12_browser_partial_check": {
+    "path": "artifacts/video-revisit/v12/browser-playback-partial.json",
+    "currentTime": 33.718307,
+    "duration": 70,
+    "ended": false,
+    "error": null,
+    "source": "http://127.0.0.1:8092/kou-revisit-intro-v12.mp4",
+    "scope": "Partial playback only; chapter seeking reset to start in this preview and was not verified. Full file decoding verified separately."
+  },
+  "previous_quality": {
     "phase": "root-layout-final",
     "measured_at": "2026-11-10T04:44:00.257383+00:00",
     "status": "review-required",
@@ -123,117 +314,15 @@
       "evidence": "artifacts/quality/root-layout-final/tests.log"
     }
   },
-  "unresolved": [
-    "AR source package update pending; v12 video is complete.",
-    "Human listening/naturalness, final user approval and actual revisit effects remain unconfirmed.",
-    "Static findings remain; root-layout baseline summary is review-required."
-  ],
-  "audit": "artifacts/output-freshness-audit.json",
-  "history": {
-    "directory": "outputs/history",
-    "move_map": "artifacts/output-history-move-map.json",
-    "moved_files": 23,
-    "hashes_preserved": true,
-    "deleted_files": 0
+  "document_freshness": {
+    "date": "2026-11-10",
+    "report": "docs/DOCUMENT-FRESHNESS.md",
+    "completed_video": "v12",
+    "video_in_progress": "v13",
+    "presentation_scope": "Monthly drawing release; subsequent camera AR and EV02 results are not reflected.",
+    "source_package_scope": "Fixed committed release, not a mirror of current documentation or HEAD.",
+    "evidence": "artifacts/document-freshness-20261110.json",
+    "checked_at_utc": "2026-11-10T05:29:18.782809+00:00"
   },
-  "source_package": {
-    "checked_at_utc": "2026-11-10T05:06:11.528970+00:00",
-    "status": "verified",
-    "archive_path": "outputs/kou-current-source.zip",
-    "manifest_path": "outputs/kou-current-source-manifest.json",
-    "source_commit": "32b9cbd79bc67cce485cef28e311a942f8e854fd",
-    "bytes": 48094443,
-    "sha256": "5feae5dd819cb70fd5a2a2c485564dde84eee1d3a2cb2058707a1ca137edfe78",
-    "manifest_archive_hash_matches": true,
-    "archive_files": 422,
-    "archive_directory_entries": 39,
-    "manifest_file_set_matches": true,
-    "manifest_file_sizes_match": true,
-    "required_entrypoints_present": [
-      "backend/app/main.py",
-      "backend/app/omikuji/router.py",
-      "backend/app/omikuji/service.py",
-      "backend/app/omikuji/schema.py",
-      "frontend/src/Omikuji.tsx",
-      "compose.yaml",
-      "Dockerfile",
-      ".dockerignore",
-      "README.md",
-      "DESIGN.md",
-      "TASKS.md",
-      "scripts/setup-local.ps1",
-      "test/backend/test_omikuji.py"
-    ],
-    "unsafe_path_count": 0,
-    "symlink_count": 0,
-    "excluded_category_entry_count": 0,
-    "duplicate_entry_count": 0,
-    "inspection": "ZIP names/metadata and whole-archive SHA256 only; no extraction or secret-content read. Individual file hashes inside ZIP were not recomputed.",
-    "uncommitted_changes": "Package is committed blobs of source_commit only; separately active uncommitted EV02 work is not included.",
-    "dependencies_bundled": false,
-    "limits": [
-      "Installed dependencies, ignored model weights, runtime databases and backups are not bundled.",
-      "Secret checks are conservative heuristics, not a complete security audit.",
-      "ZIP bytes are reproducible for the same commit and Git implementation; generated_at changes.",
-      "Each output file is atomically replaced. A process/OS crash between the two replacements can leave a mismatched pair; verify archive.sha256 before use."
-    ],
-    "published_paths": [
-      "outputs/kou-current-source.zip",
-      "outputs/kou-current-source-manifest.json"
-    ],
-    "camera_ar_included": false,
-    "version_note": "Committed source package produced before camera-AR correction."
-  },
-  "previous_video": {
-    "version": "v11",
-    "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
-    "path": "outputs/kou-revisit-intro-v11.mp4",
-    "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
-    "duration_seconds": 70.0,
-    "frames": 2100,
-    "bytes": 3919747,
-    "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
-    "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
-    "preview": "outputs/video-preview/index.html",
-    "verification": "artifacts/video-revisit/v11/final/verification.json",
-    "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
-    "human_listening_review": "not_assessed",
-    "user_final_approval": "unconfirmed",
-    "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
-    "browser_playback": "artifacts/video-revisit/v11/browser-playback.json",
-    "camera_ar_included": false,
-    "version_note": "v11 is the complete pre-camera-AR revision; on-site QR/camera AR update is in progress."
-  },
-  "previous_videos": [
-    {
-      "version": "v10",
-      "status": "previous_pre_omikuji_revision_preserved",
-      "path": "outputs/kou-revisit-intro-v10.mp4",
-      "subtitles": "outputs/kou-revisit-intro-v10-ja.vtt",
-      "duration_seconds": 46.5,
-      "sha256": "19917f308d75fe2e2c2d41aafa90ca4813968e0909783595a28f081552759ba4",
-      "preview": "outputs/video-preview/index.html",
-      "review": "docs/REVISIT-VIDEO-WA-REVIEW.md"
-    },
-    {
-      "version": "v11",
-      "status": "produced_technical_and_browser_verification_recorded_user_approval_unconfirmed",
-      "path": "outputs/kou-revisit-intro-v11.mp4",
-      "subtitles": "outputs/kou-revisit-intro-v11-ja.vtt",
-      "duration_seconds": 70.0,
-      "frames": 2100,
-      "bytes": 3919747,
-      "sha256": "7531c61bb71a36b31b3cc8b3a2ff871c0288d28ec3cf7a83d651664f11af2442",
-      "subtitles_sha256": "176daf0ff6501c2b23b7f9df1de48fae95c71d6c3fcf77c131416c556b9c1c89",
-      "preview": "outputs/video-preview/index.html",
-      "verification": "artifacts/video-revisit/v11/final/verification.json",
-      "delivery_checks": "artifacts/video-revisit/v11/final/delivery-checks.json",
-      "human_listening_review": "not_assessed",
-      "user_final_approval": "unconfirmed",
-      "scope": "Includes recorded monthly omikuji pointer interaction. Motion sensors/headsets and actual revisit effects untested.",
-      "browser_playback": "artifacts/video-revisit/v11/browser-playback.json",
-      "camera_ar_included": false,
-      "version_note": "v11 is the complete pre-camera-AR revision; on-site QR/camera AR update is in progress."
-    }
-  ]
+  "audit_scope": "Historical output metadata audit; current document and evaluation pointers are recorded under document_freshness and quality."
 }

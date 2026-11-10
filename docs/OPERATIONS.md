@@ -2,6 +2,8 @@
 
 更新：2026年11月10日。現行データベースは **schema 12**。実装の正本はプロジェクトの [DESIGN.md](../DESIGN.md)、作業状態は [TASKS.md](../TASKS.md)、変更履歴は [CHANGELOG.md](CHANGELOG.md)。この文書は現行の起動・保存・検証手順を扱う。
 
+現地おみくじの追加表は独立したmodule schema 1（settingsの`omikuji-schema`）で管理し、アプリ全体のschema 12とは別に判定する。未知のmodule版も起動時に拒否する。
+
 ## 現行の構成と動作
 
 - ReactとPythonをDockerで起動し、[ローカル画面](http://127.0.0.1:8081)で使う。Composeプロジェクトは `kou-community`、保存volumeは `kou-community_community-data`。
@@ -77,13 +79,19 @@ appは `/app/data/community.db` と `/app/data/media` に保存する。写真�
 | バックアップの任意モデルメタデータと旧形式読取り | `test_snapshot_metadata.py`（Docker・実volume操作なし） |
 
 ```powershell
-New-Item -ItemType Directory -Path test/fixtures/runtime -Force | Out-Null
-.\.venv\Scripts\python.exe -m pytest test/backend -q --basetemp=C:/AI-Sprint/workspace/MC-002/test/fixtures/runtime/current-api
+# 既定の隔離Python試験とブラウザーソースの構文確認
+.\.venv\Scripts\python.exe -B test/run.py
+
+# API試験だけを実行する場合も、実行ごとに一時領域を分ける
+$testRunId = [guid]::NewGuid().ToString('N')
+.\.venv\Scripts\python.exe -B -m pytest -c pytest.ini test/backend -q --basetemp="test/fixtures/runtime/$testRunId/pytest" -o "cache_dir=test/fixtures/runtime/$testRunId/cache"
 ```
 
 `test/fixtures/runtime` は隔離試験専用。実DBや写真の保存先に指定しない。各試験の適用範囲は成果物で区別する。
 
-最新アプリの統合結果は [市全体・通う旅の受入](CITY-DASHBOARD-ACCEPTANCE.md)、品質は [新版評価](EVALUATION-COMMUNITY.md) を参照する。以下は対象と版が限定された過去の個別証拠で、現在版の全体成功数ではない。
+測定の入口は[品質の現在位置](QUALITY-CURRENT.md)、対象版21eb465の全体・画面・復元・再起動評価は[EV02](evaluation-frameworks/EV02-REPORT.md)を参照する。後続AR/QR変更にEV02結果を自動適用しない。[市全体・通う旅の受入](CITY-DASHBOARD-ACCEPTANCE.md)と[新版評価の履歴](EVALUATION-COMMUNITY.md)もそれぞれの対象版に限る。以下は過去の個別証拠で、現在版の全体成功数ではない。
+
+`test/run.py --suite integration` / `--suite all` は現行journal再起動検査へ期待schemaを渡さず、同検査の既定値10と現行12が一致しない既知の制限がある。通常の運用確認でこの一括再起動を使わず、[個別手順と実行先](../test/README.md)に従って対象を明示する。EV02用の画面・再起動検査は専用8082で、8081の通常利用と混ぜない。
 
 - [日帰りの境界修正後27試験](../outputs/daytrip-boundary-after.xml)：プラン改訂後の旧同意の拒否、事業者の競合後再取得も含む。
 - [schema 10・未利用枠返還の26試験](../outputs/daytrip-release-holds-tests.xml)：日帰り25件と訪問記録の再起動確認1件。
@@ -98,5 +106,7 @@ New-Item -ItemType Directory -Path test/fixtures/runtime -Force | Out-Null
 `app` は外向き通信を持たないinternal networkに接続し、非root・read-only rootfsで動作する。`gateway` は127.0.0.1:8081に入口を公開する。画像・フォント・アプリ内APIはローカル提供。gateway全体の外向き通信をOSファイアウォールで遮断したという意味ではない。
 
 書込みはOriginとCSRFを確認する。写真の上限は12MiB/2000万画素、静止JPEG・PNG・WebP。配信画像はEXIFを除去し、位置候補は本人の事前許可がある場合だけ読み取る。削除再試行は論理削除済み写真だけを対象にし、残す写真・カバー画像・保存先外のファイルを削除しない。
+
+2026-11-10の配信ヘッダーは `Permissions-Policy: camera=()`。ARのカメラ開始処理は実装されているが、現設定ではライブカメラ使用を禁止する。QR写真の端末内読取での実操作確認と区別する。ブラウザーの許可設定だけで使えるとは案内せず、配信ポリシーの変更と実機検証を別の対応事項として扱う。
 
 現行の通常起動に使わない旧分類器、モデル専用依存、旧モデル/旧コンテナー構成の検証スクリプト、常時スキップの実モデル試験は撤去した。スキップ削除を試験成功へ換算しない。モデル重み・取得根拠・ライセンス・写真素材と旧試験の成果物は保持する。以前のschema 1〜2やモデル推論の実測は [CHANGELOG.md](CHANGELOG.md)と対応する歴史的成果物を参照し、現行の動作証拠には流用しない。

@@ -1,4 +1,6 @@
-# 受入確認：AC-01〜AC-20
+# 旧版の受入確認：AC-01〜AC-20（2026-11-09）
+
+**本書は旧スタンプラリー・収集機能の保存時点の受入記録です。現行の講アプリの完成・安全性・試験結果を示す資料ではありません。** 本文中の「最新」「現在」「DESIGN.md」やソースパスは当時の対象を指します。移設・保管後に存在しない旧コードへの参照も履歴として保持し、現行の同名ファイルへ付け替えません。現行の入口は[文書一覧](README.md)、[現在の品質記録](QUALITY-CURRENT.md)、[EV02の対象版評価](evaluation-frameworks/EV02-REPORT.md)を参照してください。
 
 確認日：2026-11-09。DESIGN.mdの受入条件を、保存された結果・試験コード・実装と照合した。判定はこの文書の条件内に限る。実利用者の評価、現地再訪の効果、既存システムへの接続、規格全体への適合を意味しない。
 
@@ -19,7 +21,7 @@
 | [独立レビュー](SECURITY-REVIEW.md) | 年度表示、500ヘッダー、セッション初期化、訂正版CSVの修正を個別照合。残る条件・自然キーの限界を記録 |
 | [収集の独立レビュー](COLLECTION-REVIEW.md) | 個人分離、GET非更新、目標のCSRF/入力検証、別日・季節・年越し・初回達成日、復旧、バックアップ、schema 1/2→3を確認。独立16群と対象3件（0.51秒）が成功。確認範囲で高・中重大の不具合なし |
 | [採用要求の結果](STANDARDS-RESULTS.md) | ASVS/WCAGの要求ID別、Docker独自チェック、SSDF工程について、範囲内合格・一部確認・未検証・適用外を区別 |
-| [発表資料の検証](../artifacts/presentation/VISUAL-QA.md)、[PPTX](../outputs/tang-you-chi-presentation-final.pptx)、[PDF](../outputs/tang-you-chi-presentation-final.pdf) | 現在版は13枚。担当者がPowerPointで全13枚を再描画・目視確認し、108文字枠の超過0、PDF13頁すべて文字抽出可能、API51件・画面20件の反映、ファイナライザー指摘/警告0・フォント検査133件成功を記録。本書担当はslide XML13件・描画PNG13件と最終PPTX/PDFのSHA-256がQA記録と一致することを確認。旧11枚はversion-11-verifiedへ履歴保存 |
+| [発表資料の検証](../artifacts/presentation/VISUAL-QA.md)、[PPTX](../outputs/history/presentation/tang-you-chi-presentation-final.pptx)、[PDF](../outputs/history/presentation/tang-you-chi-presentation-final.pdf) | 現在版は13枚。担当者がPowerPointで全13枚を再描画・目視確認し、108文字枠の超過0、PDF13頁すべて文字抽出可能、API51件・画面20件の反映、ファイナライザー指摘/警告0・フォント検査133件成功を記録。本書担当はslide XML13件・描画PNG13件と最終PPTX/PDFのSHA-256がQA記録と一致することを確認。旧11枚はversion-11-verifiedへ履歴保存 |
 
 アクセシビリティは既存の `axe-home/journal/next/puzzle/recovery/reduced-motion.json` に、収集の `axe-collection-earned/detail.json` を追加し、現在の8件は違反配列が空。これは指定タグで自動検出した範囲の結果。文字200%は390pxの主要3画面と430pxの収集詳細、幅試験は主要3画面と収集詳細の320/390/430pxを確認する。全幅×200%×全画面を実施したとは扱わない。
 

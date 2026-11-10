@@ -1,5 +1,7 @@
 # 講コミュニティ API 契約 1
 
+現行差分確認：2026-11-10。基本APIに加え、本人のパスワード変更を下記へ追補した。登録・居住地域は[居住地域契約](../RESIDENCE-CONTRACT.md)、通う旅は[工程・進捗契約](../JOURNEY-PROGRAMS-CONTRACT.md)、現地おみくじは[専用契約](../OMIKUJI-CONTRACT.md)を参照。過去の契約版番号は現在のDB schema番号ではない。
+
 React/Python結合用。全て `/api`、同一オリジン。Cookie `ko_session` はHttpOnly/SameSite=Strict。JSON書込に `X-CSRF-Token` とOrigin必須。初回loginはOrigin必須、既存Cookieが有効なloginはCSRFも必要。画像だけmultipart/form-data。エラー `{detail:string}`、401/403/404/409/413/415/422/429/503。API・画像はno-store。CSRF失効403は `X-Session-Invalid:true`。
 
 初期の操作用アカウントは架空の **aoi / 藤沢 葵、ren / 高橋 蓮、mio / 小野 美緒**。ローカル試作用パスワードは各々 `aoi-local-2026` / `ren-local-2026` / `mio-local-2026`（実データ運用は禁止、`KO_PASSWORD_AOI/REN/MIO`で初期作成時に上書き可能）。ログインはID書換えでなく必ずパスワードを照合する。3名とも「同期の旅じたく」、葵だけ「大学さんぽ部」に所属。同期は合成200人、追加197人はログイン不可・候補参加の初期許可false。操作3名だけ、共通の好みと許可を設定した合成初期状態。size3で実承諾を確認でき、size5は人数不足になる。合成メンバーも勝手に参加承諾させない。
@@ -24,11 +26,13 @@ type Group={id:string,community_id:string,purpose:string,trip:Trip,members:User[
 
 ## ログイン・所属
 
-- GET `/bootstrap` 公開 → `{accounts:{username,name,initials,color}[],tags:Tag[],model:{status:'ready'|'unavailable',name:string}}`。パスワードは返さない。
+- GET `/bootstrap` 公開 → `{accounts:{username,name,initials,color}[],tags:Tag[],model:{status:'guided',name:string,mode:'manual-with-predefined-assets',method:'manual-photo-tags-v1',inference_enabled:false,external_ai_enabled:false,description:string}}`。パスワードは返さない。`guided`は既知素材の事前候補と手入力による案内であり、モデル推論の稼働状態ではない。
 - GET `/covers/{key}` 公開 → image/jpeg。keyは `woodland/coffee/coast/table` だけ。公開可能な生成カタログ素材から再エンコードした写真で、実uploadや任意pathを配信しない。cover_keyはこの4種のいずれか。
 - POST `/login` `{username,password}` → `{user:User,csrf_token:string}`。新Cookie発行、切替前Cookieを失効。
 - GET `/me` → `{user,csrf_token}`、未ログイン401。
 - POST `/logout` `{}` → `{ok:true}`。
+- POST `/account/password` `{current_password:string,new_password:string}` → `{ok:true,reauthentication_required:true}`。本人認証・Origin・CSRF必須。現在値は1〜128文字、新規値は12〜128 Unicode codepoint。現在値との照合、同一値・既知の弱い値・単純なID由来値の拒否を行う。値をtrim・正規化せず、未知キーは拒否する。
+- パスワード変更はハッシュ計算後に本人の認証状態を再確認し、更新と本人のCookie/Stage全セッション失効を同じtransactionで行う。成功後は再ログインが必要。他の利用者の認証は維持する。Stage認証による変更は、同居する別ユーザーのCookieを削除しない。現在値誤りや弱い新規値は422、途中の失効・競合は401、頻度超過は429。失敗時に秘密値を応答へ含めない。具体的な検証範囲は[EV02認証レビュー](../evaluation-frameworks/EV02-ACCOUNT-SECURITY.md)を参照。
 - GET `/communities` → `{items:Community[]}` 本人所属だけ。
 - GET `/communities/{id}` → `{community:Community,invite_code:string|null}`。invite_codeはownerのみ。
 - POST `/communities` `{name,description}` → Community。作成者owner。

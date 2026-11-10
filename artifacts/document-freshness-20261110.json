@@ -1,0 +1,68 @@
+{
+  "checked_at_utc": "2026-11-10T05:30:01.002371+00:00",
+  "head_at_check": "7c76414a42a13e41464e372bbb643018dce7693d",
+  "scope": "Current document entrypoints and API contracts; historical measured reports are preserved. This is not an application retest.",
+  "documents_checked": 31,
+  "local_markdown_links_checked": 352,
+  "missing_current_links": [],
+  "document_sha256": {
+    "AGENTS.md": "2284fa88d86ba538d468e00bb188aedaad25ca7ec9894b44f9fcb4fad4eaf133",
+    "README.md": "92a50a56cab1cb116d1292153f5c9c88e84e4e6a5b3dc0402499132a6a3f0a72",
+    "DESIGN.md": "1c2b87708feb3fcbf364a9b344ff34870d9950dc27677e171d1fb46a591ce39c",
+    "TASKS.md": "164ccac32d503ad0d92fc9771a5ca5d2f1c24424d26e36c706b200c351f80e41",
+    "docs/README.md": "7b7876559d7393b4e3080e52ecc02ddae01f3359c1b12bab500fd5962e6f1773",
+    "docs/QUALITY-CURRENT.md": "b4e5906d761a45ddce8972ec1ca4b99edf0721bc616bfd4f1a97d27022065016",
+    "docs/EVALUATION-COMMUNITY.md": "601442039ac725443b9af82da67acd394b5bcc1426584ca41d9c98018c0e7c69",
+    "docs/EVALUATION-TOOLS.md": "07b2225a8488fce65b7e6bc31555a00971e7f6f91e4646dd32d80a77d943b14a",
+    "docs/SKILL-QUALITY-POLICY.md": "a35f02f1bb166b9bf4a9d8bb6d66f357a2251972c2446e6f8706df4b3dc08d61",
+    "docs/COMMUNITY-TRY.md": "36ee01ec26792152803992d22e06ee413a7941c8f432d54993df196e147ae21b",
+    "docs/OPERATIONS.md": "d955f9f67b9f2c8e69a7357d4393ee66dba8772b5391e334037b6e31e7e13dcd",
+    "docs/OMIKUJI.md": "4d1bcd2bbd567bc82ee2b7647b8b1838e8a09728fe230471c4c528a9d72ab4df",
+    "docs/OMIKUJI-CONTRACT.md": "0d66e544050caa036dae26de894fe09550a2ee7bee76be8b2cf73a220fa8e0f1",
+    "docs/REVISIT-VIDEO.md": "e81b075a0a050c0a02890443feee13921c5888bed9a3418b8a64e04f7a90c250",
+    "docs/REVISIT-VIDEO-WA-REVIEW.md": "7fce8e40603004702a0a1f993996f3277e5065bcc8a03e2635860166b4937bb4",
+    "presentation/README.md": "b7a6c1eadceba7d68299f70e56e032a686c8ddb3e2650625a9d6079ab6eeef48",
+    "outputs/README.md": "f742eca926a5bdbea5d75198f7b2d206e2e05d30394b37e96c0df62866a168fa",
+    "test/README.md": "8a0a474c6930af638c89966c1ef306ffa8c6b70c7eae772705a9bd0307d67716",
+    "docs/DOCUMENT-FRESHNESS.md": "921cd836eb43c75e3c7af5ab71a5f5e921e7f7dde92126e0df1ffe6ad91a189b",
+    "docs/contracts/AI-MOC-CONTRACT.md": "458caa5b0a2a9b35126589e07ec4bb28bb1718aba2b63fb85f1e3a6359e20b10",
+    "docs/contracts/API-CONTRACT.md": "a5518c8fb7f96d8258db7a169f5ac20ef3a94891ea4eb0439dc10f3b0b2213fe",
+    "docs/contracts/CIRCLES-CONTRACT.md": "ac73fb64c41e7ac660ef2df0e3f38e5a4c0a9917bfe0d1997cf814e5103d6613",
+    "docs/contracts/DAYTRIP-CONTRACT.md": "fe6e15f3cd7443abc8296b8b9b6b75a2b1fce3730545376a50f46c2226834dd5",
+    "docs/contracts/DISCOVERY-CONTRACT.md": "77337326b6032b33da1b7b9861d7f31e51dc2414adece6852af821bcd31c0cde",
+    "docs/contracts/IMAGE-PROCESSING-CONTRACT.md": "a3524d429e961dca504b7ab56ca84e42f951156f7641ed1f68864777fa3a9dc3",
+    "docs/contracts/JOURNAL-CONTRACT.md": "987b626ccb6e3a9dbbfc364d211a37e44adfb4f3db143457a75caf7c20897d64",
+    "docs/contracts/MARKETPLACE-CONTRACT.md": "4842d6be041b8824a981b0d8d50c2c604357f958c764993e59980705363ee966",
+    "docs/contracts/OCCASIONS-CONTRACT.md": "71ffd5763add2057336391a50f08af6e3589caffdbf30a22dbc084eb1c3718bd",
+    "docs/contracts/PERSONALIZATION-CONTRACT.md": "96d40e6174d7205458fa798b894692d1040c90e1ac5cf48df89b2d81db344afd",
+    "docs/contracts/REFLECTIONS-CONTRACT.md": "4412a8927e172d5e4ebc98340599960f21c09f7b2e06e8d7228fad5b092dbe52",
+    "docs/contracts/UI-MARKETPLACE.md": "e425fcad1b7966f5248fcfa03bbc841afa735c594c38a4aab8322d94766c5687"
+  },
+  "latest_metadata_checks": {
+    "ev02_pointer": true,
+    "cases": true,
+    "subtests": true,
+    "video_in_progress": true,
+    "completed_video": true
+  },
+  "runtime_header_observation": {
+    "url": "http://localhost:8081/",
+    "method": "GET",
+    "http_status": 200,
+    "permissions_policy": "camera=(),microphone=(),geolocation=()"
+  },
+  "historical_links": {
+    "document": "docs/ACCEPTANCE.md",
+    "missing_old_source_paths": 5,
+    "handling": "Historical label and explanation retained; not replaced with unrelated current tests."
+  },
+  "open_items": [
+    "DOC02: live camera blocked by response policy",
+    "DOC03: test runner schema and target environment mismatch",
+    "PPT/PDF do not yet reflect AR/QR and EV02",
+    "v13 in progress; v12 completed, browser playback partially verified"
+  ],
+  "passed_document_checks": true,
+  "latest_json_sha256": "0d98e78da02ca89159126f6f30e5f12e83a610211013d46a2a26c6eef2aa0dfa",
+  "concurrent_work_note": "v13 planning changes re-read before this snapshot; complete v12 and in-progress v13 remain distinct."
+}

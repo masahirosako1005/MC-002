@@ -27,7 +27,7 @@ Next.jsのRSC、SSR、`next/dynamic`、FastAPI Cloud、外部OpenTelemetryをこ
 
 比較元はフロント `daytrip-wa-verified`、バック `daytrip-final`。React指摘124、CSS指摘126、Ruff 0、複雑度14、Bandit 19（Medium 19 / High 0）を残件込みで保持する。型検査は0。ソース・設定のハッシュを保存し、新規ファイルも解析対象に含む。Banditの既存SQL構築指摘は [個別の安全性判定](DAYTRIP-SECURITY-TRIAGE.md) を参照し、raw結果から抑制しない。
 
-ファイル・ルール・メッセージ別の件数で差分を比較するため、単なる行番号移動で新規指摘としない。同じファイルの同じ種類の問題が別の位置へ置き換わる場合は件数だけで判別できないため、ファイルのハッシュが変わり既存指摘が残る場合は `review-required` で止める。差分レビューと動作試験を併用する。設定変更・CSS構文/設定エラー・検査不能は `incomplete` とする。過去の集計は再集計でも上書きしない。
+現行集計はメッセージ内の参照行番号の変化をraw新規として数えることがある。[EV02独立レビュー](evaluation-frameworks/EV02-STATIC-REVIEW.md)で既存指摘との対応を説明し、生結果を保持する。同じファイルの同じ種類の問題が別の位置へ置き換わる場合は件数だけで判別できないため、ファイルのハッシュが変わり既存指摘が残る場合は `review-required` で止める。差分レビューと動作試験を併用する。設定変更・CSS構文/設定エラー・検査不能は `incomplete` とする。過去の集計は再集計でも上書きしない。
 
 `no-new-findings-existing-debt` は「固定基準に対する新規指摘なし・既存課題あり」。全面合格ではない。指摘の数は大会の点数、実際の再訪率、利用者満足度、セキュリティ認証を表さない。
 
@@ -36,3 +36,8 @@ Next.jsのRSC、SSR、`next/dynamic`、FastAPI Cloud、外部OpenTelemetryをこ
 公開情報による提供元と指針の比較をChatGPT Workへ依頼。プロジェクトのソース・CSV・写真・秘密情報は送っていない。受信した助言も一次資料と適用バージョンで確認し、未受信を完了扱いにしない。
 
 同日「外部Skill比較調査」の回答を受信。Vercel/FastAPIの選別適用、Next.js限定項目の除外、固定commit、実行コードの審査を推奨し、今回の選定と一致した。Trail of Bitsのmodern-python/differential-review等も候補に挙がったが、既存のRuff/pytest/安全性指針と重なるため追加導入は行わない。保守元だけで全scriptの安全性が保証されるとは扱わない。調査結果は製品コードを検査した結果ではない。
+
+
+## EV01・EV02の追加基準
+
+固定版web-design-guidelines（17節）とOWASP ASVS 5.0.0（345要求台帳）を導入し、既存4指針と併用した。[由来・固定版](evaluation-frameworks/README.md) / [最新の評価入口](QUALITY-CURRENT.md)。スキル適用、測定成功、規格全面適合を区別する。

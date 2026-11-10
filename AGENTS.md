@@ -8,7 +8,7 @@
 - 試験ソースと一時領域は `test/`。backend/browser/integration/tooling/fixturesに分類。確定した証拠はartifacts、旧community証拠はartifacts/community。
 - 旧root backendの残骸はtest/fixtures/runtime/legacy-root/backend-root、旧frontendはartifacts/retired/legacy-frontendに分離した。**過去の削除一覧のroot frontend/backendを再実行しない。現在は現行コードである。**
 - 不要物と空communityフォルダの削除は自動承認レビューに実行前拒否された。拒否を迂回しない。削除済みと報告せず、docs/CLEANUP-AUDIT.mdへ残存を記録する。
-- 利用者は不要コードの整理を先に完了するよう指定。追加の階級別・月1回の運ゲーム/クーポン機能（おみくじ案）は受領済みだが未着手・保留。
+- 現地おみくじは実装済み。現在の入口は現地QRをカメラまたは写真で読み取り、お地蔵さん表示後に本人がスキャンする方式。月1回・階級別確率・事業者予算を維持。箱選択/端末傾きの旧画面は履歴。現配信camera=()はライブカメラを禁止している（DOC02）。物理カメラ・現地での追従・GPSによる所在証明を検証済みとしない。
 
 ## プロダクト
 
@@ -28,8 +28,8 @@
 - 事業者は読みやすいPC業務ダッシュボードを優先。Stageは上部に短い見出し、左利用者スマホ、右16:10事業者PC。左右認証は独立。中央は実送受信成功時だけ一度動き、待機時静止。
 - 役割に応じてカードの大小を保つ。標準selectは使わずキーボード対応の選択部品。reduced-motionを尊重し、入力や取得ごとに演出を反復しない。
 - 利用画面へ「デモ」「試作」「ダミー」等を散在させない。料金条件・共有範囲・未確定状態は必要な場所に残す。
-- 最新紹介動画はv10（女性声/案内役、46.5秒、実操作入り）。旧男性声・60秒厳守・20秒の指定は履歴。説明は読みやすい字体。ユーザーの聞き心地と最終OKは未確認。
-- 成果物はソース、Markdown設計書、発表資料。現行版スライドは後続、旧PPTX/PDFを最新と呼ばない。動画・過去比較版・測定証拠を区別する。
+- 完成配布の最新紹介動画はv12（女性声/案内役、70秒、QR写真読取の実操作入り）。第13版は制作中であり完了扱いにしない。全ファイル復号とブラウザー部分再生を確認し、v11の全編再生をv12へ流用しない。説明は読みやすい字体。聞き心地と最終OKは未確認。
+- 成果物はソース、Markdown設計書、発表資料。2026-11-10版の10枚PPTX/PDFは作成済みだが、後続カメラAR画面への更新とは区別。正確な対象版はoutputs/README.mdとoutputs/latest.jsonを参照。旧スタンプラリー資料は履歴。
 
 ## 保存・開発・評価
 
@@ -38,7 +38,7 @@
 - 実行時ローカル完結。外部API/DB/素材配信に依存しない。初回取得・開発支援ツールの利用と区別。DB/media/バックアップ/モデル/Git履歴を不要ソースとして消さない。
 - Docker projectと保存volumeはkou-community/kou-community_community-dataを維持。down -vや稼働DBの初期化は通常操作にしない。
 - 独立した実装/調査/レビューは並列エージェントを利用。同一ファイルの同時編集を避け、CPU/メモリに合わせ重いビルド/試験は順序を守る。
-- Reactは.agents/skills/vercel-react-best-practices、FastAPIは.agents/skills/fastapi、既存emil-design-eng/security-best-practicesを適用。クラウド機能や外部telemetryは導入しない。
+- Reactは.agents/skills/vercel-react-best-practices、FastAPIは.agents/skills/fastapi、UIは固定版web-design-guidelinesとemil-design-eng、安全性はsecurity-best-practicesとASVS台帳を適用。クラウド機能や外部telemetryは導入しない。
 - 評価はdocs/EVALUATION-COMMUNITY.mdとdocs/SKILL-QUALITY-POLICY.md。旧版点数/試験数を流用せず、固定基準・対象・測定条件・証拠・未達を残す。指摘除外で点数を上げない。
 - 500人CSVの相関は因果/需要/相性の証明にしない。架空初期データ、候補保存、アプリ操作を実現地再訪の効果と混同しない。
 - 口頭追加も設計書へ反映。確定・案・保留・実装済み・検証済みを区別し、定量測定→修正→再測定で改善する。

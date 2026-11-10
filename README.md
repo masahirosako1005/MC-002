@@ -23,7 +23,7 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 - [現在の設計仕様](DESIGN.md) / [作業と未解決事項](TASKS.md)
 - [文書一覧](docs/README.md) / [フォルダの用途と整理結果](docs/FOLDER-STRUCTURE.md)
 - [成果物の最新版一覧](outputs/README.md) / [直近の品質評価](docs/QUALITY-CURRENT.md)
-- [最新紹介動画・女性音声と実操作](outputs/kou-revisit-intro-v10.mp4)（46.5秒）
+- [最新紹介動画・第12版](outputs/kou-revisit-intro-v12.mp4)（70秒、女性音声とQR写真読取の実操作）
 
 ## プロジェクトの配置
 
@@ -37,7 +37,7 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 | `presentation` | 現行発表資料の素材と再生成手順 |
 | `project` | チケット台帳と履歴 |
 | `docs` | 設計の根拠、調査、評価、変更記録 |
-| `.agents/skills` | 固定した公式React・FastAPIの開発指針 |
+| `.agents/skills` | 固定したReact・FastAPI・Web Interface Guidelinesの指針 |
 | `artifacts` | 新しい試験・品質評価の結果（既存証拠は元の場所を保持） |
 
 **現行コードはルート直下の `frontend/` と `backend/` です。旧残骸は `artifacts/retired/legacy-frontend` と `test/fixtures/runtime/legacy-root` へ分離済み。現在の `frontend`・`backend` は削除しないでください。**
@@ -50,6 +50,8 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 
 過去の試験件数や点数を、新しい変更の成功証拠として流用しません。通常のEdgeプロファイルでの応答停止は、アプリの分離した検証環境での成功とは別の未解決事項です。
 
+直近の全体評価は[EV02・評価版21eb465](docs/evaluation-frameworks/EV02-REPORT.md)。後続の[現地おみくじのカメラ・QR](docs/OMIKUJI.md)は別の限定検証です。QR写真を選び、端末内で読み取れます。ライブカメラ開始のコードはありますが、現在の配信ポリシーは使用を禁止しています。物理カメラでの現地確認と再訪効果は未検証です。
+
 試験の入口は[test/README.md](test/README.md)。継続評価は `./.venv/Scripts/python.exe scripts/quality_check.py <新しい測定名>` で静的検査とAPI・開発ツール試験を順次実行します。利用する指針と測定の限界は[スキル・品質方針](docs/SKILL-QUALITY-POLICY.md)を参照してください。
 
 
@@ -60,3 +62,6 @@ React・Python・Dockerで動く、ローカルの旅行コミュニティです
 事業者の「実績の概要」で30/90/365日の来訪元・再訪を全国/関西の地図と表で確認できます。現在の居住地域であり、実際の出発地ではありません。5人未満の地域等は省略します。
 
 現在の保存内容にN西市の設定と追加資料を入れる操作は、先にバックアップ後、`python -m app.city_setup --apply`、`python -m app.enrichment --apply` の順に明示的に実行します（コンテナ内）。通常起動時には既存データを書き換えません。来歴は[追加資料](docs/CONTENT-PACK.md)、確認結果は[今回の検証](docs/NISHI-ACCEPTANCE.md)。
+
+
+文書の整合確認は[DOC01](docs/DOCUMENT-FRESHNESS.md)。第13版動画は制作中で、完成配布の第12版と区別します。

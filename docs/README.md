@@ -20,9 +20,11 @@
 | 架空の運用データ | [データ来歴](OPERATIONAL-DATA-PACK.md) |
 | 見た目・素材・書体 | [和の方針](WA-ART-DIRECTION.md)、[書体来歴](FONT-PROVENANCE.md) |
 | 最新成果物と発表資料 | [成果物一覧](../outputs/README.md)、[資料の生成・確認](../presentation/README.md) |
-| 最新紹介動画 | [第10版の仕様と検証](REVISIT-VIDEO.md)、[レビュー](REVISIT-VIDEO-WA-REVIEW.md) |
+| 最新紹介動画 | [第12版の仕様と検証](REVISIT-VIDEO.md)、[版ごとのレビュー](REVISIT-VIDEO-WA-REVIEW.md) |
+| 大会8項目・認証とUIの改善 | [EV02・評価版21eb465](evaluation-frameworks/EV02-REPORT.md)、[評価ツール](EVALUATION-TOOLS.md) |
+| 文書の最新化と参照監査 | [今回の照合結果](DOCUMENT-FRESHNESS.md) |
 | 過去の変更 | [CHANGELOG](CHANGELOG.md)、[整理前設計](history/DESIGN-before-20261110-cleanup.md)、[整理前タスク](history/TASKS-before-20261110-cleanup.md) |
 
 旧版の `EVALUATION.md` / `API.md` / `ACCEPTANCE.md`、旧PPTX/PDF、過去の20秒動画は当時の対象に限る記録です。新版の点数・API・完成状態へ流用しません。日付・対象版のある受入資料も、後続の変更すべての検証済みを意味しません。
 
-月替わりのおみくじは最新の追加指示で着手。[現地おみくじの仕様](OMIKUJI.md)に確率・現地確認・予算と検証状態を記録します。
+月替わりのおみくじは実装済み。[現地おみくじの仕様](OMIKUJI.md)に、QRのカメラ/写真読取、確率、現地コード、予算と検証範囲を記録しています。物理カメラ・現地運用の検証とは区別します。

@@ -1,6 +1,6 @@
 # CP47 本人専用の再開状態 API 契約
 
-2026-11-09。schema 8。実装対象を固定した契約で、配信/受入完了の宣言ではない。
+2026-11-09にschema 8で導入。2026-11-10に現行コードとの契約差分を確認した。現行アプリはschema 12で、`daytrip`の再開と未保存旅行者の初期画面に対応する。本書の履歴・導入番号を現行DB版や全体受入完了の宣言に読み替えない。
 
 ## 保存とレスポンス
 
@@ -13,7 +13,7 @@ GET/PUT成功のJSON（PUTも同じ全フィールドを入力）:
 ```
 
 - `version`: 非負整数、PUT必須。未保存0、保存成功で+1。同内容・同版のPUTは既存保存版を維持し、古い版は409。競合はGETで最新を取得し、古い別タブ状態を自動上書きしない。
-- `page`: `feed|market|circles|journal|provider`。frontendの `ko` は `circles` と対応。preferences等の一時画面は直前の対象画面を保持。
+- `page`: `feed|market|circles|journal|provider|daytrip`。frontendの `ko` は `circles` と対応。preferences等の一時画面は直前の対象画面を保持。
 - `community_id`: null または現在active所属のID。
 - `circle_id`: null または現在参加済み/open/同communityの講ID。招待pendingは不可。legacy講の元group所属も必要。
 - `filters.query`: 0〜120文字、前後空白除去。本人専用。
@@ -23,7 +23,7 @@ GET/PUT成功のJSON（PUTも同じ全フィールドを入力）:
 - `filters.area`: 空文字か現在active事業者の公開・期限内プランにあるエリア、最大100文字。非公開/他人の下書きからエリアの存在を推測させない。
 - 未知キー、bool版、未知enum/タグ、長すぎる値は422。参照不正（所属外/未承諾/別community/閉じた講/未許可provider画面）は共通404。存在しない公開エリアは内容を含めない共通422。
 
-未保存GETは書込せず、provider権限があればpage=provider、それ以外はmarket、他は初期値を返す。既存の選択講なし検索も有効なのでcircle_id=nullを許容する。community_id=nullのときcircle_idは指定できない。
+未保存GETは書込せず、provider権限があればpage=provider、それ以外はdaytrip、他は初期値を返す。保存済み状態の失効時にmarketへ戻す既存処理とは区別する。既存の選択講なし検索も有効なのでcircle_id=nullを許容する。community_id=nullのときcircle_idは指定できない。
 
 ## 現権限・失効・復元
 
